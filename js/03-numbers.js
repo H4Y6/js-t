@@ -2,13 +2,13 @@
  * Парс числа с Number.parseInt() и Number.parseFloat()
  */
 
-let elementWidth = '50px';
+// let elementWidth = '50px';
 // elementWidth = Number.parseInt(elementWidth);
 
-const type = typeof elementWidth
-console.table({ elementWidth, type });
+// const type = typeof elementWidth
+// console.table({ elementWidth, type });
 
-let elementHeight = '200.74px';
+// let elementHeight = '200.74px';
 // elementHeight = Number.parseFloat(elementHeight);
 // console.log('elementHeight: ', elementHeight);
 
@@ -17,19 +17,23 @@ let elementHeight = '200.74px';
  * - Матрёшки на примере  console.log(Number(число.toFixed(digits)))
  */
 let salary = 1300.16472;
-// salary = Number(salary.toFixed(2));
-
-// console.log(salary);
+// salary = salary.toFixed(2);
+// const a = Number(salary);
+// const salaryType = typeof salary;
+// console.table({ stf: salary.toFixed(2), fst: typeof salary.toFixed(2), s: salary, tos: typeof salary, tostfn: typeof Number(salary.toFixed(2)), stfn: Number(salary.toFixed(2)) });
 
 /*
  * - Приведение (преобразование) к числу с Number(value)
  * - Значение NaN (Not a Number) и метод Number.isNaN(value)
  */
-let quantity = '30';
-let value = 'Эту строку невозможно привести к числу';
+// let quantity = '30';
+// let value = 'Эту строку невозможно привести к числу';
 
 // console.log(Number(quantity));
 // console.log(Number(value));
+
+// console.log(Math, Math.PI, Math.tan(1.553), Math.atan(56));
+// console.log(Math, Math.PI, Math.tan(.7854), Math.atan(1));
 
 /*
  * Обьект Math
@@ -41,7 +45,7 @@ let value = 'Эту строку невозможно привести к чис
 // const power = 5;
 
 // const result = Math.pow(base, power);
-// console.log(base ** power);
+// console.log(base ** power, result, Math.sqrt(1024), 5 ** 4);
 
 /*
  * Напиши скрипт который просит пользователя ввести число и степень,
@@ -64,6 +68,12 @@ let value = 'Эту строку невозможно привести к чис
 
 // console.log(result);
 
+// const max = 57;
+// const min = 5;
+
+// const randomInteger = Math.round(Math.random() * ((max - min) + min));
+// console.log(randomInteger);
+
 /*
  * Генерим псевдослучайные числа
  * - Math.random()
@@ -77,7 +87,7 @@ let value = 'Эту строку невозможно привести к чис
 
 // console.log(result);
 
-// const colors = ['tomato', 'teal', 'orange', 'deeppink', 'skyblue'];
+// const colors = ['tomato', 'teal', 'orange', 'blue', 'red', 'purple', 'deeppink', 'skyblue'];
 // const max = colors.length - 1;
 // const min = 0;
 

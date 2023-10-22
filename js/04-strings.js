@@ -19,8 +19,11 @@ const fullName = firstName + ' ' + lastName;
  * подставив вместо x y z q значения переменных
  */
 
-const room = 716;
-const type = 'VIP';
+// const room = 716;
+// const type = 'VIP';
+
+// const welcomeMessage = 'Guest ' + fullName + ', your ' + type + ' roomnumber is ' + room + '!';
+// console.log(welcomeMessage);
 
 // const welcomeMsg =
 //   'Гость ' +
@@ -32,7 +35,7 @@ const type = 'VIP';
 //   ' номер ' +
 //   room;
 
-const welcomeMsg = `Гость ${firstName} ${lastName} поселяется в ${type} номер ${room}`;
+// const welcomeMsg = `Гость ${firstName} ${lastName} поселяется в ${type} номер ${room}`;
 // console.log(welcomeMsg);
 
 /*
