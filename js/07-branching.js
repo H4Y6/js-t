@@ -87,5 +87,36 @@ const num2 = 10;
 const biggerNumber = num1 > num2 ? num1 : num2;
 console.log(biggerNumber)
 
+// for (let i = 0; i <= 4; i += 2) {
+//     console.log(i);
+// };
 
+// let i;
+// for (i = 0; i <= 4; i += 2) {
+// }
+// console.log(i);
 
+const target = 7;
+let sum = 0;
+for (let i = 0; i <= target; i += 1) {
+    sum += i;
+}
+console.log(sum);
+
+for (let i = 0; i < 5; i += 1) {
+    console.log(i)
+    if (i === 4) {
+        break
+    }
+}
+console.log('Cicle is over.')
+
+let iArrey = [];
+const max = 5;
+for (let i = 0; i <= max; i += 1) {
+    if (i % 2 === 0) {
+        continue;
+    }
+    iArrey.push(' ' + i);
+}
+console.log('The odd numbers:' + iArrey + '.');
