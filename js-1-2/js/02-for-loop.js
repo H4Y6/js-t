@@ -29,10 +29,10 @@
  * Записать сумму в переменную totalSalary и вывести в консоль
  */
 
-//  1 сделать вары
+// //  1 сделать вары
 // const minSalary = 500;
 // const maxSalary = 5000;
-// const employees = 12;
+// const employees = 5;
 // let totalSalary = 0;
 
 // // 2 перебрать работников в цикле
@@ -62,7 +62,7 @@ const min = 0;
 const max = 5;
 let total = 0;
 
-// фор от min до max с шагом в 1
+// For от min до max с шагом в 1
 for (let i = min; i <= max; i += 1) {
   // проверяем остаток от деления
   if (i % 2 !== 0) {
@@ -79,3 +79,15 @@ for (let i = min; i <= max; i += 1) {
 }
 
 console.log('total: ', total);
+
+
+let sum = 0;
+
+for (let it = 4; it <= 8; it += 1) {
+  if (it % 2 !== 0) {
+    continue;
+  }
+  console.log(`Even number: ${it}`);
+  sum += it;
+}
+console.log(`The sum of the even numbers is ${sum}.`)
