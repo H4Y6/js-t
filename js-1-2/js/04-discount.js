@@ -44,7 +44,7 @@
 // console.log(`Общая сумма потраченого в магазине: ${totalSpent}`);
 
 
-let totalSpent = 600;
+let totalSpent = 1600;
 let payment = 500;
 let discount = 0;
 
@@ -77,3 +77,4 @@ else {
 }
 countPayment(discount);
 totalSpent += payment;
+console.log({ totalSpent })
