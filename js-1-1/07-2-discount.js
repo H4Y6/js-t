@@ -14,7 +14,7 @@
  * «Оформляем заказ на сумму [сумма] со скидкой [скидка]%»
  */
 
-const totalSpent = 2000;
+let totalSpent = 2000;
 let payment = 500;
 let discount = 0;
 
@@ -28,19 +28,22 @@ const BRONZE_PARTNER_DISCOUNT = 2;
 const SILVER_PARTNER_DISCOUNT = 5;
 const GOLD_PARTNER_DISCOUNT = 10;
 
-if (totalSpent >= 100 && totalSpent < 1000) {
-    discount = BRONZE_PARTNER_DISCOUNT;
+const countPayment = (discount) => {
     payment *= (100 - discount) / 100;
     console.log({ discount, payment });
 }
+
+if (totalSpent >= 100 && totalSpent < 1000) {
+    discount = BRONZE_PARTNER_DISCOUNT;
+}
 else if (totalSpent >= 1000 && totalSpent < 5000) {
     discount = SILVER_PARTNER_DISCOUNT;
-    payment *= (100 - discount) / 100;
-    console.log({ discount, payment })
 }
 else if (totalSpent > 5000) {
-    discount = GOLD_PARTNER_DISCOUNT
-    payment *= (100 - discount) / 100;
-    console.log({ discount, payment })
+    discount = GOLD_PARTNER_DISCOUNT;
 }
-else { console.log({ discount, payment }) }
+else {
+    discount = NEW_PARTNER_DISCOUNT;
+}
+countPayment(discount);
+totalSpent += payment;

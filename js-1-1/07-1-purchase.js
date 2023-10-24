@@ -21,10 +21,10 @@ const payment = 2000;
 // 'Все хорошо, снимаем деньги... Спасибо за покупку!'
 
 
-if (balance >= payment) {
-    balance -= payment;
-    console.log({ balance, payment }, 'Thank you for your purchase!');
+if (balance <= payment) {
+    console.log('Low balance', { balance })
 }
 else {
-    console.log('Low balance.', { balance })
+    balance -= payment;
+    console.log({ balance, payment }, 'Thank you for your purchase!');
 }
