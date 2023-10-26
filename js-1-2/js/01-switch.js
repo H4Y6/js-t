@@ -7,7 +7,7 @@
  */
 
 // const stars = 3;
-let price = 'not defined';
+// let price = 'not defined';
 
 // if (stars === 1) {
 //   price = 20;
@@ -64,28 +64,28 @@ let price = 'not defined';
 // }
 // console.log(`The price is ${price}.`)
 
-const learnPrice = (stars) => {
-  switch (stars) {
-    case 1:
-    case 2:
-      price = 20;
+// const learnPrice = (stars) => {
+//   switch (stars) {
+//     case 1:
+//     case 2:
+//       price = 20;
 
-      break;
-    case 3:
-    case 4:
-      price = 40;
+//       break;
+//     case 3:
+//     case 4:
+//       price = 40;
 
-      break;
-    case 5:
-      price = 120;
-      break;
+//       break;
+//     case 5:
+//       price = 120;
+//       break;
 
-    default: console.log('Please, try again.')
-      break;
-  }
-  console.log(`The price is ${price}.`)
-}
-learnPrice(5);
+//     default: console.log('Please, try again.')
+//       break;
+//   }
+//   console.log(`The price is ${price}.`)
+// }
+// learnPrice(5);
 
 // if (stars === 1) {
 //   price = 20;
@@ -203,3 +203,109 @@ learnPrice(5);
 
 // 4. сделать лог message
 // console.log(message);
+
+// function getSubscriptionPrice(type) {
+//     let price;
+
+//     switch (type) {
+//         case 'starter':
+//             price = 0;
+//             break;
+
+//         case 'professional':
+//             price = 20;
+//             break;
+
+//         case 'organization':
+//             price = 50;
+//             break;
+
+//         default: console.log('Unknown subscription type.');
+//     }
+//     console.log(price);
+//     return price;
+// }
+// getSubscriptionPrice('professional')
+
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = "jqueryismyjam";
+//   let message;
+//   switch (password) {
+//     case null:
+//       message = "Canceled by user!";
+//       break;
+
+//     case ADMIN_PASSWORD:
+//       message = "Welcome!";
+//       break;
+
+//     default: message = "Access denied, wrong password!";
+//       break;
+//   }
+//   console.log(message)
+//   return message;
+// }
+// checkPassword("AAjqueryismyjam");
+
+// function getShippingCost(country) {
+//   let message;
+//   let price;
+//   switch (country) {
+//     case 'China':
+//       price = 100;
+//       break;
+
+//     case 'Chile':
+//       price = 250;
+//       break;
+
+//     case 'Australia':
+//       price = 170;
+//       break;
+
+//     case 'Jamayca':
+//       price = 120;
+//       break;
+//   }
+//   message = price ? `Shipping to ${country} will cost ${price} credits`
+//     : "Sorry, there is no delivery to your country.";
+
+//   console.log(message)
+//   return message;
+// }
+
+// getShippingCost('Chile');
+
+function getShippingCost(country) {
+  let message, price;
+  function createMessage() {
+    message = `Shipping to ${country} will cost ${price} credits`;
+  }
+  switch (country) {
+    case 'China':
+      price = 100;
+      createMessage();
+      break;
+
+    case 'Chile':
+      price = 250;
+      createMessage();
+      break;
+
+    case 'Australia':
+      price = 170;
+      createMessage()
+      break;
+
+    case 'Jamayca':
+      price = 120;
+      createMessage()
+      break;
+
+    default: message = "Sorry, there is no delivery to your country.";
+  }
+  console.log(message);
+  return message;
+}
+
+getShippingCost('China');
