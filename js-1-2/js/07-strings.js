@@ -50,8 +50,10 @@
 // }
 // checkForSpam("Get best sam offers now!");
 
-const weight = '60.3';
+const weight = '62.1';
 const height = '1,83';
-const bmi = Number(weight.replace(',', '.')) / Math.pow(Number(height.replace(',', '.')), 2);
+const bmi = Number(weight.replace(',', '.'))
+    / Number(height.replace(',', '.')) ** 2;
+// / Math.pow(Number(height.replace(',', '.')), 2);
 console.log(bmi);
 
