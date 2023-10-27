@@ -58,36 +58,86 @@
  */
 
 //  1 вары
-const min = 0;
-const max = 5;
-let total = 0;
+// const min = 0;
+// const max = 5;
+// let total = 0;
 
 // For от min до max с шагом в 1
-for (let i = min; i <= max; i += 1) {
-  // проверяем остаток от деления
-  if (i % 2 !== 0) {
-    // console.log('Не чётное: ', i);
-    continue;
-  }
+// for (let i = min; i <= max; i += 1) {
+//   // проверяем остаток от деления
+//   if (i % 2 !== 0) {
+//     // console.log('Odd: ', i);
+//     continue;
+//   }
 
-  // пишем в сумму
-  console.log('чётное: ', i);
-  total += i;
-
-  // аналог +=
-  // total = total + i;
-}
-
-console.log('total: ', total);
+//   console.log('Even: ', i);
+//   total += i;
+// }
+// console.log('total: ', total);
 
 
-let sum = 0;
+// let sum = 0;
+// for (let it = 4; it <= 8; it += 1) {
+//   if (it % 2 !== 0) {
+//     continue;
+//   }
+//   console.log(`Even number: ${it}`);
+//   sum += it;
+// }
+// console.log(`The sum of the even numbers is ${sum}.`)
 
-for (let it = 4; it <= 8; it += 1) {
-  if (it % 2 !== 0) {
-    continue;
-  }
-  console.log(`Even number: ${it}`);
-  sum += it;
-}
-console.log(`The sum of the even numbers is ${sum}.`)
+
+function findEvenNumberArreyAndSum(min, max) {
+  let evenNumberArrey = [];
+  let sum = 0;
+  for (let i = min; i < min + 2; i += 1) {
+    if (i % 2 === 0) {
+      for (i; i <= max; i += 2) {
+        evenNumberArrey.push(i);
+        sum += i;
+      };
+    };
+  };
+  console.log({ evenNumberArrey, sum })
+};
+const paramArrey = [21, 33]
+findEvenNumberArreyAndSum(...paramArrey);
+
+function findEvenNumberArreyAndSum1(min, max) {
+  let evenNumberArrey = [];
+  let sum = 0;
+  for (let i = min; i <= max; i += 1) {
+    if (i % 2 === 0) {
+      evenNumberArrey.push(i);
+      sum += i;
+    };
+  };
+  console.log({ evenNumberArrey, sum })
+};
+findEvenNumberArreyAndSum1(...paramArrey);
+
+function findEvenNumberArreyAndSum2(min, max) {
+  let evenNumberArrey = [];
+  let sum = 0;
+  for (let i = min; i <= max; i += 1) {
+    if (i % 2 !== 0) { continue; };
+    {
+      evenNumberArrey.push(i);
+      sum += i;
+    };
+  };
+  console.log({ evenNumberArrey, sum })
+};
+findEvenNumberArreyAndSum2(...paramArrey);
+
+function findEvenNumberArreyAndSum3(min, max) {
+  let evenNumberArrey = [];
+  let sum = 0;
+  if (min % 2 !== 0) { min += 1 };
+  for (let i = min; i <= max; i += 2) {
+    evenNumberArrey.push(i);
+    sum += i;
+  };
+  console.log({ evenNumberArrey, sum })
+};
+findEvenNumberArreyAndSum3(...paramArrey);
