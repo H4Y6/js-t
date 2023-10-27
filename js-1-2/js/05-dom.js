@@ -1,7 +1,7 @@
 const btnAdd = document.querySelector('button[data-add]');
 const resetBtn = document.querySelector('button[data-reset]');
 const valueInput = document.querySelector('input[data-value]');
-const outputEl = document.querySelector('.js-output span');
+const outputEl = document.querySelector('[data-output]');
 
 let total = 0;
 

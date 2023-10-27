@@ -25,7 +25,6 @@ console.log(
 
 if (payment <= balance) {
   balance -= payment;
-  // balance = balance - payment
 
   console.log('Все хорошо, снимаем деньги... Спасибо за покупку!');
   console.log(`На счету осталось ${balance} кредитов`);
