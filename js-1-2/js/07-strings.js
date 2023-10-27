@@ -41,12 +41,17 @@
 // }
 // checkForName('Crisal Loppers', 'Crisal')
 
-function checkForSpam(message) {
-    let result;
-    result = message.toLowerCase().includes('spam') ? true : result = message.toLowerCase().includes('sale');
+// function checkForSpam(message) {
+//     let result;
+//     result = message.toLowerCase().includes('spam') ? true : result = message.toLowerCase().includes('sale');
 
-    console.log(result)
-    return result;
-}
-checkForSpam("Get best sam offers now!");
+//     console.log(result)
+//     return result;
+// }
+// checkForSpam("Get best sam offers now!");
+
+const weight = '60.3';
+const height = '1,83';
+const bmi = Number(weight.replace(',', '.')) / Math.pow(Number(height.replace(',', '.')), 2);
+console.log(bmi);
 
