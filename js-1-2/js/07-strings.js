@@ -92,4 +92,9 @@
 // const c = a || b;
 // console.log(c);  // 2
 
+//nulish operator example:
+const incomingValue = undefined; // or null
+const defaultValue = 4;
+const value = incomingValue ?? defaultValue;
+console.log(value);
 
