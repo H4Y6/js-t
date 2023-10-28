@@ -50,10 +50,46 @@
 // }
 // checkForSpam("Get best sam offers now!");
 
-const weight = '62.1';
-const height = '1,83';
-const bmi = Number(weight.replace(',', '.'))
-    / Number(height.replace(',', '.')) ** 2;
-// / Math.pow(Number(height.replace(',', '.')), 2);
-console.log(bmi);
+// const weight = '62.1';
+// const height = '1,83';
+// const bmi = Number(weight.replace(',', '.'))
+//     / Number(height.replace(',', '.')) ** 2;
+// // / Math.pow(Number(height.replace(',', '.')), 2);
+// console.log(bmi.toFixed(2));
+// console.log(+bmi.toFixed(2));
+
+
+// console.log(10 >= 9);
+// console.log(10 >= '9');
+// console.log('10' > '9');  //false by unicode
+// console.log('10' < '9');  //true by unicode
+// console.log('5' == 5);    //true
+// console.log('5' === 5);    //false
+// console.log('1' == true);    //true
+// console.log(1 == true);    //true
+// console.log(1 === true);    //false
+// console.log('0' == false);    //true (0 == false)
+// console.log('0' === false);    //false
+// console.log('Pope' < 'pope');  //true by unicode
+// console.log('pope' < 'Pope');  //false by unicode
+// console.log('Pope' === 'pope');  //false
+// console.log(undefined == null);  //true
+// console.log(undefined === null);  //false
+
+// console.log(true && 3);  //3  (true)
+// console.log(false && 3);  // false
+// console.log(true && 3 && 'oops');  //oops (true)
+// console.log(true && 0 && 'oops');  // 0 (false)
+// console.log(true || 3);  // true
+// console.log(true || 3 || 4);  // true
+// console.log(true || false || 4);  // true
+// console.log(null || 2 || undefined);  // 2  (true)
+// console.log((4 && null && 2) > 0);  // false
+// console.log(null || (3 && 2) > 0);  // 2 true
+
+// const a = 2;
+// const b = 5;
+// const c = a || b;
+// console.log(c);  // 2
+
 
