@@ -93,8 +93,21 @@
 // console.log(c);  // 2
 
 //nullish operator example:
-const incomingValue = undefined; // or null
-const defaultValue = 4;
-const value = incomingValue ?? defaultValue;
-console.log(value);
+// const incomingValue = undefined; // or null
+// const defaultValue = 4;
+// const value = incomingValue ?? defaultValue;
+// console.log(value);
+
+const clients = ["Mango", "Ajax", "Poly"];
+
+for (const client of clients) {
+    console.log(client);
+}
+
+const string = "javascript";
+let characters = [];
+for (const character of string) {
+    characters.push(character);
+}
+console.log(characters);
 
