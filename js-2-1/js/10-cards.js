@@ -49,4 +49,4 @@ console.log(index);
 const updatedCard = cards.splice(index, 1, 'Обновленная карточка-4');
 
 console.log(updatedCard);
-console.table(cards);
+console.table('😒', cards, '👍');
