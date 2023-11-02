@@ -1,7 +1,15 @@
-const foo = [1, 2, 3];
-const bood = [1, 2, 3];
-const bar = foo;
+// const foo = [1, 2, 3];
+// const bood = [1, 2, 3];
+// const bar = foo;
 
-console.log(foo, bar);
-console.log(foo === bar);
-console.log(foo === bood);
+// console.log(foo, bar);
+// console.log(foo === bar);
+// console.log(foo === bood);
+
+const fruits = ['kiwi', 'banana', 'apple', 'ananas', 'cucumber'];
+// console.log({ slicedFruits: fruits.slice(1, -1), fruits });
+
+// console.log({ splicedFruits: fruits.splice(-1, 1, 'cabbage'), fruits });
+
+console.log(fruits.pop(), fruits.push('pumpkin'), fruits);
+
