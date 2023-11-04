@@ -16,13 +16,27 @@ const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
 //   return `Пользователь ${loginToFind} не найден.`;
 // };
 
-const findLogin = function (allLogins, loginToFind) {
-  return allLogins.includes(loginToFind)
-    ? `Пользователь ${loginToFind} найден.`
-    : `Пользователь ${loginToFind} не найден.`;
-};
+// const findLogin = function (allLogins, loginToFind) {
+//   return allLogins.includes(loginToFind)
+//     ? `Пользователь ${loginToFind} найден.`
+//     : `Пользователь ${loginToFind} не найден.`;
+// };
+
+const findLogin = function (logins, loginToFind) {
+  for (const login of logins) {
+    if (login === loginToFind) {
+      return `Login ${loginToFind} is found.`
+    }
+  }
+  return `Login ${loginToFind} is not found.`
+}
+
+// const findLogin = function (allLogins, loginToFind) {
+//   return allLogins.includes(loginToFind) ? `Login ${loginToFind} is found.` : `Login ${loginToFind} is not found.`
+// };
 
 console.log(findLogin(logins, 'avocod3r'));
 console.log(findLogin(logins, 'k1widab3st'));
 console.log(findLogin(logins, 'jam4l'));
 console.log(findLogin(logins, 'poly1scute'));
+

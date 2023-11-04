@@ -8,10 +8,12 @@
 // const add = function (x, y) {
 //   console.log(x);
 //   console.log(y);
-//   console.log('Выполянется функция add');
+//   console.log('Function add is proceeding');
 
 //   return x + y;
 // };
+
+// console.log(`Result: ${add(2, 4)}`);
 
 // const r1 = add(5, 3);
 // console.log('r1: ', r1);
@@ -22,20 +24,20 @@
 // const r3 = add(30, 50);
 // console.log('r3: ', r3);
 
-// const fn = function (value) {
-//   console.log(1);
-//   console.log(2);
+const fn = function (value) {
+  console.log(1);
+  console.log(2);
 
-//   if (value < 50) {
-//     return 'Меньше чем 50';
-//   }
+  if (value < 50) {
+    return 'Less then 50';
+  }
 
-//   return 'Больше чем 50';
-// };
+  return 'More then 50';
+};
 
-// console.log('Результат функции: ', fn(10));
+console.log('Result: ', fn(10));
 
-// console.log('Результат функции: ', fn(1000));
+console.log('Result: ', fn(1000));
 
 /*
  * - Стек вызовов
@@ -55,14 +57,14 @@ const fnC = function () {
 
 // console.log('Лог перед вызовом функции A');
 
-fnA();
+// fnA();
 
 // console.log('Лог после вызова функции A');
 
 // console.log('Лог перед вызовом функции B');
-fnB();
+// fnB();
 // console.log('Лог после вызова функции B');
 
 // console.log('Лог перед вызовом функции C');
-fnC();
+// fnC();
 // console.log('Лог после вызова функции C');
