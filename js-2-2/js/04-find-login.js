@@ -22,18 +22,40 @@ const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
 //     : `Пользователь ${loginToFind} не найден.`;
 // };
 
-const findLogin = function (logins, loginToFind) {
-  for (const login of logins) {
-    if (login === loginToFind) {
-      return `Login ${loginToFind} is found.`
-    }
-  }
-  return `Login ${loginToFind} is not found.`
-}
+// const findLogin = function (logins, loginToFind) {
+//   let message = `Login ${loginToFind} is not found.`
+//   for (const login of logins) {
+//     if (login === loginToFind) {
+//       message = `Login ${loginToFind} is found.`
+//     }
+//   }
+//   return message
+// }
 
-// const findLogin = function (allLogins, loginToFind) {
-//   return allLogins.includes(loginToFind) ? `Login ${loginToFind} is found.` : `Login ${loginToFind} is not found.`
-// };
+// const findLogin = function (logins, loginToFind) {
+//   for (const login of logins) {
+//     if (login !== loginToFind) {
+//       continue;
+//     }
+//     return `Login ${loginToFind} is not found.`
+//   }
+//   return `Login ${loginToFind} is found.`
+// }
+
+// const findLogin = function (logins, loginToFind) {
+//   for (const login of logins) {
+//     if (login === loginToFind) {
+//       return `Login ${loginToFind} is found.`
+//     }
+//   }
+//   return `Login ${loginToFind} is not found.`
+// }
+
+
+const findLogin = function (allLogins, loginToFind) {
+  return allLogins.includes(loginToFind) ? `Login ${loginToFind} is found.`
+    : `Login ${loginToFind} is not found.`
+};
 
 console.log(findLogin(logins, 'avocod3r'));
 console.log(findLogin(logins, 'k1widab3st'));
