@@ -37,9 +37,11 @@
 const invertString = function (string) {
   let invertedString = "";
   const letters = string.split("");
+
   for (const letter of letters) {
     invertedString += letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase()
   }
+
   return invertedString;
 }
 
