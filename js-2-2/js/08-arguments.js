@@ -50,6 +50,16 @@ const add = function (...args) {
  *   для которых есть аналог в оригинальном массиве.
  */
 
+// const filterNumbers = function (arrey, ...args) {
+//   const equalElements = [];
+
+//   for (const arg of args) {
+//     arrey.includes(arg) ? equalElements.push(arg) : null;
+//   }
+
+//   return equalElements;
+// }
+
 // const filterNumbers = function (array, ...args) {
 //   console.log('array: ', array);
 //   console.log('args: ', args);

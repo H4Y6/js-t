@@ -3,14 +3,18 @@
  * Строка состоит только из букв и пробелов
  */
 
-const slugify = function (string) {
-  // const normalizedString = string.toLowerCase();
-  // const words = normalizedString.split(' ');
-  // const slug = words.join('-');
-  // return slug;
+// const slugify = function (string) {
+// const normalizedString = string.toLowerCase();
+// const words = normalizedString.split(' ');
+// const slug = words.join('-');
+// return slug;
 
-  return string.toLowerCase().split(' ').join('-');
-};
+//   return string.toLowerCase().split(' ').join('-');
+// };
+
+const slugify = function (string) {
+  return string.toLowerCase().split(' ').join('-')
+}
 
 console.log(slugify('Top 10 benefits of React framework'));
 console.log(slugify('Azure Static Web Apps are Awesome'));
