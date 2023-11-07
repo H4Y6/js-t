@@ -92,6 +92,29 @@ function withdraw(amount, balance) {
   console.log("Операція зняття коштів проведена");
 }
 
-withdraw(200, 300);
+// withdraw(200, 300);
 // withdraw(0, 300);
 // withdraw(440, 300);
+
+{
+  const foo = function (...args) {
+    let total = 0;
+    for (const el of args) {
+      total += el;
+    }
+
+    // console.log(total);
+  }
+
+  foo(2, 3, 8, 9, 5, 1);
+}
+
+{
+  const sum = function (value1, value2) {
+    return value1 + value2;
+  }
+
+  const a = 4;
+  const b = 8;
+  // console.log(sum(a, b))
+}
