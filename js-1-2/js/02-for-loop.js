@@ -87,57 +87,57 @@
 // console.log(`The sum of the even numbers is ${sum}.`)
 
 
-function findEvenNumberArreyAndSum(min, max) {
-  let evenNumberArrey = [];
+function findEvenNumberArrayAndSum(min, max) {
+  let evenNumberArray = [];
   let sum = 0;
   for (let i = min; i < min + 2; i += 1) {
     if (i % 2 === 0) {
       for (i; i <= max; i += 2) {
-        evenNumberArrey.push(i);
+        evenNumberArray.push(i);
         sum += i;
       };
     };
   };
-  console.log({ evenNumberArrey, sum })
+  console.log({ evenNumberArray, sum })
 };
-const paramArrey = [21, 33]
-findEvenNumberArreyAndSum(...paramArrey);
+const paramArray = [21, 33]
+findEvenNumberArrayAndSum(...paramArray);
 
-function findEvenNumberArreyAndSum1(min, max) {
-  let evenNumberArrey = [];
+function findEvenNumberArrayAndSum1(min, max) {
+  let evenNumberArray = [];
   let sum = 0;
   for (let i = min; i <= max; i += 1) {
     if (i % 2 === 0) {
-      evenNumberArrey.push(i);
+      evenNumberArray.push(i);
       sum += i;
     };
   };
-  console.log({ evenNumberArrey, sum })
+  console.log({ evenNumberArray, sum })
 };
-findEvenNumberArreyAndSum1(...paramArrey);
+findEvenNumberArrayAndSum1(...paramArray);
 
-function findEvenNumberArreyAndSum2(min, max) {
-  let evenNumberArrey = [];
+function findEvenNumberArrayAndSum2(min, max) {
+  let evenNumberArray = [];
   let sum = 0;
   for (let i = min; i <= max; i += 1) {
     if (i % 2 !== 0) { continue; };
     {
-      evenNumberArrey.push(i);
+      evenNumberArray.push(i);
       sum += i;
     };
   };
-  console.log({ evenNumberArrey, sum })
+  console.log({ evenNumberArray, sum })
 };
-findEvenNumberArreyAndSum2(...paramArrey);
+findEvenNumberArrayAndSum2(...paramArray);
 
-function findEvenNumberArreyAndSum3(min, max) {
-  let evenNumberArrey = [];
+function findEvenNumberArrayAndSum3(min, max) {
+  let evenNumberArray = [];
   let sum = 0;
   if (min % 2 !== 0) { min += 1 };
   for (let i = min; i <= max; i += 2) {
-    evenNumberArrey.push(i);
+    evenNumberArray.push(i);
     sum += i;
   };
-  console.log({ evenNumberArrey, sum })
+  console.log({ evenNumberArray, sum })
 };
-findEvenNumberArreyAndSum3(...paramArrey);
+findEvenNumberArrayAndSum3(...paramArray);
