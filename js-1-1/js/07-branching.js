@@ -111,12 +111,12 @@ for (let i = 0; i < 5; i += 1) {
 }
 console.log('Cicle is over.')
 
-let iArrey = [];
+let iArray = [];
 const max = 5;
 for (let i = 0; i <= max; i += 1) {
     if (i % 2 === 0) {
         continue;
     }
-    iArrey.push(' ' + i);
+    iArray.push(' ' + i);
 }
-console.log('The odd numbers:' + iArrey + '.');
+console.log('The odd numbers:' + iArray + '.');
