@@ -30,7 +30,7 @@ const array = [5, 66, 123, 59, 97];
         return maxValue;
     }
 
-    console.log(getMaxValue(array))
+    // console.log(getMaxValue(array))
 }
 
 {
@@ -66,6 +66,20 @@ const array = [5, 66, 123, 59, 97];
         // return firstArray.length + secondArray.length <= maxLength ? [...firstArray, ...secondArray]
         //     : [...firstArray, ...secondArray].slice(0, maxLength);
     }
-    console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4))
-    console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3))
+    // console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4))
+    // console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3))
+}
+
+{
+    function calculateTotal(number) {
+        let total = 0;
+
+        for (let i = 1; i <= number; i += 1) {
+            total += i;
+        }
+
+        return total;
+    }
+
+    // console.log(calculateTotal(34));
 }
