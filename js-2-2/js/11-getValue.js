@@ -83,3 +83,57 @@ const array = [5, 66, 123, 59, 97];
 
     // console.log(calculateTotal(34));
 }
+
+{
+    function getEvenNumbers(start, end) {
+        const evenNumbers = [];
+
+        for (let i = start; i <= end; i += 1) {
+            if (i % 2 === 0) {
+                evenNumbers.push(i);
+            };
+        }
+        return evenNumbers;
+    }
+    // console.log(getEvenNumbers(6, 12));
+}
+
+{
+    const start = 6;
+    const end = 27;
+    let number;
+
+    for (let i = start; i < end; i += 1) {
+        if (i % 5 === 0) {
+            number = i;
+            // console.log(number);
+            break;
+        }
+
+    }
+}
+
+{
+    function findNumber(start, end, divisor) {
+
+        for (let i = start; i < end; i += 1) {
+            if (i % divisor === 0) {
+                console.log(i);
+                return i;
+            }
+        }
+    }
+    // findNumber(16, 35, 7)
+}
+
+{
+    function includes(array, value) {
+        for (const item of array) {
+            if (item === value) {
+                return item === value;
+            }
+        }
+        return false;
+    }
+    // console.log(includes(["apple", "plum", "pear", "orange"], "plum"));
+}
