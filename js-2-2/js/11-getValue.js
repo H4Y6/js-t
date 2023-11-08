@@ -32,3 +32,40 @@ const array = [5, 66, 123, 59, 97];
 
     console.log(getMaxValue(array))
 }
+
+{
+    function calculateEngravingPrice(message, pricePerWord) {
+
+        return pricePerWord * message.split(" ").length;
+    }
+    // console.log(calculateEngravingPrice("JavaScript is in my blood", 10));
+}
+
+{
+    function slugify(title) {
+
+        return title.toLowerCase().split(" ").join("-");
+    }
+    // console.log(slugify("Arrays for begginers"))
+}
+
+{
+    const oldClients = ['Mango', 'Ajax', 'Poly', 'Kiwi'];
+    const newClients = ['Peach', 'Houston'];
+
+    const allClients = [...oldClients, ...newClients];
+    // const allClients = oldClients.concat(newClients);
+    // console.log(allClients);
+}
+
+{
+    function makeArray(firstArray, secondArray, maxLength) {
+        const newArray = [...firstArray, ...secondArray];
+
+        return newArray.length <= maxLength ? newArray : newArray.slice(0, maxLength);
+        // return firstArray.length + secondArray.length <= maxLength ? [...firstArray, ...secondArray]
+        //     : [...firstArray, ...secondArray].slice(0, maxLength);
+    }
+    console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4))
+    console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3))
+}
