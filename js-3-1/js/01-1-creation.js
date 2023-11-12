@@ -136,30 +136,76 @@ const colorPickerData = {
   };
 
   const bookTitle = book["title"];
-  console.log(bookTitle);
+  // console.log(bookTitle);
 
   const propKey = "author";
   const bookAuthor = book[propKey];
   // const bookAuthor = book['author'];
   // const bookAuthor = book.author;
-  console.log(bookAuthor);
+  // console.log(bookAuthor);
 
   const bookGenres = book["genres"];
   bookGenres.push('drama');
 
-  const propKeys = ['albert', 'lock']
-  bookGenres.push(...propKeys);
+  const genreItems = ['albert', 'lock']
+  bookGenres.push(...genreItems);
   book.genres.push('science');
 
-  console.log(bookGenres);
+  // console.log(bookGenres);
 
   book.pageCount = 836;
   book.originalLanguage = "en";
 
-  console.log(book.pageCount);
-  console.log(book.originalLanguage);
+  // console.log(book.pageCount);
+  // console.log(book.originalLanguage);
 
   book.isPublic = false;
 
-  console.log(book);
+  // console.log(book);
+}
+
+{
+  const propName = "name";
+  const user = {
+    age: 25,
+  };
+
+  user[propName] = "Генрі Сибола";
+  // console.log(user.name);
+}
+
+{
+  const bookShelf = {
+    books: ["The Last Kingdom"],
+    getBooks() {
+      // console.log(this);
+    },
+  };
+
+  // Перед крапкою знаходиться об'єкт bookShelf,
+  // тому, викликаючи метод, this буде зберігати посилання на нього.
+  bookShelf.getBooks(); // {books: ['The Last Kingdom'], getBooks: f}
+}
+
+{
+  const bookShelf = {
+    books: ["The Last Kingdom"],
+    getBooks() {
+      return this.books;
+    },
+    addBook(bookName) {
+      this.books.push(bookName);
+    },
+    removeBook(bookName) {
+      const bookIndex = this.books.indexOf(bookName);
+      this.books.splice(bookIndex, 1);
+    },
+  };
+
+  console.log(bookShelf.getBooks()); // ["The Last Kingdom"]
+  bookShelf.addBook("The Mist");
+  bookShelf.addBook("Dream Guardian");
+  console.log(bookShelf.getBooks()); // ['The Last Kingdom', 'The Mist', 'Dream Guardian']
+  bookShelf.removeBook("The Mist");
+  console.log(bookShelf.getBooks()); // ['The Last Kingdom', 'Dream Guardian']
 }
