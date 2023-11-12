@@ -153,4 +153,13 @@ const colorPickerData = {
 
   console.log(bookGenres);
 
+  book.pageCount = 836;
+  book.originalLanguage = "en";
+
+  console.log(book.pageCount);
+  console.log(book.originalLanguage);
+
+  book.isPublic = false;
+
+  console.log(book);
 }
