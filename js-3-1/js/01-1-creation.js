@@ -125,3 +125,32 @@ const colorPickerData = {
 // fn.hello = ';)';
 
 // console.dir(fn.hello);
+
+{
+  const book = {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["historical prose", "adventure"],
+    isPublic: true,
+    rating: 8.38,
+  };
+
+  const bookTitle = book["title"];
+  console.log(bookTitle);
+
+  const propKey = "author";
+  const bookAuthor = book[propKey];
+  // const bookAuthor = book['author'];
+  // const bookAuthor = book.author;
+  console.log(bookAuthor);
+
+  const bookGenres = book["genres"];
+  bookGenres.push('drama');
+
+  const propKeys = ['albert', 'lock']
+  bookGenres.push(...propKeys);
+  book.genres.push('science');
+
+  console.log(bookGenres);
+
+}
