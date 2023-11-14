@@ -8,7 +8,7 @@ const friends = [
   { name: 'Ajax', online: false },
 ];
 
-console.table(friends);
+// console.table(friends);
 
 /*
  * Ищем друга по имени
@@ -108,4 +108,38 @@ const getFriendsByStatus = function (allFriends) {
   return friendsByStatus;
 };
 
-console.log(getFriendsByStatus(friends));
+// console.log(getFriendsByStatus(friends));
+
+{
+  const book = {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["historical prose", "adventure"],
+    rating: 8.38,
+  };
+
+  for (const key in book) {
+    // console.log(key);
+    // console.log(book[key]);
+  }
+}
+
+{
+  const animal = {
+    legs: 4,
+  };
+  const dog = Object.create(animal);
+  dog.name = "Манго";
+
+  console.log(dog); // {name: 'Манго'}
+  console.log(dog.name); // 'Манго'
+  console.log(dog.legs); // 4
+
+  // ❌ Повертає true для всіх властивостей
+  console.log("name" in dog); // true
+  console.log("legs" in dog); // true
+
+  // ✅ Повертає true тільки для власних властивостей
+  console.log(dog.hasOwnProperty("name")); // true
+  console.log(dog.hasOwnProperty("legs")); // false
+}
