@@ -160,5 +160,43 @@ const getFriendsByStatus = function (allFriends) {
     total += value;
   }
 
-  console.log(total); // 20
+  // console.log(total); // 20
+}
+
+{
+  const books = [
+    {
+      title: "The Last Kingdom",
+      author: "Bernard Cornwell",
+      rating: 8.38,
+    },
+    {
+      title: "На березі спокійних вод",
+      author: "Роберт Шеклі",
+      rating: 8.51,
+    },
+    {
+      title: "Сон смішної людини",
+      author: "Федір Достоєвський",
+      rating: 7.75,
+    },
+  ];
+
+  const bookNames = [];
+
+  for (const book of books) {
+    // Об'єкт книги
+    // console.log(book);
+    // Назва
+    // console.log(book.title);
+    // Автор
+    // console.log(book.author);
+    // Рейтинг
+    // console.log(book.rating);
+
+    bookNames.push(book.title);
+  }
+
+  console.log(bookNames);
+
 }
