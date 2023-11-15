@@ -131,15 +131,34 @@ const getFriendsByStatus = function (allFriends) {
   const dog = Object.create(animal);
   dog.name = "Манго";
 
-  console.log(dog); // {name: 'Манго'}
-  console.log(dog.name); // 'Манго'
-  console.log(dog.legs); // 4
+  // console.log(dog); // {name: 'Манго'}
+  // console.log(dog.name); // 'Манго'
+  // console.log(dog.legs); // 4
 
   // ❌ Повертає true для всіх властивостей
-  console.log("name" in dog); // true
-  console.log("legs" in dog); // true
+  // console.log("name" in dog); // true
+  // console.log("legs" in dog); // true
 
   // ✅ Повертає true тільки для власних властивостей
-  console.log(dog.hasOwnProperty("name")); // true
-  console.log(dog.hasOwnProperty("legs")); // false
+  // console.log(dog.hasOwnProperty("name")); // true
+  // console.log(dog.hasOwnProperty("legs")); // false
+}
+
+{
+  const goods = {
+    apples: 6,
+    grapes: 3,
+    bread: 4,
+    cheese: 7,
+  };
+
+  const values = Object.values(goods); // [6, 3, 4, 7]
+
+  let total = 0;
+
+  for (const value of values) {
+    total += value;
+  }
+
+  console.log(total); // 20
 }
