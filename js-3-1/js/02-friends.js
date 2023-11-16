@@ -8,6 +8,8 @@ const friends = [
   { name: 'Ajax', online: false },
 ];
 
+console.log({ objectKeyLength: Object.keys(friends).length });
+
 // console.table(friends);
 
 /*
@@ -46,17 +48,28 @@ const getNames = function (friends) {
 
 // getNames(friends);
 
-const getFriendsOnLine = function (friends) {
-  const friendsOnLine = [];
+const getFriendsOnLineStatus = function (friends) {
+  const friendsOnLineStatus = {
+    friendsOnLine: [],
+    friendsOffLine: []
+  };
 
   for (const friend of friends) {
-    friend.online ? friendsOnLine.push(friend) : null;
+    if (friend.online) {
+      friendsOnLineStatus.friendsOnLine.push(friend);
+      continue;
+    }
+    friendsOnLineStatus.friendsOffLine.push(friend);
+
+    // friend.online ? friendsOnLineStatus.friendsOnLine.push(friend) : friendsOnLineStatus.friendsOffLine.push(friend);
+    // friendsOnLineStatus[friend.online ? 'friendsOnLine' : 'friendsOffLine'].push(friend);
   }
-  console.log(friendsOnLine);
-  // return friendsOnLine;
+  console.log(friendsOnLineStatus);
+  // return friendsOnLineStatus;
 }
 
-getFriendsOnLine(friends);
+// console.log(getFriendsOnLineStatus(friends));
+getFriendsOnLineStatus(friends)
 
 
 // const getAllNames = function (allFriends) {
