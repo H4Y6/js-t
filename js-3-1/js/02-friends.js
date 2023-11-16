@@ -8,7 +8,7 @@ const friends = [
   { name: 'Ajax', online: false },
 ];
 
-console.log({ objectKeyLength: Object.keys(friends).length });
+// console.log({ objectKeyLength: Object.keys(friends).length });
 
 // console.table(friends);
 
