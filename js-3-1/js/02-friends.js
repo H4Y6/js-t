@@ -4,7 +4,7 @@
 const friends = [
   { name: 'Mango', online: false },
   { name: 'Kiwi', online: true },
-  { name: 'Poly', online: false },
+  { name: 'Poly', online: true },
   { name: 'Ajax', online: false },
 ];
 
@@ -34,17 +34,42 @@ const findFriendByName = function (allFriends, friendName) {
  * Получаем имена всех друзей
  */
 
-const getAllNames = function (allFriends) {
+const getNames = function (friends) {
   const names = [];
 
-  for (const friend of allFriends) {
-    console.log(friend.name);
-
-    names.push(friend.name);
+  for (const friend of friends) {
+    names.push(friend.name)
   }
-
-  return names;
+  console.log(names);
+  // return names;
 };
+
+// getNames(friends);
+
+const getFriendsOnLine = function (friends) {
+  const friendsOnLine = [];
+
+  for (const friend of friends) {
+    friend.online ? friendsOnLine.push(friend) : null;
+  }
+  console.log(friendsOnLine);
+  // return friendsOnLine;
+}
+
+getFriendsOnLine(friends);
+
+
+// const getAllNames = function (allFriends) {
+//   const names = [];
+
+//   for (const friend of allFriends) {
+//     console.log(friend.name);
+
+//     names.push(friend.name);
+//   }
+
+//   return names;
+// };
 
 // console.log(getAllNames(friends));
 
