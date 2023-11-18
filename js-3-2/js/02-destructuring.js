@@ -169,3 +169,17 @@ const profile = {
     tomorrow: { low: lowTomorrow, high: highTomorrow,
       icon: tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg" }, } = forecast;
 }
+
+{
+  const forecast = { today: { low: 10, high: 20 }, tomorrow: { low: 20, high: 30 } };
+
+  function calculateMeanTemperature(forecast) {
+    const {
+      today: { low: todayLow, high: todayHigh, },
+      tomorrow: { low: tomorrowLow, high: tomorrowHigh, },
+    } = forecast;
+
+
+    return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+  }
+}
