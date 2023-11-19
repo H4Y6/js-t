@@ -24,7 +24,7 @@ const temps = [18, 14, 12, 21, 17, 29, 24];
 
 console.log('Min temperature:' + Math.min(...temps));
 console.log('Max temperature:' + Math.max(...temps));
-console.log('Avarage temperature:' + Math.round(...temps));
+console.log('Average temperature:' + Math.round(...temps));
 
 // console.log(temps);
 
