@@ -18,8 +18,22 @@
 
         return obj;
     }
-    const developer = addProps(user, 'salary', 2222);
-    // const developer = addProps(user, 'rating', 4.2);
+    // const developer = addProps(user, 'salary', 2222);
+    const developer = addProps(user, 'rating', 4.2);
 
+    console.log(user, developer);
+}
+{
+    const user = { name: 'Peter', age: 32 };
+
+    const addProps = function (obj, key, value) {
+        obj
+
+        return { ...obj, [key]: value };
+    }
+    let developer = addProps(user, 'salary', 2222);
+    console.log(user, developer);
+
+    developer = addProps(user, 'rating', 4.2);
     console.log(user, developer);
 }
