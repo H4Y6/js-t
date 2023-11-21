@@ -40,8 +40,8 @@
 }
 
 {
-    const employeeSam = { name: 'Sam', salary: 4300 };
-    const employeeTom = { name: 'Tom', salary: 2700 };
+    const employeeSam = { name: 'Sam', salary: 4100 };
+    const employeeTom = { name: 'Tom', salary: 2700, bonus: 200 };
 
     const company = {
         employees: [],
@@ -55,7 +55,8 @@
             let totalSalary = 0;
 
             for (const employee of this.employees) {
-                totalSalary += employee.salary;
+                const bonus = employee.bonus ?? 0;
+                totalSalary += employee.salary + bonus;
             }
 
             return totalSalary;
@@ -65,7 +66,8 @@
         //     let sum = 0;
 
         //     for (const employee of this.employees) {
-        //         sum += employee.salary;
+        //         const bonus = employee.bonus ?? 0;
+        //         sum += employee.salary + bonus;
         //     }
 
         //     return sum;
