@@ -45,7 +45,8 @@
 
     const company = {
         employees: [],
-        totalSalaryFund: 7000,
+        totalCompanyFund: 17000,
+        income: 0,
 
         addEmployee(employee) {
             this.employees.push(employee);
@@ -62,7 +63,7 @@
             return totalSalary;
         },
 
-        // calculateAllSalary() {
+        // calculateAllSalarySum() {
         //     let sum = 0;
 
         //     for (const employee of this.employees) {
@@ -72,12 +73,20 @@
 
         //     return sum;
         // },
+
+        estimateCompanyIncome() {
+            this.income = this.totalCompanyFund - this.estimateTotalSalary();
+            return this.income
+        },
     };
 
     company.addEmployee(employeeSam);
     company.addEmployee(employeeTom);
-    console.log(company.employees);
+    // console.log(company);
 
-    console.log(company.estimateTotalSalary())
-    // console.log(company.calculateAllSalary())
+    // console.log(company.estimateTotalSalary());
+    // console.log(company.calculateAllSalarySum());
+
+    console.log(company.estimateCompanyIncome());
+    console.log(company);
 }
