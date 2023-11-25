@@ -87,6 +87,18 @@
     // console.log(company.estimateTotalSalary());
     // console.log(company.calculateAllSalarySum());
 
-    console.log(company.estimateCompanyIncome());
-    console.log(company);
+    // console.log(company.estimateCompanyIncome());
+    // console.log(company);
+}
+
+{
+    const obj = {
+        name: 'Pit',
+        showName() {
+            console.log(this.name);
+        }
+    }
+
+    const showName = obj.showName.bind(obj)
+    showName();
 }
