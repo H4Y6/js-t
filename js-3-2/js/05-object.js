@@ -89,6 +89,9 @@
 
     // console.log(company.estimateCompanyIncome());
     // console.log(company);
+
+    const estimateTotalSalary = company.estimateTotalSalary.bind(company);
+    console.log(estimateTotalSalary())
 }
 
 {
