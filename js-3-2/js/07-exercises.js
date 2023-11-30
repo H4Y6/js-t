@@ -156,10 +156,12 @@
             return 'Error!'
         }
 
-        let oldestUser = args[0];
+        // let oldestUser = args[0];
+        let [oldestUser, ...restUsers] = args;  /* array destructurization to get the first item and the rest ones */
         let { age: oldestUserAge } = oldestUser;
 
-        for (const { name, age } of args) {
+        for (const { name, age } of restUsers) {
+            // for (const { name, age } of args) {
             if (age < oldestUserAge) {
                 // if (age < oldestUser.age) {
                 continue;
