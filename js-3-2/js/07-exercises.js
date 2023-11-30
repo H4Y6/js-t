@@ -36,27 +36,48 @@
 }
 
 {
-    const mathOperation = function (sign, ...restValues) {
+    // const mathOperation = function (sign, ...restValues) {
+    //         let result = 0;
+    //         if (sign === '+') {
+    //             for (const value of restValues) {
+    //                 result += value;
+    //             }
+
+    //             return result;
+    //         }
+
+    //         if (sign === '-') {
+    //             for (const value of restValues) {
+    //                 result -= value;
+    //             }
+
+    //             return result;
+    //         }
+    //     };
+
+    const mathOperation = function (sign, ...args) {
         let result = 0;
-        if (sign === '+') {
-            for (const value of restValues) {
-                result += value;
-            }
 
-            return result;
+        switch (sign) {
+            case '+':
+                for (const arg of args) {
+                    result += arg;
+                }
+                return result
+
+            case '-':
+                for (const arg of args) {
+                    result -= arg;
+                }
+                return result;
         }
+    }
 
-        if (sign === '-') {
-            for (const value of restValues) {
-                result -= value;
-            }
+    // const sign = '+';
+    const sign = '-';
 
-            return result;
-        }
-    };
-
-    const result = mathOperation('+', 3, 2, 7);
-    // const result = mathOperation('-', 3, 2, -7);
-    // const result = mathOperation('-');
-    console.log(result);
+    const mathFunctionResult = mathOperation(sign, 25, -40, 20);
+    // const result = mathOperation(sign);
+    console.log(mathFunctionResult);
 }
+
