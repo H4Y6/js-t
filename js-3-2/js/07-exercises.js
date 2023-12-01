@@ -180,6 +180,36 @@
     const youngestUser = findYoungestUser(...users);
     const oldestUser = findOldestUser(...users);
 
-    console.log(youngestUser);
-    console.log(oldestUser);
+    // console.log(youngestUser);
+    // console.log(oldestUser);
+}
+
+{
+    /* 🥸🥸  recursion  🥸🥸   */
+
+    const recursionExample = function (n) {
+        // console.log("n =", n)
+
+        if (n === 1) return n;
+
+        return recursionExample(n - 1);
+    }
+
+    const result = recursionExample(3);
+
+    // console.log(result);
+}
+
+{
+    /* 🥸🥸  factorial  🥸🥸   */
+
+    const factorial = function (n) {
+        if (n === 1) return n;
+
+        return n * factorial(n - 1);
+    }
+
+    const result = factorial(3);
+
+    console.log(result);
 }
