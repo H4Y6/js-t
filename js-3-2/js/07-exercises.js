@@ -201,7 +201,7 @@
 }
 
 {
-    /* 🥸🥸  factorial  🥸🥸   */
+    /* 🥸🥸  factorial through recursion  🥸🥸   */
 
     const factorial = function (n) {
         if (n === 1) return n;
@@ -209,7 +209,23 @@
         return n * factorial(n - 1);
     }
 
-    const result = factorial(3);
+    // const result = factorial(5);
+
+    // console.log(result);
+}
+
+{
+    /* 🥸🥸 second factorial through recursion  🥸🥸   */
+
+    const factorial = function (n) {
+        if (n === 1) return n;
+        const res = n * factorial(n - 1);
+
+        console.log(`${n}! = ${res}`)
+        return res;
+    }
+
+    const result = factorial(7);
 
     console.log(result);
 }
