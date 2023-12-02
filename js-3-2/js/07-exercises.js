@@ -55,10 +55,10 @@
 
     const newUsers = [...users];
 
-    console.log('Is iqual? :', users === newUsers);
+    // console.log('Is iqual? :', users === newUsers);
 
     newUsers[0].name = 'Paul';
-    console.log(users[0].name);
+    // console.log(users[0].name);
 }
 
 {
@@ -74,7 +74,7 @@
         return [...oldArr, ...extraArr];
     }
 
-    console.log(mergeArray([3, 5, 4], [6, 1, 5, 2]));
+    // console.log(mergeArray([3, 5, 4], [6, 1, 5, 2]));
 }
 
 {
@@ -97,30 +97,47 @@
     //         }
     //     };
 
-    const mathOperation = function (sign, ...args) {
+    // const mathOperation = function (sign, ...args) {
+    //     let result = 0;
+
+    //     switch (sign) {
+    //         case '+':
+    //             for (const arg of args) {
+    //                 result += arg;
+    //             }
+    //             return result
+
+    //         case '-':
+    //             for (const arg of args) {
+    //                 result -= arg;
+    //             }
+    //             return result;
+    //     }
+    // }
+
+    function mathOperation(sign, ...args) {
         let result = 0;
+        if (sign === '+') {
+            for (const arg of args) {
+                result += arg;
+            }
+            return result;
+        }
 
-        switch (sign) {
-            case '+':
-                for (const arg of args) {
-                    result += arg;
-                }
-                return result
-
-            case '-':
-                for (const arg of args) {
-                    result -= arg;
-                }
-                return result;
+        if (sign === '-') {
+            for (const arg of args) {
+                result -= arg;
+            }
+            return result;
         }
     }
 
-    // const sign = '+';
-    const sign = '-';
+    const sign = '+';
+    // const sign = '-';
 
     const mathFunctionResult = mathOperation(sign, 25, -40, 20);
-    // const result = mathOperation(sign);
-    // console.log(mathFunctionResult);
+    const result = mathOperation(sign);
+    console.log(mathFunctionResult);
 }
 
 {
