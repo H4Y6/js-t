@@ -13,6 +13,24 @@
 }
 
 {
+    const copyInstance = function (instance) {
+        if (Array.isArray(instance)) {
+            return [...instance];
+        }
+
+        return { ...instance };
+    }
+
+    const oldArray = [1, 5, 2, 9];
+    const newArray = copyInstance(oldArray);
+    console.log(newArray);
+    // console.log(copyInstance([1, 5, 2, 9]));
+
+
+    console.log(`Are they iqual? Answer: ${oldArray === newArray}`)
+}
+
+{
     // Поверхнева копія масиву:
     const users = [
         { name: 'Pit' },
@@ -221,11 +239,11 @@
         if (n === 1) return n;
         const res = n * factorial(n - 1);
 
-        console.log(`${n}! = ${res}`)
+        // console.log(`${n}! = ${res}`)
         return res;
     }
 
     const result = factorial(7);
 
-    console.log(result);
+    // console.log(result);
 }
