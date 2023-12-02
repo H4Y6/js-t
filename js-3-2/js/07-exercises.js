@@ -23,15 +23,15 @@
 
     const oldArray = [1, 5, 2, 9];
     const newArray = copyInstance(oldArray);
-    console.log(newArray);
+    // console.log(newArray);
     // console.log(copyInstance([1, 5, 2, 9]));
 
 
-    console.log(`Are they iqual? Answer: ${oldArray === newArray}`)
+    // console.log(`Are they iqual? Answer: ${oldArray === newArray}`)
 }
 
 {
-    // Поверхнева копія масиву:
+    /* Поверхнева копія масиву при копіюванні через розпорошення:  */
     const users = [
         { name: 'Pit' },
         { name: 'Tit' },
@@ -43,6 +43,22 @@
     // console.log(users === newUsers);
     // console.log(users, '---users');
     // console.log(newUsers, '---newUsers');
+}
+
+{
+    /* Поверхнева копія масиву при копіюванні через розпорошення:  */
+
+    const users = [
+        { name: 'Smith' },
+        { name: 'Habby', }
+    ]
+
+    const newUsers = [...users];
+
+    console.log('Is iqual? :', users === newUsers);
+
+    newUsers[0].name = 'Paul';
+    console.log(users[0].name);
 }
 
 {
