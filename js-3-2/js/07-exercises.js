@@ -137,7 +137,7 @@
 
     const mathFunctionResult = mathOperation(sign, 25, -40, 20);
     const result = mathOperation(sign);
-    console.log(mathFunctionResult);
+    // console.log(mathFunctionResult);
 }
 
 {
@@ -183,64 +183,102 @@
 
     ]
 
-    const findYoungestUser = function (...args) {
-        if (args.length === 0) {
+    // const findYoungestUser = function (...args) {
+    //     if (args.length === 0) {
+    //         console.error('No user found');
+    //         return 'Error!';
+    //     }
+
+    //     let youngestUser = args[0];
+    //     let { age: youngestUserAge } = youngestUser;
+
+
+    //     for (const { name, age } of args) {
+    //         if (age > youngestUserAge) {
+    //             // if (age > youngestUser.age) {
+    //             continue;
+    //         }
+    //         youngestUser = { name, age };
+    //     }
+    //     // for (const user of args) {
+    //     //     if (user.age > youngestUser.age) {
+    //     //         continue;
+    //     //     }
+    //     //     youngestUser = user;
+    //     // }
+    //     return youngestUser;
+    // }
+
+    // const findOldestUser = function (...args) {
+    //     if (args.length === 0) {
+    //         console.error('No user found');
+    //         return 'Error!'
+    //     }
+
+    //     // let oldestUser = args[0];
+    //     let [oldestUser, ...restUsers] = args;  /* array destructurization to get the first item and the rest ones */
+    //     let { age: oldestUserAge } = oldestUser;
+
+    //     for (const { name, age } of restUsers) {
+    //         // for (const { name, age } of args) {
+    //         if (age < oldestUserAge) {
+    //             // if (age < oldestUser.age) {
+    //             continue;
+    //         }
+    //         oldestUser = { name, age };
+    //     }
+    //     // for (const user of args) {
+    //     //     if (user.age < oldestUser.age) {
+    //     //         continue;
+    //     //     }
+    //     //     oldestUser = user;
+    //     // }
+    //     return oldestUser;
+    // }
+
+    function findYoungestUser(...users) {
+        if (users.length === 0) {
             console.error('No user found');
-            return 'Error!';
-        }
+            return 'Error: no user found';
+        };
 
-        let youngestUser = args[0];
-        let { age: youngestUserAge } = youngestUser;
+        // let youngestUser = users[0];
+        let [youngestUser] = users;
 
-
-        for (const { name, age } of args) {
-            if (age > youngestUserAge) {
-                // if (age > youngestUser.age) {
+        for (const { age, name } of users) {
+            if (age > youngestUser.age) {
                 continue;
             }
-            youngestUser = { name, age };
+            youngestUser = { age, name };
         }
-        // for (const user of args) {
-        //     if (user.age > youngestUser.age) {
-        //         continue;
-        //     }
-        //     youngestUser = user;
-        // }
+
         return youngestUser;
-    }
+    };
 
-    const findOldestUser = function (...args) {
-        if (args.length === 0) {
+    function findOldestUser(...users) {
+        if (users.length === 0) {
             console.error('No user found');
-            return 'Error!'
+            return 'No user found';
         }
 
-        // let oldestUser = args[0];
-        let [oldestUser, ...restUsers] = args;  /* array destructurization to get the first item and the rest ones */
-        let { age: oldestUserAge } = oldestUser;
+        let [oldestUser] = users;
+        // let oldestUser = users[0];
 
-        for (const { name, age } of restUsers) {
-            // for (const { name, age } of args) {
-            if (age < oldestUserAge) {
-                // if (age < oldestUser.age) {
+        for (const { name, age } of users) {
+            if (age < oldestUser.age) {
                 continue;
             }
             oldestUser = { name, age };
         }
-        // for (const user of args) {
-        //     if (user.age < oldestUser.age) {
-        //         continue;
-        //     }
-        //     oldestUser = user;
-        // }
+
         return oldestUser;
     }
 
     const youngestUser = findYoungestUser(...users);
     const oldestUser = findOldestUser(...users);
 
-    // console.log(youngestUser);
-    // console.log(oldestUser);
+    console.log('The youngest user:', youngestUser);
+    console.log('The oldest user:', oldestUser);
 }
 
 {
