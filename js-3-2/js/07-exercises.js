@@ -236,7 +236,7 @@
     //     return oldestUser;
     // }
 
-    function findYoungestUser(...users) {
+    function findYoungestUser(users) {
         if (users.length === 0) {
             console.error('No user found');
             return 'Error: no user found';
@@ -255,7 +255,7 @@
         return youngestUser;
     };
 
-    function findOldestUser(...users) {
+    function findOldestUser(users) {
         if (users.length === 0) {
             console.error('No user found');
             return 'No user found';
@@ -274,8 +274,11 @@
         return oldestUser;
     }
 
-    const youngestUser = findYoungestUser(...users);
-    const oldestUser = findOldestUser(...users);
+    // const youngestUser = findYoungestUser(...users);
+    // const oldestUser = findOldestUser(...users);
+
+    const youngestUser = findYoungestUser(users);
+    const oldestUser = findOldestUser(users);
 
     console.log('The youngest user:', youngestUser);
     console.log('The oldest user:', oldestUser);
