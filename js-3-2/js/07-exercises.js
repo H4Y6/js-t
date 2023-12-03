@@ -330,28 +330,34 @@
     // console.log(result);
 }
 
-// {
-//     function calculateFactorial(n) {
-//         if (n === 1)
-//             return n;
+{
+    function calculateFactorial(n) {
+        if (n === 1)
+            return n;
 
-//         // console.log('n:', n, '---before')
-//         const result = n * calculateFactorial(n - 1);
-//         // console.log('n:', n, 'result:', result);
+        // console.log('n:', n, '---before')
+        const result = n * calculateFactorial(n - 1);
+        // console.log('n:', n, 'result:', result);
 
-//         return result;
-//     }
+        return result;
+    }
 
-//     const factorial = calculateFactorial(5);
-//     console.log(factorial);
-//     console.log(calculateFactorial(4));
-// }
+    // const factorial = calculateFactorial(5);
+    // console.log(factorial);
+    console.log(calculateFactorial(4));
+
+    /*
+    when n=4: return 4*factorial(4-1);
+    when n=3: return 4*3*factorial(3-1);
+    when n=2: return 4*3*2*factorial(2-1);
+    when n=1: return 4*3*2;
+    */
+}
 
 {
     const factorial = function (n) {
-        if (n === 1) return n;
-
-        return n * factorial(n - 1);
+        return n === 1 ? n : n * factorial(n - 1);
+        // return n < 2 ? n : n * factorial(n - 1);
     }
     console.log(factorial(6));
 }
