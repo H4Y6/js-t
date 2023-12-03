@@ -344,7 +344,7 @@
 
     // const factorial = calculateFactorial(5);
     // console.log(factorial);
-    console.log(calculateFactorial(4));
+    // console.log(calculateFactorial(4));
 
     /*
     when n=4: return 4*factorial(4-1);
@@ -359,5 +359,13 @@
         return n === 1 ? n : n * factorial(n - 1);
         // return n < 2 ? n : n * factorial(n - 1);
     }
-    console.log(factorial(6));
+    // console.log(factorial(6));
+}
+
+{
+    function pow(a, n) {
+        // return n === 1 ? a : a * pow(a, n - 1);
+        return n < 2 ? a : a * pow(a, n - 1);
+    }
+    console.log(pow(3, 4))
 }
