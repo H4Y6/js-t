@@ -330,18 +330,28 @@
     // console.log(result);
 }
 
+// {
+//     function calculateFactorial(n) {
+//         if (n === 1)
+//             return n;
+
+//         // console.log('n:', n, '---before')
+//         const result = n * calculateFactorial(n - 1);
+//         // console.log('n:', n, 'result:', result);
+
+//         return result;
+//     }
+
+//     const factorial = calculateFactorial(5);
+//     console.log(factorial);
+//     console.log(calculateFactorial(4));
+// }
+
 {
-    function calculateFactorial(n) {
-        if (n === 1)
-            return n;
+    const factorial = function (n) {
+        if (n === 1) return n;
 
-        console.log('n:', n, '---before')
-        const result = n * calculateFactorial(n - 1);
-        console.log('n:', n, 'result:', result);
-
-        return result;
+        return n * factorial(n - 1);
     }
-
-    const factorial = calculateFactorial(5);
-    console.log(factorial);
+    console.log(factorial(6));
 }
