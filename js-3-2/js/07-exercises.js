@@ -280,8 +280,8 @@
     const youngestUser = findYoungestUser(users);
     const oldestUser = findOldestUser(users);
 
-    console.log('The youngest user:', youngestUser);
-    console.log('The oldest user:', oldestUser);
+    // console.log('The youngest user:', youngestUser);
+    // console.log('The oldest user:', oldestUser);
 }
 
 {
@@ -328,4 +328,20 @@
     const result = factorial(7);
 
     // console.log(result);
+}
+
+{
+    function calculateFactorial(n) {
+        if (n === 1)
+            return n;
+
+        console.log('n:', n, '---before')
+        const result = n * calculateFactorial(n - 1);
+        console.log('n:', n, 'result:', result);
+
+        return result;
+    }
+
+    const factorial = calculateFactorial(5);
+    console.log(factorial);
 }
