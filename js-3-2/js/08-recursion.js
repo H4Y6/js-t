@@ -86,7 +86,20 @@
     // console.log(pow(5, 5));
 }
 
+{
+    function countDown(n) {
+        if (n <= 1) {
+            console.log(n);
+            return n;
+        }
+        console.log(n, 'clg---before');
+        countDown(n - 1);
+        console.log(n, 'clg---after');
+        return n;
+    };
 
+    countDown(7);
+}
 
 {
     /*  incorrect  */
