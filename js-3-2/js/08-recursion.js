@@ -79,9 +79,66 @@
 
 {
     function pow(a, n) {
-        // return n === 1 ? a : a * pow(a, n - 1);
-        return n < 2 ? a : a * pow(a, n - 1);
+        return n === 1 ? a : a * pow(a, n - 1);
+        // return n < 2 ? a : a * pow(a, n - 1);
     }
-    console.log(pow(3, 4));
-    console.log(pow(5, 4));
+    // console.log(pow(11, 4));
+    // console.log(pow(5, 5));
+}
+
+
+
+{
+    /*  incorrect  */
+
+    //     {
+    //         const users = [
+    //             {
+    //                 name: 'Pit',
+    //                 age: 11,
+    //             },
+    //             {
+    //                 name: 'Lee',
+    //                 age: 18,
+    //             },
+    //             {
+    //                 name: 'Anrew',
+    //                 age: 29,
+    //             },
+    //             {
+    //                 name: 'Sam',
+    //                 age: 119,
+    //             },
+    //         ]
+
+    //         let i = users.length - 1;
+
+    //         function findYoungestUser(users, i) {
+    //             let youngest;
+    //             if (i < 1) {
+    //                 youngest = users[i] ?? 'No user found';
+    //                 return youngest;
+    //             };
+
+    //             youngest = users[i].age < users[i - 1].age ? users[i] : users[i - 1];
+    //             findYoungestUser(users, i - 1);
+
+    //             return youngest;
+    //         };
+
+    //         function findOldestUser(users, i) {
+    //             if (i < 1) {
+    //                 return users[i] ?? 'No user found';
+    //             }
+
+    //             return users[i - 1].age > users[i].age ? users[i - 1] : users[i];
+    //         }
+
+    //         const youngestUser = findYoungestUser(users, i);
+    //         const oldestUser = findOldestUser(users, i);
+
+    //         console.log('The youngest user:', youngestUser);
+    //         console.log('The oldest user:', oldestUser);
+    //     }
+
 }
