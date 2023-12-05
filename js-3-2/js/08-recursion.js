@@ -98,60 +98,40 @@
         return n;
     };
 
-    countDown(7);
+    // countDown(7);
 }
 
 {
-    /*  incorrect  */
+    function factorial(n) {
+        if (n === 1)
+            return n;
 
-    //     {
-    //         const users = [
-    //             {
-    //                 name: 'Pit',
-    //                 age: 11,
-    //             },
-    //             {
-    //                 name: 'Lee',
-    //                 age: 18,
-    //             },
-    //             {
-    //                 name: 'Anrew',
-    //                 age: 29,
-    //             },
-    //             {
-    //                 name: 'Sam',
-    //                 age: 119,
-    //             },
-    //         ]
+        return n * factorial(n - 1);
+    }
 
-    //         let i = users.length - 1;
-
-    //         function findYoungestUser(users, i) {
-    //             let youngest;
-    //             if (i < 1) {
-    //                 youngest = users[i] ?? 'No user found';
-    //                 return youngest;
-    //             };
-
-    //             youngest = users[i].age < users[i - 1].age ? users[i] : users[i - 1];
-    //             findYoungestUser(users, i - 1);
-
-    //             return youngest;
-    //         };
-
-    //         function findOldestUser(users, i) {
-    //             if (i < 1) {
-    //                 return users[i] ?? 'No user found';
-    //             }
-
-    //             return users[i - 1].age > users[i].age ? users[i - 1] : users[i];
-    //         }
-
-    //         const youngestUser = findYoungestUser(users, i);
-    //         const oldestUser = findOldestUser(users, i);
-
-    //         console.log('The youngest user:', youngestUser);
-    //         console.log('The oldest user:', oldestUser);
-    //     }
-
+    // console.log(factorial(8));
 }
+
+{
+    function pow(a, n) {
+        if (n === 1)
+            return a;
+        return a * pow(a, n - 1);
+    }
+    // console.log(pow(3, 5))
+}
+
+{
+    function countDown(n) {
+
+        if (n <= 0) {
+            console.log('it is done.');
+            return n;
+        };
+
+        console.log(n);
+        countDown(n - 1);
+    }
+    countDown(11);
+}
+
