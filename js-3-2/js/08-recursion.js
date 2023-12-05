@@ -132,6 +132,31 @@
         console.log(n);
         countDown(n - 1);
     }
-    countDown(11);
+    // countDown(11);
+}
+
+{
+    function sumRange(n) {
+        let total = 0;
+        for (let i = n; i > 0; i -= 1) {
+            total += i;
+        }
+
+        return total;
+    }
+    // console.log(sumRange(6));
+    // console.log(sumRange(4));
+}
+
+{
+    function sumRange(n, total = 0) {
+        if (n <= 0) {
+            return total;
+        }
+        return sumRange(n - 1, total + n);
+    }
+    console.log(sumRange(4, 0));
+    console.log(sumRange(5));
+    console.log(sumRange(5, 11));
 }
 
