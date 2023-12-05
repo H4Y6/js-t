@@ -150,13 +150,20 @@
 
 {
     function sumRange(n, total = 0) {
-        if (n <= 0) {
-            return total;
-        }
-        return sumRange(n - 1, total + n);
+        // if (n <= 0) return total;
+        // return sumRange(n - 1, total + n);
+
+        return n <= 0 ? total : sumRange(n - 1, total + n)
     }
-    console.log(sumRange(4, 0));
-    console.log(sumRange(5));
-    console.log(sumRange(5, 11));
+    sumRange(3, 0)
+    sumRange(2, 3)
+    sumRange(1, 5)
+    sumRange(0, 6)
+
+    // console.log(sumRange(4, 0));
+    // console.log(sumRange(5, 5));
+    // console.log(sumRange(5, 11));
+    // console.log(sumRange(6));
 }
+
 
