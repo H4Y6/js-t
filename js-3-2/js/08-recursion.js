@@ -70,95 +70,92 @@
 }
 
 {
-    const factorial = function (n) {
-        return n === 1 ? n : n * factorial(n - 1);
-        // return n < 2 ? n : n * factorial(n - 1);
-    }
+    // const factorial = function (n) {
+    // return n === 1 ? n : n * factorial(n - 1);
+    // return n < 2 ? n : n * factorial(n - 1);
+    // }
     // console.log(factorial(6));
 }
 
 {
-    function pow(a, n) {
-        return n === 1 ? a : a * pow(a, n - 1);
-        // return n < 2 ? a : a * pow(a, n - 1);
-    }
-    // console.log(pow(11, 4));
-    // console.log(pow(5, 5));
+    // function pow(a, n) {
+    //     return n === 1 ? a : a * pow(a, n - 1);
+    // return n < 2 ? a : a * pow(a, n - 1);
 }
 
 {
-    function countDown(n) {
-        if (n <= 1) {
-            console.log(n);
-            return n;
-        }
-        console.log(n, 'clg---before');
-        countDown(n - 1);
-        console.log(n, 'clg---after');
-        return n;
-    };
+    // function countDown(n) {
+    //     if (n <= 1) {
+    //         console.log(n);
+    //         return n;
+    //     }
+    //     console.log(n, 'clg---before');
+    //     countDown(n - 1);
+    //     console.log(n, 'clg---after');
+    //     return n;
+    // };
 
     // countDown(7);
 }
 
 {
-    function factorial(n) {
-        if (n === 1)
-            return n;
+    //     function factorial(n) {
+    //         if (n === 1)
+    //             return n;
 
-        return n * factorial(n - 1);
-    }
+    //         return n * factorial(n - 1);
+    //     }
 
     // console.log(factorial(8));
 }
 
 {
-    function pow(a, n) {
-        if (n === 1)
-            return a;
-        return a * pow(a, n - 1);
-    }
+    // function pow(a, n) {
+    //     if (n === 1)
+    //         return a;
+    //     return a * pow(a, n - 1);
+    // }
     // console.log(pow(3, 5))
 }
 
 {
-    function countDown(n) {
+    // function countDown(n) {
 
-        if (n <= 0) {
-            console.log('it is done.');
-            return n;
-        };
+    //     if (n <= 0) {
+    //         console.log('it is done.');
+    //         return n;
+    //     };
 
-        console.log(n);
-        countDown(n - 1);
-    }
+    //     console.log(n);
+    //     countDown(n - 1);
+    // }
     // countDown(11);
 }
 
 {
-    function sumRange(n) {
-        let total = 0;
-        for (let i = n; i > 0; i -= 1) {
-            total += i;
-        }
+    // function sumRange(n) {
+    //     let total = 0;
+    //     for (let i = n; i > 0; i -= 1) {
+    //         total += i;
+    //     }
 
-        return total;
-    }
+    //     return total;
+    // }
     // console.log(sumRange(6));
     // console.log(sumRange(4));
 }
 
 {
-    function sumRange(n, total = 0) {
-        // if (n <= 0) return total;
-        // return sumRange(n - 1, total + n);
+    // function sumRange(n, total = 0) {
+    //     // if (n <= 0) return total;
+    //     // return sumRange(n - 1, total + n);
 
-        return n <= 0 ? total : sumRange(n - 1, total + n)
-    }
-    sumRange(3, 0)
-    sumRange(2, 3)
-    sumRange(1, 5)
-    sumRange(0, 6)
+    //     return n <= 0 ? total : sumRange(n - 1, total + n)
+    // }
+    // sumRange(3, 0)
+    // sumRange(2, 3)
+    // sumRange(1, 5)
+    // sumRange(0, 6)
 
     // console.log(sumRange(4, 0));
     // console.log(sumRange(5, 5));
@@ -166,4 +163,47 @@
     // console.log(sumRange(6));
 }
 
+// {
+//     function countDown(n) {
+//         for (let i = n; i >= 0; i -= 1) {
+//             console.log(i);
+//         }
+//         console.log("It's done.");
+//     }
+//     countDown(4);
+// }
 
+{
+    const countDown = function (n) {
+        if (n < 1) {
+            console.log("Done.")
+            return;
+        }
+        console.log(n);
+        return countDown(n - 1);
+    }
+
+    // countDown(3);
+}
+
+{
+    const sumRange = function (n) {
+        let total = 0;
+        for (let i = n; i > 0; i -= 1) {
+            total += i;
+        }
+        return total;
+    }
+    // console.log(sumRange(4));
+}
+
+{
+    const sumRangeRecursive = function (n, total = 0) {
+        if (n <= 0) {
+            return total;
+        }
+        return sumRangeRecursive(n - 1, total + n);
+    }
+
+    console.log(sumRangeRecursive(5))
+}
