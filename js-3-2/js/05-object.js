@@ -117,10 +117,21 @@
     function getAllPropValues(propName) {
         const propValues = [];
         for (const product of products) {
-            product[propName] ? propValues.push(product[propName]) : null;
+            product[propName] ? propValues.push(product[propName]) : propValues;
         };
         return propValues;
     }
+
+    // function getAllPropValues(propName) {
+    //     const propValues = [];
+    //     for (const product of products) {
+    //         if (product[propName]) {
+    //             propValues.push(product[propName]);
+    //         }
+    //         propValues;
+    //     }
+    //     return propValues;
+    // }
 
     console.log(getAllPropValues('name'));
     console.log(getAllPropValues('nam'));
