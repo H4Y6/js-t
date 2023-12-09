@@ -91,7 +91,7 @@
     // console.log(company);
 
     const estimateTotalSalary = company.estimateTotalSalary.bind(company);
-    console.log(estimateTotalSalary())
+    // console.log(estimateTotalSalary())
 }
 
 {
@@ -103,5 +103,25 @@
     }
 
     const showName = obj.showName.bind(obj)
-    showName();
+    // showName();
+}
+
+{
+    const products = [
+        { name: "Radar", price: 1300, quantity: 4 },
+        { name: "Scanner", price: 2700, quantity: 3 },
+        { name: "Droid", price: 400, quantity: 7 },
+        { name: "Grip", price: 1200, quantity: 9 },
+    ];
+
+    function getAllPropValues(propName) {
+        const propValues = [];
+        for (const product of products) {
+            product[propName] ? propValues.push(product[propName]) : null;
+        };
+        return propValues;
+    }
+
+    console.log(getAllPropValues('name'));
+    console.log(getAllPropValues('nam'));
 }
