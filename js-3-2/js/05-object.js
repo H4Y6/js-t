@@ -114,24 +114,23 @@
         { name: "Grip", price: 1200, quantity: 9 },
     ];
 
-    function getAllPropValues(propName) {
-        const propValues = [];
-        for (const product of products) {
-            product[propName] ? propValues.push(product[propName]) : propValues;
-        };
-        return propValues;
-    }
-
     // function getAllPropValues(propName) {
     //     const propValues = [];
     //     for (const product of products) {
-    //         if (product[propName]) {
-    //             propValues.push(product[propName]);
-    //         }
-    //         propValues;
-    //     }
+    //         product[propName] ? propValues.push(product[propName]) : propValues;
+    //     };
     //     return propValues;
     // }
+
+    function getAllPropValues(propName) {
+        const propValues = [];
+        for (const product of products) {
+            if (product[propName]) {
+                propValues.push(product[propName]);
+            };
+        };
+        return propValues;
+    }
 
     console.log(getAllPropValues('name'));
     console.log(getAllPropValues('nam'));
