@@ -162,3 +162,79 @@
 
     // console.log(worstScore, bestScore);
 }
+
+{
+    function add(...args) {
+        let total = 0;
+        for (const arg of args) {
+            total += arg;
+        }
+        return total;
+    }
+
+    // console.log(add(74, 11, 62, 46, 12, 36));
+}
+
+{
+    function addOverNum(number, ...args) {
+        let total = 0;
+
+        for (const arg of args) {
+            number < arg ? total += arg : total;
+        }
+        console.log(total);
+        return total;
+    }
+
+    // addOverNum(50, 15, 27)
+}
+
+{
+    function findMatches(arr, ...args) {
+        const matches = [];
+        for (const arg of args) {
+            (arr).includes(arg) ? matches.push(arg) : matches;
+        }
+        console.log(matches);
+        return matches;
+    }
+
+    // findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2);
+}
+
+{
+    const bookShelf = {
+        books: ["The last kingdom", "Haze", "The guardian of dreams"],
+        updateBook(oldName, newName) {
+            const i = this.books.indexOf(oldName);
+            this.books.splice(i, 1, newName);
+            console.log(this.books);
+        },
+    };
+    // bookShelf.updateBook("Haze", "Dungeon chronicles");
+}
+
+{
+    const atTheOldToad = {
+        potions: ["Speed potion", "Dragon breath", "Stone skin"],
+        getPotions() {
+
+            return this.potions;
+        },
+        addPotion(potionName) {
+            this.potions.push(potionName);
+        },
+        removePotion(potionName) {
+            const i = this.potions.indexOf(potionName);
+            this.potions.splice(i, 1);
+        },
+        updatePotionName(oldName, newName) {
+            const i = this.potions.indexOf(oldName);
+            this.potions.splice(i, 1, newName);
+        },
+    };
+    // console.log(atTheOldToad.addPotion("Invisibility"));
+    // console.log(atTheOldToad.removePotion("Invisibility"));
+    // console.log(atTheOldToad.updatePotionName("Dragon breath", "Polymorth"));
+    // console.log(atTheOldToad.getPotions());
+}
