@@ -151,6 +151,14 @@
         return 0;
     }
 
-    console.log(calculateTotalPrice("Grip"));
-    console.log(calculateTotalPrice("Blaster"));
+    // console.log(calculateTotalPrice("Grip"));
+    // console.log(calculateTotalPrice("Blaster"));
+}
+
+{
+    const scores = [89, 64, 42, 17, 93, 51, 26];
+    const worstScore = Math.min(...scores);
+    const bestScore = Math.max(...scores);
+
+    // console.log(worstScore, bestScore);
 }
