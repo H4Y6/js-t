@@ -174,16 +174,40 @@
 // }
 
 {
-    const countDown = function (n) {
-        if (n < 1) {
-            console.log("Done.")
-            return;
+    // const countDown = function (n) {
+    //     if (n < 1) {
+    //         console.log("Done.")
+    //         return;
+    //     }
+    //     console.log(n);
+    //     return countDown(n - 1);
+    // }
+
+    // function countDown(n) {
+    //     for (let i = n; i > 0; i -= 1) {
+    //         console.log(i);
+    //     }
+    //     console.log("Ok")
+    // }
+
+    function countDown(n) {
+        if (n <= 0) {
+            console.log(n);
+            console.log("Ok");
+            return n;
         }
-        console.log(n);
-        return countDown(n - 1);
+        console.log(n)
+        countDown(n - 1);
     }
 
     // countDown(3);
+    // countDown(2);
+    // countDown(1);
+    // countDown(0);
+    // return
+    // return
+    // return
+    // return
 }
 
 {
@@ -205,5 +229,5 @@
         return sumRangeRecursive(n - 1, total + n);
     }
 
-    console.log(sumRangeRecursive(5))
+    // console.log(sumRangeRecursive(5))
 }
