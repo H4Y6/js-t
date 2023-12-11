@@ -211,23 +211,44 @@
 }
 
 {
-    const sumRange = function (n) {
+    // const sumRange = function (n) {
+    //     let total = 0;
+    //     for (let i = n; i > 0; i -= 1) {
+    //         total += i;
+    //     }
+    //     return total;
+    // }
+
+    function sumRange(n) {
         let total = 0;
         for (let i = n; i > 0; i -= 1) {
             total += i;
         }
+        // console.log(total);
         return total;
     }
-    // console.log(sumRange(4));
+    // console.log(sumRange(5));
+    // sumRange(4);
 }
 
 {
-    const sumRangeRecursive = function (n, total = 0) {
-        if (n <= 0) {
-            return total;
-        }
-        return sumRangeRecursive(n - 1, total + n);
+    // const sumRangeRecursive = function (n, total = 0) {
+    //     if (n <= 0) {
+    //         return total;
+    //     }
+    //     return sumRangeRecursive(n - 1, total + n);
+    // }
+
+    function sumRangeRecursive(n, total = 0) {
+        // if (n <= 0) {
+        //     console.log('Ok')
+        //     return total;
+        // }
+
+        // total = sumRangeRecursive(n - 1, total + n);
+        // return total;
+        return n <= 0 ? total : sumRangeRecursive(n - 1, total + n);
     }
 
-    // console.log(sumRangeRecursive(5))
+    // console.log(sumRangeRecursive(5));
 }
