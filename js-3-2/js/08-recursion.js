@@ -2,15 +2,15 @@
 {
     /* 🥸🥸  recursion  🥸🥸   */
 
-    const recursionExample = function (n) {
-        // console.log("n =", n)
+    // const recursionExample = function (n) {
+    //     console.log("n =", n)
 
-        if (n === 1) return n;
+    //     if (n === 1) return n;
 
-        return recursionExample(n - 1);
-    }
+    //     return recursionExample(n - 1);
+    // }
 
-    const result = recursionExample(3);
+    // const result = recursionExample(3);
 
     // console.log(result);
 }
@@ -43,6 +43,16 @@
     const result = factorial(7);
 
     // console.log(result);
+}
+
+{
+    function recursionExample(n) {
+        console.log("n = ", n);
+        if (n <= 1) return "It's over.";
+        return recursionExample(n - 1);
+    }
+
+    console.log(recursionExample(2))
 }
 
 {
@@ -251,4 +261,14 @@
     }
 
     // console.log(sumRangeRecursive(5));
+}
+
+{
+    function factorial(n) {
+        // if (n <= 1) return n;
+        // return n * factorial(n - 1);
+
+        return n <= 1 ? n : n * factorial(n - 1)
+    }
+    console.log(factorial(7));
 }
