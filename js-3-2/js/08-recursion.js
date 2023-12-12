@@ -291,5 +291,15 @@
 
         return (n === 1) ? a : a * pow(a, n - 1);
     }
-    console.log(pow(3, 6));
+    // console.log(pow(3, 6));
+}
+
+{
+    const sumRangeRecursive = function (sum, n) {
+        if (n < 0) {
+            return sum
+        }
+        return sumRangeRecursive(sum + n, n - 1);
+    }
+    console.log(sumRangeRecursive(0, 6))
 }
