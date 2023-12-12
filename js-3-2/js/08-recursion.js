@@ -103,11 +103,15 @@
 }
 
 {
-    // function pow(a, n) {
-    //     if (n === 1)
-    //         return a;
-    //     return a * pow(a, n - 1);
-    // }
+    function pow(a, n) {
+        // if (n === 1) {
+        //     console.log('Result:')
+        //     return a;
+        // }
+        // return a * pow(a, n - 1);
+
+        return n > 1 ? a * pow(a, n - 1) : a;
+    }
     // console.log(pow(3, 5))
 }
 
@@ -197,25 +201,27 @@
     // }
 
     function sumRangeRecursive(n, total = 0) {
+        /* a: */
         // if (n <= 0) {
-        //     console.log('Ok')
+        //     console.log('Range sum:')
         //     return total;
         // }
 
         // total = sumRangeRecursive(n - 1, total + n);
         // return total;
-        return n <= 0 ? total : sumRangeRecursive(n - 1, total + n);
-    }
 
-    // console.log(sumRangeRecursive(5));
+        /* b: */
+        return n >= 1 ? sumRangeRecursive(n - 1, total + n) : total;
+
+        /* c: */
+        // return n < 1 ? total : sumRangeRecursive(n - 1, total + n);
+    }
+    console.log(sumRangeRecursive(5));
 }
 
 {
     function factorial(n) {
-        // if (n <= 1) return n;
-        // return n * factorial(n - 1);
-
-        return n <= 1 ? n : n * factorial(n - 1)
+        return n > 1 ? n * factorial(n - 1) : n;
     }
     // console.log(factorial(7));
 }
