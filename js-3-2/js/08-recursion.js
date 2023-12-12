@@ -48,11 +48,12 @@
 {
     function recursionExample(n) {
         console.log("n = ", n);
-        if (n <= 1) return "It's over.";
+        if (n <= 0) return "Let's go!";
         return recursionExample(n - 1);
-    }
 
-    console.log(recursionExample(2))
+        // return n < 1 ? "Hooray! Start!" : recursionExample(n - 1);
+    }
+    console.log(recursionExample(4))
 }
 
 {
