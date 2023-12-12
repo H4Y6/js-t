@@ -296,10 +296,12 @@
 
 {
     const sumRangeRecursive = function (sum, n) {
-        if (n < 0) {
-            return sum
-        }
-        return sumRangeRecursive(sum + n, n - 1);
+        // if (n < 0) {
+        //     return sum
+        // }
+        // return sumRangeRecursive(sum + n, n - 1);
+
+        return n < 0 ? sum : sumRangeRecursive(sum + n, n - 1)
     }
     console.log(sumRangeRecursive(0, 6))
 }
