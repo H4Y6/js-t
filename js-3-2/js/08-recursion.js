@@ -16,6 +16,18 @@
 }
 
 {
+    function createRecursionExample(n) {
+        console.log("n = ", n);
+        // if (n < 1) return;
+
+        // return createRecursionExample(n - 1);
+
+        return n < 1 ? n : createRecursionExample(n - 1);
+    }
+    // createRecursionExample(5);
+}
+
+{
     /* 🥸🥸  factorial through recursion  🥸🥸   */
 
     const factorial = function (n) {
@@ -53,7 +65,7 @@
 
         // return n < 1 ? "Hooray! Start!" : recursionExample(n - 1);
     }
-    console.log(recursionExample(4))
+    // console.log(recursionExample(4))
 }
 
 {
@@ -271,5 +283,13 @@
 
         return n <= 1 ? n : n * factorial(n - 1)
     }
-    console.log(factorial(7));
+    // console.log(factorial(7));
+}
+
+{
+    const pow = function (a, n) {
+
+        return (n === 1) ? a : a * pow(a, n - 1);
+    }
+    console.log(pow(3, 6));
 }
