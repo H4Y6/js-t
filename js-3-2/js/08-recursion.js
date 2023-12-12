@@ -2,29 +2,27 @@
 {
     /* 🥸🥸  recursion  🥸🥸   */
 
-    // const recursionExample = function (n) {
-    //     console.log("n =", n)
+    const recursionExample = function (n) {
+        console.log("n =", n)
+        if (n === 1) return n;
 
-    //     if (n === 1) return n;
+        return recursionExample(n - 1);
+    }
 
-    //     return recursionExample(n - 1);
-    // }
-
-    // const result = recursionExample(3);
-
+    // const result = recursionExample(4);
     // console.log(result);
 }
 
 {
     function createRecursionExample(n) {
-        console.log("n = ", n);
-        // if (n < 1) return;
+        console.log("n =", n);
+        if (n < 1) return;
 
-        // return createRecursionExample(n - 1);
+        return createRecursionExample(n - 1);
 
-        return n < 1 ? n : createRecursionExample(n - 1);
+        // return n < 1 ? n : createRecursionExample(n - 1);
     }
-    // createRecursionExample(5);
+    // createRecursionExample(3);
 }
 
 {
@@ -37,8 +35,9 @@
     }
 
     // const result = factorial(5);
-
     // console.log(result);
+
+    // console.log(factorial(4));
 }
 
 {
@@ -52,20 +51,8 @@
         return res;
     }
 
-    const result = factorial(7);
-
+    const result = factorial(4);
     // console.log(result);
-}
-
-{
-    function recursionExample(n) {
-        console.log("n = ", n);
-        if (n <= 0) return "Let's go!";
-        return recursionExample(n - 1);
-
-        // return n < 1 ? "Hooray! Start!" : recursionExample(n - 1);
-    }
-    // console.log(recursionExample(4))
 }
 
 {
@@ -73,14 +60,14 @@
         if (n === 1)
             return n;
 
-        // console.log('n:', n, '---before')
+        console.log('n:', n, '---before')
         const result = n * calculateFactorial(n - 1);
-        // console.log('n:', n, 'result:', result);
+        console.log('n:', n, 'result:', result);
 
         return result;
     }
 
-    // const factorial = calculateFactorial(5);
+    // const factorial = calculateFactorial(3);
     // console.log(factorial);
     // console.log(calculateFactorial(4));
 
@@ -101,35 +88,18 @@
 }
 
 {
-    // function pow(a, n) {
-    //     return n === 1 ? a : a * pow(a, n - 1);
-    // return n < 2 ? a : a * pow(a, n - 1);
-}
-
-{
-    // function countDown(n) {
-    //     if (n <= 1) {
-    //         console.log(n);
-    //         return n;
-    //     }
-    //     console.log(n, 'clg---before');
-    //     countDown(n - 1);
-    //     console.log(n, 'clg---after');
-    //     return n;
-    // };
+    function countDown(n) {
+        if (n <= 1) {
+            console.log(n);
+            return n;
+        }
+        console.log(n, 'clg---before');
+        countDown(n - 1);
+        // console.log(n, 'clg---after');
+        return n;
+    };
 
     // countDown(7);
-}
-
-{
-    //     function factorial(n) {
-    //         if (n === 1)
-    //             return n;
-
-    //         return n * factorial(n - 1);
-    //     }
-
-    // console.log(factorial(8));
 }
 
 {
@@ -197,22 +167,6 @@
 // }
 
 {
-    // const countDown = function (n) {
-    //     if (n < 1) {
-    //         console.log("Done.")
-    //         return;
-    //     }
-    //     console.log(n);
-    //     return countDown(n - 1);
-    // }
-
-    // function countDown(n) {
-    //     for (let i = n; i > 0; i -= 1) {
-    //         console.log(i);
-    //     }
-    //     console.log("Ok")
-    // }
-
     function countDown(n) {
         if (n <= 0) {
             console.log(n);
@@ -242,26 +196,6 @@
     //     return total;
     // }
 
-    function sumRange(n) {
-        let total = 0;
-        for (let i = n; i > 0; i -= 1) {
-            total += i;
-        }
-        // console.log(total);
-        return total;
-    }
-    // console.log(sumRange(5));
-    // sumRange(4);
-}
-
-{
-    // const sumRangeRecursive = function (n, total = 0) {
-    //     if (n <= 0) {
-    //         return total;
-    //     }
-    //     return sumRangeRecursive(n - 1, total + n);
-    // }
-
     function sumRangeRecursive(n, total = 0) {
         // if (n <= 0) {
         //     console.log('Ok')
@@ -284,24 +218,4 @@
         return n <= 1 ? n : n * factorial(n - 1)
     }
     // console.log(factorial(7));
-}
-
-{
-    const pow = function (a, n) {
-
-        return (n === 1) ? a : a * pow(a, n - 1);
-    }
-    // console.log(pow(3, 6));
-}
-
-{
-    const sumRangeRecursive = function (sum, n) {
-        // if (n < 0) {
-        //     return sum
-        // }
-        // return sumRangeRecursive(sum + n, n - 1);
-
-        return n < 0 ? sum : sumRangeRecursive(sum + n, n - 1)
-    }
-    console.log(sumRangeRecursive(0, 6))
 }
