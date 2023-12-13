@@ -104,15 +104,20 @@
 
 {
     function pow(a, n) {
-        // if (n === 1) {
-        //     console.log('Result:')
-        //     return a;
-        // }
-        // return a * pow(a, n - 1);
-
-        return n > 1 ? a * pow(a, n - 1) : a;
+        if (n === 0) {
+            console.log("");
+            console.log('Result:')
+            return 1;
+        }
+        if (n < 0) return 1 / a * pow(a, n + 1);
+        return a * pow(a, n - 1);
     }
-    // console.log(pow(3, 5))
+    // console.log(pow(3, 5));
+    // console.log(Math.pow(3, 5));
+    // console.log(pow(2, -2));
+    // console.log(Math.pow(2, -2));
+    // console.log(pow(4, 0));
+    // console.log(Math.pow(4, 0));
 }
 
 {
@@ -216,7 +221,7 @@
         /* c: */
         // return n < 1 ? total : sumRangeRecursive(n - 1, total + n);
     }
-    console.log(sumRangeRecursive(5));
+    // console.log(sumRangeRecursive(5));
 }
 
 {
@@ -224,4 +229,28 @@
         return n > 1 ? n * factorial(n - 1) : n;
     }
     // console.log(factorial(7));
+}
+
+
+{
+    function estimateFactorial(n) {
+        if (n < 2) return n;
+        return n * estimateFactorial(n - 1);
+    }
+
+    // console.log(estimateFactorial(6));
+}
+
+{
+    function pow(x, n) {
+        // return (n >= 1) ? x * pow(x, n - 1) : Math.pow(x, n);
+
+        if (n === 0) return 1;
+        if (n > 0) return x * pow(x, n - 1);
+        if (n < 0) return 1 / x * pow(x, n + 1)
+    }
+    // console.log(pow(3, -3));
+    // console.log(pow(6, 4));
+    // console.log(pow(0, 0));
+    // console.log(Math.pow(3, -3))
 }
