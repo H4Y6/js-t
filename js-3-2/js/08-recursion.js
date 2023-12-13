@@ -249,8 +249,8 @@
         if (n > 0) return x * pow(x, n - 1);
         return 1 / x * pow(x, n + 1)
     }
-    console.log(pow(3, -3));
-    console.log(pow(6, 4));
-    console.log(pow(0, 0));
-    console.log(Math.pow(3, -3))
+    // console.log(pow(3, -3));
+    // console.log(pow(6, 4));
+    // console.log(pow(0, 0));
+    // console.log(Math.pow(3, -3))
 }
