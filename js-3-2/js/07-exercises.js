@@ -155,7 +155,7 @@
             // avatar: 'https://img/avatar.png',
             age: 25,
         },
-        locale: 'en_US',
+        // locale: 'en_US',
         cart: [
             { productName: 'cup', price: 22 },
             { productName: 'iron', price: 25 },
@@ -166,7 +166,7 @@
     const { user: { avatar = DEFAULT_USER_AVATAR, name: userName }, locale = DEFAULT_LOCALE, cart, } = generalData;
     // const { avatar = DEFAULT_USER_AVATAR } = user;
 
-    console.log(userName, ',', avatar);
+    // console.log(userName, ',', avatar);
     // console.log(cart);
     // console.log(locale);
 }
@@ -285,6 +285,6 @@
     const youngestUser = findYoungestUser(users);
     const oldestUser = findOldestUser(users);
 
-    // console.log('The youngest user:', youngestUser);
-    // console.log('The oldest user:', oldestUser);
+    console.log('The youngest user:', youngestUser);
+    console.log('The oldest user:', oldestUser);
 }
