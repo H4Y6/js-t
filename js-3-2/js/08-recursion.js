@@ -56,6 +56,14 @@
 }
 
 {
+    function factorial(n) {
+        return n < 2 ? n : n * factorial(n - 1);
+    };
+
+    console.log(factorial(7));
+}
+
+{
     function calculateFactorial(n) {
         if (n === 1)
             return n;
