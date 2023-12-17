@@ -65,8 +65,10 @@
     const mergeArray = function (arr1, arr2) {
         return [...arr1, ...arr2];
     };
-
-    // console.log(mergeArray([1, 3, 8], [2, 3, 9]));
+    const arr1 = [5, 7, 2, 9, 7];
+    const arr2 = [4, 6, 7, 1];
+    console.log(mergeArray(arr1, arr2));
+    console.log(mergeArray([1, 3, 8], [2, 3, 9]));
 }
 
 {
