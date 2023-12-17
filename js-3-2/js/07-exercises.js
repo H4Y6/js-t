@@ -134,14 +134,15 @@
         }
     }
 
-    // const sign = '+';
-    const sign = '-';
+    const sign = '+';
+    // const sign = '-';
     // const startNumber = 0;
     const startNumber = 70;
 
     const mathFunctionResult = mathOperation(sign, startNumber, 25, -40, 20);
-    const result = mathOperation(sign, startNumber);
+    const result = mathOperation(sign, startNumber, 6, 88, 52, 7);
     // console.log(mathFunctionResult);
+    console.log(result);
 }
 
 {
