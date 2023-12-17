@@ -65,10 +65,10 @@
     const mergeArray = function (arr1, arr2) {
         return [...arr1, ...arr2];
     };
-    const arr1 = [5, 7, 2, 9, 7];
-    const arr2 = [4, 6, 7, 1];
-    console.log(mergeArray(arr1, arr2));
-    console.log(mergeArray([1, 3, 8], [2, 3, 9]));
+    // const arr1 = [5, 7, 2, 9, 7];
+    // const arr2 = [4, 6, 7, 1];
+    // console.log(mergeArray(arr1, arr2));
+    // console.log(mergeArray([1, 3, 8], [2, 3, 9]));
 }
 
 {
@@ -117,8 +117,8 @@
     //     }
     // }
 
-    function mathOperation(sign, ...args) {
-        let result = 0;
+    function mathOperation(sign, startNumber, ...args) {
+        let result = startNumber;
         if (sign === '+') {
             for (const arg of args) {
                 result += arg;
@@ -134,11 +134,13 @@
         }
     }
 
-    const sign = '+';
-    // const sign = '-';
+    // const sign = '+';
+    const sign = '-';
+    // const startNumber = 0;
+    const startNumber = 70;
 
-    const mathFunctionResult = mathOperation(sign, 25, -40, 20);
-    const result = mathOperation(sign);
+    const mathFunctionResult = mathOperation(sign, startNumber, 25, -40, 20);
+    const result = mathOperation(sign, startNumber);
     // console.log(mathFunctionResult);
 }
 
