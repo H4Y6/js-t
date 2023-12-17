@@ -142,7 +142,7 @@
     const mathFunctionResult = mathOperation(sign, startNumber, 25, -40, 20);
     const result = mathOperation(sign, startNumber, 6, 88, 52, 7);
     // console.log(mathFunctionResult);
-    console.log(result);
+    // console.log(result);
 }
 
 {
@@ -152,7 +152,7 @@
     const generalData = {
         user: {
             name: 'Sam',
-            avatar: 'https://img/avatar.png',
+            // avatar: 'https://img/avatar.png',
             age: 25,
         },
         locale: 'en_US',
@@ -166,7 +166,7 @@
     const { user: { avatar = DEFAULT_USER_AVATAR, name: userName }, locale = DEFAULT_LOCALE, cart, } = generalData;
     // const { avatar = DEFAULT_USER_AVATAR } = user;
 
-    // console.log(userName, ',', avatar);
+    console.log(userName, ',', avatar);
     // console.log(cart);
     // console.log(locale);
 }
