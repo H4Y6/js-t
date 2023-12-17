@@ -60,7 +60,7 @@
         return n < 2 ? n : n * factorial(n - 1);
     };
 
-    console.log(factorial(7));
+    // console.log(factorial(7));
 }
 
 {
