@@ -16,13 +16,13 @@
 {
     function createRecursionExample(n) {
         console.log("n =", n);
-        // if (n < 1) return;
+        // if (n <= 1) return;
 
         // return createRecursionExample(n - 1);
 
         return n <= 1 ? n : createRecursionExample(n - 1);
     }
-    createRecursionExample(3);
+    // createRecursionExample(3);
 }
 
 {
