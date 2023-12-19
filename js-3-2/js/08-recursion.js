@@ -96,15 +96,22 @@
 }
 
 {
-    function countDown(n) {
+    function countDownLoop(n) {
+        for (let i = n; i >= 0; i -= 1) {
+            console.log(i);
+        }
+    }
+    // countDownLoop(2);
+
+    function countDownRecursive(n) {
         if (n <= 0) {
-            console.log("Ok, n=", n)
+            console.log("Ok, n =", n)
             return;
         }
         console.log(n);
-        return countDown(n - 1);
+        countDownRecursive(n - 1);
     }
-    countDown(5)
+    countDownRecursive(4);
 }
 
 {
