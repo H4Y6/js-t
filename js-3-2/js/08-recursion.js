@@ -97,6 +97,18 @@
 
 {
     function countDown(n) {
+        if (n <= 0) {
+            console.log("Ok, n=", n)
+            return;
+        }
+        console.log(n);
+        return countDown(n - 1);
+    }
+    countDown(5)
+}
+
+{
+    function countDown(n) {
         if (n <= 1) {
             console.log(n);
             return n;
