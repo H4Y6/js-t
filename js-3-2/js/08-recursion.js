@@ -115,6 +115,17 @@
 }
 
 {
+    function pow(a, n) {
+        // if (n <= 0)
+        //     return Math.pow(a, n);
+        // return a * pow(a, n - 1);
+
+        return n <= 0 ? Math.pow(a, n) : a * pow(a, n - 1);
+    };
+    // console.log(pow(5, 3));
+}
+
+{
     function countDown(n) {
         if (n <= 1) {
             console.log(n);
