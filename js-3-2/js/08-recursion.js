@@ -156,3 +156,32 @@
     }
     // console.log(pow(2, -3))
 }
+{
+    function printChildrenRecursive(t) {
+        if (t.children.length === 0) {
+            return;
+        }
+        t.children.forEach(child => {
+            console.log(child.name);
+            printChildrenRecursive(child);
+        });
+    }
+
+    const tree = {
+        name: "Peter",
+        children: [
+            {
+                name: "Tom",
+                children: []
+            },
+            {
+                name: "Ann",
+                children: [
+                    { name: "Sam", children: [] },
+                    { name: "Dan", children: [] },
+                ]
+            },
+        ],
+    };
+    printChildrenRecursive(tree);
+}
