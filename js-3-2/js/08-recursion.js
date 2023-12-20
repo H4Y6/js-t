@@ -88,41 +88,11 @@
 }
 
 {
-    // const factorial = function (n) {
-    // return n === 1 ? n : n * factorial(n - 1);
-    // return n < 2 ? n : n * factorial(n - 1);
-    // }
+    const factorial = function (n) {
+        return n === 1 ? n : n * factorial(n - 1);
+        return n < 2 ? n : n * factorial(n - 1);
+    }
     // console.log(factorial(6));
-}
-
-{
-    function countDownLoop(n) {
-        for (let i = n; i >= 0; i -= 1) {
-            console.log(i);
-        }
-    }
-    // countDownLoop(2);
-
-    function countDownRecursive(n) {
-        if (n <= 0) {
-            console.log("Ok, n =", n)
-            return;
-        }
-        console.log(n);
-        countDownRecursive(n - 1);
-    }
-    // countDownRecursive(4);
-}
-
-{
-    function pow(a, n) {
-        // if (n <= 0)
-        //     return Math.pow(a, n);
-        // return a * pow(a, n - 1);
-
-        return n <= 0 ? Math.pow(a, n) : a * pow(a, n - 1);
-    };
-    // console.log(pow(5, 3));
 }
 
 {
@@ -136,7 +106,6 @@
         console.log(n, 'clg---after');
         return;
     };
-
     // countDown(7);
 }
 
@@ -151,156 +120,14 @@
     // console.log(sumRange(6));
 
     function sumRangeRecursive(n, total = 0) {
-        //     if (n <= 0) {
-        //         return total;
-        //     }
-        //     return sumRangeRecursive(n - 1, total + n)
-
-        return n <= 0 ? total : sumRangeRecursive(n - 1, total + n);
-    }
-    console.log(sumRangeRecursive(11));
-}
-
-{
-    function sumRange(n) {
-        let total = 0;
-        for (let i = n; i > 0; i -= 1) {
-            total += i;
-        }
-        return total;
-    }
-    // console.log(sumRange(4));
-
-    function sumRangeRecursive(n, total = 0) {
-        // if (n <= 0) {
-        //     return total;
-        // }
-        // return sumRangeRecursive(n - 1, total += n);
-        return n <= 0 ? total : sumRangeRecursive(n - 1, total += n)
-    }
-    // console.log(sumRangeRecursive(6))
-}
-
-{
-    function pow(a, n) {
-        if (n === 0) {
-            console.log("");
-            console.log('Result:')
-            return 1;
-        }
-        if (n < 0) return 1 / a * pow(a, n + 1);
-        return a * pow(a, n - 1);
-    }
-    // console.log(pow(3, 5));
-    // console.log(Math.pow(3, 5));
-    // console.log(pow(2, -2));
-    // console.log(Math.pow(2, -2));
-    // console.log(pow(4, 0));
-    // console.log(Math.pow(4, 0));
-}
-
-{
-    // function countDown(n) {
-
-    //     if (n <= 0) {
-    //         console.log('it is done.');
-    //         return n;
-    //     };
-
-    //     console.log(n);
-    //     countDown(n - 1);
-    // }
-    // countDown(11);
-}
-
-{
-    // function sumRange(n) {
-    //     let total = 0;
-    //     for (let i = n; i > 0; i -= 1) {
-    //         total += i;
-    //     }
-
-    //     return total;
-    // }
-    // console.log(sumRange(6));
-    // console.log(sumRange(4));
-}
-
-{
-    // function sumRange(n, total = 0) {
-    //     // if (n <= 0) return total;
-    //     // return sumRange(n - 1, total + n);
-
-    //     return n <= 0 ? total : sumRange(n - 1, total + n)
-    // }
-    // sumRange(3, 0)
-    // sumRange(2, 3)
-    // sumRange(1, 5)
-    // sumRange(0, 6)
-
-    // console.log(sumRange(4, 0));
-    // console.log(sumRange(5, 5));
-    // console.log(sumRange(5, 11));
-    // console.log(sumRange(6));
-}
-
-// {
-//     function countDown(n) {
-//         for (let i = n; i >= 0; i -= 1) {
-//             console.log(i);
-//         }
-//         console.log("It's done.");
-//     }
-//     countDown(4);
-// }
-
-{
-    function countDown(n) {
         if (n <= 0) {
-            console.log(n);
-            console.log("Ok");
-            return n;
+            return total;
         }
-        console.log(n)
-        countDown(n - 1);
+        return sumRangeRecursive(n - 1, total + n)
+
+        // return n <= 0 ? total : sumRangeRecursive(n - 1, total + n);
     }
-
-    // countDown(3);
-    // countDown(2);
-    // countDown(1);
-    // countDown(0);
-    // return
-    // return
-    // return
-    // return
-}
-
-{
-    // const sumRange = function (n) {
-    //     let total = 0;
-    //     for (let i = n; i > 0; i -= 1) {
-    //         total += i;
-    //     }
-    //     return total;
-    // }
-
-    function sumRangeRecursive(n, total = 0) {
-        /* a: */
-        // if (n <= 0) {
-        //     console.log('Range sum:')
-        //     return total;
-        // }
-
-        // total = sumRangeRecursive(n - 1, total + n);
-        // return total;
-
-        /* b: */
-        return n >= 1 ? sumRangeRecursive(n - 1, total + n) : total;
-
-        /* c: */
-        // return n < 1 ? total : sumRangeRecursive(n - 1, total + n);
-    }
-    // console.log(sumRangeRecursive(5));
+    // console.log(sumRangeRecursive(11));
 }
 
 {
@@ -316,20 +143,16 @@
         if (n < 2) return n;
         return n * estimateFactorial(n - 1);
     }
-
     // console.log(estimateFactorial(6));
 }
 
 {
     function pow(x, n) {
-        // return (n >= 1) ? x * pow(x, n - 1) : Math.pow(x, n);
-
         if (n === 0) return 1;
-        if (n > 0) return x * pow(x, n - 1);
-        return 1 / x * pow(x, n + 1)
+        if (n < 0) return 1 / x * pow(x, n + 1);
+        return x * pow(x, n - 1);
+
+        // return n > 1 ? x * pow(x, n - 1) : Math.pow(x, n)
     }
-    // console.log(pow(3, -3));
-    // console.log(pow(6, 4));
-    // console.log(pow(0, 0));
-    // console.log(Math.pow(3, -3))
+    // console.log(pow(2, -3))
 }
