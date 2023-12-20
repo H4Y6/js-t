@@ -1,26 +1,12 @@
-
-{
-    /* 🥸🥸  recursion  🥸🥸   */
-
-    const recursionExample = function (n) {
-        console.log("n =", n)
-        if (n === 1) return n;
-
-        return recursionExample(n - 1);
-    }
-
-    // const result = recursionExample(4);
-    // console.log(result);
-}
-
+/* 🥸🥸  recursion  🥸🥸   */
 {
     function createRecursionExample(n) {
         console.log("n =", n);
-        // if (n <= 1) return;
+        if (n <= 1) return;
+        return createRecursionExample(n - 1);
 
-        // return createRecursionExample(n - 1);
-
-        return n <= 1 ? n : createRecursionExample(n - 1);
+        // return n <= 1 ? n : createRecursionExample(n - 1);
+        // return n > 1 ? createRecursionExample(n - 1) : n;
     }
     // createRecursionExample(3);
 }
@@ -44,14 +30,15 @@
     /* 🥸🥸  The second factorial through recursion  🥸🥸   */
 
     const factorial = function (n) {
-        if (n === 1) return n;
+        console.log(n);
+        if (n < 3) return n;
         const res = n * factorial(n - 1);
 
-        // console.log(`${n}! = ${res}`)
+        console.log(`${n}! = ${res}`)
         return res;
     }
 
-    const result = factorial(4);
+    const result = factorial(5);
     // console.log(result);
 }
 
@@ -183,5 +170,5 @@
             },
         ],
     };
-    printChildrenRecursive(tree);
+    // printChildrenRecursive(tree);
 }
