@@ -127,17 +127,38 @@
 
 {
     function countDown(n) {
-        if (n <= 1) {
-            console.log(n);
-            return n;
+        if (n <= 0) {
+            console.log("n =", n);
+            return;
         }
         console.log(n, 'clg---before');
         countDown(n - 1);
-        // console.log(n, 'clg---after');
-        return n;
+        console.log(n, 'clg---after');
+        return;
     };
 
     // countDown(7);
+}
+
+{
+    function sumRange(n) {
+        let total = 0;
+        for (let i = n; i > 0; i -= 1) {
+            total += i;
+        }
+        return total;
+    }
+    // console.log(sumRange(6));
+
+    function sumRangeRecursive(n, total = 0) {
+        //     if (n <= 0) {
+        //         return total;
+        //     }
+        //     return sumRangeRecursive(n - 1, total + n)
+
+        return n <= 0 ? total : sumRangeRecursive(n - 1, total + n);
+    }
+    console.log(sumRangeRecursive(11));
 }
 
 {
