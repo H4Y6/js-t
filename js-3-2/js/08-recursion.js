@@ -38,7 +38,7 @@
         return res;
     }
 
-    const result = factorial(5);
+    // const result = factorial(5);
     // console.log(result);
 }
 
@@ -134,14 +134,32 @@
 }
 
 {
-    function pow(x, n) {
+    function pow(a, n) {
+        let result = 1;
+        if (n < 0) {
+            for (let i = 0; i > n; i -= 1) {
+                result /= a;
+            }
+            return result;
+        } else {
+            for (let i = 1; i <= n; i += 1) {
+                result *= a;
+            }
+            return result;
+        }
+    }
+    console.log(pow(2, 3))
+    console.log(pow(2, 0))
+    console.log(pow(2, -4))
+
+    function powRecursive(x, n) {
         if (n === 0) return 1;
         if (n < 0) return 1 / x * pow(x, n + 1);
         return x * pow(x, n - 1);
 
         // return n > 1 ? x * pow(x, n - 1) : Math.pow(x, n)
     }
-    // console.log(pow(2, -3))
+    // console.log(powRecursive(2, -2))
 }
 {
     function printChildrenRecursive(t) {
