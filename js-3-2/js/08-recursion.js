@@ -148,19 +148,21 @@
             return result;
         }
     }
-    console.log(pow(2, 3))
-    console.log(pow(2, 0))
-    console.log(pow(2, -4))
+    // console.log(pow(5, 4));
+    // console.log(pow(2, 3));
+    // console.log(pow(2, -2));
 
-    function powRecursive(x, n) {
+    function powRecursive(a, n) {
         if (n === 0) return 1;
-        if (n < 0) return 1 / x * pow(x, n + 1);
-        return x * pow(x, n - 1);
 
-        // return n > 1 ? x * pow(x, n - 1) : Math.pow(x, n)
+        // if (n < 0) return 1 / a * pow(a, n + 1);
+        // return a * pow(a, n - 1);
+
+        return n > 0 ? a * powRecursive(a, n - 1) : 1 / a * powRecursive(a, n + 1);
     }
-    // console.log(powRecursive(2, -2))
+    // console.log(powRecursive(4, 0));
 }
+
 {
     function printChildrenRecursive(t) {
         if (t.children.length === 0) {
