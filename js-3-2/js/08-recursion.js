@@ -216,5 +216,24 @@
         }
     }
 
-    console.log(sumSalaries(company));
+    // console.log(sumSalaries(company));
+}
+
+{
+    function sumTo(n) {
+        let total = 0;
+        for (let i = 1; i <= n; i += 1) {
+            total += i;
+        }
+        return total;
+    };
+    // console.log(sumTo(5));
+
+    function sumToNumber(n, total = 0) {
+        // if (n < 1) return total;
+        // return sumToNumberRecursive(n - 1, total += n);
+
+        return n > 0 ? sumToNumber(n - 1, total += n) : total;
+    };
+    // console.log(sumToNumber(23));
 }
