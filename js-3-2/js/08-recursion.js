@@ -235,12 +235,12 @@
 
         return n > 0 ? sumToNumber(n - 1, total += n) : total;
     };
-    console.log(sumToNumber(49));
+    // console.log(sumToNumber(23));
 }
 
 {
     function factorial(n) {
         return n > 1 ? n * factorial(n - 1) : n;
     }
-    console.log(factorial(7));
+    // console.log(factorial(5))
 }
