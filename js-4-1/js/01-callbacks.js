@@ -45,10 +45,14 @@ const doMath = function (a, b, callback) {
 const buttonRef = document.querySelector('.js-button');
 
 const handleBtnClick = function () {
-    console.log('Клик по кнопке ' + Date.now());
+    console.log('While the click the time was', (Date.now() / 3600000 / 24 % 1 * 24).toFixed(3), 'hrs(UTC)');
 };
 
-// buttonRef.addEventListener('click', handleBtnClick);
+buttonRef.addEventListener('click', handleBtnClick);
+buttonRef.addEventListener('click',
+    () => console.log('The time is', (Date.now() / 3600000 / 24 % 1 * 24).toFixed(2), 'hrs(UTC)'));
+buttonRef.addEventListener('click',
+    function () { console.log('The time is', (Date.now() / 3600000 / 24 % 1 * 24).toFixed(3), 'hrs(UTC)') });
 
 /*
  * Отложенный вызов: геолокация
@@ -105,7 +109,7 @@ const filter = function (array, test) {
     const filteredArray = [];
 
     for (const el of array) {
-        console.log(el);
+        // console.log(el);
         const passed = test(el);
 
         if (passed) {
@@ -126,14 +130,14 @@ const callback1 = function (value) {
 };
 
 const r1 = filter([1, 2, 3, 4, 5], callback1);
-console.log(r1);
+// console.log(r1);
 
 const callback2 = function (value) {
     return value <= 4;
 };
 
 const r2 = filter([1, 2, 3, 4, 5, 6, 7, 8], callback2);
-console.log(r2);
+// console.log(r2);
 
 const fruits = [
     { name: 'apples', quantity: 200, isFresh: true },
@@ -146,4 +150,4 @@ const getFruitsWithQuantity = function (fruit) {
 };
 
 const r3 = filter(fruits, getFruitsWithQuantity);
-console.log(r3);
+// console.log(r3);
