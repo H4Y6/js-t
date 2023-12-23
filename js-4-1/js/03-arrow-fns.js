@@ -6,16 +6,34 @@
  * - Неявный возврат объекта
  */
 
-// const add = function (a, b, c) {
-//     console.log(arguments);
-//     return a + b + c;
-// };
+const add = function (a, b, c) {
+    console.log(arguments);
+    return a + b + c;
+};
+
+const addArrowSimple = (a, b, c) => a + b + c;
+console.log(addArrowSimple(5, 10, 15));
+
+const addArrowSimpleArgs = (a, b, c) => console.log(args); /*args are not defined */
+// addArrowSimpleArgs(5, 10, 15);
+
+const addArrowSimpleArgsRest = (...args) => {
+    console.log(args);
+    let total = 0;
+    for (const arg of args) {
+        total += arg;
+    }
+    return total;
+}; /*Use rest to get arguments */
+
+addArrowSimpleArgsRest(5, 10, 15);
+
 
 // const addArrow = (a, b, c) => {
 //     return a + b + c;
 // };
 
-// console.log(add(5, 10, 15));
+console.log(add(5, 10, 15));
 // console.log(addArrow(5, 10, 15));
 
 // const fnA = function () {
