@@ -92,18 +92,18 @@ const rounder = function (places) {
     };
 };
 
-const rounder2 = rounder(2);
-const rounder3 = rounder(3);
+// const rounder2 = rounder(2);
+// const rounder3 = rounder(3);
 
-console.dir(rounder2);
-console.dir(rounder3);
+// console.dir(rounder2);
+// console.dir(rounder3);
 
-console.log(rounder2(3.4567));
-console.log(rounder2(5.4512312312367));
-console.log(rounder3(3.4567));
-console.log(rounder2(5.1234));
-console.log(rounder3(3.4567));
-console.log(rounder3(10.67667));
+// console.log(rounder2(3.4567));
+// console.log(rounder2(5.4512312312367));
+// console.log(rounder3(3.4567));
+// console.log(rounder2(5.1234));
+// console.log(rounder3(3.4567));
+// console.log(rounder3(10.67667));
 
 /*
  * Приватные данные и функции - скрытие реализации, интерфейс
@@ -131,11 +131,11 @@ const salaryManagerFactory = function (employeeName, baseSalary = 0) {
 
 const salaryManager = salaryManagerFactory('Mango', 5000);
 
-// console.log(salaryManager.current());
+console.log(salaryManager.current());
 
-// console.log(salaryManager.raise(10000000));
+console.log(salaryManager.raise(10000000));
 
-// console.log(salaryManager.current());
+console.log(salaryManager.current());
 
 // const myLibFactory = function () {
 //     let value = 0;
