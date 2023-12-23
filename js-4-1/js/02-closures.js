@@ -53,18 +53,18 @@ const makeSheff = function (name) {
     return makeDish;
 };
 
-// const mango = makeSheff('Mango');
+const mango = makeSheff('Mango');
 
-// console.dir(mango);
+console.dir(mango);
 
-// mango('котлеты');
+mango('котлеты');
 // mango('пирожок');
 
-// const poly = makeSheff('Poly');
+const poly = makeSheff('Poly');
 
-// console.dir(poly);
+console.dir(poly);
 
-// poly('чай');
+poly('чай');
 // poly('омлет');
 
 // console.dir(mango);
@@ -131,11 +131,11 @@ const salaryManagerFactory = function (employeeName, baseSalary = 0) {
 
 const salaryManager = salaryManagerFactory('Mango', 5000);
 
-console.log(salaryManager.current());
+// console.log(salaryManager.current());
 
-console.log(salaryManager.raise(10000000));
+// console.log(salaryManager.raise(10000000));
 
-console.log(salaryManager.current());
+// console.log(salaryManager.current());
 
 // const myLibFactory = function () {
 //     let value = 0;
