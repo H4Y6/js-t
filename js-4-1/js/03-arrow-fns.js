@@ -36,17 +36,17 @@ addArrowSimpleArgsRest(5, 10, 15);
 console.log(add(5, 10, 15));
 // console.log(addArrow(5, 10, 15));
 
-// const fnA = function () {
-//   return {
-//     a: 5,
-//   };
-// };
+const fnA = function () {
+    return {
+        a: 5,
+    };
+};
 
-// console.log(fnA());
+console.log(fnA());
 
-// const arrowFnA = () => ({ arrowA: 5 });
+const arrowFnA = () => ({ arrowA: 5 });  /** to have implicit return with object use () */
 
-// console.log(arrowFnA());
+console.log(arrowFnA());
 
 const filter = (array, test) => {
     const filteredArray = [];
