@@ -211,6 +211,7 @@ const callback2 = function (value) {
 const r2 = filter([1, 2, 3, 4, 5, 6, 7, 8], callback2);
 // console.log(r2);
 
+
 const fruits = [
     { name: 'apples', quantity: 200, isFresh: true },
     { name: 'grapes', quantity: 150, isFresh: false },
@@ -223,3 +224,38 @@ const getFruitsWithQuantity = function (fruit) {
 
 const r3 = filter(fruits, getFruitsWithQuantity);
 // console.log(r3);
+
+{
+    const filter = (array, test) => {
+        const filtered = [];
+        for (const item of array) {
+            if (test(item)) filtered.push(item);
+        }
+        return filtered;
+    }
+
+    const test1 = (el) => el >= 5;
+    const test2 = (el) => el < 5;
+
+    const array1 = [1, 2, 3, 4, 5, 8, 9, 11];
+    const array2 = [1, 3, 4, 5, 6, 7, 9];
+
+    // console.log(filter(array1, test1));
+    // console.log(filter(array1, test2));
+    // console.log(filter(array2, test1));
+    // console.log(filter(array2, test2));
+}
+{
+    const chooseFruits = (el) => el.quantity > 100;
+
+    const filterFruits = (array, cb) => {
+        const filteredFruits = [];
+        for (const item of array) {
+            if (cb(item)) filteredFruits.push(item);
+        }
+        return filteredFruits;
+    };
+
+
+    console.log(filterFruits(fruits, chooseFruits))
+}
