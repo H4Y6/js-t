@@ -49,10 +49,18 @@ const doMath = function (a, b, callback) {
 
     const sub = function (x, y) {
         return x - y;
-    }
+    };
 
     console.log(doMath(5, 2, add));
     console.log(doMath(5, 2, sub));
+
+    const addArrow = (x, y) => x + y;
+    const subArrow = (x, y) => x - y;
+    const calculate = (a, b, cb) => console.log(cb(a, b));
+
+    calculate(6, 1, addArrow);
+    calculate(6, 1, subArrow);
+
 }
 
 
