@@ -59,14 +59,19 @@ const doMath = function (a, b, callback) {
 
     const calculate = (a, b, cb) => (cb(a, b));
 
-    console.log(calculate(6, 1, addArrow));
-    console.log(calculate(6, 1, subArrow));
+    // console.log(calculate(6, 1, addArrow));
+    // console.log(calculate(6, 1, subArrow));
 
-    calculate(4, 3, (x, y) => console.log(x + y));
-    calculate(4, 3, (x, y) => console.log(x - y));
+    // calculate(4, 3, (x, y) => console.log(x + y));
+    // calculate(4, 3, (x, y) => console.log(x - y));
 
-    calculate(4, 3, function (x, y) { console.log(x + y) });
-    calculate(4, 3, function (x, y) { console.log(x - y) });
+    // calculate(4, 3, function (x, y) { console.log(x + y) });
+    // calculate(4, 3, function (x, y) { console.log(x - y) });
+
+
+    const calculateA = (a, b, cb, cbA) => (cb(a, b), cbA(a, b));
+    // calculateA(4, 3, (x, y) => console.log(x + y), (x, y) => console.log(x - y));
+    // calculateA(4, 3, function (x, y) { console.log(x + y) }, function (x, y) { console.log(x - y) });
 }
 
 
@@ -75,16 +80,30 @@ const doMath = function (a, b, callback) {
  */
 
 const buttonRef = document.querySelector('.js-button');
+// console.dir(buttonRef);
 
 const handleBtnClick = function () {
-    console.log('While the click the time was', (Date.now() / 3600000 / 24 % 1 * 24).toFixed(3), 'hrs(UTC)');
+    const currentTime = Date.now() / 3600000 % 24;
+    console.log('While the click the time was', currentTime.toFixed(3), 'hrs(UTC)');
 };
 
 buttonRef.addEventListener('click', handleBtnClick);
 buttonRef.addEventListener('click',
-    () => console.log('The time is', (Date.now() / 3600000 / 24 % 1 * 24).toFixed(2), 'hrs(UTC)'));
+    () => console.log('The time is', (Date.now() / 3600000 % 24).toFixed(2), 'hrs(UTC)'));
 buttonRef.addEventListener('click',
-    function () { console.log('The time is', (Date.now() / 3600000 / 24 % 1 * 24).toFixed(3), 'hrs(UTC)') });
+    function () { console.log('The time is', (Date.now() / 3600000 % 24).toFixed(3), 'hrs(UTC)') });
+
+const btnEl = document.querySelector('.js-button');
+
+const onBtnClick = () => {
+    const currentTime = Date.now() / 3600000 % 24;
+    const currentHour = (Number(currentTime.toFixed()) + 2).toString();
+    const currentMinute = (currentTime % 1 * 60).toFixed(2);
+    console.log(currentHour, ':', currentMinute, 'LT')
+}
+
+btnEl.addEventListener('click', onBtnClick)
+
 
 /*
  * Отложенный вызов: геолокация
