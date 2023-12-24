@@ -51,16 +51,22 @@ const doMath = function (a, b, callback) {
         return x - y;
     };
 
-    console.log(doMath(5, 2, add));
-    console.log(doMath(5, 2, sub));
+    // console.log(doMath(5, 2, add));
+    // console.log(doMath(5, 2, sub));
 
     const addArrow = (x, y) => x + y;
     const subArrow = (x, y) => x - y;
-    const calculate = (a, b, cb) => console.log(cb(a, b));
 
-    calculate(6, 1, addArrow);
-    calculate(6, 1, subArrow);
+    const calculate = (a, b, cb) => (cb(a, b));
 
+    console.log(calculate(6, 1, addArrow));
+    console.log(calculate(6, 1, subArrow));
+
+    calculate(4, 3, (x, y) => console.log(x + y));
+    calculate(4, 3, (x, y) => console.log(x - y));
+
+    calculate(4, 3, function (x, y) { console.log(x + y) });
+    calculate(4, 3, function (x, y) { console.log(x - y) });
 }
 
 
