@@ -38,6 +38,24 @@ const doMath = function (a, b, callback) {
 //     return x - y;
 // });
 
+{
+    const doMath = function (a, b, cb) {
+        return cb(a, b);
+    };
+
+    const add = function (x, y) {
+        return x + y;
+    };
+
+    const sub = function (x, y) {
+        return x - y;
+    }
+
+    console.log(doMath(5, 2, add));
+    console.log(doMath(5, 2, sub));
+}
+
+
 /*
  * Отложенный вызов: регистрация событий
  */
