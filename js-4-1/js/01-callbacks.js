@@ -109,20 +109,41 @@ btnEl.addEventListener('click', onBtnClick)
  * Отложенный вызов: геолокация
  */
 
-const onGetPositionSuccess = function (position) {
-    console.log('Это вызов onGetPositionSuccess');
-    console.log(position);
-};
+// const onGetPositionSuccess = function (position) {
+//     console.log('Это вызов onGetPositionSuccess');
+//     console.log(position);
+// };
 
-const onGetPositionError = function (error) {
-    console.log('Это вызов onGetPositionError');
-    console.log(error);
-};
+// const onGetPositionError = function (error) {
+//     console.log('Это вызов onGetPositionError');
+//     console.log(error);
+// };
 
 // window.navigator.geolocation.getCurrentPosition(
 //     onGetPositionSuccess,
 //     onGetPositionError,
 // );
+
+const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+};
+
+function success(pos) {
+    const crd = pos.coords;
+
+    console.log("Your current position is:");
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+}
+
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+// navigator.geolocation.getCurrentPosition(success, error, options);
 
 /*
  * Отложенный вызов: интервалы
