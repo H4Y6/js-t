@@ -19,7 +19,7 @@ const fnA = function (parameter) {
     return innerFunction;
 };
 
-// const fnB = fnA(555);
+const fnB = fnA(555);
 
 // fnB();
 
@@ -36,8 +36,8 @@ const fnC = function (param) {
     return fnInner;
 };
 const fnD = fnC('das');
-fnD()
-console.log(fnD);
+// fnD()
+// console.log(fnD);
 
 /*
  * Поварёнок
@@ -66,6 +66,24 @@ const makeSheff = function (name) {
 
     return makeDish;
 };
+
+{
+    const makeChief = function (name) {
+        const makeDishA = function (dish) {
+            console.log(`${name} is cooking ${dish}.`)
+        }
+
+        return makeDishA;
+    };
+
+    const mango = makeChief('Mango');
+    mango('pie');
+
+    const poly = makeChief('Poly');
+    poly('soop');
+
+    console.dir(mango);  /* closure on {makeChief} */
+}
 
 // const mango = makeSheff('Mango');
 
