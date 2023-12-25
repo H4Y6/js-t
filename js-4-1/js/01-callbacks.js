@@ -226,10 +226,10 @@ const r3 = filter(fruits, getFruitsWithQuantity);
 // console.log(r3);
 
 {
-    const filter = (array, test) => {
+    const filter = (array, cb) => {
         const filtered = [];
         for (const item of array) {
-            if (test(item)) filtered.push(item);
+            if (cb(item)) filtered.push(item);
         }
         return filtered;
     }
@@ -244,8 +244,8 @@ const r3 = filter(fruits, getFruitsWithQuantity);
     // console.log(filter(array1, test2));
     // console.log(filter(array2, test1));
     // console.log(filter(array2, test2));
-}
-{
+
+
     const chooseFruits = (el) => el.quantity > 100;
 
     const filterFruits = (array, cb) => {
@@ -256,6 +256,7 @@ const r3 = filter(fruits, getFruitsWithQuantity);
         return filteredFruits;
     };
     console.log(filterFruits(fruits, chooseFruits));
+    console.log(filter(fruits, chooseFruits));
 
 
     const collectFruit = (el, number) => el.quantity <= number;
@@ -263,7 +264,7 @@ const r3 = filter(fruits, getFruitsWithQuantity);
     const chooseSomeFruits = (array, cb, quantity) => {
         const collectedFruits = [];
         for (const fruit of array) {
-            if (cb(fruit, quantity)) { collectedFruits.push(fruit) };
+            if (cb(fruit, quantity)) collectedFruits.push(fruit);
         }
         return collectedFruits;
     };
