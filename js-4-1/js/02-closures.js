@@ -25,6 +25,20 @@ const fnA = function (parameter) {
 
 // console.log(fnB);
 
+const fnC = function (param) {
+    const innerVar = 'The inner var meaning';
+
+    const fnInner = function () {
+        console.log(param);
+        console.log(innerVar);
+        console.log('The inner function call');
+    };
+    return fnInner;
+};
+const fnD = fnC('das');
+fnD()
+console.log(fnD);
+
 /*
  * Поварёнок
  */
@@ -131,11 +145,11 @@ const salaryManagerFactory = function (employeeName, baseSalary = 0) {
 
 const salaryManager = salaryManagerFactory('Mango', 5000);
 
-console.log(salaryManager.current());
+// console.log(salaryManager.current());
 
-console.log(salaryManager.raise(10000000));
+// console.log(salaryManager.raise(10000000));
 
-console.log(salaryManager.current());
+// console.log(salaryManager.current());
 
 // const myLibFactory = function () {
 //     let value = 0;
