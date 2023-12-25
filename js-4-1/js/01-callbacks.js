@@ -255,7 +255,17 @@ const r3 = filter(fruits, getFruitsWithQuantity);
         }
         return filteredFruits;
     };
+    console.log(filterFruits(fruits, chooseFruits));
 
 
-    console.log(filterFruits(fruits, chooseFruits))
+    const collectFruit = (el, number) => el.quantity <= number;
+
+    const chooseSomeFruits = (array, cb, quantity) => {
+        const collectedFruits = [];
+        for (const fruit of array) {
+            if (cb(fruit, quantity)) { collectedFruits.push(fruit) };
+        }
+        return collectedFruits;
+    };
+    console.log(chooseSomeFruits(fruits, collectFruit, 150));
 }
