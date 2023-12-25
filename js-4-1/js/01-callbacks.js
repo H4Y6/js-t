@@ -246,7 +246,7 @@ const r3 = filter(fruits, getFruitsWithQuantity);
     // console.log(filter(array2, test2));
 
 
-    const chooseFruits = (el) => el.quantity > 100;
+    const chooseFruit = (el) => el.quantity > 100;
 
     const filterFruits = (array, cb) => {
         const filteredFruits = [];
@@ -255,8 +255,8 @@ const r3 = filter(fruits, getFruitsWithQuantity);
         }
         return filteredFruits;
     };
-    console.log(filterFruits(fruits, chooseFruits));
-    console.log(filter(fruits, chooseFruits));
+    console.log(filterFruits(fruits, chooseFruit));
+    console.log(filter(fruits, chooseFruit));
 
 
     const collectFruit = (el, number) => el.quantity <= number;
