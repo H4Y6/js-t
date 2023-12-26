@@ -111,3 +111,46 @@ console.log(r3);
     // console.log(filtre([3, 5, 2, 7, 8, 4], 4, setFiltreRule));
     console.log(filtre([3, 5, 2, 7, 8, 4], item => item <= 5));
 }
+
+{
+    const atTheOldToad = {
+        potions: [
+            { name: "Speed potion", price: 460 },
+            { name: "Dragon breath", price: 780 },
+            { name: "Stone skin", price: 520 },
+        ],
+        getPotions() {
+            return this.potions;
+        },
+        addPotion(newPotion) {
+            const potionNames = Object.values(this.potions);
+            const idx = potionNames.findIndex(p => p.name === newPotion.name);
+
+            if (idx === -1) {
+                this.potions.push(newPotion);
+            };
+            {
+                return `Error! Potion ${newPotion.name} is already in your inventory!`;
+            };
+        },
+        removePotion(potionName) {
+            const potionIndex = this.potions.indexOf(potionName);
+
+            if (potionIndex === -1) {
+                return `Potion ${potionName} is not in inventory!`;
+            }
+
+            this.potions.splice(potionIndex, 1);
+        },
+        updatePotionName(oldName, newName) {
+            const potionIndex = this.potions.indexOf(oldName);
+
+            if (potionIndex === -1) {
+                return `Potion ${oldName} is not in inventory!`;
+            }
+
+            this.potions.splice(potionIndex, 1, newName);
+        },
+    };
+
+}
