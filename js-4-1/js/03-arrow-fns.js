@@ -86,18 +86,28 @@ const r3 = filter(fruits, fruit => fruit.quantity >= 120);
 console.log(r3);
 
 {
-    const setFiltreRule = (value, limitedValue) => value < limitedValue;
+    // const setFiltreRule = (value, limitedValue) => value <= limitedValue;
 
-    const filtre = (array, number, cb) => {
+    // const filtre = (array, number, cb) => {
+    //     const filtredArray = [];
+    //     for (const el of array) {
+    //         if (cb(el, number)) {
+    //             filtredArray.push(el);
+    //         }
+    //     }
+    //     return filtredArray;
+    // };
+
+    const filtre = (array, cb) => {
         const filtredArray = [];
         for (const el of array) {
-            if (cb(el, number)) {
+            if (cb(el)) {
                 filtredArray.push(el);
             }
         }
         return filtredArray;
-    }
+    };
 
-
-    console.log(filtre([3, 5, 2, 7, 8, 4], 4, setFiltreRule));
+    // console.log(filtre([3, 5, 2, 7, 8, 4], 4, setFiltreRule));
+    console.log(filtre([3, 5, 2, 7, 8, 4], item => item <= 5));
 }
