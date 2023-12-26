@@ -134,22 +134,22 @@ console.log(r3);
             };
         },
         removePotion(potionName) {
-            const potionIndex = this.potions.indexOf(potionName);
-
-            if (potionIndex === -1) {
+            const potionNames = Object.values(this.potions);
+            const idx = potionNames.findIndex(p => p.name === potionName);
+            if (idx === -1) {
                 return `Potion ${potionName} is not in inventory!`;
             }
 
-            this.potions.splice(potionIndex, 1);
+            this.potions.splice(idx, 1);
         },
         updatePotionName(oldName, newName) {
-            const potionIndex = this.potions.indexOf(oldName);
+            const potionIndex = Object.values(this.potions).findIndex(p => p.name === oldName);
 
             if (potionIndex === -1) {
                 return `Potion ${oldName} is not in inventory!`;
             }
 
-            this.potions.splice(potionIndex, 1, newName);
+            this.potions[potionIndex].name = newName;
         },
     };
 
