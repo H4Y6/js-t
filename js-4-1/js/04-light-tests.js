@@ -46,7 +46,7 @@
         });
         return filteredNumbers;
     }
-    console.log(filterArray([12, 24, 8, 41, 76], 20));
+    // console.log(filterArray([12, 24, 8, 41, 76], 20));
 
     function getCommonElements(firstArray, secondArray) {
         const commonElements = [];
@@ -59,7 +59,7 @@
 
         return commonElements;
     };
-    console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
+    // console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
 }
 
 {
@@ -70,5 +70,31 @@
 
     // const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
 
-    console.log(calculateTotalPrice(8, 60));
+    // console.log(calculateTotalPrice(8, 60));
+}
+
+{
+    const dirtyMultiply = (array, value) => {
+        for (let i = 0; i < array.length; i += 1) { array[i] *= value; }
+    };
+    const numbers = [1, 2, 3, 4, 5];
+    dirtyMultiply(numbers, 2);
+    // console.log(numbers);
+}
+
+{
+    function changeEven(numbers, value) {
+        const changedEvenNumbers = [...numbers];
+        for (let i = 0; i < numbers.length; i += 1) {
+            if (changedEvenNumbers[i] % 2 === 0) {
+                changedEvenNumbers[i] *= value;
+            };
+        }
+
+        return changedEvenNumbers;
+    }
+
+    const numbers = [1, 2, 3, 4, 5];
+    console.log(changeEven(numbers, 3));
+    console.log(numbers);
 }
