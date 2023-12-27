@@ -50,9 +50,12 @@
 
     function getCommonElements(firstArray, secondArray) {
         const commonElements = [];
-        firstArray.forEach(el => {
+        firstArray.forEach(function (el) {
             if (secondArray.includes(el)) commonElements.push(el);
         });
+        // firstArray.forEach(el => {
+        //     if (secondArray.includes(el)) commonElements.push(el);
+        // });
 
         return commonElements;
     };
