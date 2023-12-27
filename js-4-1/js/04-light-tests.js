@@ -74,15 +74,8 @@
 }
 
 {
-    const dirtyMultiply = (array, value) => {
-        for (let i = 0; i < array.length; i += 1) { array[i] *= value; }
-    };
-    const numbers = [1, 2, 3, 4, 5];
-    dirtyMultiply(numbers, 2);
-    // console.log(numbers);
-}
 
-{
+
     function changeEven(numbers, value) {
         const changedEvenNumbers = [...numbers];
         for (let i = 0; i < numbers.length; i += 1) {
@@ -95,6 +88,46 @@
     }
 
     const numbers = [1, 2, 3, 4, 5];
-    console.log(changeEven(numbers, 3));
-    console.log(numbers);
+    // console.log(changeEven(numbers, 3));
+    // console.log(numbers);
+
+
+    const dirtyMultiply = (array, value) => {
+        for (let i = 0; i < array.length; i += 1) { array[i] *= value; };
+    };
+
+    dirtyMultiply(numbers, 2);
+    // console.log(numbers);
+}
+
+{
+    const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+    const planetsLengths = planets.map(p => (p.length));
+
+    // console.log(planetsLengths);
+}
+
+{
+    const books = [
+        {
+            title: "The Last Kingdom",
+            author: "Bernard Cornwell",
+            genres: ["adventure", "history"],
+        },
+        {
+            title: "Beside Still Waters",
+            author: "Robert Sheckley",
+            genres: ["fiction"],
+        },
+        {
+            title: "Redder Than Blood",
+            author: "Tanith Lee",
+            genres: ["horror", "mysticism"],
+        },
+    ];
+
+
+    const titles = books.map(b => b.title);
+    const genres = books.flatMap(b => b.genres);
+    console.log(titles, genres);
 }

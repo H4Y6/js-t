@@ -84,14 +84,14 @@ const buttonRef = document.querySelector('.js-button');
 
 const handleBtnClick = function () {
     const currentTime = Date.now() / 3600000 % 24;
-    console.log('While the click the time was', currentTime.toFixed(3), 'hrs(UTC)');
+    // console.log('While the click the time was', currentTime.toFixed(3), 'hrs(UTC)');
 };
 
 buttonRef.addEventListener('click', handleBtnClick);
-buttonRef.addEventListener('click',
-    () => console.log('The time is', (Date.now() / 3600000 % 24).toFixed(2), 'hrs(UTC)'));
-buttonRef.addEventListener('click',
-    function () { console.log('The time is', (Date.now() / 3600000 % 24).toFixed(3), 'hrs(UTC)') });
+// buttonRef.addEventListener('click',
+//     () => console.log('The time is', (Date.now() / 3600000 % 24).toFixed(2), 'hrs(UTC)'));
+// buttonRef.addEventListener('click',
+//     function () { console.log('The time is', (Date.now() / 3600000 % 24).toFixed(3), 'hrs(UTC)') });
 
 const btnEl = document.querySelector('.js-button');
 
@@ -255,8 +255,8 @@ const r3 = filter(fruits, getFruitsWithQuantity);
         }
         return filteredFruits;
     };
-    console.log(filterFruits(fruits, chooseFruit));
-    console.log(filter(fruits, chooseFruit));
+    // console.log(filterFruits(fruits, chooseFruit));
+    // console.log(filter(fruits, chooseFruit));
 
 
     const collectFruit = (el, number) => el.quantity <= number;
@@ -268,5 +268,5 @@ const r3 = filter(fruits, getFruitsWithQuantity);
         }
         return collectedFruits;
     };
-    console.log(chooseSomeFruits(fruits, collectFruit, 150));
+    // console.log(chooseSomeFruits(fruits, collectFruit, 150));
 }
