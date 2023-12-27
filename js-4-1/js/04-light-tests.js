@@ -61,3 +61,13 @@
     };
     console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
 }
+
+{
+    // function calculateTotalPrice(quantity, pricePerItem) {
+    //     return quantity * pricePerItem;
+    // };
+
+    const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
+
+    console.log(calculateTotalPrice(8, 60));
+}
