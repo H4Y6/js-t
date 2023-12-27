@@ -31,5 +31,30 @@
         // orderedItems.forEach( item => totalPrice += item);
 
         return totalPrice;
+    };
+
+    function filterArray(numbers, value) {
+        const filteredNumbers = [];
+
+        // numbers.forEach(function (number) {
+        //     if (number > value) {
+        //         filteredNumbers.push(number);
+        //     }
+        numbers.forEach(number => {
+            if (number < value) filteredNumbers.push(number);
+            // if (number > value) filteredNumbers.push(number);
+        });
+        return filteredNumbers;
     }
+    console.log(filterArray([12, 24, 8, 41, 76], 20));
+
+    function getCommonElements(firstArray, secondArray) {
+        const commonElements = [];
+        firstArray.forEach(el => {
+            if (secondArray.includes(el)) commonElements.push(el);
+        });
+
+        return commonElements;
+    };
+    console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
 }
