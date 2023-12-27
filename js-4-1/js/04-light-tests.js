@@ -153,7 +153,7 @@
         return users.map(user => user.email);
     };
 
-    console.log(getUserNames(users), getUserEmails(users));
+    // console.log(getUserNames(users), getUserEmails(users));
 }
 
 {
@@ -161,5 +161,15 @@
 
     const evenNumbers = numbers.filter(number => number % 2 === 0);
     const oddNumbers = numbers.filter(number => number % 2 !== 0);
-    console.log(evenNumbers, oddNumbers);
+    // console.log(evenNumbers, oddNumbers);
+}
+
+{
+    const students = [
+        { name: "Mango", courses: ["mathematics", "physics"] },
+        { name: "Poly", courses: ["science", "mathematics"] },
+        { name: "Kiwi", courses: ["physics", "biology"] },];
+    const allCourses = students.flatMap(student => student.courses);
+    const uniqueCourses = allCourses.filter((course, idx, courses) => courses.indexOf(course) === idx)
+    console.log(allCourses, uniqueCourses);
 }
