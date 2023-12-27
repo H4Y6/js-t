@@ -66,8 +66,9 @@
     // function calculateTotalPrice(quantity, pricePerItem) {
     //     return quantity * pricePerItem;
     // };
+    const calculateTotalPrice = (quantity, pricePerItem) => { return quantity * pricePerItem; };
 
-    const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
+    // const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
 
     console.log(calculateTotalPrice(8, 60));
 }
