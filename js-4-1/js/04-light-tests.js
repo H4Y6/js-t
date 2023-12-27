@@ -129,7 +129,10 @@
 
     const titles = books.map(b => b.title);
     const genres = books.flatMap(b => b.genres);
-    // console.log(titles, genres);
+
+    const newGenres = ["science", "adventure", "history", "fiction", "mysticism", "horror", "mysticism", "adventure"];
+    const uniqueGenres = newGenres.filter((el, idx, array) => array.indexOf(el) === idx);
+    // console.log(titles, genres, uniqueGenres);
 }
 
 
@@ -171,5 +174,5 @@
         { name: "Kiwi", courses: ["physics", "biology"] },];
     const allCourses = students.flatMap(student => student.courses);
     const uniqueCourses = allCourses.filter((course, idx, courses) => courses.indexOf(course) === idx)
-    console.log(allCourses, uniqueCourses);
+    // console.log(allCourses, uniqueCourses);
 }
