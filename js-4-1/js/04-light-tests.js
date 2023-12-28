@@ -178,6 +178,7 @@
     const getUserWithEmail = (users, email) => users.find(user => user.email === email);
 
     const isEveryUserActive = users => users.every(({ isActive }) => isActive);
+    const isAnyUserActive = users => users.some(({ isActive }) => isActive);
 
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
@@ -188,6 +189,7 @@
     // console.log(getInactiveUsers(users));
     // console.log(getUserWithEmail(users, "blackburndotson@furnigeer.com"));
     // console.log(isEveryUserActive(users));
+    console.log(isAnyUserActive(users));
 }
 
 {
@@ -275,7 +277,7 @@
     // console.log(eachElementInSecondIsEven, eachElementInSecondIsOdd);
     // console.log(eachElementInThirdIsEven, eachElementInThirdIsOdd);
 
-    console.log(anyElementInFirstIsEven, anyElementInFirstIsOdd);
-    console.log(anyElementInSecondIsEven, anyElementInSecondIsOdd);
-    console.log(anyElementInThirdIsEven, anyElementInThirdIsOdd);
+    // console.log(anyElementInFirstIsEven, anyElementInFirstIsOdd);
+    // console.log(anyElementInSecondIsEven, anyElementInSecondIsOdd);
+    // console.log(anyElementInThirdIsEven, anyElementInThirdIsOdd);
 }
