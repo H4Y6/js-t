@@ -163,11 +163,15 @@
 
     const getUsersWithAge = (users, minAge, maxAge) => users.filter(({ age }) => age >= minAge && age <= maxAge);
     const getUsersWithFriend = (users, friendName) => users.filter(({ friends }) => friends.includes(friendName));
+    const getFriends = (users) => {
+        return users.flatMap(({ friends }) => friends).filter((friend, idx, array) => array.indexOf(friend) === idx);
+    };
 
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
-    console.log(getUsersWithFriend(users, "Briana Decker"));
+    // console.log(getUsersWithFriend(users, "Briana Decker"));
+    console.log(getFriends(users));
 }
 
 {
