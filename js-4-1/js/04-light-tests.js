@@ -162,11 +162,12 @@
     // };
 
     const getUsersWithAge = (users, minAge, maxAge) => users.filter(({ age }) => age >= minAge && age <= maxAge);
-
+    const getUsersWithFriend = (users, friendName) => users.filter(({ friends }) => friends.includes(friendName));
 
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
-    console.log(getUsersWithAge(users, 33, 55));
+    // console.log(getUsersWithAge(users, 33, 55));
+    console.log(getUsersWithFriend(users, "Briana Decker"));
 }
 
 {
