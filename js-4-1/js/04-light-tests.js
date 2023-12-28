@@ -296,7 +296,7 @@
     // const totalPlaytime = playtimes.reduce((previousValue, time) => previousValue + time);
     const averagePlaytime = totalPlaytime / playtimes.length;
 
-    console.log(averagePlaytime);
+    // console.log(averagePlaytime);
 
     /* ------------           Recursion       ---------   */
 
@@ -308,9 +308,26 @@
 
         return getTotalPlaytimeRecursive(n - 1, totalPlaytime += playtimes[n - 1]);
     };
-    console.log(getTotalPlaytimeRecursive(n));
+    // console.log(getTotalPlaytimeRecursive(n));
 
     const averagePlaytimeRec = getTotalPlaytimeRecursive(n) / n;
 
-    console.log(averagePlaytimeRec);
+    // console.log(averagePlaytimeRec);
+}
+
+{
+    const players = [
+        { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+        { name: "Poly", playtime: 469, gamesPlayed: 2 },
+        { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+        { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+    ];
+
+    const totalAveragePlaytimePerGame = players.reduce((prev, { playtime, gamesPlayed }) => (prev + playtime / gamesPlayed), 0);
+
+    // const totalAveragePlaytimePerGame = players.reduce((previousValue, { playtime, gamesPlayed }) => {
+    //     return previousValue + playtime / gamesPlayed
+    // }, 0);
+
+    console.log(totalAveragePlaytimePerGame)
 }
