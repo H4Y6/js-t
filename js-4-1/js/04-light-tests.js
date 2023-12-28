@@ -161,9 +161,12 @@
     //     return users.filter(({ eyeColor }) => eyeColor === color);
     // };
 
+    const getUsersWithAge = (users, minAge, maxAge) => users.filter(({ age }) => age >= minAge && age <= maxAge);
+
 
     // console.log(getUserNames(users), getUserEmails(users));
-    console.log(getUsersWithEyeColor(users, 'blue'));
+    // console.log(getUsersWithEyeColor(users, 'blue'));
+    console.log(getUsersWithAge(users, 33, 55));
 }
 
 {
