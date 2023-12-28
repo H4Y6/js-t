@@ -180,6 +180,10 @@
     const isEveryUserActive = users => users.every(({ isActive }) => isActive);
     const isAnyUserActive = users => users.some(({ isActive }) => isActive);
 
+    const calculateTotalBalance = users => {
+        return users.reduce((prev, { balance }) => { return prev + balance }, 0);
+    };
+
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
@@ -190,6 +194,7 @@
     // console.log(getUserWithEmail(users, "blackburndotson@furnigeer.com"));
     // console.log(isEveryUserActive(users));
     // console.log(isAnyUserActive(users));
+    console.log(calculateTotalBalance(users));
 }
 
 {
@@ -329,5 +334,6 @@
     //     return previousValue + playtime / gamesPlayed
     // }, 0);
 
-    console.log(totalAveragePlaytimePerGame)
+    // console.log(totalAveragePlaytimePerGame);
 }
+
