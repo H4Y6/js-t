@@ -185,7 +185,7 @@
     };
 
     const getTotalFriendCount = users => {
-        return users.reduce((prev, { friends }) => { return prev + friends.length }, 0)
+        return users.reduce((prev, { friends }) => { return prev + friends.length }, 0);
     };
 
     // console.log(getUserNames(users), getUserEmails(users));
@@ -339,7 +339,7 @@
     //     return previousValue + playtime / gamesPlayed
     // }, 0);
 
-    console.log(totalAveragePlaytimePerGame);
+    // console.log(totalAveragePlaytimePerGame);
 
     /*    recursion   */
 
@@ -348,7 +348,21 @@
         if (idx < 0) return total;
         return getTotalAveragePlaytimePerGameRecursive(ps, idx - 1, total += ps[idx].playtime / ps[idx].gamesPlayed)
     };
-    console.log(getTotalAveragePlaytimePerGameRecursive(players, idx, 0));
-
+    // console.log(getTotalAveragePlaytimePerGameRecursive(players, idx, 0));
 }
 
+{
+    const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+    const authors = [
+        "Tanith Lee",
+        "Bernard Cornwell",
+        "Robert Sheckley",
+        "Fyodor Dostoevsky",
+    ];
+
+    const ascendingReleaseDates = [...releaseDates].sort();
+
+    const alphabeticalAuthors = [...authors].sort();
+
+    console.log(ascendingReleaseDates, alphabeticalAuthors);
+}
