@@ -166,13 +166,14 @@
     // const getFriends = (users) => {
     // return users.flatMap(({ friends }) => friends).filter((friend, idx, array) => array.indexOf(friend) === idx);
     // };
-    const getFriends = (users) => users.flatMap(({ friends }) => friends).filter((friend, idx, array) => array.indexOf(friend) === idx);
+    const getActiveUsers = (users) => users.filter(({ isActive }) => isActive);
 
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
     // console.log(getUsersWithFriend(users, "Briana Decker"));
-    console.log(getFriends(users));
+    // console.log(getFriends(users));
+    console.log(getActiveUsers(users));
 }
 
 {
