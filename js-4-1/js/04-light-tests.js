@@ -189,7 +189,7 @@
     // console.log(getInactiveUsers(users));
     // console.log(getUserWithEmail(users, "blackburndotson@furnigeer.com"));
     // console.log(isEveryUserActive(users));
-    console.log(isAnyUserActive(users));
+    // console.log(isAnyUserActive(users));
 }
 
 {
@@ -280,4 +280,37 @@
     // console.log(anyElementInFirstIsEven, anyElementInFirstIsOdd);
     // console.log(anyElementInSecondIsEven, anyElementInSecondIsOdd);
     // console.log(anyElementInThirdIsEven, anyElementInThirdIsOdd);
+}
+
+{
+    const players = {
+        mango: 1270,
+        poly: 468,
+        ajax: 710,
+        kiwi: 244
+    };
+    const playtimes = Object.values(players);
+
+    const totalPlaytime = playtimes.reduce((previousValue, time) => { return previousValue + time }, 0);
+    // const totalPlaytime = playtimes.reduce((previousValue, time) => (previousValue + time), 0);
+    // const totalPlaytime = playtimes.reduce((previousValue, time) => previousValue + time);
+    const averagePlaytime = totalPlaytime / playtimes.length;
+
+    console.log(averagePlaytime);
+
+    /* ------------           Recursion       ---------   */
+
+    const n = playtimes.length;
+
+    function getTotalPlaytimeRecursive(n, totalPlaytime = 0) {
+        // return n < 1 ? totalPlaytime : getTotalPlaytimeRecursive(n - 1, totalPlaytime += playtimes[n - 1]);
+        if (n < 1) return totalPlaytime;
+
+        return getTotalPlaytimeRecursive(n - 1, totalPlaytime += playtimes[n - 1]);
+    };
+    console.log(getTotalPlaytimeRecursive(n));
+
+    const averagePlaytimeRec = getTotalPlaytimeRecursive(n) / n;
+
+    console.log(averagePlaytimeRec);
 }
