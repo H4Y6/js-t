@@ -184,6 +184,10 @@
         return users.reduce((prev, { balance }) => { return prev + balance }, 0);
     };
 
+    const getTotalFriendCount = users => {
+        return users.reduce((prev, { friends }) => { return prev + friends.length }, 0)
+    };
+
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
@@ -194,7 +198,8 @@
     // console.log(getUserWithEmail(users, "blackburndotson@furnigeer.com"));
     // console.log(isEveryUserActive(users));
     // console.log(isAnyUserActive(users));
-    console.log(calculateTotalBalance(users));
+    // console.log(calculateTotalBalance(users));
+    console.log(getTotalFriendCount(users));
 }
 
 {
