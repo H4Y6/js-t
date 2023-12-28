@@ -187,7 +187,7 @@
     // console.log(getActiveUsers(users));
     // console.log(getInactiveUsers(users));
     // console.log(getUserWithEmail(users, "blackburndotson@furnigeer.com"));
-    console.log(isEveryUserActive(users));
+    // console.log(isEveryUserActive(users));
 }
 
 {
@@ -255,13 +255,27 @@
     const eachElementInFirstIsEven = firstArray.every(el => el % 2 === 0);
     const eachElementInFirstIsOdd = firstArray.every(el => el % 2 !== 0);
 
-    const eachElementInSecondIsEven = secondArray.every(el => el % 2 === 0);;
-    const eachElementInSecondIsOdd = secondArray.every(el => el % 2 !== 0);;
+    const eachElementInSecondIsEven = secondArray.every(el => el % 2 === 0);
+    const eachElementInSecondIsOdd = secondArray.every(el => el % 2 !== 0);
 
-    const eachElementInThirdIsEven = thirdArray.every(el => el % 2 === 0);;
-    const eachElementInThirdIsOdd = thirdArray.every(el => el % 2 !== 0);;
+    const eachElementInThirdIsEven = thirdArray.every(el => el % 2 === 0);
+    const eachElementInThirdIsOdd = thirdArray.every(el => el % 2 !== 0);
+
+
+    const anyElementInFirstIsEven = firstArray.some(el => el % 2 === 0);
+    const anyElementInFirstIsOdd = firstArray.some(el => el % 2 !== 0);
+
+    const anyElementInSecondIsEven = secondArray.some(el => el % 2 === 0);
+    const anyElementInSecondIsOdd = secondArray.some(el => el % 2 !== 0);
+
+    const anyElementInThirdIsEven = thirdArray.some(el => el % 2 === 0);
+    const anyElementInThirdIsOdd = thirdArray.some(el => el % 2 !== 0);
 
     // console.log(eachElementInFirstIsEven, eachElementInFirstIsOdd);
     // console.log(eachElementInSecondIsEven, eachElementInSecondIsOdd);
     // console.log(eachElementInThirdIsEven, eachElementInThirdIsOdd);
+
+    console.log(anyElementInFirstIsEven, anyElementInFirstIsOdd);
+    console.log(anyElementInSecondIsEven, anyElementInSecondIsOdd);
+    console.log(anyElementInThirdIsEven, anyElementInThirdIsOdd);
 }
