@@ -133,6 +133,13 @@
     const newGenres = ["science", "adventure", "history", "fiction", "mysticism", "horror", "mysticism", "adventure"];
     const uniqueGenres = newGenres.filter((el, idx, array) => array.indexOf(el) === idx);
     // console.log(titles, genres, uniqueGenres);
+
+    const BOOK_TITLE = 'Redder Than Blood';
+    const AUTHOR = 'Robert Sheckley';
+
+    const bookWithTitle = books.find(({ title }) => title === BOOK_TITLE);
+    const bookByAuthor = books.find(({ author }) => author === AUTHOR);
+    console.log(bookWithTitle, bookByAuthor);
 }
 
 
@@ -175,7 +182,7 @@
     // console.log(getUsersWithFriend(users, "Briana Decker"));
     // console.log(getFriends(users));
     // console.log(getActiveUsers(users));
-    console.log(getInactiveUsers(users));
+    // console.log(getInactiveUsers(users));
 }
 
 {
