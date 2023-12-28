@@ -156,7 +156,14 @@
         return users.map(user => user.email);
     };
 
+    const getUsersWithEyeColor = (users, color) => users.filter(({ eyeColor }) => eyeColor === color);
+    // const getUsersWithEyeColor = (users, color) => {
+    //     return users.filter(({ eyeColor }) => eyeColor === color);
+    // };
+
+
     // console.log(getUserNames(users), getUserEmails(users));
+    console.log(getUsersWithEyeColor(users, 'blue'));
 }
 
 {
@@ -213,5 +220,5 @@
     // const booksByAuthor = books.filter(b => b.author === AUTHOR);
     const topRatedBooks = books.filter(({ rating }) => rating >= MIN_RATING);
     const booksByAuthor = books.filter(({ author }) => author === AUTHOR);
-    console.log({ topRatedBooks }, { booksByAuthor });
+    // console.log({ topRatedBooks }, { booksByAuthor });
 }
