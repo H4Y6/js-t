@@ -139,7 +139,7 @@
 
     const bookWithTitle = books.find(({ title }) => title === BOOK_TITLE);
     const bookByAuthor = books.find(({ author }) => author === AUTHOR);
-    console.log(bookWithTitle, bookByAuthor);
+    // console.log(bookWithTitle, bookByAuthor);
 }
 
 
@@ -175,6 +175,7 @@
     // };
     const getActiveUsers = (users) => users.filter(({ isActive }) => isActive);
     const getInactiveUsers = (users) => users.filter(({ isActive }) => !isActive);
+    const getUserWithEmail = (users, email) => users.find(user => user.email === email);
 
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
@@ -183,6 +184,7 @@
     // console.log(getFriends(users));
     // console.log(getActiveUsers(users));
     // console.log(getInactiveUsers(users));
+    console.log(getUserWithEmail(users, "blackburndotson@furnigeer.com"));
 }
 
 {
