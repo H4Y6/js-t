@@ -199,7 +199,7 @@
     // console.log(isEveryUserActive(users));
     // console.log(isAnyUserActive(users));
     // console.log(calculateTotalBalance(users));
-    console.log(getTotalFriendCount(users));
+    // console.log(getTotalFriendCount(users));
 }
 
 {
@@ -339,6 +339,16 @@
     //     return previousValue + playtime / gamesPlayed
     // }, 0);
 
-    // console.log(totalAveragePlaytimePerGame);
+    console.log(totalAveragePlaytimePerGame);
+
+    /*    recursion   */
+
+    const idx = players.length - 1;
+    const getTotalAveragePlaytimePerGameRecursive = (ps, idx, total = 0) => {
+        if (idx < 0) return total;
+        return getTotalAveragePlaytimePerGameRecursive(ps, idx - 1, total += ps[idx].playtime / ps[idx].gamesPlayed)
+    };
+    console.log(getTotalAveragePlaytimePerGameRecursive(players, idx, 0));
+
 }
 
