@@ -177,6 +177,8 @@
     const getInactiveUsers = (users) => users.filter(({ isActive }) => !isActive);
     const getUserWithEmail = (users, email) => users.find(user => user.email === email);
 
+    const isEveryUserActive = users => users.every(({ isActive }) => isActive);
+
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
@@ -185,6 +187,7 @@
     // console.log(getActiveUsers(users));
     // console.log(getInactiveUsers(users));
     // console.log(getUserWithEmail(users, "blackburndotson@furnigeer.com"));
+    console.log(isEveryUserActive(users));
 }
 
 {
@@ -258,7 +261,7 @@
     const eachElementInThirdIsEven = thirdArray.every(el => el % 2 === 0);;
     const eachElementInThirdIsOdd = thirdArray.every(el => el % 2 !== 0);;
 
-    console.log(eachElementInFirstIsEven, eachElementInFirstIsOdd);
-    console.log(eachElementInSecondIsEven, eachElementInSecondIsOdd);
-    console.log(eachElementInThirdIsEven, eachElementInThirdIsOdd);
+    // console.log(eachElementInFirstIsEven, eachElementInFirstIsOdd);
+    // console.log(eachElementInSecondIsEven, eachElementInSecondIsOdd);
+    // console.log(eachElementInThirdIsEven, eachElementInThirdIsOdd);
 }
