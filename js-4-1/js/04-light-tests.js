@@ -192,6 +192,14 @@
         return [...users].sort((firstUser, secondUser) => firstUser.balance - secondUser.balance);
     };
 
+    const sortByDescendingFriendCount = users => {
+        return [...users].sort((firstUser, secondUser) => secondUser.friends.length - firstUser.friends.length);
+    };
+
+    const sortByName = users => {
+        return [...users].sort((firstUser, secondUser) => firstUser.name.localeCompare(secondUser.name));
+    };
+
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
@@ -204,7 +212,9 @@
     // console.log(isAnyUserActive(users));
     // console.log(calculateTotalBalance(users));
     // console.log(getTotalFriendCount(users));
-    console.log(sortByAscendingBalance(users))
+    // console.log(sortByAscendingBalance(users));
+    // console.log(sortByDescendingFriendCount(users));
+    console.log(sortByName(users));
 }
 
 {
@@ -378,5 +388,5 @@
     const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
 
     // console.log(ascendingReleaseDates, descendingReleaseDates, alphabeticalAuthors);
-    console.log(authorsInAlphabetOrder, authorsInReversedOrder)
+    // console.log(authorsInAlphabetOrder, authorsInReversedOrder);
 }
