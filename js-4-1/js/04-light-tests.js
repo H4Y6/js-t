@@ -257,6 +257,12 @@
     const topRatedBooks = books.filter(({ rating }) => rating >= MIN_RATING);
     const booksByAuthor = books.filter(({ author }) => author === AUTHOR);
     // console.log({ topRatedBooks }, { booksByAuthor });
+
+    const sortedByAuthorName = [...books].sort((firstBook, secondBook) => firstBook.author.localeCompare(secondBook.author));
+    const sortedByReversedAuthorName = [...books].sort((firstBook, secondBook) => secondBook.author.localeCompare(firstBook.author));
+    const sortedByAscendingRating = [...books].sort((firstBook, secondBook) => firstBook.rating - secondBook.rating);
+    const sortedByDescentingRating = [...books].sort((firstBook, secondBook) => secondBook.rating - firstBook.rating);
+    // console.log(sortedByAuthorName, sortedByReversedAuthorName, sortedByAscendingRating, sortedByDescentingRating)
 }
 
 {
