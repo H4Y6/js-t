@@ -200,6 +200,10 @@
         return [...users].sort((firstUser, secondUser) => firstUser.name.localeCompare(secondUser.name));
     };
 
+    const getNamesSortedByFriendCount = users => {
+        return [...users].sort((firstUser, secondUser) => firstUser.friends.length - secondUser.friends.length).map(({ name }) => name);
+    };
+
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
@@ -215,6 +219,7 @@
     // console.log(sortByAscendingBalance(users));
     // console.log(sortByDescendingFriendCount(users));
     // console.log(sortByName(users));
+    console.log(getNamesSortedByFriendCount(users));
 }
 
 {
@@ -280,7 +285,7 @@
     // console.log(sortedByAuthorName, sortedByReversedAuthorName, sortedByAscendingRating, sortedByDescentingRating)
 
     const names = [...books].filter(({ rating }) => rating > MIN_RATING).sort((firstBook, secondBook) => firstBook.author.localeCompare(secondBook.author)).map(({ author }) => author);
-    console.log(names);
+    // console.log(names);
 }
 
 {
