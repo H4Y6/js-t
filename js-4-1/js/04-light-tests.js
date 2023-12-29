@@ -204,6 +204,10 @@
         return [...users].sort((firstUser, secondUser) => firstUser.friends.length - secondUser.friends.length).map(({ name }) => name);
     };
 
+    const getSortedFriends = users => {
+        return [...users].flatMap(({ friends }) => friends).filter((friend, idx, array) => array.indexOf(friend) === idx).sort((a, b) => a.localeCompare(b));
+    };
+
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
@@ -219,7 +223,8 @@
     // console.log(sortByAscendingBalance(users));
     // console.log(sortByDescendingFriendCount(users));
     // console.log(sortByName(users));
-    console.log(getNamesSortedByFriendCount(users));
+    // console.log(getNamesSortedByFriendCount(users));
+    console.log(getSortedFriends(users));
 }
 
 {
