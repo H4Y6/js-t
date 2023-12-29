@@ -229,7 +229,7 @@
     // console.log(sortByName(users));
     // console.log(getNamesSortedByFriendCount(users));
     // console.log(getSortedFriends(users));
-    console.log(getTotalBalanceByGender(users, 'male'));
+    // console.log(getTotalBalanceByGender(users, 'male'));
 }
 
 {

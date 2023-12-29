@@ -100,7 +100,7 @@ const onBtnClick = () => {
     const currentLT = currentTime + 2;
     const currentMinute = (currentTime % 1 * 60);
     const currentSecond = (currentMinute % 1 * 60);
-    console.log(currentLT.toFixed(), 'hrs :', currentMinute.toFixed(), 'min :', currentSecond.toFixed(), 'sec')
+    console.log(Math.floor(currentLT).toString(), 'hr:', currentMinute.toFixed(), 'min:', currentSecond.toFixed(), 'sec')
 }
 
 btnEl.addEventListener('click', onBtnClick)
