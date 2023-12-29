@@ -188,6 +188,10 @@
         return users.reduce((prev, { friends }) => { return prev + friends.length }, 0);
     };
 
+    const sortByAscendingBalance = users => {
+        return [...users].sort((firstUser, secondUser) => firstUser.balance - secondUser.balance);
+    };
+
     // console.log(getUserNames(users), getUserEmails(users));
     // console.log(getUsersWithEyeColor(users, 'blue'));
     // console.log(getUsersWithAge(users, 33, 55));
@@ -200,6 +204,7 @@
     // console.log(isAnyUserActive(users));
     // console.log(calculateTotalBalance(users));
     // console.log(getTotalFriendCount(users));
+    console.log(sortByAscendingBalance(users))
 }
 
 {
