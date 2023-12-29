@@ -363,6 +363,9 @@
     const ascendingReleaseDates = [...releaseDates].sort();
     const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
     const alphabeticalAuthors = [...authors].sort();
+    const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+    const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
 
-    console.log(ascendingReleaseDates, descendingReleaseDates, alphabeticalAuthors);
+    // console.log(ascendingReleaseDates, descendingReleaseDates, alphabeticalAuthors);
+    console.log(authorsInAlphabetOrder, authorsInReversedOrder)
 }
