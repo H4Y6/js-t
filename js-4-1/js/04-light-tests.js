@@ -361,8 +361,8 @@
     ];
 
     const ascendingReleaseDates = [...releaseDates].sort();
-
+    const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
     const alphabeticalAuthors = [...authors].sort();
 
-    // console.log(ascendingReleaseDates, alphabeticalAuthors);
+    console.log(ascendingReleaseDates, descendingReleaseDates, alphabeticalAuthors);
 }
