@@ -214,7 +214,7 @@
     // console.log(getTotalFriendCount(users));
     // console.log(sortByAscendingBalance(users));
     // console.log(sortByDescendingFriendCount(users));
-    console.log(sortByName(users));
+    // console.log(sortByName(users));
 }
 
 {
@@ -278,6 +278,9 @@
     const sortedByAscendingRating = [...books].sort((firstBook, secondBook) => firstBook.rating - secondBook.rating);
     const sortedByDescentingRating = [...books].sort((firstBook, secondBook) => secondBook.rating - firstBook.rating);
     // console.log(sortedByAuthorName, sortedByReversedAuthorName, sortedByAscendingRating, sortedByDescentingRating)
+
+    const names = [...books].filter(({ rating }) => rating > MIN_RATING).sort((firstBook, secondBook) => firstBook.author.localeCompare(secondBook.author)).map(({ author }) => author);
+    console.log(names);
 }
 
 {
