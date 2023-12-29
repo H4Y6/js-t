@@ -97,9 +97,10 @@ const btnEl = document.querySelector('.js-button');
 
 const onBtnClick = () => {
     const currentTime = Date.now() / 3600000 % 24;
-    const currentHour = (Number(currentTime.toFixed()) + 2).toString();
-    const currentMinute = (currentTime % 1 * 60).toFixed(2);
-    console.log(currentHour, ':', currentMinute, 'LT')
+    const currentLT = currentTime + 2;
+    const currentMinute = (currentTime % 1 * 60);
+    const currentSecond = (currentMinute % 1 * 60);
+    console.log(currentLT.toFixed(), 'hrs :', currentMinute.toFixed(), 'min :', currentSecond.toFixed(), 'sec')
 }
 
 btnEl.addEventListener('click', onBtnClick)

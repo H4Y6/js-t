@@ -364,5 +364,5 @@
 
     const alphabeticalAuthors = [...authors].sort();
 
-    console.log(ascendingReleaseDates, alphabeticalAuthors);
+    // console.log(ascendingReleaseDates, alphabeticalAuthors);
 }
