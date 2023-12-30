@@ -59,5 +59,25 @@ const numbers = [4, 7, 5, 2, 8, 9];
         };
         return newArray;
     };
-    console.log(pureMultiplyFn(numbers, 3));
+    // console.log(pureMultiplyFn(numbers, 3), { numbers });
+}
+{
+    const students = [
+        { name: "Манго", courses: ["математика", "фізика"] },
+        { name: "Полі", courses: ["інформатика", "математика"] },
+        { name: "Ківі", courses: ["фізика", "біологія"] },
+    ];
+
+    const mapResult = students.map(({ courses }) => courses);
+    const mapResConvertedToFlat = (arrayOfArrays) => {
+        const flat = [];
+        for (const el of [...arrayOfArrays]) {
+            flat.push(...el);
+        }
+        return flat;
+    };
+    const flatMapResult = students.flatMap(student => student.courses);
+    console.log(mapResult);
+    console.log(mapResConvertedToFlat(mapResult), flatMapResult);
+    console.log(mapResConvertedToFlat === flatMapResult);  /**  false   */
 }
