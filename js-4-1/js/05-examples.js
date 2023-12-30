@@ -19,9 +19,10 @@ const logMessage = (value) => `The value is ${value}.`;
     // callFunctionOnEvenNumber(arr, multiplyValue);
 }
 
+const numbers = [4, 7, 5, 2, 8, 9];
+
 {/**   ForEach    */
 
-    const numbers = [4, 7, 5, 2, 8, 9];
 
     const logItems = (el, idx, array) => {
         console.log('el:', el);
@@ -46,9 +47,17 @@ const logMessage = (value) => `The value is ${value}.`;
 /**  Filter    */
 
 {
-    const numbers = [4, 7, 5, 2, 8, 9];
-
     const filteredNumbers = numbers.filter(el => el > 6);
     // console.log(filteredNumbers);
+}
 
+{
+    const pureMultiplyFn = (array, value) => {
+        const arrayCopy = [];
+        for (const number of [...array]) {
+            arrayCopy.push(number * value);
+        };
+        return arrayCopy;
+    };
+    console.log(pureMultiplyFn(numbers, 3));
 }
