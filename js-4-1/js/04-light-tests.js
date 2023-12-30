@@ -163,6 +163,10 @@
         return users.map(user => user.email);
     };
 
+    const getTotalBalanceByGend = (users, gender) => {
+        return users.filter(user => user.gender === gender).reduce((prev, { balance }) => prev + balance, 0);
+    }; console.log(getTotalBalanceByGend(users, 'male'));
+
     const getUsersWithEyeColor = (users, color) => users.filter(({ eyeColor }) => eyeColor === color);
     // const getUsersWithEyeColor = (users, color) => {
     //     return users.filter(({ eyeColor }) => eyeColor === color);
