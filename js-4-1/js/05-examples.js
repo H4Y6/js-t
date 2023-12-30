@@ -53,11 +53,11 @@ const numbers = [4, 7, 5, 2, 8, 9];
 
 {
     const pureMultiplyFn = (array, value) => {
-        const arrayCopy = [];
+        const newArray = [];
         for (const number of [...array]) {
-            arrayCopy.push(number * value);
+            newArray.push(number * value);
         };
-        return arrayCopy;
+        return newArray;
     };
     console.log(pureMultiplyFn(numbers, 3));
 }
