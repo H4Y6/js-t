@@ -69,6 +69,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     ];
 
     const mapResult = students.map(({ courses }) => courses);
+
     const mapResConvertedToFlat = (arrayOfArrays) => {
         const flat = [];
         for (const el of [...arrayOfArrays]) {
@@ -76,8 +77,13 @@ const numbers = [4, 7, 5, 2, 8, 9];
         }
         return flat;
     };
+
     const flatMapResult = students.flatMap(student => student.courses);
+
+    const allCourses = mapResConvertedToFlat(mapResult);
+    const uniqueCourses = allCourses.filter((el, idx, array) => array.indexOf(el) === idx);
+
     console.log(mapResult);
-    console.log(mapResConvertedToFlat(mapResult), flatMapResult);
-    console.log(mapResConvertedToFlat === flatMapResult);  /**  false   */
+    console.log(flatMapResult, allCourses);
+    console.log(uniqueCourses);
 }
