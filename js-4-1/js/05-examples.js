@@ -68,22 +68,37 @@ const numbers = [4, 7, 5, 2, 8, 9];
         { name: "Ківі", courses: ["фізика", "біологія"] },
     ];
 
-    const mapResult = students.map(({ courses }) => courses);
+    // const mapResult = students.map(({ courses }) => courses);
 
-    const mapResConvertedToFlat = (arrayOfArrays) => {
-        const flat = [];
-        for (const el of [...arrayOfArrays]) {
-            flat.push(...el);
-        }
-        return flat;
-    };
+    // const mapResConvertedToFlat = (arrayOfArrays) => {
+    //     const flat = [];
+    //     for (const el of [...arrayOfArrays]) {
+    //         flat.push(...el);
+    //     }
+    //     return flat;
+    // };
 
-    const flatMapResult = students.flatMap(student => student.courses);
+    // const flatMapResult = students.flatMap(student => student.courses);
 
-    const allCourses = mapResConvertedToFlat(mapResult);
-    const uniqueCourses = allCourses.filter((el, idx, array) => array.indexOf(el) === idx);
+    // const allCourses = mapResConvertedToFlat(mapResult);
+    // const uniqueCourses = allCourses.filter((el, idx, array) => array.indexOf(el) === idx);
 
-    console.log(mapResult);
-    console.log(flatMapResult, allCourses);
-    console.log(uniqueCourses);
+    // console.log(mapResult);
+    // console.log(flatMapResult, allCourses);
+    // console.log(uniqueCourses);
+
+    const mapFn = students => students.map(({ courses }) => courses);
+    const courses = mapFn(students);
+
+    const flattenedMapFn = arrayOfArrays => {
+        const flattenedArray = [];
+        arrayOfArrays.forEach(elArray => flattenedArray.push(...elArray));
+        return flattenedArray;
+    }
+    const flattenedCourses = flattenedMapFn(courses);
+
+    const getUniqueCourses = array => array.filter((el, idx, array) => array.indexOf(el) === idx);
+    const uniqueCourses = getUniqueCourses(flattenedCourses);
+
+    console.log(courses, flattenedCourses, uniqueCourses);
 }
