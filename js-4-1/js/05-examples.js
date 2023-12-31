@@ -107,5 +107,35 @@ const numbers = [4, 7, 5, 2, 8, 9];
     const getUniqueCourses = array => array.filter((el, idx, array) => array.indexOf(el) === idx);
     const uniqueCourses = getUniqueCourses(flattenedCourses);
 
-    console.log(courses, flattenedCourses, uniqueCourses);
+    // console.log(courses, flattenedCourses, uniqueCourses);
+}
+
+{
+    const students = [
+        { name: "Mango", score: 83 },
+        { name: "Poly", score: 59 },
+        { name: "Ajax", score: 37 },
+        { name: "Kiwi", score: 94 },
+        { name: "Huston", score: 64 },
+    ];
+
+    const averageScore = students.reduce((acc, { score }) => acc + score, 0) / students.length;
+    // console.log(averageScore);
+}
+
+{
+    const tweets = [
+        { id: "000", likes: 5, tags: ["js", "nodejs"] },
+        { id: "001", likes: 2, tags: ["html", "css"] },
+        { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+        { id: "003", likes: 8, tags: ["css", "react"] },
+        { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+    ];
+
+    const getTags = tweets => tweets.reduce((allTags, tweet) => {
+        allTags.push(...tweet.tags);
+        return allTags;
+    }, []);
+
+    console.log(getTags(tweets));
 }
