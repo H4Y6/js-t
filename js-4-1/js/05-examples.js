@@ -121,6 +121,10 @@ const numbers = [4, 7, 5, 2, 8, 9];
 
     const averageScore = students.reduce((acc, { score }) => acc + score, 0) / students.length;
     // console.log(averageScore);
+
+    const ascendingStudentScoreOrder = [...students].sort((first, second) => first.score - second.score);
+    const descendingStudentScoreOrder = [...students].sort((first, second) => second.score - first.score);
+    console.log(ascendingStudentScoreOrder, descendingStudentScoreOrder);
 }
 
 {
@@ -137,5 +141,11 @@ const numbers = [4, 7, 5, 2, 8, 9];
         return allTags;
     }, []);
 
-    console.log(getTags(tweets));
+    // console.log(getTags(tweets));
+}
+
+{
+    const scores = [27, 2, 41, 4, 7, 3, 75];
+    const ascendingScores = [...scores].sort((a, b) => a - b);
+    // console.log(ascendingScores);
 }
