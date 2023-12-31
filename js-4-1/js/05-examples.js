@@ -138,12 +138,41 @@ const numbers = [4, 7, 5, 2, 8, 9];
         { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
     ];
 
-    const getTags = tweets => tweets.reduce((allTags, tweet) => {
-        allTags.push(...tweet.tags);
-        return allTags;
-    }, []);
+    const getTagsA = tweets => tweets
+        // .reduce((allTags, tweet) => {allTags.push(...tweet.tags);
+        .reduce((allTags, { tags }) => {
+            allTags.push(...tags);
+            return allTags;
+        }, []);
+    console.log(getTagsA(tweets));
 
-    // console.log(getTags(tweets));
+    /**                         Method flatMap                      */
+
+    // const getTags = tweet => tweet.tags;
+    const getTags = ({ tags }) => tags;
+
+    const flatMap = (array, cb) => {
+        let result = [];
+
+        for (let i = 0; i < array.length; i++) {
+            const newEl = cb(array[i], i, array);
+
+            if (Array.isArray(newEl)) {
+                result = [...result, ...newEl]
+                /**     or         */
+                // for (const el of newEl) {
+                //     result.push(el);
+                // };
+            } else {
+                result.push(newEl);
+            };
+        };
+
+        return result;
+    };
+
+    const tags = flatMap(tweets, getTags);
+    console.log(tags);
 }
 
 {
@@ -160,6 +189,8 @@ const numbers = [4, 7, 5, 2, 8, 9];
         { id: "003", price: 282, name: "card" },
         { id: "004", price: 320, name: "juice" },
     ];
+
+    /**                         Method map                      */
 
     // const productPrices = products.map(product => product.price);
     const getPrice = ({ price }) => price;
@@ -178,7 +209,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     };
 
     const productPricesA = arrayMap(products, getPrice);
-    arrayMap(products, logger);
+    // arrayMap(products, logger);
     // products.map(logger);
-    console.log(productPricesA);
+    // console.log(productPricesA);
 }
