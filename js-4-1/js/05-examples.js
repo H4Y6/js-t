@@ -23,7 +23,6 @@ const numbers = [4, 7, 5, 2, 8, 9];
 
 {/**   ForEach    */
 
-
     const logItems = (el, idx, array) => {
         console.log('el:', el);
         console.log('idx:', idx);
@@ -151,4 +150,35 @@ const numbers = [4, 7, 5, 2, 8, 9];
     const scores = [27, 2, 41, 4, 7, 3, 75];
     const ascendingScores = [...scores].sort((a, b) => a - b);
     // console.log(ascendingScores);
+}
+
+{
+    const products = [
+        { id: "000", price: 125, name: "stick" },
+        { id: "001", price: 212, name: "tel" },
+        { id: "002", price: 217, name: "toy" },
+        { id: "003", price: 282, name: "card" },
+        { id: "004", price: 320, name: "juice" },
+    ];
+
+    // const productPrices = products.map(product => product.price);
+    const getPrice = ({ price }) => price;
+    const productPrices = products.map(getPrice);
+    // console.log(productPrices);
+
+    const logger = (product, i, array) => console.log(`product: ${product.name}, index: ${i}, arrayLength: ${array.length}`)
+
+    const arrayMap = (array, cb) => {
+        let newArray = [];
+        for (let i = 0; i < array.length; i++) {
+            const newElement = cb(array[i], i, array);
+            newArray.push(newElement);
+        }
+        return newArray;
+    };
+
+    const productPricesA = arrayMap(products, getPrice);
+    arrayMap(products, logger);
+    // products.map(logger);
+    console.log(productPricesA);
 }
