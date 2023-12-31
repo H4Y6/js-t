@@ -124,10 +124,10 @@ const numbers = [4, 7, 5, 2, 8, 9];
 
     const ascendingStudentScoreOrder = [...students].sort((first, second) => first.score - second.score);
     const descendingStudentScoreOrder = [...students].sort((first, second) => second.score - first.score);
-    console.log(ascendingStudentScoreOrder, descendingStudentScoreOrder);
+    // console.log(ascendingStudentScoreOrder, descendingStudentScoreOrder);
 
     const alphabeticalStudentNameOrder = [...students].sort((first, second) => first.name.localeCompare(second.name));
-    console.log(alphabeticalStudentNameOrder);
+    // console.log(alphabeticalStudentNameOrder);
 }
 
 {
