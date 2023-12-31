@@ -90,12 +90,19 @@ const numbers = [4, 7, 5, 2, 8, 9];
     const mapFn = students => students.map(({ courses }) => courses);
     const courses = mapFn(students);
 
-    const flattenedMapFn = arrayOfArrays => {
+    const flattenedMapFn = (cb, students) => {
         const flattenedArray = [];
-        arrayOfArrays.forEach(elArray => flattenedArray.push(...elArray));
+        cb(students).forEach(elArray => flattenedArray.push(...elArray));
         return flattenedArray;
     }
-    const flattenedCourses = flattenedMapFn(courses);
+    const flattenedCourses = flattenedMapFn(mapFn, students);
+
+    // const flattenedMapFn = arrayOfArrays => {
+    //     const flattenedArray = [];
+    //     arrayOfArrays.forEach(elArray => flattenedArray.push(...elArray));
+    //     return flattenedArray;
+    // }
+    // const flattenedCourses = flattenedMapFn(courses);
 
     const getUniqueCourses = array => array.filter((el, idx, array) => array.indexOf(el) === idx);
     const uniqueCourses = getUniqueCourses(flattenedCourses);
