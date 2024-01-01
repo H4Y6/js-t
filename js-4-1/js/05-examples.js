@@ -43,8 +43,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     // numbers.forEach(logValuesWithEvenIndex);
 }
 
-/**  Filter    */
-
+/**           Filter                   */
 {
     const filteredNumbers = numbers.filter(el => el > 6);
     // console.log(filteredNumbers);
@@ -212,6 +211,29 @@ const numbers = [4, 7, 5, 2, 8, 9];
     // arrayMap(products, logger);
     // products.map(logger);
     // console.log(productPricesA);
+
+    /**                 Method filter                */
+
+    // const filterByPrice = el => el.price > 215;
+    const filterByPrice = ({ price }) => price > 215;
+    const filterArray = (array, cb) => {
+        const result = [];
+
+        for (let i = 0; i < array.length; i++) {
+            const element = array[i];
+            if (cb(element, i, array)) {
+                result.push(element);
+            };
+        };
+        return result;
+    }
+
+    // console.log(filterArray(products, filterByPrice));
+    const filteredProducts = filterArray(products, filterByPrice);
+
+    /**  Declarative fn :      */
+    // const filteredProducts = products.filter(filterByPrice);
+    // console.log(filteredProducts);
 }
 
 {
@@ -247,7 +269,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
         return tags;
     };
 
-    console.log(collectTagsRecursive(tweets));
+    // console.log(collectTagsRecursive(tweets));
 
     // const collectTags = tweets => tweets.reduce((tagCollection, { tags }) => {
     //     if (Array.isArray(tags)) {
