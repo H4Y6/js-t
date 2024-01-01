@@ -144,7 +144,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
             allTags.push(...tags);
             return allTags;
         }, []);
-    console.log(getTagsA(tweets));
+    // console.log(getTagsA(tweets));
 
     /**                         Method flatMap                      */
 
@@ -172,7 +172,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     };
 
     const tags = flatMap(tweets, getTags);
-    console.log(tags);
+    // console.log(tags);
 }
 
 {
@@ -212,4 +212,21 @@ const numbers = [4, 7, 5, 2, 8, 9];
     // arrayMap(products, logger);
     // products.map(logger);
     // console.log(productPricesA);
+}
+
+{
+    const tweets = [
+        { id: "000", likes: 5, tags: ["js", "nodejs"] },
+        { id: "001", likes: 2, tags: ["html", "css"] },
+        { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+        { id: "003", likes: 8, tags: ["css", "react"] },
+        { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+    ];
+    const collectTags = tweets => tweets.reduce((tagCollection, { tags }) => {
+        if (Array.isArray(tags)) {
+            tagCollection.push(...tags);
+            return tagCollection;
+        }
+    }, []);
+    console.log(collectTags(tweets));
 }
