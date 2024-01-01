@@ -222,11 +222,38 @@ const numbers = [4, 7, 5, 2, 8, 9];
         { id: "003", likes: 8, tags: ["css", "react"] },
         { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
     ];
-    const collectTags = tweets => tweets.reduce((tagCollection, { tags }) => {
-        if (Array.isArray(tags)) {
-            tagCollection.push(...tags);
-            return tagCollection;
+
+    const collectTags = (array, tags = []) => {
+
+        for (let i = 0; i < array.length; i++) {
+            const element = array[i].tags;
+            if (Array.isArray(element)) {
+                for (let index = 0; index < element.length; index++) {
+                    const el = element[index];
+                    tags.push(el);
+                };
+                // tags.push(...element);
+            }
+        };
+        return tags;
+    };
+
+    function collectTagsRecursive(array, tags = [], i = array.length - 1) {
+        if (i < 0) { return tags; }
+        {
+            collectTagsRecursive(array, tags, i - 1)
+            tags.push(...array[i].tags);
         }
-    }, []);
-    console.log(collectTags(tweets));
+        return tags;
+    };
+
+    console.log(collectTagsRecursive(tweets));
+
+    // const collectTags = tweets => tweets.reduce((tagCollection, { tags }) => {
+    //     if (Array.isArray(tags)) {
+    //         tagCollection.push(...tags);
+    //         return tagCollection;
+    //     }
+    // }, []);
+    // console.log(collectTags(tweets));
 }
