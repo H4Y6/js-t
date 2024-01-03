@@ -251,6 +251,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     };
 
     console.log(findInArray(products, findItem, 'stick'));
+    console.log(findInArray(products, findItem, 'stock'));
 }
 
 {
