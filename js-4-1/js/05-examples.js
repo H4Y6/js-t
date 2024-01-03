@@ -234,6 +234,23 @@ const numbers = [4, 7, 5, 2, 8, 9];
     /**  Declarative fn :      */
     // const filteredProducts = products.filter(filterByPrice);
     // console.log(filteredProducts);
+
+    /**                 Method find            */
+
+    const findItem = (arrayItem, item, i, el) => arrayItem.name === el;
+
+    const findInArray = (array, cb, el) => {
+        let requiredEl;
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array, el)) {
+                requiredEl = array[i];
+                break;
+            };
+        };
+        return requiredEl;
+    };
+
+    console.log(findInArray(products, findItem, 'stick'));
 }
 
 {
@@ -293,6 +310,6 @@ const numbers = [4, 7, 5, 2, 8, 9];
     const getTotalBalanceByGender = (users, gender) => {
         return users.filter((user) => user.gender === gender).reduce((total, { balance }) => { return total + balance }, 0)
     };
-    console.log(getTotalBalanceByGender(users, 'male'));
-    console.log(getTotalBalanceByGender(users, 'female'));
+    // console.log(getTotalBalanceByGender(users, 'male'));
+    // console.log(getTotalBalanceByGender(users, 'female'));
 }
