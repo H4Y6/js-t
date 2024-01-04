@@ -183,7 +183,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
 {
     const products = [
         { id: "000", price: 125, name: "stick" },
-        { id: "001", price: 212, name: "toy" },
+        { id: "001", price: 212, name: "tel" },
         { id: "002", price: 217, name: "toy" },
         { id: "003", price: 282, name: "card" },
         { id: "004", price: 320, name: "juice" },
@@ -284,7 +284,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
         };
         return result;
     };
-    console.log(arrayEvery(products, hasName, name));
+    // console.log(arrayEvery(products, hasName, name));
 
 
     const arraySome = (array, cb) => {
@@ -297,7 +297,32 @@ const numbers = [4, 7, 5, 2, 8, 9];
         };
         return result;
     };
-    console.log(arraySome(products, hasName, name));
+    // console.log(arraySome(products, hasName, name));
+
+
+    /**                 Methods reduce()              */
+
+    const sum = products.reduce((acc, product) => {
+        return acc + product.price;
+    }, 0);
+    console.log(sum);
+
+    const sumProductPrice = (acc, product) => { return acc + product.price };
+    const showAllProductNames = (acc, product) => { return `${acc} ${product.name},` };
+
+    const arrayReduce = (array, cb, acc) => {
+        const result = acc ?? array[0];
+        const idx = acc !== undefined || acc ? 0 : 1;
+        for (let i = idx; i < array.length; i++) {
+            const element = array[i];
+            acc = cb(acc, element, i, array);
+        }
+        return acc;
+    };
+
+    console.log(arrayReduce(products, sumProductPrice, 0));
+    console.log(arrayReduce(products, showAllProductNames, ''));
+
 }
 
 {
