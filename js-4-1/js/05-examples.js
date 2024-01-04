@@ -235,23 +235,39 @@ const numbers = [4, 7, 5, 2, 8, 9];
     // const filteredProducts = products.filter(filterByPrice);
     // console.log(filteredProducts);
 
-    /**                 Method find            */
+    /**                 Method find()            */
 
-    const findItem = (arrayItem, item, i, el) => arrayItem.name === el;
+    const findItem = (arrayItem, _, __, el) => arrayItem.name === el;
 
     const findInArray = (array, cb, el) => {
         let requiredEl;
         for (let i = 0; i < array.length; i++) {
             if (cb(array[i], i, array, el)) {
-                requiredEl = array[i];
-                break;
+                return array[i];
+                // return requiredEl = array[i];
             };
         };
         return requiredEl;
     };
 
-    console.log(findInArray(products, findItem, 'stick'));
-    console.log(findInArray(products, findItem, 'stock'));
+    // console.log(findInArray(products, findItem, 'stick'));
+    // console.log(findInArray(products, findItem, 'stock'));
+
+    /**                 Method findIndex()            */
+
+    const findEl = (el, i, array, name) => { return el.name === name };
+
+    const findIndex = (array, name) => {
+        let idx = -1;
+        for (let i = 0; i < array.length; i++) {
+            if (findEl(array[i], i, array, name)) {
+                return i;
+                // return idx = i;
+            };
+        };
+        return idx;
+    };
+    console.log(findIndex(products, 'card'));
 }
 
 {
