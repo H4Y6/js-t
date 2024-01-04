@@ -21,7 +21,7 @@ const logMessage = (value) => `The value is ${value}.`;
 
 const numbers = [4, 7, 5, 2, 8, 9];
 
-{/**   ForEach    */
+{/**            loop ForEach                    */
 
     const logItems = (el, idx, array) => {
         console.log('el:', el);
@@ -43,7 +43,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     // numbers.forEach(logValuesWithEvenIndex);
 }
 
-/**           Filter                   */
+/**                  method Filter()                   */
 {
     const filteredNumbers = numbers.filter(el => el > 6);
     // console.log(filteredNumbers);
@@ -145,7 +145,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
         }, []);
     // console.log(getTagsA(tweets));
 
-    /**                         Method flatMap                      */
+    /**                         Method flatMap()                      */
 
     // const getTags = tweet => tweet.tags;
     const getTags = ({ tags }) => tags;
@@ -189,7 +189,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
         { id: "004", price: 320, name: "juice" },
     ];
 
-    /**                         Method map                      */
+    /**                         Method map()                      */
 
     // const productPrices = products.map(product => product.price);
     const getPrice = ({ price }) => price;
@@ -212,7 +212,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     // products.map(logger);
     // console.log(productPricesA);
 
-    /**                 Method filter                */
+    /**                 Method filter()                */
 
     // const filterByPrice = el => el.price > 215;
     const filterByPrice = ({ price }) => price > 215;
@@ -267,7 +267,26 @@ const numbers = [4, 7, 5, 2, 8, 9];
         };
         return idx;
     };
-    console.log(findIndex(products, 'card'));
+    // console.log(findIndex(products, 'card'));
+
+    /**                 Methods every() and some()              */
+
+    const hasName = item => Boolean(item.name);
+    // const nasName = item => item.name; /** the same as above */
+
+    const arraySome = (array, cb, name) => {
+        let result = false;
+        for (let i = 0; i < array.length; i++) {
+            const element = array[i];
+            if (cb(element, i, array, name)) {
+                continue;
+            };
+            return result;
+        };
+        return true;
+        // return result = true;
+    };
+    console.log(arraySome(products, hasName, name));
 }
 
 {
