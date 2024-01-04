@@ -183,7 +183,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
 {
     const products = [
         { id: "000", price: 125, name: "stick" },
-        { id: "001", price: 212, name: "tel" },
+        { id: "001", price: 212, name: "toy" },
         { id: "002", price: 217, name: "toy" },
         { id: "003", price: 282, name: "card" },
         { id: "004", price: 320, name: "juice" },
@@ -272,19 +272,30 @@ const numbers = [4, 7, 5, 2, 8, 9];
     /**                 Methods every() and some()              */
 
     const hasName = item => Boolean(item.name);
-    // const nasName = item => item.name; /** the same as above */
+    // const hasName = item => item.name; /** the same as above */
+
+    const arrayEvery = (array, cb, name) => {
+        let result = true;
+        for (let i = 0; i < array.length; i++) {
+            const element = array[i];
+            if (!cb(element, i, array, name)) {
+                return false;
+            };
+        };
+        return result;
+    };
+    console.log(arrayEvery(products, hasName, name));
+
 
     const arraySome = (array, cb, name) => {
         let result = false;
         for (let i = 0; i < array.length; i++) {
             const element = array[i];
             if (cb(element, i, array, name)) {
-                continue;
+                return result = true;
             };
-            return result;
         };
-        return true;
-        // return result = true;
+        return result;
     };
     console.log(arraySome(products, hasName, name));
 }
