@@ -274,7 +274,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     const hasName = item => Boolean(item.name);
     // const hasName = item => item.name; /** the same as above */
 
-    const arrayEvery = (array, cb, name) => {
+    const arrayEvery = (array, cb) => {
         let result = true;
         for (let i = 0; i < array.length; i++) {
             const element = array[i];
@@ -287,7 +287,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     console.log(arrayEvery(products, hasName, name));
 
 
-    const arraySome = (array, cb, name) => {
+    const arraySome = (array, cb) => {
         let result = false;
         for (let i = 0; i < array.length; i++) {
             const element = array[i];
