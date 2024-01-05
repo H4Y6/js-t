@@ -63,7 +63,7 @@ const calculateVolume = (a) => (b) => (c) => a * b * c;
 const products = [
     {
         id: 1,
-        price: 1222,
+        price: 122,
         name: 'iphone',
         tags: ['phone', 'expensive'],
     },
@@ -75,13 +75,13 @@ const products = [
     },
     {
         id: 3,
-        price: 10000,
+        price: 321,
         name: 'nokia3310',
         tags: ['phone', 'unbreakable'],
     },
     {
         id: 4,
-        price: 100,
+        price: 140,
         name: 'star wars sword',
         tags: ['weapon'],
     },
@@ -96,27 +96,28 @@ const products = [
     const getPrice = ({ price }) => price;
     const logger = (product, index, array) =>
         console.log(
-            `Product ${product.name}; Index: ${index}; Length: ${array.length}`
+            `Product: ${product.name}; Index: ${index}; Length: ${array.length}`
         );
-    const productsPrices1 = products.map(getPrice);
-    // console.log(productsPrices);
+    const productPrices = products.map(getPrice);
+    console.log(productPrices);
 
     const arrayMap = (array, callBack) => {
         // products
         // callBack = ({ price }) => price;
         let result = [];
 
-        for (let i = 0; i < array.length; i++) {
-            const newItem = callBack(array[i], i, array);
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            const newItem = callBack(element, index, array);
             result.push(newItem);
         }
 
         return result;
     };
 
-    const productsPrices2 = arrayMap(products, getPrice);
-    // arrayMap(products, logger);
-    // console.log(productsPrices2);
+    const productPricesA = arrayMap(products, getPrice);
+    arrayMap(products, logger);
+    console.log(productPricesA);
 }
 
 /** Method flatMap */
