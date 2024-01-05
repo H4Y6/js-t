@@ -17,7 +17,7 @@ const callback = (item, index, currentArray) => { };
 
 const date = new Date();
 
-console.log(date.toString().slice(0, 25));
+// console.log(date.toString().slice(0, 25));
 
 /** JavaScript Internationalization API, regarding dates:  */
 
@@ -53,9 +53,12 @@ const options = {
     // hour: '2-digit',
 };
 
-console.log(new Intl.DateTimeFormat("en-GB", options).format(date));
+// console.log(new Intl.DateTimeFormat("en-GB", options).format(date));
 
+/**            Carry out function:       */
 
+const calculateVolume = (a) => (b) => (c) => a * b * c;
+// console.log((calculateVolume(2)(7)(16)));
 
 const products = [
     {
