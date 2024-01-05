@@ -83,8 +83,8 @@ const buttonRef = document.querySelector('.js-button');
 // console.dir(buttonRef);
 
 const handleBtnClick = function () {
-    const currentTime = Date.now() / 3600000 % 24;
-    // console.log('While the click the time was', currentTime.toFixed(3), 'hrs(UTC)');
+    console.log(new Date().toDateString());
+    console.log(new Date().toTimeString().slice(0, 8));
 };
 
 buttonRef.addEventListener('click', handleBtnClick);
@@ -100,10 +100,10 @@ const onBtnClick = () => {
     const currentLT = currentTime + 2;
     const currentMinute = (currentTime % 1 * 60);
     const currentSecond = (currentMinute % 1 * 60);
-    console.log(Math.floor(currentLT).toString(), 'hr:', currentMinute.toFixed(), 'min:', currentSecond.toFixed(), 'sec')
+    console.log(Math.floor(currentLT).toString(), ':', currentMinute.toFixed(), ':', currentSecond.toFixed())
 }
 
-btnEl.addEventListener('click', onBtnClick)
+// btnEl.addEventListener('click', onBtnClick);
 
 
 /*
