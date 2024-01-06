@@ -98,8 +98,9 @@ const products = [
         console.log(
             `Product: ${product.name}; Index: ${index}; Length: ${array.length}`
         );
+
     const productPrices = products.map(getPrice);
-    console.log(productPrices);
+    // console.log(productPrices); 
 
     const arrayMap = (array, callBack) => {
         // products
@@ -110,14 +111,31 @@ const products = [
             const element = array[index];
             const newItem = callBack(element, index, array);
             result.push(newItem);
-        }
+        };
 
         return result;
     };
 
     const productPricesA = arrayMap(products, getPrice);
-    arrayMap(products, logger);
-    console.log(productPricesA);
+    // console.log(productPricesA);
+    // arrayMap(products, logger);
+
+    // console.log(arrayMap(products, getPrice));
+
+    // const mapPrices = (el, idx, array) => { return el => el.price };
+    const matPrices = ({ price }) => price;
+
+    const arrayMapping = (array, cb) => {
+        const resultedArray = [];
+
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            const newEl = resultedArray.push(element);
+        };
+        return resultedArray;
+    };
+
+    console.log(arrayMapping(products, matPrices));
 }
 
 /** Method flatMap */
