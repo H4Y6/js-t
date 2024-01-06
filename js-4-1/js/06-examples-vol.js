@@ -63,7 +63,7 @@ const calculateVolume = (a) => (b) => (c) => a * b * c;
 const products = [
     {
         id: 1,
-        price: 122,
+        price: 722,
         name: 'iphone',
         tags: ['phone', 'expensive'],
     },
@@ -124,6 +124,8 @@ const products = [
 
     // const mapPrices = (el, idx, array) => { return el => el.price };
     const matPrices = ({ price }) => price;
+    const logging = (el, idx, array) =>
+        console.log(`${new Date().toLocaleTimeString()}: name:${el.name}, price: ${el.price}, index: ${idx}`);
 
     const arrayMapping = (array, cb) => {
         const resultedArray = [];
@@ -135,7 +137,8 @@ const products = [
         return resultedArray;
     };
 
-    console.log(arrayMapping(products, matPrices));
+    // console.log(arrayMapping(products, matPrices));
+    arrayMap(products, logging);
 }
 
 /** Method flatMap */
