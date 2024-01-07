@@ -195,7 +195,7 @@ const products = [
         return resultedArray;
     };
 
-    console.log(flatMapArray(products, getTags))
+    console.log(flatMapArray(products, getTags));
 }
 
 /** Method filter */
@@ -204,7 +204,7 @@ const products = [
     const filterByPrice = (product) => product.price > 500;
 
     const filterArray = (array, callBack) => {
-        let result = [];
+        const result = [];
 
         for (let i = 0; i < array.length; i++) {
             const isSelected = callBack(array[i], i, array);
@@ -220,4 +220,17 @@ const products = [
     const filteredProducts = filterArray(products, filterByPrice);
     // const filteredProducts = products.filter(filterByPrice);
     // console.log(filteredProducts);
+
+    const priceFilterCb = ({ price }, idx, arr) => price > 301;
+
+    const filterArr = (array, cb) => {
+        const filteredArr = [];
+
+        for (let index = 0; index < array.length; index++) {
+            if (cb(array[index], index, array)) filteredArr.push(array[index]);
+        };
+        return filteredArr;
+    };
+
+    console.log(filterArr(products, priceFilterCb));
 }
