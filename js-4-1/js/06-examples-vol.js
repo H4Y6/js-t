@@ -83,7 +83,7 @@ const products = [
         id: 4,
         price: 140,
         name: 'star wars sword',
-        tags: ['weapon'],
+        tags: 'weapon',
     },
 ];
 
@@ -138,7 +138,7 @@ const products = [
     };
 
     // console.log(arrayMapping(products, matPrices));
-    arrayMap(products, logging);
+    // arrayMap(products, logging);
 }
 
 /** Method flatMap */
@@ -160,7 +160,7 @@ const products = [
                     result.push(item);
                 }
 
-                // с использованием спреда
+                // using spread
                 // result = [...result, ...newItem];
             } else {
                 result.push(newItem);
@@ -173,6 +173,29 @@ const products = [
     const tags = flatMap(products, getTags);
     // const tags = products.flatMap(getTags);
     // console.log(tags);
+
+    const flatMapArray = (array, cb) => {
+        let resultedArray = [];
+
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            const newEl = cb(element, index, array);
+            if (Array.isArray(newEl)) {
+                // for (const iterator of newEl) {
+                //     resultedArray.push(iterator);
+                // };
+                /**  OR    */
+
+                resultedArray = [...resultedArray, ...newEl];
+
+            } else {
+                resultedArray.push(newEl);
+            }
+        };
+        return resultedArray;
+    };
+
+    console.log(flatMapArray(products, getTags))
 }
 
 /** Method filter */
