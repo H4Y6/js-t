@@ -195,7 +195,7 @@ const products = [
         return resultedArray;
     };
 
-    console.log(flatMapArray(products, getTags));
+    // console.log(flatMapArray(products, getTags));
 }
 
 /** Method filter */
@@ -232,5 +232,44 @@ const products = [
         return filteredArr;
     };
 
-    console.log(filterArr(products, priceFilterCb));
+    // console.log(filterArr(products, priceFilterCb));
+}
+
+/** Method find */
+{
+    const findSamsung = (product) => product.name === 'samsung';
+
+    const findInArray = (array, callback) => {
+        let searchedItem;
+
+        for (let i = 0; i < array.length; i++) {
+            if (callback(array[i], i, array)) {
+                searchedItem = array[i];
+                break;
+            }
+        }
+
+        return searchedItem;
+    };
+
+    const phone = findInArray(products, findSamsung);
+    const product = findInArray(products, (product) => product.name === ' ');
+    // const phone = products.find(findSamsung);
+    // console.log(phone);
+    // console.log(product);
+
+    const findEl = (el) => el.name === 'iphone';
+
+    const findArrayEl = (array, cb) => {
+        let foundEl;
+
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            if (cb(element, index, array))
+                return foundEl = element;
+        };
+        return foundEl;
+    };
+
+    console.log(findArrayEl(products, findEl));
 }
