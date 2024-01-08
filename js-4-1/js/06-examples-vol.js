@@ -258,18 +258,20 @@ const products = [
     // console.log(phone);
     // console.log(product);
 
-    const findEl = (el) => el.name === 'iphone';
+    const findEl = (el, _, __, elValue) => el.price === elValue;
+    // const findEl = (el, _, __, elValue) => el.name === elValue;
 
-    const findArrayEl = (array, cb) => {
+    const findArrayEl = (array, cb, value) => {
         let foundEl;
 
         for (let index = 0; index < array.length; index++) {
             const element = array[index];
-            if (cb(element, index, array))
+            if (cb(element, index, array, value))
                 return foundEl = element;
         };
         return foundEl;
     };
 
-    console.log(findArrayEl(products, findEl));
+    console.log(findArrayEl(products, findEl, 222));
+    // console.log(findArrayEl(products, findEl, 'iphone'));
 }
