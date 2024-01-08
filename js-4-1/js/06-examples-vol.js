@@ -286,6 +286,39 @@ const products = [
         return idx;
     };
 
-    console.log(findIndex(products, ({ name }) => name === 'nokia3310'));
-    console.log(findIndex(products, ({ price }) => price === 722));
+    // console.log(findIndex(products, ({ name }) => name === 'nokia3310'));
+    // console.log(findIndex(products, ({ price }) => price === 722));
+}
+
+/** Methods every & some */
+{
+    const comparePrice = ({ price }, i, arr) => price > 311;
+
+    const arrayEvery = (array, cb) => {
+        let result = false;
+
+        for (let index = 0; index < array.length; index++) {
+            if (cb(array[index], index, array)) {
+                continue;
+            } else {
+                return result;
+            };
+
+        };
+        return result = true;
+    };
+
+    console.log(arrayEvery(products, comparePrice));
+
+    const arraySome = (array, cb) => {
+        let result = true;
+
+        for (let index = 0; index < array.length; index++) {
+            if (cb(array[index], index, array)) return result;
+            continue;
+        };
+        return result = false;
+    };
+
+    console.log(arraySome(products, comparePrice))
 }
