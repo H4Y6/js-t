@@ -272,6 +272,20 @@ const products = [
         return foundEl;
     };
 
-    console.log(findArrayEl(products, findEl, 222));
+    // console.log(findArrayEl(products, ({ price }) => price === 140));
+    // console.log(findArrayEl(products, findEl, 222));
     // console.log(findArrayEl(products, findEl, 'iphone'));
+
+    const findIndex = (array, cb) => {
+        let idx = -1;
+
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            if (cb(element, index, array)) return idx = index;
+        };
+        return idx;
+    };
+
+    console.log(findIndex(products, ({ name }) => name === 'nokia3310'));
+    console.log(findIndex(products, ({ price }) => price === 722));
 }
