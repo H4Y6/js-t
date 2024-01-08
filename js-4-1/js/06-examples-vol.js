@@ -292,23 +292,20 @@ const products = [
 
 /** Methods every & some */
 {
-    const comparePrice = ({ price }, i, arr) => price > 311;
+    const comparePrice = ({ price }, i, arr) => price > 544;
 
     const arrayEvery = (array, cb) => {
         let result = false;
 
         for (let index = 0; index < array.length; index++) {
-            if (cb(array[index], index, array)) {
-                continue;
-            } else {
-                return result;
-            };
+            if (cb(array[index], index, array)) continue;
 
+            return result;
         };
         return result = true;
     };
 
-    console.log(arrayEvery(products, comparePrice));
+    // console.log(arrayEvery(products, comparePrice));
 
     const arraySome = (array, cb) => {
         let result = true;
@@ -320,5 +317,24 @@ const products = [
         return result = false;
     };
 
-    console.log(arraySome(products, comparePrice))
+    // console.log(arraySome(products, comparePrice))
+}
+
+/**       method reduce       */
+{
+    // const priceSum = products.reduce((sum, { price }) => sum + price, 0);
+    const sumProductPrice = (prevValue, product) => prevValue + product.price;
+
+    const arrayReduce = (array, cb, initialValue) => {
+        // let prevValue = initialValue ? initialValue : array[0];
+        let prevValue = initialValue ?? array[0];
+        let i = initialValue || initialValue === 0 ? 0 : 1;
+
+        for (i; i < array.length; i++) {
+            prevValue = cb(prevValue, array[i], i, array);
+        };
+        return prevValue;
+    };
+
+    console.log(arrayReduce(products, sumProductPrice, 0))
 }
