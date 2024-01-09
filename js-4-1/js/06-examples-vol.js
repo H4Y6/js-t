@@ -351,26 +351,28 @@ const products = [
 {
     /**    imperative function      */
 /**  cb to get priceSum and more with different params: */  const getSumPrice = ((acc, el, idx, array) => { return acc + el.price });
+    const showNames = (acc, { name }) => acc + name + ", ";
 
-    // const arrayReduce = (array, cb, initValue) => {
-    //     let acc = initValue ?? array[0];
-    //     let i = (initValue || initValue === 0) ? 0 : 1
-    //     for (i; i < array.length; i++) {
-    //         const element = array[i];
-    //         acc = cb(acc, element, i, array);
-    //     };
-    //     return acc;
-    // };
-
-    function arrayReduce(array, cb, initialValue) {
-        let prevValue = initialValue ?? array[0];
-        let i = initialValue || initialValue === 0 ? 0 : 1;
-
+    const arrayReduce = (array, cb, initValue) => {
+        let acc = initValue ?? array[0];
+        let i = initValue === undefined ? 1 : 0;
         for (i; i < array.length; i++) {
-            prevValue = cb(prevValue, array[i], i, array);
-            console.log(prevValue);
+            const element = array[i];
+            acc = cb(acc, element, i, array);
         };
-        return prevValue;
+        return acc;
     };
+
+    // function arrayReduce(array, cb, initialValue) {
+    //     let prevValue = initialValue ?? array[0];
+    //     let i = initialValue === undefined ? 1 : 0;
+
+    //     for (i; i < array.length; i++) {
+    //         prevValue = cb(prevValue, array[i], i, array);
+    //         // console.log(prevValue);
+    //     };
+    //     return prevValue;
+    // };
     console.log(arrayReduce(products, getSumPrice, 0));
+    console.log(arrayReduce(products, showNames, 'Names: '));
 }
