@@ -337,18 +337,30 @@ const products = [
     };
 
     // console.log(arrayReduce(products, sumProductPrice, 0));
-}
 
-{
+
     const sumPrices = (products) => products.reduce((sum, { price }) => sum + price, 0);
-    console.log(sumPrices(products));
+    // console.log(sumPrices(products));
 
     /**   OR    */
 
     const priceSum = products.reduce((total, { price }) => total + price, 0);
-    console.log(priceSum);
+    // console.log(priceSum);
+}
 
+{
     /**    imperative function      */
-/**  cb to get priceSum and more with different params: */  const getSumPrice = (((acc, el, idx, array) => { return acc + el.price }, 0));
-    const ArrayReduce = (array, cb) => { };
+/**  cb to get priceSum and more with different params: */  const getSumPrice = ((acc, el, idx, array) => { return acc + el.price });
+
+    const arrayReduce = (array, cb, initValue) => {
+        let acc = initValue ?? array[0];
+        let i = (initValue || initValue === 0) ? 0 : 1
+        for (i; i < array.length; i++) {
+            const element = array[i];
+            acc = cb(acc, element, i, array);
+        };
+        return acc;
+    };
+
+    console.log(arrayReduce(products, getSumPrice, 0));
 }
