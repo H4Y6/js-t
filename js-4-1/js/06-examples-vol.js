@@ -336,5 +336,19 @@ const products = [
         return prevValue;
     };
 
-    console.log(arrayReduce(products, sumProductPrice, 0))
+    // console.log(arrayReduce(products, sumProductPrice, 0));
+}
+
+{
+    const sumPrices = (products) => products.reduce((sum, { price }) => sum + price, 0);
+    console.log(sumPrices(products));
+
+    /**   OR    */
+
+    const priceSum = products.reduce((total, { price }) => total + price, 0);
+    console.log(priceSum);
+
+    /**    imperative function      */
+/**  cb to get priceSum and more with different params: */  const getSumPrice = (((acc, el, idx, array) => { return acc + el.price }, 0));
+    const ArrayReduce = (array, cb) => { };
 }
