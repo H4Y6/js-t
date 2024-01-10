@@ -373,6 +373,34 @@ const products = [
     //     };
     //     return prevValue;
     // };
-    console.log(arrayReduce(products, getSumPrice, 0));
-    console.log(arrayReduce(products, showNames, 'Names: '));
+    // console.log(arrayReduce(products, getSumPrice, 0));
+    // console.log(arrayReduce(products, showNames, 'Names: '));
+}
+
+const tweets = [
+    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+    { id: "001", likes: 2, tags: ["html", "css"] },
+    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+    { id: "003", likes: 8, tags: ["css", "react"] },
+    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+/**   з масиву постів твіттера окремого користувача необхідно порахувати суму усіх лайків:   */
+{
+    const countLikes = array => array.reduce((totalLikes, { likes }) => totalLikes + likes, 0);
+    const likes = countLikes(tweets);
+    // const likes = tweets.reduce((totalLikes, { likes }) => totalLikes + likes, 0);
+
+    console.log(likes);
+}
+
+/**   зберемо в масив усі теги, які зустрічаються в постах:    */
+{
+    const collectTags = tweets => tweets.reduce((allTags, tweet) => {
+        allTags.push(...tweet.tags);
+        return allTags;
+    }, []);
+
+    const tags = collectTags(tweets);
+    console.log(tags);
 }
