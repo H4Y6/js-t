@@ -49,3 +49,73 @@ user.showContext = showThis;
 // якого здійснюється виклик, а не на глобальний об'єкт.
 user.showContext(); // this in showThis: {username: "Mango", showContext: ƒ}
 
+const fnP = () => console.log('This in fnP:', this);
+fnP();
+
+const objS = {
+    fnF: () => console.log('This in fnF:', this),
+};
+objS.fnF();
+
+const objR = {
+    fnE: () => console.log('This in fnP=E:', this),
+};
+objR.fnE();
+
+const fnQ = () => console.log('This in fnQ:', this);
+const objQ = {
+    logC: fnQ,
+};
+objQ.logC();
+
+{/**   call    */
+    const fnW = function (a, b) {
+        console.log('This in fnW:', this.sum, a, b);
+    };
+
+    const objW = {
+        sum: 0,
+        logSum: fnW,
+    };
+    objW.logSum();
+    fnW.call(objW, 2, 5);
+    fnW.call({ sum: 11 }, 3, 4);
+}
+
+{/**   apply    */
+    const fnW = function (a, b) {
+        console.log('This in fnW:', this.sum, a, b);
+    };
+
+    const objW = {
+        sum: 0,
+        logSum: fnW,
+    };
+    objW.logSum();
+    fnW.apply(objW, [2, 5]);
+    fnW.apply({ sum: 11 }, [3, 4]);
+}
+
+{
+    const robert = {
+        name: 'Robert',
+        legs: 2,
+        greet() {
+            `Hello, I am ${this.name}`
+        },
+    };
+
+    const cat = {
+        name: 'Cat',
+        legs: 4,
+        getLegsAmount() {
+            return this.legs;
+        },
+    };
+
+    // robert.getLegsAmount = cat.getLegsAmount.bind(cat);
+    robert.getLegsAmount = cat.getLegsAmount.bind(robert);
+    console.log(cat.getLegsAmount());
+    console.log(robert);
+    console.log(robert.getLegsAmount());
+}
