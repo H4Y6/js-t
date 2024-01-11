@@ -119,3 +119,26 @@ objQ.logC();
     console.log(robert);
     console.log(robert.getLegsAmount());
 }
+
+{
+    const dog = {
+        name: 'Pit',
+    };
+
+    const cat = {
+        name: 'Meow',
+    };
+
+    let logName = function () {
+        return this.name;
+    };
+
+    const logDogName = logName.bind(dog);
+    let logCatName = logName.bind(cat);
+    const logCatNameA = logDogName.bind(cat); /**  Pit  */
+    // logCatName = logName.bind(dog);  /**  Pit */
+    console.log(logDogName());
+    console.log(logCatName());
+    console.log(logCatNameA());
+    console.log(logCatName());
+}
