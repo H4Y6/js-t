@@ -102,7 +102,7 @@
         },
     };
 
-    user.logNameAfterOneSecond();
+    // user.logNameAfterOneSecond();
 }
 
 {
@@ -136,3 +136,6 @@
 }
 
 // console.dir(window);
+
+const obj = { foo: () => console.log(this) };
+obj.foo();
