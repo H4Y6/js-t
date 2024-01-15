@@ -168,16 +168,18 @@ printer_error(s) => "8/22"
    */
 
 function printerError(s) {
-    const arr1 = 'abcdefghjiklm'.split('');
-    const strArr = s.split('');
-    let errNumber = 0;
+    // let errNumber = 0;
+    // const arr1 = 'abcdefghjiklm'.split('');
+    // const strArr = s.split('');
+    // strArr.forEach(el => {
+    //     if (!arr1.includes(el)) {
+    //         errNumber++;
+    //     };
+    // });
+    // return (`${errNumber}/${s.length}`);
 
-    strArr.forEach(el => {
-        if (!arr1.includes(el)) {
-            errNumber++;
-        };
-    });
-    return (`${errNumber}/${s.length}`);
+    const errorRate = s.match(/[n-z]/i) === null ? 0 : s.match(/[n-z]/gi).length;
+    return `${errorRate}/${s.length}`;
 };
 console.log(printerError("aaabbbbhaijjjm"));
 console.log(printerError("aaaxbbbbyyhwawiwjjjwwm"));
