@@ -167,7 +167,7 @@ s="aaaxbbbbyyhwawiwjjjwwm"
 printer_error(s) => "8/22"
    */
 
-function printerError(s) {
+function printerErrorA(s) {
     // let errNumber = 0;
     // const arr1 = 'abcdefghjiklm'.split('');
     // const strArr = s.split('');
@@ -181,6 +181,17 @@ function printerError(s) {
     const errorRate = s.match(/[n-z]/i) === null ? 0 : s.match(/[n-z]/gi).length;
     return `${errorRate}/${s.length}`;
 };
+
+function printerError(s) {
+    if (s.match(/[n-z]/i) === null) {
+        return `0/${[s.length]}`
+    } else {
+        // console.log(s.match(/[n-z]/g));
+        // console.log(s.match(/[n-z]/));
+        const errorRate = s.match(/[n-z]/gi).length;
+        return `${errorRate}/${[s.length]}`
+    }
+}
 console.log(printerError("aaabbbbhaijjjm"));
 console.log(printerError("aaaxbbbbyyhwawiwjjjwwm"));
 
