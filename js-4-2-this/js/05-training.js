@@ -104,4 +104,81 @@ function dnaStrand(dna) {
     return dna.replaceAll('T', 't').replaceAll('A', 'T').replaceAll('t', 'A')
         .replaceAll('G', 'g').replaceAll('C', 'G').replaceAll('g', 'C');
 };
-console.log(dnaStrand("GTAT"));
+// console.log(dnaStrand("GTAT"));
+
+/**  Given a random non-negative number, you have to return the digits of this number within an array in reverse order.  */
+
+function digitize(n) {
+    const numberStringReversed = n.toString().split('').reverse();
+    let numberArray = [];
+    numberStringReversed.forEach(element => {
+        numberArray.push(Number(element));
+    });
+    return numberArray;
+};
+// console.log(digitize(35231));
+
+/**  Given an array of integers your solution should find the smallest integer.
+
+For example: Given [34, 15, 88, 2] your solution will return 2
+             Given [34, -345, -1, 100] your solution will return -345
+You can assume, for the purpose of this kata, that the supplied array will not be empty.   */
+
+class SmallestIntegerFinder {
+    findSmallestInt(args) {
+        return (Math.min(...args));
+    };
+};
+
+function findSmallestInt(args) {
+    console.log(Math.min(...args));
+};
+// findSmallestInt([34, 15, 88, 2]);
+
+
+
+/**  You might know some pretty large perfect squares. But what about the NEXT one?
+Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter.
+ Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
+If the parameter is itself not a perfect square then -1 should be returned. You may assume the parameter is non-negative.   */
+
+
+function findNextSquare(sq) {
+    const num = Math.sqrt(sq)
+    return num % 1 !== 0 ? -1 : Math.pow(num + 1, 2);
+};
+// console.log(findNextSquare(9));
+
+/**  In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+
+The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+
+Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
+
+You have to write a function printer_error which given a string will return the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+
+The string has a length greater or equal to one and contains only letters from ato z.
+
+Examples:
+s="aaabbbbhaijjjm"
+printer_error(s) => "0/14"
+
+s="aaaxbbbbyyhwawiwjjjwwm"
+printer_error(s) => "8/22"
+   */
+
+function printerError(s) {
+    const arr1 = 'abcdefghjiklm'.split('');
+    const strArr = s.split('');
+    let errNumber = 0;
+
+    strArr.forEach(el => {
+        if (!arr1.includes(el)) {
+            errNumber++;
+        };
+    });
+    return (`${errNumber}/${s.length}`);
+};
+console.log(printerError("aaabbbbhaijjjm"));
+console.log(printerError("aaaxbbbbyyhwawiwjjjwwm"));
+

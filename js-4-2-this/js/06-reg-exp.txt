@@ -1,0 +1,35 @@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+0123456789
+
+ace    bad    cat    dry    eve
+away   bent   crow   dove   ends
+attic  brand  crypt  dried  event
+annoys baller camera diving ethics
+
+
+
+~`!@#$%^&*()-_+=<>,./?;:'"[{
+0123456789
+
+In the future:
+
+your toaster will be smarter than you.
+Robots will take over the world, but they'll do it in style.
+Augmented reality will let you pet virtual unicorns in your living room.
+Quantum computing will allow you to calculate the meaning of life in seconds.
+Blockchain will make your online shopping experience more secure than Fort Knox.
+Cybersecurity will be so advanced, hackers will have to resort to using actual swords.
+In the future, we'll all communicate through a universal language made up entirely of emojis.
+
+
+MM-DD-YYYY (or MM.DD.YYYY -- MM/DD/YYYY)
+
+06-04-2000
+Christmas this year is 12/25/2023
+02-22-2022
+Humans first stepped on the moon July 20, 1969
+10/31/99
+A great movie came out on 02.16.1996
+2022/12/23
+
