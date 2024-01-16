@@ -33,3 +33,4 @@ Humans first stepped on the moon July 20, 1969
 A great movie came out on 02.16.1996
 2022/12/23
 
+dateRegEx = /\w*?\s?[0-3]?\d?\d?\d?[-\./\s][0-3]\d[-\./,\s]?[,\s]?\d{2}?\d?\d?/
