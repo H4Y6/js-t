@@ -203,7 +203,7 @@ Examples:
 
 
 function descendingOrder(n) {
-    const stringArray = (n.toString().split(''))
+    const stringArray = (n.toString().split(''));
     const descendingArray = [];
     const numberArray = [];
     stringArray.forEach(el => numberArray.push(Number(el)));
@@ -224,7 +224,17 @@ function descendingOrder(n) {
     descendingArray.forEach(el => { el.toString(); str += el });
     return Number(str);
 };
+
+function descendingOrderA(n) {
+    const stringArray = (n.toString().split(''));
+    stringArray.sort().reverse();
+
+    let string = '';
+    stringArray.forEach(el => { el.toString(); string += el });
+    return Number(string);
+};
 console.log(descendingOrder(42145));
+console.log(descendingOrderA(421745));
 
 {
     const kook = () => console.log(this);
