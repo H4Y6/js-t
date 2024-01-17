@@ -195,35 +195,36 @@ function printerError(s) {
 // console.log(printerError("aaabbbbhaijjjm"));
 // console.log(printerError("aaaxbbbbyyhwawiwjjjwwm"));
 
-/**  Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+/**  Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order.
+ *  Essentially, rearrange the digits to create the highest possible number.
 Examples:
     Input: 42145 Output: 54421
     Input: 123456789 Output: 987654321    */
 
 
 function descendingOrder(n) {
+    const stringArray = (n.toString().split(''))
     const descendingArray = [];
     const numberArray = [];
-    n.toString().split('').forEach(el => numberArray.push(Number(el)));
+    stringArray.forEach(el => numberArray.push(Number(el)));
     const l = numberArray.length;
+    orderDescent(l);
 
-    const orderDescent = (a) => {
+    function orderDescent(a) {
         if (a <= 0) {
             return;
         } {
             let maxNumber = Math.max(...numberArray);
             descendingArray.push(maxNumber);
-            numberArray.splice(numberArray.indexOf(maxNumber), 1)
-            // console.log(numberArray, descendingArray);
+            numberArray.splice(numberArray.indexOf(maxNumber), 1);
             orderDescent(a - 1);
         };
     };
-    orderDescent(l);
-    return descendingArray;
+    let str = '';
+    descendingArray.forEach(el => { el.toString(); str += el });
+    return Number(str);
 };
 console.log(descendingOrder(42145));
-console.log(descendingOrder(0));
-console.log(descendingOrder(1));
 
 {
     const kook = () => console.log(this);
