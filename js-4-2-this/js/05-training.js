@@ -233,8 +233,17 @@ function descendingOrderA(n) {
     stringArray.forEach(el => { el.toString(); string += el });
     return Number(string);
 };
+
+function descendingOrderB(n) {
+    // const string = (n.toString().split('')).sort().reverse().join('');
+    let string = n.toString().split('').sort((a, b) => b - a).join('');
+    return parseInt(string);
+    // return Number(string);
+};
+
 console.log(descendingOrder(42145));
-console.log(descendingOrderA(421745));
+console.log(descendingOrderA(421245));
+console.log(descendingOrderB(421745));
 
 {
     const kook = () => console.log(this);
