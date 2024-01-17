@@ -200,6 +200,31 @@ Examples:
     Input: 42145 Output: 54421
     Input: 123456789 Output: 987654321    */
 
+
+function descendingOrder(n) {
+    const descendingArray = [];
+    const numberArray = [];
+    n.toString().split('').forEach(el => numberArray.push(Number(el)));
+    const l = numberArray.length;
+
+    const orderDescent = (a) => {
+        if (a <= 0) {
+            return;
+        } {
+            let maxNumber = Math.max(...numberArray);
+            descendingArray.push(maxNumber);
+            numberArray.splice(numberArray.indexOf(maxNumber), 1)
+            // console.log(numberArray, descendingArray);
+            orderDescent(a - 1);
+        };
+    };
+    orderDescent(l);
+    return descendingArray;
+};
+console.log(descendingOrder(42145));
+console.log(descendingOrder(0));
+console.log(descendingOrder(1));
+
 {
     const kook = () => console.log(this);
     const obj = { logA: kook };
