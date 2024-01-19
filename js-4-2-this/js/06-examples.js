@@ -1,4 +1,3 @@
-
 const user = {
     name: 'Paul',
     age: 33,
