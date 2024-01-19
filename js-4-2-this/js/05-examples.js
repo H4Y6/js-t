@@ -92,3 +92,23 @@
     // console.log(robot);
     // console.log(cat.getLegsAmount());
 }
+
+{
+    const dog = {
+        name: 'Benny',
+    };
+
+    const cat = {
+        name: 'Elise',
+    }
+
+    const logName = function () {
+        console.log(this.name);
+    };
+
+    const logDogName = logName.bind(dog);
+    const logCatName = logName.bind(cat);
+
+    logDogName();
+    logCatName();
+}
