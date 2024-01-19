@@ -108,7 +108,9 @@
 
     const logDogName = logName.bind(dog);
     const logCatName = logName.bind(cat);
+    const logCatNameSecond = logDogName.bind(cat);  /**  secondary bind is impossible */
 
     logDogName();
     logCatName();
+    logCatNameSecond();  /** Benny ???    We get the dog name due-to binding to the cat object firstly */
 }
