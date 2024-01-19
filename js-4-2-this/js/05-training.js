@@ -236,14 +236,49 @@ function descendingOrderA(n) {
 
 function descendingOrderB(n) {
     // const string = (n.toString().split('')).sort().reverse().join('');
-    let string = n.toString().split('').sort((a, b) => b - a).join('');
+    const string = n.toString().split('').sort((a, b) => b - a).join('');
     return parseInt(string);
     // return Number(string);
 };
 
-console.log(descendingOrder(42145));
-console.log(descendingOrderA(421245));
-console.log(descendingOrderB(421745));
+// function descendingOrder(n) {
+//     const str = n.toString().split('').sort((a, b) => b - a).join('');
+//     return Number(str);
+// };
+
+// console.log(descendingOrder(15));
+// console.log(descendingOrderA(42124));
+// console.log(descendingOrderB(421745));
+
+
+function capitalizeFirstLetter(string) {
+    const strs = string.split(' ');
+    let newStr = '';
+    strs.forEach(str => (newStr += `${(str[0].toUpperCase() + str.slice(1))} `));
+    return newStr.trim();
+
+    // console.log(string && string[0].toUpperCase() + string.slice(1));
+    console.log(string.charAt(0).toUpperCase() + string.slice(1));
+
+};
+
+// console.log(capitalizeFirstLetter("how can mirrors be real if our eyes aren't real"));
+
+String.prototype.toJadenCase = function () {
+    const str = "How can mirrors be real if our eyes aren't real";
+    const strs = str.split(' ');
+    let newStr = '';
+    // for (let i = 0; i < strs.length; i++) {
+    //     const s = strs[i];
+    //     newStr += ' ' + s.replace(/^./, s[0].toUpperCase());
+    // };
+    strs.forEach(s => [(newStr += ' ' + s.replace(/^./, s[0].toUpperCase()))]);
+    // strs.forEach(s => (newStr += ' ' + s[0].toUpperCase() + s.slice(1)));
+    // console.log(newStr, typeof (newStr) === 'string');
+    return newStr.trim();
+};
+
+// console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
 
 {
     const kook = () => console.log(this);
@@ -286,13 +321,56 @@ console.log(descendingOrderB(421745));
     };
 
     // makeMessage(customer.getFullName);  /** Error in strict mode, otherwise undefined this */
-    makeMessage(customer.getFullName.bind(customer));
+    // makeMessage(customer.getFullName.bind(customer));
 
     const getCustomerFullName = customer.getFullName.bind(customer);
-    makeMessage(getCustomerFullName);
+    // makeMessage(getCustomerFullName);
 
     // makeMessage(foo);  /** Error in strict mode, otherwise undefined this */
-    makeMessage(foo.bind(customer));
+    // makeMessage(foo.bind(customer));
 
     // console.log(Object.keys(window).length, window);
+}
+
+{
+    // const loo = console.log(this);
+    // loo();   /**  undefined */
+
+    // const obj = { foo: () => console.log(this) };
+    // obj.foo();
+
+    const fnA = () => console.log(this);
+    const objA = { logCtx: fnA };
+    // objA.logCtx();
+
+
+    const fooo = function (value, number) { console.log(this.name, value, number) };
+    const bar = { name: 'Rohn', logName: fooo, };
+
+    // bar.logName();
+    // fooo.call(bar, 3, 8);        /**  'Rohn' 3 8 */
+    // fooo.apply(bar, [3, 8]);    /**  'Rohn' 3 8 */
+}
+
+{
+    const robot = {
+        legs: 2,
+        name: 'Robert',
+        greet() { clearInterval`Hello! I'm ${this.name}` },
+    };
+
+    const cat = {
+        name: 'Moor',
+        legs: 4,
+        getLegsAmount() { return this.legs },
+    };
+
+    robot.getCatLegAmount = cat.getLegsAmount.bind(cat);
+    console.log(robot.getCatLegAmount());
+
+    robot.getCatLegAmount = cat.getLegsAmount;
+    console.log(robot.getCatLegAmount());
+
+    console.log(robot);
+    console.log(cat.getLegsAmount());
 }
