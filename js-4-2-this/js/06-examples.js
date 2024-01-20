@@ -53,19 +53,37 @@ koo();
     // makeMessage(customer.getFullName.bind(customer));
     // makeMessage(foo.bind(customer));
 }
+{
+    const person = {
+        name: 'Martin',
+        age: 22,
 
-const person = {
-    name: 'Martin',
-    age: 22,
+    };
+    const showThisOut = () => {
+        console.log('this;', this);
+    };
+    person.showThisIn = showThisOut;
+    console.log(person);
+    // person.showThisIn();
+}
 
-};
-const showThisOut = () => {
-    console.log('this;', this);
-    person.showThis
-};
-person.showThisIn = showThisOut;
-console.log(person);
-person.showThisIn();
+{
+    const hotel = {
+        username: "Resort hotel",
+        showThis() {
+            const foo = () => {
+                // Стрілки запам'ятовують контекст під час оголошення
+                // з батьківської області видимості
+                console.log("this in foo: ", this);
+            };
+
+            foo();
+            console.log("this in showThis: ", this);
+        },
+    };
+
+    hotel.showThis();
+}
 
 {
     const a = 7;
