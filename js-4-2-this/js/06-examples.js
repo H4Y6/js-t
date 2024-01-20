@@ -54,6 +54,20 @@ koo();
     // makeMessage(foo.bind(customer));
 }
 
+const person = {
+    name: 'Martin',
+    age: 22,
+};
+
+const showThis = () => {
+    console.log('this;', this);
+    person.showThis
+};
+
+person.objShowThis = showThis;
+person.objShowThis();
+
+
 {
     const a = 7;
 
