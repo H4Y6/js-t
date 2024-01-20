@@ -57,16 +57,15 @@ koo();
 const person = {
     name: 'Martin',
     age: 22,
-};
 
-const showThis = () => {
+};
+const showThisOut = () => {
     console.log('this;', this);
     person.showThis
 };
-
-person.objShowThis = showThis;
-person.objShowThis();
-
+person.showThisIn = showThisOut;
+console.log(person);
+person.showThisIn();
 
 {
     const a = 7;
