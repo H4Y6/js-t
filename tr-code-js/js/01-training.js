@@ -277,5 +277,6 @@ String.prototype.toJadenCase = function () {
     // console.log(newStr, typeof (newStr) === 'string');
     return newStr.trim();
 };
+console.log(String.prototype)
 
 // console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
