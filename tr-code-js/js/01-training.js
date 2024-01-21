@@ -264,19 +264,20 @@ function capitalizeFirstLetter(string) {
 
 // console.log(capitalizeFirstLetter("how can mirrors be real if our eyes aren't real"));
 
-String.prototype.toJadenCase = function () {
-    const str = "How can mirrors be real if our eyes aren't real";
-    const strs = str.split(' ');
+String.prototype.toJadenCase = function (str) {
+    const subStrs = str.split(' ');
     let newStr = '';
-    // for (let i = 0; i < strs.length; i++) {
-    //     const s = strs[i];
+    // for (let i = 0; i < subStrs.length; i++) {
+    //     const s = subStrs[i];
     //     newStr += ' ' + s.replace(/^./, s[0].toUpperCase());
     // };
-    strs.forEach(s => [(newStr += ' ' + s.replace(/^./, s[0].toUpperCase()))]);
-    // strs.forEach(s => (newStr += ' ' + s[0].toUpperCase() + s.slice(1)));
+    subStrs.forEach(s => [(newStr += ' ' + s.replace(/^./, s[0].toUpperCase()))]);
+    // subStrs.forEach(s => (newStr += ' ' + s[0].toUpperCase() + s.slice(1)));
     // console.log(newStr, typeof (newStr) === 'string');
     return newStr.trim();
 };
 console.log(String.prototype)
 
-// console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
+console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
+/**  How Can Mirrors Be Real If Our Eyes Aren't Real   */
+/**  How Can Mirrors Be Real If Our Eyes Aren't Real <-- Jaden-Cased  */
