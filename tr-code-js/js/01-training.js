@@ -1,3 +1,5 @@
+/**  There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, null. */
+
 function printWordToScreen() {
     const somewords = "This is an example."
     console.log(somewords)
@@ -264,8 +266,11 @@ function capitalizeFirstLetter(string) {
 
 // console.log(capitalizeFirstLetter("how can mirrors be real if our eyes aren't real"));
 
-String.prototype.toJadenCase = function (str) {
-    const subStrs = str.split(' ');
+String.prototype.toJadenCase = function (s) {
+    console.log(this);
+    this.toJadenCase.bind(this);
+    console.log(this.s);
+    const subStrs = s.split(' ');
     let newStr = '';
     // for (let i = 0; i < subStrs.length; i++) {
     //     const s = subStrs[i];
@@ -276,8 +281,8 @@ String.prototype.toJadenCase = function (str) {
     // console.log(newStr, typeof (newStr) === 'string');
     return newStr.trim();
 };
-console.log(String.prototype)
+// console.log(String.prototype);
 
-console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
+// console.log(toJadenCase("How can mirrors be real if our eyes aren't real"));
 /**  How Can Mirrors Be Real If Our Eyes Aren't Real   */
 /**  How Can Mirrors Be Real If Our Eyes Aren't Real <-- Jaden-Cased  */
