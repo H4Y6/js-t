@@ -274,16 +274,17 @@ function capitalizeFirstLetter(string) {
 //     newStr += ' ' + s.replace(/^./, s[0].toUpperCase());
 // };
 
-const String = function (str) { this.str = str };
-const string = new String();
+// const String = function (s) { this.s = s };
 
 String.prototype.toJadenCase = function () {
-    const str = "How can mirrors be real if our eyes aren't real";
-    const subStrs = str.split(' ');
+    this.s = "How can mirrors be real if our eyes aren't real";
+    const subStrs = this.s.split(' ');
     let newStr = '';
     subStrs.forEach(s => [(newStr += ' ' + s.replace(/^./, s[0].toUpperCase()))]);
     return newStr.trim();
 };
 
-console.log(string.toJadenCase());
+const str = new String();
+
+console.log(str.toJadenCase());
 // console.log(String.prototype.toJadenCase());
