@@ -374,3 +374,68 @@ function onOrderError(error) {
 // console.log(pizzaPalace.order('Four meats', makePizza, onOrderError));
 // console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError));
 // console.log(pizzaPalace.order('Vienna', makePizza, onOrderError));
+
+{
+    function calculateTotalPrice(orderedItems) {
+        let totalPrice = 0;
+
+        for (let i = 0; i < orderedItems.length; i += 1) {
+            totalPrice += orderedItems[i];
+        }
+
+        return totalPrice;
+    }
+
+    function calculateTotalPriceFE(orderedItems) {
+        let totalPrice = 0;
+
+        orderedItems.forEach(el => totalPrice += el)
+        return totalPrice;
+    }
+
+    // console.log(calculateTotalPrice([164, 48, 291]))
+    // console.log(calculateTotalPriceFE([164, 48, 291]))
+}
+
+{
+    function filterArray(numbers, value) {
+        const newNumbers = [];
+
+        numbers.forEach(el => {
+            if (el > value)
+                newNumbers.push(el);
+        })
+        return newNumbers;
+    };
+    // console.log(filterArray([1, 24, 8, 41, 76], 38));
+
+    function getCommonElements(firstArray, secondArray) {
+        const commonElements = [];
+
+        firstArray.forEach(el => {
+            if (secondArray.includes(el)) commonElements.push(el)
+        });
+        return commonElements;
+    };
+    // console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
+
+    const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
+    // console.log(calculateTotalPrice(31, 40));
+
+    const getTotalPrice = (orderedItems) => {
+        let totalPrice = 0;
+        const sumPrice = (price) => totalPrice += price;
+
+        orderedItems.forEach(sumPrice);
+
+        return totalPrice;
+    };
+    // console.log(getTotalPrice([412, 371, 94, 63, 176]));
+
+    const filterArrayArrow = (numbers, value) => {
+        const filterredArray = [];
+        numbers.forEach(n => { if (n > value) filterredArray.push(n) })
+        return filterredArray;
+    };
+    console.log(filterArrayArrow([12, 24, 8, 41, 76], 20));
+}
