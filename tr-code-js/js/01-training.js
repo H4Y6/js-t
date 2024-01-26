@@ -437,5 +437,197 @@ function onOrderError(error) {
         numbers.forEach(n => { if (n > value) filterredArray.push(n) })
         return filterredArray;
     };
-    console.log(filterArrayArrow([12, 24, 8, 41, 76], 20));
+    // console.log(filterArrayArrow([12, 24, 8, 41, 76], 20));
+}
+
+{
+    function getCommonElements(firstArray, secondArray) {
+        const commonArray = [];
+
+        firstArray.forEach(el => {
+            if (secondArray.includes(el))
+                commonArray.push(el);
+        })
+        return commonArray;
+    };
+    // console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
+
+    function calculateTotalPrice(orderedItems) {
+        let totalPrice = 0;
+
+        // const sumPrice = price => totalPrice += price;
+        // orderedItems.forEach(sumPrice);
+
+        orderedItems.forEach(item => totalPrice += item)
+
+        return totalPrice;
+    };
+    // console.log((calculateTotalPrice([412, 371, 94, 63, 176])));
+
+    const filterArray = (numbers, value) => {
+        const filteredNumbers = [];
+        numbers.forEach(number => { if (number > value) filteredNumbers.push(number) });
+        return filteredNumbers;
+    };
+    // console.log(filterArray([12, 24, 8, 41, 76], 38));
+}
+
+{
+    const getCommonElements = (firstArray, secondArray) => {
+        const commonElements = [];
+
+        firstArray.forEach(el => {
+            if (secondArray.includes(el)) { commonElements.push(el) };
+        });
+        return commonElements;
+    };
+    // console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
+
+    const changeEven = (numbers, value) => {
+        const newNumbers = [];
+
+        numbers.forEach(el => {
+            if (el % 2 === 0) newNumbers.push(value + el);
+            newNumbers.push(el);
+        });
+        return newNumbers;
+    };
+    // console.log(changeEven([2, 8, 3, 7, 4, 6], 10));
+}
+
+const books = [
+    {
+        title: "The Last Kingdom",
+        author: "Bernard Cornwell",
+        rating: 8.38,
+        genres: ["adventure", "history"],
+    },
+    {
+        title: "Beside Still Waters",
+        author: "Robert Sheckley",
+        rating: 8.51,
+        genres: ["fiction"],
+    },
+    {
+        title: "The Dream of a Ridiculous Man",
+        author: "Fyodor Dostoevsky",
+        rating: 7.75,
+        genres: ["horror", "mysticism"],
+    },
+    {
+        title: "Redder Than Blood",
+        author: "Tanith Lee",
+        rating: 7.94,
+        genres: ["mysticism"],
+    },
+    {
+        title: "Enemy of God",
+        author: "Bernard Cornwell",
+        rating: 8.67,
+        genres: ["adventure"],
+    },
+];
+
+
+{  /**   map  && flatMap    */
+    const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+    const planetsLengths = planets.map(pl => pl.length);
+    // console.log(planetsLengths);
+
+
+    const titles = books.map(b => b.title);
+    // console.log(titles);
+
+    const genres = books.flatMap(b => b.genres);
+    // console.log(genres);
+}
+
+
+const users = [
+    { name: "Moore Hensley", email: "moorehensley@indexia.com", eyeColor: "blue", friends: ["Sharron Pace"], isActive: false, balance: 2811, skills: ["ipsum", "lorem"], gender: "male", age: 37, },
+    { name: "Sharlene Bush", email: "sharlenebush@tubesys.com", eyeColor: "blue", friends: ["Briana Decker", "Sharron Pace"], isActive: true, balance: 3821, skills: ["tempor", "mollit", "commodo", "veniam", "laborum"], gender: "female", age: 34, },
+    { name: "Ross Vazquez", email: "rossvazquez@xinware.com", eyeColor: "green", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"], isActive: false, balance: 3793, skills: ["nulla", "anim", "proident", "ipsum", "elit"], gender: "male", age: 24, },
+    { name: "Elma Head", email: "elmahead@omatom.com", eyeColor: "green", friends: ["Goldie Gentry", "Aisha Tran"], isActive: true, balance: 2278, skills: ["adipisicing", "irure", "velit"], gender: "female", age: 21, },
+    { name: "Carey Barr", email: "careybarr@nurali.com", eyeColor: "blue", friends: ["Jordan Sampson", "Eddie Strong"], isActive: true, balance: 3951, skills: ["ex", "culpa", "nostrud"], gender: "male", age: 27, },
+    { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", eyeColor: "brown", friends: ["Jacklyn Lucas", "Linda Chapman"], isActive: false, balance: 1498, skills: ["non", "amet", "ipsum"], gender: "male", age: 38, },
+    { name: "Sheree Anthony", email: "shereeanthony@kog.com", eyeColor: "brown", friends: ["Goldie Gentry", "Briana Decker"], isActive: true, balance: 2764, skills: ["lorem", "veniam", "culpa"], gender: "female", age: 39, },
+];
+{
+    const getUserNames = users => {
+        return users.map(u => u.name);
+    };
+    // console.log(getUserNames(users));
+
+    const getUserEmails = users => {
+        return users.map(u => u.email);
+    };
+    // console.log(getUserEmails(users));
+}
+
+
+{
+    /**   filter && find */
+
+    const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+
+    const evenNumbers = numbers.filter(n => n % 2 === 0);
+    const oddNumbers = numbers.filter(n => n % 2 !== 0);
+
+    // console.log(evenNumbers);
+    // console.log(oddNumbers);
+
+    const MIN_RATING = 8;
+    const AUTHOR = "Bernard Cornwell";
+
+    const topRatedBooks = books.filter(b => b.rating >= MIN_RATING);
+    const booksByAuthor = books.filter(b => b.author === AUTHOR);
+    // console.log(topRatedBooks);
+    // console.log(booksByAuthor);
+
+    const LOW_SCORE = 50;
+    const HIGH_SCORE = 80;
+    const students = [
+        { name: "Mango", score: 83 },
+        { name: "Poly", score: 59 },
+        { name: "Ajax", score: 37 },
+        { name: "Kiwi", score: 94 },
+        { name: "Houston", score: 64 },
+    ];
+    const best = students.filter(student => student.score >= HIGH_SCORE);
+    // console.log(best); // Массив объектов с именами Mango и Kiwi 
+    const worst = students.filter(student => student.score < LOW_SCORE);
+    // console.log(worst); // Массив с одним объектом Ajax 
+    // В коллбек-функции удобно деструктуризировать свойства объекта 
+    const average = students.filter(({ score }) => score >= LOW_SCORE && score < HIGH_SCORE);
+    // console.log(average);
+
+    const allCourses = students.flatMap(student => student.courses);
+    const uniqueCourses = allCourses.filter((course, index, array) => array.indexOf(course) === index);
+
+    // console.log(uniqueCourses);
+
+    const allGenres = books.flatMap(b => b.genres);
+    const uniqueGenres = allGenres.filter((el, idx, array) => array.indexOf(el) === idx);
+
+    // console.log(uniqueGenres);
+
+    const getUsersWithEyeColor = (users, color) => {
+        return users.filter(u => u.eyeColor === color);
+    };
+    // console.log(getUsersWithEyeColor(users, 'blue'))
+
+    const getUsersWithAge = (users, minAge, maxAge) => {
+        return users.filter(u => u.age > minAge && u.age < maxAge);
+    };
+    // console.log(getUsersWithAge(users, 20, 30));
+
+    const getUsersWithFriend = (users, friendName) => {
+        return users.filter(u => u.friends.includes(friendName));
+    };
+    // console.log(getUsersWithFriend(users, "Briana Decker"));
+
+    const getFriends = (users) => {
+        return users.flatMap(u => u.friends).filter((f, idx, frs) => frs.indexOf(f) === idx);
+    };
+    console.log(getFriends(users));
 }
