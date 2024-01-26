@@ -629,5 +629,62 @@ const users = [
     const getFriends = (users) => {
         return users.flatMap(u => u.friends).filter((f, idx, frs) => frs.indexOf(f) === idx);
     };
-    console.log(getFriends(users));
+    // console.log(getFriends(users));
+
+    const getActiveUsers = (users) => {
+        return users.filter(u => u.isActive === true);
+    };
+    // console.log(getActiveUsers(users));
+
+    {
+        const BOOK_TITLE = 'The Dream of a Ridiculous Man';
+        const AUTHOR = 'Robert Sheckley';
+
+        const bookWithTitle = books.find(b => b.title === BOOK_TITLE);
+        const bookByAuthor = books.find(b => b.author === AUTHOR);
+        // console.log(bookWithTitle, bookByAuthor);
+    }
+
+    {
+        const getUserWithEmail = (users, email) => {
+            return users.find(u => u.email === email);
+        };
+        // console.log(getUserWithEmail(users, "elmahead@omatom.com"));
+    }
+
+    const firstArray = [26, 94, 36, 18];
+    const secondArray = [17, 61, 23];
+    const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+    const eachElementInFirstIsEven = firstArray.every(number => number % 2 === 0);
+    const eachElementInFirstIsOdd = firstArray.every(number => number % 2 !== 0);
+
+    const eachElementInSecondIsEven = secondArray.every(number => number % 2 === 0);
+    const eachElementInSecondIsOdd = secondArray.every(number => number % 2 !== 0);
+
+    const eachElementInThirdIsEven = thirdArray.every(number => number % 2 === 0);
+    const eachElementInThirdIsOdd = thirdArray.every(number => number % 2 !== 0);
+
+
+    const anyElementInFirstIsEven = firstArray.some(number => number % 2 === 0);
+    const anyElementInFirstIsOdd = firstArray.some(number => number % 2 !== 0);
+
+    const anyElementInSecondIsEven = secondArray.some(number => number % 2 === 0);
+    const anyElementInSecondIsOdd = secondArray.some(number => number % 2 !== 0);
+
+    const anyElementInThirdIsEven = thirdArray.some(number => number % 2 === 0);
+    const anyElementInThirdIsOdd = thirdArray.some(number => number % 2 !== 0);
+
+    // console.log(eachElementInFirstIsEven, eachElementInFirstIsOdd, eachElementInSecondIsEven, eachElementInSecondIsOdd, eachElementInThirdIsEven, eachElementInThirdIsOdd)
+    // console.log(anyElementInFirstIsEven, anyElementInFirstIsOdd, anyElementInSecondIsEven, anyElementInSecondIsOdd, anyElementInThirdIsEven, anyElementInThirdIsOdd);
+
+    const isEveryUserActive = (users) => {
+        return users.every(u => u.isActive === true);
+    };
+    // console.log(isEveryUserActive(users));
+
+    const isAnyUserActive = users => {
+        return users.some(u => u.isActive === true);
+    };
+    // console.log(isAnyUserActive(users));
 }
