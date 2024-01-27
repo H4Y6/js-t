@@ -470,11 +470,13 @@ const users = [
     const getNamesSortedByFriendCount = users => {
         // return [...users].sort((a, b) => a.friends.length - b.friends.length).map(({ name }) => name);
     };
+
     // console.log(getNamesSortedByFriendCount(users));
 
     const getSortedFriends = users => {
         return [...users].flatMap(({ friends }) => friends).filter((el, idx, arr) => arr.indexOf(el) === idx).sort((a, b) => a.localeCompare(b));
     };
+
     // console.log(getSortedFriends(users));
 
     const getTotalBalanceByGender = (arr, gender) => {
@@ -482,18 +484,6 @@ const users = [
             return acc + balance;
         }, 0);
     };
+
     // console.log(getTotalBalanceByGender(users, 'female'));
-}
-
-{/**                  Matrix                */
-    const matrix = [
-        [1, 2],
-        [3, 4],
-    ];
-
-    for (const row of matrix) {
-        for (const item of row) {
-            console.log(item);
-        }
-    }
 }
