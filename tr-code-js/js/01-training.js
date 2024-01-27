@@ -509,22 +509,15 @@ const books = [
         genres: ["fiction"],
     },
     {
-        title: "The Dream of a Ridiculous Man",
-        author: "Fyodor Dostoevsky",
-        rating: 7.75,
-        genres: ["horror", "mysticism"],
-    },
-    {
         title: "Redder Than Blood",
         author: "Tanith Lee",
         rating: 7.94,
         genres: ["mysticism"],
     },
     {
-        title: "Enemy of God",
-        author: "Bernard Cornwell",
+        title: "The Dreams in the Witch House",
+        author: "Howard Lovecraft",
         rating: 8.67,
-        genres: ["adventure"],
     },
 ];
 
@@ -542,16 +535,16 @@ const books = [
     // console.log(genres);
 }
 
-
 const users = [
-    { name: "Moore Hensley", email: "moorehensley@indexia.com", eyeColor: "blue", friends: ["Sharron Pace"], isActive: false, balance: 2811, skills: ["ipsum", "lorem"], gender: "male", age: 37, },
-    { name: "Sharlene Bush", email: "sharlenebush@tubesys.com", eyeColor: "blue", friends: ["Briana Decker", "Sharron Pace"], isActive: true, balance: 3821, skills: ["tempor", "mollit", "commodo", "veniam", "laborum"], gender: "female", age: 34, },
-    { name: "Ross Vazquez", email: "rossvazquez@xinware.com", eyeColor: "green", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"], isActive: false, balance: 3793, skills: ["nulla", "anim", "proident", "ipsum", "elit"], gender: "male", age: 24, },
-    { name: "Elma Head", email: "elmahead@omatom.com", eyeColor: "green", friends: ["Goldie Gentry", "Aisha Tran"], isActive: true, balance: 2278, skills: ["adipisicing", "irure", "velit"], gender: "female", age: 21, },
-    { name: "Carey Barr", email: "careybarr@nurali.com", eyeColor: "blue", friends: ["Jordan Sampson", "Eddie Strong"], isActive: true, balance: 3951, skills: ["ex", "culpa", "nostrud"], gender: "male", age: 27, },
-    { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", eyeColor: "brown", friends: ["Jacklyn Lucas", "Linda Chapman"], isActive: false, balance: 1498, skills: ["non", "amet", "ipsum"], gender: "male", age: 38, },
-    { name: "Sheree Anthony", email: "shereeanthony@kog.com", eyeColor: "brown", friends: ["Goldie Gentry", "Briana Decker"], isActive: true, balance: 2764, skills: ["lorem", "veniam", "culpa"], gender: "female", age: 39, },
+    { name: "Moore Hensley", email: "moorehensley@indexia.com", eyeColor: "blue", friends: ["Sharron Pace"], isActive: false, balance: 2811, skills: ["ipsum", "lorem"], gender: "male", age: 37, balance: 2811, gender: "male" },
+    { name: "Sharlene Bush", email: "sharlenebush@tubesys.com", eyeColor: "blue", friends: ["Briana Decker", "Sharron Pace"], isActive: true, balance: 3821, skills: ["tempor", "mollit", "commodo", "veniam", "laborum"], gender: "female", age: 34, balance: 3821, gender: "female" },
+    { name: "Ross Vazquez", email: "rossvazquez@xinware.com", eyeColor: "green", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"], isActive: false, balance: 3793, skills: ["nulla", "anim", "proident", "ipsum", "elit"], gender: "male", age: 24, balance: 3793, gender: "male" },
+    { name: "Elma Head", email: "elmahead@omatom.com", eyeColor: "green", friends: ["Goldie Gentry", "Aisha Tran"], isActive: true, balance: 2278, skills: ["adipisicing", "irure", "velit"], gender: "female", age: 21, balance: 2278, gender: "female" },
+    { name: "Carey Barr", email: "careybarr@nurali.com", eyeColor: "blue", friends: ["Jordan Sampson", "Eddie Strong"], isActive: true, balance: 3951, skills: ["ex", "culpa", "nostrud"], gender: "male", age: 27, balance: 3951, gender: "male" },
+    { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", eyeColor: "brown", friends: ["Jacklyn Lucas", "Linda Chapman"], isActive: false, balance: 1498, skills: ["non", "amet", "ipsum"], gender: "male", age: 38, balance: 1498, gender: "male" },
+    { name: "Sheree Anthony", email: "shereeanthony@kog.com", eyeColor: "brown", friends: ["Goldie Gentry", "Briana Decker"], isActive: true, balance: 2764, skills: ["lorem", "veniam", "culpa"], gender: "female", age: 39, balance: 2764, gender: "female" },
 ];
+
 {
     const getUserNames = users => {
         return users.map(u => u.name);
@@ -687,4 +680,97 @@ const users = [
         return users.some(u => u.isActive === true);
     };
     // console.log(isAnyUserActive(users));
+
+    /**    reduce()     */
+
+    const players = [
+        { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+        { name: "Poly", playtime: 469, gamesPlayed: 2 },
+        { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+        { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+    ];
+
+    const totalAveragePlaytimePerGame = players.reduce((acc, player) => {
+        return acc + player.playtime / player.gamesPlayed;
+    }, 0);
+    // console.log(totalAveragePlaytimePerGame);
+
+    const calculateTotalBalance = users => {
+        return users.reduce((acc, user) => {
+            return acc + user.balance;
+        }, 0);
+    };
+    // console.log(calculateTotalBalance(users));
+
+    const getTotalFriendCount = arr => {
+        return arr.reduce((acc, { friends }) => {
+            return acc + friends.length;
+        }, 0);
+    };
+    // console.log(getTotalFriendCount(users));
+
+    /**    sort()     */
+
+    const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+
+    const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+    const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
+
+    // console.log(ascendingReleaseDates);
+    // console.log(descendingReleaseDates);
+
+    const authors = ["Tanith Lee", "Bernard Cornwell", "Robert Sheckley", "Howard Lovecraft"];
+
+    const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+    const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
+
+    // console.log(authorsInAlphabetOrder);
+    // console.log(authorsInReversedOrder);
+
+    const sortedByAuthorName = [...books].sort((fArr, sArr) => fArr.author.localeCompare(sArr.author));
+    const sortedByReversedAuthorName = [...books].sort((fArr, sArr) => sArr.author.localeCompare(fArr.author));
+    const sortedByAscendingRating = [...books].sort((fArr, sArr) => fArr.rating - sArr.rating);
+    const sortedByDescentingRating = [...books].sort((fArr, sArr) => sArr.rating - fArr.rating);
+
+    // console.log(sortedByAuthorName);
+    // console.log(sortedByReversedAuthorName);
+    // console.log(sortedByAscendingRating);
+    // console.log(sortedByDescentingRating);
+
+    const sortByAscendingBalance = users => {
+        return [...users].sort((aArr, bArr) => aArr.balance - bArr.balance);
+    };
+    // console.log(sortByAscendingBalance(users));
+
+    const sortByDescendingFriendCount = users => {
+        return [...users].sort((aArr, bArr) => bArr.friends.length - aArr.friends.length);
+    };
+    // console.log(sortByDescendingFriendCount(users));
+
+    const sortByName = users => {
+        return [...users].sort((aArr, bArr) => aArr.name.localeCompare(bArr.name));
+    };
+    // console.log(sortByName(users));
+
+    const MIN_BOOK_RATING = 8;
+    const names = [...books].filter(({ rating }) => rating > MIN_BOOK_RATING).map(({ author }) => author).sort((a, b) => a.localeCompare(b));
+
+    // console.log(names);
+
+    const getNamesSortedByFriendCount = users => {
+        // return [...users].sort((a, b) => a.friends.length - b.friends.length).map(({ name }) => name);
+    };
+    // console.log(getNamesSortedByFriendCount(users));
+
+    const getSortedFriends = users => {
+        return [...users].flatMap(({ friends }) => friends).filter((el, idx, arr) => arr.indexOf(el) === idx).sort((a, b) => a.localeCompare(b));
+    };
+    // console.log(getSortedFriends(users));
+
+    const getTotalBalanceByGender = (arr, gender) => {
+        return arr.filter(el => el.gender === gender).reduce((acc, { balance }) => {
+            return acc + balance;
+        }, 0);
+    };
+    // console.log(getTotalBalanceByGender(users, 'female'));
 }
