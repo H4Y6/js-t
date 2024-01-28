@@ -29,11 +29,18 @@ const users = [
 {   /**       map()        */
 
     // const getUserNames = array => { return array.map(({ name }) => name); };
-    const getName = ({ name }) => name;
+    const getName = ({ name }) => name;                 /**  calback function   */
     const getUserNames = array => array.map(getName);
-    console.log(getUserNames(users));
+    // console.log(getUserNames(users));
 
-    const arrayMap = (array, cb) => {
+    const getEmail = ({ email }) => email;               /**  calback function   */
+    const getUsersEmail = (users).map(getEmail);
+    // console.log(getUsersEmail);                 /**  declarative function map logged result  */
+
+    const logger = (el, idx, arr) => console.log(`El:${el.name}, index:${idx}, length:${arr.length}.`);
+    // logger(users[3], 3, users);
+
+    const mapArray = (array, cb) => {
         let result = [];
 
         for (let i = 0; i < array.length; i++) {
@@ -42,5 +49,137 @@ const users = [
         }
         return result;
     };
-    console.log(arrayMap(users, getName));
+    // console.log(mapArray(users, getName));    /**  imperative function logged result  */
+    // console.log(mapArray(users, getEmail));   /**  imperative function logged result  */
+}
+
+{   /**       flatMap()        */
+
+    const getFriends = ({ friends }) => friends;  /**  calback function   */
+
+    const flatMapArray = (array, cb) => {
+        let result = [];
+
+        for (let i = 0; i < array.length; i++) {
+            const newEl = cb(array[i], i, array);
+
+            if (Array.isArray(newEl)) {
+                // result = [...result, ...newEl];   /**alternative way: via spread */
+
+                for (const el of newEl) {
+                    result.push(el);
+                }
+            } else { result.push(newEl); }
+        }
+        return result;
+    };
+
+    // console.log(flatMapArray(users, getFriends));  /**  imperative function logged result  */
+    // console.log(users.flatMap(getFriends));        /**  declarative function flatMap logged result  */
+}
+
+{             /**       filter()        */
+
+    const filterActive = (el, idx, arr) => el.isActive === true;
+
+    const filterArray = (array, cb) => {
+        const result = [];
+
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) {
+                result.push(array[i]);
+            }
+        }
+        return result;
+    };
+    // console.log(filterArray(users, filterActive));   /**  imperative function result*/
+    // console.log(users.filter(filterActive));        /**  declarative function result*/
+}
+
+{               /**       find()        */
+
+    const findEmail = ({ email }, idx, arr) => email === "sharlenebush@tubesys.com";
+
+    const findArrayEl = (array, cb) => {
+        let result;
+
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) {
+                result = array[i];
+                break;  /** OR  */
+                // return result;
+            }
+        }
+        return result;
+    };
+
+    const findArrayIdx = (array, cb) => {
+        let result;
+
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) {
+                result = i;
+                break;  /** OR  */
+                // return result;
+            }
+        }
+        return result;
+    };
+    // console.log(findArrayEl(users, findEmail));  /**   imperative function result*/
+    // console.log(findArrayIdx(users, findEmail)); /**   imperative function result*/
+    // console.log(users.find(findEmail));          /**  declarative function result*/
+}
+
+{            /**       every()        */
+
+    const checkEveryIsActive = ({ isActive }, idx, arr) => isActive;
+    const checkEveryHasEmail = ({ email }, idx, arr) => email;
+
+    const checkEveryInArray = (array, cb) => {
+        for (let i = 0; i < array.length; i++) {
+            if (!cb(array[i], i, array)) return false;
+        }
+        return true;
+    };
+    // console.log(checkEveryInArray(users, checkEveryIsActive));
+    // console.log(users.every(checkEveryIsActive));
+    // console.log(checkEveryInArray(users, checkEveryHasEmail));
+    // console.log(users.every(checkEveryHasEmail));
+
+}
+
+{            /**       some()        */
+
+    const checkSomeIsActive = ({ isActive }, idx, arr) => isActive;
+    const checkSomeHasEmail = ({ email }, idx, arr) => email;
+
+    const checkSomeInArray = (array, cb) => {
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) return true;
+        }
+        return false;
+    };
+    // console.log(checkSomeInArray(users, checkSomeIsActive));
+    // console.log(users.some(checkSomeIsActive));
+    // console.log(checkSomeInArray(users, checkSomeHasEmail));
+    // console.log(users.some(checkSomeHasEmail));
+}
+
+{            /**       reduce()        */
+    const sum = (total, { balance }) => { return total + balance; };
+
+    const reduceArray = (array, cb, initialValue) => {
+        // let acc = initialValue ? initialValue : array[0];  /**  OR  */
+        let acc = initialValue ?? array[0];
+        const idx = initialValue === undefined ? 0 : 1;
+
+        for (let i = idx; i < array.length; i++) {
+            acc = cb(acc, array[i], i, array);
+        }
+        return acc;
+    };
+
+    console.log(reduceArray(users, sum, 0));
+    const totalBalance = users.reduce(sum, 0);
+    console.log(totalBalance);
 }
