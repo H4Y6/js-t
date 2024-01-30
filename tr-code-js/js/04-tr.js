@@ -79,6 +79,94 @@ const books = [
         };
         return result;
     };
-    console.log(flatMapArray(books, getGenres));
-    console.log(genres);
+    // console.log(flatMapArray(books, getGenres));
+    // console.log(genres);
+}
+
+{/**                     filter()                             */
+
+    const filterRating = ({ rating }) => rating > 8.5;
+    const highRatingBooks = books.filter(filterRating);
+
+    const filterArray = (array, cb) => {
+        const result = [];
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) { result.push(array[i]); }
+        }
+        return result;
+    };
+
+    // console.log(highRatingBooks);
+    // console.log(filterArray(books, filterRating));
+}
+
+{/**                     find()                             */
+
+    const findBookByAuthor = ({ author }) => author === "Tanith Lee";
+    const searchedBook = books.find(findBookByAuthor);
+
+    const findInArray = (array, cb) => {
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) return array[i];
+            // if (cb(array[i], i, array)) return i;         /**  to find index */
+        }
+    };
+
+    // console.log(findInArray(books, findBookByAuthor));
+    // console.log(searchedBook);
+}
+
+{ /**                     every()                             */
+
+    const compareBookRatings = ({ rating }) => rating > 8.2;
+    const everyInArray = books.every(compareBookRatings);
+
+    const checkEveryInArray = (array, cb) => {
+        for (let i = 0; i < array.length; i++) {
+            if (!cb(array[i], i, array)) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    // console.log(checkEveryInArray(books, compareBookRatings));
+    // console.log(everyInArray);
+
+    /**                     some()                             */
+
+    const someInArray = books.some(compareBookRatings);
+
+    const checkSomeInArray = (array, cb) => {
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) {
+                return true;
+            };
+        }
+        return false;
+    };
+
+    // console.log(someInArray);
+    // console.log(checkSomeInArray(books, compareBookRatings));
+}
+
+{/**                     reduce()                             */
+
+    const defineAverageBookRatingPart = ((prevValue, { rating }) => {
+        return prevValue + rating / books.length;
+    });
+    const averageBookRating = books.reduce(defineAverageBookRatingPart, 0);
+
+    const reduceArray = (array, cb, initialValue) => {
+        let total = initialValue;
+        // let total = initialValue ?? array[0];
+        // const i = initialValue === undefined ? 1 : 0;
+        for (let i = 0; i < array.length; i++) {
+            total = cb(total, array[i], i, array);
+        }
+        return total;
+    };
+
+    console.log(averageBookRating);
+    console.log(reduceArray(books, defineAverageBookRatingPart, 0));
 }
