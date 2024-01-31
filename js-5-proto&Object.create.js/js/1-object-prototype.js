@@ -56,20 +56,41 @@ const obj1 = {
 const obj2 = Object.create(obj1);
 obj2.b = 7;
 
-console.log("obj1", obj1);
-console.log("obj2", obj2);
+// console.log("obj1", obj1);
+// console.log("obj2", obj2);
 
 const obj3 = Object.create(obj2);
 obj3.c = 3;
-console.log("obj3", obj3);
-console.log(obj3.a)  /**  4  */
-console.log(obj3.tttt)  /**  undefined  */
-console.log(obj3.hasOwnProperty('a'));   /** false */
+// console.log("obj3", obj3);
+// console.log(obj3.a);  /**  4  */
+// console.log(obj3.tttt);  /**  undefined  */
+// console.log(obj3.hasOwnProperty('a'));   /** false */
 
-console.log(obj3.hasOwnProperty('c'));   /** true  */
+// console.log(obj3.hasOwnProperty('c'));   /** true  */
 
 const newObj = Object.create({ message: 'This is the prototypal property' });
-console.log(newObj.message, newObj);
+// console.log(newObj.message, newObj);
 
 newObj.message = 'Hello!';
-console.log(newObj.message, newObj);
+// console.log(newObj.message, newObj);
+
+const objC = { z: 5 };
+// console.log('objC:', objC);
+
+const objB = Object.create(objC);
+objB.y = 7;
+
+// console.log(objB.z, objB.y);
+// console.log('objB:', objB);
+
+const objA = Object.create(objB);
+objA.x = 11;
+objA.z = 25;
+// console.log('objA:', objA);
+
+// console.log(objA.hasOwnProperty('y'));
+// console.log(objA.hasOwnProperty('z'), objA.z);
+// console.log(objA.hasOwnProperty('lazz'), objA.lazz);
+// console.log(objC.hasOwnProperty('z'), objC.z)
+
+
