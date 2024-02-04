@@ -350,7 +350,7 @@ const products = [
 
 {
     /**    imperative function      */
-/**  cb to get priceSum and more with different params: */  const getSumPrice = ((acc, el, idx, array) => { return acc + el.price });
+/**  cb to get priceSum and more with different params: */  const getSumPrice = ((acc, el, idx, array) => { return acc + el.price; });
     const showNames = (acc, { name }) => acc + name + ", ";
 
     const arrayReduce = (array, cb, initValue) => {
@@ -403,4 +403,30 @@ const tweets = [
 
     const tags = collectTags(tweets);
     console.log(tags);
+}
+
+{
+    ['a', 'b', 'g'].forEach(v => console.log(v));
+
+    const total = [2, 4, 6, 5, 3, 7].reduce((acc, number) => { return number > 4 ? number + acc : acc; }, 0);
+    console.log(total);
+
+    const matrix = [
+        [1, 2],
+        [4, 5]
+    ];
+
+    const flattenArray = matrix => {
+        const flatArray = [];
+        for (const row of matrix) {
+            if (Array.isArray(row))
+                for (const el of row) {
+                    flatArray.push(el);
+                }
+        }
+        console.log('flatArray ->', flatArray);
+        return flatArray;
+
+    };
+    flattenArray(matrix);
 }

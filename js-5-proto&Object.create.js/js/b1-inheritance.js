@@ -34,11 +34,11 @@ class Warrior extends Hero {
         this.weapon = weapon;
     }
 }
-console.log('Warrior:', Warrior);
+// console.log('Warrior:', Warrior);
 
 const mango = new Warrior({ name: 'mango', xp: 200, weapon: 'halberd' });
-console.log("mango:", mango);
-mango.gainXp(300);
-console.log("mango:", mango);
-console.log(mango.__proto__ === Warrior.prototype);                 /**  true */
-console.log(Warrior.prototype.__proto__ === Hero.prototype);        /**  true */
+// console.log("mango:", mango);
+// mango.gainXp(300);
+// console.log("mango:", mango);
+// console.log(mango.__proto__ === Warrior.prototype);                 /**  true */
+// console.log(Warrior.prototype.__proto__ === Hero.prototype);        /**  true */
