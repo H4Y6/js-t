@@ -50,5 +50,8 @@ new CounterPlugin({ rootSelector: '#counter-1', step: 10, initialValue: 100, });
 // const counter2 =
 new CounterPlugin({ rootSelector: '#counter-2', step: 2 });
 
+const counter3 = new CounterPlugin({ rootSelector: '#counter-3', step: 5 });
+
 // console.log('counter1', counter1);
 // console.log('counter2', counter2);
+// console.log('counter2', counter3);

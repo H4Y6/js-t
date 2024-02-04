@@ -1,7 +1,7 @@
 class Hero {
     constructor({ name = 'hero', xp = 0 } = {}) {
-        this.name = '';
-        this.xp = '';
+        this.name = name;
+        this.xp = xp;
 
     }
 
@@ -11,16 +11,34 @@ class Hero {
     }
 }
 
-const mango = new Hero({ name: 'mango', xp: 1000 });
+// class Warrior extends Hero {
+//     constructor(name, xp, weapon) {
+//         super(name, xp);
 
-// console.log(mango);
+//         this.weapon = weapon;
+//     }
+// }
 
-mango.gainXp(1000);
+// class Warrior extends Hero {
+//     constructor({ name, xp, weapon } = {}) {
+//         super({ name, xp });
 
-class Warrior {
-    constructor({ }) {
-        this.weapon = '';
+//         this.weapon = weapon;
+//     }
+// }
+
+class Warrior extends Hero {
+    constructor({ weapon, ...restProps } = {}) {
+        super({ ...restProps });
+
+        this.weapon = weapon;
     }
-
-
 }
+console.log('Warrior:', Warrior);
+
+const mango = new Warrior({ name: 'mango', xp: 200, weapon: 'halberd' });
+console.log("mango:", mango);
+mango.gainXp(300);
+console.log("mango:", mango);
+console.log(mango.__proto__ === Warrior.prototype);                 /**  true */
+console.log(Warrior.prototype.__proto__ === Hero.prototype);        /**  true */
