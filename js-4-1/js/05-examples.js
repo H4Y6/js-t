@@ -11,7 +11,7 @@ const logMessage = (value) => `The value is ${value}.`;
 
     const callFunctionOnEvenNumber = (arr, cb) => {
         for (const number of arr) {
-            if (number % 2 === 0) { cb(number) };
+            if (number % 2 === 0) { cb(number); };
         }
     };
 
@@ -35,7 +35,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     let total = 0;
     const sumValues = (value) => {
         total += value;
-    }
+    };
     numbers.forEach(sumValues);
     // console.log(total);
 
@@ -92,7 +92,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
         const flattenedArray = [];
         cb(students).forEach(elArray => flattenedArray.push(...elArray));
         return flattenedArray;
-    }
+    };
     const flattenedCourses = flattenedMapFn(mapFn, students);
 
     // const flattenedMapFn = arrayOfArrays => {
@@ -157,7 +157,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
             const newEl = cb(array[i], i, array);
 
             if (Array.isArray(newEl)) {
-                result = [...result, ...newEl]
+                result = [...result, ...newEl];
                 /**     or         */
                 // for (const el of newEl) {
                 //     result.push(el);
@@ -196,7 +196,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     const productPrices = products.map(getPrice);
     // console.log(productPrices);
 
-    const logger = (product, i, array) => console.log(`product: ${product.name}, index: ${i}, arrayLength: ${array.length}`)
+    const logger = (product, i, array) => console.log(`product: ${product.name}, index: ${i}, arrayLength: ${array.length}`);
 
     const arrayMap = (array, cb) => {
         let newArray = [];
@@ -226,7 +226,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
             };
         };
         return result;
-    }
+    };
 
     // console.log(filterArray(products, filterByPrice));
     const filteredProducts = filterArray(products, filterByPrice);
@@ -255,7 +255,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
 
     /**                 Method findIndex()            */
 
-    const findEl = (el, i, array, name) => { return el.name === name };
+    const findEl = (el, i, array, name) => { return el.name === name; };
 
     const findIndex = (array, name) => {
         let idx = -1;
@@ -307,8 +307,8 @@ const numbers = [4, 7, 5, 2, 8, 9];
     }, 0);
     console.log(sum);
 
-    const sumProductPrice = (acc, product) => { return acc + product.price };
-    const showAllProductNames = (acc, product) => { return `${acc} ${product.name},` };
+    const sumProductPrice = (acc, product) => { return acc + product.price; };
+    const showAllProductNames = (acc, product) => { return `${acc} ${product.name},`; };
 
     const arrayReduce = (array, cb, acc) => {
         const result = acc ?? array[0];
@@ -352,7 +352,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     function collectTagsRecursive(array, tags = [], i = array.length - 1) {
         if (i < 0) { return tags; }
         {
-            collectTagsRecursive(array, tags, i - 1)
+            collectTagsRecursive(array, tags, i - 1);
             tags.push(...array[i].tags);
         }
         return tags;
@@ -377,10 +377,11 @@ const numbers = [4, 7, 5, 2, 8, 9];
         { name: "Elma Head", email: "elmahead@omatom.com", eyeColor: "green", friends: ["Goldie Gentry", "Aisha Tran"], isActive: true, balance: 2278, gender: "female" },
         { name: "Carey Barr", email: "careybarr@nurali.com", eyeColor: "blue", friends: ["Jordan Sampson", "Eddie Strong", "Adrian Cross"], isActive: true, balance: 3951, gender: "male" },
         { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", eyeColor: "brown", friends: ["Jacklyn Lucas", "Linda Chapman", "Adrian Cross", "Solomon Fokes"], isActive: false, balance: 1498, gender: "male" },
-        { name: "Sheree Anthony", email: "shereeanthony@kog.com", eyeColor: "brown", friends: ["Goldie Gentry", "Briana Decker"], isActive: true, balance: 2764, gender: "female" }];
+        { name: "Sheree Anthony", email: "shereeanthony@kog.com", eyeColor: "brown", friends: ["Goldie Gentry", "Briana Decker"], isActive: true, balance: 2764, gender: "female" }
+    ];
 
     const getTotalBalanceByGender = (users, gender) => {
-        return users.filter((user) => user.gender === gender).reduce((total, { balance }) => { return total + balance }, 0)
+        return users.filter((user) => user.gender === gender).reduce((total, { balance }) => { return total + balance; }, 0);
     };
     // console.log(getTotalBalanceByGender(users, 'male'));
     // console.log(getTotalBalanceByGender(users, 'female'));
