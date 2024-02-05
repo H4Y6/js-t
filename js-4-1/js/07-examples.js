@@ -125,6 +125,7 @@ filterArray(users, getSelectedBalance);
 /**        find()              */
 
 const findByName = ({ name }) => name === 'Sharlene Bush';
+const findByEmail = ({ email }) => email === "elmahead@omatom.com";
 
 // console.log(users.find(findByName));
 
@@ -132,8 +133,9 @@ const findInArray = (array, cb) => {
 
     for (let i = 0; i < array.length; i++) {
         if (cb(array[i], i, array))
-            return array[i];
+            return (array[i]);
     }
     return undefined;
 };
 console.log(findInArray(users, findByName));
+console.log(findInArray(users, findByEmail));
