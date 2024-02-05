@@ -50,3 +50,18 @@ const mapArray = (array, cb) => {
 
 mapArray(users, getName);
 // mapArray(users, logger);
+
+{
+    const isActiveDatum = ({ isActive }, i) => `Index ${i} is active -> ${isActive}`;  /**  cb   */
+
+    const mapArray = (array, cb) => {
+        const result = [];
+
+        for (let i = 0; i < array.length; i++) {
+            result.push(cb(array[i], i, array));
+        }
+        console.table(result);
+        return result;
+    };
+    mapArray(users, isActiveDatum);
+}
