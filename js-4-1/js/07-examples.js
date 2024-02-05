@@ -34,12 +34,11 @@ const users = [
 /**  cb ->  */   const getName = (({ name }) => name);
 /**  cb ->  */   const logger = ({ name, isActive }, i, array) => {
     console.log(`Index ${i}, user ${name},  active: ${isActive}. Element count: ${array.length}`);
-    return `Index ${i}, user ${name},  active: ${isActive}. Element count: ${array.length}\
-    `;
+    return 'See console.log';
 };
 
 const names = users.map(getName);
-console.log('names:', names);
+// console.log('names:', names);
 
 const mapArray = (array, cb) => {
     const result = [];
@@ -52,7 +51,7 @@ const mapArray = (array, cb) => {
 };
 
 mapArray(users, getName);
-mapArray(users, logger);
+// mapArray(users, logger);
 
 {
     const isActiveDatum = ({ isActive }, i) => `Index ${i} is active -> ${isActive}`;  /**  cb   */
@@ -69,5 +68,72 @@ mapArray(users, logger);
     // mapArray(users, isActiveDatum);
 }
 
-/**           flatMap                 */
+/**       flat() or  flat(2 or 3 or infinity)    &&    flatMap                 */
 
+const getFriends = ({ friends }) => friends;
+const friends = users.map(({ friends }) => friends).flat();
+const flatMappedFriends = users.flatMap(getFriends);
+
+// console.log('flat() friends', friends);
+// console.log('flatMap() friends', flatMappedFriends);
+
+
+const flatMapArray = (array, cb) => {
+    let result = [];
+
+    for (let i = 0; i < array.length; i++) {
+        const El = cb(array[i], i, array);
+
+        if (Array.isArray(El)) {
+            // for (const iterator of El) {
+            //     result.push(iterator);
+            // }
+
+            result.push(...El);
+
+            // for (let i = 0; i < El.length; i++) {
+            //     const element = El[i];
+            //     result.push(element);
+            // }
+        } else { result.push(El); }
+    }
+    console.log(result);
+    return result;
+};
+
+// flatMapArray(users, getFriends)
+
+/**        filter()             */
+
+/**  cb:  */ const getActive = (({ isActive }) => isActive);
+/**  cb:  */ const getSelectedBalance = (({ balance }) => balance > 2900);
+
+const filterArray = (array, cb) => {
+    const result = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (cb(array[i], i, array)) {
+            result.push(array[i]);
+        };
+    }
+    console.log(result);
+    return result;
+};
+filterArray(users, getActive);
+filterArray(users, getSelectedBalance);
+
+/**        find()              */
+
+const findByName = ({ name }) => name === 'Sharlene Bush';
+
+// console.log(users.find(findByName));
+
+const findInArray = (array, cb) => {
+
+    for (let i = 0; i < array.length; i++) {
+        if (cb(array[i], i, array))
+            return array[i];
+    }
+    return undefined;
+};
+console.log(findInArray(users, findByName));
