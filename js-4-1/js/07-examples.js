@@ -119,8 +119,8 @@ const filterArray = (array, cb) => {
     console.log(result);
     return result;
 };
-filterArray(users, getActive);
-filterArray(users, getSelectedBalance);
+// filterArray(users, getActive);
+// filterArray(users, getSelectedBalance);
 
 /**        find()              */
 
@@ -137,5 +137,67 @@ const findInArray = (array, cb) => {
     }
     return undefined;
 };
-console.log(findInArray(users, findByName));
-console.log(findInArray(users, findByEmail));
+// console.log(findInArray(users, findByName));
+// console.log(findInArray(users, findByEmail));
+
+/**        findindex()              */
+
+const i = users.findIndex(({ name }) => name === 'Sharlene Bush');
+// console.log(i);
+
+const findIndexInArray = (array, cb) => {
+
+    for (let i = 0; i < array.length; i++) {
+        if (cb(array[i], i, array))
+            return i;
+    }
+    return -1;
+};
+// console.log(findIndexInArray(users, ({ name }) => name === 'Sharlene Bush'));
+
+/**        every()              */
+
+const isActive = ({ isActive }) => isActive;
+
+// console.log(users.every(isActive));
+
+const checkEvery = (array, cb) => {
+    for (let i = 0; i < array.length; i++) {
+        if (!cb(array[i], i, array)) {
+            return false;
+        };
+    }
+    return true;
+};
+// console.log(checkEvery(users, isActive));
+
+/**        some()              */
+
+// console.log(users.some(isActive));
+
+const checkSome = (array, cb) => {
+    for (let i = 0; i < array.length; i++) {
+        if (cb(array[i], i, array)) {
+            return true;
+        }
+    }
+    return false;
+};
+// console.log(checkSome(users, isActive));
+
+/**        reduce()              */
+
+const getBalance = (acc, { balance }) => acc + balance;
+
+console.log('total balance ->', users.reduce(getBalance, 0));
+
+const reduceArray = ((array, cb, initialValue) => {
+    let acc = initialValue ?? array[0];
+    const idx = initialValue || initialValue === 0 ? 0 : 1;
+
+    for (let i = idx; i < array.length; i++) {
+        acc = cb(acc, array[i], i, array);
+    }
+    return acc;
+});
+console.log(reduceArray(users, getBalance, 0));
