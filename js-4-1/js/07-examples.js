@@ -31,8 +31,12 @@ const users = [
 
 /**     map()        */
 
-const getName = (({ name }) => name);   /**  cb    */
-const logger = ({ name }, i, array) => console.log(`User name: ${name}, index: ${i}, array length: ${array.length}`);  /**  cb   */
+/**  cb ->  */   const getName = (({ name }) => name);
+/**  cb ->  */   const logger = ({ name, isActive }, i, array) => {
+    console.log(`Index ${i}, user ${name},  active: ${isActive}. Element count: ${array.length}`);
+    return `Index ${i}, user ${name},  active: ${isActive}. Element count: ${array.length}\
+    `;
+};
 
 const names = users.map(getName);
 console.log('names:', names);
@@ -44,12 +48,11 @@ const mapArray = (array, cb) => {
         const newElement = cb(array[i], i, array);
         result.push(newElement);
     }
-    console.log('result ->', result);
     return result;
 };
 
 mapArray(users, getName);
-// mapArray(users, logger);
+mapArray(users, logger);
 
 {
     const isActiveDatum = ({ isActive }, i) => `Index ${i} is active -> ${isActive}`;  /**  cb   */
@@ -63,5 +66,8 @@ mapArray(users, getName);
         console.table(result);
         return result;
     };
-    mapArray(users, isActiveDatum);
+    // mapArray(users, isActiveDatum);
 }
+
+/**           flatMap                 */
+
