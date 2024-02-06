@@ -215,5 +215,10 @@ const reduceArr = (array, cb, initValue) => {
     console.log(`${acc} active users.`);
     return `${acc} active users.`;
 };
-
 reduceArr(users, countActive, 0);
+
+{
+    const getTotalBalanceByGender = (users, gender) => users.reduce((acc, user) => user.gender === gender ? (acc + user.balance) : acc, 0);
+
+    console.log(getTotalBalanceByGender(users, 'male'));
+}
