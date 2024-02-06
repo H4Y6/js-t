@@ -189,22 +189,24 @@ const checkSome = (array, cb) => {
 
 const getBalance = (acc, { balance }) => acc + balance;
 
-console.log('The total balance ->', users.reduce(getBalance, 0));
+// console.log('The total balance ->', users.reduce(getBalance, 0));
 
 const reduceArray = ((array, cb, initialValue) => {
     let acc = initialValue ?? array[0].balance;
-    const idx = initialValue || initialValue === 0 ? 0 : 1;
+    const idx = initialValue !== undefined ? 0 : 1;
 
     for (let i = idx; i < array.length; i++) {
         acc = cb(acc, array[i], i, array);
     }
     return acc;
 });
-console.log('The total balance is', reduceArray(users, getBalance));
+// console.log('The total balance is', reduceArray(users, getBalance));
 
 
 const countActive = ((n, { isActive }) => isActive ? n + 1 : n);          /**  OR: 
 const countActive = ((n, { isActive }) => { return isActive ? n + 1 : n; });    */
+
+const showName = ((acc = ' ', { name }) => (acc + name + '; '));
 
 const reduceArr = (array, cb, initValue) => {
     let acc = initValue ?? 0;
@@ -212,13 +214,14 @@ const reduceArr = (array, cb, initValue) => {
     for (let i = 0; i < array.length; i++) {
         acc = cb(acc, array[i], i, array);
     }
-    console.log(`${acc} active users.`);
-    return `${acc} active users.`;
+    return acc;
 };
-reduceArr(users, countActive, 0);
+console.log('countActive ->', reduceArr(users, countActive, 0));
+console.log('userNames ->', reduceArr(users, showName, ' '));
 
 {
     const getTotalBalanceByGender = (users, gender) => users.reduce((acc, user) => user.gender === gender ? (acc + user.balance) : acc, 0);
 
-    console.log(getTotalBalanceByGender(users, 'male'));
+    console.log('totalMaleBalance ->', getTotalBalanceByGender(users, 'male'));
+    console.log('totalFemaleBalance ->', getTotalBalanceByGender(users, 'female'));
 }
