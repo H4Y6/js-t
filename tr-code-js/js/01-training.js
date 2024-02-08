@@ -288,3 +288,34 @@ const str = new String();
 
 // console.log(str.toJadenCase());
 // console.log(String.prototype.toJadenCase());
+
+
+// Complete the square sum function so that it squares each number passed into it and then sums the results together.
+// For example, for [1, 2, 2] it should return 9 .;
+
+
+function squareSum(numbers) {
+    // let sum = 0;
+    // numbers.map(n => sum += Math.pow(n, 2));
+    // return sum;
+
+    return numbers.reduce((sum, n) => sum + n ** 2, 0);
+
+    // return numbers.reduce((sum, n) => sum + n * n, 0);
+}
+console.log(squareSum([1, 2, 2]));
+
+
+// In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+// Example
+// filter_list([1,2,'a','b']) == [1,2]
+// filter_list([1,'a','b',0,15]) == [1,0,15]
+// filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+
+{
+    function filter_list(l) {
+        // return l.filter(n => typeof (n) === 'number');
+        return l.filter(n => n === +n);
+    }
+    console.log(filter_list([1, 2, 'a', 'b']));
+}
