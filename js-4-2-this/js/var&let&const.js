@@ -61,66 +61,66 @@
 // var binds to this
 
 {
-    console.log(myVar); // undefined
+    // console.log(myVar); // undefined
     var myVar = 'hello';
-    console.log(myVar); // hello
+    // console.log(myVar); // hello
 }
 
 {
-    function a() {
-        console.log(myVar); // gives Error myVar is not defined
+    function aba() {
+        // console.log(myVar); // gives Error myVar is not defined
     }
-    a();
+    aba();
 
 }
 
 {
-    function a() {
-        console.log(myVar); // undefined no Error
+    function aba() {
+        // console.log(myVar); // undefined no Error
         // cause it would take myVar from global
         // execution context 
         // but also no error cause we define it again
         // in this function (hoisting)
         var myVar = 0;      // define myVar newly in this lexical environment
-        console.log(myVar); // 0
+        // console.log(myVar); // 0
     }
 
-    var myVar = 'hello';
-    a();
-    console.log(myVar);     // hello
+    // var myVar = 'hello';
+    // a();
+    // console.log(myVar);     // hello
 }
 
 {
-    function a() {
-        myVar = 0;           // overwrite global myVar
-        console.log(myVar); // 0
+    function aba() {
+        // myVar = 0;           // overwrite global myVar
+        // console.log(myVar); // 0
     }
 
-    var myVar = 'hello';
-    a();
-    console.log(myVar);   // 0 did you expect myVar to be 0 ?
+    // var myVar = 'hello';
+    aba();
+    // console.log(myVar);   // 0 did you expect myVar to be 0 ?
 }
 
 {
     /**           Lexical environment      */
 
-    env1 = {
-        x: 2,
-        y: 5
-    };
+    // env1 = {
+    //     x: 2,
+    //     y: 5
+    // };
     const x = 2;
     const y = 5;
 
-    const bar = function () {
-        env2 = {
-            x: 11,
-            parentEnv: env1,
-        };
+    const bar = () => {
+        // env2 = {
+        //     x: 11,
+        //     parentEnv: env1,
+        // };
 
         const x = 11;
 
-        console.log(x);
-        console.log(y);
+        // console.log(x);
+        // console.log(y);
     };
     bar();
 
@@ -129,12 +129,15 @@
 {
     const a = 10;
     const logA = function () {
-        console.log(a);
+        // console.log(a);
     };
 
     const foo = function () {
         const a = 15;
         logA();
+
+        // console.log(this.a);
+        // console.log(this);
     };
 
     foo();
@@ -172,8 +175,8 @@
 
 
     user.showContext = showThis;
-    console.log('user ->', user);
-    user.showContext();
+    // console.log('user ->', user);
+    // user.showContext();
 }
 
 {
@@ -189,12 +192,54 @@
     const foo = (customer.getFullName.bind(customer));
 
     function makeMessage(cb) {
-        console.log(`Mister ${cb()}! We're glad to see you here!`);
+        // console.log(`Mister ${cb()}! We're glad to see you here!`);
     };
 
     makeMessage(foo);
     makeMessage(customer.getFullName.bind(customer));
 
-    console.log('window->', Object.keys(window).length);
+    // console.log('window->', Object.keys(window).length);
+}
+
+{
+    const user = {
+        name: 'Laurence',
+        age: 22,
+
+        logNameInOneSecond() {
+            const cb = function () {
+                console.log('this.name', this.name);
+            };
+
+            setTimeout(cb.bind(this), 1000);
+            setTimeout(() => console.log('this.name ->', this.name), 2000);
+        }
+    };
+    user.logNameInOneSecond();
+
+}
+
+{
+    const arr = [1, 4, 7, 3, 11];
+
+    const maxNumber = Math.max(...arr);
+    const maxValue = Math.max.apply({}, arr);
+    // console.log(maxNumber);
+    // console.log(maxValue);
+
+}
+
+{
+    const a = {
+        age: 21,
+    };
+
+    const bar = function () { console.log(this.age); };
+
+    const bindedBar = bar.bind(a);
+    bindedBar();
+
+    (bar.bind(a));
+    // bar();  /**   Cannot read properties of undefined (reading 'age')    */
 }
 
