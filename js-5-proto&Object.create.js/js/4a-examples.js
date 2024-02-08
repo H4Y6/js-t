@@ -72,12 +72,64 @@ class Student {
 const student = new Student({ name: 'Pit', age: 18, avatar: '🤷‍♂️' });
 
 // console.log('Student', Student);
-console.log('Rating ->', student.getRating());
+// console.log('Rating ->', student.getRating());
 // student.study();
 
 student.setRating(4);
-console.log('Rating ->', student.getRating());
+// console.log('Rating ->', student.getRating());
 
-console.log(student.guild);
+// console.log(student.guild);
 student.guild = "Silver";
-console.log('student ->', student);
+// console.log('student ->', student);
+
+{
+    class Human {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+    class SuperHuman extends Human {
+        constructor(name) {
+            super(name);
+        }
+        superPanch() {
+            console.log('👊🤛🤛👊');
+        }
+    }
+
+    const superHuman = new SuperHuman('Pit');
+    // console.log(superHuman);
+}
+
+{
+    class Hero {
+        constructor({ name, hp, damage }) {
+            this.name = name;
+            this.hp = hp;
+            this.damage = damage;
+        };
+
+        attack() {
+            return this.damage;
+        }
+    }
+
+    class Wizard extends Hero {
+        constructor({ name, hp, damage, mana = 100 }) {
+            super({ name, hp, damage });
+            this.mana = mana;
+        }
+        attack() {
+            return this.damage + this.mana / 20;
+        }
+    }
+
+    const merlin = new Wizard({
+        name: 'Merlin',
+        hp: 1500,
+        damage: 50,
+    });
+    console.log('merlin ->', merlin);
+    console.log(merlin.attack());
+}
