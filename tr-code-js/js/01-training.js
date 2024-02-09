@@ -319,3 +319,38 @@ console.log(squareSum([1, 2, 2]));
     }
     console.log(filter_list([1, 2, 'a', 'b']));
 }
+{
+    class Car {
+        static description() {
+            ' car instance';
+        }
+
+        #price;
+
+        constructor({ brand, model, price } = {}) {
+            this.brand = brand;
+            this.model = model;
+            this.#price = price;
+        }
+
+        get price() {
+            return this.#price;
+        }
+
+        set price(newPrice) {
+            this.#price = newPrice;
+        }
+    }
+
+    const car = new Car({
+        brand: 'Audi',
+        model: 'A5',
+        price: 33000,
+    });
+
+    console.log(car.__proto__ === Car.prototype);
+
+    car.price = (34000);
+    console.log('car ->', car);
+    console.log('car.price->', car.price);
+}
