@@ -399,12 +399,57 @@ console.log(squareSum([1, 2, 2]));
         email: "mango@mail.com",
         accessLevel: Admin.AccessLevel.SUPERUSER,
     });
+}
 
-    console.log(mango.email); // "mango@mail.com"
-    console.log(mango.accessLevel); // "superuser"
+{
+    class Storage {
+        constructor(items) {
+            this.items = items;
+        }
 
-    mango.blacklist("poly@mail.com");
-    console.log(mango.blacklistedEmails); // ["poly@mail.com"]
-    console.log(mango.isBlacklisted("mango@mail.com")); // false
-    console.log(mango.isBlacklisted("poly@mail.com")); // true
+        getItems() {
+            return this.items;
+        }
+
+        addItem(newItem) {
+            this.items.push(newItem);
+        }
+        removeItem(itemToRemove) {
+            this.items.splice(items.indexOf(itemToRemove), 1);
+        }
+    }
+}
+
+{
+    class StringBuilder {
+        constructor(initialValue = '') {
+
+            this.value = initialValue;
+        }
+
+        getValue() {
+            return this.value;
+        }
+
+        padEnd(str) {
+            this.value += str;
+        }
+
+        padStart(str) {
+            this.value = str + this.value;
+        }
+
+        padBoth(str) {
+            this.value = str + this.value + str;
+        }
+    }
+
+    const builder = new StringBuilder(".");
+    console.log(builder.getValue()); // "."
+    builder.padStart("^");
+    console.log(builder.getValue()); // "^."
+    builder.padEnd("^");
+    console.log(builder.getValue()); // "^.^"
+    builder.padBoth("=");
+    console.log(builder.getValue()); // "=^.^="
 }
