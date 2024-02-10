@@ -432,18 +432,22 @@ console.log(squareSum([1, 2, 2]));
         }
 
         padEnd(str) {
-            this.value += str;
+            return this.value += str;
         }
 
         padStart(str) {
             this.value = str + this.value;
+            // this.value = [str, this.value].join('');
         }
 
         padBoth(str) {
-            this.value = str + this.value + str;
+            this.value = str + this.padEnd(str);
+            // this.value = [str, this.padEnd(str)].join('');
         }
     }
 
-    const builder = new StringBuilder(".");
-    // console.log(builder);
+    const builder = new StringBuilder("."); console.log('builder ->', builder);
+    builder.padEnd('^');            /* */   console.log('builder ->', builder);
+    builder.padStart('^');          /* */   console.log('builder ->', builder);
+    builder.padBoth('=');           /* */   console.log('builder ->', builder); console.log(builder.getValue());
 }
