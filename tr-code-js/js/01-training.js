@@ -303,7 +303,7 @@ function squareSum(numbers) {
 
     // return numbers.reduce((sum, n) => sum + n * n, 0);
 }
-console.log(squareSum([1, 2, 2]));
+// console.log(squareSum([1, 2, 2]));
 
 
 // In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
@@ -317,7 +317,7 @@ console.log(squareSum([1, 2, 2]));
         // return l.filter(n => typeof (n) === 'number');
         return l.filter(n => n === +n);
     }
-    console.log(filter_list([1, 2, 'a', 'b']));
+    // console.log(filter_list([1, 2, 'a', 'b']));
 }
 {
     class Car {
@@ -446,8 +446,58 @@ console.log(squareSum([1, 2, 2]));
         }
     }
 
-    const builder = new StringBuilder("."); console.log('builder ->', builder);
-    builder.padEnd('^');            /* */   console.log('builder ->', builder);
-    builder.padStart('^');          /* */   console.log('builder ->', builder);
-    builder.padBoth('=');           /* */   console.log('builder ->', builder); console.log(builder.getValue());
+    // const builder = new StringBuilder("."); console.log('builder ->', builder);
+    // builder.padEnd('^');            /* */   console.log('builder ->', builder);
+    // builder.padStart('^');          /* */   console.log('builder ->', builder);
+    // builder.padBoth('=');           /* */   console.log('builder ->', builder); console.log(builder.getValue());
+}
+
+{
+    class Car {
+        #brand;
+
+        constructor({ brand, model, price }) {
+            this.#brand = brand;
+            this.model = model;
+            this.price = price;
+        }
+
+        getBrand() {
+            return this.#brand;
+        };
+
+        changeBrand(newBrand) {
+            this.#brand = newBrand;
+        }
+    }
+}
+
+{
+    class Storage {
+        #items;
+
+        constructor(items) {
+            this.#items = items;
+        }
+
+        getItems() {
+            return this.#items;
+        }
+
+        addItem(newItem) {
+            this.#items.push(newItem);
+        }
+
+        removeItem(itemToRemove) {
+            this.#items = this.#items.filter(item => item !== itemToRemove);
+        }
+    }
+
+
+    const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+    // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+    storage.addItem("Droid");
+    // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+    storage.removeItem("Prolonger");
+    // console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 }
