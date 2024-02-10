@@ -475,15 +475,44 @@ function squareSum(numbers) {
 }
 
 {
+    class User {
+        static Roles = { ADMIN: "admin", EDITOR: "editor", };
+        #email;
+        #role;
+
+        constructor({ email, role }) {
+            this.#email = email;
+            this.#role = role;
+        }
+        get role() {
+            return this.#role;
+        }
+
+        set role(newRole) {
+            this.#role = newRole;
+        }
+    }
+
+    const mango = new User({ email: "mango@mail.com", role: User.Roles.ADMIN, });
+    console.log(mango.Roles); // undefined 
+    console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
+    console.log(mango.role); // "admin"
+    mango.role = User.Roles.EDITOR; console.log(mango.role); /** "editor" */
+}
+
+{
     class Car {
         #brand;
         #model;
         #price;
 
-        constructor({ brand, model, price }) {
+        static MAX_PRICE = 50000;
+
+        constructor({ brand, model, price, maxPrice }) {
             this.#brand = brand;
             this.#model = model;
             this.#price = price;
+            this.maxPrice = maxPrice;
         }
 
         get brand() {
@@ -507,9 +536,14 @@ function squareSum(numbers) {
         }
 
         set price(newPrice) {
-            this.#price = newPrice;
+            if (newPrice > Car.MAX_PRICE) { return "Expensive!"; } else { this.#price = newPrice; }
         }
     }
+    const bmw = new Car({ brand: 'bmw', model: 'H3', price: 35000, maxPrice: Car.MAX_PRICE });
+    console.log(bmw.price);
+    bmw.price = 55555;
+
+    console.log('bmw ->', bmw);
 }
 
 {
