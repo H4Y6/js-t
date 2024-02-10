@@ -422,27 +422,29 @@ function squareSum(numbers) {
 
 {
     class StringBuilder {
+        #value;
+
         constructor(initialValue = '') {
 
-            this.value = initialValue;
+            this.#value = initialValue;
         }
 
         getValue() {
-            return this.value;
+            return this.#value;
         }
 
         padEnd(str) {
-            return this.value += str;
+            return this.#value += str;
         }
 
         padStart(str) {
-            this.value = str + this.value;
-            // this.value = [str, this.value].join('');
+            this.#value = str + this.#value;
+            // this.#value = [str, #this.value].join('');
         }
 
         padBoth(str) {
-            this.value = str + this.padEnd(str);
-            // this.value = [str, this.padEnd(str)].join('');
+            this.#value = str + this.padEnd(str);
+            // this.#value = [str, this.padEnd(str)].join('');
         }
     }
 
@@ -468,6 +470,44 @@ function squareSum(numbers) {
 
         changeBrand(newBrand) {
             this.#brand = newBrand;
+        }
+    }
+}
+
+{
+    class Car {
+        #brand;
+        #model;
+        #price;
+
+        constructor({ brand, model, price }) {
+            this.#brand = brand;
+            this.#model = model;
+            this.#price = price;
+        }
+
+        get brand() {
+            return this.#brand;
+        };
+
+        set brand(newBrand) {
+            this.#brand = newBrand;
+        }
+
+        get model() {
+            return this.#model;
+        }
+
+        set model(newModel) {
+            this.#model = newModel;
+        }
+
+        get price() {
+            return this.#price;
+        }
+
+        set price(newPrice) {
+            this.#price = newPrice;
         }
     }
 }
