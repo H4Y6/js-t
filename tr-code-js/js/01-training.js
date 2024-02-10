@@ -494,10 +494,11 @@ function squareSum(numbers) {
     }
 
     const mango = new User({ email: "mango@mail.com", role: User.Roles.ADMIN, });
-    console.log(mango.Roles); // undefined 
-    console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
-    console.log(mango.role); // "admin"
-    mango.role = User.Roles.EDITOR; console.log(mango.role); /** "editor" */
+    // console.log(mango.Roles); // undefined 
+    // console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
+    // console.log(mango.role); // "admin"
+    mango.role = User.Roles.EDITOR;
+    // console.log(mango.role); /** "editor" */
 }
 
 {
