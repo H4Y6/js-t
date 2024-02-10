@@ -509,11 +509,11 @@ function squareSum(numbers) {
 
         static MAX_PRICE = 50000;
 
-        constructor({ brand, model, price, maxPrice }) {
+        constructor({ brand, model, price }) {
             this.#brand = brand;
             this.#model = model;
             this.#price = price;
-            this.maxPrice = maxPrice;
+            this.maxPrice = Car.MAX_PRICE;
         }
 
         get brand() {
@@ -540,7 +540,7 @@ function squareSum(numbers) {
             if (newPrice > Car.MAX_PRICE) { return "Expensive!"; } else { this.#price = newPrice; }
         }
     }
-    const bmw = new Car({ brand: 'bmw', model: 'H3', price: 35000, maxPrice: Car.MAX_PRICE });
+    const bmw = new Car({ brand: 'bmw', model: 'H3', price: 35000 });
     console.log(bmw.price);
     bmw.price = 55555;
 
