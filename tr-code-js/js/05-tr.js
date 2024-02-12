@@ -28,6 +28,12 @@ const arrayReduce = (array, cb, initialValue) => {
     }
     return acc;
 };
-console.log('total balance >', arrayReduce(users, countBalance, 0));
-console.log('active quantity >', arrayReduce(users, countActive, 0));
-console.log('active names >', arrayReduce(users, getActiveName, 0));
+// console.log('total balance >', arrayReduce(users, countBalance, 0));
+// console.log('active quantity >', arrayReduce(users, countActive, 0));
+// console.log('active names >', arrayReduce(users, getActiveName, 0));
+
+function filter_list(l) { return l.filter(e => Number.isInteger(e)); }
+// function filter_list(l) { return l.filter(Number.isInteger); }
+// const filter_list = (l) => l.filter(e => typeof e === 'number');
+
+console.log(filter_list([1, 'a', 'b', 0, 15]));
