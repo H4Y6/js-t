@@ -32,8 +32,37 @@ const arrayReduce = (array, cb, initialValue) => {
 // console.log('active quantity >', arrayReduce(users, countActive, 0));
 // console.log('active names >', arrayReduce(users, getActiveName, 0));
 
-function filter_list(l) { return l.filter(e => Number.isInteger(e)); }
-// function filter_list(l) { return l.filter(Number.isInteger); }
-// const filter_list = (l) => l.filter(e => typeof e === 'number');
+{
+    function filter_list(l) { return l.filter(e => Number.isInteger(e)); }
+    // function filter_list(l) { return l.filter(Number.isInteger); }
+    // const filter_list = (l) => l.filter(e => typeof e === 'number');
 
-console.log(filter_list([1, 'a', 'b', 0, 15]));
+    // console.log(filter_list([1, 'a', 'b', 0, 15]));
+}
+
+{
+    // Given an array of integers, remove the smallest value. Do not mutate the original array/list. If there are multiple elements with the same value,
+    //  remove the one with a lower index. If you get an empty array/list, return an empty array/list.
+    // Don't change the order of the elements that are left.
+
+    // Examples;
+    Input => [1, 2, 3, 4, 5], output => [2, 3, 4, 5];
+
+    // function removeSmallest(numbers) {
+    //     const bigerNumbers = [...numbers];
+    //     const minNumber = Math.min(...numbers);
+    //     const i = [...numbers].findIndex(n => n === minNumber);
+    //     bigerNumbers.splice(i, 1);
+    //     return (bigerNumbers);
+    // }
+
+    // function removeSmallest(numbers) {
+    //     const minNumber = Math.min.apply(this, numbers);
+    //     // const minNumber = Math.min(...numbers);
+    //     return numbers.filter((_, i, array) => i !== array.indexOf(minNumber));
+    // }
+
+    const removeSmallest = numbers => numbers.filter((_, i) => i !== numbers.indexOf(Math.min(...numbers)));
+
+    console.log(removeSmallest([1, 2, 3, 1, 5]));
+}
