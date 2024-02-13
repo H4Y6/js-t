@@ -11,13 +11,13 @@ const users = [
 const getResult = (array, cb, total) => array.reduce(cb, total);
 
 const countBalance = (total, { balance }) => total + balance;
-console.log('total balance:', getResult(users, countBalance, 0));
+// console.log('total balance:', getResult(users, countBalance, 0));
 
 const countActive = (total, { isActive }) => total = isActive === true ? total + 1 : total;
-console.log('active quantity:', getResult(users, countActive, 0));
+// console.log('active quantity:', getResult(users, countActive, 0));
 
 const getActiveName = (string, el) => string = el.isActive === true ? string + el.name + '; ' : string;
-console.log('active names:', getResult(users, getActiveName, ''));
+// console.log('active names:', getResult(users, getActiveName, ''));
 
 const arrayReduce = (array, cb, initialValue) => {
     let acc = initialValue ?? array[0];
@@ -91,7 +91,21 @@ const arrayReduce = (array, cb, initialValue) => {
 
     // function removeSmallest(array) { return array.filter((_, i) => i !== array.reduce((idx, n, i) => idx = n < array[idx] ? i : idx, 0)); }
 
+    // console.log(removeSmallest([5, 1, 3, 2, 1, 4]));
+}
 
+{
+    // class Kata {
+    //     static getVolumeOfCuboid(length, width, height) {
+    //         return length * width * height;
+    //     }
+    // }
 
-    console.log(removeSmallest([5, 1, 3, 2, 1, 4]));
+    class Kata {
+        static getVolumeOfCuboid(...args) {
+            return args.reduce((volume, sideSize) => volume * sideSize, 1);
+        }
+    }
+
+    console.log(Kata.getVolumeOfCuboid(2, 3, 4));
 }
