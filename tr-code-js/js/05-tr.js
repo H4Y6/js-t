@@ -59,10 +59,39 @@ const arrayReduce = (array, cb, initialValue) => {
     // function removeSmallest(numbers) {
     //     const minNumber = Math.min.apply(this, numbers);
     //     // const minNumber = Math.min(...numbers);
-    //     return numbers.filter((_, i, array) => i !== array.indexOf(minNumber));
+    //     return numbers.filter((_, i) => i !== numbers.indexOf(minNumber));
     // }
 
-    const removeSmallest = numbers => numbers.filter((_, i) => i !== numbers.indexOf(Math.min(...numbers)));
+    // const removeSmallest = array => {
+    //     const biggerArray = [...array];
+    //     biggerArray.splice((array.findIndex(n => n === Math.min(...array))), 1);
+    //     return biggerArray;
+    // };
 
-    console.log(removeSmallest([1, 2, 3, 1, 5]));
+    // const removeSmallest = numbers => {
+    //     const idx = numbers.indexOf(Math.min(...numbers));
+    //     return [...numbers].slice(0, idx).concat(numbers.slice(idx + 1));
+    // };
+
+    // const removeSmallest = numbers => {
+    //     const newArray = [...numbers];
+    //     newArray.splice(numbers.indexOf(Math.min(...numbers)), 1);
+    //     return newArray;
+    // };
+
+    const removeSmallest = array => array.filter((_, i) => i !== array.indexOf(Math.min(...array)));
+
+    // const removeSmallest = array => array.filter((e, i) => i !== array.indexOf(Math.min.apply(this, array)));
+
+    // const removeSmallest = array => array.filter((_, i) => i !== array.reduce((idx, _, i) => array[idx] > array[i] ? i : idx, 0));
+
+    // const removeSmallest = array => array.filter((_, i) => i !== (array.findIndex(n => n === Math.min(...array))));
+
+    // const removeSmallest = array => array.filter((_, i) => i !== array.reduce((idx, n, i) => idx = n < array[idx] ? i : idx, 0));
+
+    // function removeSmallest(array) { return array.filter((_, i) => i !== array.reduce((idx, n, i) => idx = n < array[idx] ? i : idx, 0)); }
+
+
+
+    console.log(removeSmallest([5, 1, 3, 2, 1, 4]));
 }
