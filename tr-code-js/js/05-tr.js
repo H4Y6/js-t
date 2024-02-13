@@ -121,6 +121,11 @@ const arrayReduce = (array, cb, initialValue) => {
     function enough(cap, on, wait) {
         return +(wait > cap - on && wait - cap + on);
     }
+    /**   The + sign before the expression converts the boolean result to a numeric value (0 for false, 1 for true).
+            The function returns this numeric value, indicating whether there are enough resources. */
+
+    // console.log(+(true && 55));
+    // console.log(+(false && 55));
 
     // function enough(cap, on, wait) {
     //     return on + wait - cap > 0 ? on + wait - cap : 0;
