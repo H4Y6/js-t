@@ -94,6 +94,8 @@ const arrayReduce = (array, cb, initialValue) => {
     // console.log(removeSmallest([5, 1, 3, 2, 1, 4]));
 }
 
+
+
 {
     // class Kata {
     //     static getVolumeOfCuboid(length, width, height) {
@@ -118,18 +120,17 @@ const arrayReduce = (array, cb, initialValue) => {
     // wait is the number of people waiting to get on to the bus excluding the driver.
     // If there is enough space, return 0, and if there isn't, return the number of passengers he can't take.
 
-    function enough(cap, on, wait) {
-        return +(wait > cap - on && wait - cap + on);
-    }
+    // function enough(cap, on, wait) { return +(wait > cap - on && wait - cap + on); }
+    // const enough = (cap, on, wait) => +(cap < on + wait && on + wait - cap);
+
+    const enough = (cap, on, wait) => on + wait - cap > 0 ? on + wait - cap : 0;
+
     /**   The + sign before the expression converts the boolean result to a numeric value (0 for false, 1 for true).
             The function returns this numeric value, indicating whether there are enough resources. */
 
     // console.log(+(true && 55));
     // console.log(+(false && 55));
 
-    // function enough(cap, on, wait) {
-    //     return on + wait - cap > 0 ? on + wait - cap : 0;
-    // }
-
-    console.log(enough(100, 0, 50));
+    // console.log(enough(100, 44, 60));
 }
+
