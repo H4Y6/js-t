@@ -134,3 +134,40 @@ const arrayReduce = (array, cb, initialValue) => {
     // console.log(enough(100, 44, 60));
 }
 
+{
+    function invert(array) {
+        return array.map(el => -el);
+    }
+    // console.log(invert([1, 2, 3, -4, 5]));
+}
+// d + a=2s + 2a;
+// a = 2s - d;
+{
+    // function twiceAsOld(dadYearsOld, sonYearsOld) {
+    //     return Math.abs(2 * sonYearsOld - dadYearsOld);
+    // }
+
+    function twiceAsOld(dadYearsOld, sonYearsOld) {
+        return 2 * sonYearsOld - dadYearsOld > 0 ? 2 * sonYearsOld - dadYearsOld : dadYearsOld - 2 * sonYearsOld;
+    }
+    // console.log(twiceAsOld(46, 7));
+}
+
+{
+    // Consider an array/list of sheep where some sheep may be missing from their place.
+    //  We need a function that counts the number of sheep present in the array (true means present).
+    // Hint: Don't forget to check for bad values like null/undefined.
+    // example: [undefined, null, false, true], result = 1;
+
+    function countSheeps(sheep) {
+        // return sheep.reduce((count, el) => count + (el ? 1 : 0), 0);
+        // return sheep.reduce((count, el) => el ? count + 1 : count, 0);
+        // return sheep.filter(sh => sh).length;
+        // return sheep.filter(Boolean).length;
+        let count = 0;
+        sheep.forEach((sh) => count += sh ? 1 : 0);
+        return count;
+    };
+    // console.log(countSheeps([undefined, true, null, false, true]));
+}
+
