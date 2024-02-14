@@ -180,3 +180,44 @@ const arrayReduce = (array, cb, initialValue) => {
     // console.log(makeNegative(0));
 }
 
+{
+    // Alex just got a new hula hoop, he loves it but feels discouraged because his little brother is better than him
+    // Write a program where Alex can input (n) how many times the hoop goes round and it will return him an encouraging message :)
+    // If Alex gets 10 or more hoops, return the string "Great, now move on to tricks".
+    // If he doesn't get 10 hoops, return the string "Keep at it until you get it".
+
+    function hoopCount(n) {
+        return n > 9 ? "Great, now move on to tricks" : "Keep at it until you get it";
+    }
+    // console.log(hoopCount(2));
+}
+
+{
+    /**                 1              */
+    /**              3     5           */
+    /**           7     9    11        */
+    /**       13    15    17    19     */
+    /**    21    23    25    27    29  */
+
+    // Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+    //         1 -->  1
+    //         2 --> 3 + 5 = 8
+
+    function rowSumOddNumbers(n) {
+        // let length = 0;
+        // for (let i = 1; i <= n; i++) {
+        //     length += i;
+        // }
+        // const array = [];
+        // for (let i = 1; i <= length; i++) {
+        //     const a = (i * 2) - 1;
+        //     array.push(a);
+        // }
+        // const row = array.slice(-n);
+        // return row.reduce((sum, el) => sum + el, 0);
+
+        return n ** 3;
+    }
+    // console.log(rowSumOddNumbers(42));
+}
+
