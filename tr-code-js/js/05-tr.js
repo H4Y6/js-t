@@ -171,3 +171,12 @@ const arrayReduce = (array, cb, initialValue) => {
     // console.log(countSheeps([undefined, true, null, false, true]));
 }
 
+{
+    function makeNegative(num) {
+        // return num > 0 ? -num : num;
+        // return -Math.abs(num);
+        return 0 - Math.abs(num);
+    }
+    // console.log(makeNegative(0));
+}
+
