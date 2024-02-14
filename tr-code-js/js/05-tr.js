@@ -217,7 +217,19 @@ const arrayReduce = (array, cb, initialValue) => {
         // return row.reduce((sum, el) => sum + el, 0);
 
         return n ** 3;
+
+        // const array = [];
+        // let arrayLength = 0;
+
+        // for (let i = 1; i <= n; i++) {
+        //     arrayLength += i;
+        // }
+
+        // for (let i = 0; i < arrayLength; i++) {
+        //     array.push(2 * i + 1);
+        // }
+        // return array.slice(-n).reduce((sum, el) => sum + el, 0);
     }
-    // console.log(rowSumOddNumbers(42));
+    // console.log(rowSumOddNumbers(31));
 }
 
