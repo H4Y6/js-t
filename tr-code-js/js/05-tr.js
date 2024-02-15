@@ -180,11 +180,11 @@ const arrayReduce = (array, cb, initialValue) => {
     // console.log(makeNegative(0));
 }
 
-{
-    // Alex just got a new hula hoop, he loves it but feels discouraged because his little brother is better than him
-    // Write a program where Alex can input (n) how many times the hoop goes round and it will return him an encouraging message :)
-    // If Alex gets 10 or more hoops, return the string "Great, now move on to tricks".
-    // If he doesn't get 10 hoops, return the string "Keep at it until you get it".
+{   /*
+    Alex just got a new hula hoop, he loves it but feels discouraged because his little brother is better than him
+    Write a program where Alex can input (n) how many times the hoop goes round and it will return him an encouraging message :)
+    If Alex gets 10 or more hoops, return the string "Great, now move on to tricks".
+    If he doesn't get 10 hoops, return the string "Keep at it until you get it".   */
 
     function hoopCount(n) {
         return n > 9 ? "Great, now move on to tricks" : "Keep at it until you get it";
@@ -192,12 +192,14 @@ const arrayReduce = (array, cb, initialValue) => {
     // console.log(hoopCount(2));
 }
 
-{
-    /**                 1              */
-    /**              3     5           */
-    /**           7     9    11        */
-    /**       13    15    17    19     */
-    /**    21    23    25    27    29  */
+{   /* The terms are the smallest of n consecutive odd numbers whose sum is n^3: 1, 3 + 5 = 8 = 2^3, 7 + 9 + 11 = 27 = 3^3, etc. - Amarnath Murthy, May 19 2001
+    
+    /*  Given the triangle of consecutive odd numbers:
+                    1              
+                 3     5           
+              7     9    11        
+          13    15    17    19     
+       21    23    25    27    29  */
 
     // Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
     //         1 -->  1
@@ -233,16 +235,40 @@ const arrayReduce = (array, cb, initialValue) => {
         const array = [];
         let arrayLength = 0;
 
-        // for (let i = 1; i <= n; i++) {
-        //     arrayLength += i;
-        // }
+        for (let i = 1; i <= n; i++) {
+            arrayLength += i;
+        }
 
-        // for (let i = 0; i < arrayLength; i++) {
-        //     const element = i * 2 + 1;
-        //     array.push(element);
-        // }
-        // return array.slice(-n).reduce((sum, num) => sum + num, 0);
+        for (let i = 0; i < arrayLength; i++) {
+            const element = i * 2 + 1;
+            array.push(element);
+        }
+        return array.slice(-n).reduce((sum, num) => sum + num, 0);
     }
     console.log(rowSumOddNumbers(4));
 }
 
+
+/*  The sum of n consecutive integers:
+Сума n послідовних цілих чисел може бути обчислена за допомогою формули:
+{ Сума послідовних чисел } = \frac{ n }{ 2} \left( Перше число  + Останнє число \right);
+де:
+
+ n - кількість чисел у послідовності.
+ Перше число - перше число в послідовності.
+ Останнє число - останнє число в послідовності.
+ Наприклад, якщо ми маємо послідовність чисел від 1 до 50, то:  */
+
+/* Перше число = 1
+Останнє число = 50;
+n = 50 - 1 + 1 = 50
+Тоді сума цих послідовних чисел від 1 до 50 дорівнює:
+
+[\text{ Сума } = \frac{ 50}{ 2} \left(1 + 50 \right) = 25 \cdot 51 = 1275]; 
+    Сума  = { 50} / { 2} \left(1 + 50 \right) = 25 * 51 = 1275
+*/
+
+const sum = array => array.reduce((acc, n) => acc + n, 0);
+
+console.log(sum([4, 5, 6, 7, 8, 9, 10, 11])); 4 * 15;
+console.log(4 * 15); 
