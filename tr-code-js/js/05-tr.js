@@ -229,7 +229,20 @@ const arrayReduce = (array, cb, initialValue) => {
         //     array.push(2 * i + 1);
         // }
         // return array.slice(-n).reduce((sum, el) => sum + el, 0);
+
+        const array = [];
+        let arrayLength = 0;
+
+        // for (let i = 1; i <= n; i++) {
+        //     arrayLength += i;
+        // }
+
+        // for (let i = 0; i < arrayLength; i++) {
+        //     const element = i * 2 + 1;
+        //     array.push(element);
+        // }
+        // return array.slice(-n).reduce((sum, num) => sum + num, 0);
     }
-    // console.log(rowSumOddNumbers(31));
+    console.log(rowSumOddNumbers(4));
 }
 
