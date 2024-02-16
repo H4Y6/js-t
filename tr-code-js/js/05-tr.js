@@ -369,3 +369,61 @@ Task=> Given a year, return the century it is in. */
     // const quarterOf = (month) => 1 + quarterArray.findIndex((quarter) => quarter.includes(month));
     // console.log(quarterOf(11));
 }
+
+{  /*  There is a bus moving in the city which takes and drops some people at each bus stop.
+You are provided with a list (or array) of integer pairs. Elements of each pair represent the number of people that get on the bus (the first item) and the number of people that get off the bus (the second item) at a bus stop.
+
+Your task is to return the number of people who are still on the bus after the last bus stop (after the last array). Even though it is the last bus stop, the bus might not be empty and some people might still be inside the bus, they are probably sleeping there :D
+
+Take a look on the test cases.
+Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the returned integer can't be negative.
+The second value in the first pair in the array is 0, since the bus is empty in the first bus stop.   */
+
+
+    var number = busStops => busStops.reduce((acc, busStop) => acc + busStop[0] - busStop[1], 0);
+
+    // console.log(number([[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]]));
+
+}
+
+{   /*  Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
+The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
+Mind the input validation.
+
+Example
+{ 6, 2, 1, 8, 10 } => 16
+{ 1, 1, 11, 2, 3 } => 6
+Input validation
+If an empty value ( null, None, Nothing etc. ) is given instead of an array, or the given array is an empty list or a list with only 1 element, return 0.   */
+
+    const sumArray = array => array ? [...array].sort((a, b) => a - b).slice(1, -1).reduce((sum, n) => sum + n, 0) : 0;
+    // const sumArray = array => array && array.length > 1 ? array.reduce((sum, n) => sum + n, 0) - Math.min(...array) - Math.max(...array) : 0;
+    // const sumArray = array => Array.isArray(array) && array.length > 1 ? array.reduce((sum, n) => sum + n, 0) - Math.min(...array) - Math.max(...array) : 0;
+
+    // console.log(sumArray([2, 1, 3]));
+}
+
+{  /*  Character recognition software is widely used to digitise printed texts. Thus the texts can be edited, searched and stored on a computer.
+When documents (especially pretty old ones written with a typewriter), are digitised character recognition softwares often make mistakes.
+Your task is correct the errors in the digitised text. You only have to handle the following mistakes:
+
+S is misinterpreted as 5
+O is misinterpreted as 0
+I is misinterpreted as 1
+The test cases contain numbers only by mistake.  */
+
+    // function correct(string) {
+    //     const newOString = string.replaceAll(0, 'O');
+    //     const newOSString = newOString.replaceAll(5, 'S');
+    //     const newOSIString = newOSString.replaceAll('1', 'I');
+    //     return newOSIString;
+    // }
+
+    // const correct = string => string.replaceAll(0, 'O').replaceAll(5, 'S').replaceAll(1, 'I');
+    const correct = string => string.replaceAll(/0/g, 'O').replaceAll(/5/g, 'S').replaceAll(/1/g, 'I');
+    // const correct = (string) => [...string].map(el => ({ '0': 'O', '1': 'I', '5': 'S' })[el] || el).join('');
+
+    // console.log(correct("L0ND0N"));
+    // console.log(correct("DUBL1N"));
+    // console.log(correct("51NGAP0RE"));
+}
