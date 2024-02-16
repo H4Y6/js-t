@@ -288,7 +288,7 @@ Tested values are all between 0 and 100. Theres is no need to check for negative
     function getGrade(s1, s2, s3) {
         const averageScore = (s1 + s2 + s3) / 3;
 
-        return averageScore < 60 ? 'F' : averageScore < 70 ? 'D' : averageScore < 80 ? 'C' : averageScore <= 90 ? 'B' : 'A';
+        return averageScore < 60 ? 'F' : averageScore < 70 ? 'D' : averageScore < 80 ? 'C' : averageScore < 90 ? 'B' : 'A';
 
         // switch (true) {
         //     case averageScore < 60:
@@ -304,4 +304,68 @@ Tested values are all between 0 and 100. Theres is no need to check for negative
         // }
     }
     // console.log(getGrade(92, 87, 94));
+}
+
+{/*After a hard quarter in the office you decide to get some rest on a vacation. So you will book a flight for you and your girlfriend and try to leave all the mess behind you.
+You will need a rental car in order for you to get around in your vacation. The manager of the car rental makes you some good offers.
+Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+Write a code that gives out the total amount for different days(d).    */
+
+    // const rentalCarCost = (d) => d < 3 ? 40 * d : d < 7 ? 40 * d - 20 : 40 * d - 50;
+    const rentalCarCost = d => 40 * d - (d > 6 ? 50 : d > 2 ? 20 : 0);
+    // const rentalCarCost = d => { d > 6 ? d -= 50 / 40 : d > 2 ? d -= 20 / 40 : d; return 40 * d; };
+    // console.log(rentalCarCost(7));
+}
+
+{
+    function makeUpperCase(str) {
+        return str.toUpperCase();
+    }
+    // console.log(makeUpperCase("Hello"));
+}
+
+{/*  The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+Task=> Given a year, return the century it is in. */
+
+    function century(year) {
+        return Math.ceil(year / 100);
+    }
+    // console.log(century(1));
+}
+
+{ /*Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.*/
+
+    const quarterOf = month => Math.ceil(month / 3);
+    // const quarterOf = month => month > 9 ? 4 : month > 6 ? 3 : month > 3 ? 2 : 1;
+    // const quarterOf = month => month % 3 !== 0 ? parseInt(month / 3) + 1 : month / 3;
+
+    // const quarterOf = month => {
+    //     switch (month) {
+    //         case 1:
+    //         case 2:
+    //         case 3:
+    //             return 1;
+
+    //         case 4:
+    //         case 5:
+    //         case 6:
+    //             return 2;
+
+    //         case 7:
+    //         case 8:
+    //         case 9:
+    //             return 3;
+
+    //         default: return 4;
+    //     }
+    // };
+
+    // const quarterArray = [
+    //     [1, 2, 3],
+    //     [4, 5, 6],
+    //     [7, 8, 9],
+    //     [10, 11, 12],
+    // ];
+    // const quarterOf = (month) => 1 + quarterArray.findIndex((quarter) => quarter.includes(month));
+    // console.log(quarterOf(11));
 }
