@@ -515,14 +515,71 @@ For example (Input --> Output):
     function persistence(num) {
         let operationNumber = 0;
         let string = num.toString();
-        if (string.length > 1) {
+        for (let i = 0; i + 1 < string.length; i++) {
+
             operationNumber++;
             string = [...string].reduce((acc, el) => acc * el, 1);
             console.log(string);
-        };
-
-
+        }
         console.log(num.toString().length);
+        return operationNumber;
     }
-    console.log(persistence(999));
+    // console.log(persistence(999));
+}
+
+{
+    // function countDown(n) {
+    //     for (let i = n; i > 0; i -= 1) {
+    //         console.log(i);
+    //     }
+    //     console.log('Ok!');
+    // }
+
+    function countDown(n) {
+
+        if (n < 1) {
+            console.log("OK!");
+            return;
+        }
+        console.log(n);
+        countDown(n - 1);
+    }
+    // countDown(4);
+
+    function sumRange(n, total = 0) {
+        if (n < 1) return total;
+        return sumRange(n - 1, total + n);
+
+    }
+    // console.log(sumRange(5));
+
+
+    function printChildren(t) {
+        if (t.children.length === 0) { return; }
+
+        t.children.forEach((child) => {
+            console.log(child.name);
+            printChildren(child);
+        });
+    }
+
+    const tree = {
+        name: 'John',
+        children: [
+            {
+                name: 'Jim',
+                children: []
+            },
+            {
+                name: 'Zoe',
+                children: [
+                    { name: 'Kyle', children: [], },
+                    { name: 'Sofia', children: [] }
+                ],
+            },
+        ],
+
+    };
+
+    console.log(printChildren(tree));
 }
