@@ -420,10 +420,109 @@ The test cases contain numbers only by mistake.  */
     // }
 
     // const correct = string => string.replaceAll(0, 'O').replaceAll(5, 'S').replaceAll(1, 'I');
-    const correct = string => string.replaceAll(/0/g, 'O').replaceAll(/5/g, 'S').replaceAll(/1/g, 'I');
+    const correct = string => string.replace(/\d/g, a => 'OI   S'[a]);
+    // const correct = string => string.replaceAll(/0/g, 'O').replaceAll(/5/g, 'S').replaceAll(/1/g, 'I');
     // const correct = (string) => [...string].map(el => ({ '0': 'O', '1': 'I', '5': 'S' })[el] || el).join('');
 
     // console.log(correct("L0ND0N"));
     // console.log(correct("DUBL1N"));
     // console.log(correct("51NGAP0RE"));
+}
+
+{  /*  You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+For example, when the input is green, output should be yellow.  */
+
+    // const updateLight = current => { return { 'red': 'green', 'green': 'yellow', 'yellow': 'red', }[current]; };
+    const updateLight = current => ({ 'red': 'green', 'green': 'yellow', 'yellow': 'red', }[current]);
+    // const updateLight = current => current === 'red' ? 'green' : current === 'green' ? 'yellow' : 'red';
+
+    // function updateLight(current) {
+    //     switch (current) {
+    //         case 'red':
+    //             return 'green';
+
+    //         case 'yellow':
+    //             return 'red';
+
+    //         default: return 'yellow';
+    //     }
+    // };
+
+    // function updateLight(current) {
+    //     const colors = ['red', 'green', 'yellow',];
+    //     return colors[colors.indexOf(current) + 1] ?? colors[0];
+    // }
+
+    // console.log(updateLight("yellow"));
+}
+
+{  /*  Kata Task
+I have a cat and a dog.
+I got them at the same time as kitten/puppy. That was humanYears years ago.
+Return their respective ages now as [humanYears,catYears,dogYears]
+
+NOTES:
+humanYears >= 1
+humanYears are whole numbers only
+Cat Years
+15 cat years for first year
++9 cat years for second year
++4 cat years for each year after that
+Dog Years
+15 dog years for first year
++9 dog years for second year
++5 dog years for each year after that  */
+
+    const humanYearsCatYearsDogYears = humanYears => {
+        const ages = [humanYears];
+        ages[1] = (humanYears - 2) * 4 + 24;
+        ages[2] = ages[1] + humanYears - 2;
+        // return --humanYears ? ages : [1, 15, 15];
+        return humanYears > 1 ? ages : [1, 15, 15];
+    };
+    // console.log(humanYearsCatYearsDogYears(10));
+}
+
+{  /*  The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+Examples
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))(("   */
+
+    function duplicateEncode(word) {
+        let string = '';
+        const w = word.toLowerCase();
+        for (let i = 0; i < w.length; i++) {
+            string += w.indexOf(w[i]) === w.lastIndexOf(w[i]) ? '(' : ')';
+            // string += (w.slice(0, i) + w.slice(i + 1)).includes(w.slice(i, i + 1)) ? ')' : '(';
+        }
+        return string;
+    }
+    // const duplicateEncode = w => w.replace(/./g, c => (new RegExp(`([${c}]).*\\1`, 'gi')).test(w) ? ')' : '(');
+
+    // console.log(duplicateEncode('Success'));
+}
+
+{  /*  Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+For example (Input --> Output):
+39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
+4 --> 0 (because 4 is already a one-digit number)  */
+
+    function persistence(num) {
+        let operationNumber = 0;
+        let string = num.toString();
+        if (string.length > 1) {
+            operationNumber++;
+            string = [...string].reduce((acc, el) => acc * el, 1);
+            console.log(string);
+        };
+
+
+        console.log(num.toString().length);
+    }
+    console.log(persistence(999));
 }
