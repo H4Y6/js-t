@@ -551,7 +551,7 @@ For example (Input --> Output):
         return sumRange(n - 1, total + n);
 
     }
-    // console.log(sumRange(5));
+    console.log(sumRange(5));
 
 
     function printChildren(t) {
@@ -582,4 +582,20 @@ For example (Input --> Output):
     };
 
     console.log(printChildren(tree));
+
+    function factorial(n, result = 1) {
+        if (n < 1) {
+            return result;
+        }
+        return factorial(n - 1, result *= n);
+    }
+    console.log(factorial(5));
+
+    const sumRangeA = (n, total = 0) => {
+        if (n < 1) {
+            return total;
+        }
+        return sumRangeA(n - 1, total += n);
+    };
+    console.log(sumRangeA(6));
 }
