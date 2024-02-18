@@ -551,17 +551,8 @@ For example (Input --> Output):
         return sumRange(n - 1, total + n);
 
     }
-    console.log(sumRange(5));
+    // console.log(sumRange(5));
 
-
-    function printChildren(t) {
-        if (t.children.length === 0) { return; }
-
-        t.children.forEach((child) => {
-            console.log(child.name);
-            printChildren(child);
-        });
-    }
 
     const tree = {
         name: 'John',
@@ -580,8 +571,17 @@ For example (Input --> Output):
         ],
 
     };
+    function printChildren(t) {
+        if (t.children.length === 0) { return; }
 
-    printChildren(tree);
+        t.children.forEach((child) => {
+            console.log(child.name);
+            printChildren(child);
+        });
+    }
+
+
+    // printChildren(tree);
 
     function factorial(n, result = 1) {
         if (n < 1) {
@@ -589,7 +589,7 @@ For example (Input --> Output):
         }
         return factorial(n - 1, result *= n);
     }
-    console.log(factorial(5));
+    // console.log(factorial(5));
 
     const sumRangeA = (n, total = 0) => {
         if (n < 1) {
@@ -597,5 +597,46 @@ For example (Input --> Output):
         }
         return sumRangeA(n - 1, total += n);
     };
-    console.log(sumRangeA(6));
+    // console.log(sumRangeA(6));
+}
+
+{
+    function countDown(n) {
+        const result = [];
+        for (let i = n; i > 0; i--) {
+            result.push(i);
+        }
+        return result;
+    }
+    // console.log(...countDown(4));
+
+    const countDownR = n => {
+        const result = [];
+        if (n < 1) {
+            console.log('OK!');
+            return;
+        } {
+            console.log(n);
+            countDownR(n - 1);
+        }
+    };
+    // countDownR(7);
+
+    function sumRange(n) {
+        let total = 0;
+
+        for (let i = n; i > 0; i--) {
+            total += i;
+        }
+        return total;
+    }
+    // console.log(sumRange(4));
+
+    function sumRangeR(n, total = 0) {
+        if (n < 1) {
+            return total;
+        }
+        return sumRangeR(n - 1, total + n);
+    }
+    console.log(sumRangeR(4));
 }
