@@ -581,7 +581,7 @@ For example (Input --> Output):
 
     };
 
-    console.log(printChildren(tree));
+    printChildren(tree);
 
     function factorial(n, result = 1) {
         if (n < 1) {
