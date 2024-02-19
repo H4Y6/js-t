@@ -512,19 +512,23 @@ For example (Input --> Output):
 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
 4 --> 0 (because 4 is already a one-digit number)  */
 
-    function persistence(num) {
-        let operationNumber = 0;
-        let string = num.toString();
-        for (let i = 0; i + 1 < string.length; i++) {
-
-            operationNumber++;
-            string = [...string].reduce((acc, el) => acc * el, 1);
-            console.log(string);
-        }
-        console.log(num.toString().length);
-        return operationNumber;
+    function persistence(num, n = 0) {
+        // if (num.toString().length < 2) return n;
+        if (num < 10) return n;
+        n++;
+        // num = [...num.toString()].reduce((acc, el) => acc * el, 1);
+        num = [...num + ''].reduce((acc, el) => acc * el, 1);
+        return persistence(num, n);
     }
-    // console.log(persistence(999));
+
+    // const persistence = num => {
+    // for (let i = 0; 9 < num; i++) {
+    // [...num.toString()].reduce((acc, el) => acc * el, 1);
+    // [...num + ''].reduce((acc, el) => acc * el, 1);
+    // }
+    // return i;
+    // };
+    console.log(persistence(999));
 }
 
 {
@@ -656,5 +660,5 @@ For example (Input --> Output):
         // return a * pow(a, n - 1);
         return n <= -2 ? 1 / (a / pow(a, n + 1)) : n === -1 ? 1 / a : n === 0 ? 1 : n < 2 ? a : a * pow(a, n - 1);
     };
-    console.log(pow(10, 1));
+    // console.log(pow(10, 3));
 }
