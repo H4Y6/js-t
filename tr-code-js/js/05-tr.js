@@ -610,17 +610,17 @@ For example (Input --> Output):
     }
     // console.log(...countDown(4));
 
-    const countDownR = n => {
-        const result = [];
+    const countDownR = (n, result) => {
         if (n < 1) {
             console.log('OK!');
             return;
         } {
-            console.log(n);
-            countDownR(n - 1);
+            result.push(n);
+            countDownR(n - 1, result);
         }
+        return result;
     };
-    // countDownR(7);
+    // console.log(countDownR(7, []));
 
     function sumRange(n) {
         let total = 0;
@@ -638,5 +638,23 @@ For example (Input --> Output):
         }
         return sumRangeR(n - 1, total + n);
     }
-    console.log(sumRangeR(4));
+    // console.log(sumRangeR(4));
+
+    const factorial = (n) => {
+        // if (n < 2) { return n; }
+        // const result = factorial((n - 1)) * n;
+        // return result;
+        return n < 2 ? n : factorial(n - 1) * n;
+    };
+    // console.log(factorial(4));
+
+    const pow = (a, n) => {
+        // if (n <= -2) return 1 / (a / pow(a, n + 1));
+        // if (n === -1) return 1 / a;
+        // if (n === 0) return 1;
+        // if (n < 2) return a;
+        // return a * pow(a, n - 1);
+        return n <= -2 ? 1 / (a / pow(a, n + 1)) : n === -1 ? 1 / a : n === 0 ? 1 : n < 2 ? a : a * pow(a, n - 1);
+    };
+    console.log(pow(10, 1));
 }
