@@ -98,14 +98,14 @@ Note
 In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.   */
 
   function countSmileys(arr) {
-    return arr.reduce((n, el) => el.match(/^[:;][-~]?[D)]$/) ? n + 1 : n, 0);
+    // return arr.reduce((n, el) => el.match(/^[:;][-~]?[D)]$/) ? n + 1 : n, 0);
 
-    // let n = 0;
-    // arr.forEach(el => {
-    //   if (el.match(/^[:;][-~]?[D)]$/)) { n += 1; }
-    // if ((el.match(/:-?\)/) || el.match(/:~?\)/) || el.match(/;-?\)/) || el.match(/;~?\)/) || el.match(/:-?D/) || el.match(/:~?D/) || el.match(/;-?D/) || el.match(/;~?D/))) { n += 1; }
-    // });
-    // return n;
+    let n = 0;
+    arr.forEach(el => {
+      if (el.match(/^[:;][-~]?[D)]$/)) { n += 1; }
+      // if ((el.match(/:-?\)/) || el.match(/:~?\)/) || el.match(/;-?\)/) || el.match(/;~?\)/) || el.match(/:-?D/) || el.match(/:~?D/) || el.match(/;-?D/) || el.match(/;~?D/))) { n += 1; }
+    });
+    return n;
   }
-  console.log(countSmileys([]));
+  console.log(countSmileys([':D', ':~)', ';~D', ':)']));
 }
