@@ -44,7 +44,9 @@ Examples
   */
 
   function order(words) {
-    return words.split(' ').sort((a, b) => a.match(/\d/) - b.match(/\d/)).join(' ');
+    // return words.split(' ').sort((a, b) => a.match(/\d/) - b.match(/\d/)).join(' ');
+
+    return words ? words.split(' ').map(w => w.match(/\d/) + w).sort().map(w => w.slice(1)).join(' ') : '';
 
     // const newArray = [];
     // const array = words.split(' ');
@@ -54,5 +56,28 @@ Examples
 
     // return newArray.join(' ');
   }
-  console.log(order("is2 Thi1s T4est 3a"));
+  // order("is2 Thi1s T4est 3a");
+  // console.log(order("is2 Thi1s T4est 3a"));
+  // console.log(order(""));
+}
+
+{  /*  Very simple, given a number (integer / decimal / both depending on the language), find its opposite (additive inverse).
+Examples:
+1: -1
+14: -14
+-34: 34   */
+
+  function opposite(number) {
+    return -number;
+  }
+  // console.log(opposite(4.25));
+}
+
+{  /*  Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+Return your answer as a number.    */
+
+  // const sumMix = x => x.reduce((sum, n) => parseInt(n) + sum, 0);
+  const sumMix = x => x.reduce((sum, n) => +n + sum, 0);
+  // const sumMix = x => x.reduce((sum, n) => Number(n) + sum, 0);
+  // console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0']));
 }
