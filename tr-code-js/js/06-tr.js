@@ -81,3 +81,31 @@ Return your answer as a number.    */
   // const sumMix = x => x.reduce((sum, n) => Number(n) + sum, 0);
   // console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0']));
 }
+
+{  /* Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+Rules for a smiling face:
+Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+Every smiling face must have a smiling mouth that should be marked with either ) or D
+No additional characters are allowed except for those mentioned.
+Valid smiley face examples: :) :D ;-D :~)
+Invalid smiley faces: ;( :> :} :]
+Example
+countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+Note
+In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.   */
+
+  function countSmileys(arr) {
+    return arr.reduce((n, el) => el.match(/^[:;][-~]?[D)]$/) ? n + 1 : n, 0);
+
+    // let n = 0;
+    // arr.forEach(el => {
+    //   if (el.match(/^[:;][-~]?[D)]$/)) { n += 1; }
+    // if ((el.match(/:-?\)/) || el.match(/:~?\)/) || el.match(/;-?\)/) || el.match(/;~?\)/) || el.match(/:-?D/) || el.match(/:~?D/) || el.match(/;-?D/) || el.match(/;~?D/))) { n += 1; }
+    // });
+    // return n;
+  }
+  console.log(countSmileys([]));
+}
