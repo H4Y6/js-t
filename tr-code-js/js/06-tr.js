@@ -97,15 +97,88 @@ countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
 Note
 In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.   */
 
-  function countSmileys(arr) {
-    // return arr.reduce((n, el) => el.match(/^[:;][-~]?[D)]$/) ? n + 1 : n, 0);
 
-    let n = 0;
-    arr.forEach(el => {
-      if (el.match(/^[:;][-~]?[D)]$/)) { n += 1; }
-      // if ((el.match(/:-?\)/) || el.match(/:~?\)/) || el.match(/;-?\)/) || el.match(/;~?\)/) || el.match(/:-?D/) || el.match(/:~?D/) || el.match(/;-?D/) || el.match(/;~?D/))) { n += 1; }
-    });
-    return n;
+  /**  this row cw (.length) test failed ->   const countSmileys = arr => arr.reduce((n, el) => n + el.match(/^[:;][-~]?[D)]$/).length, 0);   */
+  // const countSmileys = arr => arr.filter((el) => el.match(/^[:;][-~]?[D)]$/)).length;
+  const countSmileys = arr => arr.reduce((n, el) => el.match(/^[:;][-~]?[D)]$/) ? n + 1 : n, 0);
+  // function countSmileys(arr) {
+  //   let n = 0;
+  //   arr.forEach(el => {
+  //     if (el.match(/^[:;][-~]?[D)]$/)) { n += 1; }
+  //     // if ((el.match(/:-?\)/) || el.match(/:~?\)/) || el.match(/;-?\)/) || el.match(/;~?\)/) || el.match(/:-?D/) || el.match(/:~?D/) || el.match(/;-?D/) || el.match(/;~?D/))) { n += 1; }
+  //   });
+  //   return n;
+  // }
+  // console.log(countSmileys([':D', ':~)', ';~D', ':)']));
+}
+
+{   /**  A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation. */
+
+  //  const alphabetRegex = [/[Aa]/, /[Bb]/, /[Cc]/, /[Dd]/, /[Ee]/, /[Ff]/, /[Gg]/, /[Hh]/, /[Ii]/, /[Jj]/, /[Kk]/, /[Ll]/, /[Mm]/, /[Nn]/, /[Oo]/, /[Pp]/, /[Qq]/, /[Rr]/,
+  //       /[Ss]/, /[Tt]/, /[Uu]/, /[Vv]/, /[Ww]/, /[Xx]/, /[Yy]/, /[Zz]/];
+
+  function isPangram(string) {
+    // const array = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    const array = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+    return array.every(el => string.toLowerCase().includes(el)); /**  failed */
   }
-  console.log(countSmileys([':D', ':~)', ';~D', ':)']));
+  // console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+}
+
+{ /**  Count the number of Duplicates
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+Example
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"indivisibility" -> 1 # 'i' occurs six times
+"Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice    */
+
+  function duplicateCount(text) {
+    const t = [...text.toLowerCase()];
+    return t.reduce((n, el, idx) => t.indexOf(el) !== t.lastIndexOf(el) && t.indexOf(el) === idx ? n + 1 : n, 0);
+    // return t.filter((el, idx, t) => t.indexOf(el) === idx).reduce((n, el) => t.indexOf(el) !== t.lastIndexOf(el) ? n + 1 : n, 0);
+  }
+  // console.log(duplicateCount("Indivisibilities"));
+}
+
+{  /**  Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.  */
+
+  function lovefunc(flower1, flower2) {
+    return (flower1 + flower2) % 2 !== 0 ? true : false;
+    // return (flower1 % 2 === 0 && flower2 % 2 !== 0) || (flower1 % 2 !== 0 && flower2 % 2 === 0) ? true : false;
+  }
+  // console.log(lovefunc(2, 1));
+}
+
+{  /** Well met with Fibonacci bigger brother, AKA Tribonacci.
+
+As the name may already reveal, it works basically like a Fibonacci, but summing the last 3 (instead of 2) numbers of the sequence to generate the next. And, worse part of it, regrettably I won't get to hear non-native Italian speakers trying to pronounce it :(
+
+So, if we are to start our Tribonacci sequence with [1, 1, 1] as a starting input (AKA signature), we have this sequence:
+
+[1, 1 ,1, 3, 5, 9, 17, 31, ...]
+But what if we started with [0, 0, 1] as a signature? As starting with [0, 1] instead of [1, 1] basically shifts the common Fibonacci sequence by once place, you may be tempted to think that we would get the same sequence shifted by 2 places, but that is not the case and we would get:
+
+[0, 0, 1, 1, 2, 4, 7, 13, 24, ...]
+Well, you may have guessed it by now, but to be clear: you need to create a fibonacci function that given a signature array/list, returns the first n elements - signature included of the so seeded sequence.
+
+Signature will always contain 3 numbers; n will always be a non-negative number; if n == 0, then return an empty array (except in C return NULL) and be ready for anything else which is not clearly specified ;)
+
+If you enjoyed this kata more advanced and generalized version of it can be found in the Xbonacci kata
+
+[Personal thanks to Professor Jim Fowler on Coursera for his awesome classes that I really recommend to any math enthusiast and for showing me this mathematical curiosity too with his usual contagious passion :)]   */
+
+  function tribonacci(signature, n) {
+  }
+
+  // console.log(tribonacci([1, 0, 0], 10));
 }
