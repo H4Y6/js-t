@@ -202,3 +202,92 @@ If you enjoyed this kata more advanced and generalized version of it can be foun
   }
   // console.log(tribonacci([1, 0, 0], 10));
 }
+
+{  /**  Trolls are attacking your comment section!
+
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+Note: for this kata y isn't considered a vowel.  */
+
+  function disemvowel(str) {
+    return str.replace(/[aeiou]/gi, '');
+  }
+  // console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"));
+}
+
+{  /** Your task is to construct a building which will be a pile of n cubes. The cube at the bottom will have a volume of n cubic m
+ , the cube above will have volume of (n−1) cibic m 
+  and so on until the top which will have a volume of 1 cubic m .
+
+You are given the total volume m of the building. Being given m can you find the number n of cubes you will have to build?
+
+The parameter of the function findNb (find_nb, find-nb, findNb, ...) will be an integer m and you have to return the integer n such as 
+n cubic  + (n−1) cubic + (n−2)cubic +...+1 cubic = m if such a n exists or -1 if there is no such n.
+
+Examples:
+findNb(1071225) --> 45
+findNb(91716553919377) --> -1  */
+
+  function findNb(m) {
+    let i = 0;
+
+    while (m > 0) {
+      m -= Math.pow(i, 3);
+      if (m > 0)
+        i++;
+      if (m < 0) i = -1;
+    }
+    return i;
+  }
+  // console.log(findNb(1071225));
+}
+
+{/** Nathan loves cycling.
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
+For example:
+time = 3 ----> litres = 1
+time = 6.7---> litres = 3
+time = 11.8--> litres = 5  */
+
+  function litres(time) {
+    // return Math.floor(.5 * time);
+    // return ~~(time / 2);
+    return parseInt(time / 2);
+  }
+  // console.log(litres(11.8));
+}
+
+{  /**  Write Number in Expanded Form
+You will be given a number and you will need to return it as a string in Expanded Form. For example:
+
+expandedForm(12); // Should return '10 + 2'
+expandedForm(42); // Should return '40 + 2'
+expandedForm(70304); // Should return '70000 + 300 + 4'
+NOTE: All numbers will be whole numbers greater than 0.
+
+If you liked this kata, check out part 2!!   */
+
+  function expandedForm(num) {
+    let newStr = [];
+    const str = num.toString();
+    const n = str.length;
+    for (let i = 0; i < n; i++) {
+      const s = parseInt(str[i] * Math.pow(10, n - i - 1));
+      if (s > 0) newStr.push(s.toString());
+    }
+    return newStr.join(' + ');
+
+    // let newStr = '';
+    // const str = (num.toString());
+    // const n = str.length;
+    // for (let i = 0; i < n; i++) {
+    //   const s = parseInt(str[i] * Math.pow(10, n - i - 1));
+    //   if (s > 0) newStr += (' + ' + s.toString());
+    // }
+    // return newStr.slice(3);
+  }
+  console.log(expandedForm(3040103));
+}
