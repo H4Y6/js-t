@@ -178,19 +178,27 @@ If you enjoyed this kata more advanced and generalized version of it can be foun
 [Personal thanks to Professor Jim Fowler on Coursera for his awesome classes that I really recommend to any math enthusiast and for showing me this mathematical curiosity too with his usual contagious passion :)]   */
 
   function tribonacci(signature, n) {
-    let sum = 0, result = 0;
-    if (n === 3) {
-      return signature;
-    } else if (n <= 2) {
-      return signature.slice(0, n);
-    }
-    {
-      result = signature.slice(-3);
-      result.map(el => sum += el);
-      signature.push(sum);
-    }
-    return tribonacci(signature, n - 1);
-  }
+    if (n === 3) return signature;
+    if (n <= 2) return signature.slice(0, n);
 
+    signature.push(signature.slice(-3).reduce((sum, el) => sum += el, 0));
+
+    return tribonacci(signature, n - 1);
+
+    // while (signature.length < n) {
+    //   signature[signature.length] = (signature.slice(-3).reduce((sum, el) => sum + el, 0));
+    // }
+    // return signature.slice(0, n);
+
+    // while (signature.length < n) {
+    //   signature.push(signature.slice(-3).reduce((sum, el) => sum + el, 0));
+    // }
+    // return signature.slice(0, n);
+
+    // for (let i = 3; i < n; i++) {
+    //   signature[i] = signature[i - 3] + signature[i - 2] + signature[i - 1];
+    // }
+    // return signature.slice(0, n);
+  }
   // console.log(tribonacci([1, 0, 0], 10));
 }
