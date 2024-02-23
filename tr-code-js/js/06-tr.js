@@ -271,14 +271,16 @@ NOTE: All numbers will be whole numbers greater than 0.
 If you liked this kata, check out part 2!!   */
 
   function expandedForm(num) {
-    let newStr = [];
-    const str = num.toString();
-    const n = str.length;
-    for (let i = 0; i < n; i++) {
-      const s = parseInt(str[i] * Math.pow(10, n - i - 1));
-      if (s > 0) newStr.push(s.toString());
-    }
-    return newStr.join(' + ');
+    return [...num.toString()].map((el, i, arr) => el * 10 ** (arr.length - 1 - i)).filter(el => el > 0).join(' + ');
+
+    // let str = [];
+    // num = num.toString();
+    // const n = num.length;
+    // for (let i = 0; i < n; i++) {
+    //   const s = num[i] * Math.pow(10, n - i - 1);
+    //   if (s > 0) str.push(s.toString());
+    // }
+    // return str.join(' + ');
 
     // let newStr = '';
     // const str = (num.toString());
@@ -289,5 +291,27 @@ If you liked this kata, check out part 2!!   */
     // }
     // return newStr.slice(3);
   }
-  console.log(expandedForm(3040103));
+  // console.log(expandedForm(3040103));
+}
+
+{  /**  Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false. */
+  function boolToWord(bool) {
+    return bool ? "Yes" : "No";
+  }
+  // console.log(boolToWord(true));
+}
+
+{  /**  Create a function which answers the question "Are you playing banjo?".
+If your name starts with the letter "R" or lower case "r", you are playing banjo!
+The function takes a name as its only argument, and returns one of the following strings:
+
+name + " plays banjo" 
+name + " does not play banjo"
+Names given are always valid strings. */
+
+  function areYouPlayingBanjo(name) {
+    return name + (name.match(/^[r]/i) ? " plays" : " does not play") + " banjo";
+    // return name.match(/^[r]/i) ? name + " plays banjo" : name + " does not play banjo";
+  }
+  // console.log(areYouPlayingBanjo("Ringo"));
 }
