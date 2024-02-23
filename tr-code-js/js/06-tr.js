@@ -315,3 +315,46 @@ Names given are always valid strings. */
   }
   // console.log(areYouPlayingBanjo("Ringo"));
 }
+
+{  /**  Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+Write a function which takes a list of strings and returns each line prepended by the correct number.
+The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+Examples: (Input --> Output)
+
+[] --> []
+["a", "b", "c"] --> ["1: a", "2: b", "3: c"] */
+
+  const number = array => array.map((e, i) => (i + 1) + ': ' + e);
+  // console.log(number(["a", "b", "c"]));
+}
+
+{  /** You will be given an array a and a value x. All you need to do is check whether the provided array contains the value.
+Array can contain numbers or strings. X can be either.
+Return true if the array contains the value, false if not.  */
+
+  function check(a, x) {
+    return a.includes(x);
+    // return a.includes(x) ? true : false;
+  }
+  // console.log(check([66, 101], 66));
+}
+
+{  /**  A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+
+Return true if yes, false otherwise :)    */
+
+  function hero(bullets, dragons) {
+    return bullets >= 2 * dragons;
+  }
+  // console.log(hero(10, 5));
+}
+
+{  /**  You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+
+Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).   */
+
+  function isValidWalk(walk) {
+    //insert brilliant code here
+  }
+}
