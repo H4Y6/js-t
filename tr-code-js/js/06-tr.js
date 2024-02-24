@@ -394,7 +394,17 @@ If a or b are nil (or null or None, depending on the language), the problem does
 
 
   function comp(ar1, ar2) {
-    return (!Array.isArray(ar1) || !Array.isArray(ar2) || null) ? false : !([...ar1].sort((a, b) => a - b).some((e, i) => e ** 2 !== [...ar2].sort((a, b) => a - b)[i]));
+    // console.log(ar1.map(e => e * e).sort().toString());
+    // console.log(ar1.map(e => e * e).sort().join());
+
+    // return !ar1 || !ar2 ? false : ar1.map(e => e * e).sort().toString() === [...ar2].sort().toString();
+
+    return ar1 !== null && ar2 !== null && !null && ar1.every(e => {
+      const idx = ar2.indexOf(e * e);
+      return idx > -1 ? ar2.splice(idx, 1) : false;
+    });
+
+    // return (!Array.isArray(ar1) || !Array.isArray(ar2) || null) ? false : !([...ar1].sort((a, b) => a - b).some((e, i) => e ** 2 !== [...ar2].sort((a, b) => a - b)[i]));
 
     // return (!Array.isArray(ar1) || !Array.isArray(ar2) || null) ? false : ([...ar1].sort((a, b) => a - b).every((e, i) => e ** 2 === [...ar2].sort((a, b) => a - b)[i]));
 
@@ -405,4 +415,85 @@ If a or b are nil (or null or None, depending on the language), the problem does
   }
   // console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 36100, 25921, 361, 20736, 361]));  /**  false   */
   // console.log(comp([11, 19], [121, 361]));  /**  true   */
+}
+
+{  /**  A child is playing with a ball on the nth floor of a tall building. The height of this floor above ground level, h, is known.
+He drops the ball out of the window. The ball bounces (for example), to two-thirds of its height (a bounce of 0.66).
+His mother looks out of a window 1.5 meters from the ground.
+How many times will the mother see the ball pass in front of her window (including when it's falling and bouncing)?
+Three conditions must be met for a valid experiment:
+Float parameter "h" in meters must be greater than 0
+Float parameter "bounce" must be greater than 0 and less than 1
+Float parameter "window" must be less than h.
+If all three conditions above are fulfilled, return a positive integer, otherwise return -1.
+
+Note:
+The ball can only be seen if the height of the rebounding ball is strictly greater than the window parameter.
+
+Examples:
+- h = 3, bounce = 0.66, window = 1.5, result is 3
+- h = 3, bounce = 1, window = 1.5, result is -1 
+(Condition 2) not fulfilled). */
+
+  function bouncingBall(h, bounce, window) {
+
+    return bounce <= 0 || bounce >= 1 || h <= 0 || window >= h ? -1 : 2 + bouncingBall(h * bounce, bounce, window);
+    // return bounce > 0 && bounce < 1 && h > 0 && window < h ? 2 + bouncingBall(h * bounce, bounce, window) : -1;
+
+    // let n = 0;
+    // if (bounce >= 1 || bounce <= 0 || window >= h) return -1;
+    // for (n; h > window; n += 2) {
+    //   h *= bounce;
+    // }
+    // return n > 0 ? n - 1 : 0;
+
+    // if (bounce === 1) return -1;
+    // let n = 0;
+    // for (n; h > window; n += 2) {
+    // h *= bounce;
+    // }
+    // return n > 0 ? n - 1 : 0;
+  }
+  // console.log(bouncingBall(30, 0.66, 1.5));
+}
+
+{  /**  7kyu    Simple, given a string of words, return the length of the shortest word(s).
+String will never be empty and you do not need to account for different data types.   */
+
+  function findShort(s) {
+    return Math.min(...s.split(' ').map(e => e.length));
+  }
+  // console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
+}
+
+{  /**  8kyu   When provided with a number between 0-9, return it in words.
+Input :: 1
+Output :: "One".
+If your language supports it, try using a switch statement.   */
+
+  function switchItUp(number) {
+    switch (number) {
+      case 1:
+        return "One";
+      case 2:
+        return "Two";
+      case 3:
+        return "Three";
+      case 4:
+        return "Four";
+      case 5:
+        return "Five";
+      case 6:
+        return "Six";
+      case 7:
+        return "Seven";
+      case 8:
+        return "Eight";
+      case 9:
+        return "Nine";
+
+      default: return 'Zero';
+    }
+  }
+  // console.log(switchItUp(0));
 }
