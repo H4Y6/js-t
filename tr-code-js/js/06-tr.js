@@ -497,3 +497,70 @@ If your language supports it, try using a switch statement.   */
   }
   // console.log(switchItUp(0));
 }
+
+{  /** 8 kyu altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:
+
+"hello world".toAlternatingCase() === "HELLO WORLD"
+"HELLO WORLD".toAlternatingCase() === "hello world"
+"hello WORLD".toAlternatingCase() === "HELLO world"
+"HeLLo WoRLD".toAlternatingCase() === "hEllO wOrld"
+"12345".toAlternatingCase()       === "12345"                   // Non-alphabetical characters are unaffected
+"1a2b3c4d5e".toAlternatingCase()  === "1A2B3C4D5E"
+"String.prototype.toAlternatingCase".toAlternatingCase() === "sTRING.PROTOTYPE.TOaLTERNATINGcASE"
+As usual, your function/method should be pure, i.e. it should not mutate the original string. */
+
+  /**test failed */
+  String.prototype.toAlternatingCase = function (str) {
+    this.str = str;
+    return this.str.split('').map(e => e.match(/[a-z]/) ? e.toUpperCase() : e.toLowerCase()).join('');
+  };
+  const string = new String('');
+  // console.log(String.prototype.toAlternatingCase("hello world"));
+  // console.log(string.toAlternatingCase("hello world"));
+  // console.log('stringObj', string);
+}
+
+{  /**  6kyu There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+
+input
+customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+n: a positive integer, the number of checkout tills.
+output
+The function should return an integer, the total time required.
+
+Important
+Please look at the examples and clarifications below, to ensure you understand the task correctly :)
+
+Examples
+queueTime([5,3,4], 1)
+// should return 12
+// because when there is 1 till, the total time is just the sum of the times
+
+queueTime([10,2,3,3], 2)
+// should return 10
+// because here n=2 and the 2nd, 3rd, and 4th people in the 
+// queue finish before the 1st person has finished.
+
+queueTime([2,3,10], 2)
+// should return 12
+Clarifications
+There is only ONE queue serving many tills, and
+The order of the queue NEVER changes, and
+The front person in the queue (i.e. the first element in the array/list) proceeds to a till as soon as it becomes free.
+N.B. You should assume that all the test input will be valid, as specified above.
+
+P.S. The situation in this kata can be likened to the more-computer-science-related idea of a thread pool, with relation to running multiple processes at the same time: https://en.wikipedia.org/wiki/Thread_pool  */
+
+  function queueTime(customers, n) {
+    if (n === 0) return Infinity;
+    if (n > customers.length) return Math.max(...customers);
+
+    for (let i = 0; i < n; i++) {
+
+
+    }
+  }
+  console.log(queueTime([1, 2, 3, 4, 5], 100));
+  console.log(queueTime([2, 2, 3, 3, 4, 4], 2));
+}
