@@ -605,5 +605,99 @@ The array will always have at least 2 elements1 and all elements will be numbers
   function firstNonConsecutive(arr) {
     return arr.find((el, idx, arr) => el - idx !== arr[0]) ?? null;
   }
-  console.log(firstNonConsecutive([1, 2, 3, 4, 6, 7, 8]));
+  // console.log(firstNonConsecutive([1, 2, 3, 4, 6, 7, 8]));
+}
+
+{ /**  6 kyu  Two Sum   Write a function that takes an array of numbers (integers for the tests) and a target number. It should find two different items in the array that, when added together, give the target value. The indices of these items should then be returned in a tuple / list (depending on your language) like so: (index1, index2).
+
+For the purposes of this kata, some tests may have multiple answers; any valid solutions will be accepted.
+
+The input will always be valid (numbers will be an array of length 2 or greater, and all of the items will be numbers; target will always be the sum of two different items from that array).
+
+Based on: https://leetcode.com/problems/two-sum/
+
+twoSum([1, 2, 3], 4) // returns [0, 2] or [2, 0]
+twoSum([3, 2, 4], 6) // returns [1, 2] or [2, 1]   */
+
+  function twoSum(numbers, target) {
+    let result = [];
+    numbers.map((e, i) => numbers.map((el, idx) => { if (e + el === target && i !== idx) result = [i, idx]; }));
+
+    // numbers.forEach((e, i) => {
+    //   numbers.forEach((el, idx) => {
+    //     if (e + el === target && i !== idx) result = [idx, i];
+    //   });
+    // });
+    return result;
+  }
+  // console.log(twoSum([2, 2, 3], 4));
+}
+
+{  /**  8 kyu  Debugging sayHello function
+The starship Enterprise has run into some problem when creating a program to greet everyone as they come aboard. It is your job to fix the code and get the program working again!
+Example output: Hello, Mr. Spock     */
+
+  function sayHello(name) {
+    return 'Hello, '.concat(name);
+    // return 'Hello, ' + name;
+  }
+  // console.log(sayHello('Dr. McCoy'));
+}
+
+{  /**  8 kyu
+Basic Mathematical Operations
+110331291% of 12,36681,683 of 189,424Quickz4 Issues Reported
+ JavaScript
+Node v18.x
+VIM
+EMACS
+Instructions
+Output
+Your task is to create a function that does four basic mathematical operations.
+
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+
+Examples(Operator, value1, value2) --> output
+('+', 4, 7) --> 11
+('-', 15, 18) --> -3
+('*', 5, 5) --> 25
+('/', 49, 7) --> 7   */
+
+  function basicOp(operation, value1, value2) {
+    return eval(value1 + operation + value2);
+
+    // switch (operation) {
+    //   case '+':
+    //     return value1 + value2;
+    //   case '-':
+    //     return value1 - value2;
+    //   case '*':
+    //     return value1 * value2;
+    //   case '/':
+    //     return value1 / value2;
+
+    //   default: "Unknmown operation";
+    // }
+  }
+  // console.log(basicOp("?", 4, 7));
+}
+
+{  /**  8 kyu
+Removing Elements    Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+Example:
+["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
+None of the arrays will be empty, so you don't have to worry about that!    */
+
+  function removeEveryOther(arr) {
+    return arr.filter((_, i) => !(i % 2));
+
+    //   let newArr = [];
+    //   for (let i = 0; i < arr.length; i += 2) {
+    //     newArr.push(arr[i]);
+    //   }
+    //   return newArr;
+  }
+  console.log(removeEveryOther([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+  console.log(removeEveryOther(['Hello', 'Goodbye', 'Hello Again']), ['Hello', 'Hello Again']);
 }
