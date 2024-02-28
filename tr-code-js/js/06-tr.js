@@ -698,6 +698,46 @@ None of the arrays will be empty, so you don't have to worry about that!    */
     //   }
     //   return newArr;
   }
-  console.log(removeEveryOther([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
-  console.log(removeEveryOther(['Hello', 'Goodbye', 'Hello Again']), ['Hello', 'Hello Again']);
+  // console.log(removeEveryOther([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+  // console.log(removeEveryOther(['Hello', 'Goodbye', 'Hello Again']), ['Hello', 'Hello Again']);
+}
+
+{  /**  6 kyu Count characters in your string
+    The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+What if the string is empty? Then the result should be empty object literal, {}.    */
+
+  function count(string) {
+    return string.split('').reduce((obj, el) => {
+      obj[el] ? obj[el]++ : obj[el] = 1;
+      return obj;
+    }, {});
+
+    // const uniqueLetters = [...string].filter((e, i, arr) => arr.indexOf(e) === i);
+    // let obj = {};
+    // for (let i = 0; i < uniqueLetters.length; i++) {
+    //   const array = [];
+    //   for (let idx = 0; idx < [...string].length; idx++) {
+    //     if (uniqueLetters[i] === [...string][idx]) {
+    //       array.push([...string][idx]);
+    //     }
+    //   }
+    //   obj[uniqueLetters[i]] = array.length;
+    // }
+    // return obj;
+  }
+  // console.log(count('abacoo'));
+}
+
+{  /**  6 kyu   Unique In Order  
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+
+For example:
+uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+uniqueInOrder([1,2,2,3,3])       == [1,2,3]                            */
+
+  var uniqueInOrder = function (iterable) {
+    //your code here - remember iterable can be a string or an array
+  };
+  // console.log(uniqueInOrder('ABBCcAD'));
 }
