@@ -738,8 +738,9 @@ uniqueInOrder([1,2,2,3,3])       == [1,2,3]                            */
 
   var uniqueInOrder = function (iterable) {
     // return [...iterable].filter((el, i) => el !== iterable[i + 1]);
-
-    return Array.prototype.filter.call(iterable, ((el, i) => el !== iterable[i + 1]));
+    // return [...iterable].filter((e, i, arr) => e !== arr[i + 1]);
+    // return Array.prototype.filter.call(iterable, ((el, i) => el !== iterable[i + 1]));
+    return [...iterable].filter((e, i, arr) => e !== arr[i - 1]);
 
     // const arr = [];
     // for (let i = 0; i < iterable.length; i++) {
@@ -750,5 +751,67 @@ uniqueInOrder([1,2,2,3,3])       == [1,2,3]                            */
     // }
     // return arr;
   };
-  console.log(uniqueInOrder('ABBBBBCcAD'));
+  // console.log(uniqueInOrder('ABBBBBCcAD'));
 }
+
+{  /** 7 kyu  Categorize New Member  
+   The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
+
+To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+
+Input
+Input will consist of a list of pairs. Each pair contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
+
+Output
+Output will consist of a list of string values (in Haskell and C: Open or Senior) stating whether the respective member is to be placed in the senior or open category.
+
+Example
+input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
+output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]         */
+
+  function openOrSenior(data) {
+    return data.map(([age, handicap]) => age >= 55 && handicap > 7 ? 'Senior' : 'Open');
+    // return data.map(([age, handicap]) => age < 55 ? 'Open' : handicap > 7 ? 'Senior' : 'Open');
+    // return data.map(subArr => subArr[0] < 55 ? 'Open' : subArr[1] <= 7 ? 'Open' : 'Senior');
+  }
+  // console.log(openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]));
+  // console.log(openOrSenior([[3, 12], [55, 1], [91, -2], [53, 23]]));
+}
+
+{  /**  The highest profit wins!
+Story
+Ben has a very simple idea to make some profit: he buys something and sells it again. Of course, this wouldn't give him any profit at all if he was simply to buy and sell it at the same price. Instead, he's going to buy it for the lowest possible price and sell it at the highest.
+Task
+Write a function that returns both the minimum and maximum number of the given list/array.
+
+Examples (Input --> Output)
+[1,2,3,4,5] --> [1,5]
+[2334454,5] --> [5,2334454]
+[1]         --> [1,1]
+Remarks
+All arrays or lists will always have at least one element, so you don't need to check the length. Also, your function will always get an array or a list, you don't have to check for null, undefined or similar.        */
+
+  const minMax = arr => [Math.min(...arr), Math.max(...arr)];
+  // const minMax = (arr, ar = [...arr].sort((a, b) => a - b)) => [ar[0], ar[ar.length - 1]];
+  // const minMax = arr => {
+  //   const newArr = [...arr].sort((a, b) => a - b);
+  //   return [newArr[0], newArr[newArr.length - 1]];
+  // };
+  // console.log(minMax([2334454, 5]));
+}
+
+/** 8 kyu   Is it a palindrome?
+  Write a function that checks if a given string (case insensitive) is a palindrome.
+A palindrome is a word, number, phrase, or other sequence of symbols that reads the same backwards as forwards, such as madam or racecar.     */
+
+const isPalindrome = x => {
+  x = x.toLowerCase();
+  return x === [...x].reverse().join('') ? true : false;
+
+  // x = x.toLowerCase();
+  // for (let i = 0; i < x.length; i++) {
+  //   if (x.charAt(i) !== x.charAt(x.length - 1 - i)) return false;
+  // }
+  // return true;
+};
+// console.log(isPalindrome("AbBa"));
