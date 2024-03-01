@@ -45,3 +45,118 @@ Note: For 4 or more names, the number in "and 2 others" simply increases.       
   // console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']));
 }
 
+{/**6 kyu  Replace With Alphabet Position 
+Welcome.
+In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+If anything in the text isn't a letter, ignore it and don't return it.
+"a" = 1, "b" = 2, etc.
+Example
+alphabetPosition("The sunset sets at twelve o' clock.")
+Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" ( as a string )    */
+
+  function alphabetPosition(text) {
+    // const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    // return [...text].filter(e => e == e.match(/[a-z]/i)).map(e => 1 + (alphabet.includes(e) ? alphabet.indexOf(e) : alphabet.indexOf(e.toLowerCase()))).join(' ');
+    return [...text.replace(/[^a-z]/gi, '').toUpperCase()].map(e => e.charCodeAt() - 64).join(' ');
+
+    // const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    // return [...text].filter(e => e == e.match(/[a-z]/i))
+    //   .map(e => { return alphabet.includes(e) ? alphabet.indexOf(e) + 1 : alphabet.indexOf(e.toLowerCase()) + 1; }).join(' ');
+  }
+  // console.log(alphabetPosition("The narwhal bacons at midnight."));
+  // console.log('A'.charCodeAt());
+}
+
+{  /**  8 kyu   Is it even? 
+In this Kata we are passing a number (n) into a function.
+Your code will determine if the number passed is even (or not).
+The function needs to return either a true or false.
+Numbers may be positive or negative, integers or floats.
+Floats with decimal part non equal to zero are considered UNeven for this kata.    */
+
+  function testEven(n) {
+    return !(n % 2);
+    // return (n % 1 > 0) ? false : n % 2 !== 0 ? false : true;
+  }
+  // console.log(testEven(7));
+}
+
+{  /**8 kyu  Welcome!  
+Your start-up's BA has told marketing that your website has a large audience in Scandinavia and surrounding countries. Marketing thinks it would be great to welcome visitors to the site in their own language. Luckily you already use an API that detects the user's location, so this is an easy win.
+
+The Task
+Think of a way to store the languages as a database. The languages are listed below so you can copy and paste!
+Write a 'welcome' function that takes a parameter 'language', with a type String, and returns a greeting - if you have it in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+The Database
+[ ("english", "Welcome")
+, ("czech", "Vitejte")
+, ("danish", "Velkomst")
+, ("dutch", "Welkom")
+, ("estonian", "Tere tulemast")
+, ("finnish", "Tervetuloa")
+, ("flemish", "Welgekomen")
+, ("french", "Bienvenue")
+, ("german", "Willkommen")
+, ("irish", "Failte")
+, ("italian", "Benvenuto")
+, ("latvian", "Gaidits")
+, ("lithuanian", "Laukiamas")
+, ("polish", "Witamy")
+, ("spanish", "Bienvenido")
+, ("swedish", "Valkommen")
+, ("welsh", "Croeso")
+]
+Possible invalid inputs include:
+
+IP_ADDRESS_INVALID - not a valid ipv4 or ipv6 ip address
+IP_ADDRESS_NOT_FOUND - ip address not in the database
+IP_ADDRESS_REQUIRED - no ip address was supplied          */
+
+  function greet(language) {
+    // switch (language) {
+    //   case 'czech': return "Vitejte";
+    //   case 'danish': return "Velkomst";
+    //   case 'dutch': return "Welkom";
+    //   case 'estonian': return "Tere tulemast";
+    //   case 'finnish': return "Tervetuloa";
+    //   case 'flemish': return "Welgekomen";
+    //   case 'french': return "Bienvenue";
+    //   case 'german': return "Willkommen";
+    //   case 'irish': return "Failte";
+    //   case 'italian': return "Benvenuto";
+    //   case 'latvian': return "Gaidits";
+    //   case 'lithuanian': return "Laukiamas";
+    //   case 'polish': return "Witamy";
+    //   case 'spanish': return "Bienvenido";
+    //   case 'swedish': return "Valkommen";
+    //   case 'welsh': return "Croeso";
+
+    //   default: return 'Welcome';
+    // }
+
+    const data = [
+      ["english", "Welcome"],
+      ["czech", "Vitejte"],
+      ["danish", "Velkomst"],
+      ["dutch", "Welkom"],
+      ["estonian", "Tere tulemast"],
+      ["finnish", "Tervetuloa"],
+      ["flemish", "Welgekomen"],
+      ["french", "Bienvenue"],
+      ["german", "Willkommen"],
+      ["irish", "Failte"],
+      ["italian", "Benvenuto"],
+      ["latvian", "Gaidits"],
+      ["lithuanian", "Laukiamas"],
+      ["polish", "Witamy"],
+      ["spanish", "Bienvenido"],
+      ["swedish", "Valkommen"],
+      ["welsh", "Croeso"]
+    ];
+
+    return (data.map((e) => (e[0] === language) ? e[1] : 0).filter(e => e)[0]) || 'Welcome';
+  }
+
+  // console.log(greet('IP_ADDRESS_INVALID'));
+  // console.log(greet('german'));
+}
