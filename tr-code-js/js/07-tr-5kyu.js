@@ -166,6 +166,16 @@ ROT13 is a simple letter substitution cipher that replaces a letter with the let
 Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".                                   */
 
   function rot13(message) {
+    return message.replace(/[a-z]/gi, str => String.fromCharCode(str.charCodeAt() + (/[a-m]/i.test(str) ? 13 : -13)));
+
+    /** Метод test() в JavaScript виконує пошук з використанням регулярного виразу для відповідності між регулярним виразом та вказаним рядком. 
+      Він повертає true, якщо є відповідність, і false в іншому випадку.    RegExp.prototype.test()    */
+
+    // return message.replace(/[a-z]/gi, str => String.fromCharCode(str.charCodeAt(0) + (str.toLowerCase() < 'n' ? 13 : -13)));
+
+    // const codes = [...message].map(e => e.charCodeAt()).map(cc => ((cc > 64 && cc < 78) || (cc > 96 && cc < 110)) ? cc += 13 : ((cc > 77 && cc < 91) || (cc > 109 && cc < 123)) ? cc -= 13 : cc);
+    // return String.fromCharCode(...codes);
+
     // const codes = [...message].map(e => e.charCodeAt());
     // const codesCoded = codes.map(cc => {
     //   if ((cc > 64 && cc < 78) || (cc > 96 && cc < 110)) { return cc += 13; };
@@ -178,11 +188,8 @@ Create a function that takes a string and returns the string ciphered with Rot13
     // const stringCoded = String.fromCharCode(...codesCoded);
     // return stringCoded;
 
-    const codes = [...message].map(e => e.charCodeAt()).map(cc => ((cc > 64 && cc < 78) || (cc > 96 && cc < 110)) ? cc += 13 : ((cc > 77 && cc < 91) || (cc > 109 && cc < 123)) ? cc -= 13 : cc);
-    return String.fromCharCode(...codes);
-
     // console.log("🌟".charCodeAt(), "🌟".charCodeAt(1), "🌟".codePointAt(), ".".charCodeAt(), "A".charCodeAt(), "a".charCodeAt(),);
   }
-  // console.log(rot13('The quick brown fox jumps over the lazy dog.'));  /**  Gur dhvpx oebja sbk whzcf bire gur ynml qbt. */
-  // console.log(rot13("test"));  /**  Grfg */
+  console.log(rot13('The quick brown fox jumps over the lazy dog.'));  /**  Gur dhvpx oebja sbk whzcf bire gur ynml qbt. */
+  console.log(rot13("test"));  /**  Grfg */
 }
