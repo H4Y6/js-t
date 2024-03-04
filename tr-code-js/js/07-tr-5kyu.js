@@ -248,3 +248,60 @@ And a tower with 6 floors looks like this:
   }
   // console.log(towerBuilder(4));
 }
+
+{  /**  8 kyu  Reversed Strings  
+Complete the solution so that it reverses the string passed into it.
+'world'  =>  'dlrow'
+'word'   =>  'drow'            */
+
+  const solution = str => [...str].reverse().join('');
+  // console.log(solution('world'));
+}
+
+{  /**  7 kyu  Count the divisors of a number 
+Count the number of divisors of a positive integer n.
+Random tests go up to n = 500000.
+
+Examples (input --> output)
+4 --> 3 // we have 3 divisors - 1, 2 and 4
+5 --> 2 // we have 2 divisors - 1 and 5
+12 --> 6 // we have 6 divisors - 1, 2, 3, 4, 6 and 12
+30 --> 8 // we have 8 divisors - 1, 2, 3, 5, 6, 10, 15 and 30
+Note you should only return a number, the count of divisors. The numbers between parentheses are shown only for you to see which numbers are counted in each case.  */
+
+  const getDivisorsCnt = (n) => {
+    let res = 0;
+    for (let i = 1; i <= n / 100; i++) {
+      if (n % i === 0) res++;
+    }
+    for (let j = 99; j > 1; j--) {
+      if (n % j === 0) res++;
+    }
+    return res + 1;
+  };
+  // console.log(getDivisorsCnt(30));
+}
+
+{  /**6 kyu  Find the odd int        
+ Given an array of integers, find the one that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+
+Examples
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).           */
+
+  const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+  // function findOdd(A) {
+  //   let res = 0;
+  //   const unique = A.filter((e, i, arr) => arr.indexOf(e) === i);
+  //   for (let i = 0; i < unique.length; i++) {
+  //     if (A.filter(e => e === unique[i]).length % 2 !== 0) res = unique[i];
+  //   }
+  //   return res;
+  // }
+  console.log(findOdd([0, 1, 0, 1, 1]));
+}
