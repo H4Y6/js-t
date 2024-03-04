@@ -163,13 +163,12 @@ IP_ADDRESS_REQUIRED - no ip address was supplied          */
 {  /**  5 kyu  Rot13 
 ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet. ROT13 is an example of the Caesar cipher.
 
-Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".                                   */
+Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".                                */
 
   function rot13(message) {
     return message.replace(/[a-z]/gi, str => String.fromCharCode(str.charCodeAt() + (/[a-m]/i.test(str) ? 13 : -13)));
 
-    /** Метод test() в JavaScript виконує пошук з використанням регулярного виразу для відповідності між регулярним виразом та вказаним рядком. 
-      Він повертає true, якщо є відповідність, і false в іншому випадку.    RegExp.prototype.test()    */
+    /**  RegExp.prototype.test() -->  Метод test() в JavaScript виконує пошук з використанням регулярного виразу для відповідності між регулярним виразом та вказаним рядком.  Він повертає true, якщо є відповідність, і false в іншому випадку.    */
 
     // return message.replace(/[a-z]/gi, str => String.fromCharCode(str.charCodeAt(0) + (str.toLowerCase() < 'n' ? 13 : -13)));
 
@@ -190,6 +189,62 @@ Create a function that takes a string and returns the string ciphered with Rot13
 
     // console.log("🌟".charCodeAt(), "🌟".charCodeAt(1), "🌟".codePointAt(), ".".charCodeAt(), "A".charCodeAt(), "a".charCodeAt(),);
   }
-  console.log(rot13('The quick brown fox jumps over the lazy dog.'));  /**  Gur dhvpx oebja sbk whzcf bire gur ynml qbt. */
-  console.log(rot13("test"));  /**  Grfg */
+  // console.log(rot13('The quick brown fox jumps over the lazy dog.'));  /**  Gur dhvpx oebja sbk whzcf bire gur ynml qbt. */
+  // console.log(rot13("test"));  /**  Grfg */
+}
+
+{  /**  6 kyu  Build Tower  
+Build a pyramid-shaped tower, as an array/list of strings, given a positive integer number of floors. A tower block is represented with "*" character.
+For example, a tower with 3 floors looks like this:
+[
+  "  *  ",
+  " *** ", 
+  "*****"
+]
+And a tower with 6 floors looks like this:
+[
+  "     *     ", 
+  "    ***    ", 
+  "   *****   ", 
+  "  *******  ", 
+  " ********* ", 
+  "***********"
+]                                   */
+
+  function towerBuilder(nFloors) {
+    return [...Array(nFloors)].map((_, i) => ' '.repeat(nFloors - 1 - i) + '*'.repeat(2 * i + 1) + ' '.repeat(nFloors - 1 - i));
+
+    // const res = [];
+    // for (let i = 0; i < nFloors; i++) {
+    //   res.push(' '.repeat(nFloors - 1 - i) + '*'.repeat(1 + 2 * i) + ' '.repeat(nFloors - 1 - i));
+    // }
+    // return res;
+
+    // let codes = [];
+    // const ws = '32';
+    // let wsCodes = [];
+    // for (let j = 1; j < nFloors; j++) {
+    //   wsCodes.push(ws);
+    // }
+    // const res = [];
+    // let str = '';
+    // const code = '42';
+    // codes = ([...wsCodes, code, ...wsCodes]);
+    // str = String.fromCharCode(...codes);
+
+    // res.push(str);
+
+    // for (let i = 1; i < nFloors; i++) {
+    //   str = String.fromCharCode(...codes);
+    //   codes.splice(0, 1);
+    //   codes.splice(codes.length - 1, 1);
+    //   codes.splice(codes.length / 2, 0, code, code);
+
+    //   str = String.fromCharCode(...codes);
+
+    //   res.push(str);
+    // }
+    // return res;
+  }
+  // console.log(towerBuilder(4));
 }
