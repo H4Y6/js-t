@@ -316,3 +316,36 @@ Examples
   // const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
   // console.log(findOdd([0, 1, 0, 1, 1]));
 }
+
+{  /**  8 kyu  How good are you really?  There was a test in your class and you passed it. Congratulations!
+But you're an ambitious person. You want to know if you're better than the average student in your class.
+You receive an array with your peers' test scores. Now calculate the average and compare your score!
+Return True if you're better, else False!
+Note:
+Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!   */
+
+  function betterThanAverage(classPoints, yourPoints) {
+    return [...classPoints, yourPoints].reduce((res, e) => res + e, 0) / (classPoints.length + 1) < yourPoints;
+  }
+  // console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75));
+}
+
+{  /** 8 kyu  Is the string uppercase?   Is the string uppercase?
+Task
+Create a method to see whether the string is ALL CAPS.
+
+Examples (input -> output)
+"c" -> False
+"C" -> True
+"hello I AM DONALD" -> False
+"HELLO I AM DONALD" -> True
+"ACSKLDFJSgSKLDFJSKLDFJ" -> False
+"ACSKLDFJSGSKLDFJSKLDFJ" -> True    */
+
+  String.prototype.isUpperCase = function () {
+    // return String(this) === this.toUpperCase();
+    return !/[a-z]/.test.this;
+  };
+  console.log('ACSKLDFJSSKLDFJSKLDFJ'.isUpperCase());
+
+}
