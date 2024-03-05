@@ -293,8 +293,17 @@ Examples
 [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
 [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).           */
 
-  const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+  function findOdd(A) {
+    // return A.find(e => A.filter(el => el === e).length % 2);
 
+    return A.reduce((res, e) => A.filter(el => el === e).length % 2 ? res = e : res, 0);
+
+    // return A.filter((e, i, arr) => arr.indexOf(e) === i).reduce((res, e) => A.filter(el => el === e).length % 2 ? res = e : res, 0);
+
+    // let res = 0;
+    // A.filter((e, i, arr) => arr.indexOf(e) === i).map(e => A.filter(el => el === e).length % 2 ? res = e : res);
+    // return res;
+  }
   // function findOdd(A) {
   //   let res = 0;
   //   const unique = A.filter((e, i, arr) => arr.indexOf(e) === i);
@@ -303,5 +312,7 @@ Examples
   //   }
   //   return res;
   // }
-  console.log(findOdd([0, 1, 0, 1, 1]));
+
+  // const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+  // console.log(findOdd([0, 1, 0, 1, 1]));
 }
