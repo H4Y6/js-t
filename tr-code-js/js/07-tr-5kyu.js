@@ -343,9 +343,8 @@ Examples (input -> output)
 "ACSKLDFJSGSKLDFJSKLDFJ" -> True    */
 
   String.prototype.isUpperCase = function () {
-    // return String(this) === this.toUpperCase();
-    return !/[a-z]/.test.this;
+    return String(this) === this.toUpperCase();
   };
-  console.log('ACSKLDFJSSKLDFJSKLDFJ'.isUpperCase());
+  // console.log('ACSKLDFJSSKLDFJSKLDFJ'.isUpperCase());
 
 }
