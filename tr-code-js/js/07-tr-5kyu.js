@@ -464,38 +464,41 @@ The most outer function represents the left operand, the most inner function rep
 Division should be integer division. For example, this should return 2, not 2.666666...:
 eight(dividedBy(three()));   */
 
-  const num = n => fn => fn ? fn(n) : n;
+  // const [
+  //   zero, one, two, three, four, five, six, seven, eight, nine,
+  // ] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(e => fn => fn ? fn(e) : e);
+  // const [plus, minus, times, dividedBy] = ['+', '-', '*', '/'].map((operator) => (x) => (n) => Math.floor(eval(`${n} ${operator} ${x}`)));
 
-  const zero = num(0),
-    one = num(1),
-    two = num(2),
-    three = num(3),
-    four = num(4),
-    five = num(5),
-    six = num(6),
-    seven = num(7),
-    eight = num(8),
-    nine = num(9);
+  // const num = n => fn => fn ? fn(n) : n;
+  // const zero = num(0),
+  //   one = num(1),
+  //   two = num(2),
+  //   three = num(3),
+  //   four = num(4),
+  //   five = num(5),
+  //   six = num(6),
+  //   seven = num(7),
+  //   eight = num(8),
+  //   nine = num(9);
+  // const plus = x => n => n + x,
+  //   minus = x => n => n - x,
+  //   times = x => n => n * x,
+  //   dividedBy = x => n =>  Math.floor(n / x)
 
-  const plus = x => n => n + x,
-    minus = x => n => n - x,
-    times = x => n => n * x,
-    dividedBy = x => n => n / x;
-
-  // const zero = func => func ? func(0) : 0;
-  // const one = func => func ? func(1) : 1;
-  // const two = func => func ? func(2) : 2;
-  // const three = func => func ? func(3) : 3;
-  // const four = func => func ? func(4) : 4;
-  // const five = func => func ? func(5) : 5;
-  // const six = func => func ? func(6) : 6;
-  // const seven = func => func ? func(7) : 7;
-  // const eight = func => func ? func(8) : 8;
-  // const nine = func => func ? func(9) : 9;
-  // const plus = n => x => x + n;
-  // const minus = n => x => x - n;
-  // const times = n => x => x * n;
-  // const dividedBy = n => x => Math.floor(x / n);
+  const zero = func => func ? func(0) : 0;
+  const one = func => func ? func(1) : 1;
+  const two = func => func ? func(2) : 2;
+  const three = func => func ? func(3) : 3;
+  const four = func => func ? func(4) : 4;
+  const five = func => func ? func(5) : 5;
+  const six = func => func ? func(6) : 6;
+  const seven = func => func ? func(7) : 7;
+  const eight = func => func ? func(8) : 8;
+  const nine = func => func ? func(9) : 9;
+  const plus = n => x => x + n;
+  const minus = n => x => x - n;
+  const times = n => x => x * n;
+  const dividedBy = n => x => Math.floor(x / n);
 
   // function zero(func) { return func ? func(0) : 0; }
   // function one(func) { return func ? func(1) : 1; }
@@ -512,6 +515,19 @@ eight(dividedBy(three()));   */
   // function times(num) { return function (x) { return x * num; }; }
   // function dividedBy(num) { return function (x) { return Math.floor(x / num); }; }
 
-  // console.log(zero());
+  // console.log(seven(times(five())));
   // console.log(six(dividedBy(two())));
+}
+
+{  /**  5 kyu  Maximum subarray sum 
+The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
+maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+// should be 6: [4, -1, 2, 1]
+Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array. If the list is made up of only negative numbers, return 0 instead.
+Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.    */
+
+  const maxSequence = arr => {
+
+  };
+  // console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
 }
