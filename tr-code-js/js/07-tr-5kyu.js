@@ -343,8 +343,157 @@ Examples (input -> output)
 "ACSKLDFJSGSKLDFJSKLDFJ" -> True    */
 
   String.prototype.isUpperCase = function () {
-    return String(this) === this.toUpperCase();
+    return this === this.toUpperCase();
+    // return !/[a-z]/g.test(this);
+    // return !this.match(/[a-z]/g);
+    // return !String(this).match(/[a-z]/g);
+    // return String(this) === this.toUpperCase();
   };
   // console.log('ACSKLDFJSSKLDFJSKLDFJ'.isUpperCase());
+}
 
+{  /**8 kyu  Convert a String to a Number! 
+We need a function that can transform a string into a number. What ways of achieving this do you know?
+Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
+Examples
+"1234" --> 1234
+"605"  --> 605
+"1405" --> 1405
+"-7" --> -7  */
+
+  const stringToNumber = function (str) {
+    // return parseInt(str);
+    // return Number(str);
+    return +str;
+    // return eval(str);
+  };
+  // console.log(stringToNumber("-7"));
+}
+
+{  /**8 kyu  Convert a string to an array   
+Write a function to split a string and convert it into an array of words.
+Examples (Input ==> Output):
+"Robin Singh" ==> ["Robin", "Singh"]
+"I love arrays they are my favorite" ==> ["I", "love", "arrays", "they", "are", "my", "favorite"]   */
+
+  const stringToArray = (string) => string.split(' ');
+  // console.log(stringToArray("Robin Singh"));
+}
+
+{  /**8 kyu  Sum The Strings
+ Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string):
+Example: (Input1, Input2 -->Output)
+
+"4",  "5" --> "9"
+"34", "5" --> "39"
+"", "" --> "0"
+"2", "" --> "2"
+"-5", "3" --> "-2"
+Notes:
+
+If either input is an empty string, consider it as zero.
+
+Inputs and the expected output will never exceed the signed 32-bit integer limit (2^31 - 1)    */
+
+  const sumStr = (a, b) => String((+a + +b));
+  // const sumStr = (a, b) => (+a + +b).toString();
+
+  // console.log(sumStr(4, 5));
+}
+
+{  /**  8 kyu  Reversed sequence Build a function that returns an array of integers from n to 1 where n>0.
+Example : n=5 --> [5,4,3,2,1]    */
+
+  const reverseSeq = (n) => {
+    return Array.from(Array(n), () => n--);
+    // return Array(n).fill().map((_, i) => n - i);
+    // return Array(n).fill(n).map((e, i) => e - i);
+
+    // const arr = [];
+    // for (let i = 0; i < n; i++) {
+    //   const element = i + 1;
+    //   arr.push(element);
+    // }
+    // return arr.reverse();
+  };
+  // console.log(reverseSeq(5));
+}
+
+{  /**  8 kyu  Area or Perimeter 
+You are given the length and width of a 4-sided polygon. The polygon can either be a rectangle or a square.
+If it is a square, return its area. If it is a rectangle, return its perimeter.
+Example(Input1, Input2 --> Output):
+6, 10 --> 32
+3, 3 --> 9
+Note: for the purposes of this kata you will assume that it is a square if its length and width are equal, otherwise it is a rectangle.  */
+
+  const areaOrPerimeter = function (l, w) {
+    // return l - w ? 2 * (l + w) : l * l;
+    // return l === w ? l * l : 2 * (l + w);
+  };
+  // console.log(areaOrPerimeter(3, 3));
+  // console.log(areaOrPerimeter(3, 9));
+}
+
+{  /**7 kyu  String ends with? 
+Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+Examples:
+solution('abc', 'bc') // returns true
+solution('abc', 'd') // returns false  */
+
+  function solution(str, ending) {
+    // return ending ? str.slice(-ending.length) === ending : true;
+    // return str.endsWith(ending);
+  }
+  // console.log(solution('abc', 'abc'));
+}
+
+{  /**  5 kyu  Calculating with Functions
+This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+
+seven(times(five())); // must return 35
+four(plus(nine())); // must return 13
+eight(minus(three())); // must return 5
+six(dividedBy(two())); // must return 3
+Requirements:
+
+There must be a function for each number from 0 ("zero") to 9 ("nine")
+There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy
+Each calculation consist of exactly one operation and two numbers
+The most outer function represents the left operand, the most inner function represents the right operand
+Division should be integer division. For example, this should return 2, not 2.666666...:
+eight(dividedBy(three()));   */
+
+  const zero = func => func ? func(0) : 0;
+  const one = func => func ? func(1) : 1;
+  const two = func => func ? func(2) : 2;
+  const three = func => func ? func(3) : 3;
+  const four = func => func ? func(4) : 4;
+  const five = func => func ? func(5) : 5;
+  const six = func => func ? func(6) : 6;
+  const seven = func => func ? func(7) : 7;
+  const eight = func => func ? func(8) : 8;
+  const nine = func => func ? func(9) : 9;
+  const plus = num => x => x + num;
+  const minus = num => x => x - num;
+  const times = num => x => x * num;
+  const dividedBy = num => x => Math.floor(x / num);
+
+  // function zero(func) { return func ? func(0) : 0; }
+  // function one(func) { return func ? func(1) : 1; }
+  // function two(func) { return func ? func(2) : 2; }
+  // function three(func) { return func ? func(3) : 3; }
+  // function four(func) { return func ? func(4) : 4; }
+  // function five(func) { return func ? func(5) : 5; }
+  // function six(func) { return func ? func(6) : 6; }
+  // function seven(func) { return func ? func(7) : 7; }
+  // function eight(func) { return func ? func(8) : 8; }
+  // function nine(func) { return func ? func(9) : 9; }
+  // function plus(num) { return function (x) { return x + num; }; }
+  // function minus(num) { return function (x) { return x - num; }; }
+  // function times(num) { return function (x) { return x * num; }; }
+  // function dividedBy(num) { return function (x) { return Math.floor(x / num); }; }
+
+  console.log(zero());
+  console.log(six(dividedBy(two())));
 }
