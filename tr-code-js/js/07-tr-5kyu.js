@@ -474,10 +474,10 @@ eight(dividedBy(three()));   */
   const seven = func => func ? func(7) : 7;
   const eight = func => func ? func(8) : 8;
   const nine = func => func ? func(9) : 9;
-  const plus = num => x => x + num;
-  const minus = num => x => x - num;
-  const times = num => x => x * num;
-  const dividedBy = num => x => Math.floor(x / num);
+  const plus = n => x => x + n;
+  const minus = n => x => x - n;
+  const times = n => x => x * n;
+  const dividedBy = n => x => Math.floor(x / n);
 
   // function zero(func) { return func ? func(0) : 0; }
   // function one(func) { return func ? func(1) : 1; }
