@@ -464,20 +464,38 @@ The most outer function represents the left operand, the most inner function rep
 Division should be integer division. For example, this should return 2, not 2.666666...:
 eight(dividedBy(three()));   */
 
-  const zero = func => func ? func(0) : 0;
-  const one = func => func ? func(1) : 1;
-  const two = func => func ? func(2) : 2;
-  const three = func => func ? func(3) : 3;
-  const four = func => func ? func(4) : 4;
-  const five = func => func ? func(5) : 5;
-  const six = func => func ? func(6) : 6;
-  const seven = func => func ? func(7) : 7;
-  const eight = func => func ? func(8) : 8;
-  const nine = func => func ? func(9) : 9;
-  const plus = n => x => x + n;
-  const minus = n => x => x - n;
-  const times = n => x => x * n;
-  const dividedBy = n => x => Math.floor(x / n);
+  const num = n => fn => fn ? fn(n) : n;
+
+  const zero = num(0),
+    one = num(1),
+    two = num(2),
+    three = num(3),
+    four = num(4),
+    five = num(5),
+    six = num(6),
+    seven = num(7),
+    eight = num(8),
+    nine = num(9);
+
+  const plus = x => n => n + x,
+    minus = x => n => n - x,
+    times = x => n => n * x,
+    dividedBy = x => n => n / x;
+
+  // const zero = func => func ? func(0) : 0;
+  // const one = func => func ? func(1) : 1;
+  // const two = func => func ? func(2) : 2;
+  // const three = func => func ? func(3) : 3;
+  // const four = func => func ? func(4) : 4;
+  // const five = func => func ? func(5) : 5;
+  // const six = func => func ? func(6) : 6;
+  // const seven = func => func ? func(7) : 7;
+  // const eight = func => func ? func(8) : 8;
+  // const nine = func => func ? func(9) : 9;
+  // const plus = n => x => x + n;
+  // const minus = n => x => x - n;
+  // const times = n => x => x * n;
+  // const dividedBy = n => x => Math.floor(x / n);
 
   // function zero(func) { return func ? func(0) : 0; }
   // function one(func) { return func ? func(1) : 1; }
@@ -494,6 +512,6 @@ eight(dividedBy(three()));   */
   // function times(num) { return function (x) { return x * num; }; }
   // function dividedBy(num) { return function (x) { return Math.floor(x / num); }; }
 
-  console.log(zero());
-  console.log(six(dividedBy(two())));
+  // console.log(zero());
+  // console.log(six(dividedBy(two())));
 }
