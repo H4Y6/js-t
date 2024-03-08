@@ -527,22 +527,53 @@ Easy case is when the list is made up of only positive numbers and the maximum s
 Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.    */
 
   const maxSequence = arr => {
-    let res = 0;
-    if (arr.every(e => e < 0)) return res;
+    // const results = [];
+    // if (arr.every(e => e < 0)) return 0;
+    // let sum = 0;
+    // arr.forEach(e => {
+    //   sum += e;
+    //   results.push(sum);
 
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[0] < 0) arr = arr.slice(1);
-      if (arr[arr.length - 1] < 0) arr = arr.slice(0, arr.length - 1);
-    }
+    //   arr = arr.slice(1);
+    //   let arrR = arr.reverse();
+    //   let sumR = 0;
+    //   arrR.forEach(e => {
+    //     sumR += e;
+    //     results.push(sumR);
+    //     arrR = arrR.slice(1);
+    //   });
+    // });
+    // return Math.max(...results);
 
-    if (arr.every(e => e >= 0)) return arr.reduce((sum, e) => sum + e, 0);
+    let result = 0;
+    let current = 0;
+    arr.forEach(el => {
+      current = Math.max(0, current + el);
+      result = Math.max(result, current);
+    });
+    return result;
 
-    return res;
+    // let result = 0;
+    // let current = 0;
+    // arr.forEach(el => {
+    //   current + el <= 0 ? current = 0 : current += el;
+    //   result = Math.max(result, current);
+    // });
+    // return result;
+
+    // let result = 0;
+    // let current = 0;
+    // for (const key of arr) {
+    //   current + key <= 0 ? current = 0 : current += key;
+    //   result = Math.max(result, current);
+    // }
+    // return result;
   };
-  // console.log(maxSequence([-2, -3, -1, -5]));
-  // console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
-  // console.log(maxSequence([-2, -1, 3, 4, 1, 2, 1, 5, -4]));
-}
+  console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+  console.log(maxSequence([-2, -3, -1, -5]));
+  console.log(maxSequence([]));
+  console.log(maxSequence([-2, -1, 3, 4, 1, 2, 1, 5, -4]));
+};
 
 {  /**8 kyu  Grasshopper - Check for factor 
 This function should test if the factor is a factor of base.
