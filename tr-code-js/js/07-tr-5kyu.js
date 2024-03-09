@@ -690,7 +690,7 @@ if you want to translate, please ask before translating.       */
     // });
     return ar;
   }
-  console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
-  console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
-  console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
+  // console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+  // console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
+  // console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
 }
