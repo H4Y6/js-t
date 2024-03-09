@@ -675,17 +675,22 @@ Notes
 Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] is not reducible. "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become such. Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
 if you want to translate, please ask before translating.       */
 
-  function dirReduc(arr) {
-
-    arr.forEach((element, i, ar) => {
-      if (ar[i] === 'NORTH' && ar[i + 1] === 'SOUTH') { arr.splice(i, 2); dirReduc(ar); }
-      if (ar[i] === 'SOUTH' && ar[i + 1] === 'NORTH') { arr.splice(i, 2); dirReduc(ar); }
-      if (ar[i] === 'EAST' && ar[i + 1] === 'WEST') { arr.splice(i, 2); dirReduc(ar); }
-      if (ar[i] === 'WEST' && ar[i + 1] === 'EAST') { arr.splice(i, 2); dirReduc(ar); }
+  function dirReduc(ar) {
+    ar.map((_, i, ar) => {
+      if (ar[i] === 'NORTH' && ar[i + 1] === 'SOUTH') { ar.splice(i, 2); dirReduc(ar); }
+      if (ar[i] === 'SOUTH' && ar[i + 1] === 'NORTH') { ar.splice(i, 2); dirReduc(ar); }
+      if (ar[i] === 'EAST' && ar[i + 1] === 'WEST') { ar.splice(i, 2); dirReduc(ar); }
+      if (ar[i] === 'WEST' && ar[i + 1] === 'EAST') { ar.splice(i, 2); dirReduc(ar); }
     });
-    return arr;
+    // ar.forEach((element, i, ar) => {
+    //   if (ar[i] === 'NORTH' && ar[i + 1] === 'SOUTH') { ar.splice(i, 2); dirReduc(ar); }
+    //   if (ar[i] === 'SOUTH' && ar[i + 1] === 'NORTH') { ar.splice(i, 2); dirReduc(ar); }
+    //   if (ar[i] === 'EAST' && ar[i + 1] === 'WEST') { ar.splice(i, 2); dirReduc(ar); }
+    //   if (ar[i] === 'WEST' && ar[i + 1] === 'EAST') { ar.splice(i, 2); dirReduc(ar); }
+    // });
+    return ar;
   }
-  // console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
-  // console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
-  // console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
+  console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+  console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
+  console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
 }
