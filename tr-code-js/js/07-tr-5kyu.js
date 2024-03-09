@@ -569,10 +569,10 @@ Empty list is considered to have zero greatest sum. Note that the empty list or 
     // }
     // return result;
   };
-  console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
-  console.log(maxSequence([-2, -3, -1, -5]));
-  console.log(maxSequence([]));
-  console.log(maxSequence([-2, -1, 3, 4, 1, 2, 1, 5, -4]));
+  // console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+  // console.log(maxSequence([-2, -3, -1, -5]));
+  // console.log(maxSequence([]));
+  // console.log(maxSequence([-2, -1, 3, 4, 1, 2, 1, 5, -4]));
 };
 
 {  /**8 kyu  Grasshopper - Check for factor 
@@ -593,4 +593,99 @@ Note: base is a non-negative number, factor is a positive number.        */
   }
   // console.log(checkForFactor(24617, 3));
   // console.log(checkForFactor(12, 3));
+}
+
+{  /**  6 kyu  Equal Sides Of An Array 
+You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. If there is no index that would make this happen, return -1.
+For example:
+Let's say you are given the array {1,2,3,4,3,2,1}:
+Your function will return the index 3, because at the 3rd position of the array, the sum of left side of the index ({1,2,3}) and the sum of the right side of the index ({3,2,1}) both equal 6.
+Let's look at another one.
+You are given the array {1,100,50,-51,1,1}:
+Your function will return the index 1, because at the 1st position of the array, the sum of left side of the index ({1}) and the sum of the right side of the index ({50,-51,1,1}) both equal 1.
+Last one:
+You are given the array {20,10,-80,10,10,15,35}
+At index 0 the left side is {}
+The right side is {10,-80,10,10,15,35}
+They both are equal to 0 when added. (Empty arrays are equal to 0 in this problem)
+Index 0 is the place where the left side and right side are equal.
+Note: Please remember that in most languages the index of an array starts at 0.
+
+Input
+An integer array of length 0 < arr < 1000. The numbers in the array can be any integer positive or negative.
+
+Output
+The lowest index N where the side to the left of N is equal to the side to the right of N. If you do not find an index that fits these rules, then you will return -1.
+
+Note
+If you are given an array with multiple answers, return the lowest correct index.  */
+
+  function findEvenIndex(arr) {
+    let sum = 0;
+
+    const mapSlicetArraySum = (ar, i) => ar.slice(i).map((e, i, ar) => sum += e)[ar.length - 1 - i];
+
+    if (mapSlicetArraySum(arr, 1) === 0) return 0;
+    // if (arr.slice(1).map((e, i, arr) => sum += e)[arr.length - 2] === 0) return 0;
+    if (arr.slice(0, -1).map((e, i, arr) => sum += e)[arr.length - 2]) return 7;
+
+  }
+  // console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
+  // console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+  // console.log(findEvenIndex([20, 10, 30, 10, 10, 15, 35]));
+  // console.log(findEvenIndex([20, 10, -80, 10, 10, 15, 35]));
+}
+
+{/** 8 kyu  Even or Odd->  Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.  */
+  function evenOrOdd(number) {
+    return number % 2 ? 'Odd' : 'Even';
+  }
+  // console.log(evenOrOdd(0));
+}
+
+{  /**  5 kyu  Directions Reduction 
+Once upon a time, on a way through the old wild mountainous west,…
+… a man was given directions to go from one point to another. The directions were "NORTH", "SOUTH", "WEST", "EAST". Clearly "NORTH" and "SOUTH" are opposite, "WEST" and "EAST" too.
+Going to one direction and coming back the opposite direction right away is a needless effort. Since this is the wild west, with dreadful weather and not much water, it's important to save yourself some energy, otherwise you might die of thirst!
+How I crossed a mountainous desert the smart way.
+The directions given to the man are, for example, the following (depending on the language):
+["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"].
+or
+{ "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" };
+or
+[North, South, South, East, West, North, West]
+You can immediately see that going "NORTH" and immediately "SOUTH" is not reasonable, better stay to the same place! So the task is to give to the man a simplified version of the plan. A better plan in this case is simply:
+["WEST"]
+or
+{ "WEST" }
+or
+[West]
+Other examples:
+In ["NORTH", "SOUTH", "EAST", "WEST"], the direction "NORTH" + "SOUTH" is going north and coming back right away.
+The path becomes ["EAST", "WEST"], now "EAST" and "WEST" annihilate each other, therefore, the final result is [] (nil in Clojure).
+In ["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"], "NORTH" and "SOUTH" are not directly opposite but they become directly opposite after the reduction of "EAST" and "WEST" so the whole path is reducible to ["WEST", "WEST"].
+
+Task
+Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side).
+The Haskell version takes a list of directions with data Direction = North | East | West | South.
+The Clojure version returns nil when the path is reduced to nothing.
+The Rust version takes a slice of enum Direction {North, East, West, South}.
+See more examples in "Sample Tests:"
+Notes
+Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] is not reducible. "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become such. Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
+if you want to translate, please ask before translating.       */
+
+  function dirReduc(arr) {
+
+    arr.forEach((element, i, ar) => {
+      if (ar[i] === 'NORTH' && ar[i + 1] === 'SOUTH') { arr.splice(i, 2); dirReduc(ar); }
+      if (ar[i] === 'SOUTH' && ar[i + 1] === 'NORTH') { arr.splice(i, 2); dirReduc(ar); }
+      if (ar[i] === 'EAST' && ar[i + 1] === 'WEST') { arr.splice(i, 2); dirReduc(ar); }
+      if (ar[i] === 'WEST' && ar[i + 1] === 'EAST') { arr.splice(i, 2); dirReduc(ar); }
+    });
+    return arr;
+  }
+  // console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+  // console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
+  // console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
 }
