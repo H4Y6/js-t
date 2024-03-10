@@ -728,7 +728,16 @@ Examples (a, b) --> output (explanation)
 (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
 Your function should only return a number, not the explanation about how you get that number.       */
 
-  const getSum = (a, b) => a === b ? a : a > b ? a + getSum(a - 1, b) : a + getSum(a + 1, b);
+  // const getSum = (a, b) => a === b ? a : a > b ? a + getSum(a - 1, b) : a + getSum(a + 1, b);
+  const getSum = (a, b) => (Math.abs(a - b) + 1) * (a + b) / 2;
+
+  // const getSum = (a, b, c = a) => {
+  //   if (a > b) { a = b; b = c; }
+  //   let res = a;
+  //   for (let i = 1; i <= b - a; i++) { res += a + i; }
+  //   return res;
+  // };
+
   // const getSum = (a, b) => {
   //   let res = a;
   //   if (a < b) {
@@ -743,5 +752,5 @@ Your function should only return a number, not the explanation about how you get
   //   }
   //   return res;
   // };
-  // console.log(getSum(-1, 3));
+  // console.log(getSum(3, 5));
 }
