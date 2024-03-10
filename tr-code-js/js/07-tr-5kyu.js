@@ -694,3 +694,54 @@ if you want to translate, please ask before translating.       */
   // console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
   // console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
 }
+
+{  /** 7 kyu   Highest and Lowest 
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+Examples
+highAndLow("1 2 3 4 5");  // return "5 1"
+highAndLow("1 2 -3 4 5"); // return "5 -3"
+highAndLow("1 9 3 4 -5"); // return "9 -5"
+Notes
+All numbers are valid Int32, no need to validate them.
+There will always be at least one number in the input string.
+Output string must be two numbers separated by a single space, and highest number is first.   */
+
+  function highAndLow(numbers) {
+    // return [Math.max(...numbers.split(' ')), Math.min(...numbers.split(' '))].join(' ');
+    return Math.max(...numbers.split(' ')) + " " + Math.min(...numbers.split(' '));
+    // return [Math.max(...numbers.split(' ').map(e => +e)), Math.min(...numbers.split(' ').map(e => +e))].join(' ');
+  }
+  // console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+}
+
+{/**  7 kyu  Beginner Series #3 Sum of Numbers  
+Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+Note: a and b are not ordered!
+
+Examples (a, b) --> output (explanation)
+(1, 0) --> 1 (1 + 0 = 1)
+(1, 2) --> 3 (1 + 2 = 3)
+(0, 1) --> 1 (0 + 1 = 1)
+(1, 1) --> 1 (1 since both are same)
+(-1, 0) --> -1 (-1 + 0 = -1)
+(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+Your function should only return a number, not the explanation about how you get that number.       */
+
+  const getSum = (a, b) => a === b ? a : a > b ? a + getSum(a - 1, b) : a + getSum(a + 1, b);
+  // const getSum = (a, b) => {
+  //   let res = a;
+  //   if (a < b) {
+  //     for (let i = 1; i <= b - a; i++) {
+  //       res += a + i;
+  //     }
+  //   }
+  //   if (a > b) {
+  //     for (let i = 1; i <= a - b; i++) {
+  //       res += a - i;
+  //     }
+  //   }
+  //   return res;
+  // };
+  // console.log(getSum(-1, 3));
+}
