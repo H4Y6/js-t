@@ -777,5 +777,92 @@ Example
     return newStr.join("");
   }
 
-  console.log(solution("camelCasingTest"));
+  // console.log(solution("camelCasingTest"));
+}
+
+{  /**  8 kyu  Rock Paper Scissors! Rock Paper Scissors
+Let's play! You have to return which player won! In case of a draw return Draw!.
+Examples(Input1, Input2 --> Output):
+"scissors", "paper" --> "Player 1 won!"
+"scissors", "rock" --> "Player 2 won!"
+"paper", "paper" --> "Draw!" */
+
+  const rps = (p1, p2) => (p1 === p2) ? 'Draw!' : (p1 === 'scissors' && p2 === 'paper') || (p1 === 'rock' && p2 === 'scissors') || (p1 === 'paper' && p2 === 'rock') ? 'Player 1 won!' : 'Player 2 won!';
+
+  // const rps = (p1, p2) => {
+  //   const winners = { 'scissors': 'paper', 'rock': 'scissors', 'paper': 'rock' };
+  //   return p1 === p2 ? 'Draw!' : winners[p1] === p2 ? 'Player 1 won!' : 'Player 2 won!';
+
+  // if (p1 === p2) return 'Draw!';
+  // if ((p1 === 'scissors' && p2 === 'paper') || (p1 === 'rock' && p2 === 'scissors') || (p1 === 'paper' && p2 === 'rock')) return 'Player 1 won!';
+  // return 'Player 2 won!';
+  // };
+  // console.log(rps('scissors', 'paper'));
+  // console.log(rps('rock', 'scissors'));
+  // console.log(rps('paper', 'rock'));
+}
+
+{  /**  8 kyu  Calculate average
+Write a function which calculates the average of the numbers in a given list.
+Note: Empty arrays should return 0.   */
+
+  function findAverage(array) {
+    return array.length ? array.reduce((res, e) => res + e / array.length, 0) : 0;
+  }
+  // console.log(findAverage([1, 2, 3, 4]));
+}
+
+{  /**  8 kyu  The Feast of Many Beasts
+All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: the dish must start and end with the same letters as the animal's name. For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
+Write a function feast that takes the animal's name and dish as arguments and returns true or false to indicate whether the beast is allowed to bring the dish to the feast.
+Assume that beast and dish are always lowercase strings, and that each has at least two letters. beast and dish may contain hyphens and spaces, but these will not appear at the beginning or end of the string. They will not contain numerals.       */
+
+  function feast(beast, dish) {
+    return beast.at(0) === dish.at(0) && beast.at(-1) === dish.at(-1);
+    // return beast[0] === dish[0] && beast.slice(-1) === dish.slice(-1);
+    // return beast[0] === dish[0] && beast[beast.length - 1] === dish[dish.length - 1];
+  }
+  // console.log(feast("chickadee", "chocolate cake"));
+  // console.log(feast("brown bear", "bear claw"));
+}
+
+{  /**  8 kyu  Function 1 - hello world
+Make a simple function called greet that returns the most-famous "hello world!".
+Style Points
+Sure, this is about as easy as it gets. But how clever can you be to create the most creative "hello world" you can think of? What is a "hello world" solution you would want to show your friends?     */
+
+  const greet = () => 'hello world!';
+  // console.log(greet());
+}
+
+{  /**8 kyu  Function 2 - squaring an argument      Now you have to write a function that takes an argument and returns the square of it.    */
+  const square = num => num ** 2;
+  // console.log(square(3));
+}
+
+{  /**  8 kyu  L1: Set Alarm  Write a function named setAlarm/set_alarm/set-alarm/setalarm (depending on language) which receives two parameters. The first parameter, employed, is true whenever you are employed and the second parameter, vacation is true whenever you are on vacation.
+The function should return true if you are employed and not on vacation (because these are the circumstances under which you need to set an alarm). It should return false otherwise. Examples:
+employed | vacation 
+true     | true     => false
+true     | false    => true
+false    | true     => false
+false    | false    => false    */
+
+  function setAlarm(employed, vacation) {
+    return employed > vacation;
+    // return employed && !vacation;
+  }
+  // console.log(setAlarm(true, false));
+}
+
+{  /**  8 kyu  Fake Binary 
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+Note: input will never be an empty string    */
+
+  function fakeBin(x) {
+    // return x.replace(/[\d]/g, d => d > 4 ? 1 : 0);
+    // return [...x].map(e => e < 5 ? e = 0 : 1).join('');
+    return [...x].reduce((res, e) => e > 4 ? res + 1 : res + 0, '');
+  }
+  console.log(fakeBin('45385593107843568'));
 }
