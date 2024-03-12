@@ -764,19 +764,19 @@ Example
 
   // const solution = string => string.replace(/(?=[A-Z])/g, " ");
   // const solution = string => string.replace(/[A-Z]/g, ' $&');
+  const solution = (string, regex = /[A-Z]/g) => string.replace(regex, ` $&`);
 
-  function solution(string) {
-    let splitStr = string.split("");
-    let newStr = string.split("");
-    let capStr = string.toUpperCase().split("");
-    for (let i = splitStr.length - 1; i >= 0; i--) {
-      if (splitStr[i] === capStr[i]) {
-        newStr.splice(i, 0, ' ');
-      }
-    }
-    return newStr.join("");
-  }
-
+  // function solution(string) {
+  //   let splitStr = string.split("");
+  //   let newStr = string.split("");
+  //   let capStr = string.toUpperCase().split("");
+  //   for (let i = splitStr.length - 1; i >= 0; i--) {
+  //     if (splitStr[i] === capStr[i]) {
+  //       newStr.splice(i, 0, ' ');
+  //     }
+  //   }
+  //   return newStr.join("");
+  // }
   // console.log(solution("camelCasingTest"));
 }
 
@@ -866,4 +866,34 @@ Note: input will never be an empty string    */
     // return [...x].map(d => d > 4 ? d.replace(d, 1) : d.replace(d, 0)).join('');
   }
   // console.log(fakeBin('45385593107843568'));
+}
+
+{  /** 7 kyu  Sum of two lowest positive integers  
+Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+[10, 343445353, 3453445, 3453545353453] should return 3453455.  */
+
+  function sumTwoSmallestNumbers(numbers) {
+    // return (numbers.splice(numbers.indexOf(Math.min(...numbers)), 1)[0] + Math.min(...numbers));
+    // return numbers.sort((a, b) => a - b).slice(0, 2).reduce((sum, e) => sum + e);
+    const [n, m] = numbers.sort((a, b) => a - b); return n + m;
+    // return numbers.sort((a, b) => b - a).pop() + numbers.pop();
+  }
+  // console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]));
+}
+
+{  /**  8 kyu  What is between?
+Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+For example:
+a = 1
+b = 4
+--> [1, 2, 3, 4]   */
+
+  function between(a, b, arr = []) {
+    // return Array.from(Array(1 + b - a), (_, i) => a + i);
+    // return [...Array(1 + b - a)].map((e, i) => a + i);
+    return a > b ? arr : between(a + 1, b, arr = [...arr, a]);
+    // arr.push(a); return a >= b ? arr : between(a + 1, b, arr);
+  }
+  // console.log(between(1, 4));
 }
