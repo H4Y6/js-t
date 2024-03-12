@@ -934,3 +934,31 @@ consecutive strings : follow one after another without an interruption     */
   // console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 2));
   // console.log(longestConsec([], 2));
 }
+
+{  /** 7 kyu  Sort array by string length  
+Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+For example, if this array were passed as an argument:
+["Telescopes", "Glasses", "Eyes", "Monocles"]
+Your function would return the following array:
+["Eyes", "Glasses", "Monocles", "Telescopes"]
+All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.    */
+
+  function sortByLength(array) {
+    return [...array].sort((v, z) => v.length - z.length);
+  }
+  // console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+}
+
+{  /**  7 kyu Find the stray number 
+You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+Complete the method which accepts such an array, and returns that single different number.
+The input array will always be valid! (odd-length >= 3)
+Examples
+[1, 1, 2] ==> 2
+[17, 17, 3, 17, 17, 17, 17] ==> 3              */
+
+  function stray(numbers) {
+    return numbers.find(e => numbers.indexOf(e) === numbers.lastIndexOf(e));
+  }
+  // console.log(stray([1, 2, 1]));
+}
