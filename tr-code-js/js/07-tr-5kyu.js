@@ -925,7 +925,11 @@ consecutive strings : follow one after another without an interruption     */
   function longestConsec(strarr, k) {
     let n = strarr.length;
     if (n = 0 || k > n || k <= 0) return "";
-    return strarr.map((e, i, arr) => arr.slice(i, i + k).join('')).reduce((acc = '', el) => acc.length < el.length ? acc = el : acc, '');
+    return strarr.map((e, i) => strarr.slice(i, i + k).join('')).reduce((acc = '', el) => acc.length < el.length ? acc = el : acc, '');
+    // return strarr.reduce((acc = '', e, i) => {
+    //   let sliced = strarr.slice(i, i + k).join('');
+    //   return acc.length < sliced.length ? acc = sliced : acc;
+    // }, '');
   }
   // console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 2));
   // console.log(longestConsec([], 2));
