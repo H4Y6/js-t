@@ -860,9 +860,10 @@ Given a string of digits, you should replace any digit below 5 with '0' and any 
 Note: input will never be an empty string    */
 
   function fakeBin(x) {
-    // return x.replace(/[\d]/g, d => d > 4 ? 1 : 0);
-    // return [...x].map(e => e < 5 ? e = 0 : 1).join('');
-    return [...x].reduce((res, e) => e > 4 ? res + 1 : res + 0, '');
+    return x.replace(/[\d]/g, d => d > 4 ? 1 : 0);
+    // return [...x].map(e => e < 5 ? 0 : 1).join('');
+    // return [...x].reduce((res, e) => e > 4 ? res + 1 : res + 0, '');
+    // return [...x].map(d => d > 4 ? d.replace(d, 1) : d.replace(d, 0)).join('');
   }
-  console.log(fakeBin('45385593107843568'));
+  // console.log(fakeBin('45385593107843568'));
 }
