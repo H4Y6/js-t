@@ -962,3 +962,98 @@ Examples
   }
   // console.log(stray([1, 2, 1]));
 }
+
+{  /*  5 kyu String incrementer     
+Your job is to write a function which increments a string, to create a new string.
+If the string already ends with a number, the number should be incremented by 1.
+If the string does not end with a number. the number 1 should be appended to the new string.
+Examples:
+foo -> foo1
+foobar23 -> foobar24
+foo0042 -> foo0043
+foo9 -> foo10
+foo099 -> foo100
+Attention: If the number has leading zeros the amount of digits should be considered.      */
+
+  //  function incrementString(string) {
+  //     const d = string.match(/[\d]/g).join('');
+  //     const end = +d + 1;
+  //     return ('' + end).length > d.length ? string.slice(0, -d.length) + end : string.slice(0, -('' + end).length) + end;
+  //   }
+
+  function incrementString(string) {
+    // console.log(string.match(/0?\9*$/));
+    // console.log(string.match(/0?[1-9]*$/));
+    // console.log(string.match(/(0?[1-9]*?$)/));
+    return string.replace(/(\d?9*$)/, e => e ? +e + 1 : 1);
+
+    // let end = '';
+    // const obj = string.match(/\d*$/g);
+    // for (const key in obj) {
+    //   const element = obj[key];
+    //   end += element;
+    // }
+    // const n = end.length;
+    // if (!n) return string + 1;
+    // end++;
+    // return (end + '').length > n ? string.slice(0, -n) + end : string.slice(0, -('' + end).length) + end;
+  }
+  // console.log(incrementString("009"));
+  // console.log(incrementString("foobar999"));
+  // console.log(incrementString("foobar00999"));
+  // console.log(incrementString("foobar000"));
+  // console.log(incrementString("foo"));
+  // console.log(incrementString("fo99obar99"));
+}
+
+{  /**  8 kyu  Returning Strings 
+Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+[Make sure you type the exact thing I wrote or the program may not execute properly]               */
+
+  function greet(name) {
+    // return `Hello, ${name} how are you doing today?`;
+    return `Hello, <name> how are you doing today?`.replace('<name>', name);
+  }
+  // console.log(greet("Shingles"));
+}
+
+{  /**  7 kyu  Friend or Foe?
+Make a program that filters a list of strings and returns a list with only your friends name in it.
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+i.e.
+friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
+Note: keep the original order of the names in the output. */
+
+  function friend(friends) {
+    return friends.filter(e => e.length === 4);
+  }
+  // console.log(friend(["Ryan", "Jimmy", "123", "4", "Cool Man"]));
+}
+
+{  /**7 kyu  Regex validate PIN code  
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+If the function is passed a valid PIN string, return true, else return false.
+Examples (Input --> Output)
+"1234"   -->  true
+"12345"  -->  false
+"a234"   -->  false    */
+
+  function validatePIN(pin) {
+    return /^\d{4}$|^\d{6}$/.test(pin);
+    // return (pin.length === 4 && pin.match(/\d/g).filter(e => typeof +e === 'number').length) === 4
+    //   || (pin.length === 6 && pin.match(/\d/g).filter(e => typeof +e === 'number').length) === 6;
+  }
+  // console.log(validatePIN("113t34"));
+}
+
+{  /**  8 kyu  Will you make it? 
+You were camping with your friends far away from home, but when it's time to go back, you realize that your fuel is running out and the nearest pump is 50 miles away! You know that on average, your car runs on about 25 miles per gallon. There are 2 gallons left.
+Considering these factors, write a function that tells you if it is possible to get to the pump or not.
+Function should return true if it is possible and false if not.     */
+
+  const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+    return distanceToPump / mpg <= fuelLeft;
+  };
+  // console.log(zeroFuel(50, 25, 2));
+}
