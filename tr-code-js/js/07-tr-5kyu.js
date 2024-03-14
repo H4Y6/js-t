@@ -1057,3 +1057,47 @@ Function should return true if it is possible and false if not.     */
   };
   // console.log(zeroFuel(50, 25, 2));
 }
+
+{
+  const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+  // console.log(range(6, 11, 1));
+  // console.log(range(-6, -11, -1));
+}
+
+{
+  /* 8 kyu;  Sentence Smash
+   Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+     Example
+   ['hello', 'world', 'this', 'is', 'great']  =>  'hello world this is great'  */
+
+  function smash(words) {
+    return words.join(" ");
+  };
+  // console.log(smash(["this", "is", "a", "really", "long", "sentence"]));
+}
+
+{  /**  7 kyu  Exes and Ohs 
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+Examples input/output:
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false               */
+
+  function XO(str) {
+    // return ![...str.toLowerCase()].reduce((res, el) => el === 'x' ? res + 1 : el === 'o' ? res - 1 : res, 0);
+
+    // const s = str.toLowerCase(); return s.split('o').length === s.split('x').length;
+
+    return str.replace(/x/gi, '').length === str.replace(/o/gi, '').length;
+
+    // const obj = str.toLowerCase().match(/['x','o']/g);
+    // let res = 0;
+    // for (const key in obj) {
+    //   obj[key] === 'x' ? res++ : obj[key] === 'o' ? res-- : 11;
+    // }
+    // return !res;
+  }
+  // console.log(XO("oxoXxOm"));
+}
