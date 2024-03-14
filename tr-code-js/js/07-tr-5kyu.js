@@ -1101,3 +1101,97 @@ XO("zzoo") => false               */
   }
   // console.log(XO("oxoXxOm"));
 }
+
+{  /** 8 kyu  Sort and Star You will be given a list of strings. You must sort it alphabetically (case-sensitive, and based on the ASCII values of the chars) and then return the first value.
+The returned value must be a string, and have "***" between each of its letters.
+You should not remove or add elements from/to the array.                       */
+
+  function twoSort(s) {
+    // return [...[...s].sort()[0]].join('***');
+
+    // return [...s.reduce((a, e) => e > a ? a : e, 0)].join('***');
+    // return [...s.reduce((acc, e) => e > acc ? acc : e)].join('***');
+
+    return [...s].sort()[0].replace(/./g, `***$&`).slice(3);
+    // const [a] = [...s].sort();
+    // return a.replace(/./g, `***$&`).slice(3);
+
+    // const [a] = [...s].sort();
+    // return [...a].join('***');
+  }
+  // console.log(twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]));
+  // console.log(twoSort(["turns", "out", "random", "test", "cases", "are", "easier"]));
+}
+
+{  /**  8 kyu  Abbreviate a Two Word Name 
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+The output should be two capital letters with a dot separating them.
+It should look like this:
+Sam Harris => S.H
+patrick feeney => P.F     */
+
+  const abbrevName = name => name.match(/\b\w/g).join('.').toUpperCase();
+  // const abbrevName = name => (name.match(/\b\w/g) + '').replace(',', '.').toUpperCase();
+  // const abbrevName = name => name.match(/\b\w/g).toString().replace(',', '.').toUpperCase();
+
+  // const abbrevName = name => {
+  // const n = name.toUpperCase().split(' ');
+  // return `${n[0][0]}.${n[1][0]}`;
+  // };
+  // console.log(abbrevName("g Favuzzi"));
+  // console.log(abbrevName("Sam Harris"));
+}
+
+{  /**  7 kyu  Sum of a sequence
+Your task is to write a function which returns the sum of a sequence of integers.
+The sequence is defined by 3 non-negative values: begin, end, step.
+If begin value is greater than the end, your function should return 0. If end is not the result of an integer number of steps, then don't add it to the sum. See the 4th example below.
+Examples
+2,2,2 --> 2
+2,6,2 --> 12 (2 + 4 + 6)
+1,5,1 --> 15 (1 + 2 + 3 + 4 + 5)
+1,5,3  --> 5 (1 + 4)
+This is the first kata in the series:
+Sum of a sequence (this kata)
+Sum of a Sequence [Hard-Core Version]    */
+
+  const sequenceSum = (begin, end, step) => {
+    let sum = 0;
+    for (let i = begin; i <= end; i += step) {
+      sum += i;
+    }
+    return sum;
+
+    // return begin > end ? 0 : Array.from({ length: (end - begin) / step + 1 }, (_, i) => begin + i * step).reduce((acc, el) => acc + el);
+    // return begin > end ? 0 : begin + sequenceSum(begin + step, end, step);
+  };
+  // console.log(sequenceSum(2, 6, 2));
+  // console.log(sequenceSum(1, 5, 3));
+}
+
+{  /** 5 kyu Extract the domain name from a URL
+Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+* url = "http://github.com/carbonfive/raygun" -> domain name = "github"
+* url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
+* url = "https://www.cnet.com"                -> domain name = cnet"          */
+
+  function domainName(url) {
+
+    // return url.match('http') ? url.replace(/https?:/, '').replace(/www.?/, '').slice(2).match(/\w*-?\w+-?\w*-?\w*/)[0]
+    //   : url.replace(/https?:/, '').replace(/www.?/, '').match(/\w*-?/)[0];
+    return url.replace(/.*\/\/|www.|\..*/g, '');
+    // return url.replace(/https?:/, '').replace('//', '').replace(/www./, '').split('.')[0];
+    // return url.replace('https://', '').replace('http://', '').replace('www.', '').split('.')[0];
+
+  }
+  // console.log(domainName("https://google.com"));
+  // console.log(domainName("www.xakep.ru"));
+  // console.log(domainName("https://www.06obi8-3rjois-qfljpf-zu3jyh.info"));
+  // console.log(domainName("https://www.yucg3rmrq4d5-0mdh4srf-bk1.edu/default.html"));
+  // console.log(domainName("http://github.com/carbonfive/raygun"));
+  // console.log(domainName("http://www.zombie-bites.com"));
+}
+
+{  /**6 kyu  Playing with digits*/
+
+}
