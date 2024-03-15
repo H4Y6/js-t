@@ -1193,5 +1193,10 @@ Write a function that when given a URL as a string, parses out just the domain n
 }
 
 {  /**6 kyu  Playing with digits*/
-
+  function digPow(n, p) {
+    const res = [...n + ''].reduce((res, d, i) => res + d ** (p + i), 0) / n;
+    return (res % 1) ? -1 : res;
+  }
+  console.log(digPow(46288, 3));
+  console.log(digPow(92, 1));
 }
