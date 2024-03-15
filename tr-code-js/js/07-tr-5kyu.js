@@ -1192,11 +1192,50 @@ Write a function that when given a URL as a string, parses out just the domain n
   // console.log(domainName("http://www.zombie-bites.com"));
 }
 
-{  /**6 kyu  Playing with digits*/
+{  /**6 kyu  Playing with digits
+Some numbers have funny properties. For example:
+
+89 --> 8¹ + 9² = 89 * 1
+695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
+46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+Given two positive integers n and p, we want to find a positive integer k, if it exists, such that the sum of the digits of n raised to consecutive powers starting from p is equal to k * n.
+In other words, writing the consecutive digits of n as a, b, c, d ..., is there an integer k such that :
+~( +...)=n∗k
+If it is the case we will return k, if not return -1.
+Note: n and p will always be strictly positive integers.
+Examples:
+n = 89; p = 1 ---> 1 since 8¹ + 9² = 89 = 89 * 1
+n = 92; p = 1 ---> -1 since there is no k such that 9¹ + 2² equals 92 * k
+n = 695; p = 2 ---> 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+n = 46288; p = 3 ---> 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51  */
+
   function digPow(n, p) {
-    const res = [...n + ''].reduce((res, d, i) => res + d ** (p + i), 0) / n;
-    return (res % 1) ? -1 : res;
+    return (res => res % 1 ? -1 : res)([...n + ""].reduce((res, e) => res + e ** p++, 0) / n);
+    // const res = [...n + ''].reduce((res, d) => res + d ** p++, 0) / n;
+    // return (res % 1) ? -1 : res;
+
+    // const res = [...n + ''].reduce((res, d, i) => res + d ** (p + i), 0) / n;
+    // return (res % 1) ? -1 : res;
   }
-  console.log(digPow(46288, 3));
-  console.log(digPow(92, 1));
+  // console.log(digPow(46288, 3));
+  // console.log(digPow(92, 1));
+}
+
+{  /**  7 kyu  Sum of the first nth term of Series 
+Your task is to write a function which returns the sum of following series upto nth term(parameter).
+Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+Rules:
+You need to round the answer to 2 decimal places and return it as String.
+If the given value is 0 then it should return 0.00
+You will only be given Natural Numbers as arguments.
+Examples:(Input --> Output)
+1 --> 1 --> "1.00"
+2 --> 1 + 1/4 --> "1.25"
+5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> "1.57"   */
+
+  function SeriesSum(n, sum = 0) {
+    // return Array.from({ length: n }, (_, i) => 1 / (1 + i * 3)).reduce((res, e) => res + e, 0).toFixed(2);
+    return n ? SeriesSum(n - 1, sum + 1 / (3 * n - 2)) : sum.toFixed(2);
+  }
+  // console.log(SeriesSum(7));
 }
