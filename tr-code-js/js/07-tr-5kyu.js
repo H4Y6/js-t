@@ -1258,8 +1258,13 @@ So there are 11 digits 1 for the squares of numbers between 0 and 25.
 Note that 121 has twice the digit 1.           */
 
   function nbDig(n, d) {
+    // const re = new RegExp(d, 'g');
+    // console.log(re);
+    // return Array.from({ length: ++n }, (_, i) => i * i).join('').match(re).length;
+
     return Array.from({ length: ++n }, (_, i) => i * i).join('').split(d).length - 1;
     // return [...Array.from({ length: ++n }, (_, i) => i * i).join('')].filter(e => e === d + '').length;
   }
   // console.log(nbDig(25, 1));
+  // console.log(nbDig(25, 2));
 }
