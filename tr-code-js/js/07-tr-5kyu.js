@@ -1268,3 +1268,86 @@ Note that 121 has twice the digit 1.           */
   // console.log(nbDig(25, 1));
   // console.log(nbDig(25, 2));
 }
+
+{  /**  7 kyu  Remove anchor from URL 
+Complete the function/method so that it returns the url with anything after the anchor (#) removed.
+Examples
+"www.codewars.com#about" --> "www.codewars.com"
+"www.codewars.com?page=1" -->"www.codewars.com?page=1"             */
+
+  function removeUrlAnchor(url) {
+    return url.split('#')[0];
+    // return url.replace(/\#.+/, '');
+  }
+  // console.log(removeUrlAnchor("www.codewars.com#about"));
+  // console.log(removeUrlAnchor("www.codewars.com"));
+}
+
+{  /** 8 kyu  Count by X 
+Create a function with two arguments that will return an array of the first n multiples of x.
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+Return the results as an array or list ( depending on language ).
+Examples
+countBy(1,10) === [1,2,3,4,5,6,7,8,9,10]
+countBy(2,5) === [2,4,6,8,10]             */
+
+  function countBy(x, n, z = []) {
+    return n ? countBy(x, n - 1, [...z, x * n]) : z.reverse();
+    // return [...Array(n)].map((_, idx) => ++idx * x);
+    // return Array.from({ length: n }, (_, i) => x * (i + 1));
+  }
+  // console.log(countBy(2, 5));
+  // console.log(countBy(1, 10));
+}
+
+{  /**  8 kyu  Double Char Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+Examples (Input -> Output):
+* "String"      -> "SSttrriinngg"
+* "Hello World" -> "HHeelllloo  WWoorrlldd"
+* "1234!_ "     -> "11223344!!__  "
+Good Luck!*/
+
+  function doubleChar(str) {
+    return str.split('').map(e => e + e).join('');
+    // return str.split('').map(e => e.repeat(2)).join('');
+  }
+  // console.log(doubleChar("Adidas"));
+  // console.log(doubleChar("1234!_ "));
+  // console.log(doubleChar("Hello World"));
+}
+
+{  /*8 kyu  Remove exclamation marks 
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.     */
+
+  function removeExclamationMarks(s) {
+    return s.split('!').join('');
+    // return s.replace(/!/g, '');
+  }
+  // console.log(removeExclamationMarks("Hello World!"));
+}
+
+{  /** 8 kyu  Third Angle of a Triangle
+You are given two interior angles (in degrees) of a triangle.
+Write a function to return the 3rd.
+Note: only positive integers will be tested.
+https://en.wikipedia.org/wiki/Triangle              */
+
+  function otherAngle(a, b) {
+    return 180 - a - b;
+  }
+  // console.log(otherAngle(43, 78));
+}
+
+{/**8 kyu  Convert a Number to a String!  We need a function that can transform a number (integer) into a string.
+What ways of achieving this do you know?
+Examples (input --> output):
+123  --> "123"
+999  --> "999"
+-100 --> "-100"     */
+
+  const numberToString = String;
+  // const numberToString = String;
+  // const numberToString = num => String(num);
+  // const numberToString = num => num + '';
+  // console.log(numberToString('5715310'));
+}
