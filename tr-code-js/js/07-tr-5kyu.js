@@ -1459,6 +1459,7 @@ Simple Encryption #4 - Qwerty
 Have fun coding it and please don't forget to vote and rank this kata! :-)  */
 
   function encrypt(text, n) {
+    if (text === null) return null;
     let codes = [...text].map((_, i) => text.charCodeAt(i));
     for (let j = 0; j < n; j++) {
       let s = [];
@@ -1466,43 +1467,33 @@ Have fun coding it and please don't forget to vote and rank this kata! :-)  */
       for (let i = 0; i < codes.length; i += 2) {
         if (i + 1 < codes.length) s = [...s, codes[i + 1]];
         t = [...t, codes[i]];
-        console.log(s);
-        console.log(t);
       }
       codes = [...s, ...t];
-      console.log(codes);
     }
     return codes.map(e => String.fromCharCode(e)).join('');
   }
-  const encryptedStr = encrypt("This is a test!", 1);
-  console.log(encryptedStr);
+  console.log(encrypt("This is a test!", 1));
+  console.log(encrypt(null, 1));
 
 
   function decrypt(encryptedText, n) {
+    if (encryptedText === null) return null;
     let codes = [...encryptedText].map((_, i) => encryptedText.charCodeAt(i));
-    let strCodes = [];
-
 
     for (let j = 0; j < n; j++) {
       const idx = Math.floor(codes.length / 2);
 
       const codesEven = codes.slice(idx);
       const codesOdd = codes.slice(0, idx);
-      console.log('codesEven->', codesEven);
-      console.log('codesOdd->', codesOdd);
-
-      // console.log(String.fromCharCode(codesEven[0]));
-      // console.log(String.fromCharCode(codesOdd[0]));
-
-
-
+      let strCodes = [];
       for (let i = 0; i < codesEven.length; i++) {
         strCodes.push(codesEven[i]);
         if (i < codesOdd.length) strCodes.push(codesOdd[i]);
-        console.log(strCodes);
+
       }
+      codes = strCodes;
     }
-    return strCodes.map(e => String.fromCharCode(e)).join('');
+    return codes.map(e => String.fromCharCode(e)).join('');
   }
   console.log(decrypt("s eT ashi tist!", 2));
   console.log(decrypt("hsi  etTi sats!", 1));
