@@ -1459,12 +1459,97 @@ Simple Encryption #4 - Qwerty
 Have fun coding it and please don't forget to vote and rank this kata! :-)  */
 
   function encrypt(text, n) {
-
+    let codes = [...text].map((_, i) => text.charCodeAt(i));
+    for (let j = 0; j < n; j++) {
+      let s = [];
+      let t = [];
+      for (let i = 0; i < codes.length; i += 2) {
+        if (i + 1 < codes.length) s = [...s, codes[i + 1]];
+        t = [...t, codes[i]];
+        console.log(s);
+        console.log(t);
+      }
+      codes = [...s, ...t];
+      console.log(codes);
+    }
+    return codes.map(e => String.fromCharCode(e)).join('');
   }
+  const encryptedStr = encrypt("This is a test!", 1);
+  console.log(encryptedStr);
+
 
   function decrypt(encryptedText, n) {
+    let codes = [...encryptedText].map((_, i) => encryptedText.charCodeAt(i));
+    let strCodes = [];
 
+
+    for (let j = 0; j < n; j++) {
+      const idx = Math.floor(codes.length / 2);
+
+      const codesEven = codes.slice(idx);
+      const codesOdd = codes.slice(0, idx);
+      console.log('codesEven->', codesEven);
+      console.log('codesOdd->', codesOdd);
+
+      // console.log(String.fromCharCode(codesEven[0]));
+      // console.log(String.fromCharCode(codesOdd[0]));
+
+
+
+      for (let i = 0; i < codesEven.length; i++) {
+        strCodes.push(codesEven[i]);
+        if (i < codesOdd.length) strCodes.push(codesOdd[i]);
+        console.log(strCodes);
+      }
+    }
+    return strCodes.map(e => String.fromCharCode(e)).join('');
   }
-  console.log(encrypt("This is a test!", 3));
   console.log(decrypt("s eT ashi tist!", 2));
+  console.log(decrypt("hsi  etTi sats!", 1));
+}
+
+{  /** 5 kyu
+Product of consecutive Fib numbers
+The Fibonacci numbers are the numbers in the following integer sequence (Fn):
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...
+
+such as
+
+F(n) = F(n-1) + F(n-2) with F(0) = 0 and F(1) = 1.
+
+Given a number, say prod (for product), we search two Fibonacci numbers F(n) and F(n+1) verifying
+
+F(n) * F(n+1) = prod.
+
+Your function productFib takes an integer (prod) and returns an array:
+
+[F(n), F(n+1), true] or {F(n), F(n+1), 1} or (F(n), F(n+1), True)
+depending on the language if F(n) * F(n+1) = prod.
+
+If you don't find two consecutive F(n) verifying F(n) * F(n+1) = prod you will return
+
+[F(n), F(n+1), false] or {F(n), F(n+1), 0} or (F(n), F(n+1), False)
+F(n) being the smallest one such as F(n) * F(n+1) > prod.
+
+Some Examples of Return:
+(depend on the language)
+
+productFib(714) # should return (21, 34, true), 
+                # since F(8) = 21, F(9) = 34 and 714 = 21 * 34
+
+productFib(800) # should return (34, 55, false), 
+                # since F(8) = 21, F(9) = 34, F(10) = 55 and 21 * 34 < 800 < 34 * 55
+-----
+productFib(714) # should return [21, 34, true], 
+productFib(800) # should return [34, 55, false], 
+-----
+productFib(714) # should return {21, 34, 1}, 
+productFib(800) # should return {34, 55, 0},        
+-----
+productFib(714) # should return {21, 34, true}, 
+productFib(800) # should return {34, 55, false}, 
+Note:
+You can see examples for your language in "Sample Tests".*/
+
 }
