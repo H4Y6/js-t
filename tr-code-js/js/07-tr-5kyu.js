@@ -1605,7 +1605,7 @@ You can see examples for your language in "Sample Tests".*/
     if (res[0] * res[1] - prod < 0) res.push(res[0] + res[1]); res = res.slice(-2);
     return [res[0], res[1], res[0] * res[1] === prod];
   }
-
+  /* another way*/
   {
     function productFib(prod, [n, m] = [0, 1]) {
       while (n * m < prod) {
@@ -1614,9 +1614,71 @@ You can see examples for your language in "Sample Tests".*/
       }
       return [n, m, !(n * m - prod)];
     }
-    console.log(productFib(193864606));
-    console.log(productFib(5895));
-    console.log(productFib(447577));
+    // console.log(productFib(193864606));
+    // console.log(productFib(5895));
+    // console.log(productFib(447577));
   }
 }
 
+{/**8 kyu  get character from ASCII Value
+  Write a function which takes a number and returns the corresponding ASCII char for that value.
+Example:
+65 --> 'A'
+97 --> 'a'
+48 --> '0
+For ASCII table, you can refer to http://www.asciitable.com/                */
+
+  const getChar = String.fromCharCode;
+  // function getChar(c) {
+  //   return String.fromCharCode(c);
+  // }
+  // console.log(getChar(57));
+}
+
+{  /**  8 kyu  Student's Final Grade 
+Create a function finalGrade, which calculates the final grade of a student depending on two parameters: a grade for the exam and a number of completed projects.
+This function should take two arguments: exam - grade for exam (from 0 to 100); projects - number of completed projects (from 0 and above);
+This function should return a number (final grade). There are four types of final grades:
+100, if a grade for the exam is more than 90 or if a number of completed projects more than 10.
+90, if a grade for the exam is more than 75 and if a number of completed projects is minimum 5.
+75, if a grade for the exam is more than 50 and if a number of completed projects is minimum 2.
+0, in other cases
+Examples(Inputs-->Output):
+100, 12 --> 100
+99, 0 --> 100
+10, 15 --> 100
+85, 5 --> 90
+55, 3 --> 75
+55, 0 --> 0
+20, 2 --> 0
+*Use Comparison and Logical Operators.       */
+
+  function finalGrade(exam, projects) {
+    return exam > 90 || projects > 10 ? 100 : exam > 75 && projects >= 5 ? 90 : exam > 50 && projects >= 2 ? 75 : 0;
+  }
+  // console.log(finalGrade(55, 0));
+}
+
+{  /**  8 kyu   Total amount of points 
+Our football team has finished the championship.
+Our team's match results are recorded in a collection of strings. Each match is represented by a string in the format "x:y", where x is our team's score and y is our opponents score.
+For example: ["3:1", "2:2", "0:1", ...]
+Points are awarded for each match as follows:if x > y: 3 points (win)
+if x < y: 0 points (loss)
+if x = y: 1 point (tie)
+We need to write a function that takes this collection and returns the number of points our team (x) got in the championship by the rules given above.
+Notes:
+our team always plays 10 matches in the championship
+0 <= x <= 4
+0 <= y <= 4       */
+  function points(games, res = 0) {
+    for (const key in games) {
+      let x = games[key][0];
+      let y = games[key][2];
+      res += x > y ? 3 : x === y ? 1 : 0;
+    }
+    // console.log(Object.values(games));
+    return res;
+  }
+  // console.log(points(["1:0", "2:0", "3:5", "4:5", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"]));
+}
