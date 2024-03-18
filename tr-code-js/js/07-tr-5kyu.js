@@ -1459,73 +1459,126 @@ Simple Encryption #4 - Qwerty
 Have fun coding it and please don't forget to vote and rank this kata! :-)  */
 
   function encrypt(text, n) {
-    if (text === null) return null;
+    if (!text) return text;
     let codes = [...text].map((_, i) => text.charCodeAt(i));
     for (let j = 0; j < n; j++) {
-      let s = [];
-      let t = [];
+      let odd = [];
+      let even = [];
       for (let i = 0; i < codes.length; i += 2) {
-        if (i + 1 < codes.length) s = [...s, codes[i + 1]];
-        t = [...t, codes[i]];
+        if (i + 1 < codes.length) odd = [...odd, codes[i + 1]];
+        even = [...even, codes[i]];
       }
-      codes = [...s, ...t];
+      codes = [...odd, ...even];
     }
-    return codes.map(e => String.fromCharCode(e)).join('');
+    return String.fromCharCode(...codes);
   }
-  console.log(encrypt("This is a test!", 1));
-  console.log(encrypt(null, 1));
-
 
   function decrypt(encryptedText, n) {
-    if (encryptedText === null) return null;
+    if (!encryptedText) return encryptedText;
     let codes = [...encryptedText].map((_, i) => encryptedText.charCodeAt(i));
 
     for (let j = 0; j < n; j++) {
       const idx = Math.floor(codes.length / 2);
-
-      const codesEven = codes.slice(idx);
-      const codesOdd = codes.slice(0, idx);
-      let strCodes = [];
-      for (let i = 0; i < codesEven.length; i++) {
-        strCodes.push(codesEven[i]);
-        if (i < codesOdd.length) strCodes.push(codesOdd[i]);
-
+      const even = codes.slice(idx);
+      const odd = codes.slice(0, idx);
+      codes = [];
+      for (let i = 0; i < even.length; i++) {
+        codes.push(even[i]);
+        if (i < odd.length) codes.push(odd[i]);
       }
-      codes = strCodes;
     }
-    return codes.map(e => String.fromCharCode(e)).join('');
+    return String.fromCharCode(...codes);
   }
-  console.log(decrypt("s eT ashi tist!", 2));
-  console.log(decrypt("hsi  etTi sats!", 1));
+  // console.log(encrypt("This is a test!", 1));
+  // console.log(encrypt(null, 1));
+  // console.log(decrypt("s eT ashi tist!", 2));
+  // console.log(decrypt("hsi  etTi sats!", 1));
+}
+/** another way  */
+{
+  function encrypt(text, n) {
+    if (!text) return text;
+    let codes = [...text].map((_, i) => text.charCodeAt(i));
+    for (let j = 0; j < n; j++) {
+      const odd = codes.filter((_, i) => i % 2);
+      const even = codes.filter((_, i) => !(i % 2));
+      codes = [...odd, ...even];
+    }
+    return String.fromCharCode(...codes);
+  }
+
+  function decrypt(encryptedText, n) {
+    if (!encryptedText) return encryptedText;
+    let codes = [...encryptedText].map((_, i) => encryptedText.charCodeAt(i));
+
+    for (let j = 0; j < n; j++) {
+      const idx = codes.length / 2;
+      const even = codes.slice(idx);
+      const odd = codes.slice(0, idx);
+      codes = [];
+      for (let i = 0; i < even.length; i++) {
+        codes.push(even[i]);
+        if (i < odd.length) codes.push(odd[i]);
+      }
+    }
+    return String.fromCharCode(...codes);
+  }
+  // console.log(encrypt("This is a test!", 1));
+  // console.log(encrypt(null, 1));
+  // console.log(decrypt("s eT ashi tist!", 2));
+  // console.log(decrypt("hsi  etTi sats!", 1));
+}
+/** one more way  */
+{
+  function encrypt(text, n) {
+    if (!text) return text;
+    let chars = text.split('');
+    while (n-- > 0) {
+      let oddChars = chars.filter((_, i) => i % 2);
+      let evenChars = chars.filter((_, i) => !(i % 2));
+      chars = oddChars.concat(evenChars);
+    }
+    return chars.join('');
+  }
+
+  function decrypt(encryptedText, n) {
+    if (!encryptedText) return encryptedText;
+    let chars = encryptedText.split('');
+    const idx = chars.length / 2;
+    // const idx = parseInt(chars.length / 2);
+    while (n-- > 0) {
+      let oddChars = chars.slice(0, idx);
+      let evenChars = chars.slice(idx);
+      chars = [];
+      while (evenChars.length) {
+        chars.push(evenChars.shift());
+        if (oddChars.length) chars.push(oddChars.shift());
+      }
+    }
+    return chars.join('');
+  }
+  // console.log(encrypt("This is a test!", 1));
+  // console.log(encrypt(null, 1));
+  // console.log(decrypt("s eT ashi tist!", 2));
+  // console.log(decrypt("hsi  etTi sats!", 1));
 }
 
 {  /** 5 kyu
 Product of consecutive Fib numbers
 The Fibonacci numbers are the numbers in the following integer sequence (Fn):
-
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...
-
 such as
-
 F(n) = F(n-1) + F(n-2) with F(0) = 0 and F(1) = 1.
-
 Given a number, say prod (for product), we search two Fibonacci numbers F(n) and F(n+1) verifying
-
 F(n) * F(n+1) = prod.
-
 Your function productFib takes an integer (prod) and returns an array:
-
 [F(n), F(n+1), true] or {F(n), F(n+1), 1} or (F(n), F(n+1), True)
 depending on the language if F(n) * F(n+1) = prod.
-
 If you don't find two consecutive F(n) verifying F(n) * F(n+1) = prod you will return
-
 [F(n), F(n+1), false] or {F(n), F(n+1), 0} or (F(n), F(n+1), False)
 F(n) being the smallest one such as F(n) * F(n+1) > prod.
-
 Some Examples of Return:
 (depend on the language)
-
 productFib(714) # should return (21, 34, true), 
                 # since F(8) = 21, F(9) = 34 and 714 = 21 * 34
 
@@ -1543,4 +1596,27 @@ productFib(800) # should return {34, 55, false},
 Note:
 You can see examples for your language in "Sample Tests".*/
 
+  function productFib(prod, n = 1, numbers = [0, 1]) {
+    while (n ** 2 < prod) {
+      n = numbers[numbers.length - 2] + numbers[numbers.length - 1];
+      numbers.push(n);
+    }
+    let res = numbers.slice(-2);
+    if (res[0] * res[1] - prod < 0) res.push(res[0] + res[1]); res = res.slice(-2);
+    return [res[0], res[1], res[0] * res[1] === prod];
+  }
+
+  {
+    function productFib(prod, [n, m] = [0, 1]) {
+      while (n * m < prod) {
+        m = m + n; n = m - n;
+        // let c = n; n = m; m = n + c;
+      }
+      return [n, m, !(n * m - prod)];
+    }
+    console.log(productFib(193864606));
+    console.log(productFib(5895));
+    console.log(productFib(447577));
+  }
 }
+
