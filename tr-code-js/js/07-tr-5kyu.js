@@ -1671,14 +1671,32 @@ Notes:
 our team always plays 10 matches in the championship
 0 <= x <= 4
 0 <= y <= 4       */
-  function points(games, res = 0) {
-    for (const key in games) {
-      let x = games[key][0];
-      let y = games[key][2];
-      res += x > y ? 3 : x === y ? 1 : 0;
-    }
-    // console.log(Object.values(games));
-    return res;
-  }
+
+  const points = games => games.reduce((acc, [x, _, y]) => acc += x > y ? 3 : !(x - y), 0);
+  // const points = games => games.reduce((acc, [x, _, y]) => acc += x > y ? 3 : !(x - y) ? 1 : 0, 0);
+  // const points = games => Object.values(games).reduce((acc, e, i, arr) => acc += e[0] > e[2] ? 3 : e[0] === e[2] ? 1 : 0, 0);
+  // function points(games, res = 0) {
+  // for (const key in games) {
+  //   let x = games[key][0];
+  //   let y = games[key][2];
+  //   res += x > y ? 3 : x === y ? 1 : 0;
+  // }
+  // return res;
+  // }
   // console.log(points(["1:0", "2:0", "3:5", "4:5", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"]));
+}
+
+{  /**  7 kyu  Isograms 
+An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+Example: (Input --> Output)
+"Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)
+isIsogram "Dermatoglyphics" = true
+isIsogram "moose" = false
+isIsogram "aba" = false        */
+
+  const isIsogram = str => new Set(str.toLowerCase()).size === str.length;
+  // const isIsogram = str => [...str.toLowerCase()].filter((e, i, arr) => arr.indexOf(e) === i).join('') === str.toLowerCase();
+  // console.log(isIsogram(""));
+  // console.log(isIsogram("abba"));
+  // console.log(isIsogram("Dermatoglyphics"));
 }
