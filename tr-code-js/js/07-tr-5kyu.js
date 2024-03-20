@@ -1847,3 +1847,17 @@ Your goal in this kata is to create complete the mouth_size method this method t
   // const mouthSize = animal => animal.toLowerCase() === 'alligator' ? 'small' : 'wide';
   // console.log(mouthSize('alligator'));
 }
+
+{  /**8 kyu Find the position! 
+When provided with a letter, return its position in the alphabet.
+Input :: "a"
+Ouput :: "Position of alphabet: 1"    */
+
+  const position = letter => 'Position of alphabet: ' + (letter.charCodeAt() - '`'.charCodeAt());
+  // const position = letter => `Position of alphabet: ${letter.charCodeAt() - 96}`;
+
+  // const letters = 'abcdefghijklmnopqrstuvwxyz';
+  // const position = letter => `Position of alphabet: ${letters.indexOf(letter) + 1}`;
+
+  // console.log(position('a'));
+}
