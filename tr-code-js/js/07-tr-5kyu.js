@@ -1845,5 +1845,5 @@ Your goal in this kata is to create complete the mouth_size method this method t
   const mouthSize = animal => /alligator/i.test(animal) ? 'small' : 'wide';
   // const mouthSize = animal => animal.match(/alligator/i) ? 'small' : 'wide';
   // const mouthSize = animal => animal.toLowerCase() === 'alligator' ? 'small' : 'wide';
-  console.log(mouthSize('alligator'));
+  // console.log(mouthSize('alligator'));
 }
