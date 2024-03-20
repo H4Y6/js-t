@@ -1738,5 +1738,90 @@ You can assume that all inputs are valid integers.           */
   // n++;
   // } return n;
   // };
-  console.log(roundToNext5(-11));
+  // console.log(roundToNext5(-11));
+}
+
+{  /**  7 kyu  Get the Middle Character
+You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+#Examples:
+Kata.getMiddle("test") should return "es"
+Kata.getMiddle("testing") should return "t"
+Kata.getMiddle("middle") should return "dd"
+Kata.getMiddle("A") should return "A"
+#Input
+A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+#Output
+The middle character(s) of the word represented as a string.         */
+
+  const getMiddle = s => s.slice((s.length - 1) / 2, s.length / 2 + 1);
+  // const getMiddle = s => s.length % 2 ? s.charAt(s.length / 2) : s.slice(s.length / 2 - 1, s.length / 2 + 1);
+  // console.log(getMiddle('test'));
+}
+
+{  /**  8 kyu  No zeros for heros 
+Numbers ending with zeros are boring.
+They might be fun in your world, but not here.
+Get rid of them. Only the ending ones.
+1450 -> 145
+960000 -> 96
+1050 -> 105
+-1050 -> -105
+Zero alone is fine, don't worry about it. Poor guy anyway          */
+
+  const noBoringZeros = n => n % 10 || !n ? n : noBoringZeros(n /= 10);
+  // const noBoringZeros = n => n ? +('' + n).replace(/0*$/g, "") : 0;
+  // console.log(noBoringZeros(101000));
+}
+
+{  /** 7 kyu  Sort Numbers 
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+For example:
+solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+solution(null); // should return []  */
+
+  const solution = (nums) => (nums || []).sort((a, b) => a - b);
+  // const solution = nums => nums ? nums.sort((a, b) => a - b) : [];
+  // console.log(solution(null));
+}
+
+{/** 6 kyu  Detect Pangram / ambiguity -> failed /
+A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.       */
+
+  // function isPangram(string) {
+  //   const array = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  //   return array.every(el => string.toLowerCase().includes(el));
+  // }
+
+  // function isPangram(string) {
+  //   return string.toLowerCase().match(/[a-z]/g).filter((el, i, arr) => arr.indexOf(el) === i).length === 26 ? 'True' : 'False';
+  // }
+  // const isPangram = string => new Set(string.toLowerCase().match(/[a-z]/g)).size == 26;
+  const isPangram = string => string.toLowerCase().replace(/\W/g, '').split('').filter((e, i, arr) => arr.indexOf(e) === i).length == 26;
+  // console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+  // console.log(isPangram("The lazy dog."));
+}
+
+{  /** 8 kyu  Vowel remover  
+Create a function called shortcut to remove the lowercase vowels (a, e, i, o, u ) in a given string.
+Examples
+"hello"     -->  "hll"
+"codewars"  -->  "cdwrs"
+"goodbye"   -->  "gdby"
+"HELLO"     -->  "HELLO"
+don't worry about uppercase vowels
+y is not considered a vowel for this kata       */
+
+  const shortcut = string => [...string].filter(e => !'aeiou'.includes(e)).join('');
+  // const shortcut = string => string.replace(/[a,e,i,o,u]/g, '');
+  // console.log(shortcut("codewars"));
+  // console.log(shortcut('how are you today?'));
+}
+
+{  /**8 kyu  Super Duper Easy  
+Make a function that returns the value multiplied by 50 and increased by 6. If the value entered is a string it should return "Error".   */
+
+  const problem = x => isNaN(x) ? 'Error' : x * 50 + 6;
+  // const problem = x => typeof x === 'string' ? 'Error' : x * 50 + 6;
+  // console.log(problem(7));
 }
