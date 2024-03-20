@@ -1825,3 +1825,10 @@ Make a function that returns the value multiplied by 50 and increased by 6. If t
   // const problem = x => typeof x === 'string' ? 'Error' : x * 50 + 6;
   // console.log(problem(7));
 }
+
+{  /** 8 kyu  Remove First and Last Character
+It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry about strings with less than two characters. */
+
+  const removeChar = str => str.replace(/^\w|\w$/g, '');
+  // console.log(removeChar('place'));
+}
