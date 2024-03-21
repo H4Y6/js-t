@@ -1861,3 +1861,82 @@ Ouput :: "Position of alphabet: 1"    */
 
   // console.log(position('a'));
 }
+
+{  /** 6 kyu  Find the unique number  
+here is an array with some numbers. All numbers are equal except for one. Try to find it!
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+It’s guaranteed that array contains at least 3 numbers.
+The tests contain some very huge arrays, so think about performance.
+This is the first kata in series:
+Find the unique number (this kata)
+Find the unique string
+Find The Unique            */
+
+  function findUniq(arr) {
+    return arr.find((e, i, arr) => arr.indexOf(e) === arr.lastIndexOf(e));
+  }
+  // console.log(findUniq([0, 0, 0.55, 0, 0]));
+}
+
+{  /**8 kyu  Expressions Matter  
+Task
+Given three integers a ,b ,c, return the largest number obtained after inserting the following operators and brackets: +, *, ()
+In other words , try every combination of a,b,c with [*+()] , and return the Maximum Obtained (Read the notes for more detail about it)
+Example
+With the numbers are 1, 2 and 3 , here are some ways of placing signs and brackets:
+1 * (2 + 3) = 5
+1 * 2 * 3 = 6
+1 + 2 * 3 = 7
+(1 + 2) * 3 = 9
+So the maximum value that you can obtain is 9.
+Notes
+The numbers are always positive.
+The numbers are in the range (1  ≤  a, b, c  ≤  10).
+You can use the same operation more than once.
+It's not necessary to place all the signs and brackets.
+Repetition in numbers may occur .
+You cannot swap the operands. For instance, in the given example you cannot get expression (1 + 3) * 2 = 8.
+Input >> Output Examples:
+expressionsMatter(1,2,3)  ==>  return 9
+Explanation:
+After placing signs and brackets, the Maximum value obtained from the expression (1+2) * 3 = 9.        */
+
+  const expressionMatter = (a, b, c) => Math.max(a + b + c, a * (b + c), (a + b) * c, a * b * c);
+
+  // function expressionMatter(a, b, c) {
+  //   if (a === 1 && c === 1) return a + b + c;
+  //   if (a === 1 && b === 1) return (a + b) * c;
+  //   if (b === 1 && c === 1) return a * (b + c);
+  //   if (a === 1) return (a + b) * c;
+  //   if (b === 1 && (a >= c)) return a * (b + c);
+  //   if (b === 1 && a < c) return (a + b) * c;
+  //   if (c === 1) return a * (b + c);
+  //   return a * b * c;
+  // }
+  // console.log(expressionMatter(2, 1, 2));
+  // console.log(expressionMatter(2, 1, 1));
+  // console.log(expressionMatter(3, 5, 7));
+  // console.log(expressionMatter(5, 6, 1));
+  // console.log(expressionMatter(5, 1, 3));
+  // console.log(expressionMatter(9, 1, 1));
+}
+
+{  /**  8 kyu  You Can't Code Under Pressure #1
+Code as fast as you can! You need to double the integer and return it.   */
+
+  const doubleInteger = i => 2 * i;
+}
+
+{  /**  8 kyu  DNA to RNA Conversion
+Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+Create a function which translates a given DNA string into RNA.
+For example:
+"GCAT"  =>  "GCAU"
+The input string can be of arbitrary length - in particular, it may be empty. All input is guaranteed to be valid, i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'.       */
+
+  // const DNAtoRNA = dna => dna.replaceAll('T', 'U');
+  const DNAtoRNA = dna => dna.split('T').join('U');
+  // console.log(DNAtoRNA("GACCGCCGCC"));
+}
