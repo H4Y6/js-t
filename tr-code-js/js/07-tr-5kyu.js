@@ -1940,3 +1940,90 @@ The input string can be of arbitrary length - in particular, it may be empty. Al
   const DNAtoRNA = dna => dna.split('T').join('U');
   // console.log(DNAtoRNA("GACCGCCGCC"));
 }
+
+{  /**8 kyu   Grasshopper - Messi Goals   */
+  const laLigaGoals = 43;
+  const championsLeagueGoals = 10;
+  const copaDelReyGoals = 5;
+  const totalGoals = laLigaGoals + championsLeagueGoals + copaDelReyGoals;
+}
+
+{  /** 7 kyu  Two fighters, one winner. 
+Create a function that returns the name of the winner in a fight between two fighters.
+Each fighter takes turns attacking the other and whoever kills the other first is victorious. Death is defined as having health <= 0.
+Each fighter will be a Fighter object/instance. See the Fighter class below in your chosen language.
+Both health and damagePerAttack (damage_per_attack for python) will be integers larger than 0. You can mutate the Fighter objects.
+Your function also receives a third argument, a string, with the name of the fighter that attacks first.
+Example:
+  declare_winner(Fighter("Lew", 10, 2), Fighter("Harry", 5, 4), "Lew") => "Lew"
+  Lew attacks Harry; Harry now has 3 health.
+  Harry attacks Lew; Lew now has 6 health.
+  Lew attacks Harry; Harry now has 1 health.
+  Harry attacks Lew; Lew now has 2 health.
+  Lew attacks Harry: Harry now has -1 health and is dead. Lew wins.
+function Fighter(name, health, damagePerAttack) {
+        this.name = name;
+        this.health = health;
+        this.damagePerAttack = damagePerAttack;
+        this.toString = function() { return this.name; }    */
+
+  {
+    function Fighter(name, health, damagePerAttack) {
+      this.name = name;
+      this.health = health;
+      this.damagePerAttack = damagePerAttack;
+      this.toString = function () { return this.name; };
+    }
+  }
+
+  class Fighter {
+    constructor(name, health, damagePerAttack) {
+      this.name = name;
+      this.health = health;
+      this.damagePerAttack = damagePerAttack;
+      this.toString = function () { return this.name; };
+    }
+  }
+
+
+  const fighter1 = new Fighter('Lew', 10, 2);
+  const fighter2 = new Fighter('Lew', 10, 2);
+
+  function declareWinner(fighter1, fighter2, firstAttacker) {
+    return "Write your code here";
+  }
+}
+
+{  /**  7 kyu  Vowel Count  
+Return the number (count) of vowels in the given string.
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+The input string will only consist of lower case letters and/or spaces. */
+
+  const getCount = str => (str.match(/[a,e,i,o,u]/g) || '').length;
+  // const getCount = str => str.match(/[a,e,i,o,u]/g) ? str.match(/[a,e,i,o,u]/g).length : 0;
+  // console.log(getCount('abracadabra'));
+  // console.log(getCount('my pyx'));
+}
+
+{  /**  7 kyu  Growth of a Population
+At the end of the first year there will be: 
+1000 + 1000 * 0.02 + 50 => 1070 inhabitants
+At the end of the 2nd year there will be: 
+1070 + 1070 * 0.02 + 50 => 1141 inhabitants (** number of inhabitants is an integer **)
+At the end of the 3rd year there will be:
+1141 + 1141 * 0.02 + 50 => 1213
+It will need 3 entire years.
+More generally given parameters:
+p0, percent, aug (inhabitants coming or leaving each year), p (population to equal or surpass)
+the function nb_year should return n number of entire years needed to get a population greater or equal to p.
+aug is an integer, percent a positive or null floating number, p0 and p are positive integers (> 0)
+Examples:
+nb_year(1500, 5, 100, 5000) -> 15
+nb_year(1500000, 2.5, 10000, 2000000) -> 10
+Note:
+Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
+There are no fractions of people. At the end of each year, the population count is an integer: 252.8 people round down to 252 persons.                    */
+
+  const nbYear = (p0, percent, aug, p, n = 0) => p0 >= p ? n : nbYear(p0 += (Math.floor(p0 * percent / 100) + aug), percent, aug, p, n += 1);
+  // console.log(nbYear(1500000, 2.5, 10000, 2000000));
+}
