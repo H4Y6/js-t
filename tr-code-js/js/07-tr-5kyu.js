@@ -2024,6 +2024,109 @@ Note:
 Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
 There are no fractions of people. At the end of each year, the population count is an integer: 252.8 people round down to 252 persons.                    */
 
-  const nbYear = (p0, percent, aug, p, n = 0) => p0 >= p ? n : nbYear(p0 += (Math.floor(p0 * percent / 100) + aug), percent, aug, p, n + 1);
+  const nbYear = (p0, percent, aug, p, n = 0) => p0 >= p ? n : nbYear(p0 + (Math.floor(p0 * percent / 100) + aug), percent, aug, p, n + 1);
   // console.log(nbYear(1500000, 2.5, 10000, 2000000));
+}
+
+{  /**  8 kyu  Determine offspring sex based on genes XX and XY chromosomes 
+If the sperm contains the X chromosome, return "Congratulations! You're going to have a daughter."; If the sperm contains the Y chromosome, return "Congratulations! You're going to have a son."  */
+
+  const chromosomeCheck = sperm => `Congratulations! You're going to have a ${/Y/.test(sperm) ? `son` : `daughter`}.`;
+  // const chromosomeCheck = sperm => /Y/.test(sperm) ? "Congratulations! You're going to have a son." : "Congratulations! You're going to have a daughter.";
+  // console.log(chromosomeCheck('XY'));
+}
+
+{  /**  8 kyu Hex to Decimal 
+Complete the function which converts hex number (given as a string) to a decimal number.  */
+
+  const hexToDec = hexString => parseInt(hexString, 16);
+  // console.log(hexToDec('FF'));
+}
+
+{  /**  8 kyu  A wolf in sheep's clothing
+Wolves have been reintroduced to Great Britain. You are a sheep farmer, and are now plagued by wolves which pretend to be sheep. Fortunately, you are good at spotting them.
+Warn the sheep in front of the wolf that it is about to be eaten. Remember that you are standing at the front of the queue which is at the end of the array:
+[sheep, sheep, sheep, sheep, sheep, wolf, sheep, sheep]      (YOU ARE HERE AT THE FRONT OF THE QUEUE)
+   7      6      5      4      3            2      1
+If the wolf is the closest animal to you, return "Pls go away and stop eating my sheep". Otherwise, return "Oi! Sheep number N! You are about to be eaten by a wolf!" where N is the sheep's position in the queue.
+Note: there will always be exactly one wolf in the array.
+Examples
+Input: ["sheep", "sheep", "sheep", "wolf", "sheep"]
+Output: "Oi! Sheep number 1! You are about to be eaten by a wolf!"
+Input: ["sheep", "sheep", "wolf"]
+Output: "Pls go away and stop eating my sheep"   */
+
+  const warnTheSheep = queue => queue.pop() === ('wolf') ? 'Pls go away and stop eating my sheep' : `Oi! Sheep number ${queue.length - queue.indexOf('wolf')}! You are about to be eaten by a wolf!`;
+
+  // const warnTheSheep = queue => queue.length - 1 - queue.indexOf('wolf') ? `Oi! Sheep number ${queue.length - 1 - queue.indexOf('wolf')}! You are about to be eaten by a wolf!` : 'Pls go away and stop eating my sheep';
+
+  // const warnTheSheep = queue => queue.length - 1 - queue.findIndex(e => e === 'wolf') ? `Oi! Sheep number ${queue.length - 1 - queue.findIndex(e => e === 'wolf')}! You are about to be eaten by a wolf!` : 'Pls go away and stop eating my sheep';
+  // console.log(warnTheSheep(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"]));
+}
+
+{  /**  7 kyu  Square Every Digit 
+In this kata, you are asked to square every digit of a number and concatenate them.
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)
+Example #2: An input of 765 will/should return 493625 because 72 is 49, 62 is 36, and 52 is 25. (49-36-25)
+Note: The function accepts an integer and returns an integer.       */
+
+  const squareDigits = num => +('' + num).split('').map(e => e * e).join('');
+  // console.log(squareDigits(3212));
+}
+
+{  /**  8 kyu  Drink about
+Kids drink toddy.
+Teens drink coke.
+Young adults drink beer.
+Adults drink whisky.
+Make a function that receive age, and return what they drink.
+Rules:
+Children under 14 old.
+Teens under 18 old.
+Young under 21 old.
+Adults have 21 or more.
+Examples: (Input --> Output)
+13 --> "drink toddy"
+17 --> "drink coke"
+18 --> "drink beer"
+20 --> "drink beer"
+30 --> "drink whisky"       */
+
+  const peopleWithAgeDrink = old => `drink ${old < 14 ? `toddy` : old < 18 ? `coke` : old < 21 ? 'beer' : 'whisky'}`;
+  // const peopleWithAgeDrink = old => old < 14 ? 'drink toddy' : old < 18 ? 'drink coke' : old < 21 ? 'drink beer' : 'drink whisky';
+  // console.log(peopleWithAgeDrink(25));
+}
+
+{  /**  6 kyu  The Supermarket Queue
+There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+input
+customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+n: a positive integer, the number of checkout tills.
+output
+The function should return an integer, the total time required.
+Important
+Please look at the examples and clarifications below, to ensure you understand the task correctly :)
+Examples
+queueTime([5,3,4], 1)
+// should return 12
+// because when there is 1 till, the total time is just the sum of the times
+queueTime([10,2,3,3], 2)
+// should return 10
+// because here n=2 and the 2nd, 3rd, and 4th people in the 
+// queue finish before the 1st person has finished.
+queueTime([2,3,10], 2)
+// should return 12
+Clarifications
+There is only ONE queue serving many tills, and
+The order of the queue NEVER changes, and
+The front person in the queue (i.e. the first element in the array/list) proceeds to a till as soon as it becomes free.
+N.B. You should assume that all the test input will be valid, as specified above.
+P.S. The situation in this kata can be likened to the more-computer-science-related idea of a thread pool, with relation to running multiple processes at the same time: https://en.wikipedia.org/wiki/Thread_pool         */
+
+  const queueTime = (customers, n) => {
+    if (customers.length <= n) return customers.sort().pop();
+
+  };
+  console.log(queueTime([1, 2, 3, 4, 5], 100));
+  console.log(queueTime([1, 2, 3, 4, 5], 3));
 }
