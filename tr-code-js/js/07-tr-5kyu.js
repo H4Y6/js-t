@@ -2124,9 +2124,31 @@ N.B. You should assume that all the test input will be valid, as specified above
 P.S. The situation in this kata can be likened to the more-computer-science-related idea of a thread pool, with relation to running multiple processes at the same time: https://en.wikipedia.org/wiki/Thread_pool         */
 
   const queueTime = (customers, n) => {
-    if (customers.length <= n) return customers.sort().pop();
-
+    return Math.max(...customers.reduce((acc, el) => {
+      let idx = acc.indexOf(Math.min(...acc));
+      acc[idx] += el;
+      return acc;
+    }, Array.from({ length: n }, e => 0)));
   };
-  console.log(queueTime([1, 2, 3, 4, 5], 100));
-  console.log(queueTime([1, 2, 3, 4, 5], 3));
+
+  // const queueTime = (customers, n) => {
+  //   let m = customers.length;
+  //   if (m <= 0) return 0;
+  //   let timeArr = customers.splice(0, n);
+
+  //   while (m > 0) {
+  //     let newEl = +customers.splice(0, 1);
+  //     m -= 1;
+  //     let min = Math.min(...timeArr);
+  //     timeArr = timeArr.map((e, i, ar) => e === min && ar.indexOf(e) === i ? e + newEl : e);
+  //   };
+  //   return Math.max(...timeArr);
+  // };
+
+  // console.log(queueTime([1, 2, 3, 4, 5], 100));
+  // console.log(queueTime([1, 2, 3, 4, 5], 3));
+  // console.log(queueTime([], 1));
+  // console.log(queueTime([2, 2, 3, 3, 4, 4], 2));
 }
+
+
