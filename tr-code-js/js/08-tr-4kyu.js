@@ -85,7 +85,7 @@ Rank
 Car Park Escape     */
 
   function wave(str, res = []) {
-    [...str].forEach((e, i) => (/\w/.test(e)) ? res.push(str.slice(0, i) + e.toUpperCase(e) + str.slice(i + 1)) : 0);
+    [...str].forEach((e, i) => (/\w/.test(e)) ? res.push(str.slice(0, i) + e.toUpperCase() + str.slice(i + 1)) : 0);
     return res;
   };
   // function wave(str) {
@@ -97,7 +97,7 @@ Car Park Escape     */
   //   });
   //   return res.filter((e, i, ar) => ar.indexOf(e) === i).filter(e => e !== str);
   // }
-  console.log(wave(' gap '));
-  console.log(wave("hello"));
-  console.log(wave(" two  words "));
+  // console.log(wave(' gap '));
+  // console.log(wave("hello"));
+  // console.log(wave(" two  words "));
 }
