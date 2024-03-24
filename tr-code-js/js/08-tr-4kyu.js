@@ -84,10 +84,16 @@ Fruit Machine
 Rank 
 Car Park Escape     */
 
-  function wave(str, res = []) {
-    [...str].forEach((e, i) => (/\w/.test(e)) ? res.push(str.slice(0, i) + e.toUpperCase() + str.slice(i + 1)) : 0);
-    return res;
-  };
+  const wave = str => [...str].reduce((res, e, i) => [...res, (str.slice(0, i) + e.toUpperCase() + str.slice(i + 1))].filter((e => e !== str)), []);
+
+  // function wave(str, res = []) {
+  //   [...str].map((e, i) => (/\w/.test(e)) ? res.push(str.slice(0, i) + e.toUpperCase() + str.slice(i + 1)) : []);
+  //   return res;
+  // };
+  // function wave(str, res = []) {
+  //   [...str].forEach((e, i) => (/\w/.test(e)) ? res.push(str.slice(0, i) + e.toUpperCase() + str.slice(i + 1)) : 0);
+  //   return res;
+  // };
   // function wave(str) {
   //   let res = [];
   //   str.split('').forEach((e, i) => {
@@ -99,5 +105,13 @@ Car Park Escape     */
   // }
   // console.log(wave(' gap '));
   // console.log(wave("hello"));
-  // console.log(wave(" two  words "));
+  // console.log(wave("two words "));
+}
+
+{  /** 8 kyu5 without numbers !! 
+Write a function that always returns 5
+Sounds easy right? Just bear in mind that you can't use any of the following characters: 0123456789*+-/ */
+
+  const unusualFive = () => 'true '.length;
+  // console.log(unusualFive());
 }
