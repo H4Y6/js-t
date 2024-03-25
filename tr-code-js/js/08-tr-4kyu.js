@@ -145,7 +145,30 @@ All inputs will be integers. Please return an integer. Round down.            */
   const dutyFree = (normPrice, discount, hol) => hol / normPrice / discount * 100 ^ 0;
   // const dutyFree = (normPrice, discount, hol) => ~~(hol / normPrice / discount * 100);
   // const dutyFree = (normPrice, discount, hol) => Math.floor(hol / normPrice / discount * 100);
-  console.log(dutyFree(12, 50, 1000));
-  console.log(dutyFree(17, 0, 500));
-  console.log(dutyFree(24, 35, 3000));
+  // console.log(dutyFree(12, 50, 1000));
+  // console.log(dutyFree(17, 0, 500));
+  // console.log(dutyFree(24, 35, 3000));
+}
+
+{  /**  6 kyu  Highest Scoring Word
+Given a string of words, you need to find the highest scoring word.
+Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+For example, the score of abad is 8 (1 + 2 + 1 + 4).
+You need to return the highest scoring word as a string.
+If two words score the same, return the word that appears earliest in the original string.
+All letters will be lowercase and all inputs will be valid. */
+
+  const high = (x, sumValues = []) => {
+    sumValues = x.split(' ').map(e => [...e].reduce((res, el, i) => res + (el.charCodeAt() - 96), 0));
+    const idx = sumValues.indexOf(Math.max(...sumValues));
+    return x.split(' ')[idx];
+  };
+
+  // const high = (x, sumValues = []) => {
+  //   sumValues = x.split(' ').map(e => [...e].reduce((res, el, i) => res + (el.codePointAt() - 96), 0));
+  //   const max = Math.max(...sumValues);
+  //   const idx = sumValues.indexOf(max);
+  //   return x.split(' ')[idx];
+  // };
+  // console.log(high('man i need a taxi up to ubud'));
 }
