@@ -276,8 +276,8 @@ function capitalizeFirstLetter(string) {
 
 // const String = function (s) { this.s = s };
 
-String.prototype.toJadenCase = function () {
-    this.s = "How can mirrors be real if our eyes aren't real";
+String.prototype.toJadenCase = function (s) {
+    this.s = s;
     const subStrs = this.s.split(' ');
     let newStr = '';
     subStrs.forEach(s => [(newStr += ' ' + s.replace(/^./, s[0].toUpperCase()))]);
@@ -286,7 +286,7 @@ String.prototype.toJadenCase = function () {
 
 const str = new String();
 
-// console.log(str.toJadenCase());
+console.log(str.toJadenCase("How can mirrors be real if our eyes aren't real"));
 // console.log(String.prototype.toJadenCase());
 
 

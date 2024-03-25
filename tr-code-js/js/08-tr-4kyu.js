@@ -115,3 +115,37 @@ Sounds easy right? Just bear in mind that you can't use any of the following cha
   const unusualFive = () => 'true '.length;
   // console.log(unusualFive());
 }
+
+{  /**7 kyu  Jaden Casing Strings  
+Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+Example:
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+Link to Jaden's former Twitter account @officialjaden via archive.org  */
+
+  String.prototype.toJadenCase = function (s) {
+    let result = '';
+    this.s = s;
+    this.s.split(' ').forEach(s => [(result += ' ' + s.replace(/^[a-z]/, s[0].toUpperCase()))]);
+    return result.trim();
+  };
+  const string = new String();
+  // console.log(string.toJadenCase("How can mirrors be real if our eyes aren't real"));
+  // console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
+}
+
+{  /**8 kyu  Holiday VIII - Duty Free 
+The purpose of this kata is to work out just how many bottles of duty free whiskey you would have to buy such that the savings over the normal high street price would effectively cover the cost of your holiday.
+You will be given the high street price (normPrice, in £ (Pounds)), the duty free discount (discount, in percent) and the cost of the holiday (in £).
+For example, if a bottle costs £10 normally and the duty free discount is 10%, you would save £1 per bottle. If your holiday will cost £500, you would have to purchase 500 bottles to save £500, so the answer you return should be 500.
+Another example: if a bottle costs £12 normally and the duty free discount is 50%, you would save £6 per bottle. If your holiday will cost £1000, you would have to purchase 166.66 bottles to save £1000, so your answer should be 166 bottles.
+All inputs will be integers. Please return an integer. Round down.            */
+
+  const dutyFree = (normPrice, discount, hol) => hol / normPrice / discount * 100 ^ 0;
+  // const dutyFree = (normPrice, discount, hol) => ~~(hol / normPrice / discount * 100);
+  // const dutyFree = (normPrice, discount, hol) => Math.floor(hol / normPrice / discount * 100);
+  console.log(dutyFree(12, 50, 1000));
+  console.log(dutyFree(17, 0, 500));
+  console.log(dutyFree(24, 35, 3000));
+}
