@@ -160,9 +160,19 @@ All letters will be lowercase and all inputs will be valid. */
 
   const high = (x, sumValues = []) => {
     sumValues = x.split(' ').map(e => [...e].reduce((res, el, i) => res + (el.charCodeAt() - 96), 0));
-    const idx = sumValues.indexOf(Math.max(...sumValues));
-    return x.split(' ')[idx];
+    return x.split(' ')[sumValues.indexOf(Math.max(...sumValues))];
   };
+
+  // const high = (x, sumValues = []) => {
+  //   sumValues = x.split(' ').map(e => [...e].reduce((res, el, i) => res + (el.charCodeAt() - 96), 0));
+  //   return x.split(' ')[sumValues.indexOf(Math.max(...sumValues))];
+  // };
+
+  // const high = (x, sumValues = []) => {
+  //   sumValues = x.split(' ').map(e => [...e].reduce((res, el, i) => res + (el.charCodeAt() - 96), 0));
+  //   const idx = sumValues.indexOf(Math.max(...sumValues));
+  //   return x.split(' ')[idx];
+  // };
 
   // const high = (x, sumValues = []) => {
   //   sumValues = x.split(' ').map(e => [...e].reduce((res, el, i) => res + (el.codePointAt() - 96), 0));
@@ -172,3 +182,101 @@ All letters will be lowercase and all inputs will be valid. */
   // };
   // console.log(high('man i need a taxi up to ubud'));
 }
+
+{  /**7 kyu  Find the capitals 
+Instructions
+Write a function that takes a single non-empty string of only lowercase and uppercase ascii letters (word) as its argument, and returns an ordered list containing the indices of all capital (uppercase) letters in the string.
+Example (Input --> Output)
+"CodEWaRs" --> [0,3,4,6]  */
+
+  // const capitals = word => [...word].reduce((res, el, i) => /[A-Z]/.test(el) ? [...res, i] : res, []);
+  // const capitals = word => [...word].reduce((res, el, i) => el === el.toUpperCase() ? res.concat(i) : res, []);
+  const capitals = word => [...word].reduce((res, el, i) => el.match(/[A-Z]/) ? [...res, i] : res, []);
+  // console.log(capitals('CodEWaRs'));
+}
+
+{ /** 7 kyu  Find the middle element       
+As a part of this Kata, you need to create a function that when provided with a triplet,
+ returns the index of the numerical element that lies between the other two elements.
+The input to the function will be an array of three distinct numbers (Haskell: a tuple).
+For example:
+gimme([2, 3, 1]) => 0
+2 is the number that fits between 1 and 3 and the index of 2 in the input array is 0.
+Another example (just to make sure it is clear):
+gimme([5, 10, 14]) => 1
+10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.    */
+
+  const gimme = triplet => triplet.findIndex(e => e === [...triplet].sort((a, b) => a - b)[1]);
+  // const gimme = triplet => triplet.indexOf([...triplet].sort((a, b) => a - b)[1]);
+  // console.log(gimme([15, 110, 34]));
+}
+
+{  /**8 kyu  Exclamation marks series #11: Replace all vowel to exclamation mark in the sentence
+Replace all vowel to exclamation mark in the sentence. aeiouAEIOU is vowel.
+Examples
+replace("Hi!") === "H!!"
+replace("!Hi! Hi!") === "!H!! H!!"
+replace("aeiou") === "!!!!!"
+replace("ABCDE") === "!BCD!"   */
+
+  const replace = s => s.replace(/[aeiou]/gi, '!');
+  // const replace = s => [...s].map(e => e.replace(/[aeiou]/i, '!')).join('');
+  // console.log(replace("!Hi! Hi!"));
+}
+
+{  /** 7 kyu  Alternate capitalization
+Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below. Index 0 will be considered even.
+For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples.
+The input will be a lowercase string with no spaces.
+Good luck!
+If you like this Kata, please try:  */
+
+  const capitalize = s => [0, 1].map(idx => [...s].map((e, i) => idx - i % 2 ? e : e.toUpperCase()).join(''));
+  // const capitalize = s => [[...s].map((e, i) => !(i % 2) ? e = e.toUpperCase() : e).join(''), [...s].map((e, i) => i % 2 ? e = e.toUpperCase() : e).join('')];
+  // console.log(capitalize("abcdef"));
+}
+
+{  /** 8 kyu  Plural 
+We need a simple function that determines if a plural is needed or not. It should take a number, and return true if a plural should be used with that number or false if not. This would be useful when printing out a string such as 5 minutes, 14 apples, or 1 sun.
+You only need to worry about english grammar rules for this kata, where anything that isn't singular (one of something), it is plural (not one of something).
+All values will be positive integers or floats, or zero. */
+
+  const plural = n => n !== 1;
+  // console.log(plural(17));
+}
+
+{  /**  8 kyu  Enumerable Magic #25 - Take the First N Elements 
+Create a function that accepts a list/array and a number n, and returns a list/array of the first n elements from the list/array.*/
+
+  const take = (arr, n) => arr.slice(0, n);
+}
+
+{  /**6 kyu  Give me a Diamond
+Jamie is a programmer, and James' girlfriend. She likes diamonds, and wants a diamond string from James. Since James doesn't know how to make this happen, he needs your help.
+Task
+You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
+Examples
+A size 3 diamond:
+
+ *
+***
+ *
+...which would appear as a string of " *\n***\n *\n"
+
+A size 5 diamond:
+
+  *
+ ***
+*****
+ ***
+  *
+...that is:
+
+"  *\n ***\n*****\n ***\n  *\n"   */
+
+  const diamond = (n, q = -1, k = n) => n % 2 && n > 0 ? Array.from({ length: n }, e => q / 2 < n / 2 ? e = ' '.repeat((n - q) / 2 - 1) + '*'.repeat(q += 2) + '\n'
+    : e = ' '.repeat((n - k) / 2 + 1) + '*'.repeat(k -= 2) + '\n').join('') : null;
+  // console.log(diamond(7));
+}
+
