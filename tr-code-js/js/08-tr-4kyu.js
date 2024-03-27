@@ -275,8 +275,21 @@ A size 5 diamond:
 
 "  *\n ***\n*****\n ***\n  *\n"   */
 
-  const diamond = (n, q = -1, k = n) => n % 2 && n > 0 ? Array.from({ length: n }, e => q / 2 < n / 2 ? e = ' '.repeat((n - q) / 2 - 1) + '*'.repeat(q += 2) + '\n'
-    : e = ' '.repeat((n - k) / 2 + 1) + '*'.repeat(k -= 2) + '\n').join('') : null;
-  // console.log(diamond(7));
+  const diamond = n => {
+    if (n % 2 && n > 0) {
+      return [...Array.from({ length: n }, ((_, i) => {
+        const ws = Math.abs((n - 1) / 2 - i);
+        // const ws = Math.abs((n / 2 ^ 0) - i);
+        const asterisksCount = n - ws * 2;
+        return Array(ws + 1).join(' ') + Array(asterisksCount + 1).join('*');
+      }))].join('\n') + '\n';
+    }
+    return null;
+  };
+
+  // const diamond = (n, q = -1, k = n) => n % 2 && n > 0 ? Array.from({ length: n }, e => q / 2 < n / 2 ? e = ' '.repeat((n - q) / 2 - 1) + '*'.repeat(q += 2) + '\n'
+  // : e = ' '.repeat((n - k) / 2 + 1) + '*'.repeat(k -= 2) + '\n').join('') : null;
+
+  // console.log(diamond(11));
 }
 
