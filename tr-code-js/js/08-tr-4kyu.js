@@ -318,6 +318,33 @@ Assumption: Assume that Desired Principal 'D' is always greater than the initial
     return calculateYears(principal += principal * interest * (1 - tax), interest, tax, desired, years += 1);
   };
 
+  // let calculateYears = (principal, interest, tax, desired, years = 0) => (principal >= desired) ? years
+  // : calculateYears(principal += principal * interest * (1 - tax), interest, tax, desired, ++years);
+
+
   // console.log(calculateYears(1000, 0.05, 0.18, 1100));
   // console.log(calculateYears(1000, 0.01625, 0.18, 1200));
+}
+
+{  /**8 kyu  Lario and Muigi Pipe Problem 
+Issue
+Looks like some hoodlum plumber and his brother has been running around and damaging your stages again.
+The pipes connecting your level's stages together need to be fixed before you receive any more complaints.
+The pipes are correct when each pipe after the first is 1 more than the previous one.
+Task
+Given a list of unique numbers sorted in ascending order, return a new list so that the values increment by 1 for each index from the minimum value up to the maximum value (both included).
+Example
+Input:  1,3,5,6,7,8 Output: 1,2,3,4,5,6,7,8  */
+
+  // const pipeFix = (numbers, [n] = numbers) => Array.from({ length: numbers.pop() - n + 1 }, (_, i) => n + i);
+
+  function pipeFix(numbers, [n] = numbers, arr = [n]) {
+    const [max] = numbers.slice(-1);
+    while (n < max) {
+      n++;
+      arr = [...arr, n];
+    }
+    return arr;
+  }
+  console.log(pipeFix([-1, 4]));
 }
