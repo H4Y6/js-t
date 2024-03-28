@@ -346,5 +346,34 @@ Input:  1,3,5,6,7,8 Output: 1,2,3,4,5,6,7,8  */
     }
     return arr;
   }
-  console.log(pipeFix([-1, 4]));
+  // console.log(pipeFix([-1, 4]));
+}
+
+{  /** 8 kyu  altERnaTIng cAsE <=> ALTerNAtiNG CaSe   */
+
+  String.prototype.toAlternatingCase = function (str) {
+    this.str = str;
+    return this.str.split('').map(e => e.match(/[a-z]/) ? e.toUpperCase() : e.toLowerCase()).join('');
+  };
+  const string = new String();
+  // console.log(string.toAlternatingCase("hello world"));
+}
+
+{ /**  8 kyu  Powers of 2 
+Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).
+Examples
+n = 0  ==> [1]        # [2^0]
+n = 1  ==> [1, 2]     # [2^0, 2^1]
+n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]*/
+  //;
+  const powersOfTwo = n => [...Array(n + 1)].map((_, i) => 2 ** i);
+  // const powersOfTwo = n => Array(n + 1).fill(2).map((e, i) => Math.pow(e, i));
+  // const powersOfTwo = n => Array.from({ length: n + 1 }, (e = 2, i) => Math.pow(e, i));
+  // const powersOfTwo = n => {
+  //   let arr = [];
+  //   for (let i = 0; i <= n; i++) {
+  //     arr[i] = 2 ** i;
+  //   } return arr;
+  // };
+  // console.log(powersOfTwo(4));
 }
