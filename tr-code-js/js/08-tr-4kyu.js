@@ -377,3 +377,35 @@ n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]*/
   // };
   // console.log(powersOfTwo(4));
 }
+
+{  /**7 kyu  Simple Fun #176: Reverse Letter  
+Given a string str, reverse it and omit all non-alphabetic characters.
+Example
+For str = "krishan", the output should be "nahsirk".
+For str = "ultr53o?n", the output should be "nortlu".
+Input/Output
+[input] string str
+A string consists of lowercase latin letters, digits and symbols.
+[output] a string   */
+
+  const reverseLetter = str => [...str].reduce((res, e) => /[a-z]/.test(e) ? e + res : res, '');
+  // const reverseLetter = str => str.match(/[a-z]/g).reverse().join('');
+  // console.log(reverseLetter("ultr53o?n"));
+}
+
+{
+  const howManyLightsabersDoYouOwn = name => name === 'Zach' ? 18 : 0;
+  // console.log(howManyLightsabersDoYouOwn('first'));
+}
+
+{  /**8 kyu  Welcome to the City
+Create a method that takes as input a name, city, and state to welcome a person. Note that name will be an array consisting of one or more values that should be joined together with one space between each, and the length of the name array in test cases will vary.
+Example:
+['John', 'Smith'], 'Phoenix', 'Arizona'
+This example will return the string Hello, John Smith! Welcome to Phoenix, Arizona!   */
+
+  function sayHello(name, city, state) {
+    return 'Hello, ' + name.join(' ') + '! Welcome to ' + city + ', ' + state + '!';
+  }
+  // console.log(sayHello(['John', 'Smith'], 'Phoenix', 'Arizona'));
+}
