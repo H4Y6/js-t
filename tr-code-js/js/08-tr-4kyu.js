@@ -549,3 +549,22 @@ If the input array is empty consider it as: [0] (array with a zero).    */
   const oddOrEven = array => ['even', 'odd'][Math.abs(array.reduce((sum, e) => sum + e, 0) % 2)];
   // console.log(oddOrEven([0, -1, -5, 1]));
 }
+
+{/**  6 kyu  Multiplication table
+Your task, is to create N×N multiplication table, of size provided in parameter.
+For example, when given size is 3:
+
+1 2 3
+2 4 6
+3 6 9
+For the given example, the return value should be:
+[[1,2,3],[2,4,6],[3,6,9]]   */
+
+  // const multiplicationTable = size => {
+  //   const line = Array.from({ length: size }, (_, i) => i + 1);
+  //   return Array.from({ length: size }, e => line.map((_, i) => line.map(e => (i + 1) * e)))[0];
+  // };
+
+  const multiplicationTable = size => Array.from({ length: size }, (_, i) => Array.from({ length: size }, (_, j) => (i + 1) * (j + 1)));
+  // console.log(multiplicationTable(3));
+}
