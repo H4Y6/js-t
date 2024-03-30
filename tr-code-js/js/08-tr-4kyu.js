@@ -477,7 +477,53 @@ In Fortran - as in any other language - the returned string is not permitted to 
     }
     return res;
   }
-  console.log(listSquared(250, 500));
-  console.log(listSquared(1, 250));
-  console.log(listSquared(42, 250));
+  // console.log(listSquared(250, 500));
+  // console.log(listSquared(1, 250));
+  // console.log(listSquared(42, 250));
+}
+
+{  /**  7 kyu  Two to One 
+Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+Examples:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"   */
+
+  const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
+  // const longest = (s1, s2) => (s1 + s2).split('').filter((e, i, arr) => arr.indexOf(e) === i).sort().join('');
+  // const longest = (s1, s2) => [...s1 + s2].filter((e, i, arr) => arr.indexOf(e) === i).sort().join('');
+  // console.log(longest("aretheyhere", "yestheyarehere"));
+}
+
+{/** 8 kyu  Fix your code before the garden dies!
+You have an award-winning garden and every day the plants need exactly 40mm of water. You created a great piece of JavaScript to calculate the amount of water your plants will need when you have taken into consideration the amount of rain water that is forecast for the day. Your jealous neighbour hacked your computer and filled your code with bugs.
+Your task is to debug the code before your plants die! */
+
+  function rainAmount(mm) {
+    if (mm < 40) {
+      return "You need to give your plant " + `${40 - mm}` + "mm of water";
+    } else {
+      return "Your plant has had more than enough water for today!";
+    }
+  }
+  // console.log(rainAmount(39));
+}
+
+{/**  6 kyu  Sort the odd 
+You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+Examples
+[7, 1]  =>  [1, 7]
+[5, 8, 6, 3, 4]  =>  [3, 8, 6, 5, 4]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]      */
+
+
+  const sortArray = array => {
+    const sortedOdd = array.filter(e => e % 2).sort((a, b) => a - b);
+    // return array.map(e => (e % 2) ? sortedOdd.splice(0, 1) : e).flatMap(e => e);
+    return array.map(e => (e % 2) ? sortedOdd.shift() : e).flatMap(e => e);
+  };
+  console.log(sortArray([5, 3, 2, 8, 1, 4]));
+  console.log(sortArray([1, 11, 2, 8, 3, 4, 5]));
 }
