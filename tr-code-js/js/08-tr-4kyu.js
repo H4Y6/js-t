@@ -422,23 +422,62 @@ The form of the examples may change according to the language, see "Sample Tests
 Note
 In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.   */
 
-  function listSquared(m, n) {
-    const results = [];
-    const arr = Array.from({ length: n }, (_, i) => 1 + i);
-    const ar = arr.slice(m - 1).map(e => arr.filter(el => !(e % el))).map((el) => {
+  // function listSquared(m, n) {
+  //   const results = [];
+  //   const arr = Array.from({ length: n }, (_, i) => 1 + i);
+  //   const ar = arr.slice(m - 1).map(e => arr.filter(el => !(e % el))).map((el) => {
+  //     let sum = 0;
+  //     el.forEach(e => {
+  //       sum += (Math.pow(e, 2));
+  //     });
+  //     if (Math.sqrt(sum) % 1 === 0) {
+  //       const element = el[el.length - 1];
+  //       let res = [element, sum];
+  //       results.push(res);
+  //     }
+  //   });
+  //   return results;
+  // }
+
+  // function listSquared(m, n) {
+  //   const results = [];
+  //   const arr = Array.from({ length: n }, (_, i) => 1 + i);
+  //   const ar = arr.slice(m - 1).map(e => arr.filter(el => !(e % el))).map((el) => {
+  //     let sum = 0;
+  //     el.map(e => sum += e * e);
+  //     if (!(sum ** .5 % 1)) {
+  //       const element = el[el.length - 1];
+  //       let res = [element, sum];
+  //       results.push(res);
+  //     }
+  //   });
+  //   return results;
+  // }
+
+  // function listSquared(m, n) {
+  //   const results = [];
+  //   for (let i = m; i <= n; i++) {
+  //     let sum = 0;
+  //     for (let j = 1; j <= n; j++) {
+  //       if (!(i % j)) sum += j ** 2;
+  //     }
+  //     if (!(sum ** .5 % 1)) results.push([i, sum]);
+  //   }
+  //   return results;
+  // }
+
+  function listSquared(m, n, res = []) {
+    for (let i = m; i <= n; i++) {
       let sum = 0;
-      el.forEach(e => {
-        sum += (Math.pow(e, 2));
-      });
-      if (sum && Math.sqrt(sum) % 1 === 0) {
-        const element = el[el.length - 1];
-        let res = [element, sum];
-        results.push(res);
+
+      for (let j = 1; j <= n; j++) {
+        if (!(i % j)) sum += j * j;
       }
-    });
-    return results;
+      if (!(sum ** .5 % 1)) res.push([i, sum]);
+    }
+    return res;
   }
-  // console.log(listSquared(250, 500));
-  // console.log(listSquared(1, 250));
-  // console.log(listSquared(42, 250));
+  console.log(listSquared(250, 500));
+  console.log(listSquared(1, 250));
+  console.log(listSquared(42, 250));
 }
