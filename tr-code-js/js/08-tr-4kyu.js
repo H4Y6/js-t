@@ -422,27 +422,23 @@ The form of the examples may change according to the language, see "Sample Tests
 Note
 In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.   */
 
-  // not ready yet
   function listSquared(m, n) {
-    let res = [0, 0];
-    let sum = 0;
+    const results = [];
     const arr = Array.from({ length: n }, (_, i) => 1 + i);
-    const ar = arr.slice(0).map(e => arr.filter(el => !(e % el)));
-    const a = ar.map(el => el.reduce((res = [0, 0], e) => {
-      sum += (e * e);
-      if (Math.sqrt(sum) % 1 === 0) {
-        res[0] = e;
-        res[1] = sum;
-        return res;
+    const ar = arr.slice(m - 1).map(e => arr.filter(el => !(e % el))).map((el) => {
+      let sum = 0;
+      el.forEach(e => {
+        sum += (Math.pow(e, 2));
+      });
+      if (sum && Math.sqrt(sum) % 1 === 0) {
+        const element = el[el.length - 1];
+        let res = [element, sum];
+        results.push(res);
       }
-    }, [0, 0]
-    )
-
-    );
-
-    return ar;
+    });
+    return results;
   }
-  console.log(listSquared(250, 500));
-  // console.log(Math.sqrt(1 + 246 ** 2 + 4 + 123 ** 2 + 9 + 82 ** 2 + 36 + 41 ** 2));
-  // console.log(Math.sqrt(1 + 42 ** 2 + 4 + 21 ** 2 + 9 + 14 ** 2 + 36 + 7 ** 2));
+  // console.log(listSquared(250, 500));
+  // console.log(listSquared(1, 250));
+  // console.log(listSquared(42, 250));
 }
