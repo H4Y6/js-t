@@ -521,9 +521,31 @@ Examples
 
   const sortArray = array => {
     const sortedOdd = array.filter(e => e % 2).sort((a, b) => a - b);
+    return array.map(e => (e % 2) ? sortedOdd.shift() : e);
     // return array.map(e => (e % 2) ? sortedOdd.splice(0, 1) : e).flatMap(e => e);
-    return array.map(e => (e % 2) ? sortedOdd.shift() : e).flatMap(e => e);
+    // let oddIdx = 0;
+    // return array.map(e => (e % 2) ? sortedOdd[oddIdx++] : e);
   };
-  console.log(sortArray([5, 3, 2, 8, 1, 4]));
-  console.log(sortArray([1, 11, 2, 8, 3, 4, 5]));
+  // console.log(sortArray([5, 3, 2, 8, 1, 4]));
+  // console.log(sortArray([1, 11, 2, 8, 3, 4, 5]));
+}
+
+{/**  7 kyu  Flatten and sort an array
+Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+Example:
+Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9]. */
+
+  const flattenAndSort = array => array.reduce((res, e) => Array.isArray(e) ? [...res, ...e] : [...res, e], []).sort((a, b) => a - b);
+  // const flattenAndSort = array => array.flatMap(e => e).sort((a, b) => a - b);
+  // console.log(flattenAndSort([[3, 2, 1], [7, 9, 8], [6, 4, 5], 7]));
+}
+
+{/**  7 kyu  Odd or Even? 
+Given a list of integers, determine whether the sum of its elements is odd or even.
+Give your answer as a string matching "odd" or "even".
+If the input array is empty consider it as: [0] (array with a zero).    */
+
+  // const oddOrEven = array => array.reduce((sum, e) => sum + e, 0) % 2 ? 'odd' : 'even';
+  const oddOrEven = array => ['even', 'odd'][Math.abs(array.reduce((sum, e) => sum + e, 0) % 2)];
+  // console.log(oddOrEven([0, -1, -5, 1]));
 }
