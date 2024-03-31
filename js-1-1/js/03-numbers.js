@@ -5,7 +5,7 @@
 // let elementWidth = '50px';
 // elementWidth = Number.parseInt(elementWidth);
 
-// const type = typeof elementWidth
+// const type = typeof elementWidth;
 // console.table({ elementWidth, type });
 
 // let elementHeight = '200.74px';
@@ -52,18 +52,18 @@ let salary = 1300.16472;
  * возводит число в эту степень и выводит результат в консоль
  */
 
-//  1. попросить ввести число и сохранить в переменную
+/** 1. попросить ввести число и сохранить в переменную    */
 // let base = prompt('Давай число');
 // base = Number(base);
 // console.log(base);
 
-//  2. попросить ввести степень и сохранить в переменную
+/* 2. попросить ввести степень и сохранить в переменную  */
 
 // let power = prompt('Давай степень');
 // power = Number(power);
 // console.log(power);
 
-//  3. Возвести введенные данные в степень и вывести
+/* 3. Возвести введенные данные в степень и вывести;  */
 // const result = base ** power;
 
 // console.log(result);
@@ -79,9 +79,9 @@ let salary = 1300.16472;
  * - Math.random()
  * - Math.round()
  */
-// Math.random() * (max - min) + min
 // const max = 80;
 // const min = 10;
+// Math.random() * (max - min) + min;
 
 // const result = Math.round(Math.random() * (max - min) + min);
 

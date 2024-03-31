@@ -85,3 +85,6 @@ console.log(normalizedString2.includes(blacklistedWord2));
 
 console.log(string3.includes(blacklistedWord1));
 console.log(string3.includes(blacklistedWord2));
+
+console.log(/спам/.test(string1));
+console.log(/распродажа/.test(string2.toLowerCase()));

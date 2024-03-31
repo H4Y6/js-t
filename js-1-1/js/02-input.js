@@ -1,12 +1,12 @@
 /*
- * - Ввод пользовователя
- * - Методы window.confirm() и window.prompt()
+ * - Введення користувача
+ * - Методи window.confirm() та window.prompt()
  */
 
-const shouldRenew = confirm('Хотите продлить подписку?');
+const shouldRenew = confirm('Бажаєте продовжити підписку?');
 console.log(shouldRenew);
 
-let quantity = prompt('Введите количество товаров');
+let quantity = prompt('Уведіть кількість товарів');
 quantity = Number(quantity);
 console.log(quantity);
 console.log(typeof quantity);

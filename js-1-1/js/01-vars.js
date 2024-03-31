@@ -1,8 +1,8 @@
 /*
- * - Переменные и типы примитивов
+ * - Змінні та типи примітивів
  * - const и let
- * - Логирование с методом console.log()
- * - Уникальность идентификатора
+ * - Логування методом console.log()
+ * - Унікальність ідентифікаторів
  */
 
 const age = 10;
@@ -22,9 +22,9 @@ const type1 = typeof isOpen;
 console.table({ age, totalPrice, userName, message, isOpen, type, type1 });
 
 /*
- * - Как window.alert() блокирует интерпретацию
+ * - Як window.alert() блокує інтерпретацію
  */
 
-// console.log('До');
+// console.log('before');
 // alert('qweqweqwe');
-// console.log('После');
+// console.log('after');
