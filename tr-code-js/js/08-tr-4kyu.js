@@ -565,6 +565,17 @@ For the given example, the return value should be:
   //   return Array.from({ length: size }, e => line.map((_, i) => line.map(e => (i + 1) * e)))[0];
   // };
 
+  // const multiplicationTable = size => {
+  //   let res = [];
+  //   for (let i = 0; i < size; i++) {
+  //     res[i] = [];
+  //     for (let j = 1; j <= size; j++) {
+  //       res[i].push((i + 1) * j);
+  //     }
+  //   }
+  //   return res;
+  // };
+
   const multiplicationTable = size => Array.from({ length: size }, (_, i) => Array.from({ length: size }, (_, j) => (i + 1) * (j + 1)));
   // console.log(multiplicationTable(3));
 }
