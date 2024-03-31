@@ -579,3 +579,26 @@ For the given example, the return value should be:
   const multiplicationTable = size => Array.from({ length: size }, (_, i) => Array.from({ length: size }, (_, j) => (i + 1) * (j + 1)));
   // console.log(multiplicationTable(3));
 }
+
+{  /** 8 kyu  Parse nice int from char problem 
+You ask a small girl,"How old are you?" She always says, "x years old", where x is a random number between 0 and 9.
+Write a program that returns the girl's age (0-9) as an integer.
+Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.   */
+
+  const getAge = inputString => +inputString[0];
+  // const getAge = inputString => parseInt(inputString);
+  // console.log(getAge("4 years old"));
+}
+
+{  /** 8 kyu  Training JS #5: Basic data types--Object 
+Give you a function animal, accept 1 parameter:obj like this:
+{name:"dog",legs:4,color:"white"}
+and return a string like this:
+"This white dog has 4 legs."   */
+
+  const animal = obj => {
+    const { name, legs, color } = obj;
+    return `This ${color} ${name} has ${legs} legs.`;
+  };
+  // console.log(animal({ name: "dog", legs: 4, color: "white" }));
+}
