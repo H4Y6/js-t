@@ -602,3 +602,19 @@ and return a string like this:
   };
   // console.log(animal({ name: "dog", legs: 4, color: "white" }));
 }
+
+{  /**  8 kyu  Bin to Decimal  
+   Complete the function which converts a binary number (given as a string) to a decimal number.       */
+
+  const binToDec = bin => [...bin].reverse().reduce((num, e, i) => num + e * 2 ** i, 0);
+
+  //   let num = 0, n = 1;
+  //   const arr = [...bin].reverse().map((e, idx) => {
+  //     idx ? n *= 2 : n;
+  //     Number(e) ? num += n : num, 0;
+  //   });
+  //   return num;
+  // };
+
+  console.log(binToDec('1001001'));
+}
