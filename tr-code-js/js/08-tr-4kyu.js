@@ -606,7 +606,9 @@ and return a string like this:
 {  /**  8 kyu  Bin to Decimal  
    Complete the function which converts a binary number (given as a string) to a decimal number.       */
 
-  const binToDec = bin => [...bin].reverse().reduce((num, e, i) => num + e * 2 ** i, 0);
+  const binToDec = bin => parseInt(bin, 2);
+
+  // const binToDec = bin => [...bin].reverse().reduce((num, e, i) => num + e * 2 ** i, 0);
 
   //   let num = 0, n = 1;
   //   const arr = [...bin].reverse().map((e, idx) => {
@@ -616,5 +618,19 @@ and return a string like this:
   //   return num;
   // };
 
-  console.log(binToDec('1001001'));
+  // console.log(binToDec('1001001'));
+}
+
+{  /**  6 kyu  Delete occurrences of an element if it occurs more than n times
+Given a list and a number, create a new list that contains each number of list at most N times, without reordering.
+For example if the input number is 2, and the input list is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
+With list [20,37,20,21] and number 1, the result would be [20,37,21].    */
+
+  const deleteNth = (arr, n) => {
+    const newArr = [];
+    const unique = new Set(arr);
+    const uniqueMaxArr = Array.from({ length: 3 }, e => unique);
+
+  };
+  console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3));
 }
