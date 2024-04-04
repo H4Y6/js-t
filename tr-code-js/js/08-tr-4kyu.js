@@ -635,11 +635,24 @@ describe("Tests", () => {
   });
 });              */
 
-  const deleteNth = (arr, n) => {
-    const newArr = [];
-    const unique = new Set(arr);
-    const uniqueMaxArr = Array.from({ length: 3 }, e => unique);
+  const deleteNth = (arr, n) => arr.filter((e, i) => { let ar = arr.slice(0, i).filter(el => el === e).length < n;/* console.log(ar); */  return ar; });
 
-  };
-  console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3));
+  // const deleteNth = (arr, n) => {
+  //   const unique = new Set(arr);
+
+  //   unique.forEach(element => {
+  //     let ar = arr.filter(e => e === element);
+
+  //     for (let i = 0; i < ar.length - n; i++) {
+  //       if (ar.length > n) arr.splice(arr.lastIndexOf(element), 1);
+  //     }
+  //   });
+  //   return arr;
+  // };
+
+  // const deleteNth = (arr, n) => arr.filter((e, i) => arr.slice(0, i).filter(el => el === e).length < n);
+
+  // console.log(deleteNth([20, 37, 20, 21], 1));
+  // console.log(deleteNth([12, 39, 19, 39, 39, 19, 12], 1));
+  // console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3));
 }
