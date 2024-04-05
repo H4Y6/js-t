@@ -635,7 +635,7 @@ describe("Tests", () => {
   });
 });              */
 
-  const deleteNth = (arr, n) => arr.filter((e, i) => { let ar = arr.slice(0, i).filter(el => el === e).length < n;/* console.log(ar); */  return ar; });
+  // const deleteNth = (arr, n) => arr.filter((e, i) => { let ar = arr.slice(0, i).filter(el => el === e).length < n;/* console.log(ar); */  return ar; });
 
   // const deleteNth = (arr, n) => {
   //   const unique = new Set(arr);
@@ -652,7 +652,54 @@ describe("Tests", () => {
 
   // const deleteNth = (arr, n) => arr.filter((e, i) => arr.slice(0, i).filter(el => el === e).length < n);
 
+  const deleteNth = (arr, n) => {
+
+    // console.log(new Set(arr));
+    [...new Set(arr)].map(el => {
+      const ar = arr.filter(e => e === el);
+      // console.log(ar);
+      for (let i = 0; i < ar.length - n; i++) {
+        if (ar.length > n) arr.splice(arr.lastIndexOf(el), 1);
+      }
+    });
+    return arr;
+  };
   // console.log(deleteNth([20, 37, 20, 21], 1));
   // console.log(deleteNth([12, 39, 19, 39, 39, 19, 12], 1));
   // console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3));
+}
+
+{  /**  6 kyu  Break camelCase
+Complete the solution so that the function will break up camel casing, using a space between words.
+Example
+"camelCasing"  =>  "camel Casing"
+"identifier"   =>  "identifier"
+""             =>  ""               */
+  const solution = string => string.replace(/[A-Z]/g, " $&");
+  // console.log(solution("camelCasingTest"));
+  // console.log(solution("camelCasing"));
+  // console.log(solution(""));
+}
+
+{  /**  8 kyu  Find the Remainder
+Write a function that accepts two integers and returns the remainder of dividing the larger value by the smaller value.
+Division by zero should return NaN.
+Examples:
+n = 17
+m = 5
+result = 2 (remainder of `17 / 5`)
+
+n = 13
+m = 72
+result = 7 (remainder of `72 / 13`)
+
+n = 0
+m = -1
+result = 0 (remainder of `0 / -1`)
+
+n = 0
+m = 1
+result - division by zero (refer to the specifications on how to handle this in your language) */
+  const remainder = (n, m) => n > m && m ? n % m : m > n && n ? m % n : m === n && m ? 0 : NaN;
+  // console.log(remainder(-1, -1));
 }
