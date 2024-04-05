@@ -294,12 +294,12 @@ function getShippingCost(country) {
 
     case 'Australia':
       price = 170;
-      createMessage()
+      createMessage();
       break;
 
     case 'Jamayca':
       price = 120;
-      createMessage()
+      createMessage();
       break;
 
     default: message = "Sorry, there is no delivery to your country.";

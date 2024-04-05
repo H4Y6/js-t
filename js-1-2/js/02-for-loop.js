@@ -57,6 +57,15 @@
  * Например, если min=0 и max=5, то диапазон 0-5, и в нём два чётных числа - 2 и 4, их сумма 6.
  */
 
+const min = 15;
+const max = 41;
+let total = 0;
+for (let i = min; i < max; i += 1) {
+  if (i % 2) continue;
+  total += i;
+}
+console.log("total->", total);
+
 //  1 вары
 // const min = 0;
 // const max = 5;
@@ -98,9 +107,9 @@ function findEvenNumberArrayAndSum(min, max) {
       };
     };
   };
-  console.log({ evenNumberArray, sum })
+  console.log({ evenNumberArray, sum });
 };
-const paramArray = [21, 33]
+const paramArray = [21, 33];
 findEvenNumberArrayAndSum(...paramArray);
 
 function findEvenNumberArrayAndSum1(min, max) {
@@ -112,7 +121,7 @@ function findEvenNumberArrayAndSum1(min, max) {
       sum += i;
     };
   };
-  console.log({ evenNumberArray, sum })
+  console.log({ evenNumberArray, sum });
 };
 findEvenNumberArrayAndSum1(...paramArray);
 
@@ -126,18 +135,18 @@ function findEvenNumberArrayAndSum2(min, max) {
       sum += i;
     };
   };
-  console.log({ evenNumberArray, sum })
+  console.log({ evenNumberArray, sum });
 };
 findEvenNumberArrayAndSum2(...paramArray);
 
 function findEvenNumberArrayAndSum3(min, max) {
   let evenNumberArray = [];
   let sum = 0;
-  if (min % 2 !== 0) { min += 1 };
+  if (min % 2 !== 0) { min += 1; };
   for (let i = min; i <= max; i += 2) {
     evenNumberArray.push(i);
     sum += i;
   };
-  console.log({ evenNumberArray, sum })
+  console.log({ evenNumberArray, sum });
 };
 findEvenNumberArrayAndSum3(...paramArray);
