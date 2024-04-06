@@ -700,6 +700,10 @@ result = 0 (remainder of `0 / -1`)
 n = 0
 m = 1
 result - division by zero (refer to the specifications on how to handle this in your language) */
-  const remainder = (n, m) => n > m && m ? n % m : m > n && n ? m % n : m === n && m ? 0 : NaN;
-  // console.log(remainder(-1, -1));
+  // const remainder = (n, m) => n > m && m ? n % m : m > n && n ? m % n : m === n && m ? 0 : NaN;
+  const remainder = (n, m) => {
+    const arr = [n, m].sort((a, b) => a - b);
+    return arr[1] % arr[0];
+  };
+  // console.log(remainder(0, 21));
 }
