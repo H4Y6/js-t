@@ -744,3 +744,10 @@ See "Samples Tests" for the return.                                        */
   //   ).reduce((res, e) => res + +e.match(/\s[0-9]+/), 0)).map((el, i) => `(${listOfCat[i]} : ${el})`).join(' - ');
   // console.log(stockList(["ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"], ["A", "B", "C", "W"]));
 }
+
+{  /* 7 kyu  Small enough? - Beginner
+You will be given an array and a limit value. You must check that all values in the array are below or equal to the limit value. If they are, return true. Else, return false. You can assume all values in the array are numbers.     */
+
+  const smallEnough = (a, limit) => a.every(e => e <= limit);
+  // console.log(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100));
+}
