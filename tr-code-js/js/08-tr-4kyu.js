@@ -797,6 +797,23 @@ NOTE: There will also be lists tested of lengths upwards of 10,000,000 elements.
   function sumPairs(ints, s) {
     const arr = ints.map((el, i) => ints.slice(0, i).concat(ints.slice(i + 1)).find(e => e === s - el)).filter(e => e || e === 0);
     return arr.length ? [arr[arr.length / 2], arr.find(e => e === s - arr[arr.length / 2])] : undefined;
+
+    // const inds = [];
+    // const pair = [];
+    // let array = [...ints];
+
+    // for (let i = 0; i < array.length; i++) {
+    //   const delta = s - array[i];
+    //   ints = ints.slice(1);
+
+    //   for (let j = 0; j < ints.length; j++) {
+    //     if (delta !== ints[j]) continue;
+    //     pair.push(array[i], ints[j],);
+    //     inds.push(j);
+    //   }
+    // }
+    // if (!pair.length) return undefined;
+    // return (pair.length === 4 && inds[1] < inds[0]) ? pair.slice(-2) : pair.slice(0, 2);
   }
   // console.log(sumPairs([20, -13, 40], -7));
   // console.log(sumPairs([1, -2, 3, 0, -6, 1], -6));
