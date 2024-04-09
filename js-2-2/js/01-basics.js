@@ -68,3 +68,13 @@ const fnC = function () {
 // console.log('Лог перед вызовом функции C');
 // fnC();
 // console.log('Лог после вызова функции C');
+
+const calculateTotalPrice = function (prices) {
+  let totalPrice = 0;
+  for (const price of prices) {
+    totalPrice += price;
+  }
+  return totalPrice;
+};
+// console.log(calculateTotalPrice([33, 55, 45, 22, 73, 15, 38, 75]));
+// console.log(calculateTotalPrice([3, 3, 5, 5, 4, 5]));

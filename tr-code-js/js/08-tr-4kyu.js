@@ -822,3 +822,47 @@ NOTE: There will also be lists tested of lengths upwards of 10,000,000 elements.
   // console.log(sumPairs([10, 5, 2, 3, 7, 5], 10));
 }
 
+{  /**7 kyu  Row Weights 
+Scenario
+Several people are standing in a row divided into two teams.
+The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
+Task
+Given an array of positive integers (the weights of the people), return a new array/tuple of two integers, where the first one is the total weight of team 1, and the second one is the total weight of team 2.
+Notes
+Array size is at least 1.
+All numbers will be positive.
+Input >> Output Examples
+rowWeights([13, 27, 49])  ==>  return (62, 27)
+Explanation:
+The first element 62 is the total weight of team 1, and the second element 27 is the total weight of team 2.
+rowWeights([50, 60, 70, 80])  ==>  return (120, 140)
+Explanation:
+The first element 120 is the total weight of team 1, and the second element 140 is the total weight of team 2.
+rowWeights([80])  ==>  return (80, 0)
+Explanation:
+The first element 80 is the total weight of team 1, and the second element 0 is the total weight of team 2.  */
+
+  const rowWeights = array => array.reduce((res, e, i, arr) => {
+    !(i % 2) ? res[0] += e : res[1] += e;
+    return res;
+  }, [0, 0]);
+  // console.log(rowWeights([29, 83, 67, 53, 19, 28, 96]));
+}
+
+{  /**7 kyu  Factorial 
+In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
+Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type ArgumentOutOfRangeException (C#) or IllegalArgumentException (Java) or RangeException (PHP) or throw a RangeError (JavaScript) or ValueError (Python) or return -1 (C).  */
+
+  const factorial = (n, res = 1) => {
+    if (n > 12 || n < 0) {
+      throw new RangeError("The argument must be between 0 and 12.");
+    }
+    return n < 1 ? res : n * factorial(n - 1);
+
+    // for (n; n > 1; n -= 1) {
+    //   res *= n;
+    // }
+    // return res;
+  };
+  // console.log(factorial(10));
+};
