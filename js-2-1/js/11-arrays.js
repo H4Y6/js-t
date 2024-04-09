@@ -11,5 +11,5 @@ const fruits = ['kiwi', 'banana', 'apple', 'ananas', 'cucumber'];
 
 // console.log({ splicedFruits: fruits.splice(-1, 1, 'cabbage'), fruits });
 
-console.log(fruits.pop(), fruits.push('pumpkin'), fruits);
+console.log(fruits.pop(), fruits, fruits.push('pumpkin'), fruits.unshift('laster'), fruits.shift());
 

@@ -9,9 +9,18 @@
  * 'Mango', 'Kiwi', 'Poly', 'Ajax'
  */
 
-// const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
-// console.table(friends);
+const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
 
+// friends.unshift('22');
+// friends.push('33');
+// friends.pop();
+// friends.shift();
+// console.table(friends);
+const [firstFriend, secondFriend] = friends;
+// const [lastFriend] = friends.reverse();
+console.log(firstFriend);
+console.log(secondFriend);
+// console.log(lastFriend);
 // friends[1] = 'qwerqrwr';
 // friends[3] = 123123;
 
@@ -48,15 +57,15 @@
  */
 
 // const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
-// console.table(friends);
+console.table(friends);
 // const lastIndex = friends.length - 1;
 
-// for (let i = 0; i < friends.length; i += 1) {
-//   friends[i] += `-${i}`;
-// }
+for (let i = 0; i < friends.length; i += 1) {
+  friends[i] += `-${i}`;
+}
 
-// for (let friend of friends) {
-//   console.log(friend);
-// }
+for (let friend of friends) {
+  console.log(friend);
+}
 
 // console.table(friends);

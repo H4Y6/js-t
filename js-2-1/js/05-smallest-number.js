@@ -24,3 +24,11 @@ console.log({ max });
 console.dir(Math);
 
 console.log({ max: Math.max(...numbers) });
+
+let min = numbers[0];
+for (const number of numbers) {
+  min = number < min ? number : min;
+  // if (number >= min) continue;
+  // min = number;
+}
+console.log('min->', min);
