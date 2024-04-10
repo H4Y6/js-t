@@ -39,13 +39,27 @@ const invertString = function (string) {
   const letters = string.split("");
 
   for (const letter of letters) {
-    invertedString += letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase()
+    invertedString += letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase();
   }
 
   return invertedString;
-}
+};
 
-console.log(invertString('qweRTY')); // QWErty
-console.log(invertString('mAnGo')); // MaNgO
-console.log(invertString('AjAx')); // aJaX
+// console.log(invertString('qweRTY')); // QWErty
+// console.log(invertString('mAnGo')); // MaNgO
+// console.log(invertString('AjAx')); // aJaX
 
+const string = 'RghkYtncuHpol';
+
+const alterCase = function (str) {
+  let anewStr = '';
+  const strArr = str.split('');
+
+  for (const letter of strArr) {
+    anewStr += letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase();
+  }
+
+  return anewStr;
+};
+
+console.log(alterCase(string));

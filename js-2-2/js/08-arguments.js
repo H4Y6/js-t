@@ -10,6 +10,46 @@
 //   console.log(args);
 // };
 
+function aboutArgs() {
+  // console.log(arguments);
+
+  const elements = Array.from(arguments);
+  console.log('elements->', elements);
+
+  for (const arg of arguments) {
+    // console.log(arg);
+  }
+}
+
+aboutArgs(1, 2, 3, 4, 5, 6, 7);
+aboutArgs(1, 2, 6, 7);
+
+
+function sumArgs() {
+  let sum = 0;
+
+  for (const arg of arguments) {
+    sum += arg;
+  }
+
+  return sum;
+}
+
+console.log('sum of args->', sumArgs(1, 2, 6, 7));
+
+
+function aboutRest(...anyName) {
+  return `anyName: ${anyName}`;
+}
+
+console.log(aboutRest(1, 2, 3, 4, 5, 6, 7));
+
+function sumEls(...els) {
+  return `sum of els: ${els.reduce((sum, el) => sum + el, 0)}`;
+}
+
+console.log(sumEls(111, 2, 3, 4, 5, 6, 7));
+
 // fn(1, 2, 3);
 // fn(1, 2, 3, 4, 5);
 // fn(1, 2, 3, 4, 5, 6, 7);
@@ -80,6 +120,22 @@ const add = function (...args) {
 // console.log(filterNumbers([10, 15, 25, 30], 23, 30, 18, 15)); // [30, 15]
 // console.log(filterNumbers([100, 200, 300, 400, 500], 7, 12, 200, 64)); // [200]
 
+const filterNums = function (array, ...args) {
+  let common = ['common:'];
+  let unique = ['unique:'];
+
+  for (const el of args) {
+    array.includes(el) ? common.push(el) : unique.push(el);
+    // continue;
+  }
+
+  return [common, unique];
+};
+console.log(filterNums([18, 15, 25, 30], 23, 30, 18, 15, 11));
+
+console.log((/7/).test([23, 30, 18, 15, 11]));
+
+
 function withdraw(amount, balance) {
   if (amount === 0) {
     console.log("Для проведення операції введіть суму більшу за нуль");
@@ -104,7 +160,7 @@ function withdraw(amount, balance) {
     }
 
     // console.log(total);
-  }
+  };
 
   foo(2, 3, 8, 9, 5, 1);
 }
@@ -112,7 +168,7 @@ function withdraw(amount, balance) {
 {
   const sum = function (value1, value2) {
     return value1 + value2;
-  }
+  };
 
   const a = 4;
   const b = 8;

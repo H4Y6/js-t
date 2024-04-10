@@ -22,8 +22,20 @@ const findSmallestNumber = function (args) {
     smallestNumber = number < smallestNumber ? number : smallestNumber;
   }
   return smallestNumber;
-}
+};
 
-console.log(findSmallestNumber([3, 8, 12, -2, 15])); // -2
-console.log(findSmallestNumber([100, 54, 8, 12, 47])); // 8
-console.log(findSmallestNumber([7, 21, 84, 15, 4])); // 4
+// console.log(findSmallestNumber([3, 8, 12, -2, 15])); // -2
+// console.log(findSmallestNumber([100, 54, 8, 12, 47])); // 8
+// console.log(findSmallestNumber([7, 21, 84, 15, 4])); // 4
+
+const arr = [14, 154, 8, 12, 4, 21, 7];
+
+const findMin = function (arr) {
+  let min = Infinity;
+  for (const el of arr) {
+    min = min > el ? el : min;
+  }
+
+  return min;
+};
+console.log(findMin(arr));
