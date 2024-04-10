@@ -54,11 +54,24 @@ const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
 
 const findLogin = function (allLogins, loginToFind) {
   return allLogins.includes(loginToFind) ? `Login ${loginToFind} is found.`
-    : `Login ${loginToFind} is not found.`
+    : `Login ${loginToFind} is not found.`;
 };
 
-console.log(findLogin(logins, 'avocod3r'));
-console.log(findLogin(logins, 'k1widab3st'));
-console.log(findLogin(logins, 'jam4l'));
-console.log(findLogin(logins, 'poly1scute'));
+// console.log(findLogin(logins, 'avocod3r'));
+// console.log(findLogin(logins, 'k1widab3st'));
+// console.log(findLogin(logins, 'jam4l'));
+// console.log(findLogin(logins, 'poly1scute'));
 
+const numberData = [4, 2, 7, 5,];
+
+const findNumber = function (numbers, number) {
+  for (const el of numbers) {
+    if (el === number) return 'The number is found.';
+  }
+
+  return 'Not found.';
+
+  // return numbers.includes(number) ? 'The number is found.' : "Not found";
+};
+console.log(findNumber(numberData, 5));
+console.log(findNumber(numberData, 1));
