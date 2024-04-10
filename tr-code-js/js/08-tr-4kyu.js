@@ -879,14 +879,21 @@ input : 2 strings with substrings separated by ,
 output: number as a string                        */
 
   function mxdiflg(a1, a2) {
-    const lengthArr1 = a1.map(e => e.length).sort((a, b) => b - a);
-    const lengthArr2 = a2.map(e => e.length).sort((a, b) => b - a);
-    const [max1] = lengthArr1;
-    const [min1] = lengthArr1.slice(-1);
-    const [max2] = lengthArr2;
-    const [min2] = lengthArr2.slice(-1);
+    const sortedArr1 = a1.sort((a, b) => b.length - a.length);
+    const sortedArr2 = a2.sort((a, b) => b.length - a.length);
+    const max1 = sortedArr1[0].length;
+    const min1 = sortedArr1.slice(-1)[0].length;
+    const max2 = sortedArr2[0].length;
+    const min2 = sortedArr2.slice(-1)[0].length;
+
+    // const lengthArr1 = a1.map(e => e.length).sort((a, b) => b - a);
+    // const lengthArr2 = a2.map(e => e.length).sort((a, b) => b - a);
+    // const [max1] = lengthArr1;
+    // const [min1] = lengthArr1.slice(-1);
+    // const [max2] = lengthArr2;
+    // const [min2] = lengthArr2.slice(-1);
 
     return (max1 && max2) ? (max1 - min2 > max2 - min1 ? max1 - min2 : max2 - min1) : -1;
   }
-  console.log(mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ["cccooommaaqqoxii"]));
+  // console.log(mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ['rwetfgowqnxcnx\zxt']));
 }
