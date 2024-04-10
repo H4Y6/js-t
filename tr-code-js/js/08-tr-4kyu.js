@@ -857,12 +857,36 @@ Write a function to calculate factorial for a given input. If input is below 0 o
     if (n > 12 || n < 0) {
       throw new RangeError("The argument must be between 0 and 12.");
     }
-    return n < 1 ? res : n * factorial(n - 1);
+    return n ? n * factorial(n - 1) : res;
 
     // for (n; n > 1; n -= 1) {
     //   res *= n;
     // }
     // return res;
   };
-  // console.log(factorial(10));
+  // console.log(factorial(6));
 };
+
+{  /**  7 kyu  Maximum Length Difference  You are given two arrays a1 and a2 of strings. Each string is composed with letters from a to z. Let x be any string in the first array and y be any string in the second array.
+Find max(abs(length(x) − length(y)))
+If a1 and/or a2 are empty return -1 in each language except in Haskell (F#) where you will return Nothing (None).
+Example:
+a1 = ["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"]
+a2 = ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]
+mxdiflg(a1, a2) --> 13
+Bash note:
+input : 2 strings with substrings separated by ,
+output: number as a string                        */
+
+  function mxdiflg(a1, a2) {
+    const lengthArr1 = a1.map(e => e.length).sort((a, b) => b - a);
+    const lengthArr2 = a2.map(e => e.length).sort((a, b) => b - a);
+    const [max1] = lengthArr1;
+    const [min1] = lengthArr1.slice(-1);
+    const [max2] = lengthArr2;
+    const [min2] = lengthArr2.slice(-1);
+
+    return (max1 && max2) ? (max1 - min2 > max2 - min1 ? max1 - min2 : max2 - min1) : -1;
+  }
+  console.log(mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ["cccooommaaqqoxii"]));
+}
