@@ -975,9 +975,6 @@ Examples
 "1"    =>  NULL
 "1,2"  =>  NULL        */
 
-  const array = string => {
-    const res = string.split(',').slice(1, -1).join(' ');
-    return res.length ? res : null;
-  };
-  console.log(array('A1,B2, C3'));
+  const array = string => string.split(',').slice(1, -1).join(' ') || null;
+  console.log(array('A1,B2'));
 }
