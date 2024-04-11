@@ -897,3 +897,53 @@ output: number as a string                        */
   }
   // console.log(mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ['rwetfgowqnxcnx\zxt']));
 }
+
+{  /**  8 kyu  String cleaning
+Your boss decided to save money by purchasing some cut-rate optical character recognition software for scanning in the text of old novels to your database. At first it seems to capture words okay, but you quickly notice that it throws in a lot of numbers at random places in the text.
+Examples (input -> output)
+'! !'                 -> '! !'
+'123456789'           -> ''
+'This looks5 grea8t!' -> 'This looks great!'
+Your harried co-workers are looking to you for a solution to take this garbled text and remove all of the numbers. Your program will take in a string and clean out all numeric characters, and return a string with spacing and special characters ~#$%^&!@*():;"'.,? all intact. */
+
+  const stringClean = s => s.split('').filter(el => !'0123456789'.includes(el)).join('');
+  // const stringClean = s => s.split('').filter(el => el != parseInt(el)).join('');
+  // const stringClean = s => s.replace(/\d/g, '');
+  // const stringClean = s => s.replace(/[0-9]/g, '');
+  // console.log(stringClean("Dsa32 cdsc34232 csa!!! 1I 4Am cool!"));
+}
+
+{  /**  8 kyu  Sum of differences in array
+Your task is to sum the differences between consecutive pairs in the array in descending order.
+Example
+[2, 1, 10]  -->  9
+In descending order: [10, 2, 1]
+Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+If the array is empty or the array has only one element the result should be 0   */
+
+  // const sumOfDifferences = arr => {
+  //   let sum = 0;
+  //   arr.sort((a, b) => b - a);
+  //   for (let i = 0; i < arr.length; i++) {
+  //     if (arr[i + 1] || arr[i + 1] === 0) {
+  //       sum += arr[i] - arr[i + 1];
+  //     }
+  //   }
+  //   return sum;
+  // };
+
+  // const sumOfDifferences = arr => {
+  //   const [max] = arr.sort((a, b) => b - a).slice(0, 1);
+  //   const [min] = arr.slice(-1);
+  //   return max - min ? max - min : 0;
+  // };
+
+  // const sumOfDifferences = arr => arr.length > 1 ? arr.sort((a, b) => a - b).pop() - arr.shift() : 0;
+
+  const sumOfDifferences = arr => arr.length > 1 ? arr.sort((a, b) => a - b)[arr.length - 1] - arr[0] : 0;
+
+  // console.log(sumOfDifferences([0, 0, 0, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, -1, -1, 0, 0, 0]));
+  // console.log(sumOfDifferences([6, 23, 23, 4, 20, 5, -13, -5, -2, 13, -9, -19, 0]));
+  // console.log(sumOfDifferences([1, 2, 10]));
+  // console.log(sumOfDifferences([]));
+};
