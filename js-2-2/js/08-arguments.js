@@ -14,7 +14,7 @@ function aboutArgs() {
   // console.log(arguments);
 
   const elements = Array.from(arguments);
-  console.log('elements->', elements);
+  // console.log('elements->', elements);
 
   for (const arg of arguments) {
     // console.log(arg);
@@ -35,20 +35,20 @@ function sumArgs() {
   return sum;
 }
 
-console.log('sum of args->', sumArgs(1, 2, 6, 7));
+// console.log('sum of args->', sumArgs(1, 2, 6, 7));
 
 
 function aboutRest(...anyName) {
   return `anyName: ${anyName}`;
 }
 
-console.log(aboutRest(1, 2, 3, 4, 5, 6, 7));
+// console.log(aboutRest(1, 2, 3, 4, 5, 6, 7));
 
 function sumEls(...els) {
   return `sum of els: ${els.reduce((sum, el) => sum + el, 0)}`;
 }
 
-console.log(sumEls(111, 2, 3, 4, 5, 6, 7));
+// console.log(sumEls(111, 2, 3, 4, 5, 6, 7));
 
 // fn(1, 2, 3);
 // fn(1, 2, 3, 4, 5);
@@ -131,9 +131,9 @@ const filterNums = function (array, ...args) {
 
   return [common, unique];
 };
-console.log(filterNums([18, 15, 25, 30], 23, 30, 18, 15, 11));
+// console.log(filterNums([18, 15, 25, 30], 23, 30, 18, 15, 11));
 
-console.log((/7/).test([23, 30, 18, 15, 11]));
+// console.log((/7/).test([23, 30, 18, 15, 11]));
 
 
 function withdraw(amount, balance) {
@@ -145,7 +145,7 @@ function withdraw(amount, balance) {
     console.log("Недостатньо коштів на рахунку");
     return;
   }
-  console.log("Операція зняття коштів проведена");
+  console.log("Успішне зняття коштів");
 }
 
 // withdraw(200, 300);
@@ -174,3 +174,81 @@ function withdraw(amount, balance) {
   const b = 8;
   // console.log(sum(a, b))
 }
+
+{   /*   Compare!!!    No arguments for arrows but rest   */
+
+  const calculatetotal = (...args) => {
+    let total = 0;
+
+    for (const el of args) {
+      total += el;
+    }
+
+    return total;
+  };
+  // console.log(calculatetotal(4, 6, 3, 9, 5, 7));
+
+  const calculatetotalValue = function () {
+    let total = 0;
+
+    for (const el of arguments) {
+      total += el;
+    }
+
+    return total;
+  };
+  // console.log(calculatetotalValue(4, 6, 3, 9, 5, 7));
+}
+
+{
+  const findLongestWord = function (words, res = '') {
+
+    for (const word of words.split(' ')) {
+      res = word.length > res.length ? word : res;
+    }
+
+    return res;
+  };
+
+  const wordsA = 'apple kiwi ananas cucumber';
+  const wordsB = 'apricot pear plum nut';
+
+  // console.log(findLongestWord(wordsA));
+
+  const testFindLongestWord = function (result, expectedValue) {
+    if (result === expectedValue) {
+      return { 'tested': 'Test ok.', result };
+    } else {
+      // console.error('Error!');
+      throw new Error(`Error: not a ${expectedValue}`);
+    }
+  };
+  console.log(testFindLongestWord(findLongestWord(wordsA), 'cucumber'));
+}
+
+{
+  const getAverageValue = function (numbers) {
+    // return numbers.reduce((value, el) => value + el, 0) / numbers.length;
+
+    let sum = 0;
+
+    for (const num of numbers) {
+      sum += num;
+    }
+
+    return sum / numbers.length;
+  };
+
+  const getMaxValue = function (numbers) {
+    return numbers.reduce((max, num) => max = num > max ? num : max);
+  };
+
+  const getMinValue = function (numbers) {
+    return numbers.reduce((min, num) => min = num < min ? num : min);
+  };
+
+  const arr = [3, 66, 52, 48, 1];
+  // console.log(getAverageValue(arr));
+  // console.log(getMaxValue(arr));
+  // console.log(getMinValue(arr));
+};
