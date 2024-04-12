@@ -1003,6 +1003,85 @@ You may consider that there will not be any empty arrays/vectors.     */
 
 {  /**  7 kyu  Factorial       Your task is to write function factorial.         */
 
-  // const factorial = n => n < 1 ? 1 : n * factorial(n - 1);
-  console.log(factorial(4));
+  const factorial = n => n < 1 ? 1 : n * factorial(n - 1);
+  // console.log(factorial(4));
 }
+
+{  /* 8 kyu   Beginner - Lost Without a Map
+Given an array of integers, return a new array with each value doubled.
+[1, 2, 3] --> [2, 4, 6]  **/
+
+  const maps = x => x.map(el => 2 * el);
+  // console.log(maps([3, 5]));
+}
+
+{  /** 8 kyu Task
+Your job is simple, if x squared is more than 1000, return It's hotter than the sun!!, else, return Help yourself to a honeycomb Yorkie for the glovebox.
+Note: Input will either be a positive integer (or a string for untyped languages).  */
+
+  const apple = x => x ** 2 > 1000 ? 'It\'s hotter than the sun!!' : 'Help yourself to a honeycomb Yorkie for the glovebox.';
+  // const apple = x => Number(x) ** 2 > 1000 ? 'It\'s hotter than the sun!!' : 'Help yourself to a honeycomb Yorkie for the glovebox.';
+  // console.log(apple('31'));
+}
+
+{  /** 8 kyu  All Star Code Challenge #18
+Create a function that accepts a string and a single character, and returns an integer of the count of occurrences the 2nd argument is found in the first one.
+If no occurrences can be found, a count of 0 should be returned.
+str_count("Hello", 'o'); // returns 1
+str_count("Hello", 'l'); // returns 2
+str_count("", 'z'); // returns 0
+Notes: The first argument can be an empty string
+In languages with no distinct character data type, the second argument will be a string of length 1       */
+
+  const strCount = (str, letter) => str.length - str.replaceAll(letter, '').length;
+  // const strCount = (str, letter) => str.split('').filter(el => el === letter).length;
+  // const strCount = (str, letter) => str.split('').reduce((res, el) => el === letter ? res + 1 : res, 0);
+  // console.log(strCount('Hello', 'l'));
+}
+
+{  /** 8 kyu  Find out whether the shape is a cube 
+  To find the volume (centimeters cubed) of a cuboid you use the formula:
+volume = Length * Width * Height
+But someone forgot to use proper record keeping, so we only have the volume, and the length of a single side!
+It's up to you to find out whether the cuboid has equal sides (= is a cube).
+Return true if the cuboid could have equal sides, return false otherwise.
+Return false for invalid numbers too (e.g volume or side is less than or equal to 0).
+Note: side will be an integer    */
+
+  const cubeChecker = (volume, side) => side > 0 ? volume === side ** 3 : false;
+  // console.log(cubeChecker(27, 3));
+}
+
+{  /**  8 kyu  Do you speak "English"?
+Given a string of arbitrary length with any ascii characters. Write a function to determine whether the string contains the whole word "English".
+The order of characters is important -- a string "abcEnglishdef" is correct but "abcnEglishsef" is not correct.
+Upper or lower case letter does not matter -- "eNglisH" is also correct.
+Return value as boolean values, true for the string to contains "English", false for it does not.   */
+
+  // const spEng = sentence => Boolean(sentence.match(/english/i));
+  const spEng = sentence => /english/i.test(sentence);
+  // const spEng = sentence => sentence.toLowerCase().includes('english');
+  // console.log(spEng('12engLIsh345ert'));
+}
+
+{  /**  7 kyu  Fix string case
+In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+make as few changes as possible.
+if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+For example:
+solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+More examples in test cases. Good luck!
+Please also try:
+Simple time difference
+Simple remove duplicates      */
+
+  const solve = s => [...s].reduce((t, el) => t + /[a-z]/.test(el), 0) < s.length / 2 ? s.toUpperCase() : s.toLowerCase();
+
+  // const solve = s => {
+  //   if (!s.match(/[A-Z]/g) || s.match(/[A-Z]/g).length === s.length) { return s; }
+  //   return s.match(/[A-Z]/g).length > s.length / 2 ? s.toUpperCase() : s.toLowerCase();
+  // };
+  // console.log(solve("coDE"));
+};
