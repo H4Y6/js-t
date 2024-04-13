@@ -1085,3 +1085,49 @@ Simple remove duplicates      */
   // };
   // console.log(solve("coDE"));
 };
+
+{  /**  8 kyu  Regular Ball Super Ball
+Create a class Ball. Ball objects should accept one argument for "ball type" when instantiated.
+If no arguments are given, ball objects should instantiate with a "ball type" of "regular."
+ball1 = new Ball();
+ball2 = new Ball("super");
+ball1.ballType     //=> "regular"
+ball2.ballType     //=> "super"         */
+
+  // function Ball(ballType = 'ballType') {
+  //   this.ballType = ballType;
+  // }
+
+  class Ball {
+    constructor(ballType = 'regular') {
+      this.ballType = ballType;
+    }
+  }
+  const ballA = new Ball();
+  const ballB = new Ball('local');
+  // console.log(ballA);
+}
+
+{  /**  6 kyu  Tortoise racing 
+Two tortoises named A and B must run a race. A starts with an average speed of 720 feet per hour. Young B knows she runs faster than A, and furthermore has not finished her cabbage.
+When she starts, at last, she can see that A has a 70 feet lead but B's speed is 850 feet per hour. How long will it take B to catch A?
+More generally: given two speeds v1 (A's speed, integer > 0) and v2 (B's speed, integer > 0) and a lead g (integer > 0) how long will it take B to catch A?
+The result will be an array [hour, min, sec] which is the time needed in hours, minutes and seconds (round down to the nearest second) or a string in some languages.
+If v1 >= v2 then return nil, nothing, null, None or {-1, -1, -1} for C++, C, Go, Nim, Pascal, COBOL, Erlang, [-1, -1, -1] for Perl,[] for Kotlin or "-1 -1 -1" for others.
+Examples:
+(form of the result depends on the language)
+race(720, 850, 70) => [0, 32, 18] or "0 32 18"
+race(80, 91, 37)   => [3, 21, 49] or "3 21 49"     */
+
+  function race(v1, v2, g, res = []) {
+    if (v1 > v2) return null;
+    const time = Math.floor(g / (v2 - v1) * 3600) / 3600;
+    res.push(Math.floor(time), Math.floor(time * 60 % 60), Math.round(time * 3600 % 60));
+    // const seconds = Math.floor(g / (v2 - v1) * 3600);
+    // res[2] = seconds % 60;
+    // res[1] = (seconds - res[2]) / 60 % 60;
+    // res[0] = ((seconds - res[2]) / 60 - res[1]) / 60;
+    return res;
+  }
+  // console.log(race(80, 91, 37));
+}
