@@ -1170,3 +1170,60 @@ s = "123456" gives "234561".                                */
   // console.log(revrot("123456779", 4));
   // console.log(revrot("733049910872815764", 5));
 }
+
+{  /**  8 kyu  Reversing Words in a String 
+You need to write a function that reverses the words in a given string. A word can also fit an empty string. If this is not clear enough, here are some examples:
+As the input may have trailing spaces, you will also need to ignore unneccesary whitespace.
+Example (Input --> Output)
+"Hello World" --> "World Hello"
+"Hi There." --> "There. Hi"        */
+
+  const reverse = string => string.split(' ').reverse().join(' ');
+  // console.log(reverse('I am an expert at this'));
+}
+
+{  /**  5 kyu  Regex Password Validation
+You need to write regex that will validate a password to make sure it meets the following criteria:
+At least six characters long
+contains a lowercase letter
+contains an uppercase letter
+contains a digit
+only contains alphanumeric characters (note that '_' is not alphanumeric)    */
+
+  /**  ^: Asserts the start of the string.
+  (?=.*[a-z]): Requires at least one lowercase letter.
+  (?=.*[A-Z]): Requires at least one uppercase letter.
+  (?=.*\d): Requires at least one digit.
+  [A-Za-z\d]{6,}: Matches alphanumeric characters (including both uppercase and lowercase letters) with a minimum length of 6.
+  $: Asserts the end of the string. */
+
+  const REGEXP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[_])\w{6,}$/;
+}
+
+{  /**  8 kyu  Price of Mangoes
+There's a "3 for 2" (or "2+1" if you like) offer on mangoes. For a given quantity and price (per mango), calculate the total cost of the mangoes.
+Examples
+mango(2, 3) ==> 6    # 2 mangoes for $3 per unit = $6; no mango for free
+mango(3, 3) ==> 6    # 2 mangoes for $3 per unit = $6; +1 mango for free
+mango(5, 3) ==> 12   # 4 mangoes for $3 per unit = $12; +1 mango for free
+mango(9, 5) ==> 30   # 6 mangoes for $5 per unit = $30; +3 mangoes for free    */
+
+  const mango = (quantity, price) => ((quantity % 3) + (quantity - quantity % 3) / 3 * 2) * price;
+  // console.log(mango(5, 3));
+}
+
+{  /**  8 kyu  Hello, Name or World!
+Define a method hello that returns "Hello, Name!" to a given name, or says Hello, World! if name is not given (or passed as an empty String).
+Assuming that name is a String and it checks for user typos to return a name with a first capital letter (Xxxx).
+Examples:
+* With `name` = "john"  => return "Hello, John!"
+* With `name` = "aliCE" => return "Hello, Alice!"
+* With `name` not given 
+  or `name` = ""        => return "Hello, World!"   */
+
+  const hello = name => `Hello, ${name ? name.toLowerCase().replace(/\w/, e => e.toUpperCase()) : 'World'}!`;
+  // const hello = name => `Hello, ${name ? name.charAt().toUpperCase() + name.slice(1).toLowerCase() : 'World'}!`;
+  // const hello = name => `Hello, ${name ? name[0].toUpperCase() + name.slice(1).toLowerCase() : 'World'}!`;
+  // console.log(hello('john'));
+}
