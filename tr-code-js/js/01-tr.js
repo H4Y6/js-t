@@ -92,4 +92,82 @@ function formatMessage(message, maxLength) {
   result = maxLength >= message.length ? message : message.slice(0, maxLength) + '...';
   return result;
 }
-console.log(formatMessage("Vestibulum facilisis purus nec", 30));
+// console.log(formatMessage("Vestibulum facilisis purus nec", 30));
+
+const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+  tags: ["premium", "promoted", "top"],
+  owner: {
+    name: 'Henry',
+    phone: "982-126-1588",
+    email: "henry.carter@aptmail.com"
+  },
+};
+// const aptRating = apartment.rating;
+// const aptDescr = apartment.descr;
+// const aptPrice = apartment.price;
+// const aptTags = apartment.tags;
+
+const ownerName = apartment.owner.name;
+const ownerPhone = apartment.owner.phone;
+const ownerEmail = apartment.owner.email;
+const numberOfTags = apartment.tags.length;
+const [firstTag] = apartment.tags;
+const lastTag = apartment.tags[numberOfTags - 1];
+
+const aptRating = apartment['rating'];
+const aptDescr = apartment['descr'];
+const aptPrice = apartment['price'];
+const aptTags = apartment['tags'];
+
+apartment.price = 5000;
+apartment.rating = 4.7;
+apartment.owner.name = 'Henry Sibola';
+apartment.tags.push('trusted');
+
+apartment.area = 60;
+apartment.rooms = 3;
+apartment.location = {
+  country: 'Jamaica',
+  city: 'Kingston',
+};
+
+const emailInputName = "email";
+const passwordInputName = "password";
+
+const credentials = {
+  [emailInputName]: 'henry.carter@aptmail.com',
+  [passwordInputName]: "jqueryismyjam",
+};
+
+// console.log(credentials);
+
+
+{
+  const apartment = {
+    descr: "Spacious apartment in the city center",
+    rating: 4,
+    price: 2153,
+  };
+
+  const keys = [];
+
+  for (const key in apartment) {
+    if (Object.hasOwnProperty.call(apartment, key)) {
+      keys.push(key);
+    }
+  }
+  const values = [];
+
+  for (const key in apartment) {
+    if (Object.hasOwnProperty.call(apartment, key)) {
+      const element = apartment[key];
+      values.push(element);
+    }
+  }
+  console.log(keys);
+  console.log(values);
+}

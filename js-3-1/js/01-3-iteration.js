@@ -10,16 +10,16 @@ const feedback = {
 
 let totalFeedback = 0;
 
-// const keys = Object.keys(feedback);
+const keys = Object.keys(feedback);
 
 // console.log(keys);
 
-// for (const key of keys) {
-//   console.log(key);
-//   console.log(feedback[key]);
+for (const key of keys) {
+  // console.log(key);
+  // console.log(feedback[key]);
 
-//   totalFeedback += feedback[key];
-// }
+  totalFeedback += feedback[key];
+}
 
 // console.log('totalFeedback: ', totalFeedback);
 

@@ -8,6 +8,16 @@ const friends = [
   { name: 'Ajax', online: false },
 ];
 
+const getAllNames = (friends) => {
+  const names = [];
+  for (const friend of friends) {
+    names.push(friend.name);
+  }
+
+  return names;
+};
+console.log(getAllNames(friends));
+
 // console.log({ objectKeyLength: Object.keys(friends).length });
 
 // console.table(friends);
@@ -40,7 +50,7 @@ const getNames = function (friends) {
   const names = [];
 
   for (const friend of friends) {
-    names.push(friend.name)
+    names.push(friend.name);
   }
   console.log(names);
   // return names;
@@ -48,29 +58,47 @@ const getNames = function (friends) {
 
 // getNames(friends);
 
-const getFriendsOnLineStatus = function (friends) {
-  const friendsOnLineStatus = {
-    friendsOnLine: [],
-    friendsOffLine: []
-  };
+const getFriendStatus = (friends) => {
+  let friendsOnline = [];
+  let friendsOffline = [];
 
   for (const friend of friends) {
     if (friend.online) {
-      friendsOnLineStatus.friendsOnLine.push(friend);
+      friendsOnline.push(friend.name);
       continue;
     }
-    friendsOnLineStatus.friendsOffLine.push(friend);
-
-    // friend.online ? friendsOnLineStatus.friendsOnLine.push(friend) : friendsOnLineStatus.friendsOffLine.push(friend);
-    // friendsOnLineStatus[friend.online ? 'friendsOnLine' : 'friendsOffLine'].push(friend);
+    friendsOffline.push(friend.name);
   }
-  console.log(friendsOnLineStatus);
-  // return friendsOnLineStatus;
-}
 
-// console.log(getFriendsOnLineStatus(friends));
-getFriendsOnLineStatus(friends)
+  return { 'online': friendsOnline, 'offline': friendsOffline };
+};
+console.log(getFriendStatus(friends));
 
+
+const getFriendsOnLineStatus = function (friends) {
+  const friendsStatus = {
+    onLine: [],
+    offLine: []
+  };
+
+  for (const friend of friends) {
+    // if (friend.online) {
+    //   friendsStatus.onLine.push(friend);
+    //   continue;
+    // }
+    // friendsStatus.offLine.push(friend);
+
+    // friend.online ? friendsStatus.onLine.push(friend) : friendsStatus.offLine.push(friend);
+
+    // const key = friend.online ? 'onLine' : 'offLine';
+    // friendsStatus[key].push(friend);
+
+    friendsStatus[friend.online ? 'onLine' : 'offLine'].push(friend);
+  }
+  return friendsStatus;
+};
+
+console.log(getFriendsOnLineStatus(friends));
 
 // const getAllNames = function (allFriends) {
 //   const names = [];
@@ -189,7 +217,8 @@ const getFriendsByStatus = function (allFriends) {
     bread: 4,
     cheese: 7,
   };
-
+  const count = Object.keys(goods).length;
+  // console.log(count);
   const values = Object.values(goods); // [6, 3, 4, 7]
 
   let total = 0;

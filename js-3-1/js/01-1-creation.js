@@ -37,22 +37,43 @@
  */
 
 const playlist = {
-  name: 'Мой супер плейлист',
+  name: 'My playlist',
   rating: 5,
-  tracks: ['трек-1', 'трек-2', 'трек-3'],
-  trackCount: 3,
+  tracks: ['track-1', 'track-2', 'track-3'],
+  /**
+    getName: function () {
+     return this.name;
+   }    
+   old version 
+   */
+  getName() { return this.name; },
+
+  changeName(newName) {
+    this.name = newName;
+  },
+
+  addTrack(newTrack) {
+    this.tracks.push(newTrack);
+  },
+
+  updateRating(newRating) {
+    this.rating = newRating;
+  },
+
+  getTrackCount() {
+    return this.trackks.length;
+  },
+
 };
-
-// playlist.qwe = 5;
-
 // playlist.rating = 10;
 
-// console.log(playlist);
-
-// console.log(playlist);
+playlist.changeName('My new playlist');
+playlist.addTrack('My new track');
+playlist.updateRating(6);
+// console.log(playlist.getName());
 // console.log(playlist.tracks);
-// console.log(playlist.name);
-// console.log(playlist.trackCount);
+// console.log('rating->', playlist.rating);
+// console.log('tracks->', playlist.tracks.length);
 
 const propertyName = 'tracks';
 
@@ -147,7 +168,7 @@ const colorPickerData = {
   const bookGenres = book["genres"];
   bookGenres.push('drama');
 
-  const genreItems = ['albert', 'lock']
+  const genreItems = ['albert', 'lock'];
   bookGenres.push(...genreItems);
   book.genres.push('science');
 
