@@ -11,13 +11,13 @@ const playlist = {
   trackCount: 3,
 };
 
-// const {
-//   rating,
-//   tracks,
-//   name,
-//   trackCount: numberOfTracks = 0,
-//   author = 'user',
-// } = playlist;
+const {
+  rating,
+  tracks,
+  name,
+  trackCount: numberOfTracks = 0,
+  author = 'user',
+} = playlist;
 
 // console.log(numberOfTracks);
 
@@ -25,27 +25,31 @@ const playlist = {
  * Глубокая деструктуризация
  */
 
-// const profile = {
-//   name: 'Jacques Gluke',
-//   tag: 'jgluke',
-//   location: 'Ocho Rios, Jamaica',
-//   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
-//   stats: {
-//     followers: 5603,
-//     views: 4827,
-//     likes: 1308,
-//   },
-// };
+{
+  const profile = {
+    name: 'Jacques Gluke',
+    tag: 'jgluke',
+    location: 'Ocho Rios, Jamaica',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+    stats: {
+      followers: 5603,
+      views: 4827,
+      likes: 1308,
+    },
+  };
 
-// const {
-//   avatar,
-//   name,
-//   tag,
-//   location,
-//   stats: { followers, views, likes },
-// } = profile;
+  const {
+    avatar,
+    name,
+    name: copiedName,
+    tag,
+    location,
+    stats: { followers, views, likes },
+  } = profile;
 
-// console.log(name, tag, location, avatar, followers, views, likes);
+  // console.log(copiedName, name, tag, location, avatar, followers, views, likes);
+  // console.log(name === copiedName);
+}
 
 /*
  * Деструктуризация массивов
@@ -54,6 +58,7 @@ const playlist = {
 const rgb = [255, 100, 80];
 
 const [red, green, blue] = rgb;
+// const [red, , blue] = rgb;
 
 // console.log(red, green, blue);
 
@@ -69,10 +74,10 @@ const entries = Object.entries(authors);
 // console.log(entries);
 
 // for (const [name, rating] of entries) {
-//   // ур2
+//   // level 1
 //   // const [name, rating] = entry;
 
-//   // ур1
+//   // level 2
 //   // const name = entry[0];
 //   // const rating = entry[1];
 
@@ -82,24 +87,25 @@ const entries = Object.entries(authors);
 /*
  * Операция rest (сбор)
  */
-// const profile = {
-//   name: 'Jacques Gluke',
-//   tag: 'jgluke',
-//   location: 'Ocho Rios, Jamaica',
-//   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
-//   stats: {
-//     followers: 5603,
-//     views: 4827,
-//     likes: 1308,
-//   },
-// };
+{
+  const profile = {
+    name: 'Jacques Gluke',
+    tag: 'jgluke',
+    location: 'Ocho Rios, Jamaica',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+    stats: {
+      followers: 5603,
+      views: 4827,
+      likes: 1308,
+    },
+  };
 
-// const { name, tag, location, ...restProps } = profile;
+  const { name, tag, location, ...restProps } = profile;
 
-// console.log(name, tag, location);
-// console.log(restProps);
-// console.log(profile);
-
+  // console.log(name, tag, location);
+  // console.log(restProps);
+  // console.log(profile);
+}
 /*
  * Паттерн «Обьект настроек»
  * - деструктуризация параметра-обьекта в подписи функции
@@ -117,7 +123,7 @@ const profile = {
   name: 'Jacques Gluke',
   tag: 'jgluke',
   location: 'Ocho Rios, Jamaica',
-  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+  avatar: 'https://',
   stats: {
     followers: 5603,
     views: 4827,
@@ -126,6 +132,22 @@ const profile = {
 };
 
 // showProfileInfo(profile);
+
+const makeProfileMarkup = function (userProfile) {
+  const {
+    avatar,
+    name,
+    tag,
+    location = 'Planet Earth',
+    stats: { followers, views, likes },
+  } = userProfile;
+
+  return `<div> <img src="${avatar}"  width="212" alt="user avatar"><p>${name}<span>@${tag}</span></p><p>Location: ${location}</p><ul><li> Followers: ${followers}</li><li> Views: $views}</li><li>Likes: ${likes}</li></ul></div>`;
+};
+
+const markup = makeProfileMarkup(profile);
+document.body.insertAdjacentHTML('afterbegin', markup);
+// console.log(markup);
 
 {
   const products = [
@@ -148,7 +170,7 @@ const profile = {
     return totalPrice;
   }
 
-  calculateTotalPrice('Grip')
+  calculateTotalPrice('Grip');
 }
 
 {

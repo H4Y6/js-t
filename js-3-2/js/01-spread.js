@@ -57,22 +57,29 @@ const allTemps = [...lastWeekTemps, ...currentTemps, ...nextWeekTemps];
  * Распыление объектов
  * - Object.prototype.assign() и spread
  */
-const a = { x: 1, y: 2 };
+const a = [{ x: 1, y: 2 }, { a: 4 }];
+const aa = { ...a };
+aa[1].a = 44;
+console.log('aa===a:', aa === a, ', a[0]===aa[0]:', a[0] === aa[0], ', a[1]===aa[1]:', a[1] === aa[1]);
+
 const b = { x: 0, z: 3 };
 
-// const c = Object.assign({name: 'Mango' }, a, b);
+const c = Object.assign({ name: 'Mango' }, a[0], b);
+const cc = Object.assign({ name: 'Mango' }, a, b);
 
-const c = {
-  ...a,
+const ccc = {
+  ...a[0],
   x: 10,
   ...b,
   y: 20,
 };
 
-// console.log(c);
+console.log('c:', c);
+console.log('cc:', cc);
+console.log('ccc:', ccc);
 
 const defaultSettings = {
-  theme: 'light',
+  theme: 'dark',
   showNotifications: true,
   hideSidebar: false,
 };
