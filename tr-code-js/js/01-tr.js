@@ -328,6 +328,66 @@ const forecast = {
     return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
   }
 }
+{
+  const scores = [89, 64, 42, 17, 93, 51, 26];
+  const bestScore = Math.max(...scores);
+  const worstScore = Math.min(...scores);
+  // console.log(bestScore, worstScore);
+}
 
+{
+  const firstGroupScores = [64, 42, 93];
+  const secondGroupScores = [89, 14, 51, 26];
+  const thirdGroupScores = [29, 47, 18, 97, 81];
+  const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+  const bestScore = Math.max(...allScores);
+  const worstScore = Math.min(...allScores);
+  // console.log(bestScore, worstScore);
+}
 
+function makeTask(data) {
+  const completed = false;
+  const category = "General";
+  const priority = "Normal";
+  return { completed, category, priority, ...data, };
+}
+// console.log(makeTask({ category: 'Homemade', priority: 'Low', text: 'Take out the trash' }));
+// console.log(makeTask({ category: 'Finance', text: 'Take interest' }));
+// console.log(makeTask({ priority: 'Low', text: 'Choose shampoo' }));
 
+{
+  function add(...args) {
+    let total = 0;
+    for (const arg of args) {
+      total += arg;
+    }
+
+    return total;
+  }
+}
+
+{
+  function addOverNum(number, ...args) {
+    let total = 0;
+
+    for (const arg of args) {
+      if (arg <= number) continue;
+      total += arg;
+    }
+
+    return total;
+  }
+  // console.log(addOverNum(15, 32, 6, 13, 19, 8));
+}
+
+{
+  function findMatches(array, ...args) {
+    const matches = [];
+    for (const arg of args) {
+      if (!array.includes(arg)) continue;
+      matches.push(arg);
+    }
+
+    return matches;
+  }
+}
