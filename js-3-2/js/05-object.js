@@ -1,13 +1,29 @@
+const userAba = {
+    name: 'Pit Bolders',
+    location: {
+        country: {
+            native: "Pol",
+            alternative: 'Fadol',
+        },
+        city: 'Posajy',
+    },
+    getName() {
+        return this.name;
+    }
+};
+// console.log(userAba['location'].country['native']);
+// console.log(userAba.getName());
+
 {
     const createUser = function (name, age) {
         // return { name: name, age: age };
         const eyeColor = 'green';
 
         return { name, age, eyeColor };
-    }
+    };
 
     const user = createUser('Smith', 33);
-    // console.log(user);
+    console.log(user);
 }
 
 {
@@ -17,7 +33,7 @@
         obj[key] = value;
 
         return obj;
-    }
+    };
     // const developer = addProps(user, 'salary', 2222);
     const developer = addProps(user, 'rating', 4.2);
 
@@ -30,7 +46,7 @@
     const addProps = function (obj, key, value) {
 
         return { ...obj, [key]: value };
-    }
+    };
     let developer = addProps(user, 'salary', 2222);
     // console.log(developer);
 
@@ -76,7 +92,7 @@
 
         estimateCompanyIncome() {
             this.income = this.totalCompanyFund - this.estimateTotalSalary();
-            return this.income
+            return this.income;
         },
     };
 
@@ -100,9 +116,9 @@
         showName() {
             console.log(this.name);
         }
-    }
+    };
 
-    const showName = obj.showName.bind(obj)
+    const showName = obj.showName.bind(obj);
     // showName();
 }
 
