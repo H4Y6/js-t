@@ -1294,6 +1294,27 @@ Array can contain numbers or strings. x can be either. Return true if the array 
 Looking for more, loop-restrained fun? Check out the other kata in the series: */
 
   function check(a, x) { return a.includes(x); };
-  console.log(check(['what', 'a', 'great', 'kata'], 'kat'));
-  console.log(check([80, 117, 115, 104, 45, 85, 112, 115], 45));
+  // console.log(check(['what', 'a', 'great', 'kata'], 'kat'));
+  // console.log(check([80, 117, 115, 104, 45, 85, 112, 115], 45));
+}
+
+{  /**  6 kyu  Encrypt this!
+Description:
+Encrypt this!
+You want to create secret messages which can be deciphered by the Decipher this! kata. Here are the conditions:
+Your message is a string containing space separated words.
+You need to encrypt each word in the message using the following rules:
+The first letter must be converted to its ASCII code.
+The second letter must be switched with the last letter
+Keepin' it simple: There are no special characters in the input.
+Examples:
+encryptThis("Hello") === "72olle"
+encryptThis("good") === "103doo"
+encryptThis("hello world") === "104olle 119drlo"            */
+
+  const encryptThis = text => text.split(' ').map(e => e.replace(/(^\w)(\w)(\w*)(\w)/, `$1$4$3$2`).replace(/\w/, e.charCodeAt())).join(' ');
+
+  // const encryptThis = text => text.split(' ').map(e => e.length > 2 ? e.charCodeAt() + e.slice(-1) + e.slice(2, -1) + e.slice(1, 2)
+  //   : e.length > 1 ? e.charCodeAt(0) + e.charAt(1) : e.charCodeAt(0)).join(' ');
+  // console.log(encryptThis("Thank you Piotr for all your help"));
 }
