@@ -1227,3 +1227,73 @@ Examples:
   // const hello = name => `Hello, ${name ? name[0].toUpperCase() + name.slice(1).toLowerCase() : 'World'}!`;
   // console.log(hello('john'));
 }
+
+{  /**  7 kyu  Count the divisors of a number 
+Count the number of divisors of a positive integer n.
+Random tests go up to n = 500000.
+Examples (input --> output)
+4 --> 3 // we have 3 divisors - 1, 2 and 4
+5 --> 2 // we have 2 divisors - 1 and 5
+12 --> 6 // we have 6 divisors - 1, 2, 3, 4, 6 and 12
+30 --> 8 // we have 8 divisors - 1, 2, 3, 5, 6, 10, 15 and 30
+Note you should only return a number, the count of divisors. The numbers between parentheses are shown only for you to see which numbers are counted in each case.  */
+
+  const getDivisorsCnt = n => {
+    let count = 1;
+    for (let i = 1; i <= n / 2; i++) {
+      if (n % i) continue;
+      count += 1;
+    }
+    return count;
+  };
+  // console.log(getDivisorsCnt(30));
+}
+
+{  /** 8 kyu  Sum of Multiples
+Find the sum of all multiples of n below m
+Keep in Mind:
+n and m are natural numbers (positive integers)
+m is excluded from the multiples
+Examples
+sumMul(2, 9)   ==> 2 + 4 + 6 + 8 = 20
+sumMul(3, 13)  ==> 3 + 6 + 9 + 12 = 30
+sumMul(4, 123) ==> 4 + 8 + 12 + ... = 1860
+sumMul(4, -7)  ==> "INVALID"               */
+
+  function sumMul(n, m) {
+    if (m < 1) return "INVALID";
+    let sum = 0;
+
+    // for (let i = 0; i < m; i += n) {
+    //   sum += n * i;
+    // }
+    // return sum;
+    // }
+
+    for (let i = 1; i < m / n; i++) {
+      sum += n * i;
+    }
+    return sum;
+  }
+  // console.log(sumMul(1, 157));
+}
+
+{  /**  8 kyu  Area of a Square
+Complete the function that calculates the area of the red square, when the length of the circular arc A is given as the input. Return the result rounded to two decimals.Note: use the π value provided in your language (Math::PI, M_PI, math.pi, etc)     */
+
+  function squareArea(A) {
+    return +((2 * A / Math.PI) ** 2).toFixed(2);
+  }
+  // console.log(squareArea(2));
+}
+
+{  /**  8 kyu  No Loops 2 - You only need one
+*** No Loops Allowed ***
+You will be given an array a and a value x. All you need to do is check whether the provided array contains the value, without using a loop.
+Array can contain numbers or strings. x can be either. Return true if the array contains the value, false if not. With strings you will need to account for case.
+Looking for more, loop-restrained fun? Check out the other kata in the series: */
+
+  function check(a, x) { return a.includes(x); };
+  console.log(check(['what', 'a', 'great', 'kata'], 'kat'));
+  console.log(check([80, 117, 115, 104, 45, 85, 112, 115], 45));
+}
