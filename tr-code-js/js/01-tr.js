@@ -409,3 +409,68 @@ function makeTask(data) {
     },
   };
 }
+
+{
+  const bookShelf = {
+    books: ["The last kingdom", "Haze", "The guardian of dreams"],
+    updateBook(oldName, newName) {
+      const idx = this.books.indexOf(oldName);
+      this.books.splice(idx, 1, newName);
+    },
+  };
+}
+
+{
+  const atTheOldToad = {
+    potions: ["Speed potion", "Dragon breath", "Stone skin"],
+    getPotions() {
+      return this.potions;
+    },
+    addPotion(potionName) {
+      this.potions.push(potionName);
+    },
+    removePotion(potionName) {
+      const idx = this.potions.indexOf(potionName);
+      this.potions.splice(idx, 1);
+    },
+    updatePotionName(oldName, newName) {
+      const idx = this.potions.indexOf(oldName);
+      this.potions.splice(idx, 1, newName);
+    },
+  };
+}
+
+{
+  const atTheOldToad = {
+    potions: [
+      { name: "Speed potion", price: 460 },
+      { name: "Dragon breath", price: 780 },
+      { name: "Stone skin", price: 520 },
+    ],
+    getPotions() {
+      return this.potions;
+    },
+    addPotion(newPotion) {
+      for (const { name } of this.potions) {
+        if (name === newPotion.name) return `Error! Potion ${newPotion.name} is already in your inventory!`;
+      }
+      this.potions.push(newPotion);
+    },
+    removePotion(potionName) {
+
+      for (let i = 0; i < this.potions.length; i++) {
+        const element = this.potions[i];
+        if (element.name !== potionName) continue;
+        this.potions.splice(i, 1);
+      }
+    },
+    updatePotionName(oldName, newName) {
+      for (let i = 0; i < this.potions.length; i++) {
+        const element = this.potions[i];
+        if (element.name !== oldName) continue;
+        this.potions[i].name = newName;
+      }
+    },
+  };
+
+}
