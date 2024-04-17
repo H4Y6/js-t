@@ -1312,9 +1312,25 @@ encryptThis("Hello") === "72olle"
 encryptThis("good") === "103doo"
 encryptThis("hello world") === "104olle 119drlo"            */
 
-  const encryptThis = text => text.split(' ').map(e => e.replace(/(^\w)(\w)(\w*)(\w)/, `$1$4$3$2`).replace(/\w/, e.charCodeAt())).join(' ');
+  // const encryptThis = text => text.split(' ').map(e => e.replace(/(^\w)(\w)(\w*)(\w)/, `$1$4$3$2`).replace(/\w/, e.charCodeAt())).join(' ');
+
+  const encryptThis = text => text.replace(/\b\w(\w?)(\w*?)(\w?)\b/g, (w, l2, mid, r) => w.charCodeAt(0) + r + mid + l2);
 
   // const encryptThis = text => text.split(' ').map(e => e.length > 2 ? e.charCodeAt() + e.slice(-1) + e.slice(2, -1) + e.slice(1, 2)
   //   : e.length > 1 ? e.charCodeAt(0) + e.charAt(1) : e.charCodeAt(0)).join(' ');
   // console.log(encryptThis("Thank you Piotr for all your help"));
+  // console.log(encryptThis("T"));
+}
+
+{  /**  7 kyu  Summing a number's digits 
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+For example: (Input --> Output)
+10 --> 1
+99 --> 18
+-32 --> 5
+Let's assume that all numbers in the input will be integer values.          */
+
+  const sumDigits = number => Math.abs(number).toString().split('').reduce((sum, el) => sum + +el, 0);
+  console.log(sumDigits(-32));
+
 }
