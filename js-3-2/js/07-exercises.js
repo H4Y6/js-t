@@ -7,7 +7,7 @@
         return { ...instance };
     };
 
-    const array1 = [1, 4, 6, 5]
+    const array1 = [1, 4, 6, 5];
     const newArray = copyInstance(array1);
     // console.log(`Are they equal? ->  ${newArray === array1}`);
 }
@@ -19,7 +19,7 @@
         }
 
         return { ...instance };
-    }
+    };
 
     const oldArray = [1, 5, 2, 9];
     const newArray = copyInstance(oldArray);
@@ -51,7 +51,7 @@
     const users = [
         { name: 'Smith' },
         { name: 'Habby', }
-    ]
+    ];
 
     const newUsers = [...users];
 
@@ -186,7 +186,7 @@
             age: 29,
         },
 
-    ]
+    ];
 
     // const findYoungestUser = function (...args) {
     //     if (args.length === 0) {
@@ -288,3 +288,8 @@
     console.log('The youngest user:', youngestUser);
     console.log('The oldest user:', oldestUser);
 }
+
+function factorial(n) {
+    return n < 2 ? 1 : n * factorial(n - 1);
+};
+console.log(factorial(6));
