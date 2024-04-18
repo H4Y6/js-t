@@ -100,8 +100,8 @@ const onBtnClick = () => {
     const currentLT = currentTime + 2;
     const currentMinute = (currentTime % 1 * 60);
     const currentSecond = (currentMinute % 1 * 60);
-    console.log(Math.floor(currentLT).toString(), ':', currentMinute.toFixed(), ':', currentSecond.toFixed())
-}
+    console.log(Math.floor(currentLT).toString(), ':', currentMinute.toFixed(), ':', currentSecond.toFixed());
+};
 
 // btnEl.addEventListener('click', onBtnClick);
 
@@ -233,7 +233,7 @@ const r3 = filter(fruits, getFruitsWithQuantity);
             if (cb(item)) filtered.push(item);
         }
         return filtered;
-    }
+    };
 
     const test1 = (el) => el >= 5;
     const test2 = (el) => el < 5;
@@ -270,4 +270,85 @@ const r3 = filter(fruits, getFruitsWithQuantity);
         return collectedFruits;
     };
     // console.log(chooseSomeFruits(fruits, collectFruit, 150));
+}
+
+{
+    const greet = name => console.log(`Welcome ${name}!`);
+    // greet('Eddy');
+
+    const registerGuest = (name, cb) => {
+        console.log(`Registration of mister ${name} is in progress.`);
+        greet(name);
+    };
+    // registerGuest('Bill', greet);
+}
+
+{
+    const calculate = function (a, b, cb) {
+        const result = cb(a, b);
+
+        // console.log(result);
+    };
+
+    const add = function (x, y) {
+        return x + y;
+    };
+    const subtract = function (x, y) {
+        return x - y;
+    };
+    calculate(3, 4, add);
+    calculate(7, 2, subtract);
+
+
+    // calculate(5, 4, function add(x, y) {
+    calculate(5, 4, function (x, y) {
+        return x - y;
+    });
+
+    // calculate(2, 4, function subtract(x, y) {
+    calculate(2, 4, function (x, y) {
+        return x + y;
+    },
+        function () { },
+        function () { },
+        function () { }
+
+    );
+
+
+    const BtnRef = document.querySelector('.js-button');
+    // console.dir(BtnRef);
+
+    const handleBtnClick = function (e) {
+        e.preventDefault();
+        console.log('This is a button click.');
+    };
+
+    // buttonRef.addEventListener('click', handleBtnClick);
+
+    buttonRef.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log('This is a button click.');
+    });
+
+
+    const onGetPositionSuccess = function (position) {
+        console.log("It's position request");
+        console.log(position);
+    };
+
+    const onGetPositionError = function (error) {
+        console.log(error);
+    };
+
+    // window.navigator.geolocation.getCurrentPosition(
+    // onGetPositionSuccess, onGetPositionError
+    // );
+
+
+    // console.log('Before timeout');
+    // setTimeout(() => {
+    // console.log('In progress');
+    // }, 1500);
+    // console.log('After timeout');
 }
