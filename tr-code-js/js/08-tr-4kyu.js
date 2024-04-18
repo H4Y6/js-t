@@ -1331,6 +1331,49 @@ For example: (Input --> Output)
 Let's assume that all numbers in the input will be integer values.          */
 
   const sumDigits = number => Math.abs(number).toString().split('').reduce((sum, el) => sum + +el, 0);
-  console.log(sumDigits(-32));
+  // console.log(sumDigits(-32));
+}
 
+{  /**  7 kyu  Even numbers in an array 
+Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
+
+For example:
+
+([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
+([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) => [-8, 26]
+([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) => [6]                     */
+
+  const evenNumbers = (array, number) => array.filter(e => !(e % 2)).slice(-number);
+  // console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 4));
+}
+
+{  /** 7 kyu  No oddities here
+Write a small function that returns the values of an array that are not odd.
+All values in the array will be integers. Return the good values in the order they are given.     */
+
+  const noOdds = values => values.filter(e => !(e % 2));
+  // console.log(noOdds([3, 5, 6, 8, 33]));
+}
+
+{  /**  6 kyu  Title Case
+A string is considered to be in title case if each word in the string is either (a) capitalised (that is, only the first letter of the word is in upper case) or (b) considered to be an exception and put entirely into lower case unless it is the first word, which is always capitalised.
+Write a function that will convert a string into title case, given an optional list of exceptions (minor words). The list of minor words will be given as a string with each word separated by a space. Your function should ignore the case of the minor words string -- it should behave in the same way even if the case of the minor word string is changed.
+Arguments (Haskell)
+First argument: space-delimited list of minor words that must always be lowercase except for the first word in the string.
+Second argument: the original string to be converted.
+Arguments (Other languages)
+First argument (required): the original string to be converted.
+Second argument (optional): space-delimited list of minor words that must always be lowercase except for the first word in the string. The JavaScript/CoffeeScript tests will pass undefined when this argument is unused.
+Example
+titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
+titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
+titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'                           */
+
+  function titleCase(title, minorWords) {
+    return title.toLowerCase().split` `.map(e => minorWords ? (minorWords.toLowerCase().split` `.some(el => el === e) ? e
+      : e.charAt().toUpperCase() + e.slice(1)) : e.charAt().toUpperCase() + e.slice(1)).join(' ').replace(/^\w/, e => e.toUpperCase());
+  }
+  // console.log(titleCase('a clash of KINGS', 'a an the of'));
+  // console.log(titleCase('THE WIND IN THE WILLOWS', 'The In'));
+  // console.log(titleCase('First a of in', 'an often into'));
 }
