@@ -1377,3 +1377,15 @@ titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'        
   // console.log(titleCase('THE WIND IN THE WILLOWS', 'The In'));
   // console.log(titleCase('First a of in', 'an often into'));
 }
+
+{  /**  6 kyu  Detect Pangram 
+A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.         */
+
+  const isPangram = string => string.replace(/\W|\d/g, '').toLowerCase().split('').filter((e, i, arr) => arr.indexOf(e) === i).length === 26;
+
+  // const isPangram = string => new Set(string.replace(/\W|\d/g, '').toLowerCase()).size === 26;
+
+  console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+  console.log(isPangram('ABCD45EFGH,IJK,LMNOPQR56STUVW3XYZ'));
+}

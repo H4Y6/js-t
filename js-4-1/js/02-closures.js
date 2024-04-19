@@ -70,7 +70,7 @@ const makeSheff = function (name) {
 {
     const makeChief = function (name) {
         const makeDishA = function (dish) {
-            console.log(`${name} is cooking ${dish}.`);
+            // console.log(`${name} is cooking ${dish}.`);
         };
 
         return makeDishA;
