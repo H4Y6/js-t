@@ -70,8 +70,8 @@ const makeSheff = function (name) {
 {
     const makeChief = function (name) {
         const makeDishA = function (dish) {
-            console.log(`${name} is cooking ${dish}.`)
-        }
+            console.log(`${name} is cooking ${dish}.`);
+        };
 
         return makeDishA;
     };
@@ -82,7 +82,7 @@ const makeSheff = function (name) {
     const poly = makeChief('Poly');
     poly('soop');
 
-    console.dir(mango);  /* closure on {makeChief} */
+    // console.dir(mango);  /* closure on {makeChief} */
 }
 
 // const mango = makeSheff('Mango');
@@ -192,3 +192,82 @@ const salaryManager = salaryManagerFactory('Mango', 5000);
 // console.log(myLib.getValue());
 // myLib.add(10);
 // console.log(myLib.getValue());
+
+{
+    const fnA = function (...params) {
+        const innerVariable = 'it is an inner variable.';
+
+        const innerFn = function () {
+            // console.log(params);
+            // console.log(innerVariable);
+            // console.log('This is the inner function call.');
+        };
+
+        return innerFn;
+    };
+
+    const fnB = fnA(22, 41);
+
+    fnB();
+
+    // console.log(fnB);
+
+
+    const makeDish = function (name, dish) {
+        console.log(`${name} is cooking ${dish}`);
+    };
+
+    // makeDish('Pit', 'pie');
+    // makeDish('Pit', ' omelette');
+    // makeDish('Pit', 'tee');
+
+    // makeDish('Dan', 'cotelette');
+    // makeDish('Dan', 'cutlet');
+    // makeDish('Dan', 'coffee');
+
+
+    const makeCook = function (name) {
+        // const innerVar = '42';     /**   to see Scopes */
+        // const message = 'hello';      /**   to see Scopes */
+
+        const makeDish = function (dish) {
+            // console.log(message, innerVar);  /**  to see Scopes */
+            // console.log(`${name} is cooking ${dish}.`);
+        };
+
+        return makeDish;
+    };
+
+    const pit = makeCook('Pit');
+
+    pit('pie');
+    pit('cotelette');
+    pit('coffee');
+
+    const dan = makeCook('Dan');
+
+    dan('omelette');
+    dan('cutlet');
+    dan('tee');
+
+    // console.dir(pit);   /**   to see Scopes */
+
+
+    const rounder = function (places) {
+        return function (number) {
+            return Number(number.toFixed(places));
+        };
+    };
+
+    const rounder2 = rounder(2);
+    const rounder3 = rounder(3);
+
+
+    // console.dir(rounder2);
+    // console.dir(rounder3);
+
+    // console.log(rounder2(3.48176));
+    // console.log(rounder3(3.48176));
+    // console.log(rounder2(6.42286));
+    // console.log(rounder3(8.33276));
+}

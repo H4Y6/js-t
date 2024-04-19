@@ -352,3 +352,34 @@ const r3 = filter(fruits, getFruitsWithQuantity);
     // }, 1500);
     // console.log('After timeout');
 }
+
+{
+    const array = [3, 5, 6, 8, 1];
+    const filter = (array, callback) => {
+        const filteredArr = [];
+
+        for (const num of array) {
+            // if (num >= 5) arr.push(num);
+            if (callback(num)) filteredArr.push(num);
+        }
+        return filteredArr;
+    };
+
+    const callback = function (el) {
+        return el >= 5;
+    };
+    console.log(filter(array, callback));
+
+    console.log(filter([3, 6, 9, 7, 2, 11,], function (el) {
+        return el <= 7;
+    }));
+    const fruits = [
+        { name: 'apples', quantity: 55 },
+        { name: 'apricots', quantity: 38 },
+        { name: 'ananas', quantity: 51 },
+
+    ];
+    console.log(filter(fruits, function ({ quantity }) {
+        return quantity > 48;
+    }));
+}
