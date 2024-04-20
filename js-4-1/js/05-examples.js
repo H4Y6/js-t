@@ -1,8 +1,10 @@
-const logger = cb => console.log(cb(4));
+{
+    const logger = cb => console.log(cb(4));
 
-const logMessage = (value) => `The value is ${value}.`;
+    const logMessage = (value) => `The value is ${value}.`;
 
-// logger(logMessage);
+    // logger(logMessage);
+}
 
 {
     const arr = [4, 7, 5, 2, 8, 15, 12];
@@ -305,7 +307,7 @@ const numbers = [4, 7, 5, 2, 8, 9];
     const sum = products.reduce((acc, product) => {
         return acc + product.price;
     }, 0);
-    console.log(sum);
+    // console.log(sum);
 
     const sumProductPrice = (acc, product) => { return acc + product.price; };
     const showAllProductNames = (acc, product) => { return `${acc} ${product.name},`; };
@@ -385,4 +387,29 @@ const numbers = [4, 7, 5, 2, 8, 9];
     };
     // console.log(getTotalBalanceByGender(users, 'male'));
     // console.log(getTotalBalanceByGender(users, 'female'));
+}
+
+{
+    const logger = (number, callback) => console.log(callback(number));
+
+    const logMessage = (value, i = 'in the next ezample') => `The value is ${value}. The index is ${i}.`;
+
+    const logEvenNumber = (values, callback) => {
+        values.forEach((el, i, arr) => {
+            if (el % 2 === 0) {
+                // console.log(callback(el, i));
+            }
+        });
+    };
+
+    const numbers = [2, 5, 7, 8, 6];
+    logger(3, logMessage);
+    logEvenNumber(numbers, logMessage);
+
+    const getValues = (array, cb) => array.filter(cb);
+    const odd = el => el % 2;
+    const even = el => el % 2 === 0;
+
+    console.log(getValues(numbers, odd));
+    console.log(getValues(numbers, even));
 }
