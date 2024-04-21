@@ -1382,12 +1382,36 @@ titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'        
 A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
 Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.         */
 
-  const isPangram = string => 'abcdefghijklmnopqrstuvwxyz'.split('').every(e => string.toLowerCase().includes(e));
+  // const isPangram = string => 'abcdefghijklmnopqrstuvwxyz'.split('').every(e => string.toLowerCase().includes(e));
+
+  const isPangram = string => new Set(string.toLowerCase().match(/[a-z]/g)).size === 26;
 
   // const isPangram = string => string.replace(/\W|\d/g, '').toLowerCase().split('').filter((e, i, arr) => arr.indexOf(e) === i).length === 26;
 
   // const isPangram = string => new Set(string.replace(/\W|\d/g, '').toLowerCase()).size === 26;
 
-  console.log(isPangram("The quick brown fox jumps over the lazy dog."));
-  console.log(isPangram('ABCD45EFGH,IJK,LMNOPQR56STUVW3XYZ'));
+  // console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+  // console.log(isPangram('ABCD45EFGH,IJK,LMNOPQR56STUVW3XYZ'));
+}
+
+{  /**  5 kyu  Primes in numbers 
+Given a positive number n > 1 find the prime factor decomposition of n. The result will be a string with the following form :
+ "(p1**n1)(p2**n2)...(pk**nk)"
+with the p(i) in increasing order and n(i) empty if n(i) is 1.
+Example: n = 86240 should return "(2**5)(5)(7**2)(11)"              */
+
+  function primeFactors(n) {
+    const factors = [];
+    for (let i = 2; i <= n; i++) {
+      let a = 0;
+      while (n % i === 0) {
+        n /= i;
+        a++;
+      }
+      if (!a) continue;
+      a > 1 ? factors.push([i, a]) : factors.push(i);
+    }
+    return factors;
+  }
+  console.log(primeFactors(86240));
 }
