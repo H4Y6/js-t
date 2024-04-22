@@ -1409,9 +1409,9 @@ Example: n = 86240 should return "(2**5)(5)(7**2)(11)"              */
         a++;
       }
       if (!a) continue;
-      a > 1 ? factors.push([i, a]) : factors.push(i);
+      factors.push([i, a]);
     }
-    return factors;
+    return factors.reduce((str, el) => str += (el[1] === 1) ? '(' + el[0] + ')' : '(' + el[0] + "**" + el[1] + ')', '');
   }
   console.log(primeFactors(86240));
 }
