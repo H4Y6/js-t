@@ -1400,18 +1400,76 @@ Given a positive number n > 1 find the prime factor decomposition of n. The resu
 with the p(i) in increasing order and n(i) empty if n(i) is 1.
 Example: n = 86240 should return "(2**5)(5)(7**2)(11)"              */
 
-  function primeFactors(n) {
+  // function primeFactors(n) {
+  //   const factors = [];
+  //   for (let i = 2; i <= n; i++) {
+  //     let a = 0;
+  //     while (n % i === 0) {
+  //       n /= i;
+  //       a++;
+  //     }
+  //     if (!a) continue;
+  //     factors.push([i, a]);
+  //   }
+  //   return factors.reduce((str, el) => str += (el[1] === 1) ? '(' + el[0] + ')' : '(' + el[0] + "**" + el[1] + ')', '');
+  // }
+
+  const primeFactors = n => {
     const factors = [];
     for (let i = 2; i <= n; i++) {
-      let a = 0;
+      let amount = 0;
       while (n % i === 0) {
         n /= i;
-        a++;
+        amount += 1;
       }
-      if (!a) continue;
-      factors.push([i, a]);
+      if (amount === 0) continue;
+      amount > 1 ? factors.push(`(${i}**${amount})`) : factors.push(`(${i})`);
     }
-    return factors.reduce((str, el) => str += (el[1] === 1) ? '(' + el[0] + ')' : '(' + el[0] + "**" + el[1] + ')', '');
+    return factors.join('');
+  };
+  // console.log(primeFactors(86240));
+}
+
+{  /**  6 kyu  Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
+The number 
+89
+89 is the first integer with more than one digit that fulfills the property partially introduced in the title of this kata. What's the use of saying "Eureka"? Because this sum gives the same number: 89 = 8**1 + 9**2
+ 
+
+The next number in having this property is 135:
+
+See this property again: 
+135 = 1**1 + 3**2 + 5**3
+ 
+
+Task
+We need a function to collect these numbers, that may receive two integers 
+a,𝑏 that defines the range (inclusive) and outputs a list of the sorted numbers in the range that fulfills the property described above.
+
+Examples
+Let's see some cases (input -> output):
+
+1, 10  --> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+1, 100 --> [1, 2, 3, 4, 5, 6, 7, 8, 9, 89]
+If there are no numbers of this kind in the range 
+[𝑎,𝑏][a,b] the function should output an empty list.
+
+90, 100 --> []                                            */
+
+  function sumDigPow(a, b) {
+    const arr = [];
+    for (let i = a; i <= b; i++) {
+
+      let sum = 0;
+      for (let j = 1; j <= (i + '').length; j++) {
+        sum += (i + '')[j - 1] ** j;
+
+      }
+      if (sum === i) arr.push(i);
+    }
+
+    return arr;
   }
-  console.log(primeFactors(86240));
+
+  console.log(sumDigPow(1, 150));
 }
