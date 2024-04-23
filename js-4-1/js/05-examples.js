@@ -322,8 +322,8 @@ const numbers = [4, 7, 5, 2, 8, 9];
         return acc;
     };
 
-    console.log(arrayReduce(products, sumProductPrice, 0));
-    console.log(arrayReduce(products, showAllProductNames, ''));
+    // console.log(arrayReduce(products, sumProductPrice, 0));
+    // console.log(arrayReduce(products, showAllProductNames, ''));
 
 }
 
@@ -403,13 +403,169 @@ const numbers = [4, 7, 5, 2, 8, 9];
     };
 
     const numbers = [2, 5, 7, 8, 6];
-    logger(3, logMessage);
+    // logger(3, logMessage);
     logEvenNumber(numbers, logMessage);
 
     const getValues = (array, cb) => array.filter(cb);
     const odd = el => el % 2;
     const even = el => el % 2 === 0;
 
-    console.log(getValues(numbers, odd));
-    console.log(getValues(numbers, even));
+    // console.log(getValues(numbers, odd));
+    // console.log(getValues(numbers, even));
+}
+
+
+const products = [
+    { id: "000", price: 125, name: "stick" },
+    { id: "001", price: 212, name: "tel" },
+    { id: "002", price: 217, name: "toy" },
+    { id: "003", price: 282, name: "card" },
+    { id: "004", price: 320, name: "juice" },
+];
+
+
+{/**  Array.map() */
+    const getPrice = ({ price }) => price;
+    const logger = ({ name, price, }, i, arr) => ({
+        i, arr, price, name
+    });
+    const prices = products.map(getPrice);
+    // console.log(prices);
+
+    const mapArray = (array, cb) => {
+        let result = [];
+        for (let i = 0; i < array.length; i++) {
+            const newEl = cb(array[i], i, array);
+            result.push(newEl);
+        }
+
+        return result;
+    };
+    // console.log(mapArray(products, getPrice));
+    // console.log(mapArray(products, logger, Date));
+}
+
+const users = [
+    { name: "Moore Hensley", email: "moorehensley@indexia.com", eyeColor: "blue", friends: ["Sharron Pace"], isActive: false, balance: 2811, gender: "male" },
+    { name: "Sharlene Bush", email: "sharlenebush@tubesys.com", eyeColor: "blue", friends: ["Briana Decker", "Sharron Pace"], isActive: true, balance: 3821, gender: "female" },
+    { name: "Ross Vazquez", email: "rossvazquez@xinware.com", eyeColor: "green", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"], isActive: false, balance: 3793, gender: "male" },
+    { name: "Elma Head", email: "elmahead@omatom.com", eyeColor: "green", friends: ["Goldie Gentry", "Aisha Tran"], isActive: true, balance: 2278, gender: "female" },
+    { name: "Carey Barr", email: "careybarr@nurali.com", eyeColor: "blue", friends: ["Jordan Sampson", "Eddie Strong", "Adrian Cross"], isActive: true, balance: 3951, gender: "male" },
+    { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", eyeColor: "brown", friends: ["Jacklyn Lucas", "Linda Chapman", "Adrian Cross", "Solomon Fokes"], isActive: false, balance: 1498, gender: "male" },
+    { name: "Sheree Anthony", email: "shereeanthony@kog.com", eyeColor: "brown", friends: ["Goldie Gentry", "Briana Decker"], isActive: true, balance: 2764, gender: "female" }
+];
+
+{  /**  Array.flatMap() */
+
+    const flattenMappedArray = (array, cb) => {
+        let result = [];
+
+        for (let i = 0; i < array.length; i++) {
+            const newElement = cb(array[i], i, array);
+            if (Array.isArray(newElement)) {
+
+                result = [...result, ...newElement]; /* OR */
+
+                //     for (const el of newElement) {
+                //         result.push(el);
+                //     }
+                // } else {
+                //     result.push(el);
+            }
+        }
+
+        return result;
+    };
+
+    const getFriends = ({ friends }) => friends;
+    // console.log(flattenMappedArray(users, getFriends));
+    // console.log(flattenMappedArray(users, ({ friends }) => friends));
+};
+
+{ /* Array.filter()   */
+
+    const getBalance = (({ balance }) => balance > 3111);
+    // const filteredBalance = users.filter(({ balance }) => balance > 2999);
+    const filteredBalance = users.filter(getBalance);
+    // console.log(filteredBalance);
+
+
+    const filterArray = (array, cb) => {
+        const filteredArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) filteredArray.push(array[i]);
+        }
+
+        return filteredArray;
+    };
+
+    // console.log(filterArray(users, getBalance));
+}
+
+{/**  Array.find() */
+
+    const findUserFriendsByEmail = (email => (users.find(user => email === user.email).friends));
+    // console.log(findUserFriendsByEmail("elmahead@omatom.com"));
+
+
+    const findInArray = (array, cb) => {
+
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) return array[i];
+
+            // for (let i = 0; i < array.length; i++) {
+            //     if (cb(array[i], i, array)) return array[i].friends;
+        }
+    };
+
+    const getUser = ({ email }) => email === "elmahead@omatom.com";
+    // console.log(findInArray(users, getUser));
+}
+
+{/** Array.every() & Array.some()  */
+
+    // const isEveryActive = array => array.every(({ isActive }) => isActive);
+    // console.log(isEveryActive(users));
+
+    const isEveryInArray = ((array, cb) => {
+        for (let i = 0; i < array.length; i++) {
+            if (!cb(array[i], i, array)) return false;
+        }
+        return true;
+    });
+
+    const isEvery = ({ isActive }) => isActive;
+    // console.log(isEveryInArray(users, isEvery));
+
+
+    const isSomeInArray = (array, cb) => {
+        for (let i = 0; i < array.length; i++) {
+            if (cb(array[i], i, array)) return true;
+        }
+        return false;
+    };
+
+    const isSomeActive = (({ isActive }) => isActive);
+    // console.log(isSomeInArray(users, isSomeActive));
+}
+
+{  /**  Array.reduce() */
+
+    const totalFriendsCount = users.reduce((total, { friends }) => total + friends.length, 0);
+    console.log(totalFriendsCount);
+
+    const reduceArray = ((array, cb, initialValue) => {
+        let total = initialValue ?? array[0];
+        const index = (initialValue || initialValue === 0) ? 0 : 1;
+
+        for (let i = index; i < array.length; i++) {
+            total = cb(total, array[i], i, array);
+        }
+
+        return total;
+    });
+
+    const countFriends = (total, { friends }, i, arr) => total + friends.length;
+    console.log(reduceArray(users, countFriends, 0));
 }

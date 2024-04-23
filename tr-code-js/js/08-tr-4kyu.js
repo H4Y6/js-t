@@ -1471,5 +1471,5 @@ If there are no numbers of this kind in the range
     return arr;
   }
 
-  console.log(sumDigPow(1, 150));
+  // console.log(sumDigPow(1, 150));
 }

@@ -1,6 +1,6 @@
 {
-    const kook = () => console.log(this);
-    const obj = { logA: kook };
+    const koo = () => console.log(this);
+    const obj = { logA: koo };
     // obj.logA();  /**  strict mode: this is indefined, unstrict: window */
 
     // kook(); /**  strict mode: this is indefined, unstrict: window */
@@ -12,7 +12,7 @@
     };
     const cat = {
         name: 'Meow',
-    }
+    };
     const logName = function () {
         console.log(this.name);
     };
@@ -28,7 +28,7 @@
 }
 
 {
-    const customer = { firstName: "Piter", lastName: 'Golens', getFullName() { return `${this.firstName} ${this.lastName}` } };
+    const customer = { firstName: "Piter", lastName: 'Golens', getFullName() { return `${this.firstName} ${this.lastName}`; } };
 
     function makeMessage(cb) {
         console.log(`The order for ${cb()} is in progress.`);
@@ -62,7 +62,7 @@
     // objA.logCtx();
 
 
-    const fooo = function (value, number) { console.log(this.name, value, number) };
+    const fooo = function (value, number) { console.log(this.name, value, number); };
     const bar = { name: 'Rohn', logName: fooo, };
 
     // bar.logName();
@@ -74,13 +74,13 @@
     const robot = {
         legs: 2,
         name: 'Robert',
-        greet() { clearInterval`Hello! I'm ${this.name}` },
+        greet() { clearInterval`Hello! I'm ${this.name}`; },
     };
 
     const cat = {
         name: 'Moor',
         legs: 4,
-        getLegsAmount() { return this.legs },
+        getLegsAmount() { return this.legs; },
     };
 
     robot.getCatLegAmount = cat.getLegsAmount.bind(cat);
@@ -100,7 +100,7 @@
 
     const cat = {
         name: 'Elise',
-    }
+    };
 
     const logName = function () {
         console.log(this.name);

@@ -124,7 +124,7 @@
     };
 
     const foo = function () {
-        console.log(this.age);
+        // console.log(this.age);
     };
     /*
       Incorrect:
@@ -137,5 +137,18 @@
 
 // console.dir(window);
 
-const obj = { foo: () => console.log(this) };
+// const obj = { foo: () => console.log(this) };
 obj.foo();
+
+{
+    const matrix = [
+        [1, 2],
+        [5, 6]
+    ];
+
+    for (const row of matrix) {
+        for (const el of row) {
+            // console.log(el);
+        }
+    }
+}
