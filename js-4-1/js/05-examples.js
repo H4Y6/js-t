@@ -557,7 +557,7 @@ const users = [
 
     const reduceArray = ((array, cb, initialValue) => {
         let total = initialValue ?? array[0];
-        const index = (initialValue || initialValue === 0) ? 0 : 1;
+        const index = initialValue !== undefined ? 0 : 1;
 
         for (let i = index; i < array.length; i++) {
             total = cb(total, array[i], i, array);
@@ -567,5 +567,7 @@ const users = [
     });
 
     const countFriends = (total, { friends }, i, arr) => total + friends.length;
+    const showAllProductNames = ((prevValue, { name }) => prevValue + name + ', ');
     console.log(reduceArray(users, countFriends, 0));
+    console.log(reduceArray(users, showAllProductNames, ''));
 }
