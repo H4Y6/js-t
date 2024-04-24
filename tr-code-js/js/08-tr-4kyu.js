@@ -1473,3 +1473,22 @@ If there are no numbers of this kind in the range
 
   // console.log(sumDigPow(1, 150));
 }
+
+{  /**  8 kyu  Regex count lowercase letters
+Your task is simply to count the total number of lowercase letters in a string.
+Examples
+"abc" ===> 3
+"abcABC123" ===> 3
+"abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~" ===> 3
+"" ===> 0;
+"ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~" ===> 0
+"abcdefghijklmnopqrstuvwxyz" ===> 26           */
+
+  // const lowercaseCount = str => str.replace(/[^a-z]/g, '').length;
+  // const lowercaseCount = str => (str.match(/[a-z]/g) || []).length;
+  // const lowercaseCount = str => [...str].filter(e => /[a-z]/.test(e)).length;
+
+  console.log(lowercaseCount("323a"));
+  console.log(lowercaseCount("abcdefghijklmnopqrstuvwxyz"));
+  console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"));
+}

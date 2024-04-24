@@ -138,7 +138,7 @@
 // console.dir(window);
 
 // const obj = { foo: () => console.log(this) };
-obj.foo();
+// obj.foo();
 
 {
     const matrix = [
