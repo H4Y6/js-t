@@ -5,7 +5,7 @@ const petro = {
         console.log(this.username);
     },
 };
-petro.showName();
+// petro.showName();
 
 const bookShelf = {
     authors: ["Бернард Корнуелл", "Роберт Шеклі"],
@@ -16,9 +16,9 @@ const bookShelf = {
         this.authors.push(authorName);
     },
 };
-console.log(bookShelf.getAuthors()); // ["Бернард Корнуелл", "Роберт Шеклі"]
+// console.log(bookShelf.getAuthors()); // ["Бернард Корнуелл", "Роберт Шеклі"]
 bookShelf.addAuthor("Лі Таніт");
-console.log(bookShelf.getAuthors()); // ["Бернард Корнуелл", "Роберт Шеклі", "Лі Таніт"]
+// console.log(bookShelf.getAuthors()); // ["Бернард Корнуелл", "Роберт Шеклі", "Лі Таніт"]
 
 
 /**  У глобальній області видимості, якщо скрипт виконується не в суворому режимі, this посилається на об'єкт window.
@@ -26,11 +26,11 @@ console.log(bookShelf.getAuthors()); // ["Бернард Корнуелл", "Р�
 function foo() {
     console.log(this);
 }
-foo(); // window без "use strict" і undefined з "use strict".
+// foo(); // window без "use strict" і undefined з "use strict".
 
 
 function showThis() {
-    console.log("this in showThis: ", this);
+    // console.log("this in showThis: ", this);
 }
 
 // Викликаємо у глобальному контексті
@@ -50,27 +50,27 @@ user.showContext = showThis;
 user.showContext(); // this in showThis: {username: "Mango", showContext: ƒ}
 
 const fnP = () => console.log('This in fnP:', this);
-fnP();
+// fnP();
 
 const objS = {
     fnF: () => console.log('This in fnF:', this),
 };
-objS.fnF();
+// objS.fnF();
 
 const objR = {
     fnE: () => console.log('This in fnP=E:', this),
 };
-objR.fnE();
+// objR.fnE();
 
 const fnQ = () => console.log('This in fnQ:', this);
 const objQ = {
     logC: fnQ,
 };
-objQ.logC();
+// objQ.logC();
 
 {/**   call    */
     const fnW = function (a, b) {
-        console.log('This in fnW:', this.sum, a, b);
+        // console.log('This in fnW:', this.sum, a, b);
     };
 
     const objW = {
@@ -84,7 +84,7 @@ objQ.logC();
 
 {/**   apply    */
     const fnW = function (a, b) {
-        console.log('This in fnW:', this.sum, a, b);
+        // console.log('This in fnW:', this.sum, a, b);
     };
 
     const objW = {
@@ -101,7 +101,7 @@ objQ.logC();
         name: 'Robert',
         legs: 2,
         greet() {
-            `Hello, I am ${this.name}`
+            `Hello, I am ${this.name}`;
         },
     };
 
@@ -115,9 +115,9 @@ objQ.logC();
 
     // robert.getLegsAmount = cat.getLegsAmount.bind(cat);
     robert.getLegsAmount = cat.getLegsAmount.bind(robert);
-    console.log(cat.getLegsAmount());
-    console.log(robert);
-    console.log(robert.getLegsAmount());
+    // console.log(cat.getLegsAmount());
+    // console.log(robert);
+    // console.log(robert.getLegsAmount());
 }
 
 {
@@ -137,8 +137,8 @@ objQ.logC();
     let logCatName = logName.bind(cat);
     const logCatNameA = logDogName.bind(cat); /**  Pit  */
     // logCatName = logName.bind(dog);  /**  Pit */
-    console.log(logDogName());
-    console.log(logCatName());
-    console.log(logCatNameA());
-    console.log(logCatName());
+    // console.log(logDogName());
+    // console.log(logCatName());
+    // console.log(logCatNameA());
+    // console.log(logCatName());
 }
