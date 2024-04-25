@@ -1501,7 +1501,10 @@ Examples
 "foefet" is an anagram of "toffee"
 "Buckethead" is an anagram of "DeathCubeK"        */
 
-  const isAnagram = (test, original) => test.toLowerCase().split('').sort().join() === original.toLowerCase().split('').sort().join();
+  const sortStr = (str) => str.toLowerCase().split('').sort().join();
+  const isAnagram = (test, original) => sortStr(test) === sortStr(original);
+
+  // const isAnagram = (test, original) => test.toLowerCase().split('').sort().join() === original.toLowerCase().split('').sort().join();
 
   // const isAnagram = (test, original) => test.length === original.length ?
   //   !test.toLowerCase().split('').map(e => original = original.toLowerCase().replace(e, '')).slice(-1)[0] : false;
