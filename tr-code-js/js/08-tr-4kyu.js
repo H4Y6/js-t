@@ -1501,18 +1501,21 @@ Examples
 "foefet" is an anagram of "toffee"
 "Buckethead" is an anagram of "DeathCubeK"        */
 
-  const isAnagram = (test, original) => {
-    let str;
-    if (test.length === original.length) {
-      str = test.toLowerCase().split('').map(e => original = original.toLowerCase().replace(e, ''));
-      const [res] = str.slice(-1);
-      return !res;
-    }
-    return false;
-  };
+  const isAnagram = (test, original) => test.length === original.length ?
+    !test.toLowerCase().split('').map(e => original = original.toLowerCase().replace(e, '')).slice(-1)[0] : false;
 
-  console.log(isAnagram("apple", "pale"));
-  console.log(isAnagram("Buckethead", "DeathCubeK"));
-  console.log(isAnagram("dkgINQkXMCPViXY", "NIMPCXXkiVkdQg"));
-  console.log(isAnagram("IDaQbJBRvLFLzOviQr", "QzravBLivJaDQILObF"));
+  // const isAnagram = (test, original) => {
+  //   let str;
+  //   if (test.length === original.length) {
+  //     str = test.toLowerCase().split('').map(e => original = original.toLowerCase().replace(e, ''));
+  //     const [res] = str.slice(-1);
+  //     return !res;
+  //   }
+  //   return false;
+  // };
+
+  // console.log(isAnagram("apple", "pale"));
+  // console.log(isAnagram("Buckethead", "DeathCubeK"));
+  // console.log(isAnagram("dkgINQkXMCPViXY", "NIMPCXXkiVkdQg"));
+  // console.log(isAnagram("IDaQbJBRvLFLzOviQr", "QzravBLivJaDQILObF"));
 }
