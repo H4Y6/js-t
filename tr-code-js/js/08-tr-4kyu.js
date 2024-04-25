@@ -1488,7 +1488,7 @@ Examples
   // const lowercaseCount = str => (str.match(/[a-z]/g) || []).length;
   // const lowercaseCount = str => [...str].filter(e => /[a-z]/.test(e)).length;
 
-  console.log(lowercaseCount("323a"));
-  console.log(lowercaseCount("abcdefghijklmnopqrstuvwxyz"));
-  console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"));
+  // console.log(lowercaseCount("323a"));
+  // console.log(lowercaseCount("abcdefghijklmnopqrstuvwxyz"));
+  // console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"));
 }

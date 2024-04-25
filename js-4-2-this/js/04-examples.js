@@ -152,3 +152,28 @@
         }
     }
 }
+{
+    const user = {
+        name: 'Bill',
+        age: 33,
+        logNameInSeconds() {
+            const cb = () => {
+                console.log(this.name);
+            };
+            const callback = function () { console.log(this.name); };
+            setTimeout(cb, 1400);
+            setTimeout(callback.bind(user), 2200);
+            setTimeout(() => { console.log(this.name); }, 3000);
+        }
+    };
+
+    user.logNameInSeconds();
+}
+
+{
+    const numbers = [4, 6, 2, 7];
+    const max = Math.max.apply({}, numbers);
+    // const max = Math.max(...numbers);
+
+    console.log(max);
+}
