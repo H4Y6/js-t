@@ -1492,3 +1492,27 @@ Examples
   // console.log(lowercaseCount("abcdefghijklmnopqrstuvwxyz"));
   // console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"));
 }
+
+{  /**  7 kyu  Anagram Detection
+An anagram is the result of rearranging the letters of a word to produce a new word (see wikipedia).
+Note: anagrams are case insensitive
+Complete the function to return true if the two arguments given are anagrams of each other; return false otherwise.
+Examples
+"foefet" is an anagram of "toffee"
+"Buckethead" is an anagram of "DeathCubeK"        */
+
+  const isAnagram = (test, original) => {
+    let str;
+    if (test.length === original.length) {
+      str = test.toLowerCase().split('').map(e => original = original.toLowerCase().replace(e, ''));
+      const [res] = str.slice(-1);
+      return !res;
+    }
+    return false;
+  };
+
+  console.log(isAnagram("apple", "pale"));
+  console.log(isAnagram("Buckethead", "DeathCubeK"));
+  console.log(isAnagram("dkgINQkXMCPViXY", "NIMPCXXkiVkdQg"));
+  console.log(isAnagram("IDaQbJBRvLFLzOviQr", "QzravBLivJaDQILObF"));
+}
