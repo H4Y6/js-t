@@ -1,0 +1,22 @@
+body {
+  background-color: rgb(21, 41, 34);
+}
+
+.counter {
+  margin: 11px auto;
+  width: 22%;
+}
+
+button {
+  width: 111px;
+  height: 44px;
+  font-size: 32px;
+  background-color: #e7eecc;
+}
+
+span {
+  display: inline-block;
+  text-align: center;
+  width: 55px;
+  color: blanchedalmond;
+}

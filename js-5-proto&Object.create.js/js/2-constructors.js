@@ -205,12 +205,12 @@ const objOne = {};
 
   bingo.changeEmail('bingo.new@ertop.iy');
 
-  console.log(bingo);
+  // console.log(bingo);
 
   /**      Static properties       */
 
   User.message = "It's a static property.";
-  console.log(User.message);
+  // console.log(User.message);
 
   User.logInfo = function (obj) {
     console.log("User.logInfo -> obj:", obj);
@@ -218,13 +218,70 @@ const objOne = {};
     console.log("Password: ", obj.password);
   };
 
-  User.logInfo(bingo);
-
+  // User.logInfo(bingo);
 }
 
 {
   const objZ = { s: 2 };
 
-  console.log(objZ);
-  console.log(objZ.__proto__ === Object.prototype);
+  // console.log(objZ);
+  // console.log(objZ.__proto__ === Object.prototype);
 }
+
+
+{
+  const Car = function ({ brand, model, price } = {}) {
+    // console.log({ brand, model, price });
+    // console.log('this->', this);
+
+    // const { brand, model, price } = config;
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  };
+
+  // console.log(Car.prototype);
+
+  Car.prototype.changePrice = function (newPrice) {
+    this.price = newPrice;
+  };
+  const myCar = new Car({ brand: 'Audi', model: 'Q3', price: 33333 });
+  myCar.changePrice(33555);
+  // console.log(myCar);
+
+  const myCar2 = new Car({ brand: 'BMW', model: 'X6', price: 44444 });
+  // console.log(myCar2);
+
+  const myCar3 = new Car({ brand: 'Audi', model: 'A6', price: 55555 });
+  // console.log(myCar3);
+
+
+  const User = function ({ email, password } = {}) {
+    this.email = email;
+    this.password = password;
+  };
+
+  User.prototype.changePassword = function (newPassword) {
+    this.password = newPassword;
+  };
+  User.prototype.changeEmail = function (newEmail) {
+    this.email = newEmail;
+  };
+
+  const danko = new User({ email: ' danko@bim.com', password: 1234 });
+  danko.changePassword(1111);
+  danko.changeEmail('dancoman@.bim.com');
+  console.log(danko);
+
+
+  User.logInfo = function (obj) {
+    console.log(obj);
+  };
+
+  User.logInfo(danko);
+
+  User.message = 'This is static property';
+};
+
+const obj = {};
+console.log(obj.__proto__ === Object.prototype);  /** true  */

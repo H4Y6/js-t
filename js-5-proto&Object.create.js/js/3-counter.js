@@ -54,8 +54,8 @@ CounterPlugin.prototype.decrement = function () {
 
 new CounterPlugin({
     rootSelector: '#counter-1',
-    step: 10,
-    initialValue: 100,
+    step: 5,
+    initialValue: 40,
     onUpdate: () => console.log('Це мій кастомний колбек для onUpdate'),
 });
 
