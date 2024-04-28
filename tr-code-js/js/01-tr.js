@@ -516,10 +516,10 @@ function makeTask(data) {
   };
 
   customer.setDiscount(0.15);
-  console.log(customer.getDiscount()); // 0.15
+  // console.log(customer.getDiscount()); // 0.15
   customer.addOrder(5000, "Steak");
-  console.log(customer.getBalance()); // 19750
-  console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
+  // console.log(customer.getBalance()); // 19750
+  // console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
 
   const historyService = {
     orders: [
@@ -559,60 +559,101 @@ function makeTask(data) {
   const child = Object.create(parent);
   child.name = "Jason";
   child.age = 27;
-  console.log('parent:', parent);
-  console.log('child:', child);
+  // console.log('parent:', parent);
+  // console.log('child:', child);
 
   class Car {
-    constructor({ brand, model, price } = {}) {
-      this.brand = brand;
-      this.model = model;
-      this.price = price;
+    #brand;
+    #model;
+    #price;
+    static #MAX_PRICE = 50000;
+    static checkPrice(price) {
+      return price > Car.#MAX_PRICE ? "Error! Price exceeds the maximum" : `Success! Price is within acceptable limits`;
     }
-    getPrice() { return this.price; }
-    changePrice(newPrice) { this.price = newPrice; }
+
+    constructor({ brand, model, price } = {}) {
+      this.#brand = brand;
+      this.#model = model;
+      this.#price = price;
+    }
+
+    get brand() { return this.#brand; }
+    // getBrand() { return this.#brand; }
+    set brand(newBrand) { this.#brand = newBrand; }
+    // changeBrand(newBrand) { this.#brand = newBrand; }
+    get model() { return this.#model; }
+    set model(newModel) { this.#model = newModel; }
+    get price() { return this.#price; }
+    // getPrice() { return this.#price; }
+    set price(newPrice) { this.#price = newPrice > Car.#MAX_PRICE ? this.#price : newPrice; }
+    // changePrice(newPrice) { this.#price > Car.MAX_PRICE ? this.#price : newPrice; }
   }
+  const audi = new Car({ price: 36000 });
+  const bmw = new Car({ price: 64000 });
+  console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+  console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+
   const car = new Car({ brand: "Audi", model: "Q3", price: 36000 });
+  car.brand = 'Moto';
+  // console.log('car.brand-> ', car.brand);
+  car.model = 'M-4';
+  // console.log('car.model-> ', car.model);
+  car.price = 53333;
+  // console.log('car.price-> ', car.price);
   console.log('car:', car);
 
   class Storage {
+    #items;
     constructor(items) {
-      this.items = items;
+      this.#items = items;
     }
-    getItems() { return this.items; }
-    addItem(newItem) { this.items.push(newItem); }
-    removeItem(itemToRemove) {
-      return this.items.splice(this.items.indexOf(itemToRemove), 1);
-    }
+    getItems() { return this.#items; }
+    addItem(newItem) { this.#items.push(newItem); }
+    // removeItem(itemToRemove) { return this.#items.splice(this.#items.indexOf(itemToRemove), 1); }
+    removeItem(itemToRemove) { this.#items = this.#items.filter(item => item !== itemToRemove); }
   }
   const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-  console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+  // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
   storage.addItem("Droid");
-  console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-  console.log(storage.removeItem("Prolonger"));  /*  ['Prolonger']   */
-  console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+  // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+  storage.removeItem("Prolonger");  /*  ['Prolonger']   */
+  const storageRemoveItem = storage.removeItem.bind(storage);  /*  ['Prolonger']   */
+  // storageRemoveItem('Prolonger');
+  // storage.removeItem.call(storage, 'Prolonger');  /*  ['Prolonger']   */
+  // console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 
   class StringBuilder {
+    #value;
     constructor(initialValue) {
-      this.value = initialValue;
+      this.#value = initialValue;
     }
-    getValue() { return this.value; }
-    padEnd(str) {
-      this.value += str;
-    }
-    padStart(str) {
-      this.value = str + this.value;
-    }
-    padBoth(str) {
-      this.value = str + this.value + str;
-    }
+    getValue() { return this.#value; }
+    padEnd(str) { this.#value += str; }
+    padStart(str) { this.#value = str + this.#value; }
+    padBoth(str) { this.#value = [str, str].join(this.#value); }
+    // padBoth(str) { this.#value = str + this.#value + str; }
   }
   const builder = new StringBuilder(".");
-  console.log(builder.getValue()); // "."
+  // console.log(builder.getValue()); // "."
   builder.padStart("^");
-  console.log(builder.getValue()); // "^."
+  // console.log(builder.getValue()); // "^."
   builder.padEnd("^");
-  console.log(builder.getValue()); // "^.^"
+  // console.log(builder.getValue()); // "^.^"
   builder.padBoth("=");
-  console.log(builder.getValue()); // "=^.^="
+  // console.log(builder.getValue()); // "=^.^="
 
+
+  class User {
+    static #takenEmails = [];
+    static isEmailTaken(email) { return User.#takenEmails.includes(email); }
+    #email;
+    constructor({ email }) {
+      this.#email = email;
+      User.#takenEmails.push(email);
+    }
+  }
+  const mango = new User({ email: "mango@mail.com" });
+  // console.log(User.isEmailTaken("poly@mail.com"));
+  // console.log(User.isEmailTaken("mango@mail.com"));
 }
