@@ -590,8 +590,8 @@ function makeTask(data) {
   }
   const audi = new Car({ price: 36000 });
   const bmw = new Car({ price: 64000 });
-  console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
-  console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+  // console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+  // console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
 
 
   const car = new Car({ brand: "Audi", model: "Q3", price: 36000 });
@@ -601,7 +601,7 @@ function makeTask(data) {
   // console.log('car.model-> ', car.model);
   car.price = 53333;
   // console.log('car.price-> ', car.price);
-  console.log('car:', car);
+  // console.log('car:', car);
 
   class Storage {
     #items;
@@ -656,4 +656,124 @@ function makeTask(data) {
   const mango = new User({ email: "mango@mail.com" });
   // console.log(User.isEmailTaken("poly@mail.com"));
   // console.log(User.isEmailTaken("mango@mail.com"));
+}
+
+{
+  class User {
+    constructor(email) {
+      this._email = email;
+    }
+    get email() { return this._email; }
+    set email(newEmail) { this._email = newEmail; }
+  }
+  class ContentEditor extends User {
+    constructor({ email, posts }) {
+      // Вызов конструктора родительского класса User 
+      super(email);
+      this.posts = posts;
+    }
+  }
+  const editor = new ContentEditor({ email: "mango@mail.com", posts: [] });
+  console.log('editor ->', editor); // { email: 'mango@mail.com', posts: [] }
+  console.log(editor.email); // 'mango@mail.com'
+}
+
+{
+  class User {
+    constructor(email) {
+      this._email = email;
+    }
+
+    get email() {
+      return this._email;
+    }
+
+    set email(newEmail) {
+      this._email = newEmail;
+    }
+  }
+
+  class Admin extends User {
+    static AccessLevel = { BASIC: "basic", SUPERUSER: "superuser" };
+    constructor({ email, accessLevel }) {
+      super(email);
+      this.accessLevel = accessLevel;
+      this.blacklistedEmails = [];
+    }
+    blacklist(email) {
+      this.blacklistedEmails.push(email);
+    }
+    isBlacklistedEmail(email) {
+      return this.blacklistedEmails.includes(email);
+    }
+  }
+
+  const mango = new Admin({
+    email: "mango@mail.com",
+    accessLevel: Admin.AccessLevel.SUPERUSER,
+  });
+
+  console.log(mango.email); // "mango@mail.com"
+  console.log(mango.accessLevel); // "superuser"
+
+  mango.blacklist("poly@mail.com");
+  console.log(mango.isBlacklistedEmail('mango@mail.com'));
+  console.log(mango.isBlacklistedEmail('poly@mail.com'));
+
+  console.log(Admin.AccessLevel.BASIC);
+  console.log(Admin.AccessLevel.SUPERUSER);
+
+}
+
+{
+  class User {
+    email;
+
+    constructor(email) {
+      this.email = email;
+    }
+
+    get email() {
+      return this.email;
+    }
+
+    set email(newEmail) {
+      this.email = newEmail;
+    }
+  }
+  class Admin extends User {
+
+    static AccessLevel = {
+      BASIC: "basic",
+      SUPERUSER: "superuser",
+    };
+
+    constructor({ email, accessLevel }) {
+      super(email);
+      this.accessLevel = accessLevel;
+      this.blacklistedEmails = [];
+    }
+
+    blacklist(email) {
+      this.blacklistedEmails.push(email);
+    }
+
+    isBlacklisted(email) {
+      return this.blacklistedEmails.includes(email);
+    }
+  }
+
+  const mango = new Admin({
+    email: "mango@mail.com",
+    accessLevel: Admin.AccessLevel.SUPERUSER,
+  });
+
+  console.log(mango.email); // "mango@mail.com"
+  console.log(mango.accessLevel); // "superuser"
+
+  mango.blacklist("poly@mail.com");
+  console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+  console.log(mango.isBlacklisted("mango@mail.com")); // false
+  console.log(mango.isBlacklisted("poly@mail.com")); // true
+
 }
