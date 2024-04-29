@@ -1612,3 +1612,18 @@ Example:
   // console.log(declareWinner(new Fighter("Lew", 10, 2), new Fighter("Harry", 5, 4), "Lew"));
   // console.log(declareWinner(new Fighter("Lew", 10, 2), new Fighter("Harry", 5, 4), "Harry"));
 }
+
+{  /**  8 kyu  Exclamation marks series #1: Remove an exclamation mark from the end of string
+28710392% of 3,46712,632 of 27,964myjinxin2015 
+Remove an exclamation mark from the end of a string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+Examples
+"Hi!"     ---> "Hi"
+"Hi!!!"   ---> "Hi!!"
+"!Hi"     ---> "!Hi"
+"!Hi!"    ---> "!Hi"
+"Hi! Hi!" ---> "Hi! Hi"
+"Hi"      ---> "Hi"            */
+
+  const remove = string => string.replace(/!$/, '');
+  console.log(remove("Hi!!!"));
+}
