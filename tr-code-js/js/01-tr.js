@@ -674,8 +674,8 @@ function makeTask(data) {
     }
   }
   const editor = new ContentEditor({ email: "mango@mail.com", posts: [] });
-  console.log('editor ->', editor); // { email: 'mango@mail.com', posts: [] }
-  console.log(editor.email); // 'mango@mail.com'
+  // console.log('editor ->', editor); // { email: 'mango@mail.com', posts: [] }
+  // console.log(editor.email); // 'mango@mail.com'
 }
 
 {
@@ -713,15 +713,15 @@ function makeTask(data) {
     accessLevel: Admin.AccessLevel.SUPERUSER,
   });
 
-  console.log(mango.email); // "mango@mail.com"
-  console.log(mango.accessLevel); // "superuser"
+  // console.log(mango.email); // "mango@mail.com"
+  // console.log(mango.accessLevel); // "superuser"
 
   mango.blacklist("poly@mail.com");
-  console.log(mango.isBlacklistedEmail('mango@mail.com'));
-  console.log(mango.isBlacklistedEmail('poly@mail.com'));
+  // console.log(mango.isBlacklistedEmail('mango@mail.com'));
+  // console.log(mango.isBlacklistedEmail('poly@mail.com'));
 
-  console.log(Admin.AccessLevel.BASIC);
-  console.log(Admin.AccessLevel.SUPERUSER);
+  // console.log(Admin.AccessLevel.BASIC);
+  // console.log(Admin.AccessLevel.SUPERUSER);
 
 }
 
@@ -768,6 +768,95 @@ function makeTask(data) {
     accessLevel: Admin.AccessLevel.SUPERUSER,
   });
 
+  // console.log(mango.email); // "mango@mail.com"
+  // console.log(mango.accessLevel); // "superuser"
+
+  mango.blacklist("poly@mail.com");
+  // console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+  // console.log(mango.isBlacklisted("mango@mail.com")); // false
+  // console.log(mango.isBlacklisted("poly@mail.com")); // true
+}
+
+{
+  class StringBuilder {
+    #value;
+    constructor(initialValue) {
+      this.#value = initialValue;
+    }
+    getValue() {
+      return this.#value;
+    }
+    padEnd(str) { this.#value += str; }
+    padStart(str) { this.#value = str + this.#value; }
+    padBoth(str) { this.#value = [str, str].join(this.#value); }
+    // padBoth(str) { this.padStart(str) + this.padEnd(str); }
+  }
+  const builder = new StringBuilder(".");
+
+  class Car {
+    #_brand;
+    #_model;
+    #_price;
+    static #MAX_PRICE = 50000;
+    static checkPrice(price) { return price > Car.#MAX_PRICE ? "Error! Price exceeds the maximum" : "Success! Price is within acceptable limits"; }
+    constructor({ brand, model, price }) {
+      this.#_brand = brand;
+      this.#_model = model;
+      this.#_price = price;
+    }
+    get brand() { return this.#_brand; }
+    set brand(newBrand) { this.#_brand = newBrand; }
+    get model() { return this.#_model; }
+    set model(newModel) { this.#_model = newModel; }
+    get price() { return this.#_price; }
+    set price(newPrice) { this.#_price = newPrice > Car.#MAX_PRICE ? this.#_price : newPrice; }
+  }
+  const car = new Car({ brand: 'Kia', model: 'L9', price: 22333 });
+  car.price = 55000;
+  // console.log("kia ->", car);
+  // console.log(Car.checkPrice(car.price));
+
+  class Storage {
+    #items;
+    constructor(items) {
+      this.#items = items;
+    }
+    getItems() { return this.#items; }
+    addItem(newItem) { this.#items.push(newItem); }
+    removeItem(itemToRemove) { this.#items = this.#items.filter(item => item !== itemToRemove); }
+  }
+  const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+
+  class User {
+    constructor(email) {
+      this._email = email;
+    }
+
+    get email() {
+      return this._email;
+    }
+
+    set email(newEmail) {
+      this._email = newEmail;
+    }
+  }
+
+  class Admin extends User {
+    static AccessLevel = { BASIC: 'basic', SUPERUSER: 'superuser' };
+    constructor({ email, accessLevel, blacklistedEmails = [] }) {
+      super(email);
+      this.accessLevel = accessLevel;
+      this.blacklistedEmails = blacklistedEmails;
+    }
+    blacklist(email) { this.blacklistedEmails.push(email); }
+
+    isBlacklisted(email) { return this.blacklistedEmails.includes(email); }
+  }
+  const mango = new Admin({
+    email: "mango@mail.com",
+    accessLevel: Admin.AccessLevel.SUPERUSER,
+  });
+
   console.log(mango.email); // "mango@mail.com"
   console.log(mango.accessLevel); // "superuser"
 
@@ -775,5 +864,6 @@ function makeTask(data) {
   console.log(mango.blacklistedEmails); // ["poly@mail.com"]
   console.log(mango.isBlacklisted("mango@mail.com")); // false
   console.log(mango.isBlacklisted("poly@mail.com")); // true
+
 
 }
