@@ -1625,5 +1625,40 @@ Examples
 "Hi"      ---> "Hi"            */
 
   const remove = string => string.replace(/!$/, '');
-  console.log(remove("Hi!!!"));
+  // console.log(remove("Hi!!!"));
+}
+
+{  /** 8 kyu   Difference of Volumes of Cuboids 
+In this simple exercise, you will create a program that will take two lists of integers, a and b. Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. You must find the difference of the cuboids' volumes regardless of which is bigger.
+For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+Your function will be tested with pre-made examples as well as random ones.
+If you can, try writing it in one line of code.       */
+
+  const findDifference = (a, b) => Math.abs(a.reduce((acc, el) => acc * el, 1) - b.reduce((acc, el) => acc * el, 1));
+  // const findDifference = (a, b) => Math.abs(a[0] * a[1] * a[2] - b[0] * b[1] * b[2]);
+  // console.log(findDifference([4, 4, 7], [3, 9, 3]));
+}
+
+{  /**  7 kyu  Sum of angles 
+Find the total sum of internal angles (in degrees) in an n-sided simple polygon. N will be greater than 2.        */
+
+  const angle = n => (n - 2) * 180;
+  // console.log(angle(96));
+}
+
+{  /**  7 kyu  Predict your age! 
+My grandfather always predicted how old people would get, and right before he passed away he revealed his secret!
+In honor of my grandfather's memory we will write a function using his formula!
+Take a list of ages when each of your great-grandparent died.
+Multiply each number by itself.
+Add them all together.
+Take the square root of the result.
+Divide by two.
+Example
+predictAge(65, 60, 75, 55, 60, 63, 64, 45) === 86
+Note: the result should be rounded down to the nearest integer.
+Some random tests might fail due to a bug in the JavaScript implementation. Simply resubmit if that happens to you.       */
+
+  const predictAge = (...ages) => Math.floor([...ages].reduce((acc, el) => acc + el * el, 0) ** (1 / 2) / 2);
+  // console.log(predictAge(65, 60, 75, 55, 60, 63, 64, 45));
 }
