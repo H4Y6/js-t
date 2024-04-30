@@ -1662,3 +1662,120 @@ Some random tests might fail due to a bug in the JavaScript implementation. Simp
   const predictAge = (...ages) => Math.floor([...ages].reduce((acc, el) => acc + el * el, 0) ** (1 / 2) / 2);
   // console.log(predictAge(65, 60, 75, 55, 60, 63, 64, 45));
 }
+
+{/*  7kyu  Largest pair sum in array   
+Given a sequence of numbers, find the largest pair sum in the sequence.
+For example
+[10, 14, 2, 23, 19] -->  42 (= 23 + 19)
+[99, 2, 2, 23, 19]  --> 122 (= 99 + 23)
+Input sequence contains minimum two elements and every element is an integer.     */
+
+  // const largestPairSum = numbers => [...numbers].sort((a, b) => a - b).slice(-2).reduce((sum, n) => sum + n, 0);
+
+  // const largestPairSum = numbers => [...numbers].sort((a, b) => b - a).slice(0, 2).reduce((sum, n) => sum + n, 0);
+
+  const largestPairSum = numbers => {
+    const max = Math.max(...numbers);
+    return numbers.indexOf(max) === numbers.lastIndexOf(max) ? max + Math.max(...numbers.filter(e => e !== max)) : max * 2;
+  };
+
+  // const largestPairSum = numbers => {
+  //   let sum = -Infinity;
+  //   for (let i = 0; i < numbers.length - 1; i++) {
+  //     const n = numbers[i];
+  //     for (let j = 0; j < numbers.length; j++) {
+  //       if (j === i) continue;
+  //       const num = numbers[j];
+  //       if (n + num > sum) sum = n + num;
+  //     }
+  //   }
+  //   return sum;
+  // };
+  // console.log(largestPairSum([10, 14, 2, 23, 19]));
+  // console.log(largestPairSum([-29, -19]));
+  // console.log(largestPairSum([-100, -29, -24, -19, 19]));
+}
+
+{  /** 8 kyu  Training JS #10: loop statement --for
+The function pickIt accepts 1 parameter, arr, which is an array of numbers. We need to traverse arr by using a for loop. If an element is an odd number, push it to the odd array, and if it's an even number, push it to the evenarray.
+I've defined two arrays odd and even in the function, and also wrote the return statement. Your work is to write a for loop.
+If you forgot how to push an element to an a       */
+
+  function pickIt(array) {
+    const odd = [], even = [];
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+      (element % 2 ? odd : even).push(element);
+    }
+    return [odd, even];
+  }
+  // console.log(pickIt([8, 1, 5, 4, 6, 1, 1]));
+}
+
+{  /**  7 kyu  Sorted? yes? no? how? 
+Complete the method which accepts an array of integers, and returns one of the following:
+"yes, ascending" - if the numbers in the array are sorted in an ascending order
+"yes, descending" - if the numbers in the array are sorted in a descending order
+"no" - otherwise
+You can assume the array will always be valid, and there will always be one correct answer.  */
+
+  const isSortedAndHow = array => {
+    const str = JSON.stringify(array);
+    const ascendingStr = JSON.stringify([...array].sort((a, b) => a - b));
+    const descendingStr = JSON.stringify(JSON.parse(ascendingStr).reverse());
+    return str === ascendingStr ? "yes, ascending" : str === descendingStr ? "yes, descending" : 'no';
+  };
+
+  // const isSortedAndHow = array => JSON.stringify([...array].sort((a, b) => b - a)) === JSON.stringify(array) ? "yes, descending" : JSON.stringify([...array].sort((a, b) => a - b)) === JSON.stringify(array) ? "yes, ascending" : 'no';
+
+  // const isSortedAndHow = array => [...array].sort((a, b) => b - a).map((e, i) => e === array[i]).every(e => e) ? "yes, descending" : [...array].sort((a, b) => a - b).map((e, i) => e === array[i]).every(e => e) ? "yes, ascending" : 'no';
+  // console.log(isSortedAndHow([15, 7, 3, -8]));
+  // console.log(isSortedAndHow([1, 5, 7]));
+  // console.log(isSortedAndHow([12, 5, 7]));
+};
+
+{  /**  7 kyu  Love vs friendshipIf　a = 1, b = 2, c = 3 ... z = 26
+If　a = 1, b = 2, c = 3 ... z = 26
+Then l + o + v + e = 54
+and f + r + i + e + n + d + s + h + i + p = 108
+So friendship is twice as strong as love :-)
+Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
+The input will always be made of only lowercase letters and will never be empty.                */
+
+  // console.log('a'.charCodeAt());
+  const wordsToMarks = string => [...string].reduce((acc, e) => acc + e.charCodeAt() - 96, 0);
+  // console.log(wordsToMarks("friends"));
+}
+
+{  /**  8 kyu  Return the day
+Complete the function which returns the weekday according to the input number:
+1 returns "Sunday"
+2 returns "Monday"
+3 returns "Tuesday"
+4 returns "Wednesday"
+5 returns "Thursday"
+6 returns "Friday"
+7 returns "Saturday"
+Otherwise returns "Wrong, please enter a number between 1 and 7"         */
+
+  function whatday(num) {
+
+    return num && num < 8 ? new Date(0, 0, num - 1).toLocaleString('en', { weekday: 'long' }) : "Wrong, please enter a number between 1 and 7";
+
+    // switch (num) {
+    //   case 1: return "Sunday";
+    //   case 2: return "Monday";
+    //   case 3: return "Tuesday";
+    //   case 4: return "Wednesday";
+    //   case 5: return "Thursday";
+    //   case 6: return "Friday";
+    //   case 7: return "Saturday";
+
+    //   default: return "Wrong, please enter a number between 1 and 7";
+    // }
+  }
+  // console.log(whatday(7));
+}
+
+console.log(new Date(2024, 0, 1).toLocaleString('en', { /** dateStyle: 'long', month: 'long', */ weekday: 'long' }));
+console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'long' }));
