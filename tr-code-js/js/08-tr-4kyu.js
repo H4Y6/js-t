@@ -1778,7 +1778,8 @@ Otherwise returns "Wrong, please enter a number between 1 and 7"         */
 }
 
 console.log(new Date(2024, 0, 1).toLocaleString('en', { /** dateStyle: 'long', month: 'long', */ weekday: 'long' }));
-console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'long' }));
+// console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'long' }));
+console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'full' }));
 
 {  /**  7 kyu  Minimize Sum Of Array (Array Series #1)
 Task
@@ -1872,4 +1873,33 @@ Playing with Numbers Series                      */
   const nthSmallest = (arr, pos) => [...Array.from(arr)].sort((a, b) => a - b)[pos - 1];
   // const nthSmallest = (arr, pos) => [...arr].sort((a, b) => a - b)[pos - 1];
   // console.log(nthSmallest([-102, -16, -1, -2, -367, -9], 5));
+}
+
+{  /**  7 kyu  Product Of Maximums Of Array (Array Series #2) 
+Given an array/list [] of integers , Find the product of the k maximal numbers.
+
+Notes
+Array/list size is at least 3 .
+Array/list's numbers Will be mixture of positives , negatives and zeros
+Repetition of numbers in the array/list could occur.
+Input >> Output Examples
+maxProduct ({4, 3, 5}, 2) ==>  return (20)
+Explanation:
+Since the size (k) equal 2 , then the subsequence of size 2 whose gives product of maxima is 5 * 4 = 20 .
+maxProduct ({8, 10 , 9, 7}, 3) ==>  return (720)
+Explanation:
+Since the size (k) equal 3 , then the subsequence of size 3 whose gives product of maxima is  8 * 9 * 10 = 720 .
+maxProduct ({10, 8, 3, 2, 1, 4, 10}, 5) ==> return (9600)
+Explanation:
+Since the size (k) equal 5 , then the subsequence of size 5 whose gives product of maxima is  10 * 10 * 8 * 4 * 3 = 9600 .
+maxProduct ({-4, -27, -15, -6, -1}, 2) ==> return (4)
+Explanation:
+Since the size (k) equal 2 , then the subsequence of size 2 whose gives product of maxima is  -4 * -1 = 4 .
+maxProduct ({10, 3, -1, -27} , 3)  return (-30)
+Explanation:
+Since the size (k) equal 3 , then the subsequence of size 3 whose gives product of maxima is 10 * 3 * -1 = -30 .     */
+
+  const maxProduct = (numbers, size) => [...numbers].sort((a, b) => a - b).slice(-size).reduce((res, el) => res * el, 1);
+
+  console.log(maxProduct([13, 12, -27, -302, 25, 37, 133, 155, -14], 5));
 }
