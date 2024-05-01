@@ -1779,3 +1779,97 @@ Otherwise returns "Wrong, please enter a number between 1 and 7"         */
 
 console.log(new Date(2024, 0, 1).toLocaleString('en', { /** dateStyle: 'long', month: 'long', */ weekday: 'long' }));
 console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'long' }));
+
+{  /**  7 kyu  Minimize Sum Of Array (Array Series #1)
+Task
+Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
+Notes
+Array/list will contain positives only .
+Array/list will always have even size
+Input >> Output Examples
+minSum({5,4,2,3}) ==> return (22) 
+Explanation:
+The minimum sum obtained from summing each two integers product ,  5*2 + 3*4 = 22
+minSum({12,6,10,26,3,24}) ==> return (342)
+Explanation:
+The minimum sum obtained from summing each two integers product ,  26*3 + 24*6 + 12*10 = 342
+minSum({9,2,8,7,5,4,0,6}) ==> return (74)
+Explanation:
+The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*4 +6*5 = 74   */
+
+  const minSum = arr => arr.sort((a, b) => a - b).reduce((sum, e) => sum + e * arr.pop(), 0);
+
+  // const minSum = arr => arr.sort((a, b) => a - b).reduce((sum, e, i) => sum + e * arr[arr.length - 1 - i], 0) / 2;
+
+  // function minSum(arr) {
+  //   const sortedArr = [...arr].sort((a, b) => a - b);
+  //   return sortedArr.slice(-arr.length / 2).reverse().reduce((sum, e, i) => sum + e * sortedArr[i], 0);
+  // };
+  const ar = [12, 6, 10, 26, 3, 24];
+  // console.log(minSum([...ar]));
+}
+
+{  /** 7 kyu  Maximum Product
+Task
+Given an array of integers , Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
+Notes
+Array/list size is at least 2.
+Array/list numbers could be a mixture of positives, negatives also zeroes .
+Input >> Output Examples
+adjacentElementsProduct([1, 2, 3]); ==> return 6
+Explanation:
+The maximum product obtained from multiplying 2 * 3 = 6, and they're adjacent numbers in the array.
+adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]); ==> return 50
+Explanation:
+Max product obtained from multiplying 5 * 10  =  50 .
+adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])  ==>  return -14
+Explanation:
+The maximum product obtained from multiplying -2 * 7 = -14, and they're adjacent numbers in the array.  */
+
+  const adjacentElementsProduct = array => Math.max(...(array.map((e, i) => e * array[i + 1])).slice(0, -1));
+
+  // const adjacentElementsProduct = array => Math.max(...(array.slice(0, -1).map((e, i) => e * array.slice(1)[i])));
+
+  // console.log(adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921]));
+}
+
+{  /**  6 kyu  Transform To Prime
+Task :
+Given a List [] of n integers , find minimum number to be inserted in a list, so that sum of all elements of list should equal the closest prime number .
+Notes
+List size is at least 2 .
+List's numbers will only positives (n > 0) .
+Repetition of numbers in the list could occur .
+The newer list's sum should equal the closest prime number .
+
+Input >> Output Examples
+1- minimumNumber ({3,1,2}) ==> return (1)
+Explanation:
+Since , the sum of the list's elements equal to (6) , the minimum number to be inserted to transform the sum to prime number is (1) , which will make the sum of the List equal the closest prime number (7) .
+2-  minimumNumber ({2,12,8,4,6}) ==> return (5)
+Explanation:
+Since , the sum of the list's elements equal to (32) , the minimum number to be inserted to transform the sum to prime number is (5) , which will make the sum of the List equal the closest prime number (37) .
+3- minimumNumber ({50,39,49,6,17,28}) ==> return (2)
+Explanation:
+Since , the sum of the list's elements equal to (189) , the minimum number to be inserted to transform the sum to prime number is (2) , which will make the sum of the List equal the closest prime number (191) .         */
+
+
+}
+
+{  /** 7 kyu  Nth Smallest Element (Array Series #4) 
+Given an array/list of integers, find the Nth smallest element in the array.
+Notes
+Array/list size is at least 3.
+Array/list's numbers could be a mixture of positives , negatives and zeros.
+Repetition in array/list's numbers could occur, so don't remove duplications.
+Input >> Output Examples
+arr=[3,1,2]            n=2    ==> return 2 
+arr=[15,20,7,10,4,3]   n=3    ==> return 7 
+arr=[2,169,13,-5,0,-1] n=4    ==> return 2 
+arr=[2,1,3,3,1,2],     n=3    ==> return 2 
+Playing with Numbers Series                      */
+
+  const nthSmallest = (arr, pos) => [...Array.from(arr)].sort((a, b) => a - b)[pos - 1];
+  // const nthSmallest = (arr, pos) => [...arr].sort((a, b) => a - b)[pos - 1];
+  console.log(nthSmallest([-102, -16, -1, -2, -367, -9], 5));
+}
