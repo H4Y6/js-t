@@ -167,7 +167,7 @@
         }
     };
 
-    user.logNameInSeconds();
+    // user.logNameInSeconds();
 }
 
 {
@@ -175,5 +175,46 @@
     const max = Math.max.apply({}, numbers);
     // const max = Math.max(...numbers);
 
-    console.log(max);
+    // console.log(max);
+}
+
+{
+    const dog = {
+        name: 'Bars',
+    };
+
+    const cat = {
+        name: 'Meow',
+    };
+
+    const getName = function () {
+        return this.name;
+    };
+    const getDogName = getName.bind(dog);
+    const getCatName = getName.bind(cat);
+    // console.log(getDogName());
+    // console.log(getCatName());
+}
+
+{
+    const user = {
+        name: 'Forgel',
+        logNameDelayed() {
+            const cb = function () {
+                console.log('this.name->', this.name);
+            };
+            setTimeout(cb.bind(this), 911);
+
+            const arrowCb = () => {
+                console.log('this.name arrow->', this.name);
+            };
+            setTimeout(arrowCb, 2111);
+        }
+    };
+    // user.logNameDelayed();
+
+
+    const arr = [3, 5, 6, 7, 8, 11];
+    const max = Math.max.apply(null, arr);
+    // console.log(max);
 }

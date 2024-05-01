@@ -1871,5 +1871,5 @@ Playing with Numbers Series                      */
 
   const nthSmallest = (arr, pos) => [...Array.from(arr)].sort((a, b) => a - b)[pos - 1];
   // const nthSmallest = (arr, pos) => [...arr].sort((a, b) => a - b)[pos - 1];
-  console.log(nthSmallest([-102, -16, -1, -2, -367, -9], 5));
+  // console.log(nthSmallest([-102, -16, -1, -2, -367, -9], 5));
 }
