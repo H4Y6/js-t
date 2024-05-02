@@ -1,9 +1,9 @@
 const animal = {
     legs: 4,
 };
-animal.move = function () { console.log('I move.') };
+animal.move = function () { console.log('I move.'); };
 
-const dog = Object.create(animal)
+const dog = Object.create(animal);
 dog.name = 'B0bby';
 
 // console.log(animal, dog);
@@ -48,14 +48,14 @@ class Stugent {
 
     set guild(value) {
         if (value.length <= 3) {
-            console.warn('Can not be shorter then 4 letters')
-            return
+            console.warn('Can not be shorter then 4 letters');
+            return;
         };
         this.#guild = value;
     };
 
-    study() { console.log('I study german.') };
-    promote() { console.log('I am FS eveloper') };
+    study() { console.log('I study german.'); };
+    promote() { console.log('I am FS eveloper'); };
 };
 
 const student = new Stugent({ name: 'John', age: 22, avatar: '😎' });
@@ -81,7 +81,7 @@ class SuperHuman extends Human {
     };
 
     superPunch() {
-        console.log('👊👊👊')
+        console.log('👊👊👊');
     };
 };
 
@@ -121,6 +121,39 @@ const suprtHuman = new SuperHuman('Pit');
         damage: 50,
     });
 
-    console.log(merlin);
-    console.log(merlin.attack());
+    // console.log(merlin);
+    // console.log(merlin.attack());
+}
+
+{
+    class Student {
+        #rating;
+        #guild;
+        constructor({ name, age, avatar }) {
+            this.name = name;
+            this.age = age;
+            this.avatar = avatar;
+            this.#rating = 0;
+            this.#guild = 'Gryffindor';
+        }
+
+        get guild() { return this.#guild; }
+        set guild(value) { this.#guild = value; }
+
+        getRating() {
+            return this.#rating;
+        }
+        updateRating(newRating) {
+            this.#rating = newRating;
+        }
+        study() {
+            console.log('I study');
+        }
+    }
+
+    const studentBob = new Student({ name: 'Bob', age: 21, avatar: '😎' });
+    studentBob.study();
+    studentBob.updateRating(4);
+    console.log(studentBob.getRating());
+    console.log(studentBob.guild);
 }
