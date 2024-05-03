@@ -125,6 +125,7 @@ const suprtHuman = new SuperHuman('Pit');
     // console.log(merlin.attack());
 }
 
+
 {
     class Student {
         #rating;
@@ -152,8 +153,57 @@ const suprtHuman = new SuperHuman('Pit');
     }
 
     const studentBob = new Student({ name: 'Bob', age: 21, avatar: '😎' });
-    studentBob.study();
+    // studentBob.study();
     studentBob.updateRating(4);
-    console.log(studentBob.getRating());
-    console.log(studentBob.guild);
+    // console.log(studentBob.getRating());
+    // console.log(studentBob.guild);
+
+
+    class Human {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+    class SuperMan extends Human {
+        constructor(name) {
+            super(name);
+        }
+
+        superPunch() {
+            console.log('👊🤛🤛👊👍');
+        }
+    }
+
+    const superMan = new SuperMan('Eric');
+
+    // console.log('superMan -> ', superMan);
+
+    class Hero {
+        constructor({ name, hp, damage }) {
+            this.name = name;
+            this.hp = hp;
+            this.damage = damage;
+        }
+
+        attack() {
+            return this.damage;
+        }
+    }
+
+    class Wizard extends Hero {
+        #magicDamage = 22;
+        constructor({ name, hp, damage, mana = 25 }) {
+            super({ name, hp, damage });
+            this.mana = mana;
+        }
+
+        attack() {
+            return this.damage + this.#magicDamage / 2 + this.mana / 5;
+        }
+    }
+    const gryffindor = new Wizard({ name: 'Gryffindor', hp: 220, damage: 30 });
+
+    // console.log('gryggindor ->', gryffindor);
+    // console.log('gryggindor.attack ->', gryffindor.attack());
 }
