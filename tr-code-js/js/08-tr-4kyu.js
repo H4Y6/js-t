@@ -1777,10 +1777,6 @@ Otherwise returns "Wrong, please enter a number between 1 and 7"         */
   // console.log(whatday(7));
 }
 
-console.log(new Date(2024, 0, 1).toLocaleString('en', { /** dateStyle: 'long', month: 'long', */ weekday: 'long' }));
-// console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'long' }));
-console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'full' }));
-
 {  /**  7 kyu  Minimize Sum Of Array (Array Series #1)
 Task
 Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
@@ -1879,8 +1875,8 @@ Since , the sum of the list's elements equal to (189) , the minimum number to be
     }
     return true;
   }
-  console.log(minimumNumber([2, 12, 8, 4, 6]));
-  console.log(minimumNumber([50, 39, 49, 6, 17, 28]));
+  // console.log(minimumNumber([2, 12, 8, 4, 6]));
+  // console.log(minimumNumber([50, 39, 49, 6, 17, 28]));
 }
 
 {  /** 7 kyu  Nth Smallest Element (Array Series #4) 
@@ -2086,4 +2082,32 @@ We need to keep doing this until the sum becomes greater or equal to K (464 in t
   // }
   // console.log(minimumSteps([19, 98, 69, 28, 75, 45, 17, 98, 67], 464));
   // console.log(minimumSteps([8, 9, 10, 4, 33, 2], 23));
+}
+
+console.log(new Date(2024, 0, 1).toLocaleString('en', { /** dateStyle: 'long', month: 'long', */ weekday: 'long' }));
+// console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'long' }));
+console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'full' }));
+
+{  /**  7 kyu  Maximum Triplet Sum (Array Series #7) 
+Given an array/list [] of n integers , find maximum triplet sum in the array Without duplications .
+Notes :
+Array/list size is at least 3 .
+Array/list numbers could be a mixture of positives , negatives and zeros .
+Repetition of numbers in the array/list could occur , So (duplications are not included when summing).
+Input >> Output Examples
+1- maxTriSum ({3,2,6,8,2,3}) ==> return (17)
+Explanation:
+As the triplet that maximize the sum {6,8,3} in order , their sum is (17)
+Note : duplications are not included when summing , (i.e) the numbers added only once .
+2- maxTriSum ({2,1,8,0,6,4,8,6,2,4}) ==> return (18)
+Explanation:
+As the triplet that maximize the sum {8, 6, 4} in order , their sum is (18) ,
+Note : duplications are not included when summing , (i.e) the numbers added only once .
+3- maxTriSum ({-7,12,-7,29,-5,0,-7,0,0,29}) ==> return (41)
+Explanation:
+As the triplet that maximize the sum {12 , 29 , 0} in order , their sum is (41) ,
+Note : duplications are not included when summing , (i.e) the numbers added only once .     */
+
+  const maxTriSum = numbers => [...new Set(numbers.sort((a, b) => a - b))].slice(-3).reduce((res, e) => res + e);
+  // console.log(maxTriSum([-13, -50, 57, 13, 67, -13, 57, 108, 67]));
 }
