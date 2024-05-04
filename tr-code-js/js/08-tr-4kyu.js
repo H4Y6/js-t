@@ -1854,7 +1854,33 @@ Since , the sum of the list's elements equal to (32) , the minimum number to be 
 Explanation:
 Since , the sum of the list's elements equal to (189) , the minimum number to be inserted to transform the sum to prime number is (2) , which will make the sum of the List equal the closest prime number (191) .         */
 
+  // function minimumNumber(numbers) {
+  //   const sum = numbers.reduce((sum, e) => sum + e);
 
+  //   for (let i = sum; i < Infinity; sum % 2 ? i += 2 : i++) {
+  //     let Indices = [];
+
+  //     for (let j = 2; j < i; j++) {
+  //       if (i % j === 0) Indices.push([j]);
+  //     }
+  //     if (!Indices.length) return i - sum;
+  //   }
+
+  function minimumNumber(numbers) {
+    const sum = numbers.reduce((sum, e) => sum + e);
+    for (let i = sum; ; i % 2 ? i += 2 : i++) {
+      if (isPrime(i)) return i - sum;
+    };
+  }
+
+  function isPrime(n) {
+    for (let j = 2; j < n; j++) {
+      if (n % j === 0) return false;
+    }
+    return true;
+  }
+  console.log(minimumNumber([2, 12, 8, 4, 6]));
+  console.log(minimumNumber([50, 39, 49, 6, 17, 28]));
 }
 
 {  /** 7 kyu  Nth Smallest Element (Array Series #4) 
