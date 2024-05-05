@@ -427,16 +427,16 @@ method();
 }
 
 {  /* We have an array from integers. Find all integers with '0' on both sides. If we have no such integers return -1. Output is indices of those integers   */
-  const arr = [3, 4, 5, 0, 7, 0, 2, 0, 4, 0, 11];
-  // const arr = [3, 4, 5, 0, 22, 7, 0, 2, 4, 0, 11];
+  const array = [3, 4, 5, 0, 7, 0, 2, 0, 4, 0, 11];
+  // const array = [3, 4, 5, 0, 22, 7, 0, 2, 4, 0, 11];
 
-  const findIndices = (arr) => {
+  const findIndices = (array) => {
     const result = [];
-    for (let i = 1; i < arr.length - 1; i++) {
-      if (!arr[i - 1] && !arr[i + 1]) result.push(i);
+    for (let i = 1; i < array.length - 1; i++) {
+      if (!array[i - 1] && !array[i + 1]) result.push(i);
     }
 
     return result.length ? result : -1;
   };
-  console.log(findIndices(arr));
+  // console.log(findIndices(array));
 }
