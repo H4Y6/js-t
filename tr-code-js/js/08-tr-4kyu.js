@@ -2111,3 +2111,50 @@ Note : duplications are not included when summing , (i.e) the numbers added only
   const maxTriSum = numbers => [...new Set(numbers.sort((a, b) => a - b))].slice(-3).reduce((res, e) => res + e);
   // console.log(maxTriSum([-13, -50, 57, 13, 67, -13, 57, 108, 67]));
 }
+
+{  /**  7 kyu  Row Weights
+Several people are standing in a row divided into two teams.
+The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
+Task
+Given an array of positive integers (the weights of the people), return a new array/tuple of two integers, where the first one is the total weight of team 1, and the second one is the total weight of team 2.
+Notes
+Array size is at least 1.
+All numbers will be positive.
+Input >> Output Examples
+rowWeights([13, 27, 49])  ==>  return (62, 27)
+Explanation:
+The first element 62 is the total weight of team 1, and the second element 27 is the total weight of team 2.
+rowWeights([50, 60, 70, 80])  ==>  return (120, 140)
+Explanation:
+The first element 120 is the total weight of team 1, and the second element 140 is the total weight of team 2.
+rowWeights([80])  ==>  return (80, 0)
+Explanation:
+The first element 80 is the total weight of team 1, and the second element 0 is the total weight of team 2.      */
+
+  // const rowWeights = (array) => array.reduce((res, e, i) => (res[i % 2] += e, res), [0, 0]);
+
+  const rowWeights = (array) => {
+    let res = [0, 0];
+    array.forEach((e, i) => {
+      res[i % 2] += e;
+    });
+
+    return res;
+  };
+
+  // const rowWeights = (array) => {
+  //   let res = [0, 0];
+  //   array.forEach((e, i) => {
+  //     i % 2 ? res[i % 2] += e : res[i % 2] += e;
+  //   });
+  //   return res;
+  // };
+
+  // const rowWeights = (array) => [
+  //   array.reduce((acc, el, i, arr) => !(i % 2) ? acc + el : acc, 0),
+  //   array.reduce((acc, el, i, arr) => i % 2 ? acc + el : acc, 0)
+  // ];
+
+  // console.log(rowWeights([39, 84, 74, 18, 59, 72, 35, 61]));
+  // console.log(rowWeights([0]));
+}
