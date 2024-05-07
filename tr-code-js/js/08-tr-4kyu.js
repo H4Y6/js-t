@@ -2212,7 +2212,7 @@ For Go: nil slice is expected when there are no gap between m and n. Example: ga
         if (i % j === 0) continue;
         res.push([i, j]);
       }
-      if (res.length === n - 3) primes.push(i);
+      if (!(n - 3 - res.length)) primes.push(i);
     }
 
     for (let i = 0; i < primes.length; i++) {
@@ -2222,6 +2222,6 @@ For Go: nil slice is expected when there are no gap between m and n. Example: ga
     }
     return null;
   }
-  // console.log(gap(10, 300, 400));
-  // console.log(gap(6, 100, 110));
+  console.log(gap(10, 300, 400));
+  console.log(gap(6, 100, 110));
 }
