@@ -2235,3 +2235,23 @@ Write a function which removes from string all non-digit characters and parse th
   // console.log(getNumberFromString("this is number: 7"));
   // console.log(getNumberFromString("123"));
 }
+
+{  /** 7 kyu  Switcheroo  
+Given a string made up of letters a, b, and/or c, switch the position of letters a and b (change a to b and vice versa). Leave any incidence of c untouched.
+Example:
+'acb' --> 'bca'
+'aabacbaa' --> 'bbabcabb'  */
+
+  const switcheroo = x => x.replace(/[ab]/g, x => x === 'a' ? 'b' : 'a');
+  // const switcheroo = x => x.replaceAll('a', 'd').replaceAll('b', 'a').replaceAll('d', 'b');
+
+  // console.log(switcheroo('aaabcccbaaa'));
+}
+
+{  /** 8 kyu  Who is going to pay for the wall? 
+Don Drumphet lives in a nice neighborhood, but one of his neighbors has started to let his house go. Don Drumphet wants to build a wall between his house and his neighbor’s, and is trying to get the neighborhood association to pay for it. He begins to solicit his neighbors to petition to get the association to build the wall. Unfortunately for Don Drumphet, he cannot read very well, has a very limited attention span, and can only remember two letters from each of his neighbors’ names. As he collects signatures, he insists that his neighbors keep truncating their names until two letters remain, and he can finally read them.
+Your code will show Full name of the neighbor and the truncated version of the name as an array. If the number of the characters in name is less than or equal to two, it will return an array containing only the name as is"          */
+
+  const whoIsPaying = name => name.length > 2 ? [name, name.slice(0, 2)] : [name.slice(0, 2)];
+  // console.log(whoIsPaying('Mexico'));
+}
