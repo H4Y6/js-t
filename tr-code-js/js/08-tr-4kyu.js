@@ -2222,6 +2222,16 @@ For Go: nil slice is expected when there are no gap between m and n. Example: ga
     }
     return null;
   }
-  console.log(gap(10, 300, 400));
-  console.log(gap(6, 100, 110));
+  // console.log(gap(10, 300, 400));
+  // console.log(gap(6, 100, 110));
+}
+
+{  /** 8 kyu  Get number from string  
+Write a function which removes from string all non-digit characters and parse the remaining to number. E.g: "hell5o wor6ld" -> 56  */
+
+  const getNumberFromString = s => +s.match(/\d/g).join('');
+  // const getNumberFromString = s => +s.replace(/\D/g, '');
+  // const getNumberFromString = s => +s.split('').filter(e => e.match(/\d/)).join('');
+  // console.log(getNumberFromString("this is number: 7"));
+  // console.log(getNumberFromString("123"));
 }
