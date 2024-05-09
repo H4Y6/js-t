@@ -2084,10 +2084,6 @@ We need to keep doing this until the sum becomes greater or equal to K (464 in t
   // console.log(minimumSteps([8, 9, 10, 4, 33, 2], 23));
 }
 
-console.log(new Date(2024, 0, 1).toLocaleString('en', { /** dateStyle: 'long', month: 'long', */ weekday: 'long' }));
-// console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'long' }));
-console.log(new Date(0, 0, 1).toLocaleString('en', { dateStyle: 'full' }));
-
 {  /**  7 kyu  Maximum Triplet Sum (Array Series #7) 
 Given an array/list [] of n integers , find maximum triplet sum in the array Without duplications .
 Notes :
