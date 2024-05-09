@@ -2255,3 +2255,32 @@ Your code will show Full name of the neighbor and the truncated version of the n
   const whoIsPaying = name => name.length > 2 ? [name, name.slice(0, 2)] : [name.slice(0, 2)];
   // console.log(whoIsPaying('Mexico'));
 }
+
+{  /**  7 kyu  Number of Decimal Digits
+Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+All inputs will be valid. */
+
+  const digits = n => `${n}`.length;
+  // const digits = n => n.toString().length;
+  // console.log(digits(342));
+}
+
+{  /**  8 kyu  Check same case
+Write a function that will check if two given characters are the same case.
+If either of the characters is not a letter, return -1
+If both characters are the same case, return 1
+If both characters are letters, but not the same case, return 0
+Examples
+'a' and 'g' returns 1
+'A' and 'C' returns 1
+'b' and 'G' returns 0
+'B' and 'g' returns 0
+'0' and '?' returns -1       */
+
+  const sameCase = (a, b) => {
+    if ((/\w/).test(b) && (/\w/).test(a) && (/\D/).test(b) && (/\D/).test(a)) return (/[A-Z]/).test(a) === (/[A-Z]/).test(b) ? 1 : 0;
+    return -1;
+  };
+
+  // console.log(sameCase('a', ','));
+}
