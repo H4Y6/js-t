@@ -2364,3 +2364,60 @@ If you are given an array with multiple answers, return the lowest correct index
   // console.log(findEvenIndex([20, 10, -80, 10, 10, 15, 35]));
   // console.log(findEvenIndex([10, -80, 10, 10, 15, 35]));
 }
+
+{  /**  7 kyu  Ones and Zeros 
+Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+Examples:
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+Testing: [1, 0, 0, 1] ==> 9
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 1, 0] ==> 6
+Testing: [1, 1, 1, 1] ==> 15
+Testing: [1, 0, 1, 1] ==> 11
+However, the arrays can have varying lengths, not just limited to 4.    */
+
+  const binaryArrayToNumber = arr => parseInt(arr.join(''), 2);
+  // const binaryArrayToNumber = arr => arr.reverse().reduce((res, e, i) => res + e * 2 ** i, 1) - 1;
+
+  // console.log(binaryArrayToNumber([1, 0, 1, 0]));
+}
+
+{  /**  8 kyu  Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
+Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string. For a beginner kata, you can assume that the input data is always a non empty string, no need to verify it.
+Examples
+"Hi!"     ---> "Hi!"
+"Hi!!!"   ---> "Hi!"
+"!Hi"     ---> "Hi!"
+"!Hi!"    ---> "Hi!"
+"Hi! Hi!" ---> "Hi Hi!"
+"Hi"      ---> "Hi!"        */
+
+  const remove = string => string.replace(/!/g, '') + '!';
+  // console.log(remove("Hi! Hi!"));
+}
+
+{  /**  7 kyu  Sum of Cubes
+Write a function that takes a positive integer n, sums all the cubed values from 1 to n (inclusive), and returns that sum.
+Assume that the input n will always be a positive integer.
+Examples: (Input --> output)
+2 --> 9 (sum of the cubes of 1 and 2 is 1 + 8)
+3 --> 36 (sum of the cubes of 1, 2, and 3 is 1 + 8 + 27)          */
+
+  // const sumCubes = n => [...Array(n).keys()].reduce((sum, e) => sum + (e + 1) ** 3, 0);
+  const sumCubes = (n, sum = 0) => n < 1 ? sum : sumCubes(n - 1, sum + n ** 3);
+
+  // const sumCubes = n => n === 1 ? n ** 3 : n ** 3 + sumCubes(n - 1);
+
+  // function sumCubes(n) {
+  //   if (n === 1) {
+  //     return n ** 3;
+  //   } else {
+  //     return n ** 3 + sumCubes(n - 1);
+  //   }
+  // }
+
+  // console.log(sumCubes(3));
+}
