@@ -2493,3 +2493,17 @@ For C: do not mutate input. */
 
   // console.log(solve("mischtschenkoana"));
 }
+
+{  /**  7 kyu  Mumbling
+ This time no story, no theory. The examples below show you how to write function accum:
+Examples:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+The parameter of accum is a string which includes only letters from a..z and A..Z.     */
+
+  const accum = (s) => s.split('').map((e, i) => e.toUpperCase() + e.toLowerCase().repeat(i)).join('-');
+  // const accum = (s) => s.split('').map((e, i) => e.toUpperCase() + e.toLowerCase().repeat(i) + '-').join('').slice(0, -1);
+
+  // console.log(accum('ZpglnRxqenU'));
+}
