@@ -2507,3 +2507,37 @@ The parameter of accum is a string which includes only letters from a..z and A..
 
   // console.log(accum('ZpglnRxqenU'));
 }
+
+{  /** 8 kyu  Is it a number?
+Given a string s, write a method (function) that will return true if its a valid single integer or floating number or false if its not.
+Valid examples, should return true:
+isDigit("3")
+isDigit("  3  ")
+isDigit("-3.23")
+should return false:
+isDigit("3-4")
+isDigit("  3   5")
+isDigit("3 5")
+isDigit("zero")       */
+
+  function isDigit(s) {
+    return !isNaN(s);  /** 1 test failed */
+  }
+  // console.log(isDigit('8.7'));
+}
+
+{  /** 8 kyu  Remove duplicates from list
+Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
+The order of the sequence has to stay the same.
+Examples:
+Input -> Output
+[1, 1, 2] -> [1, 2]
+[1, 2, 1, 1, 3, 2] -> [1, 2, 3]           */
+
+  function distinct(a) {
+    // return Array.from(new Set(a));
+    return [...new Set(a)];
+    // return a.filter((e, i) => i === a.indexOf(e));
+  }
+  console.log(distinct([1, 2, 1, 1, 3, 2]));
+}
