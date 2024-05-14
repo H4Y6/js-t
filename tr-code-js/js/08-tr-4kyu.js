@@ -2451,28 +2451,45 @@ try not to modify the input list of distances ls
 in some languages this "list" is in fact a string (see the Sample Tests).     */
 
   function chooseBestSum(t, k, ls) {
-    if (ls.length < k) return null;
-    let sumArray = [];
 
-    for (let i = 0; i < ls.length - 2; i++) {
-      let sum = 0;
-
-      for (let j = 1; j < ls.length - 2; j++) {
-
-        for (let m = 2; m < ls.length - 2; m++) {
-          sum = ls[i] + ls[j] + ls[m];
-          console.log(sum);
-          if (sum <= t) {
-            sumArray.push(sum);
-          }
-        }
-
-      }
-
-      console.log(sumArray);
-    }
   }
-  console.log(chooseBestSum(163, 3, [91, 74, 73, 85, 73, 81, 87]));
-  console.log(chooseBestSum(163, 4, [50, 55, 56, 57, 58]));
-  console.log(chooseBestSum(163, 4, [91]));
+  // console.log(chooseBestSum(230, 3, [91, 74, 73, 85, 73, 81, 87]));
+  // console.log(chooseBestSum(163, 4, [50, 55, 56, 57, 58]));
+  // console.log(chooseBestSum(163, 4, [91]));
+}
+
+{  /** 8 kyu  Holiday VI - Shark Pontoon 
+Your friend invites you out to a cool floating pontoon around 1km off the beach. Among other things, the pontoon has a huge slide that drops you out right into the ocean, a small way from a set of stairs used to climb out.
+As you plunge out of the slide into the water, you see a shark hovering in the darkness under the pontoon... Crap!
+You need to work out if the shark will get to you before you can get to the pontoon. To make it easier... as you do the mental calculations in the water you either freeze when you realise you are dead, or swim when you realise you can make it!
+You are given 5 variables;
+sharkDistance = distance from the shark to the pontoon. The shark will eat you if it reaches you before you escape to the pontoon.
+sharkSpeed = how fast it can move in metres/second.
+pontoonDistance = how far you need to swim to safety in metres.
+youSpeed = how fast you can swim in metres/second.
+dolphin = a boolean, if true, you can half the swimming speed of the shark as the dolphin will attack it.
+The pontoon, you, and the shark are all aligned in one dimension.
+If you make it, return "Alive!", if not, return "Shark Bait!".         */
+
+  function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
+    if (dolphin) sharkSpeed /= 2;
+    return pontoonDistance / youSpeed < sharkDistance / sharkSpeed ? "Alive!" : "Shark Bait!";
+  }
+  // console.log(shark(24, 0, 4, 8, true));
+  // console.log(shark(12, 50, 4, 8, true));
+}
+
+{  /**  6 kyu  Consonant value
+Given a lowercase string that has alphabetic characters only and no spaces, return the highest value of consonant substrings. Consonants are any letters of the alphabet except "aeiou".
+We shall assign the following values: a = 1, b = 2, c = 3, .... z = 26.
+For example, for the word "zodiacs", let's cross out the vowels. We get: "z o d ia cs"
+-- The consonant substrings are: "z", "d" and "cs" and the values are z = 26, d = 4 and cs = 3 + 19 = 22. The highest is 26.
+solve("zodiacs") = 26
+For the word "strength", solve("strength") = 57
+-- The consonant substrings are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
+For C: do not mutate input. */
+
+  const solve = s => Math.max(...s.split(/a|e|i|o|u/).map(e => e.split('').reduce((sum, el) => sum + el.charCodeAt() - 96, 0)));
+
+  // console.log(solve("mischtschenkoana"));
 }
