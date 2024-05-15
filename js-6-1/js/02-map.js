@@ -5,10 +5,25 @@
  * - Возвращает новый массив такой же длины
  */
 
+/**  
+ * The map(callback) method is used to transform an array. It calls a callback for each element of the original array and writes its result to a new array, which will be the method execution result.
+
+array.map((element, index, array) => {
+  // Callback body
+});
+
+* - Iterates over the original array element by element.
+* - Does not change the original array.
+* - The callback function’s result is written to a new array.
+* - Returns a new array of the same length.
+  It can be used to change every element of an array. The original array is used as a reference, a basis for making another collection.
+  Using anonymous arrow functions with an implicit return greatly reduces the "noise" when declaring a callback function, making the code cleaner and easier to read.
+ */
+
 const numbers = [5, 10, 15, 20, 25];
 
 const doubledNums = numbers.map(number => {
-  return number * 3;
+  return number * 2;
 });
 // console.log('numbers', numbers);
 // console.log('doubledNums', doubledNums);
@@ -27,7 +42,9 @@ console.table(players);
  */
 
 const playerNames = players.map(player => player.name);
+const playerNamesDestructurized = players.map(({ name }) => name);
 // console.log('playerNames', playerNames);
+// console.log('playerNamesDestructurized', playerNamesDestructurized);
 
 const playerIds = players.map(player => player.id);
 // console.log('playerIds', playerIds);
@@ -53,20 +70,20 @@ const upatedPlayers = players.map(player => ({
 
 const playerIdToUpdate = 'player-3';
 
-const updatedPlayers = players.map(player => {
-  if (playerIdToUpdate === player.id) {
-    return {
-      ...player,
-      timePlayed: player.timePlayed + 100,
-    };
-  }
+// const updatedPlayers = players.map(player => {
+//   if (playerIdToUpdate === player.id) {
+//     return {
+//       ...player,
+//       timePlayed: player.timePlayed + 100,
+//     };
+//   }
 
-  return player;
-});
+//   return player;
+// });
 
-// const updatedPlayers = players.map(player =>
-//   playerIdToUpdate === player.id
-//     ? { ...player, timePlayed: player.timePlayed + 100 }
-//     : player,
-// );
-// console.table(updatedPlayers);
+const updatedPlayers = players.map(player =>
+  playerIdToUpdate === player.id
+    ? { ...player, timePlayed: player.timePlayed + 100 }
+    : player,
+);
+console.table(updatedPlayers);
