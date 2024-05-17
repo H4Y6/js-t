@@ -21,7 +21,8 @@ const numbers = [0, 5, 10, 15, 20, 25];
 
 numbers.forEach(function (number, i, array) {
   console.log(`Index ${i}, number ${number}, value ${numbers[i]}`);
-  numbers[i] += 1;  /** the way to change an array value */
-});
+  console.log('this: ', this);
+  numbers[i] += 1;  /** the way to change an array values */
+}, { a: 2, b: 5 });
 
 console.log(numbers);
