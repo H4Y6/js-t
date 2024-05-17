@@ -56,10 +56,10 @@ const playerIds = players.map(player => player.id);
  * Увеличиваем кол-во поинтов каждого игрока на 10%
  */
 
-const upatedPlayers = players.map(player => ({
-  ...player,
-  points: player.points * 1.1,
-}));
+// const upatedPlayers = players.map(player => ({
+//   ...player,
+//   points: player.points * 1.1,
+// }));
 
 // console.table(upatedPlayers);
 // console.log(upatedPlayers);
@@ -81,9 +81,5 @@ const playerIdToUpdate = 'player-3';
 //   return player;
 // });
 
-const updatedPlayers = players.map(player =>
-  playerIdToUpdate === player.id
-    ? { ...player, timePlayed: player.timePlayed + 100 }
-    : player,
-);
+const updatedPlayers = players.map(player => player.id === playerIdToUpdate ? { ...player, name: 'Bob' } : player);
 console.table(updatedPlayers);
