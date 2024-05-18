@@ -9,7 +9,7 @@
 
 const numbers = [5, 10, 15, 20, 25];
 
-const filteredNumbers = numbers.filter(number => number < 10 || number > 20);
+const filteredNumbers = numbers.filter(number => number < 11 || number >= 20);
 // console.log(filteredNumbers);
 
 const players = [
