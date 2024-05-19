@@ -2561,8 +2561,9 @@ isPowerOfTwo(4096) // -> true
 isPowerOfTwo(333)  // -> false
 Beware of certain edge cases - for example, 1 is a power of 2 since 2^0 = 1 and 0 is not a power of 2.      */
 
-  const isPowerOfTwo = n => Number.isInteger(Math.log2(n));
+  // const isPowerOfTwo = n => Number.isInteger(Math.log2(n));
   // const isPowerOfTwo = n => n < 1 ? false : n === 1 ? true : n % 2 ? false : isPowerOfTwo(n /= 2);
+  const isPowerOfTwo = n => n === 1 ? true : n % 2 || n < 1 ? false : isPowerOfTwo(n /= 2);
 
   // function isPowerOfTwo(n) {
   // if (n === 1) return true;
@@ -2573,6 +2574,6 @@ Beware of certain edge cases - for example, 1 is a power of 2 since 2^0 = 1 and 
   // return isPowerOfTwo(n /= 2);
 
   // }
-  // console.log(isPowerOfTwo(4096));
-  // console.log(isPowerOfTwo(0));
+  console.log(isPowerOfTwo(4096));
+  console.log(isPowerOfTwo(0));
 }
