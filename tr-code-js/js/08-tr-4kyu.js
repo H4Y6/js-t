@@ -2561,9 +2561,9 @@ isPowerOfTwo(4096) // -> true
 isPowerOfTwo(333)  // -> false
 Beware of certain edge cases - for example, 1 is a power of 2 since 2^0 = 1 and 0 is not a power of 2.      */
 
-  const isPowerOfTwo = n => Math.log2(n) % 1 === 0;
+  // const isPowerOfTwo = n => Math.log2(n) % 1 === 0;
   // const isPowerOfTwo = n => Number.isInteger(Math.log2(n));
-  // const isPowerOfTwo = n => n < 1 ? false : n === 1 ? true : n % 2 ? false : isPowerOfTwo(n /= 2);
+  const isPowerOfTwo = n => n < 1 ? false : n === 1 ? true : n % 2 ? false : isPowerOfTwo(n /= 2);
   // const isPowerOfTwo = n => n === 1 ? true : n < 1 ? false : isPowerOfTwo(n /= 2);
   // const isPowerOfTwo = n => n === 1 ? true : n % 2 || n < 1 ? false : isPowerOfTwo(n /= 2);
 
@@ -2576,6 +2576,16 @@ Beware of certain edge cases - for example, 1 is a power of 2 since 2^0 = 1 and 
   // return isPowerOfTwo(n /= 2);
 
   // }
-  console.log(isPowerOfTwo(4096));
-  console.log(isPowerOfTwo(0));
+  // console.log(isPowerOfTwo(4096));
+  // console.log(isPowerOfTwo(0));
+}
+
+{  /**
+Time to test your basic knowledge in functions! Return the odds from a list:
+[1, 2, 3, 4, 5]  -->  [1, 3, 5]
+[2, 4, 6]        -->  []           */
+
+  const odds = values => values.filter(e => e % 2);
+  // console.log(odds([1, 2, 3, 4, 5]));
+  // console.log(odds([2, 4]));
 }
