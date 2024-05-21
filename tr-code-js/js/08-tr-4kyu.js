@@ -2608,3 +2608,15 @@ If your name would be Jeong-Ho Aristotelis, ad would cost £600. 20 leters * 30 
   }
   // console.log(billboard("Hadufuns John", 20));
 }
+
+{  /** 8 kyu  Is there a vowel in there? 
+Given an array of numbers, check if any of the numbers are the character codes for lower case vowels (a, e, i, o, u).
+If they are, change the array value to a string of that vowel.
+Return the resulting array.     */
+
+  const isVow = a => a.map(el => {
+    if (el === 'a'.charCodeAt() || el === 'e'.charCodeAt() || el === 'i'.charCodeAt() || el === 'o'.charCodeAt() || el === 'u'.charCodeAt()) return el = String.fromCharCode(el);
+    return el;
+  });
+  // console.log(isVow([118, 117, 120, 121, 117, 98, 122, 97, 120, 106, 104, 116, 113, 114, 113, 120, 106]));
+}
