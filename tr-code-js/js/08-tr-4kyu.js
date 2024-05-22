@@ -2620,3 +2620,14 @@ Return the resulting array.     */
   });
   // console.log(isVow([118, 117, 120, 121, 117, 98, 122, 97, 120, 106, 104, 116, 113, 114, 113, 120, 106]));
 }
+
+{  /**  7 kyu  Greet Me
+Write a method that takes one argument as name and then greets that name, capitalized and ends with an exclamation point.
+Example:
+"riley" --> "Hello Riley!"
+"JACK"  --> "Hello Jack!"       */
+
+  const greet = name => `Hello ${name.toLowerCase().replace(/\w/, el => el.toUpperCase())}!`;
+  // const greet = name => 'Hello ' + name.slice(0, 1).toUpperCase() + name.slice(1).toLowerCase() + '!';
+  console.log(greet('riley'));
+}
