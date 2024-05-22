@@ -35,5 +35,6 @@ const finPlayerById = (allPlayer, playerId) => {
  * Ищем игрока по имени
  */
 const playerNameToFind = 'Poly';
-const playerWithName = players.find(player => player.name === playerNameToFind);
+const playerWithName = players.find(({ name }) => name === playerNameToFind);
+// const playerWithName = players.find(player => player.name === playerNameToFind);
 // console.log(playerWithName);
