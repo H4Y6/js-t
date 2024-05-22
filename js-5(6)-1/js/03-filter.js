@@ -9,8 +9,8 @@
 
 const numbers = [5, 10, 15, 20, 25];
 
-const filteredNumbers = numbers.filter(number => number < 11 || number >= 20);
-// console.log(filteredNumbers);
+const filteredNumbers = numbers.filter(number => number < 6 || number >= 20);
+console.log(filteredNumbers);
 
 const players = [
   { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false },
@@ -38,5 +38,5 @@ const offlinePlayers = players.filter(player => !player.online);
  * Получаем список хардкорных игроков с временем больше 250
  */
 
-const hardcorePlayers = players.filter(player => player.timePlayed > 250);
+const hardcorePlayers = players.filter(({ timePlayed }) => timePlayed > 250);
 // console.table(hardcorePlayers);
