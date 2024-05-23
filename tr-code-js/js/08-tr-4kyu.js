@@ -2629,5 +2629,15 @@ Example:
 
   const greet = name => `Hello ${name.toLowerCase().replace(/\w/, el => el.toUpperCase())}!`;
   // const greet = name => 'Hello ' + name.slice(0, 1).toUpperCase() + name.slice(1).toLowerCase() + '!';
-  console.log(greet('riley'));
+  // console.log(greet('riley'));
+}
+
+{  /**  8 kyu  Reverse List Order
+In this kata you will create a function that takes in a list and returns a list with the reverse order.
+Examples (Input -> Output)
+* [1, 2, 3, 4]  -> [4, 3, 2, 1]
+* [9, 2, 0, 7]  -> [7, 0, 2, 9]      */
+
+  const reverseList = list => list.reverse();
+  console.log(reverseList([9, 2, 0, 7]));
 }
