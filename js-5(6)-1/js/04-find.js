@@ -20,6 +20,10 @@ const players = [
 /*
  * Ищем игрока по id
  */
+const findNamebyPoints = (players, pointsToFind) => (players.find(({ points }) => points === pointsToFind))?.name ?? 'Not found';
+console.log(findNamebyPoints(players, 71));
+console.log(findNamebyPoints(players, 72));
+
 const playerIdToFind = 'player-3';
 const playerWithId = players.find(({ id }) => id === playerIdToFind);
 // console.log(playerWithId);

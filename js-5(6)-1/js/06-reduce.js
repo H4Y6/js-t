@@ -44,6 +44,9 @@ const players = [
   { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
 ];
 
+const getAverageTimePlayed = players => players.reduce((res, { timePlayed }) => res + timePlayed / players.length, 0);
+console.log('Average played time:', getAverageTimePlayed(players));
+
 const totalTimePlayed = players.reduce(
   (totalTime, player) => totalTime + player.timePlayed,
   0,
@@ -80,6 +83,9 @@ const tweets = [
 
 const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
 console.log(allTags);
+
+const AverageLikeCount = tweets.reduce((total, tweets) => total + tweets.likes, 0) / tweets.length;
+console.log('Average like count:', AverageLikeCount);
 
 // acc = [], tweet.tags = ['js', 'nodejs'] return [...[], ...['js', 'nodejs']]
 // acc = ['js', 'nodejs'] tweet.tags ['html', 'css']
