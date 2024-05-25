@@ -92,6 +92,29 @@ console.log('Average like count:', AverageLikeCount);
 // return  [...['js', 'nodejs'], ...['html', 'css']]
 //  ['js', 'nodejs', 'html', 'css']
 
+// const tags = tweets.reduce((array, tweet) => [...array, ...tweet.tags], []);
+// const tags = tweets.reduce((array, { tags }) => array.concat(tags), []);
+const tags = tweets.reduce((array, { tags }) => [...array, ...tags], []);
+console.log(tags);
+
+const tagStats = tags.reduce((res, tag) =>
+  // {
+  // console.log(res);
+  // if (res[tag]) {
+
+  //   return { ...res, [tag]: res[tag] + 1 };
+  // }
+  // res[tag] = 1;
+
+  // return { ...res, [tag]: 1 };
+
+  // return { ...res, [tag]: res[tag] ? res[tag] + 1 : 1 };
+  ({ ...res, [tag]: res[tag] ? res[tag] + 1 : 1 })
+
+  // }
+  , {});
+console.log(tagStats);
+
 /*
  * Ведём статистику тегов
  */
