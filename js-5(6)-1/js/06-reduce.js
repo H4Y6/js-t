@@ -96,24 +96,9 @@ console.log('Average like count:', AverageLikeCount);
 // const tags = tweets.reduce((array, { tags }) => array.concat(tags), []);
 const tags = tweets.reduce((array, { tags }) => [...array, ...tags], []);
 console.log(tags);
-
-const tagStats = tags.reduce((res, tag) =>
-  // {
-  // console.log(res);
-  // if (res[tag]) {
-
-  //   return { ...res, [tag]: res[tag] + 1 };
-  // }
-  // res[tag] = 1;
-
-  // return { ...res, [tag]: 1 };
-
-  // return { ...res, [tag]: res[tag] ? res[tag] + 1 : 1 };
-  ({ ...res, [tag]: res[tag] ? res[tag] + 1 : 1 })
-
-  // }
-  , {});
-console.log(tagStats);
+// console.log(Array.from(new Set(tags)));
+// console.log([...new Set(tags)]);
+// console.log(new Set(tags));
 
 /*
  * Ведём статистику тегов
@@ -142,3 +127,18 @@ const tagsStats = allTags.reduce((acc, tag) => {
 
 // если свойство с ключом tag есть. увеличить его значение на 1
 // если свойствоства нет с таким ключом что в tag, сделать и записать 1
+
+// const tagStats = tags.reduce((result, tag) => {
+//   if (result[tag]) return { ...result, [tag]: result[tag] + 1 };
+//   result[tag] = 1;
+
+//   return result;
+// }, {});
+
+const tagStats = tags.reduce((res, tag) => ({
+  ...res,
+  [tag]: res[tag] ? res[tag] + 1 : 1
+})
+  , {});
+
+console.log(tagStats);
