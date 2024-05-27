@@ -2696,6 +2696,21 @@ We don't take care of a deposit of savings in a bank:-)    */
       if (available >= 0) return [i, Math.round(available)];
     }
   };
-  console.log(nbMonths(2000, 8000, 1000, 1.5));
-  console.log(nbMonths(1600, 3000, 1000, 1.2));
+  // console.log(nbMonths(2000, 8000, 1000, 1.5));
+  // console.log(nbMonths(1600, 3000, 1000, 1.2));
+}
+
+{  /**  6 kyu  Break camelCase
+Complete the solution so that the function will break up camel casing, using a space between words.
+Example
+"camelCasing"  =>  "camel Casing"
+"identifier"   =>  "identifier"
+""             =>  ""             */
+
+  function solution(string) {
+    return string.replace(/[A-Z]/g, " $&");
+    // return string.replace(/([A-Z])/g, ' $1');
+    // return string.split("").map(e => e === e.toUpperCase() ? e = ` ${e}` : e).join('');
+  }
+  // console.log(solution("camelCasing"));
 }
