@@ -2681,5 +2681,21 @@ nbMonths(12000, 8000, 1000, 1.5) should return [0, 4000]
 nbMonths(8000, 8000, 1000, 1.5) should return [0, 0]
 We don't take care of a deposit of savings in a bank:-)    */
 
+  const nbMonths = (startPriceOld, startPriceNew, savingperMonth, percentLossByMonth) => {
+    if (startPriceOld - startPriceNew >= 0) return [0, Math.round(startPriceOld - startPriceNew)];
+    let percentLoss = percentLossByMonth;
 
+    let differ = (startPriceOld - startPriceNew) * (100 - percentLoss) / 100;
+    let available = differ + savingperMonth;
+    if (available >= 0) return [1, Math.round(available)];
+
+    for (let i = 2; available < 0; i++) {
+      i % 2 ? percentLoss : percentLoss += 0.5;
+      differ *= (100 - percentLoss) / 100;
+      available = differ + savingperMonth * i;
+      if (available >= 0) return [i, Math.round(available)];
+    }
+  };
+  console.log(nbMonths(2000, 8000, 1000, 1.5));
+  console.log(nbMonths(1600, 3000, 1000, 1.2));
 }
