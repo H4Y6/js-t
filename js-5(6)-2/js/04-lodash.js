@@ -35,7 +35,7 @@ const user = {
  * union()
  */
 
-console.log(_.union([1, 2, 3], [3, 4, 5]));
+console.log(_.union([1, 2, 3], [3, 4, 5]));    /**unique elements only */
 
 /*
  * range()
