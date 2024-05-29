@@ -2760,3 +2760,25 @@ NOTE: There will also be lists tested of lengths upwards of 10,000,000 elements.
   }
   // console.log(sumPairs([1, 4, 8, 7, 3, 15], 8));
 }
+
+{  /** 8 kyu  Power
+  The goal is to create a function of two inputs number and power, that "raises" the number up to power (ie multiplies number by itself power times).
+
+Examples
+numberToPower(3, 2)  // -> 9 ( = 3 * 3 )
+numberToPower(2, 3)  // -> 8 ( = 2 * 2 * 2 )
+numberToPower(10, 6) // -> 1000000
+Note: Math.pow and some other Math functions like eval() and ** are disabled.   */
+
+  const numberToPower = (number, power) => power > 0 ? number * numberToPower(number, power - 1) : 1;
+
+  // function numberToPower(number, power) {
+  //   let res = 1;
+  //   for (let i = 0; i < power; i++) {
+  //     res *= number;
+  //   }
+  //   return res;
+  // }
+  // console.log(numberToPower(3, 2));
+  // console.log(numberToPower(10, 6));
+}
