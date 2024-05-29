@@ -48,6 +48,12 @@ const players = [
     { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
 ];
 
+const longPlayedPlayersFirst = [...players].sort((playerA, playerB) => (playerB.timePlayed - playerA.timePlayed));
+const shortPlayedPlayersFirst = [...players].sort((plA, plB) => (plA.timePlayed - plB.timePlayed));
+// console.table(longPlayedPlayersFirst);
+// console.table(shortPlayedPlayersFirst);
+// console.table(longPlayedPlayersFirst.reverse());
+
 // По игровому времени
 const sortedByBestPlayers = [...players].sort(
     (prevPlayer, nextPlayer) => nextPlayer.timePlayed - prevPlayer.timePlayed,
