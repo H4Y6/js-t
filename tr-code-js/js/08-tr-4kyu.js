@@ -2770,7 +2770,8 @@ numberToPower(2, 3)  // -> 8 ( = 2 * 2 * 2 )
 numberToPower(10, 6) // -> 1000000
 Note: Math.pow and some other Math functions like eval() and ** are disabled.   */
 
-  const numberToPower = (number, power) => power > 0 ? number * numberToPower(number, power - 1) : 1;
+  const numberToPower = (number, power) => Array(power).fill(number).reduce((res, n) => res * n, 1);
+  // const numberToPower = (number, power) => power > 0 ? number * numberToPower(number, power - 1) : 1;
 
   // function numberToPower(number, power) {
   //   let res = 1;
@@ -2779,6 +2780,6 @@ Note: Math.pow and some other Math functions like eval() and ** are disabled.   
   //   }
   //   return res;
   // }
-  // console.log(numberToPower(3, 2));
-  // console.log(numberToPower(10, 6));
+  console.log(numberToPower(3, 2));
+  console.log(numberToPower(10, 6));
 }
