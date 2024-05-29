@@ -2,14 +2,16 @@
  * isEmpty()
  */
 
+console.dir(_);
+
 // console.log(_.isEmpty({}));
 // console.log(_.isEmpty({ a: 1 }));
 
 /*
  * get()
  *
- * - user && user.location && obj.location.city
- * - user?.location?.city
+ * - if(user && user.location && obj.location.city)
+ * - user?.location?.city    <--short form for upper expression.
  */
 
 const user = {
@@ -33,7 +35,7 @@ const user = {
  * union()
  */
 
-// console.log(_.union([1, 2, 3], [3, 4, 5]));
+console.log(_.union([1, 2, 3], [3, 4, 5]));
 
 /*
  * range()
@@ -57,7 +59,15 @@ const players = [
     { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
 ];
 
-// console.log(_.sumBy(players, player => player.timePlayed));
+console.log(_.sumBy(players, player => player?.timePlayed));
+console.log(_.sumBy(players, player => player?.online ? player.timePlayed : 0));
+console.log(_.sumBy(players, player => !player?.online ? player.timePlayed : 0));
+
+const objects = [{ 'n': 4 }, { 'n': 21 }, { 'n': 8 }, { 'n': 6 }];
+
+const sum = _.sumBy(objects, function (o) { return o.n; });
+const sumB = _.sumBy(objects, o => o.n % 2 ? o.n : 0);
+console.log(sum, "&", sumB);
 
 /*
  * uniq() и uniqBy()
@@ -80,3 +90,4 @@ const players = [
  */
 
 console.log(_.kebabCase(' a b c '));
+console.log(_.join(['a', 'b', 'c'], '-'));

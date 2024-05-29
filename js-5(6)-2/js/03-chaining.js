@@ -33,6 +33,12 @@ const players = [
     { id: 'id-5', tag: 'Chelsy', isOnline: false, rank: 200 },
 ];
 
+const onlineBestRankedFirst = players
+    .filter(player => player.isOnline)
+    .sort((plA, plB) => plB.rank - plA.rank);
+
+console.table(onlineBestRankedFirst);
+
 const onlineAndSorted = players
     .filter(player => player.isOnline)
     .sort((playerA, playerB) => playerA.rank - playerB.rank);
