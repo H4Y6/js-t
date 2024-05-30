@@ -2824,3 +2824,26 @@ Note: Math.pow and some other Math functions like eval() and ** are disabled.   
     return a % b;
   }
 }
+
+{  /** 8 kyu  Multiplication table for number
+  Your goal is to return multiplication table for number that is always an integer from 1 to 10.
+
+For example, a multiplication table (string) for number == 5 looks like below:
+1 * 5 = 5
+2 * 5 = 10
+3 * 5 = 15
+4 * 5 = 20
+5 * 5 = 25
+6 * 5 = 30
+7 * 5 = 35
+8 * 5 = 40
+9 * 5 = 45
+10 * 5 = 50
+P. S. You can use \n in string to jump to the next line.  */
+
+  const multiTable = number => [...Array(10)].map((_, i) => `${++i} * ${number} = ${i * number}`).join('\n');
+  // const multiTable = number => Array(10).fill('').map((_, i) => `${i + 1} * ${number} = ${(i + 1) * number}`).join('\n');
+  // const multiTable = number => Array.from({ length: 10 }, (_, i) => `${i + 1} * ${number} = ${(i + 1) * number}`).join('\n');
+  // const multiTable = number => `1 * ${number} = ${number}\n2 * ${number} = ${2 * number}\n3 * ${number} = ${3 * number}\n4 * ${number} = ${4 * number}\n5 * ${number} = ${5 * number}\n6 * ${number} = ${6 * number}\n7 * ${number} = ${7 * number}\n8 * ${number} = ${8 * number}\n9 * ${number} = ${9 * number}\n10 * ${number} = ${10 * number}`;
+  // console.log(multiTable(5));
+}
