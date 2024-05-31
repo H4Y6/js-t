@@ -302,9 +302,8 @@ const users = [
     const audi = new Car({ brand: "Audi", model: "Q3", price: 34000 });
 
     audi.changePrice(33000);
-    console.log('audi ->', audi);
-    console.log(audi.getPrice());
-    console.log();
+    // console.log('audi ->', audi);
+    // console.log(audi.getPrice());
 
     class Storage {
         constructor(items) {
@@ -317,9 +316,34 @@ const users = [
     }
 
     const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-    console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+    // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
     storage.addItem("Droid");
-    console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+    // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
     storage.removeItem("Prolonger");
-    console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+    // console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+    class StringBuilder {
+        constructor(initialValue) {
+            this.value = initialValue;
+        }
+        getValue() { return this.value; }
+        padEnd(str) {
+            this.value += str;
+        }
+        padStart(str) {
+            this.value = str + this.value;
+        }
+        padBoth(str) {
+            this.value = str + this.value + str;
+        }
+    }
+
+    const builder = new StringBuilder(".");
+    // console.log(builder.getValue()); // "."
+    builder.padStart("^");
+    // console.log(builder.getValue()); // "^."
+    builder.padEnd("^");
+    // console.log(builder.getValue()); // "^.^"
+    builder.padBoth("=");
+    // console.log(builder.getValue()); // "=^.^="
 };
