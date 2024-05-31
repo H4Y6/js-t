@@ -291,12 +291,35 @@ const users = [
     // console.table(child);
 
     class Car {
-        constructor(brand, model, price) {
+        constructor({ brand, model, price }) {
             this.brand = brand;
             this.model = model;
             this.price = price;
         }
+        getPrice() { return this.price; }
+        changePrice(newPrice) { this.price = newPrice; }
     }
-    const audi = new Car("Audi", "Q3", 34000);
-    // console.log('audi ->', audi);
+    const audi = new Car({ brand: "Audi", model: "Q3", price: 34000 });
+
+    audi.changePrice(33000);
+    console.log('audi ->', audi);
+    console.log(audi.getPrice());
+    console.log();
+
+    class Storage {
+        constructor(items) {
+            this.items = items;
+        }
+        getItems() { return this.items; }
+        addItem(newItem) { this.items.push(newItem); }
+        removeItem(itemToRemove) { this.items.splice(this.items.indexOf(itemToRemove), 1); }
+        // removeItem(itemToRemove) { this.items = this.items.filter(item => item !== itemToRemove); }
+    }
+
+    const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+    console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+    storage.addItem("Droid");
+    console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+    storage.removeItem("Prolonger");
+    console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 };
