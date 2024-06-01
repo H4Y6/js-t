@@ -334,7 +334,9 @@ const users = [
             this.value = str + this.value;
         }
         padBoth(str) {
-            this.value = str + this.value + str;
+            // this.value = str + this.value + str;
+            this.padStart(str);
+            this.padEnd(str);
         }
     }
 
@@ -347,3 +349,82 @@ const users = [
     builder.padBoth("=");
     // console.log(builder.getValue()); // "=^.^="
 };
+
+{
+    class User {
+        #email;
+        constructor({ name, email }) {
+            this.name = name;
+            this.#email = email;
+        }
+        getEmail() { return this.#email; }
+        changeEmail(newEmail) { this.#email = newEmail; }
+    }
+    const mango = new User({ name: "Mango", email: "mango@mail.com", });
+    mango.changeEmail("mango@supermail.com");
+    console.log(mango.getEmail()); // mango@supermail.com
+    //  console.log(mango.#email);  Будет ошибка, это приватное свойство
+
+    class Car {
+        #brand; #model; #price;
+        constructor({ brand, model, price }) {
+            this.#brand = brand;
+            this.#model = model;
+            this.#price = price;
+        }
+        getBrand() { return this.#brand; }
+        changeBrand(newBrand) { this.#brand = newBrand; }
+    }
+
+    const audi = new Car({ brand: "Audi", model: "Q3", price: 35000 });
+    const bmw = new Car({ brand: "BMW", model: "X5", price: 57000 });
+    const nissan = new Car({ brand: "Nissan", model: "Murano", price: 31000 });
+    // console.log(audi);
+    // console.log(bmw);
+    // console.log(nissan);
+    // console.log(bmw.getBrand());
+    nissan.changeBrand("Honda");
+    // console.log(nissan.getBrand());
+
+    class Storage {
+        #items;
+        constructor(initialValue) {
+            this.#items = initialValue;
+        }
+        getItems() { return this.#items; };
+        addItem(newItem) { this.#items.push(newItem); }
+        removeItem(itemToRemove) {
+            const idx = this.#items.indexOf(itemToRemove);
+            this.#items.splice(idx, 1);
+        }
+    }
+    const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+    storage.addItem("Droid");
+    storage.removeItem("Prolonger");
+    // console.table(storage.getItems());
+
+    class StringBuilder {
+        #value;
+        constructor(initialValue) {
+            this.#value = initialValue;
+        }
+        getValue() { return this.#value; }
+        padEnd(str) {
+            this.#value += str;
+        }
+        padStart(str) {
+            this.#value = str + this.#value;
+        }
+        padBoth(str) {
+            // this.value = str + this.#value + str;
+            this.padStart(str);
+            this.padEnd(str);
+        }
+    }
+    const builder = new StringBuilder('.');
+    console.log(builder);
+    builder.padStart('^');
+    builder.padEnd('^');
+    builder.padBoth('_');
+    console.log(builder.getValue());
+}
