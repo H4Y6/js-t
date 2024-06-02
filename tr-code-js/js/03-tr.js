@@ -362,7 +362,7 @@ const users = [
     }
     const mango = new User({ name: "Mango", email: "mango@mail.com", });
     mango.changeEmail("mango@supermail.com");
-    console.log(mango.getEmail()); // mango@supermail.com
+    // console.log(mango.getEmail()); // mango@supermail.com
     //  console.log(mango.#email);  Будет ошибка, это приватное свойство
 
     class Car {
@@ -422,9 +422,165 @@ const users = [
         }
     }
     const builder = new StringBuilder('.');
-    console.log(builder);
+    // console.log(builder);
     builder.padStart('^');
     builder.padEnd('^');
     builder.padBoth('_');
-    console.log(builder.getValue());
+    // console.log(builder.getValue());
+}
+
+{
+    class User {
+        #email;
+        constructor({ name, email }) {
+            this.name = name;
+            this.#email = email;
+        } // Геттер email:
+        get email() { return this.#email; }
+        // Сеттер email:
+        set email(newEmail) { this.#email = newEmail; }
+    }
+
+    const mango = new User({ name: "Mango", email: "mango@mail.com" });
+    // console.log(mango.email); // mango@mail.com
+    mango.email = "mango@supermail.com";
+    // console.log(mango.email); // mango@supermail.com
+
+    class Car {
+        #brand;
+        #model;
+        #price;
+        constructor({ brand, model, price }) {
+            this.#brand = brand;
+            this.#model = model;
+            this.#price = price;
+        }
+        get brand() { return this.#brand; }
+        set brand(newBrand) { this.#brand = newBrand; }
+
+        get model() { return this.#model; }
+        set model(newModel) { this.#model = newModel; }
+
+        get price() { return this.#price; }
+        set price(newPrice) { this.#price = newPrice; }
+
+    }
+}
+
+{
+    class User { // Объявление и инициализация статического свойства 
+        static Roles = { ADMIN: "admin", EDITOR: "editor", };
+        #email;
+        #role;
+        constructor({ email, role }) {
+            this.#email = email;
+            this.#role = role;
+        }
+        get role() { return this.#role; }
+        set role(newRole) { this.#role = newRole; }
+    }
+    const mango = new User({ email: "mango@mail.com", role: User.Roles.ADMIN, });
+    // console.log(mango.Roles); // undefined 
+    // console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
+    // console.log(mango.role); // "admin" 
+    mango.role = User.Roles.EDITOR;
+    // console.log(mango.role); // "editor"
+
+    class Car {
+        #brand;
+        #model;
+        #price;
+        static MAX_PRICE = 50000;
+        constructor({ brand, model, price }) {
+            this.#brand = brand;
+            this.#model = model;
+            this.#price = price;
+        };
+        get brand() { return this.#brand; }
+        set brand(newBrand) { this.#brand = newBrand; }
+
+        get model() { return this.#model; }
+        set model(newModel) { this.#model = newModel; }
+
+        get price() { return this.#price; }
+        set price(newPrice) { this.#price = newPrice > Car.MAX_PRICE ? this.#price : newPrice; }
+    }
+}
+
+{
+    class User {
+        static #takenEmails = [];
+        static isEmailTaken(email) {
+            return User.#takenEmails.includes(email);
+        }
+        #email;
+        constructor({ email }) {
+            this.#email = email;
+            User.#takenEmails.push(email);
+        }
+    }
+    const mango = new User({ email: "mango@mail.com" });
+    // console.log(User.isEmailTaken("poly@mail.com"));
+    // console.log(User.isEmailTaken("mango@mail.com"));
+
+    class Car {
+        static #MAX_PRICE = 50000;
+        static checkPrice(price) { return price > this.#MAX_PRICE ? "Error! Price exceeds the maximum" : "Success! Price is within acceptable limits"; }
+
+        constructor({ price }) {
+            this.price = price;
+        }
+    }
+
+    const audi = new Car({ price: 36000 });
+    const bmw = new Car({ price: 64000 });
+
+    // console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+    // console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+}
+
+{
+    class User {
+        constructor(email) {
+            this.email = email;
+        }
+
+        // get email() {
+        //     return this.email;
+        // }
+
+        // set email(newEmail) {
+        //     this.email = newEmail;
+        // }
+    }
+
+    class Admin extends User {
+        static AccessLevel = { BASIC: "basic", SUPERUSER: "superuser" };
+
+        constructor({ email, accessLevel }) {
+            super(email);
+            this.accessLevel = accessLevel;
+            this.blacklistedEmails = [];
+        }
+        blacklist(email) {
+            this.blacklistedEmails.push(email);
+        }
+        isBlacklisted(email) {
+            return this.blacklistedEmails.includes(email);
+        }
+    }
+
+    const mango = new Admin({
+        email: "mango@mail.com",
+        accessLevel: Admin.AccessLevel.SUPERUSER,
+    });
+
+    // console.log(mango.email); // "mango@mail.com"
+    // console.log(mango.accessLevel); // "superuser"
+
+    mango.blacklist("poly@mail.com");
+    // console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+    // console.log(mango.isBlacklisted("mango@mail.com")); // false
+    // console.log(mango.isBlacklisted("poly@mail.com")); // true
+
 }
