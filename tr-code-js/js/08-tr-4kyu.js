@@ -2847,3 +2847,22 @@ P. S. You can use \n in string to jump to the next line.  */
   // const multiTable = number => `1 * ${number} = ${number}\n2 * ${number} = ${2 * number}\n3 * ${number} = ${3 * number}\n4 * ${number} = ${4 * number}\n5 * ${number} = ${5 * number}\n6 * ${number} = ${6 * number}\n7 * ${number} = ${7 * number}\n8 * ${number} = ${8 * number}\n9 * ${number} = ${9 * number}\n10 * ${number} = ${10 * number}`;
   // console.log(multiTable(5));
 }
+
+{  /**  7 kyu  Jaden Casing Strings
+  Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+Example:
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"     */
+
+
+  String.prototype.toJadenCase = function (str) {
+    this.s = str;
+    const subStrs = this.s.split(' ');
+    let newStr = '';
+    subStrs.forEach(s => [(newStr += ' ' + s.replace(/^./, s[0].toUpperCase()))]);
+    return newStr.trim();
+  };
+
+  const str = new String();
+  console.log(str.toJadenCase("How can mirrors be real if our eyes aren't real"));
+}
