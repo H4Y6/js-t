@@ -2863,5 +2863,15 @@ Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"    /test fail
     return newStr.trim();
   };
 
-  console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
+  // console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
+}
+
+{  /**   7 kyu  Most digits 
+  Find the number with the most digits.
+If two numbers in the argument array have the same number of digits, return the first one in the array.       */
+
+  function findLongest(array) {
+    return array.reduce((res, el) => res = (el + '').length > (res + '').length ? el : res, 0);
+  }
+  console.log(findLongest([8, 900, 500]));
 }
