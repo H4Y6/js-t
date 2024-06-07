@@ -2916,15 +2916,34 @@ to decide if the ship is worthy to loot. For example:
 titanic.isWorthIt() // return false
 Good luck and may you find GOOOLD!    */
 
+  // function Ship(draft, crew) {
+  //   this.draft = draft;
+  //   this.crew = crew;
+  //   this.isWorthIt = function () {
+  //     return this.draft - this.crew * 1.5 > 20;
+  //   };
+  // }
+
+  // function Ship(draft, crew) {
+  // this.draft = draft;
+  // this.crew = crew;
+  // this.isWorthIt = function () {
+  //   return this.draft - this.crew * 1.5 > 20;
+  // };
+  // }
+  // Ship.prototype.isWorthIt = function () {
+  //   return this.draft - this.crew > 20;
+  // };
+
   class Ship {
     constructor(draft, crew) {
       this.draft = draft;
       this.crew = crew;
     }
     isWorthIt() {
-      return this.draft - this.crew * 1.5 > 20 ? true : false;
+      return this.draft - this.crew * 1.5 > 20;
     }
   }
-  // const tit = new Ship(112, 34);
-  // console.log(tit.isWorthIt());
+  const tit = new Ship(72, 34);
+  console.log(tit.isWorthIt());
 }
