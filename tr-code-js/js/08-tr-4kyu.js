@@ -2984,5 +2984,15 @@ thirt(1234567) calculates 178, then 87, then 87 and returns 87.
 thirt(321) calculates 48, 48 and returns 48 */
 
   function thirt(n) { }
-  console.log(thirt(5634));
+  // console.log(thirt(5634));
+}
+
+{  /**  7 kyu  esreveR
+  Write a function reverse which reverses a list (or in clojure's case, any list-like data structure)
+(the dedicated builtin(s) functionalities are deactivated) */
+
+  const reverse = function (array) {
+    return array.map((el, i, ar) => el = ar[ar.length - 1 - i]);
+  };
+  console.log(reverse([1, null, 14, "two"]));
 }
