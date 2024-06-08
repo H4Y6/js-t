@@ -2991,8 +2991,20 @@ thirt(321) calculates 48, 48 and returns 48 */
   Write a function reverse which reverses a list (or in clojure's case, any list-like data structure)
 (the dedicated builtin(s) functionalities are deactivated) */
 
-  const reverse = function (array) {
-    return array.map((el, i, ar) => el = ar[ar.length - 1 - i]);
-  };
+  // const reverse = function (array) {
+  //   return array.reduceRight((ar, el) => {
+  //     ar.push(el);
+  //     return ar;
+  //   }, []);
+  // };
+
+  // const reverse = array => array.reduceRight((ar, el) => {
+  //   ar.push(el);
+  //   return ar;
+  // }, []);
+  // const reverse = array => array.reduceRight((ar, el) => [...ar, el], []);
+  const reverse = array => array.reduce((ar, el) => [el].concat(ar), []);
+  // const reverse = array => array.map((el, i, ar) => el = ar[ar.length - 1 - i]);
+
   console.log(reverse([1, null, 14, "two"]));
 }
