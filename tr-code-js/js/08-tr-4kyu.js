@@ -3049,6 +3049,16 @@ For example:
  ["a", "a", "b", "c"]   ["a", "a", "b", "c"]  →     16
  ["b", "c", "b", "a"]   ["" , "a", "a", "c"]  →     0            */
 
+  // function checkExam(array1, array2, res = 0) {
+  //   for (let i = 0; i < array2.length; i++) {
+  //     const el = array2[i];
+  //     if (el === "") res += 0;
+  //     if (el === array1[i]) res += 4;
+  //     if (el !== array1[i] && el !== '') res -= 1;
+  //   }
+  //   return res;
+  // }
+
   function checkExam(array1, array2) {
     return Math.max(array2.reduce((res, el, i) => {
       if (el === "") return res + 0;
@@ -3056,6 +3066,7 @@ For example:
       if (el !== array1[i]) return res - 1;
     }, 0), 0);
   }
+
   // function checkExam(array1, array2) {
   //   return array2.reduce((res, el, i) => {
   //     if (el === "") return res + 0;
@@ -3067,5 +3078,6 @@ For example:
   //     if (el !== array1[i]) return res - 1;
   //   }, 0);
   // }
-  console.log(checkExam(["a", "a", "b", "b"], ["", "c", "o", "d"]));
+
+  // console.log(checkExam(["a", "a", "b", "b"], ["", "", "o", "d"]));
 }
