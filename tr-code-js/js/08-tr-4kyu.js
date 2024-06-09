@@ -3006,5 +3006,14 @@ thirt(321) calculates 48, 48 and returns 48 */
   const reverse = array => array.reduce((ar, el) => [el].concat(ar), []);
   // const reverse = array => array.map((el, i, ar) => el = ar[ar.length - 1 - i]);
 
-  console.log(reverse([1, null, 14, "two"]));
+  // console.log(reverse([1, null, 14, "two"]));
+}
+
+{  /** 8 kyu  get ascii value of character 
+  Get ASCII value of a character.
+
+For the ASCII table you can refer to http://www.asciitable.com/  */
+
+  const getASCII = c => c.charCodeAt();
+  // console.log(getASCII('a'));
 }
