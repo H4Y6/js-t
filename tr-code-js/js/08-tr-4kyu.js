@@ -2983,8 +2983,12 @@ Call thirt the function which processes this sequence of operations on an intege
 thirt(1234567) calculates 178, then 87, then 87 and returns 87.
 thirt(321) calculates 48, 48 and returns 48 */
 
-  function thirt(n) { }
-  // console.log(thirt(5634));
+  function thirt(n) {
+    // const powerArray = [1, 2, 4, 8, 3, 6, 12, 11, 9, 8, 10, 7];
+    const powerArray = [1, 10, 9, 12, 3, 4];
+    // return String(n).length <= 2 ? n : thirt(n = (n + '').split('').sort((a, b) => b - a).reduce((sum, el, i) => sum += powerArray[i % powerArray.length] * Number(el), 0));
+  }
+  console.log(thirt(8529));
 }
 
 {  /**  7 kyu  esreveR
