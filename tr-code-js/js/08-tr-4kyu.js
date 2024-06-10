@@ -3049,24 +3049,6 @@ For example:
  ["a", "a", "b", "c"]   ["a", "a", "b", "c"]  →     16
  ["b", "c", "b", "a"]   ["" , "a", "a", "c"]  →     0            */
 
-  // function checkExam(array1, array2, res = 0) {
-  //   for (let i = 0; i < array2.length; i++) {
-  //     const el = array2[i];
-  //     if (el === "") res += 0;
-  //     if (el === array1[i]) res += 4;
-  //     if (el !== array1[i] && el !== '') res -= 1;
-  //   }
-  //   return res;
-  // }
-
-  function checkExam(array1, array2) {
-    return Math.max(array2.reduce((res, el, i) => {
-      if (el === "") return res + 0;
-      if (el === array1[i]) return res + 4;
-      if (el !== array1[i]) return res - 1;
-    }, 0), 0);
-  }
-
   // function checkExam(array1, array2) {
   //   return array2.reduce((res, el, i) => {
   //     if (el === "") return res + 0;
@@ -3079,5 +3061,37 @@ For example:
   //   }, 0);
   // }
 
-  // console.log(checkExam(["a", "a", "b", "b"], ["", "", "o", "d"]));
+  // function checkExam(array1, array2, res = 0) {
+  //   for (let i = 0; i < array2.length; i++) {
+  //     if (array2[i] === "") res += 0;
+  //     if (array2[i] === array1[i]) res += 4;
+  //     if (array2[i] !== array1[i] && array2[i] !== '') res -= 1;
+  //   }
+  //   return res > 0 ? res : 0;
+  // }
+
+  // function checkExam(array1, array2, res = 0) {
+  //   for (let i = 0; i < array2.length; i++) {
+  //     array2[i] === array1[i] ? res += 4 : array2[i] ? res -= 1 : res;
+  //   }
+  //   return res > 0 ? res : 0;
+  // }
+
+  function checkExam(array1, array2, res = 0) {
+    for (let i = 0; i < array2.length; i++) {
+      res += array2[i] === array1[i] ? 4 : array2[i] ? - 1 : 0;
+    }
+    return res > 0 ? res : 0;
+  }
+
+  // const checkExam = (array1, array2) =>
+  //   Math.max(array2.reduce((res, el, i) => {
+  //     if (el === "") return res + 0;
+  //     if (el === array1[i]) return res + 4;
+  //     if (el !== array1[i]) return res - 1;
+  //   }, 0), 0);
+
+  // const checkExam = (array1, array2) => Math.max(array2.reduce((res, el, i) => (el === "") ? res + 0 : (el === array1[i]) ? res + 4 : res - 1, 0), 0);
+
+  // console.log(checkExam(["a", "a", "b", "b"], ["", "", "o", "b"]));
 }
