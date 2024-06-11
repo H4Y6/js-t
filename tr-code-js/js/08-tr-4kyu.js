@@ -2988,7 +2988,7 @@ thirt(321) calculates 48, 48 and returns 48 */
     const powerArray = [1, 10, 9, 12, 3, 4];
     // return String(n).length <= 2 ? n : thirt(n = (n + '').split('').sort((a, b) => b - a).reduce((sum, el, i) => sum += powerArray[i % powerArray.length] * Number(el), 0));
   }
-  console.log(thirt(8529));
+  // console.log(thirt(8529));
 }
 
 {  /**  7 kyu  esreveR
@@ -3118,6 +3118,8 @@ Examples:
   // const isSquare = n => Number.isInteger(n ** (1 / 2));
   // const isSquare = n => n ** (1 / 2) % 1 === 0;
   // const isSquare = n => parseInt(n ** (1 / 2)) === n ** (1 / 2);
-  const isSquare = n => n ** (1 / 2) === ~~(n ** (1 / 2));
-  // console.log(isSquare(49));
+  // const isSquare = n => n ** (1 / 2) === ~~(n ** (1 / 2));
+  const isSquare = n => !(n ** (1 / 2) % 1);
+
+  // console.log(isSquare(409));
 }
