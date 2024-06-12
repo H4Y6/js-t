@@ -3177,14 +3177,23 @@ sleigh.authenticate("Santa", "Ho Ho Ho!"); // must return FALSE
 sleigh.authenticate("Santa Claus", "Ho Ho!"); // must return FALSE
 sleigh.authenticate("jhoffner", "CodeWars"); // Nope, even Jake is not allowed to use the sleigh ;)   */
 
-  class Sleigh {
-    constructor(name, password) {
-      this.name = name;
-      this.password = password;
-    }
-    authenticate(name, password) {
-      return (name !== "Santa Claus" || password !== "Ho Ho Ho!") ? false : true;
-    };
-  };
+  // class Sleigh {
+  //   constructor(name, password) {
+  //     this.name = name;
+  //     this.password = password;
+  //   }
+  //   authenticate(name, password) {
+  //     return (name === "Santa Claus" && password === "Ho Ho Ho!");
+  //   };
+  // };
+
+  // class Sleigh {
+  //   authenticate(name, password) {
+  //     return (name === "Santa Claus" && password === "Ho Ho Ho!");
+  //   };
+  // };
+
+  function Sleigh() { }
+  Sleigh.prototype.authenticate = (name, password) => name === "Santa Claus" && password === "Ho Ho Ho!";
   console.log(Sleigh.prototype.authenticate("Santa Claus", "Ho Ho Ho!"));
 }
