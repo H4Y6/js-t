@@ -3193,7 +3193,7 @@ sleigh.authenticate("jhoffner", "CodeWars"); // Nope, even Jake is not allowed t
   //   };
   // };
 
-  function Sleigh() { }
+  class Sleigh { } /**  or old version: function Sleigh() { } */
   Sleigh.prototype.authenticate = (name, password) => name === "Santa Claus" && password === "Ho Ho Ho!";
-  console.log(Sleigh.prototype.authenticate("Santa Claus", "Ho Ho Ho!"));
+  // console.log(Sleigh.prototype.authenticate("Santa Claus", "Ho Ho Ho!"));
 }
