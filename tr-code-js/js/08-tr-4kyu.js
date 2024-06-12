@@ -3147,5 +3147,5 @@ You will be given a string of numbers and letters mixed up, you have to return a
   // const filterString = value => +value.replace(/\D/g, '');
   const filterString = value => +value.split('').filter(el => !isNaN(el)).join('');
   // const filterString = value => +value.split('').filter(el => el.match(/\d/)).join('');
-  console.log(filterString("aa1bb2cc3dd"));
+  // console.log(filterString("aa1bb2cc3dd"));
 }
