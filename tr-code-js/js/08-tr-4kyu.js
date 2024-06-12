@@ -3123,3 +3123,28 @@ Examples:
 
   // console.log(isSquare(409));
 }
+
+{  /** 8 kyu  Who ate the cookie?
+  For this problem you must create a program that says who ate the last cookie. If the input is a string then "Zach" ate the cookie. If the input is a float or an int then "Monica" ate the cookie. If the input is anything else "the dog" ate the cookie. The way to return the statement is: "Who ate the last cookie? It was (name)!"
+Ex: Input = "hi" --> Output = "Who ate the last cookie? It was Zach! (The reason you return Zach is because the input is a string)    */
+
+  const cookie = x => typeof x === 'string' ? "Who ate the last cookie? It was Zach!"
+    : typeof x === 'number' ? "Who ate the last cookie? It was Monica!"
+      : "Who ate the last cookie? It was the dog!";
+
+  // console.log(cookie("Ryan"));
+  // console.log(cookie(44.2));
+  // console.log(cookie([]));
+}
+
+{  /**7 kyu  Filter the number 
+  Oh, no! The number has been mixed up with the text. Your goal is to retrieve the number from the text, can you return the number back to its original state?
+Task
+Your task is to return a number from a string.
+Details
+You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.  */
+
+  // const filterString = value => +value.replace(/\D/g, '');
+  const filterString = value => +value.split('').filter(el => el.match(/\d/)).join('');
+  // console.log(filterString("aa1bb2cc3dd"));
+}
