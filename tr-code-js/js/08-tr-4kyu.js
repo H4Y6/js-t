@@ -3161,8 +3161,8 @@ Since Nessie is a master of disguise, the only way accurately tell is to look fo
   //   return monsterWords.find(el => s.includes(el)) ? true : false;
   // }
 
+  // const isLockNessMonster = s => /th?ree fi(?:ft|dd)y|3\.50/.test(s);
+  // const isLockNessMonster = s => /tree fiddy|3\.50/.test(s);
   const isLockNessMonster = s => ~s.indexOf('tree fiddy') || ~s.indexOf('3.50') ? true : false;  /**  ~  binary not operator */
-
-  // const isLockNessMonster = s => /tree fiddy|3.50/.test(s);
-  console.log(isLockNessMonster("Your girlscout cookies are ready to ship. Your total comes to 3.50"));
+  console.log(isLockNessMonster("Your girlscout cookies are ready to ship. Your total comes to tree fiddy"));
 }
