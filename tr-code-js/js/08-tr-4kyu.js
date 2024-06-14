@@ -3197,3 +3197,27 @@ sleigh.authenticate("jhoffner", "CodeWars"); // Nope, even Jake is not allowed t
   Sleigh.prototype.authenticate = (name, password) => name === "Santa Claus" && password === "Ho Ho Ho!";
   // console.log(Sleigh.prototype.authenticate("Santa Claus", "Ho Ho Ho!"));
 }
+
+{  /**7 kyu  Count the divisors of a number 
+  Count the number of divisors of a positive integer n.
+Random tests go up to n = 500000.
+Examples (input --> output)
+4 --> 3 // we have 3 divisors - 1, 2 and 4
+5 --> 2 // we have 2 divisors - 1 and 5
+12 --> 6 // we have 6 divisors - 1, 2, 3, 4, 6 and 12
+30 --> 8 // we have 8 divisors - 1, 2, 3, 5, 6, 10, 15 and 30
+Note you should only return a number, the count of divisors. The numbers between parentheses are shown only for you to see which numbers are counted in each case.    */
+
+  // const getDivisorsCnt = n => {
+  //   let count = 0;
+  //   for (let i = 1; i <= n; i++) {
+  //     !(n % i) ? count += 1 : count;
+  //   }
+  //   return count;
+  // };
+
+  const getDivisorsCnt = n => Array.from({ length: n }, (el, i) => el = i + 1).reduce((count, el) => !(n % el) ? count + 1 : count, 0);
+  // const getDivisorsCnt = n => Array.from({ length: n }, (el, i) => el = i + 1).reduce((count, el) => !(n % el) ? count + 1 : count, 0);
+  // const getDivisorsCnt = n => Array.from({ length: n }, (el, i) => el = i + 1).filter(el => !(n % el)).length;
+  console.log(getDivisorsCnt(12));
+}
