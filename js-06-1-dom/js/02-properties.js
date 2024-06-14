@@ -1,21 +1,33 @@
 const magicBtn = document.querySelector('.js-magic-btn');
 
 /*
- * Свойства элемента (hero)
- * - Изображение
- * - Текст и textContent
+ * Element properties (hero)
+ * - Picture
+ * - Text & textContent
  * https://images.pexels.com/photos/1870376/pexels-photo-1870376.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480
  */
 
 const imageEl = document.querySelector('.hero__image');
-// console.log('imageEl', imageEl);
-imageEl.src =
-  'https://images.pexels.com/photos/1870376/pexels-photo-1870376.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480';
-imageEl.alt = 'A new cat';
+console.log('imageEl', imageEl);
+// imageEl.src =
+//   'https://images.pexels.com/photos/1870376/pexels-photo-1870376.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480';
+// imageEl.alt = 'A new cat';
 
 const heroTitleEl = document.querySelector('.hero__title');
-// console.log('heroTitleEl', heroTitleEl);
-heroTitleEl.textContent = 'Good boy!';
+console.log('heroTitleEl', heroTitleEl);
+// heroTitleEl.textContent = 'Good boy!';
+
+magicBtn.addEventListener('click', () => {
+  // const imageEl = document.querySelector('.hero__image');
+  console.log('imageEl', imageEl);
+  imageEl.src =
+    'https://images.pexels.com/photos/1870376/pexels-photo-1870376.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480';
+  imageEl.alt = 'A new cat';
+
+  // const heroTitleEl = document.querySelector('.hero__title');
+  console.log('heroTitleEl', heroTitleEl);
+  heroTitleEl.textContent = 'Good boy!';
+});
 
 /*
  * Attributes
