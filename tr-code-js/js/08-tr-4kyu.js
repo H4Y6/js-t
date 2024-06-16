@@ -3274,3 +3274,13 @@ spacify("hello world") // returns "h e l l o   w o r l d"   */
   // const spacify = str => str.split(' ').map(e => e.split('').join(' ')).join('   ');
   // console.log(spacify("hello world"));
 }
+
+{  /** 8 kyu  Type of sum 
+    Return the type of the sum of the two arguments  */
+
+  const typeOfSum = (a, b) => typeof (a + b);
+  // console.log(typeOfSum(12, 1));
+  // console.log(typeOfSum(true, 1));
+  // console.log(typeOfSum(null, undefined));
+  // console.log(typeOfSum(null, ''));
+}
