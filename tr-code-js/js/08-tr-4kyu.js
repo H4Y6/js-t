@@ -3219,5 +3219,34 @@ Note you should only return a number, the count of divisors. The numbers between
   const getDivisorsCnt = n => Array.from({ length: n }, (el, i) => el = i + 1).reduce((count, el) => !(n % el) ? count + 1 : count, 0);
   // const getDivisorsCnt = n => Array.from({ length: n }, (el, i) => el = i + 1).reduce((count, el) => !(n % el) ? count + 1 : count, 0);
   // const getDivisorsCnt = n => Array.from({ length: n }, (el, i) => el = i + 1).filter(el => !(n % el)).length;
-  console.log(getDivisorsCnt(12));
+  // console.log(getDivisorsCnt(12));
+}
+
+{  /** 6 kyu  +1 Array
+  Given an array of integers of any length, return an array that has 1 added to the value represented by the array.
+the array can't be empty
+only non-negative, single digit integers are allowed
+Return nil (or your language's equivalent) for invalid inputs.
+Examples
+Valid arrays
+[4, 3, 2, 5] would return [4, 3, 2, 6]
+[1, 2, 3, 9] would return [1, 2, 4, 0]
+[9, 9, 9, 9] would return [1, 0, 0, 0, 0]
+[0, 1, 3, 7] would return [0, 1, 3, 8]
+Invalid arrays
+[1, -9] is invalid because -9 is not a non-negative integer
+[1, 2, 33] is invalid because 33 is not a single-digit integer    */
+
+  function upArray(arr) {
+    if (arr.find(e => String(e).length > 1)) return null;
+    const newArr = +arr.join('') + 1;
+    if (String(newArr).length >= arr.length) return String(newArr).split('').map(e => +e);
+    arr[arr.length - 1] += 1;
+    return arr;
+  }
+  console.log(upArray([2, 3, 9, 9]));
+  console.log(upArray([0, 3]));
+  console.log(upArray([9, 9]));
+  console.log(upArray([9, 19]));
+  console.log(upArray([9, -1]));
 }
