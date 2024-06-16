@@ -3238,15 +3238,15 @@ Invalid arrays
 [1, 2, 33] is invalid because 33 is not a single-digit integer    */
 
   function upArray(arr) {
-    if (arr.find(e => String(e).length > 1)) return null;
+    if (arr.find(e => e > 9 || e < 0)) return null;
     const newArr = +arr.join('') + 1;
     if (String(newArr).length >= arr.length) return String(newArr).split('').map(e => +e);
     arr[arr.length - 1] += 1;
     return arr;
   }
-  console.log(upArray([2, 3, 9, 9]));
-  console.log(upArray([0, 3]));
-  console.log(upArray([9, 9]));
-  console.log(upArray([9, 19]));
-  console.log(upArray([9, -1]));
+  // console.log(upArray([2, 3, 9, 9]));
+  // console.log(upArray([0, 3]));
+  // console.log(upArray([9, 9]));
+  // console.log(upArray([9, 19]));
+  // console.log(upArray([9, -1]));
 }
