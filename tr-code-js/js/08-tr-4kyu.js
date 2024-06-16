@@ -3265,3 +3265,12 @@ For example:
   const goals = (laLigaGoals, copaDelReyGoals, championsLeagueGoals) => laLigaGoals + copaDelReyGoals + championsLeagueGoals;
   // console.log(goals(12, 4, 7));
 }
+
+{  /** 7 kyu  Spacify
+  Modify the spacify function so that it returns the given string with spaces inserted between each character.
+spacify("hello world") // returns "h e l l o   w o r l d"   */
+
+  const spacify = str => [...str].join(' ');
+  // const spacify = str => str.split(' ').map(e => e.split('').join(' ')).join('   ');
+  // console.log(spacify("hello world"));
+}
