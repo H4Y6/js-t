@@ -3284,3 +3284,13 @@ spacify("hello world") // returns "h e l l o   w o r l d"   */
   // console.log(typeOfSum(null, undefined));
   // console.log(typeOfSum(null, ''));
 }
+
+{ /** 8 kyu  Find Nearest square number
+  Your task is to find the nearest square number, nearest_sq(n) or nearestSq(n), of a positive integer n.
+For example, if n = 111, then nearest\_sq(n) (nearestSq(n)) equals 121, since 111 is closer to 121, the square of 11, than 100, the square of 10.
+If the n is already the perfect square (e.g. n = 144, n = 81, etc.), you need to just return n.
+Good luck :)   */
+  const nearestSq = n => (Math.round(n ** .5)) ** 2;
+  // const nearestSq = n => n ** .5 - ~~(n ** .5) < .5 ? (~~(n ** .5)) ** 2 : (Math.ceil(n ** .5) ** 2);
+  // console.log(nearestSq(15));
+};
