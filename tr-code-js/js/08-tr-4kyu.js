@@ -3319,7 +3319,8 @@ Add the value "codewars" to the array websites 1,000 times.   */
   // arr.push((('codewars ')).repeat(1000));
   // const websites = arr[0].trim().split(' ');
 
-  const websites = Array(1000).fill('codewars');
+  const websites = Array.from({ length: 1000 }, () => 'codewars');
+  // const websites = Array.from({ length: 1000 }, el => el = 'codewars');
+  // const websites = Array(1000).fill('codewars');
   console.log(websites);
-  // console.log(websites[0].split(' ').slice(0, websites.length - 2));
 }
