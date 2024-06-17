@@ -3308,5 +3308,18 @@ More examples can be found in the test cases.  */
   const solve = arr => [...new Set(arr.reverse())].reverse();
   // const solve = arr => arr.filter((e, i, ar) => i === ar.lastIndexOf(e));
   // console.log(solve([3, 4, 4, 3, 6, 3]));
+}
 
+{  /**  8 kyu  Kata Example Twist
+  This is an easy twist to the example kata (provided by Codewars when learning how to create your own kata).
+Add the value "codewars" to the array websites 1,000 times.   */
+
+
+  // let arr = [];
+  // arr.push((('codewars ')).repeat(1000));
+  // const websites = arr[0].trim().split(' ');
+
+  const websites = Array(1000).fill('codewars');
+  console.log(websites);
+  // console.log(websites[0].split(' ').slice(0, websites.length - 2));
 }
