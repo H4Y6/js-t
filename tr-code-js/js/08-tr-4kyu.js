@@ -3294,3 +3294,19 @@ Good luck :)   */
   // const nearestSq = n => n ** .5 - ~~(n ** .5) < .5 ? (~~(n ** .5)) ** 2 : (Math.ceil(n ** .5) ** 2);
   // console.log(nearestSq(15));
 };
+
+{  /** 7 kyu  Simple remove duplicates 
+  Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
+Example:
+For input: [3, 4, 4, 3, 6, 3]
+remove the 3 at index 0
+remove the 4 at index 1
+remove the 3 at index 3
+Expected output: [4, 6, 3]
+More examples can be found in the test cases.  */
+
+  const solve = arr => [...new Set(arr.reverse())].reverse();
+  // const solve = arr => arr.filter((e, i, ar) => i === ar.lastIndexOf(e));
+  // console.log(solve([3, 4, 4, 3, 6, 3]));
+
+}
