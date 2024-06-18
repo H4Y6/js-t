@@ -3322,5 +3322,96 @@ Add the value "codewars" to the array websites 1,000 times.   */
   const websites = Array.from({ length: 1000 }, () => 'codewars');
   // const websites = Array.from({ length: 1000 }, el => el = 'codewars');
   // const websites = Array(1000).fill('codewars');
-  console.log(websites);
+  // console.log(websites);
+}
+
+{  /** 6 kyu  Array Helper
+  This kata is designed to test your ability to extend the functionality of built-in classes. In this case, we want you to extend the built-in Array class with the following methods: square(), cube(), average(), sum(), even() and odd().
+Explanation:
+square() must return a copy of the array, containing all values squared
+cube() must return a copy of the array, containing all values cubed
+average() must return the average of all array values; on an empty array must return NaN (note: the empty array is not tested in Ruby!)
+sum() must return the sum of all array values
+even() must return an array of all even numbers
+odd() must return an array of all odd numbers
+Note: the original array must not be changed in any case!
+Example
+var numbers = [1, 2, 3, 4, 5];
+numbers.square();  // must return [1, 4, 9, 16, 25]
+numbers.cube();    // must return [1, 8, 27, 64, 125]
+numbers.average(); // must return 3
+numbers.sum();     // must return 15
+numbers.even();    // must return [2, 4]
+numbers.odd();     // must return [1, 3, 5] test failed */
+
+  class SecondaryArray extends Array {
+    square() {
+      return this.map(el => el ** 2);
+    }
+
+    cube() {
+      return this.map(el => el ** 3);
+    }
+
+    average() {
+      return this.reduce((sum, el) => sum + el, 0) / this.length;
+    };
+
+    sum() {
+      return this.reduce((sum, el) => sum + el, 0);
+    };
+
+    even() {
+      return this.filter(el => !(el % 2));
+    };
+
+    odd() {
+      return this.filter(el => el % 2);
+    };
+  }
+
+  const numbers = new SecondaryArray(2, 4, 6, 7, 11);
+
+  console.log(numbers.square());
+  console.log(numbers.cube());
+  console.log(numbers.average());
+  console.log(numbers.sum());
+  console.log(numbers.even());
+  console.log(numbers.odd());
+
+
+
+  // const myArray = new ExtendedArray(1, 2, 3, 4);
+  // console.log(myArray.sum()); // Outputs: 10
+
+  // Array.prototype.square = function (numbers) {
+  //     return numbers.map(el => el ** 2);
+  //   };
+
+  // Array.prototype.cube = function (numbers) {
+  //     return numbers.map(el => el ** 3);
+  //   };
+
+  // Array.prototype.average = function (numbers) {
+  //     return numbers.reduce((sum, el) => sum + el, 0) / numbers.length;
+  //   };
+
+  // Array.prototype.sum = function (numbers) {
+  //     return numbers.reduce((sum, el) => sum + el, 0);
+  //   };
+
+  // Array.prototype.even = function (numbers) {
+  //     return numbers.filter(el => !(el % 2));
+  //   };
+
+  // Array.prototype.odd = function (numbers) {
+  //     return numbers.filter(el => el % 2);
+  //   };
+
+  // console.log(Array.prototype.square([2, 4, 6]));
+  // console.log(Array.prototype.cube([2, 4, 6]));
+  // console.log(Array.prototype.average([2, 4, 6]));
+  // console.log(Array.prototype.sum([2, 4, 6]));
+  // console.log(Array.prototype.even([2, 4, 6]));
+  // console.log(Array.prototype.odd([2, 4, 6, 7, 11]));
 }
