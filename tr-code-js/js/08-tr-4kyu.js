@@ -3428,18 +3428,23 @@ Step 2: Now create a function called decode() to turn the numbers back into vowe
 For example, decode("h3 th2r2") would return "hi there".
 For the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels.   */
   {
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
 
-    function encode(string) {
-      return string.split('').map(el => vowels.includes(el) ? el = vowels.indexOf(el) + 1 + '' : el).join('');
-    }
+    const encode = string => string.replace(/[aeiou]/g, el => ' aeiou'.indexOf(el));
+    const decode = string => string.replace(/\d/g, el => ' aeiou'[el]);
 
-    function decode(string) {
-      return string.split('').map(el => {
-        if ((/\D/).test(el)) return el;
-        return vowels[+el - 1];
-      }).join('');
-    }
+    // const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+    // function encode(string) {
+    //   return string.split('').map(el => vowels.includes(el) ? el = vowels.indexOf(el) + 1 + '' : el).join('');
+    // }
+
+    // function decode(string) {
+    //   return string.split('').map(el => {
+    //     if ((/\D/).test(el)) return el;
+    //     return vowels[+el - 1];
+    //   }).join('');
+    // }
+
     // console.log(encode('hello'));
     // console.log(encode('This is an encoding test.'));
     // console.log(decode('h2ll4'));
