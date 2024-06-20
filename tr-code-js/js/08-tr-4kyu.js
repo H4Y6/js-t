@@ -3510,8 +3510,9 @@ autoMorphic (6) -->> return "Automorphic"
 Explanation:
 6 squared is 36 , Ends with the same number's digits which are 6    */
 
-  const automorphic = n => RegExp(`${n}$`).test(n * n) ? 'Automorphic' : 'Not!!';
+  const automorphic = n => String(n * n).endsWith(n) ? 'Automorphic' : 'Not!!';
+  // const automorphic = n => RegExp(`${n}$`).test(n * n) ? 'Automorphic' : 'Not!!';
   // const automorphic = n => `${n * n}`.slice(-('' + n).length) === '' + n ? 'Automorphic' : 'Not!!';
 
-  console.log(automorphic(625));
+  // console.log(automorphic(625));
 };
