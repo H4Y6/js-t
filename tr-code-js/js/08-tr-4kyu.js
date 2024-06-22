@@ -3600,3 +3600,12 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
   // const tidyNumber = n => n === +(n + '').split('').sort().join('');
   // console.log(tidyNumber(2335));
 }
+
+{ /** 8 kyu  Enumerable Magic - Does My List Include This?
+  Create a method that accepts a list and an item, and returns true if the item belongs to the list, otherwise false. */
+
+  // const include = (arr, item) => arr.includes(item);
+  const include = (arr, item) => arr.indexOf(item) >= 0;
+  // const include = (arr, item) => arr.some(e => e === item);
+  // console.log(include([1, 2, 3, 4, 5], 3));
+}
