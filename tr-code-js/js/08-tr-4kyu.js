@@ -3610,7 +3610,8 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
   // console.log(include([1, 2, 3, 4, 5], 3));
 }
 
-{
+{   /** 8 kyu.
+   Each number should be formatted that it is rounded to two decimal places. You don't need to check whether the input is a valid number because only valid numbers are used in the tests. */
   function twoDecimalPlaces(n) {
     return n.toFixed(2);
   }
@@ -3621,4 +3622,33 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
   function remove(string) {
     return string.replace(/!$/, '');
   }
+
+  /** 7 kyu
+max diff - easy
+You must implement a function that returns the difference between the largest and the smallest value in a given list / array (lst) received as the parameter.
+
+lst contains integers, that means it may contain some negative numbers
+if lst is empty or contains a single element, return 0
+lst is not sorted
+[1, 2, 3, 4]   //  returns 3 because 4 -   1  == 3
+[1, 2, 3, -4]  //  returns 7 because 3 - (-4) == 7   */
+
+  function maxDiff(list) {
+    return list.length > 1 ? Math.max(...list) - Math.min(...list) : 0;
+  };
+  // console.log(maxDiff([1, 2, 3, -4]));
+
+  /** 7 kyu Smallest value of an array
+   Write a function that can return the smallest value of an array or the index of that value. The function's 2nd parameter will tell whether it should return the value or the index.
+Assume the first parameter will always be an array filled with at least 1 number and no duplicates. Assume the second parameter will be a string holding one of two values: 'value' and 'index'.
+min([1,2,3,4,5], 'value') // => 1
+min([1,2,3,4,5], 'index') // => 0     */
+
+  function min(arr, toReturn) {
+    const n = Math.min(...arr);
+    return toReturn === 'index' ? arr.indexOf(n) : n;
+  }
+
+  // console.log(min([1, 2, 3, 4, 5], 'value'));
+  // console.log(min([1, 2, 3, 4, 5], 'index'));
 }
