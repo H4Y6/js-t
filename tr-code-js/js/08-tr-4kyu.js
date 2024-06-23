@@ -3614,5 +3614,11 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
   function twoDecimalPlaces(n) {
     return n.toFixed(2);
   }
-  console.log(twoDecimalPlaces(5.5589));
+  // console.log(twoDecimalPlaces(5.5589));
+
+  /** 8 kyu Exclamation marks series #2: Remove all exclamation marks from the end of sentence */
+
+  function remove(string) {
+    return string.replace(/!$/, '');
+  }
 }
