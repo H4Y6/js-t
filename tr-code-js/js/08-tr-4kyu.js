@@ -3609,3 +3609,10 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
   // const include = (arr, item) => arr.some(e => e === item);
   // console.log(include([1, 2, 3, 4, 5], 3));
 }
+
+{
+  function twoDecimalPlaces(n) {
+    return n.toFixed(2);
+  }
+  console.log(twoDecimalPlaces(5.5589));
+}
