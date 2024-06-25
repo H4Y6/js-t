@@ -3701,7 +3701,7 @@ a = ["az", "toto", "picaro", "zone", "kiwi"] -->
 "(az, toto picaro zone kiwi)(az toto, picaro zone kiwi)(az toto picaro, zone kiwi)(az toto picaro zone, kiwi)"        */
 
   function partlist(arr) {
-
+    return arr.map((e, i) => [arr.slice(0, i + 1).join(' '), arr.slice(i + 1).join(' ')]).slice(0, -1);
   }
-  console.log(partlist());
+  // console.log(partlist(["az", "toto", "picaro", "zone", "kiwi"]));
 }
