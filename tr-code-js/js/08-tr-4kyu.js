@@ -3723,8 +3723,9 @@ Test.describe("perfect powers", function(){
   });
 });  */
 
-  const isPP = (n, q = 2) => n ** (1 / q) % 1 === 0 || n ** (1 / q) % 1 > .999999 || n ** (1 / q) % 1 < 10 ** -11
-    ? [(Math.round(n ** (1 / q))), q] : n ** (1 / q) < 2 ? null : isPP(n, q += 1);
+  const isPP = (n, q = 2) => Math.round(n ** (1 / q) * 10 ** 7) / 10 ** 7 % 1 === 0 ? [(Math.round(n ** (1 / q))), q] : n ** (1 / q) < 2 ? null : isPP(n, q += 1);
+  // const isPP = (n, q = 2) => n ** (1 / q) % 1 === 0 || n ** (1 / q) % 1 > .999999 || n ** (1 / q) % 1 < 10 ** -11
+  //   ? [(Math.round(n ** (1 / q))), q] : n ** (1 / q) < 2 ? null : isPP(n, q += 1);
   // console.log(isPP(121));
   // console.log(isPP(228669389707));
 }
