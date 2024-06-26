@@ -45,3 +45,10 @@ console.log(imageEl.hasAttribute('src'));
 const actions = document.querySelectorAll('.js-actions button');
 console.log(actions);
 console.log(actions[2].dataset.action);
+
+magicBtn.addEventListener('click', () => {
+  const inputEl = document.querySelector('.js-input');
+  console.log(inputEl.value);
+
+  inputEl.value = '333';
+});
