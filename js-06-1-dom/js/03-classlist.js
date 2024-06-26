@@ -16,3 +16,9 @@ const linkEl = document.querySelector(
 
 console.log(linkEl);
 linkEl.classList.add('site-nav__link--current');
+
+
+magicBtn.addEventListener('click', () => {
+  linkEl.classList.toggle('site-nav__link--current');
+  console.log(linkEl.classList);
+});
