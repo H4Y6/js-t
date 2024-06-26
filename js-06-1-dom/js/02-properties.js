@@ -39,7 +39,7 @@ magicBtn.addEventListener('click', () => {
 
 // console.log(imageEl.getAttribute('src'));
 // console.log(imageEl.src);
-// console.log(imageEl.hasAttribute('src'));
+console.log(imageEl.hasAttribute('src'));
 
 /* Data-Attributes  */
 const actions = document.querySelectorAll('.js-actions button');
