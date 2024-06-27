@@ -3742,10 +3742,21 @@ orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]
   // console.log(orderedCount('abracadabra'));
 }
 
-{  /**  */
+{  /** 8 kyu
+  Grasshopper - Function syntax debugging 
+  A student was working on a function and made some syntax mistakes while coding. Help them find their mistakes and fix them.  */
 
   function main(verb, noun) {
     return verb + noun;
   }
-  console.log(main('take ', 'item'));
+  // console.log(main('take ', 'item'));
+}
+
+{  /** 6 kyu  Dashatize it
+  Given an integer, return a string with dash '-' marks before and after each odd digit, but do not begin or end the string with a dash mark.
+ Ex:  274 -> '2-7-4'
+      6815 -> '68-1-5'     */
+
+  const dashatize = num => ('' + num).split('').map(n => (n % 2) ? '-' + n + '-' : n).join('').trim('-').replace(/--/g, '-').replace(/^-|-$/g, '');
+  // console.log(dashatize(37915));
 }
