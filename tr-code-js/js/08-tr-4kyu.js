@@ -3739,5 +3739,13 @@ orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]
   const orderedCount = text => Array(...new Set(text)).map(el => [el, text.split(el).length - 1]);
   // const orderedCount = text => Array(...new Set(text)).map(el => [el, text.match(RegExp(el, 'g')).length]);
   // const orderedCount = text => Array(...new Set(text)).reduce((res, e) => res = [...res, [e, [...text].filter(el => el === e).length]], []);
-  console.log(orderedCount('abracadabra'));
+  // console.log(orderedCount('abracadabra'));
+}
+
+{  /**  */
+
+  function main(verb, noun) {
+    return verb + noun;
+  }
+  console.log(main('take ', 'item'));
 }
