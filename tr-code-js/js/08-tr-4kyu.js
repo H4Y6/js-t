@@ -3757,6 +3757,7 @@ orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]
  Ex:  274 -> '2-7-4'
       6815 -> '68-1-5'     */
 
-  const dashatize = num => ('' + num).split('').map(n => (n % 2) ? '-' + n + '-' : n).join('').trim('-').replace(/--/g, '-').replace(/^-|-$/g, '');
-  // console.log(dashatize(37915));
+  const dashatize = num => ('' + num).match(/[13579]|[24680]+/g).join('-');
+  // const dashatize = num => ('' + num).split('').map(n => (n % 2) ? '-' + n + '-' : n).join('').trim('-').replace(/--/g, '-').replace(/^-|-$/g, '');
+  console.log(dashatize(374982165));
 }
