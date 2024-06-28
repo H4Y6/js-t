@@ -3774,11 +3774,46 @@ The set of used punctuation is ,.!?.
 Punctuation should be kept in your return string, but spaces should not.
 Xray should not have a dash within.
 Every word and punctuation mark should be seperated by a space ' '.
-There should be no trailing whitespace                                    */
+There should be no trailing whitespace   */
 
-  function toNato(words) {
-    const nato = ['Alfa', 'Bravo', 'Charlie', 'Delta', 'Echo', 'Foxtrot', 'Golf', 'Hotel', 'India', 'Juliett', 'Kilo', 'Lima', 'Mike', 'November', 'Oscar', 'Papa', 'Quebec', 'Romeo', 'Sierra', 'Tango', 'Uniform', 'Victor', 'Whiskey', 'Xray', 'Yankee', 'Zulu'];
-    return words.toUpperCase().split(' ').join('').split('').map(e => nato[e.charCodeAt() - 65] ? nato[e.charCodeAt() - 65] : e).join(' ');
-  }
-  // console.log(toNato('If you, can read'));
+  const NATO = {
+    A: 'Alfa',
+    N: 'November',
+    B: 'Bravo',
+    O: 'Oscar',
+    C: 'Charlie',
+    P: 'Papa',
+    D: 'Delta',
+    Q: 'Quebec',
+    E: 'Echo',
+    R: 'Romeo',
+    F: 'Foxtrot',
+    S: 'Sierra',
+    G: 'Golf',
+    T: 'Tango',
+    H: 'Hotel',
+    U: 'Uniform',
+    I: 'India',
+    V: 'Victor',
+    J: 'Juliett',
+    W: 'Whiskey',
+    K: 'Kilo',
+    X: 'Xray',
+    L: 'Lima',
+    Y: 'Yankee',
+    M: 'Mike',
+    Z: 'Zulu'
+  };  /* There is a preloaded dictionary that you can use, named NATO.   */
+
+  const toNato = (w) => w.replace(/\s/g, '').toUpperCase().replace(/./g, e => NATO[e] ? (' ' + NATO[e]) : ' ' + e).trim();
+
+  // function toNato(words) {
+  // const nato = ['Alfa', 'Bravo', 'Charlie', 'Delta', 'Echo', 'Foxtrot', 'Golf', 'Hotel', 'India', 'Juliett', 'Kilo', 'Lima', 'Mike', 'November', 'Oscar', 'Papa', 'Quebec', 'Romeo', 'Sierra', 'Tango', 'Uniform', 'Victor', 'Whiskey', 'Xray', 'Yankee', 'Zulu'];
+  // return words.toUpperCase().split(' ').join('').split('').map(e => nato[e.charCodeAt() - 65] ?? e).join(' ');
+
+  // return words.toUpperCase().split(' ').join('').split('').map(e => nato[e.charCodeAt() - 65] ?? e).join(' ');
+  // return words.toUpperCase().split(' ').join('').split('').map(e => nato[e.charCodeAt() - 65] ? nato[e.charCodeAt() - 65] : e).join(' ');
+  // }
+
+  // console.log(toNato('If you can, read!'));
 }
