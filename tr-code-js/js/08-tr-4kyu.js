@@ -3805,7 +3805,8 @@ There should be no trailing whitespace   */
     Z: 'Zulu'
   };  /* There is a preloaded dictionary that you can use, named NATO.   */
 
-  const toNato = (w) => w.replace(/\s/g, '').toUpperCase().replace(/./g, e => NATO[e] ? (' ' + NATO[e]) : ' ' + e).trim();
+  const toNato = words => [...words.toUpperCase()].filter(e => e !== " ").map(e => NATO[e] ? NATO[e] : e).join(' ');
+  // const toNato = words => words.replace(/\s/g, '').toUpperCase().replace(/./g, e => NATO[e] ? ' ' + NATO[e] : ' ' + e).trim();
 
   // function toNato(words) {
   // const nato = ['Alfa', 'Bravo', 'Charlie', 'Delta', 'Echo', 'Foxtrot', 'Golf', 'Hotel', 'India', 'Juliett', 'Kilo', 'Lima', 'Mike', 'November', 'Oscar', 'Papa', 'Quebec', 'Romeo', 'Sierra', 'Tango', 'Uniform', 'Victor', 'Whiskey', 'Xray', 'Yankee', 'Zulu'];
