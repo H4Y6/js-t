@@ -3913,3 +3913,13 @@ movie(100, 10, 0.95) should return 24
   // console.log(movie(500, 15, 0.9));
   // console.log(movie(100, 10, 0.95));
 }
+
+{ /**8 kyu  Parse float
+  Write function parseF which takes an input and returns a number or null if conversion is not possible. The input can be one of many different types so be aware.    */
+
+  const parseF = s => isNaN(parseFloat(s)) ? null : parseFloat(s);
+  // const parseF = s => parseFloat(s) === +s ? parseFloat(s) : null;
+  console.log(parseF('js'));
+  console.log(parseF(true));
+  console.log(parseF('3.002'));
+}
