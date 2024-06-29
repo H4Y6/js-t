@@ -3857,12 +3857,22 @@ Likewise, the phone doesn't distinguish between upper and lowercase characters (
 Tested phrases contain letters (A-Z and a-z), digits (0-9), and special characters # and *.     */
 
 
-  function presses(phrase) {
-    const taps = {
-      '1adgjmptw *#': 1, '0behknqux': 2, cfilorvy: 3, '234568sz': 4, 79: 5
-    };
-    return [...phrase.toLowerCase()].map((e) => Object.keys(taps).find(el => el.includes(e))).reduce((res, e) => res + taps[e], 0);
-  }
+  // function presses(phrase) {
+  //   const taps = { '1adgjmptw *#': 1, '0behknqux': 2, cfilorvy: 3, '234568sz': 4, 79: 5 };
+  //   return [...phrase.toLowerCase()].map((e) => Object.keys(taps).find(el => el.includes(e))).reduce((res, e) => res + taps[e], 0);
+  // }
+
+  // function presses(phrase) {
+  //   const taps = { '1adgjmptw *#': 1, '0behknqux': 2, cfilorvy: 3, '234568sz': 4, 79: 5 };
+  //   return [...phrase.toLowerCase()].reduce((res, e) => res + taps[Object.keys(taps).find(el => el.includes(e))], 0);
+  // }
+
+  // const presses = phrase => phrase.replace(/[23568sz]/gi, 4).replace(/[adgjmptw *#]/gi, 1).replace(/[0behknqux]/gi, 2)
+  //   .replace(/[cfilorvy]/gi, 3).replace(/[79]/g, 5).split('').reduce((res, e) => res + +e, 0);
+
+  const presses = phrase => [...phrase.toLowerCase()].reduce((res, e) =>
+    res + 1 + ['1adgjmptw *#', '0behknqux', 'cfilorvy', '234568sz', '79'].findIndex(el => el.includes(e)), 0);
+
   // console.log(presses('lol'));
   // console.log(presses('0123456789'));
   // console.log(presses('HOW R U'));
