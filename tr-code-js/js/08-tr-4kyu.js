@@ -4141,3 +4141,18 @@ You should use for..in in your code, otherwise your solution may not pass this k
   }
   // console.log(giveMeFive({ Our: "earth", is: "a", beautyful: "world" }));
 }
+
+{ /**  7 kyu  Currying functions: multiply all elements in an array
+  To complete this Kata you need to make a function multiplyAll/multiply_all which takes an array of integers as an argument. This function must return another function, which takes a single integer as an argument and returns a new array.
+
+The returned array should consist of each of the elements from the first array multiplied by the integer.
+
+Example:
+
+multiplyAll([1, 2, 3])(2) = [2, 4, 6];
+You must not mutate the original array   */
+
+  const multiplyAll = array => n => array.map(e => e * n);
+  // console.log(multiplyAll([1, 2, 3])(4));
+  // console.log(multiplyAll([1, 2])(11));
+}
