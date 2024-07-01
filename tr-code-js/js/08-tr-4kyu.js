@@ -4173,7 +4173,8 @@ So the result of function meeting(s) will be:
 It can happen that in two distinct families with the same family name two people have the same first name too.             */
 
   function meeting(s) {
-    return s.split(';').map(e => e.split(':').reverse().join(' ').toUpperCase()).sort().map(e => e.replace(e, `(${e})`)).join('').replace(/\s/g, ', ');
+    // return s.split(';').map(e => e.split(':').reverse().join(' ').toUpperCase()).sort().map(e => e.replace(e, `(${e})`)).join('').replace(/\s/g, ', ');
+    return s.split(';').map(e => e.split(':').reverse().join(', ').toUpperCase()).sort().map(e => e.replace(e, `(${e})`)).join('');
   }
   // console.log(meeting("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn"));
 }
