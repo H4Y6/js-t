@@ -4326,3 +4326,12 @@ Unfortunately for you, your drive is very bumpy! Given a string showing either f
   // const bump = x => x.split('').reduce((bumps, bump) => bumps + (bump === 'n' ? 1 : 0), 0) > 15 ? 'Car Dead' : "Woohoo!";
   // console.log(bump("_nnnnnnn_n__n______nn__nn_nnn"));
 }
+
+{ /** 7 kyu  JavaScript Array Filter
+  JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
+The solution would work like the following:
+getEvenNumbers([2,4,5,6]) // should == [2,4,6]  */
+
+
+  console.log(getEvenNumbers([2, 4, 5, 6]));
+}
