@@ -4304,3 +4304,15 @@ You should use for, break and continue in your code. otherwise, your solution ma
   }
   // console.log(grabDoll(["Mickey Mouse", "Barbie doll", "Hello Kitty", "Hello Kitty", "Hello Kitty", "Snow white"]));
 }
+
+{ /** 8 kyu  Grasshopper - Personalized Message
+  Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+Use conditionals to return the proper message:
+case	return
+name equals owner	'Hello boss'
+otherwise	'Hello guest'  */
+
+  // const greet = (name, owner) => name === owner ? 'Hello boss' : 'Hello guest';
+  const greet = (name, owner) => 'Hello ' + (name === owner ? 'boss' : 'guest');
+  // console.log(greet('Greg', 'Greg'));
+}
