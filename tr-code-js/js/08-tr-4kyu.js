@@ -4215,11 +4215,25 @@ sum of all digits to the left of the middle digit(s) -> 10
 sum of all digits to the right of the middle digit(s) -> 20
 10 and 20 are not equal, so it's not balanced.                */
 
+  // const balancedNum = number => {
+  //   number = String(number);
+  //   if (number.length < 3) return 'Balanced';
+  //   if (number.length % 2) return [...number.slice(- number.length / 2)].reduce((sum, e) => sum + +e, 0) === [...number.slice(0, number.length / 2)].reduce((sum, e) => sum + +e, 0) ? 'Balanced' : 'Not Balanced';
+  //   if (number.length % 2 === 0) return [...number.slice(- number.length / 2 + 1)].reduce((sum, e) => sum + +e, 0) === [...number.slice(0, number.length / 2 - 1)].reduce((sum, e) => sum + +e, 0) ? 'Balanced' : 'Not Balanced';
+  // };
+
+  // const balancedNum = number => {
+  //   number = [...number + ''];
+  //   let delta = 0;
+  //   for (let i = 0; i < number.length / 2 - 1; i++) {
+  //     delta += (number[i] - number[number.length - 1 - i]);
+  //   }
+  //   return delta ? 'Not Balanced' : 'Balanced';
+  // };
+
   const balancedNum = number => {
-    number = String(number);
-    if (number.length < 3) return 'Balanced';
-    if (number.length % 2) return [...number.slice(- number.length / 2)].reduce((sum, e) => sum + +e, 0) === [...number.slice(0, number.length / 2)].reduce((sum, e) => sum + +e, 0) ? 'Balanced' : 'Not Balanced';
-    if (number.length % 2 === 0) return [...number.slice(- number.length / 2 + 1)].reduce((sum, e) => sum + +e, 0) === [...number.slice(0, number.length / 2 - 1)].reduce((sum, e) => sum + +e, 0) ? 'Balanced' : 'Not Balanced';
+    number = [...number + ''];
+    return number.slice(-number.length / 2 + .5).reduce((res, e, i) => res + +e - +number[i], 0) ? 'Not Balanced' : 'Balanced';
   };
   // console.log(balancedNum(57875));
   // console.log(balancedNum(5845));
