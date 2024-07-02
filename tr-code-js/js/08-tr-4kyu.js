@@ -4316,3 +4316,13 @@ otherwise	'Hello guest'  */
   const greet = (name, owner) => 'Hello ' + (name === owner ? 'boss' : 'guest');
   // console.log(greet('Greg', 'Greg'));
 }
+
+{ /** 7 kyu  Bumps in the Road
+  Your car is old, it breaks easily. The shock absorbers are gone and you think it can handle about 15 more bumps before it dies totally.
+Unfortunately for you, your drive is very bumpy! Given a string showing either flat road (_) or bumps (n). If you are able to reach home safely by encountering 15 bumps or less, return Woohoo!, otherwise return Car Dead     */
+
+  // const bump = x => x.replaceAll('_', '').length > 15 ? 'Car Dead' : "Woohoo!";
+  const bump = x => x.split('n').length > 16 ? 'Car Dead' : "Woohoo!";
+  // const bump = x => x.split('').reduce((bumps, bump) => bumps + (bump === 'n' ? 1 : 0), 0) > 15 ? 'Car Dead' : "Woohoo!";
+  // console.log(bump("_nnnnnnn_n__n______nn__nn_nnn"));
+}
