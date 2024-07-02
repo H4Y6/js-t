@@ -4332,6 +4332,6 @@ Unfortunately for you, your drive is very bumpy! Given a string showing either f
 The solution would work like the following:
 getEvenNumbers([2,4,5,6]) // should == [2,4,6]  */
 
-
+  const getEvenNumbers = numbersArray => numbersArray.filter(e => !(e % 2));
   console.log(getEvenNumbers([2, 4, 5, 6]));
 }
