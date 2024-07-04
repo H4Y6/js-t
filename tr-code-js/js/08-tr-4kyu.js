@@ -4422,3 +4422,28 @@ aliasGen('123abc', 'Petrovic') === 'Your name must start with a letter from A - 
   }
   // console.log(aliasGen("Mike", "Millington"));
 }
+
+{ /** 8 kyu  Exclamation marks series #6: Remove n exclamation marks in the sentence from left to right
+  Remove n exclamation marks in the sentence from left to right. n is positive integer.
+Examples
+remove("Hi!",1) === "Hi"
+remove("Hi!",100) === "Hi"
+remove("Hi!!!",1) === "Hi!!"
+remove("Hi!!!",100) === "Hi"
+remove("!Hi",1) === "Hi"
+remove("!Hi!",1) === "Hi!"
+remove("!Hi!",100) === "Hi"
+remove("!!!Hi !!hi!!! !hi",1) === "!!Hi !!hi!!! !hi"
+remove("!!!Hi !!hi!!! !hi",3) === "Hi !!hi!!! !hi"
+remove("!!!Hi !!hi!!! !hi",5) === "Hi hi!!! !hi"         */
+
+  // function remove(s, n) {
+  //   for (let i = 0; i < n; i++) {
+  //     s = !s.includes('!') ? s : s.replace('!', '');
+  //   }
+  //   return s;
+  // }
+
+  const remove = (s, n) => !s.includes('!') || n < 1 ? s : remove(s = s.replace('!', ''), n -= 1);
+  // console.log(remove("Hi!!!", 1));
+}
