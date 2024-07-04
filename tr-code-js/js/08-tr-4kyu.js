@@ -4444,6 +4444,10 @@ remove("!!!Hi !!hi!!! !hi",5) === "Hi hi!!! !hi"         */
   //   return s;
   // }
 
-  const remove = (s, n) => !s.includes('!') || n < 1 ? s : remove(s = s.replace('!', ''), n -= 1);
+  // const remove = (s, n) => !s.includes('!') || n < 1 ? s : remove(s = s.replace('!', ''), n -= 1);
+
+  // const remove = (s, n) => s.replace(/!/g, e => n-- > 0 && s.includes('!') ? '' : e);
+
+  const remove = (s, n) => [...s].filter(e => e !== '!' || n-- < 1).join('');
   // console.log(remove("Hi!!!", 1));
 }
