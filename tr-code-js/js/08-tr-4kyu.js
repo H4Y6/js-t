@@ -4464,6 +4464,5 @@ Examples
   const vaporcode = string => [...string.match(/[^ ]/g)].join('  ').toUpperCase();
   // const vaporcode = string => [...string.match(/\S/g)].join('  ').toUpperCase();
   // const vaporcode = string => string.replaceAll(' ', '').split('').join('  ').toUpperCase();
-  console.log(vaporcode("Lets go to the movies!"));
-
+  // console.log(vaporcode("Lets go to the movies!"));
 }
