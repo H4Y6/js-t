@@ -4409,9 +4409,15 @@ aliasGen('123abc', 'Petrovic') === 'Your name must start with a letter from A - 
   //   return /[A-Z]/.test((s1)) && /[A-Z]/.test((s2)) ? firstName[s1] + ' ' + surname[s2] : "Your name must start with a letter from A - Z.";
   // }
 
+  // function aliasGen() {
+  //   const [s1] = arguments[0].toUpperCase();
+  //   const [s2] = arguments[1].toUpperCase();
+  //   return /[A-Z]/.test((s1)) && /[A-Z]/.test((s2)) ? `${firstName[s1]} ${surname[s2]}` : "Your name must start with a letter from A - Z.";
+  // }
+
   function aliasGen() {
-    const [s1] = arguments[0].toUpperCase();
-    const [s2] = arguments[1].toUpperCase();
+    const s1 = arguments[0].toUpperCase().charAt();
+    const s2 = arguments[1].toUpperCase().charAt();
     return /[A-Z]/.test((s1)) && /[A-Z]/.test((s2)) ? `${firstName[s1]} ${surname[s2]}` : "Your name must start with a letter from A - Z.";
   }
   // console.log(aliasGen("Mike", "Millington"));
