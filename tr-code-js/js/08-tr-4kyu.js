@@ -4565,3 +4565,19 @@ Array's length > 2.   */
   //     [20, 21, 22, 23, 24],
   //     [30, 31, 32, 33, 34]]));
 }
+
+{ /** 7 kyu  The Coupon Code
+Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
+Your mission:
+Write a function called checkCoupon which verifies that a coupon code is valid and not expired.
+A coupon is no more valid on the day AFTER the expiration date. All dates will be passed as strings in this format: "MONTH DATE, YEAR".
+Examples:
+checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
+checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false    */
+
+  // const dateString = "October 13, 2024 11:13:00";
+  // const customDate = new Date(dateString);
+
+  const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => (new Date(expirationDate) - new Date(currentDate)) >= 0 && enteredCode === correctCode;
+  // console.log(checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014'));
+}
