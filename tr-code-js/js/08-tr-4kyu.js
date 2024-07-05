@@ -4491,8 +4491,7 @@ Vowels in this context refers to: a e i o u y (including upper case)
 This is indexed from [1..n] (not zero indexed!)   */
 
   // const vowelIndices = word => [...word].reduce((res, e, i) => res = e.match(/[aeiouy]/i) ? [...res, i + 1] : res, []);
-
-  const vowelIndices = (word, res = []) => [...word].map((e, i) => res = e.match(/[aeiouy]/i) ? [...res, i + 1] : res).reverse()[0];
-  console.log(vowelIndices('YoMama'));
-
+  // const vowelIndices = (word, res = []) => [...word].map((e, i) => res = e.match(/[aeiouy]/i) ? [...res, i + 1] : res).reverse()[0];
+  const vowelIndices = word => [...word].reduce((res, e, i) => /[aeiouy]/i.test(e) ? [...res, ++i] : res, []);
+  // console.log(vowelIndices('YoMama'));
 }
