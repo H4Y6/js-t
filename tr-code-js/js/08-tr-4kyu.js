@@ -4539,3 +4539,29 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
   // console.log(solve(["IAMDEFANDJKL", "thedefgh", "xyzDEFghijabc"]));
   // console.log(solve(["encode", "abc", "xyzD", "ABmD"]));
 }
+
+{ /** 8 kyu  CSV representation of array 
+  Create a function that returns the CSV representation of a two-dimensional numeric array.
+Example:
+input:
+   [[ 0, 1, 2, 3, 4 ],
+    [ 10,11,12,13,14 ],
+    [ 20,21,22,23,24 ],
+    [ 30,31,32,33,34 ]] 
+    
+output:
+     '0,1,2,3,4\n'
+    +'10,11,12,13,14\n'
+    +'20,21,22,23,24\n'
+    +'30,31,32,33,34'
+Array's length > 2.   */
+
+  // const toCsvText = array => array.map(e => e.join(',')).join('\n');
+  const toCsvText = array => array.join('\n');
+
+  //   console.log(toCsvText(
+  //     [[0, 1, 2, 3, 45],
+  //     [10, 11, 12, 13, 14],
+  //     [20, 21, 22, 23, 24],
+  //     [30, 31, 32, 33, 34]]));
+}
