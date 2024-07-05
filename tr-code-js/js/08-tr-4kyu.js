@@ -4581,3 +4581,20 @@ checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false    */
   const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => (new Date(expirationDate) - new Date(currentDate)) >= 0 && enteredCode === correctCode;
   // console.log(checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014'));
 }
+
+{ /** 6 kyu  Highest Rank Number in an Array
+  Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
+Note: no empty arrays will be given.
+Examples
+[12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+[12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+[12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3   */
+
+  const highestRank = arr => {
+    const set = [...new Set(arr)].sort((a, b) => b - a);
+    const counts = set.map(e => arr.filter(el => el === e).length);
+
+    return set[counts.indexOf(Math.max(...counts))];
+  };
+  // console.log(highestRank([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 2, 2, 2, 10, 12, 10]));
+}
