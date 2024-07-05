@@ -4516,3 +4516,11 @@ If there are less than 2 blue beads return 0.*/
   const countRedBeads = n => n ? (n - 1) * 2 : 0;
   // console.log(countRedBeads(-10));
 }
+
+{ /** 6 kyu  Reverse every other word in the string
+  Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.    */
+
+  // const reverse = str => str.split(' ').map((e, i, ar) => i % 2 ? [...e].reverse().join('') : e).join(' ').replace('  ', '');
+  const reverse = str => str.split(' ').map((e, i, ar) => i % 2 ? [...e].reverse().join('') : e).join(' ').trim();
+  // console.log(reverse("I really don't like reversing strings!"));
+}
