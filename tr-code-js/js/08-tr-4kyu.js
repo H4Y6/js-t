@@ -4495,3 +4495,12 @@ This is indexed from [1..n] (not zero indexed!)   */
   const vowelIndices = word => [...word].reduce((res, e, i) => /[aeiouy]/i.test(e) ? [...res, ++i] : res, []);
   // console.log(vowelIndices('YoMama'));
 }
+
+{ /**7 kyu  Sum of Odd Cubed Numbers
+  Find the sum of the odd numbers within an array, after cubing the initial integers.
+   The function should return undefined if any of the values aren't numbers.*/
+
+  const cubeOdd = arr => arr.some(e => isNaN(e)) ? undefined : arr.filter(e => e % 2).reduce((sum, e) => sum + e ** 3, 0);
+  // const cubeOdd = arr => arr.filter(e => isNaN(e)).length ? undefined : arr.filter(e => e % 2).reduce((sum, e) => sum + e ** 3, 0);
+  // console.log(cubeOdd([1, 'e', 4, 5, 4, 3]));
+}
