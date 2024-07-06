@@ -4624,8 +4624,17 @@ xbonacci {1,1} produces the Fibonacci sequence       */
   //   return newArr;
   // }
 
-  const Xbonacci = (signature, n, count = signature.length) =>
-    signature.length >= n ? signature.slice(0, n) : Xbonacci([...signature, signature.slice(signature.length - count).reduce((sum, e) => sum + e)], n, count);
+  function Xbonacci(signature, n) {
+    let newArr = signature.slice(0, n);
+    while (newArr.length < n) {
+      newArr = [...newArr, (newArr.slice(- signature.length).reduce((sum, e) => sum + e, 0))];
+      // newArr.push(newArr.slice(- signature.length).reduce((sum, e) => sum + e, 0));
+    }
+    return newArr;
+  }
+
+  // const Xbonacci = (signature, n, count = signature.length) =>
+  // signature.length >= n ? signature.slice(0, n) : Xbonacci([...signature, signature.slice(signature.length - count).reduce((sum, e) => sum + e)], n, count);
   // signature.length < n ? Xbonacci([...signature, signature.slice(signature.length - count).reduce((sum, e) => sum + e)], n, count) : signature.slice(0, n);
 
   // console.log(Xbonacci([1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 20));
