@@ -4683,3 +4683,31 @@ max_rot(38458215) should return 85821534            */
     else { return 'false'; }
   }
 }
+
+{ /** 7 kyu  Alternate case 
+  Write function alternateCase which switch every letter in string from upper to lower and from lower to upper. E.g: Hello World -> hELLO wORLD   */
+
+  function alternateCase(s) {
+    return [...s].map(e => e === e.toLowerCase() ? e.toUpperCase() : e.toLowerCase()).join('');
+  }
+  // console.log(alternateCase('fTor'));
+}
+
+{  /** 7 kyu  The Office I - Outed 
+  Your colleagues have been looking over you shoulder. When you should have been doing your boring real job, you've been using the work computers to smash in endless hours of codewars.
+
+In a team meeting, a terrible, awful person declares to the group that you aren't working. You're in trouble. You quickly have to gauge the feeling in the room to decide whether or not you should gather your things and leave.
+
+Given an object (meet) containing team member names as keys, and their happiness rating out of 10 as the value, you need to assess the overall happiness rating of the group. If <= 5, return 'Get Out Now!'. Else return 'Nice Work Champ!'.
+
+Happiness rating will be total score / number of people in the room.
+
+Note that your boss is in the room (boss), their score is worth double it's face value (but they are still just one person!).  */
+
+  function outed(meet, boss) {
+    return Object.keys(meet).reduce((rating, e) => rating + (e === boss ? meet[e] * 2
+      : meet[e]), 0) / Object.keys(meet).length > 5 ? 'Nice Work Champ!' : 'Get Out Now!';
+  }
+  // console.log(outed({ 'tim': 0, 'jim': 2, 'randy': 0, 'sandy': 7, 'andy': 0, 'katie': 5, 'laura': 1, 'saajid': 2, 'alex': 3, 'john': 2, 'mr': 0 }, 'laura'));
+  // console.log(outed({ "tim": 0, "jim": 7, "randy": 0, "sandy": 8, "andy": 8, "katie": 8, "laura": 6, "saajid": 4, "alex": 5, "john": 4, "mr": 6 }, "jim"));
+}
