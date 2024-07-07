@@ -4676,3 +4676,10 @@ max_rot(38458215) should return 85821534            */
   // console.log(maxRot(896219342));
   // console.log(maxRot(69418307));
 }
+
+{ /** true or false */
+  function trueOrFalse(val) {
+    if (val === true) { return 'true'; }
+    else { return 'false'; }
+  }
+}
