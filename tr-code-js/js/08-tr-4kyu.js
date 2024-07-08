@@ -4711,3 +4711,23 @@ Note that your boss is in the room (boss), their score is worth double it's face
   // console.log(outed({ 'tim': 0, 'jim': 2, 'randy': 0, 'sandy': 7, 'andy': 0, 'katie': 5, 'laura': 1, 'saajid': 2, 'alex': 3, 'john': 2, 'mr': 0 }, 'laura'));
   // console.log(outed({ "tim": 0, "jim": 7, "randy": 0, "sandy": 8, "andy": 8, "katie": 8, "laura": 6, "saajid": 4, "alex": 5, "john": 4, "mr": 6 }, "jim"));
 }
+
+{ /** 8 kyu  Define a card suit
+You get any card as an argument. Your task is to return the suit of this card (in lowercase).
+Our deck (is preloaded):
+('3♣') -> return 'clubs'
+('3♦') -> return 'diamonds'
+('3♥') -> return 'hearts'
+('3♠') -> return 'spades'    */
+
+  function defineSuit(card) {
+    const cc = card.charCodeAt(card.length - 1);
+    return cc === 9824 ? 'spades' : cc === 9827 ? 'clubs' : cc === 9829 ? 'hearts' : 'diamonds';
+  }
+  console.log(defineSuit("Q♠"));
+
+  // console.log('♠'.charCodeAt());
+  // console.log('♣'.charCodeAt());
+  // console.log('♥'.charCodeAt());
+  // console.log('♦'.charCodeAt());
+}
