@@ -4777,3 +4777,18 @@ For example:
   }
   // console.log(correctPolishLetters("Jędrzej Błądziński"));
 }
+
+{ /** 6 kyu  Kebabize
+  Modify the kebabize function so that it converts a camel case string into a kebab case.
+"camelsHaveThreeHumps"  -->  "camels-have-three-humps"
+"camelsHave3Humps"  -->  "camels-have-humps"
+"CAMEL"  -->  "c-a-m-e-l"
+Notes:
+the returned string should only contain lowercase letters     */
+
+  function kebabize(str) {
+    return (/[A-z]/.test(str) ? str.replace(/[A-Z]/g, e => '-' + e.toLowerCase()) : '').replace(/^[-]|[0-9]/g, '');
+  }
+  // console.log(kebabize("CAMEL"));
+  // console.log(kebabize("camelsHave3Humps"));
+}
