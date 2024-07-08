@@ -4720,11 +4720,33 @@ Our deck (is preloaded):
 ('3♥') -> return 'hearts'
 ('3♠') -> return 'spades'    */
 
+  // function defineSuit(card) {
+  //   const cc = card.charCodeAt(card.length - 1);
+  //   return cc === 9824 ? 'spades' : cc === 9827 ? 'clubs' : cc === 9829 ? 'hearts' : 'diamonds';
+  // }
+
+  // function defineSuit(card) {
+  //   const char = { '♠': 'spades', '♣': 'clubs', '♥': 'hearts', '♦': 'diamonds' };
+  //   return char[card.charAt(card.length - 1)];
+  // }
+
+  // function defineSuit(card) {
+  //   if (card.includes('♠')) return 'spades';
+  //   if (card.includes('♣')) return 'clubs';
+  //   if (card.includes('♥')) return 'hearts';
+  //   return 'diamonds';
+  // }
+
   function defineSuit(card) {
-    const cc = card.charCodeAt(card.length - 1);
-    return cc === 9824 ? 'spades' : cc === 9827 ? 'clubs' : cc === 9829 ? 'hearts' : 'diamonds';
+    switch (card.slice(-1)) {
+      case '♠': return 'spades';
+      case '♣': return 'clubs';
+      case '♥': return 'hearts';
+      default: return 'diamonds';
+    }
   }
-  console.log(defineSuit("Q♠"));
+
+  console.log(defineSuit("♦"));
 
   // console.log('♠'.charCodeAt());
   // console.log('♣'.charCodeAt());
