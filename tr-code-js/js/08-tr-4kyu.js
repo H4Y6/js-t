@@ -4787,8 +4787,10 @@ Notes:
 the returned string should only contain lowercase letters     */
 
   function kebabize(str) {
-    return (/[A-z]/.test(str) ? str.replace(/[A-Z]/g, e => '-' + e.toLowerCase()) : '').replace(/^[-]|[0-9]/g, '');
+    // return (/[A-z]/.test(str) ? str.replace(/[A-Z]/g, e => '-' + e.toLowerCase()) : '').replace(/^[-]|[0-9]/g, '');
+    // return str.replace(/[A-Z]/g, e => '-' + e.toLowerCase()).replace(/^[-]|[0-9]/g, '');
+    return str.replace(/\d/g, '').split(/(?=[A-Z])/).join('-').toLowerCase();
   }
-  // console.log(kebabize("CAMEL"));
-  // console.log(kebabize("camelsHave3Humps"));
+  console.log(kebabize("CAMEL"));
+  console.log(kebabize("camelsHave3Humps"));
 }
