@@ -4746,10 +4746,34 @@ Our deck (is preloaded):
     }
   }
 
-  console.log(defineSuit("♦"));
+  // console.log(defineSuit("♦"));
 
   // console.log('♠'.charCodeAt());
   // console.log('♣'.charCodeAt());
   // console.log('♥'.charCodeAt());
   // console.log('♦'.charCodeAt());
+}
+
+{ /** 8 kyu  Polish alphabet
+  Your task is to change the letters with diacritics:
+
+ą -> a,
+ć -> c,
+ę -> e,
+ł -> l,
+ń -> n,
+ó -> o,
+ś -> s,
+ź -> z,
+ż -> z
+and print out the string without the use of the Polish letters.
+For example:
+"Jędrzej Błądziński"  -->  "Jedrzej Bladzinski"   */
+
+  const letters = { ą: 'a', ć: 'c', ę: 'e', ł: 'l', ń: 'n', ó: 'o', ś: 's', ź: 'z', ż: 'z' };
+
+  function correctPolishLetters(string) {
+    return string.replaceAll('ą', 'a').replaceAll('ć', 'c').replaceAll('ę', 'e').replaceAll('ł', 'l').replaceAll('ń', 'n').replaceAll('ó', 'o').replaceAll('ś', 's').replaceAll('ź', 'z').replaceAll('ż', 'z');
+  }
+  // console.log(correctPolishLetters("Jędrzej Błądziński"));
 }
