@@ -4913,3 +4913,13 @@ In the end, click "Submit" to submit your code pass this kata.*/
     arr.pop();
   }
 }
+
+{ /** 7 kyu  Divide and Conquer
+  Given a mixed array of number and string representations of integers, add up the non-string integers and subtract the total of the string integers.
+Return as a number. */
+
+  // const divCon = x => x.reduce((res, e) => res + (e === +e ? e : -1 * e), 0);
+  const divCon = x => x.reduce((res, e) => res + (e === +e ? e : -e), 0);
+  // const divCon = x => x.reduce((res, e) => typeof e === 'string' ? res - e : res + e, 0);
+  // console.log(divCon([9, 3, '7', '3']));
+}
