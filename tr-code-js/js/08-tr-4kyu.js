@@ -4943,8 +4943,8 @@ You know that a piece of paper has a thickness of 0.0001m. Given distance in uni
 Note: Of course you can't do half a fold. You should know what this means ;P
 Also, if somebody is giving you a negative distance, it's clearly bogus and you should yell at them by returning null (or whatever equivalent in your language). In Shell please return None. In C and COBOL please return -1.         */
 
-  const foldTo = distance => distance * .0002;
-  console.log(foldTo(384000000));
+  const foldTo = distance => { };
+  // console.log(foldTo());
 }
 
 { /**  8 kyu  Convert to Binary
@@ -4976,5 +4976,19 @@ toBinary(11) /* should return 1011  */
 
   // const toBinary = n => +n.toString(2);
 
-  // console.log(toBinary(10));
+  // console.log(toBinary(8));
+}
+
+{ /** 7 kyu  Simple string characters 
+  You are given a string and your task will be to return a list of ints detailing the count of uppercase letters, lowercase, numbers and special characters, as follows.
+Solve("*'&ABCDabcde12345") = [4,5,5,3]. 
+--the order is: uppercase letters, lowercase, numbers and special characters.
+More examples in the test cases.      */
+
+  const solve = s => {
+    let arr = [[...s].filter(e => /[A-Z]/.test(e)).length, [...s].filter(e => /[a-z]/.test(e)).length, [...s].filter(e => /\d/.test(e)).length,];
+    const rest = s.length - arr.reduce((res, e) => res + e, 0);
+    return [...arr, rest];
+  };
+  console.log(solve("Codewars@codewars123.com"));
 }
