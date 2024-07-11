@@ -4957,6 +4957,15 @@ toBinary(1)  /* should return 1
 toBinary(5)  /* should return 101 
 toBinary(11) /* should return 1011  */
 
+  // const toBinary = n => {
+  //   const arr = [];
+  //   for (let i = n; i >= 1; i = Math.floor(i / 2)) {
+  //     arr.push(i % 2 ? 1 : 0);
+  //   }
+  //   return arr.reverse().join('');
+  // };
+
   const toBinary = n => +n.toString(2);
-  // console.log(toBinary(8));
+
+  console.log(toBinary(8));
 }
