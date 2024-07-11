@@ -4962,10 +4962,19 @@ toBinary(11) /* should return 1011  */
   //   for (let i = n; i >= 1; i = Math.floor(i / 2)) {
   //     arr.push(i % 2 ? 1 : 0);
   //   }
-  //   return arr.reverse().join('');
+  //   return +arr.reverse().join('');
   // };
 
-  const toBinary = n => +n.toString(2);
+  const toBinary = n => {
+    const arr = [];
+    while (n >= 1) {
+      arr.push(n % 2 ? 1 : 0);
+      n = Math.floor(n / 2);
+    }
+    return +arr.reverse().join('');
+  };
 
-  console.log(toBinary(8));
+  // const toBinary = n => +n.toString(2);
+
+  // console.log(toBinary(10));
 }
