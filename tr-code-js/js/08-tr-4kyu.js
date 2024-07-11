@@ -4990,5 +4990,7 @@ More examples in the test cases.      */
     const rest = s.length - arr.reduce((res, e) => res + e, 0);
     return [...arr, rest];
   };
-  console.log(solve("Codewars@codewars123.com"));
+
+  // const solve = s => [s.match(/[A-Z]/g).length, s.match(/[a-z]/g).length, s.match(/\d/g).length, s.match(/[^A-z0-9]/g).length]; /** failed  */
+  // console.log(solve("Codewars@codewars123.com"));
 }
