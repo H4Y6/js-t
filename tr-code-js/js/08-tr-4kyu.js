@@ -4923,3 +4923,40 @@ Return as a number. */
   // const divCon = x => x.reduce((res, e) => typeof e === 'string' ? res - e : res + e, 0);
   // console.log(divCon([9, 3, '7', '3']));
 }
+
+{ /** 8 kyu  Geometry Basics: Distance between points in 2D 
+  This series of katas will introduce you to basics of doing geometry with computers.
+Point objects have attributes x and y.
+Write a function calculating distance between Point a and Point b.
+Input coordinates fit in range −50⩽x,y⩽50. Tests compare expected result and actual answer with tolerance of 1e-6.   */
+
+  function distanceBetweenPoints(a, b) {
+    return (b - a);
+  }
+  // console.log(distanceBetweenPoints(-10.2, 12.5));
+}
+
+{ /** 7 kyu  Folding your way to the moon
+  Have you heard about the myth that if you fold a paper enough times, you can reach the moon with it? Sure you have, but exactly how many? Maybe it's time to write a program to figure it out.
+You know that a piece of paper has a thickness of 0.0001m. Given distance in units of meters, calculate how many times you have to fold the paper to make the paper reach this distance.
+(If you're not familiar with the concept of folding a paper: Each fold doubles its total thickness.)
+Note: Of course you can't do half a fold. You should know what this means ;P
+Also, if somebody is giving you a negative distance, it's clearly bogus and you should yell at them by returning null (or whatever equivalent in your language). In Shell please return None. In C and COBOL please return -1.         */
+
+  const foldTo = distance => distance * .0002;
+  console.log(foldTo(384000000));
+}
+
+{ /**  8 kyu  Convert to Binary
+  Given a non-negative integer n, write a function to_binary/ToBinary which returns that number in a binary format.
+to_binary(1)  /* should return 1 
+to_binary(5)  /* should return 101 
+to_binary(11) /* should return 1011
+Exampl
+toBinary(1)  /* should return 1 
+toBinary(5)  /* should return 101 
+toBinary(11) /* should return 1011  */
+
+  const toBinary = n => +n.toString(2);
+  // console.log(toBinary(8));
+}
