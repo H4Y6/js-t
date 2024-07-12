@@ -5088,7 +5088,33 @@ s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
 mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E:ss   */
 
   function mix(s1, s2) {
+    s1 = s1.match(/[a-z]/g);
+    s2 = s2.match(/[a-z]/g);
+    const commonUnique = [...new Set((s1.concat(s2)))];
+    const filteredS1 = commonUnique.map(e => s1.filter(el => el === e));
+    const filteredS2 = commonUnique.map(e => s2.filter(el => el === e));
 
+    return filteredS1.reduce((res, e, i) => {
+      e.length > 1 || filteredS2[i].length > 1 ?
+        res = (e.length > filteredS2[i].length ? [...res, [1, e]]
+          : e.length === filteredS2[i].length ? [...res, ['=', e]]
+            : [...res, [2, filteredS2[i]]]) : 0;
+      return res;
+    }, []).sort().sort((a, b) => b[1].length - a[1].length).map(e => [e[0].toString(), e[1].join('')].join(':')).join('/');
   }
-  console.log(mix("Are they here", "yes, they are here"));
+
+  //   const rawArr = filteredS1.reduce((res, e, i) => {
+  //     e.length > 1 || filteredS2[i].length > 1 ?
+  //       res = (e.length > filteredS2[i].length ? [...res, [1, e]]
+  //         : e.length === filteredS2[i].length ? [...res, ['=', e]]
+  //           : [...res, [2, filteredS2[i]]]) : 0;
+  //     return res;
+
+  //   }, []);
+  //   rawArr.sort();
+  //   return rawArr.sort((a, b) => b[1].length - a[1].length).map(e => [e[0].toString(), e[1].join('')].join(':')).join('/');
+  // }
+
+  // console.log(mix("Are they here", "yes, they are here"));
+  // console.log(mix("ii nnn gg uuu ooo", "dd aa ee sss gg nnn"));
 }
