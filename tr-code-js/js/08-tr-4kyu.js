@@ -5121,3 +5121,10 @@ mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E
   // console.log(mix("Are they here", "yes, they are here"));
   // console.log(mix("ii nnn gg uuu ooo", "dd aa ee sss gg nnn"));
 }
+
+{ /** 8 kyu  Surface Area and Volume of a Box
+  Write a function that returns the total surface area and volume of a box as an array: [area, volume]    */
+
+  const getSize = (width, height, depth) => [2 * (width * height + width * depth + height * depth), width * height * depth];
+  // console.log(getSize(4, 2, 6));
+}
