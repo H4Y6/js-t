@@ -5041,9 +5041,12 @@ seven(371) should return [35, 1]
 seven(1603) should return [7, 2]
 seven(477557101) should return [28, 7]*/
 
-  function seven(m, count = 0) {
-    return String(m).length <= 2 ? [m % 7 === 0 ? m : m, count] : seven(m = String(m).slice(0, -1) - 2 * String(m).slice(-1), count += 1);
-  }
+  // function seven(m, count = 0) {
+  //   return String(m).length <= 2 ? [m, count] : seven(m = String(m).slice(0, -1) - 2 * String(m).slice(-1), count += 1);
+  // }
+
+  const seven = (m, count = 0) => String(m).length <= 2 ? [m, count] : seven(m = String(m).slice(0, -1) - 2 * String(m).slice(-1), count += 1);
+
   // console.log(seven(1603));
   // console.log(seven(477557101));
 }
