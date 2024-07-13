@@ -5166,3 +5166,17 @@ if it was over 88 you should return "Leo got one already!"           */
   const leo = oscar => oscar === 88 ? "Leo finally won the oscar! Leo is happy" : oscar === 86 ? "Not even for Wolf of wallstreet?!" : oscar < 88 ? "When will you give Leo an Oscar?" : "Leo got one already!";
   // console.log(leo(62)); "Leo finally won the oscar! Leo is happy";
 }
+
+{ /** 8 kyu  pick a set of first elements 
+  Write a function to get the first element(s) of a sequence. Passing a parameter n (default=1) will return the first n element(s) of the sequence.
+If n == 0 return an empty sequence []
+Examples
+var arr = ['a', 'b', 'c', 'd', 'e'];
+first(arr) //=> ['a'];
+first(arr, 2) //=> ['a', 'b']
+first(arr, 3) //=> ['a', 'b', 'c'];
+first(arr, 0) //=> [];              */
+
+  const first = (arr, n = 1) => arr.slice(0, n);
+  // console.log(first(['a', 'b', 'c', 'd', 'e'], 2));
+}
