@@ -5128,3 +5128,26 @@ mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E
   const getSize = (width, height, depth) => [2 * (width * height + width * depth + height * depth), width * height * depth];
   // console.log(getSize(4, 2, 6));
 }
+
+{ /** 8 kyu  Did she say hallo?
+  You received a whatsup message from an unknown number. Could it be from that girl/boy with a foreign accent you met yesterday evening?
+Write a simple function to check if the string contains the word hallo in different languages.
+These are the languages of the possible people you met the night before:
+hello - english
+ciao - italian
+salut - french
+hallo - german
+hola - spanish
+ahoj - czech republic
+czesc - polish
+Notes
+you can assume the input is a string.
+to keep this a beginner exercise you don't need to check if the greeting is a subset of word (Hallowen can pass the test)
+function should be case insensitive to pass the tests          */
+
+  function validateHello(greetings) {
+    return /hello|ciao|salut|hallo|hola|ahoj|czesc/i.test(greetings);
+    // return /hello|ciao|salut|hallo|hola|ahoj|czesc/.test(greetings.toLowerCase());
+  }
+  console.log(validateHello('a Hallo'));
+}
