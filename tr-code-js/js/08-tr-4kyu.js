@@ -5180,3 +5180,14 @@ first(arr, 0) //=> [];              */
   const first = (arr, n = 1) => arr.slice(0, n);
   // console.log(first(['a', 'b', 'c', 'd', 'e'], 2));
 }
+
+{ /** 7 kyu  Sort by Last Char
+  Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
+If two words have the same last letter, the returned array should show them in the order they appeared in the given string.
+All inputs will be valid.     / failed */
+
+  const last = x => x.split(' ').map(e => [...e].reverse()).sort().map(e => e.reverse().join(''));
+
+  // console.log(last('man i need a taxi up to ubud'));
+  // console.log(last('what time are we climbing up the volcano'));
+}
