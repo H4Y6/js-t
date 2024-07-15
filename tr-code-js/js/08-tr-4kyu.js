@@ -5226,8 +5226,26 @@ Invalid arrays
 [1, -9] is invalid because -9 is not a non-negative integer
 [1, 2, 33] is invalid because 33 is not a single-digit integer          */
 
+  // const upArray = arr => {
+  //   if (arr.some(e => ('' + e).length > 1 || e < 0) || arr.length === 0) return null;
+  //   let end = arr.map(e => '' + e).join('').match(/[9]+$/);
+
+  //   if (end === null) {
+  //     arr[arr.length - 1] += 1;
+  //     return arr;
+  //   }
+  //   const endLength = end[0].length;
+  //   end = Array(endLength).fill(0);
+  //   const start = arr.slice(0, - endLength);
+
+  //   if (start.length === 0) return [1, ...end];
+
+  //   start[start.length - 1] += 1;
+  //   return [...start, ...end];
+  // };
+
   const upArray = arr => {
-    if (arr.some(e => ('' + e).length > 1 || e < 0) || arr.length === 0) return null;
+    if (arr.some(e => e > 9 || e < 0) || !(arr.length)) return null;
     let end = arr.map(e => '' + e).join('').match(/[9]+$/);
 
     if (end === null) {
@@ -5244,8 +5262,8 @@ Invalid arrays
     return [...start, ...end];
   };
 
-  // console.log(upArray([0, 0, 9, 9, 9, 9, 9]));
-  // console.log(upArray([2, 3, 9, 9]));
-  // console.log(upArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
-  // console.log(upArray([0, 2, 6, 3, 7, 2, 1, 6, 0, 3, 3, 4, 3, 7, 9, 0, 4, 8, 2, 8, 2]));
+  console.log(upArray([0, 0, 9, 9, 9, 9, 9]));
+  console.log(upArray([2, 3, 9, 9]));
+  console.log(upArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+  console.log(upArray([0, 2, 6, 3, 7, 2, 1, 6, 0, 3, 3, 4, 3, 7, 9, 0, 4, 8, 2, 8, 2]));
 }
