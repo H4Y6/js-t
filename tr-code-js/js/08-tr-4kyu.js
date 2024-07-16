@@ -5324,15 +5324,25 @@ calculate(8,"m", 2); //Should return null
 calculate(4,"/",0) //should return null
 Keep in mind, you cannot divide by zero. If an attempt to divide by zero is made, return null    */
 
+  // function calculate(num1, operation, num2) {
+  //   switch (operation) {
+  //     case "+": return num1 + num2;
+  //     case "-": return num1 - num2;
+  //     case "*": return num1 * num2;
+  //     case "/": if (num2) return num1 / num2;
+
+  //     default: return null;
+  //   }
+  // }
+
   function calculate(num1, operation, num2) {
-    switch (operation) {
-      case "+": return num1 + num2;
-      case "-": return num1 - num2;
-      case "*": return num1 * num2;
-      case "/": if (num2) return num1 / num2;
-
-      default: return null;
-    }
+    const ops = {
+      "+": num1 + num2,
+      "-": num1 - num2,
+      "*": num1 * num2,
+      "/": num2 ? num1 / num2 : null,
+    };
+    return ops[operation] ?? null;
   }
-
+  console.log(calculate(4, '/', 10));
 }
