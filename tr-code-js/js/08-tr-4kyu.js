@@ -5303,10 +5303,12 @@ Examples(num, nth --> output)
 65, 0 --> -1
 24, -8 --> -1      */
 
-  const findDigit = (num, nth) => {
-    if (nth < 1) return -1;
-    const str = [...String(num).replace('-', 0)].reverse();
-    return str.length < nth ? 0 : +str[nth - 1];
-  };
-  console.log(findDigit(-2825, 1));
+  // const findDigit = (num, nth) => {
+  //   if (nth < 1) return -1;
+  //   const str = [...String(num).replace('-', 0)].reverse();
+  //   return str.length < nth ? 0 : +str[nth - 1];
+  // };
+
+  const findDigit = (num, nth) => nth > 0 ? +[...String(num)].reverse()[--nth] || 0 : -1;
+  // console.log(findDigit(-2825, 5));
 }
