@@ -5274,7 +5274,16 @@ Your task is to write a function that takes two parameters: the year of birth an
 Provide output in this format: For dates in the future: "You are ... year(s) old." For dates in the past: "You will be born in ... year(s)." If the year of birth equals the year requested return: "You were born this very year!"
 "..." are to be replaced by the number, followed and proceeded by a single space. Mind that you need to account for both "year" and "years", depending on the result.*/
 
-  const calculateAge = (born, curr) => curr - born > 1 ? `You are ${curr - born} years old.` : curr - 1 === born ? `You are ${curr - born} year old.`
-    : curr === born ? "You were born this very year!" : born - curr === 1 ? `You will be born in ${born - curr} year.` : `You will be born in ${born - curr} years.`;
+  // const calculateAge = (born, curr) => curr - born > 1 ? `You are ${curr - born} years old.` : curr - 1 === born ? `You are ${curr - born} year old.`
+  //   : curr === born ? "You were born this very year!" : born - curr === 1 ? `You will be born in ${born - curr} year.` : `You will be born in ${born - curr} years.`;
+
+  const calculateAge = (born, curr) => {
+    switch (curr - born) {
+      case 0: return "You were born this very year!";
+      case 1: return `You are ${curr - born} year old.`;
+      case -1: return `You will be born in ${born - curr} year.`;
+      default: return curr - born < -1 ? `You will be born in ${born - curr} years.` : `You are ${curr - born} years old.`;;
+    }
+  };
   // console.log(calculateAge(1989, 1989));
 }
