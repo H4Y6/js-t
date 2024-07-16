@@ -5305,7 +5305,8 @@ Examples(num, nth --> output)
 
   const findDigit = (num, nth) => {
     if (nth < 1) return -1;
-
+    const str = [...String(num).replace('-', 0)].reverse();
+    return str.length < nth ? 0 : +str[nth - 1];
   };
-  console.log(findDigit(-2825, 3));
+  console.log(findDigit(-2825, 1));
 }
