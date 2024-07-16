@@ -5335,14 +5335,24 @@ Keep in mind, you cannot divide by zero. If an attempt to divide by zero is made
   //   }
   // }
 
+  // function calculate(num1, operation, num2) {
+  //   const ops = {
+  //     "+": num1 + num2,
+  //     "-": num1 - num2,
+  //     "*": num1 * num2,
+  //     "/": num2 ? num1 / num2 : null,
+  //   };
+  //   return ops[operation] ?? null;
+  // }
+
   function calculate(num1, operation, num2) {
     const ops = {
-      "+": num1 + num2,
-      "-": num1 - num2,
-      "*": num1 * num2,
-      "/": num2 ? num1 / num2 : null,
+      "+": function (a, b) { return a + b; },
+      "-": function (a, b) { return a - b; },
+      "*": function (a, b) { return a * b; },
+      "/": function (a, b) { return b !== 0 ? a / b : null; },
     };
-    return ops[operation] ?? null;
+    return (ops[operation] ?? function () { return null; })(num1, num2);
   }
-  console.log(calculate(4, '/', 10));
+  // console.log(calculate(4, '/', 10));
 }
