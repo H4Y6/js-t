@@ -5374,6 +5374,7 @@ Length should be between 4 and 16 characters (both included).   */
     - `$`        End the string right after specified amount of allowed characters is given.
   */
 
-  const validateUsr = username => /^[a-z0-9_]{4,16}$/.test(username);
-  console.log(validateUsr('jrstp_+'));
+  // const validateUsr = username => /^[a-z0-9_]{4,16}$/.test(username);
+  const validateUsr = username => /^[a-z\d_]{4,16}$/.test(username);
+  // console.log(validateUsr('jrs5tp_'));
 }
