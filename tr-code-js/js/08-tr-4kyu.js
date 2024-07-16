@@ -5385,6 +5385,7 @@ Examples
 "312" should return "333122"
 "102269" should return "12222666666999999999"   */
 
-  const explode = s => s.split('').map(e => e.repeat(+e)).join('');
-  console.log(explode('102269'));
+  // const explode = s => s.split('').map(e => e.repeat(e)).join('');
+  const explode = s => s.replace(/\d/g, e => e.repeat(e));
+  // console.log(explode('102269'));
 }
