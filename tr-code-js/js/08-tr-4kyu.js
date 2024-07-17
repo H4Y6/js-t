@@ -5457,5 +5457,21 @@ The pairs are selected as follows [(1,2),(5,8),(-4,-3),(7,6),5]
 --the last digit has no pair, so we ignore.    */
 
   const pairs = ar => ar.map((e, i) => (i % 2 !== 0 && Math.abs(ar[i] - ar[i - 1]) === 1) ? e = 1 : e = 0).reduce((res, e) => res + e);
-  console.log(pairs([-55, -56, -7, -6, 56, 55, 63, 62]));
+  // console.log(pairs([-55, -56, -7, -6, 56, 55, 63, 62]));
+}
+
+{ /** 7 kyu  Strong Number
+  Strong number is a number with the sum of the factorial of its digits is equal to the number itself.
+For example, 145 is strong, because 1! + 4! + 5! = 1 + 24 + 120 = 145.
+Task
+Given a positive number, find if it is strong or not, and return either "STRONG!!!!" or "Not Strong !!".
+Examples
+1 is a strong number, because 1! = 1, so return "STRONG!!!!".
+123 is not a strong number, because 1! + 2! + 3! = 9 is not equal to 123, so return "Not Strong !!".
+145 is a strong number, because 1! + 4! + 5! = 1 + 24 + 120 = 145, so return "STRONG!!!!".
+150 is not a strong number, because 1! + 5! + 0! = 122 is not equal to 150, so return "Not Strong !!".  */
+
+  function strong(n) {
+    // return "STRONG!!!!" || "Not Strong !!" ;
+  }
 }
