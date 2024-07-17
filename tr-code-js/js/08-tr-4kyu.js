@@ -5410,6 +5410,8 @@ In the society he lived in, people - women in particular - had to repress their 
 Now, basically, when a person hears about Freud, s/he hears "sex" because for Freud, everything was related to, and explained by sex.
 In this kata, the function will take a string as its argument, and return a string with every word replaced by the explanation to everything, according to Freud. Note that an empty string, or no arguments, should return an empty string.    */
 
-  const toFreud = string => string ? string.split(' ').map(e => 'sex').join(' ') : '';
-  // console.log(toFreud("wer try iol"));
+  // const toFreud = string => string ? string.split(' ').map(e => 'sex').join(' ') : '';
+  // const toFreud = string => string.replace(/[^ ]+/g, 'sex');
+  const toFreud = string => string.replace(/[\S]+/g, 'sex');
+  // console.log(toFreud("tyhd, tyl, polj"));
 }
