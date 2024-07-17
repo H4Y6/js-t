@@ -5426,9 +5426,9 @@ the number of blue marbles pulled out so far (always lower than the starting num
 the number of red marbles pulled out so far (always lower than the starting number of red marbles)
 guessBlue() should return the probability of drawing a blue marble, expressed as a float. For example, guessBlue(5, 5, 2, 3) should return 0.6.      */
 
-  function guessBlue(blueStart, redStart, bluePulled, redPulled) {
-    return (blueStart - bluePulled) / (blueStart - bluePulled + redStart - redPulled);
-  }
+  // function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+  //   return (blueStart - bluePulled) / (blueStart - bluePulled + redStart - redPulled);
+  // }
   // console.log(guessBlue(5, 7, 4, 3));
 }
 
@@ -5443,5 +5443,19 @@ n = 3, so I expect a 3x3 square back just like below as a string:
   function generateShape(integer) {
     return ('+'.repeat(integer) + '\n').repeat(integer).slice(0, -1);
   }
-  console.log(generateShape(4));
+  // console.log(generateShape(4));
+}
+
+{ /** 7 kyu  Simple consecutive pairs
+  In this Kata your task will be to return the count of pairs that have consecutive numbers as follows:
+pairs([1,2,5,8,-4,-3,7,6,5]) = 3
+The pairs are selected as follows [(1,2),(5,8),(-4,-3),(7,6),5]
+--the first pair is (1,2) and the numbers in the pair are consecutive; Count = 1
+--the second pair is (5,8) and are not consecutive
+--the third pair is (-4,-3), consecutive. Count = 2
+--the fourth pair is (7,6), also consecutive. Count = 3. 
+--the last digit has no pair, so we ignore.    */
+
+  const pairs = ar => ar.map((e, i) => (i % 2 !== 0 && Math.abs(ar[i] - ar[i - 1]) === 1) ? e = 1 : e = 0).reduce((res, e) => res + e);
+  console.log(pairs([-55, -56, -7, -6, 56, 55, 63, 62]));
 }
