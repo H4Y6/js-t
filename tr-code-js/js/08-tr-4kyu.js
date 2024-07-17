@@ -5471,7 +5471,7 @@ Examples
 145 is a strong number, because 1! + 4! + 5! = 1 + 24 + 120 = 145, so return "STRONG!!!!".
 150 is not a strong number, because 1! + 5! + 0! = 122 is not equal to 150, so return "Not Strong !!".  */
 
-  function strong(n) {
-    // return "STRONG!!!!" || "Not Strong !!" ;
-  }
+  const factorial = (n) => !n ? 1 : n <= 2 ? n : n * factorial(n -= 1);
+  const strong = n => (n + '').split('').reduce((sum, e) => sum + factorial(+e), 0) === n ? "STRONG!!!!" : "Not Strong !!";
+  // console.log(strong(40585));
 }
