@@ -5474,4 +5474,9 @@ Examples
   const factorial = (n) => !n ? 1 : n <= 2 ? n : n * factorial(n -= 1);
   const strong = n => (n + '').split('').reduce((sum, e) => sum + factorial(+e), 0) === n ? "STRONG!!!!" : "Not Strong !!";
   // console.log(strong(40585));
+
+  /** My created task to find strong numbers */
+  const findStrong = (number, strong = []) => number < 2 ? [...strong, number]
+    : findStrong(number - 1, (number + '').split('').reduce((sum, el) => sum + +factorial(el), 0) === number ? [...strong, number] : strong);
+  // console.log(findStrong(6211));
 }
