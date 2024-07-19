@@ -5499,11 +5499,15 @@ abbreviate("elephant-rides are really fun!")
 // all non-word characters (*) remain in place
 //                     "-"      " "    " "     " "     "!" === "e6t-r3s are r4y fun!"   */
 
-  const abbreviate = string => string.split(' ').map(e =>
-    e.includes('-')
-      ? e.split('-').map(el => el.length > 3 ? el[0] + (el.length - 2 + '') + el[el.length - 1] : el).join('-')
-      : e.length > 3 && e.match(/\w/).input.length > 3 ? e[0] + (e.length - 2 + '') + e[e.length - 1] : e).join(' ');
+  const abbreviate = string => string.replace(/\w{4,}/g, e => e[0] + (e.length - 2 + '') + e[e.length - 1]);
+
+  // const abbreviate = string => string.split(' ').map(e => e.includes('-')
+  //   ? e.split('-').map(el => el.length > 3 ? el[0] + (el.length - 2 + '') + el[el.length - 1] : el).join('-')
+  //   : e.includes(',') && e.length > 4 ? e[0] + (e.length - 3 + '') + e[e.length - 2] + e[e.length - 1 + '']
+  //     : e.includes('!') && e.length > 4 ? e[0] + (e.length - 3 + '') + e[e.length - 2] + e[e.length - 2 + '']
+  //       : e.includes('!') ? e : e.length > 3 ? e[0] + (e.length - 2 + '') + e[e.length - 1] : e).join(' ');
 
   console.log(abbreviate('elephant-rides are really fun!'));
   console.log(abbreviate('internationalization'));
+  console.log(abbreviate('You need, need not want, to complete this code-wars mission'));
 }
