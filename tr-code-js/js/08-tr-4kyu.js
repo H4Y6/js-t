@@ -5567,9 +5567,14 @@ minSum({9,2,8,7,5,4,0,6}) ==> return (74)
 Explanation:
 The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*4 +6*5 = 74     */
 
+  // function minSum(arr) {
+  //   const sorted = arr.slice(0).sort((a, b) => b - a);
+  //   return sorted.slice(arr.length / 2).map((e, i) => e * sorted.slice(0, arr.length / 2)[arr.length / 2 - 1 - i]).reduce((sum, e) => sum + e, 0);
+  // }
+
   function minSum(arr) {
     const sorted = arr.slice(0).sort((a, b) => b - a);
-    return sorted.slice(arr.length / 2).map((e, i) => e * sorted.slice(0, arr.length / 2)[arr.length / 2 - 1 - i]).reduce((sum, e) => sum + e, 0);
+    return sorted.slice(arr.length / 2).reduce((sum, e, i) => sum + e * sorted.slice(0, arr.length / 2)[arr.length / 2 - 1 - i], 0);
   }
-  console.log(minSum([12, 6, 10, 26, 3, 24]));
+  // console.log(minSum([12, 6, 10, 26, 3, 24]));
 }
