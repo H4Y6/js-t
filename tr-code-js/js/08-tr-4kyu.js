@@ -5666,6 +5666,7 @@ specialNumber(513) ==> return "Special!!"
 specialNumber(709) ==> return "NOT!!"       */
 
   // const specialNumber = n => [...('' + n)].every(e => '012345'.includes(e)) ? "Special!!" : "NOT!!";
-  const specialNumber = n => /[6-9]+/.test(n) ? "NOT!!" : "Special!!";
-  console.log(specialNumber(2542447));
+  const specialNumber = n => /^[0-5]+$/.test(n) ? "Special!!" : "NOT!!";
+  // const specialNumber = n => /[6-9]/.test(n) ? "NOT!!" : "Special!!";
+  console.log(specialNumber(5543));
 }
