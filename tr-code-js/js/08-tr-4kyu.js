@@ -5737,6 +5737,7 @@ Explanation:
 The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3      */
 
   // const tidyNumber = n => !(n + '').split('').some((e, i, ar) => e - ar[i - 1] < 0);
-  const tidyNumber = n => +[...(n + '')].sort().join('') === n;
-  console.log(tidyNumber(22235));
+  // const tidyNumber = n => +[...(n + '')].sort().join('') === n;
+  const tidyNumber = n => [...(n + '')].every((e, i, ar) => !i || e >= ar[i - 1]);
+  // console.log(tidyNumber(22235));
 }
