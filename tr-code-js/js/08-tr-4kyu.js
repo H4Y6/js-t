@@ -5630,8 +5630,10 @@ jumpingNumber(32) ==> return "Jumping!!"
 Explanation:
 Adjacent digits differ by 1 */
 
-  const jumpingNumber = n => (n + '').length === 1 ? "Jumping!!"
-    : (n + '').split('').map((e, i, ar) => Math.abs(ar[i + 1] - e)).slice(0, -1).every(e => e === 1) ? "Jumping!!" : "Not!!";
-  console.log(jumpingNumber(98789876));
-  console.log(jumpingNumber(6));
+  // const jumpingNumber = n => (n + '').length === 1 ? "Jumping!!"
+  //   : (n + '').split('').map((e, i, ar) => Math.abs(ar[i + 1] - e)).slice(0, -1).every(e => e === 1) ? "Jumping!!" : "Not!!";
+
+  const jumpingNumber = n => (n + '').split('').every((e, i, ar) => i < 1 || Math.abs(ar[i - 1] - e) === 1) ? "Jumping!!" : "Not!!";
+  // console.log(jumpingNumber(98789876));
+  // console.log(jumpingNumber(6));
 }
