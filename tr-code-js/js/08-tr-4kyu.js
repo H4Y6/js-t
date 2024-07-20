@@ -5578,3 +5578,22 @@ The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*
   }
   // console.log(minSum([12, 6, 10, 26, 3, 24]));
 }
+
+{ /** 7 kyu  Disarium Number
+  Disarium number is the number that The sum of its digits powered with their respective positions is equal to the number itself.
+Task
+Given a number, Find if it is Disarium or not .
+Notes
+Number passed is always Positive .
+Return the result as String
+Input >> Output Examples
+disariumNumber(89) ==> return "Disarium !!"
+Explanation:
+Since , 81 + 92 = 89 , thus output is "Disarium !!"
+disariumNumber(564) ==> return "Not !!"
+Explanation:
+Since , 51 + 62 + 43 = 105 != 564 , thus output is "Not !!"         */
+
+  const disariumNumber = n => (n + '').split('').reduce((sum, e, i) => sum + e ** (i + 1), 0) === n ? "Disarium !!" : "Not !!";
+  // console.log(disariumNumber(879));
+}
