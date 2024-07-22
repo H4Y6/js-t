@@ -5762,17 +5762,39 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
   Since the passed number is (6) ,Then the primorial should obtained by multiplying  2 * 3 * 5 * 7 * 11 * 13 = 30030 .
     Mathematically written as , P6# = 30030 .      */
 
-  const getPrimes = (n, arr = []) => {
+  const getPrimes = n => {
+    const arr = [2];
 
-    for (let i = 2, num = 2; arr.length < n; i++) {
+    for (let num = 3; arr.length < n; num++) {
+      let ar = [];
 
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+          ar.push(num);
+        }
+      }
 
+      if (ar.length === 0) {
+        arr.push(num);
+      }
     }
+    return arr;
   };
 
-
   function numPrimorial(n) {
-
+    const arr = getPrimes(n);
+    return arr.reduce((res, e) => res * e);
   }
-  console.log(numPrimorial(5));
+
+  // function numPrimorial(n) {
+  //   let res = 1;
+  //   const arr = getPrimes(n);
+
+  //   for (let i = 0; i < arr.length; i++) {
+  //     res *= arr[i];
+
+  //   }
+  //   return res;
+  // }
+  console.log(numPrimorial(3));
 }
