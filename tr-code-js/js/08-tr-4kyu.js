@@ -5809,6 +5809,8 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
     ie:["1", "2", "3"] to [1, 2, 3]
     Note that you can receive floats as well.   */
 
-  const toNumberArray = stringArray => stringArray.map(e => +e);
-  console.log(toNumberArray(["1.1", "2.2", "3.3"]));
+  // const toNumberArray = stringArray => stringArray.map(e => +e);
+  // const toNumberArray = stringArray => stringArray.map(Number);
+  const toNumberArray = stringArray => stringArray.map(parseFloat);
+  // console.log(toNumberArray(["1.1", "2.2", "3.3"]));
 }
