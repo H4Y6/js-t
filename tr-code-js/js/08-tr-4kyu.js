@@ -5814,3 +5814,23 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3     
   const toNumberArray = stringArray => stringArray.map(parseFloat);
   // console.log(toNumberArray(["1.1", "2.2", "3.3"]));
 }
+
+{ /**6 kyu  Decipher this!
+  You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+For each word:
+the second and the last letter is switched (e.g. Hello becomes Holle)
+the first letter is replaced by its character code (e.g. H becomes 72)
+there are no special characters used, only letters and spaces
+words are separated by a single space
+there are no leading or trailing spaces
+Examples
+'72olle 103doo 100ya' --> 'Hello good day'
+'82yade 115te 103o'   --> 'Ready set go'         */
+
+  function decipherThis(str) {
+    return str.split(' ').map((e) => e = String.fromCharCode(e.match(/\d{2,3}/)[0]) + (e.length > e.match(/\d{2,3}/)[0].length ? e.charAt(e.length - 1) : '') + e.slice(e.match(/\d{2,3}/)[0].length + 1, -1) + (e.length > e.match(/\d{2,3}/)[0].length + 1 ? e[e.match(/\d{2,3}/)[0].length] : '')).join(' ');
+  }
+  // console.log(decipherThis('72olle 103doo 100ya'));
+  // console.log(decipherThis('82yade 115te 103o'));
+  // console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o'));
+}
