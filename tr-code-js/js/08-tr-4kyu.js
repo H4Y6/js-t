@@ -5844,6 +5844,8 @@ For example (Input --> Output)
 "Yes" --> "Yes?" 
 "No?" --> "No?"     */
 
-  const ensureQuestion = s => /[?]$/.test(s) ? s : s + '?';
+  // const ensureQuestion = s => /[?]$/.test(s) ? s : s + '?';
+  // const ensureQuestion = s => s.endsWith('?') ? s : s + '?';
+  const ensureQuestion = s => s.split('?').join('') + '?';
   console.log(ensureQuestion('Yes'));
 }
