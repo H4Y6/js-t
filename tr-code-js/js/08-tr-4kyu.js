@@ -5837,3 +5837,13 @@ Examples
   // console.log(decipherThis('82yade 115te 103o'));
   // console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o'));
 }
+
+{ /** 8 kyu  Ensure question
+  Given a string, write a function that returns the string with a question mark ("?") appends to the end, unless the original string ends with a question mark, in which case, returns the original string.
+For example (Input --> Output)
+"Yes" --> "Yes?" 
+"No?" --> "No?"     */
+
+  const ensureQuestion = s => /[?]$/.test(s) ? s : s + '?';
+  console.log(ensureQuestion('Yes'));
+}
