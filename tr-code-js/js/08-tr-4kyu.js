@@ -5846,6 +5846,7 @@ For example (Input --> Output)
 
   // const ensureQuestion = s => /[?]$/.test(s) ? s : s + '?';
   // const ensureQuestion = s => s.endsWith('?') ? s : s + '?';
-  const ensureQuestion = s => s.split('?').join('') + '?';
-  console.log(ensureQuestion('Yes'));
+  // const ensureQuestion = s => s.split('?').join('') + '?';
+  const ensureQuestion = s => s.slice(-1) === '?' ? s : s + '?';
+  // console.log(ensureQuestion('Yes'));
 }
