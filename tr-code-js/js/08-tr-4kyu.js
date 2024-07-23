@@ -5827,9 +5827,12 @@ Examples
 '72olle 103doo 100ya' --> 'Hello good day'
 '82yade 115te 103o'   --> 'Ready set go'         */
 
-  function decipherThis(str) {
-    return str.split(' ').map((e) => e = String.fromCharCode(e.match(/\d{2,3}/)[0]) + (e.length > e.match(/\d{2,3}/)[0].length ? e.charAt(e.length - 1) : '') + e.slice(e.match(/\d{2,3}/)[0].length + 1, -1) + (e.length > e.match(/\d{2,3}/)[0].length + 1 ? e[e.match(/\d{2,3}/)[0].length] : '')).join(' ');
-  }
+  // function decipherThis(str) {
+  //   return str.split(' ').map((e) => e = String.fromCharCode(e.match(/\d{2,3}/)[0]) + (e.length > e.match(/\d{2,3}/)[0].length ? e.charAt(e.length - 1) : '') + e.slice(e.match(/\d{2,3}/)[0].length + 1, -1) + (e.length > e.match(/\d{2,3}/)[0].length + 1 ? e[e.match(/\d{2,3}/)[0].length] : '')).join(' ');
+  // }
+
+  const decipherThis = str => str.split(' ').map((e) => e.replace(/^\d{2,3}/, el => String.fromCharCode(el)).replace(/\b(.)(.)(.*)(.)\b/, '$1$4$3$2')).join(' ');
+
   // console.log(decipherThis('72olle 103doo 100ya'));
   // console.log(decipherThis('82yade 115te 103o'));
   // console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o'));
