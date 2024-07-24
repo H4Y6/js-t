@@ -5947,7 +5947,7 @@ Example:
 "" -> 0 */
 
   function longestPalindrome(s) {
-    if (s === '') return 0;
+    if (!s) return 0;
     const res = [];
     for (let i = 0; i < s.length; i++) {
       s.slice(i) === [...s.slice(i)].reverse().join('') ? res.push(s.slice(i)) : res;
@@ -5962,3 +5962,51 @@ Example:
   // console.log(longestPalindrome("zyabyz"));
   // console.log(longestPalindrome(""));
 }
+
+{ /** 5 kyu  Common Denominators 
+  You will have a list of rationals in the form
+
+{ {numer_1, denom_1} , ... {numer_n, denom_n} } 
+or
+[ [numer_1, denom_1] , ... [numer_n, denom_n] ] 
+or
+[ (numer_1, denom_1) , ... (numer_n, denom_n) ] 
+where all numbers are positive ints. You have to produce a result in the form:
+
+(N_1, D) ... (N_n, D) 
+or
+[ [N_1, D] ... [N_n, D] ] 
+or
+[ (N_1', D) , ... (N_n, D) ] 
+or
+{{N_1, D} ... {N_n, D}} 
+or
+"(N_1, D) ... (N_n, D)"
+depending on the language (See Example tests) in which D is as small as possible and
+
+N_1/D == numer_1/denom_1 ... N_n/D == numer_n,/denom_n.
+Example:
+convertFracs [(1, 2), (1, 3), (1, 4)] `shouldBe` [(6, 12), (4, 12), (3, 12)]
+Note:
+Due to the fact that the first translations were written long ago - more than 6 years - these first translations have only irreducible fractions.
+Newer translations have some reducible fractions. To be on the safe side it is better to do a bit more work by simplifying fractions even if they don't have to be.    */
+
+  function convertFrac(lst) {
+    if (!lst.length) return '';
+    const dens = lst.map(e => e[1]);
+    let genDen = dens.reduce((arr, e) => arr * e, 1);
+    for (let i = 2; i < genDen; i++) {
+
+      while (dens.map(e => genDen / i / e).every(e => e % 1 === 0)) {
+        genDen /= i;
+      }
+    }
+
+    return `(${lst.reduce((arr, e) => arr = [...arr, ([genDen / e[1] * e[0], genDen])], []).join(')(')})`;
+  }
+  // console.log(convertFrac([[1, 2], [1, 3], [1, 4]]));
+  // console.log(convertFrac([[69, 130], [87, 1310], [3, 4]]));
+  // console.log(convertFrac([]));
+}
+
+console.log(34060 / 130);
