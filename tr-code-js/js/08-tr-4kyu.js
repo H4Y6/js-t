@@ -5907,21 +5907,20 @@ The menu items are fairly simple, there is no overlap in the names of the items:
 7. Milkshake
 8. Coke            */
 
-  function getOrder(input) {
-    const menu = [
-      'Burger',
-      'Fries',
-      'Chicken',
-      'Pizza',
-      'Sandwich',
-      'Onionrings',
-      'Milkshake',
-      'Coke'
-    ];
+  // function getOrder(input) {
+  //   const menu = ['Burger', 'Fries', 'Chicken', 'Pizza', 'Sandwich', 'Onionrings', 'Milkshake', 'Coke'];
 
-    for (let i = 0; i < menu.length; i++) {
-      input = input.replaceAll(menu[i].toLowerCase(), menu[i] + ' ').trim();
-    }
+  //   for (let i = 0; i < menu.length; i++) {
+  //     input = input.replaceAll(menu[i].toLowerCase(), menu[i] + ' ').trim();
+  //   }
+  //   return menu.map(e => input.split(' ').filter(el => el === e)).flatMap(e => e).join(' ');
+  // }
+
+  function getOrder(input) {
+    const menu = ['Burger', 'Fries', 'Chicken', 'Pizza', 'Sandwich', 'Onionrings', 'Milkshake', 'Coke'];
+    [...menu].forEach(e => {
+      input = input.replaceAll(e.toLowerCase(), e + ' ').trim();
+    });
     return menu.map(e => input.split(' ').filter(el => el === e)).flatMap(e => e).join(' ');
   }
   console.log(getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"));
