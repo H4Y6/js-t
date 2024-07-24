@@ -5997,7 +5997,13 @@ Newer translations have some reducible fractions. To be on the safe side it is b
     let genDen = dens.reduce((arr, e) => arr * e, 1);
     for (let i = 2; i < genDen; i++) {
 
-      while (dens.map(e => genDen / i / e).every(e => e % 1 === 0)) {
+      // while (dens.map(e => genDen / i / e).every(e => e % 1 === 0)) {
+      //   genDen /= i;
+      // }
+      // while (dens.map(e => genDen / i / e).every(e => !(e % 1))) {
+      //   genDen /= i;
+      // }
+      while (dens.map(e => genDen / i / e).every(e => e === parseInt(e))) {
         genDen /= i;
       }
     }
@@ -6009,4 +6015,3 @@ Newer translations have some reducible fractions. To be on the safe side it is b
   // console.log(convertFrac([]));
 }
 
-console.log(34060 / 130);
