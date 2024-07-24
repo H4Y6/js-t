@@ -5916,12 +5916,21 @@ The menu items are fairly simple, there is no overlap in the names of the items:
   //   return menu.map(e => input.split(' ').filter(el => el === e)).flatMap(e => e).join(' ');
   // }
 
+  // function getOrder(input) {
+  //   const menu = ['Burger', 'Fries', 'Chicken', 'Pizza', 'Sandwich', 'Onionrings', 'Milkshake', 'Coke'];
+  //   [...menu].forEach(e => {
+  //     input = input.replaceAll(e.toLowerCase(), e + ' ').trim();
+  //   });
+  //   return menu.map(e => input.split(' ').filter(el => el === e)).flatMap(e => e).join(' ');
+  // }
+
   function getOrder(input) {
+    let orders = [];
     const menu = ['Burger', 'Fries', 'Chicken', 'Pizza', 'Sandwich', 'Onionrings', 'Milkshake', 'Coke'];
     [...menu].forEach(e => {
-      input = input.replaceAll(e.toLowerCase(), e + ' ').trim();
+      orders.push(...(e + ' ').repeat(input.split(e.toLowerCase()).length - 1).split(' ').filter(e => e !== ''));
     });
-    return menu.map(e => input.split(' ').filter(el => el === e)).flatMap(e => e).join(' ');
+    return orders.join(' ');
   }
   console.log(getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"));
 }
