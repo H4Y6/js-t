@@ -5925,12 +5925,40 @@ The menu items are fairly simple, there is no overlap in the names of the items:
   // }
 
   function getOrder(input) {
-    let orders = [];
+    const orders = [];
     const menu = ['Burger', 'Fries', 'Chicken', 'Pizza', 'Sandwich', 'Onionrings', 'Milkshake', 'Coke'];
     [...menu].forEach(e => {
       orders.push(...(e + ' ').repeat(input.split(e.toLowerCase()).length - 1).split(' ').filter(e => e !== ''));
     });
     return orders.join(' ');
   }
-  console.log(getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"));
+  // console.log(getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"));
+}
+
+{ /**6 kyu  longest_palindrome 
+  Find the length of the longest substring in the given string s that is the same in reverse.
+As an example, if the input was “I like racecars that go fast”, the substring (racecar) length would be 7.
+If the length of the input string is 0, the return value must be 0.
+Example:
+"a" -> 1 
+"aab" -> 2  
+"abcde" -> 1
+"zzbaabcd" -> 4
+"" -> 0 */
+
+  function longestPalindrome(s) {
+    if (s === '') return 0;
+    const res = [];
+    for (let i = 0; i < s.length; i++) {
+      s.slice(i) === [...s.slice(i)].reverse().join('') ? res.push(s.slice(i)) : res;
+
+      for (let j = 0; j < s.slice(i).length; j++) {
+        s.slice(i, -j) === [...s.slice(i, -j)].reverse().join('') ? res.push(s.slice(i, -j)) : res;
+      }
+    }
+    return Math.max(...(res.map(e => e.length)));
+  }
+  // console.log(longestPalindrome("baablkj12345432133d"));
+  // console.log(longestPalindrome("zyabyz"));
+  // console.log(longestPalindrome(""));
 }
