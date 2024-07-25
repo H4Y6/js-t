@@ -6024,15 +6024,24 @@ Examples
 2, 5  -->  [2, 4, 16, 256, 65536]
 3, 3  -->  [3, 9, 81]    */
 
+  // function squares(x, n) {
+  //   if (x <= 0) return [];
+  //   const arr = [x];
+  //   for (let i = 1; i < n; i++) {
+  //     x **= 2;
+  //     arr.push(x);
+  //   }
+  //   return arr;
+  // }
+
   function squares(x, n) {
-    if (x <= 0) return [];
-    const arr = [x];
-    for (let i = 1; i < n; i++) {
-      x **= 2;
-      arr.push(x);
+    if (n <= 0) return [];
+    let arr = [x];
+    for (x; n > 1; n--) {
+      arr.push(x *= x);
     }
     return arr;
   }
-  // console.log(squares(2, 5));
+  console.log(squares(2, 5));
 }
 
