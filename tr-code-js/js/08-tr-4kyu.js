@@ -6054,3 +6054,4 @@ Examples
   console.log(squares(2, 5));
 }
 
+
