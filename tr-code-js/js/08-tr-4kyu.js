@@ -6034,14 +6034,21 @@ Examples
   //   return arr;
   // }
 
-  function squares(x, n) {
-    if (n <= 0) return [];
-    let arr = [x];
-    for (x; n > 1; n--) {
-      arr.push(x *= x);
-    }
-    return arr;
-  }
+  // function squares(x, n) {
+  //   if (n <= 0) return [];
+  //   let arr = [x];
+  //   for (x; n > 1; n--) {
+  //     arr.push(x *= x);
+  //   }
+  //   return arr;
+  // }
+
+  const squares = (x, n) => {
+    let arr = [];
+    arr = [x, ...[...Array(n > 0 ? n - 1 : 0)].map((_) => x *= x)];
+
+    return n > 0 ? arr : [];
+  };
   console.log(squares(2, 5));
 }
 
