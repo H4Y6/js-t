@@ -6010,8 +6010,29 @@ Newer translations have some reducible fractions. To be on the safe side it is b
 
     return `(${lst.reduce((arr, e) => arr = [...arr, ([genDen / e[1] * e[0], genDen])], []).join(')(')})`;
   }
+
+
   // console.log(convertFrac([[1, 2], [1, 3], [1, 4]]));
   // console.log(convertFrac([[69, 130], [87, 1310], [3, 4]]));
   // console.log(convertFrac([]));
+}
+
+{ /** 7 kyu  Squares sequence
+  Complete the function that returns an array of length n, starting with the given number x and the squares of the previous number. If n is negative or zero, return an empty array/list.
+
+Examples
+2, 5  -->  [2, 4, 16, 256, 65536]
+3, 3  -->  [3, 9, 81]    */
+
+  function squares(x, n) {
+    if (x <= 0) return [];
+    const arr = [x];
+    for (let i = 1; i < n; i++) {
+      x **= 2;
+      arr.push(x);
+    }
+    return arr;
+  }
+  // console.log(squares(2, 5));
 }
 
