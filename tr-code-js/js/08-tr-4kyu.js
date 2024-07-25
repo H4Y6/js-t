@@ -6043,12 +6043,14 @@ Examples
   //   return arr;
   // }
 
-  const squares = (x, n) => {
-    let arr = [];
-    arr = [x, ...[...Array(n > 0 ? n - 1 : 0)].map((_) => x *= x)];
+  // const squares = (x, n) => {
+  //   let arr = [];
+  //   arr = [x, ...[...Array(n > 0 ? n - 1 : 0)].map((_) => x *= x)];
 
-    return n > 0 ? arr : [];
-  };
+  //   return n > 0 ? arr : [];
+  // };
+
+  const squares = (x, n) => n > 0 ? [x, ...squares(x *= x, n - 1)] : [];
   console.log(squares(2, 5));
 }
 
