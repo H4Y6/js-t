@@ -6115,10 +6115,19 @@ The data is given in an array as such:
   //   return arr.reverse().flatMap(e => e);
   // }
 
+  // function dataReverse(data) {
+  //   const arr = [];
+  //   for (let i = 0; i < data.length; i += 8) {
+  //     arr.unshift(...data.slice(i, i + 8));
+  //   }
+  //   return arr;
+  // }
+
   function dataReverse(data) {
+    data = [...data];
     const arr = [];
-    for (let i = 0; i < data.length; i += 8) {
-      arr.unshift(...data.slice(i, i + 8));
+    while (data.length) {
+      arr.push(...data.splice(-8));
     }
     return arr;
   }
