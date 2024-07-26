@@ -6156,7 +6156,9 @@ Example:
 solution(5) // should return "Value is 00005"     */
 
   function solution(value) {
-    return `Value is ${'0'.repeat(5 - ('' + value).length)}${value}`;
+    // return `Value is ${'0'.repeat(5 - ('' + value).length)}${value}`;
+    // return `Value is ` + `${'0'.repeat(5)}${value}`.slice(-5);
+    return `Value is ${(value + '').padStart(5, '0')}`;
   }
-  console.log(solution(5));
+  // console.log(solution(5));
 }
