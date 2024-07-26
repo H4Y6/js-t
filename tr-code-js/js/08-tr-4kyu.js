@@ -6147,5 +6147,16 @@ Notes
 Tested strings are at least 8 characters long.       */
 
   const sortMyString = s => [[...s].filter((_, i) => !(i % 2)).join(''), [...s].filter((_, i) => i % 2).join('')].join(' ');
-  console.log(sortMyString('CodeWars'));
+  // console.log(sortMyString('CodeWars'));
+}
+
+{ /** 7 kyu  Substituting Variables Into Strings: Padded Numbers 
+  Complete the solution so that it returns a formatted string. The return value should equal "Value is VALUE" where value is a 5 digit padded number.
+Example:
+solution(5) // should return "Value is 00005"     */
+
+  function solution(value) {
+    return `Value is ${'0'.repeat(5 - ('' + value).length)}${value}`;
+  }
+  console.log(solution(5));
 }
