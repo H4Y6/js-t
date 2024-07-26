@@ -6094,25 +6094,33 @@ The total number of bits will always be a multiple of 8.
 The data is given in an array as such:
 [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]    */
 
+  // function dataReverse(data) {
+  //   const arr = [];
+  //   const n = data.length / 8;
+
+  //   for (let i = 0; i < n; i++) {
+  //     const element = data[i];
+  //     let ar = [];
+
+  //     for (let j = 0; j < 8; j++) {
+  //       ar.push(data[j]);
+  //       if (ar.length === 8) {
+  //         arr.push(ar);
+  //         console.log(ar, arr);
+  //         data = data.slice(j + 1);
+  //         break;
+  //       }
+  //     }
+  //   }
+  //   return arr.reverse().flatMap(e => e);
+  // }
+
   function dataReverse(data) {
     const arr = [];
-    const n = data.length / 8;
-
-    for (let i = 0; i < n; i++) {
-      const element = data[i];
-      let ar = [];
-
-      for (let j = 0; j < 8; j++) {
-        ar.push(data[j]);
-        if (ar.length === 8) {
-          arr.push(ar);
-          console.log(ar, arr);
-          data = data.slice(j + 1);
-          break;
-        }
-      }
+    for (let i = 0; i < data.length; i += 8) {
+      arr.unshift(...data.slice(i, i + 8));
     }
-    return arr.reverse().flatMap(e => e);
+    return arr;
   }
   console.log(dataReverse([1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]));
 }
