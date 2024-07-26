@@ -6051,7 +6051,33 @@ Examples
   // };
 
   const squares = (x, n) => n > 0 ? [x, ...squares(x *= x, n - 1)] : [];
-  console.log(squares(2, 5));
+  // console.log(squares(2, 5));
 }
 
+{ /** 4 kyu  Multiplying numbers as strings     & bigInt use avoiding.
 
+  This is the first part. You can solve the second part here when you are done with this. Multiply two numbers! Simple!
+The arguments are passed as strings.
+The numbers may be way very large
+Answer should be returned as a string
+The returned "number" should not start with zeros e.g. 0123 is invalid
+Note: 100 randomly generated tests!
+Usage of BigInt is disallowed and will be checked in the full test suite.  */
+  function multiply(a, b) {
+    if (a * b < 2 ** 53) return (a * b).toString();
+    const res = [...Array.from({ length: a.length + b.length }, e => 0)];
+    for (let i = a.length - 1; i >= 0; i--) {
+      for (let j = b.length - 1; j >= 0; j--) {
+        const sum = a[i] * b[j] + res[i + j + 1];
+        res[i + j + 1] = sum % 10;
+        res[i + j] += Math.floor(sum / 10);
+      }
+    }
+    while (res[0] === 0) res[0] = '';
+    return res.join('');
+    // return res.join('').replace(/^[0]*/, '');
+  }
+  console.log(multiply('2', '0'));
+  console.log(multiply("11", "85"));
+  console.log(multiply("1020303004875647366210", "2774537626200857473632627613"));
+}
