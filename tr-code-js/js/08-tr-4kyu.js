@@ -6073,11 +6073,46 @@ Usage of BigInt is disallowed and will be checked in the full test suite.  */
         res[i + j] += Math.floor(sum / 10);
       }
     }
+    // return res.join('').replace(/^[0]*/, '');
     while (res[0] === 0) res[0] = '';
     return res.join('');
-    // return res.join('').replace(/^[0]*/, '');
   }
-  console.log(multiply('2', '0'));
-  console.log(multiply("11", "85"));
-  console.log(multiply("1020303004875647366210", "2774537626200857473632627613"));
+  // console.log(multiply('2', '0'));
+  // console.log(multiply("11", "85"));
+  // console.log(multiply("1020303004875647366210", "2774537626200857473632627613"));
+}
+
+{ /**6 kyu  Data Reverse 
+  A stream of data is received and needs to be reversed.
+Each segment is 8 bits long, meaning the order of these segments needs to be reversed, for example:
+11111111  00000000  00001111  10101010
+ (byte1)   (byte2)   (byte3)   (byte4)
+should become:
+10101010  00001111  00000000  11111111
+ (byte4)   (byte3)   (byte2)   (byte1)
+The total number of bits will always be a multiple of 8.
+The data is given in an array as such:
+[1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]    */
+
+  function dataReverse(data) {
+    const arr = [];
+    const n = data.length / 8;
+
+    for (let i = 0; i < n; i++) {
+      const element = data[i];
+      let ar = [];
+
+      for (let j = 0; j < 8; j++) {
+        ar.push(data[j]);
+        if (ar.length === 8) {
+          arr.push(ar);
+          console.log(ar, arr);
+          data = data.slice(j + 1);
+          break;
+        }
+      }
+    }
+    return arr.reverse().flatMap(e => e);
+  }
+  console.log(dataReverse([1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]));
 }
