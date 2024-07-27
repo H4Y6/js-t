@@ -6334,7 +6334,34 @@ Input will only contain lowercase characters and spaces.  */
     // const alph = 'abcdefghijklmnopqrstuvwxyz';
     // return a.map((e, i) => e.split('').map(el => alph.indexOf(el) + 1).reduce((sum, e) => sum + e, 0) * (i + 1));
 
-    return a.map((e, i) => e.split('').reduce((sum, e) => sum + e.charCodeAt() % 96, 0) * (i + 1));
+    return a.map((e, i) => e.split('').reduce((sum, e) => sum + e.charCodeAt() % 32, 0) * (i + 1));
   }
-  console.log(wordValue(["codewars", "abc", "xyz"]));
+  // console.log(wordValue(["codewars", "abc", "xyz"]));
 }
+
+{ /** 7 kyu  Functional Addition
+  Create a function add(n)/Add(n) which returns a function that always adds n to any number
+Note for Java: the return type and methods have not been provided to make it a bit more challenging.
+var addOne = add(1);
+addOne(3); // 4
+
+var addThree = add(3);
+addThree(3); // 6           */
+
+  // function add(n) {
+  //   return function (m) {
+  //     return m + n;
+  //   };
+  // };
+
+  const add = n => m => m + n;
+
+  const addTen = add(10);
+  const addTwenty = add(20);
+
+  console.log(add());
+  console.log(addTen(22));
+  console.log(addTen(1));
+  console.log(addTwenty(22));
+}
+
