@@ -6331,8 +6331,10 @@ nameValue ["abc","abc abc"] should return [6,24] because of [ 6 * 1, 12 * 2 ]. N
 Input will only contain lowercase characters and spaces.  */
 
   function wordValue(a) {
-    const alph = 'abcdefghijklmnopqrstuvwxyz';
-    return a.map((e, i) => e.split('').map(el => alph.indexOf(el) + 1).reduce((sum, e) => sum + e, 0) * (i + 1));
+    // const alph = 'abcdefghijklmnopqrstuvwxyz';
+    // return a.map((e, i) => e.split('').map(el => alph.indexOf(el) + 1).reduce((sum, e) => sum + e, 0) * (i + 1));
+
+    return a.map((e, i) => e.split('').reduce((sum, e) => sum + e.charCodeAt() % 96, 0) * (i + 1));
   }
   console.log(wordValue(["codewars", "abc", "xyz"]));
 }
