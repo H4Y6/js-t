@@ -6359,9 +6359,23 @@ addThree(3); // 6           */
   const addTen = add(10);
   const addTwenty = add(20);
 
-  console.log(add());
-  console.log(addTen(22));
-  console.log(addTen(1));
-  console.log(addTwenty(22));
+  // console.log(add());
+  // console.log(addTen(22));
+  // console.log(addTen(1));
+  // console.log(addTwenty(22));
+}
+
+{/**  8 kyu Simple validation of a username with regex
+  Write a simple regex to validate a username. Allowed characters are:
+lowercase letters,
+numbers,
+underscore
+Length should be between 4 and 16 characters (both included). */
+
+  function validateUsr(username) {
+    const res = /\b[a-z\d_]{4,16}\b/.test(username);
+    return res;
+  }
+  // console.log(validateUsr('5t9p'));
 }
 
