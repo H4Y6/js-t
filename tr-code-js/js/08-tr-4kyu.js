@@ -6396,7 +6396,8 @@ Exception: Century years are NOT leap years UNLESS they can be evenly divided by
 So the years 0, -64 and 2016 will return 366 days. Whilst 1974, -10 and 666 will return 365 days.  */
 
 
-  const yearDays = year => year % 4 || year.toString().endsWith('00') ? year % 400 ? `${year} has 365 days` : `${year} has 366 days` : `${year} has 366 days`;
-  console.log(yearDays(1100));
+  // const yearDays = year => year % 4 || year.toString().endsWith('00') ? year % 400 ? `${year} has 365 days` : `${year} has 366 days` : `${year} has 366 days`;
+  const yearDays = year => `${year} has ${year % 4 || year.toString().endsWith('00') ? year % 400 ? `365` : `366` : `366`} days`;
+  // console.log(yearDays(210));
 }
 
