@@ -6450,7 +6450,35 @@ Encode("masterpiece",1939);  ==>  [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8] */
 
 Note: only positive integers will be tested.    */
 
-  const sumOfIntegersInString = s => (s.match(/\d+/g) || []).reduce((sum, e) => sum + +e, 0);
-  // const sumOfIntegersInString = s => s.split(/\D/).reduce((sum, e) => sum + +e, 0);
-  console.log(sumOfIntegersInString('The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog'));
+  // const sumOfIntegersInString = s => (s.match(/\d+/g) || []).reduce((sum, e) => sum + +e, 0);
+  const sumOfIntegersInString = s => s.split(/\D/).reduce((sum, e) => sum + +e, 0);
+  // console.log(sumOfIntegersInString('The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog'));
+}
+
+{/** 7 kyu  Over The Road
+  You've just moved into a perfectly straight street with exactly n identical houses on either side of the road. Naturally, you would like to find out the house number of the people on the other side of the street. The street looks something like this:
+
+Street
+1|   |6
+3|   |4
+5|   |2
+  you
+Evens increase on the right; odds decrease on the left. House numbers start at 1 and increase without gaps. When n = 3, 1 is opposite 6, 3 opposite 4, and 5 opposite 2.
+
+Example (address, n --> output)
+Given your house number address and length of street n, give the house number on the opposite side of the street.
+
+1, 3 --> 6
+3, 3 --> 4
+2, 3 --> 5
+3, 5 --> 8 */
+
+  const overTheRoad = (address, n) => {
+    const even = Array(n).fill(0).map((_, i) => i * 2 + 2);
+    const odd = even.map(e => e - 1).reverse();
+    const i = BigInt(even.indexOf(address));
+    return i >= 0 ? odd[i] : even[odd.indexOf(address)];
+  };
+  // console.log(overTheRoad(2, 3));
+  // console.log(overTheRoad(23633656673, 310027696726));/** RangeError: Invalid array length*/
 }
