@@ -6450,6 +6450,7 @@ Encode("masterpiece",1939);  ==>  [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8] */
 
 Note: only positive integers will be tested.    */
 
-  const sumOfIntegersInString = s => s.split(/\D/).reduce((sum, e) => sum + +e, 0);
+  const sumOfIntegersInString = s => (s.match(/\d+/g) || []).reduce((sum, e) => sum + +e, 0);
+  // const sumOfIntegersInString = s => s.split(/\D/).reduce((sum, e) => sum + +e, 0);
   console.log(sumOfIntegersInString('The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog'));
 }
