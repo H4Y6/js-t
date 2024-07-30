@@ -6555,5 +6555,20 @@ unluckyDays(1986) == 1     */
 All inputs will be valid.   */
 
   const switcher = x => x.map(e => ' zyxwvutsrqponmlkjihgfedcba!? '[e]).join('');
-  console.log(switcher(['24', '12', '23', '22', '4', '26', '9', '8']));
+  // console.log(switcher(['24', '12', '23', '22', '4', '26', '9', '8']));
+}
+
+{ /** 7 kyu  The Office IV - Find a Meeting Room 
+  Your job at E-Corp is both boring and difficult. It isn't made any easier by the fact that everyone constantly wants to have a meeting with you, and that the meeting rooms are always taken!
+
+In this kata, you will be given an array. Each value represents a meeting room. Your job? Find the first empty one and return its index (N.B. There may be more than one empty room in some test cases).
+'X' --> busy
+'O' --> empty
+If all rooms are busy, return "None available!"
+More in this series:  */
+
+  // const meeting = x => x.indexOf('O') >= 0 ? x.indexOf('O') : 'None available!';
+  const meeting = x => x.join('').split('O').length > 1 ? x.indexOf('O') : 'None available!';
+  // indexOf('O') >= 0 ? x.indexOf('O') : 'None available!';
+  console.log(meeting(['X', 'X', 'O', 'X']));
 }
