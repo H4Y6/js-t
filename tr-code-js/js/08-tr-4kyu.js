@@ -6520,20 +6520,28 @@ unluckyDays(1986) == 1     */
   //   return count;
   // }
 
+  // function unluckyDays(year) {
+  //   let count = 0, m = 0;
+
+  //   const date = new Date();
+  //   date.setUTCFullYear(year, m, 13);
+  //   date.setUTCHours(2, 0, 0, 0);
+
+  //   while (m <= 11) {
+  //     const [day] = date.toUTCString().split(' ');
+  //     if (day === 'Fri,') {
+  //       count++;
+  //     }
+  //     m++;
+  //     date.setUTCMonth(m);
+  //   }
+  //   return count;
+  // }
+
   function unluckyDays(year) {
-    let count = 0, m = 0;
-
-    const date = new Date();
-    date.setUTCFullYear(year, m, 13);
-    date.setUTCHours(2, 0, 0, 0);
-
-    while (m <= 11) {
-      const [day] = date.toUTCString().split(' ');
-      if (day === 'Fri,') {
-        count++;
-      }
-      m++;
-      date.setUTCMonth(m);
+    let count = 0;
+    for (let i = 0; i < 12; i++) {
+      new Date(year, i, 13).getDay() === 5 ? count++ : count;
     }
     return count;
   }
