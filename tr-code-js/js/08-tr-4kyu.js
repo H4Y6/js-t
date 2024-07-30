@@ -6611,5 +6611,5 @@ More in this series:  */
   const findHack = arr => arr.map(e => e[2].reduce((sum, e) => sum + (scores[e] ? scores[e] : 0),
     e[2].filter(e => scores[e] >= 20).length > 4 ? + 20 : +0) < e[1] ? e[0] : "").filter(e => e);
 
-  console.log(findHack(array));
+  // console.log(findHack(array));
 }
