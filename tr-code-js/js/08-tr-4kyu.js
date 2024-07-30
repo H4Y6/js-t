@@ -6482,3 +6482,42 @@ Given your house number address and length of street n, give the house number on
   // console.log(overTheRoad(2, 3));
   // console.log(overTheRoad(23633656673, 310027696726));/** RangeError: Invalid array length*/
 }
+// const e = 2.718281828;
+
+{/** 7 kyu  Unlucky Days
+ Friday 13th or Black Friday is considered as unlucky day. Calculate how many unlucky days are in the given year.
+Find the number of Friday 13th in the given year.
+Input: Year in Gregorian calendar as integer.
+Output: Number of Black Fridays in the year as an integer.
+Examples:
+unluckyDays(2015) == 3
+unluckyDays(1986) == 1     */
+
+  function unluckyDays(year) {
+    let count = 0;
+    let fullYear = year;
+    let monthNumber = 0;
+    let dateNumber = 1;
+
+    const date = new Date();
+    date.setUTCFullYear(year);
+    date.setUTCMonth(monthNumber, 1);
+    date.setUTCHours(2, 0, 0, 0);
+
+
+    while (fullYear <= year) {
+      dateNumber++;
+      date.setUTCDate(dateNumber);
+
+      const [day, number, _, currYear] = date.toUTCString().split(' ');
+      if (day === 'Fri,' && number === '13') count++;
+      fullYear = currYear;
+      if (number === '01') {
+        dateNumber = 1;
+        monthNumber++;
+      }
+    }
+    return count;
+  }
+  console.log(unluckyDays(2015));
+}
