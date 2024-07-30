@@ -6538,12 +6538,14 @@ unluckyDays(1986) == 1     */
   //   return count;
   // }
 
-  function unluckyDays(year) {
-    let count = 0;
-    for (let i = 0; i < 12; i++) {
-      new Date(year, i, 13).getDay() === 5 ? count++ : count;
-    }
-    return count;
-  }
+  // function unluckyDays(year) {
+  //   let count = 0;
+  //   for (let i = 0; i < 12; i++) {
+  //     new Date(year, i, 13).getDay() === 5 ? count++ : count;
+  //   }
+  //   return count;
+  // }
+
+  const unluckyDays = year => [...Array(12)].map((e, i) => new Date(year, i, 13)).reduce((count, e) => count + (e.getDay() === 5), 0);
   console.log(unluckyDays(2015));
 }
