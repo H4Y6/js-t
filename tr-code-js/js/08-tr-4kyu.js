@@ -6493,29 +6493,47 @@ Examples:
 unluckyDays(2015) == 3
 unluckyDays(1986) == 1     */
 
+  // function unluckyDays(year) {
+  //   let count = 0;
+  //   let fullYear = year;
+  //   let monthNumber = 0;
+  //   let dateNumber = 1;
+
+  //   const date = new Date();
+  //   date.setUTCFullYear(year);
+  //   date.setUTCMonth(monthNumber, 1);
+  //   date.setUTCHours(2, 0, 0, 0);
+
+
+  //   while (fullYear <= year) {
+  //     dateNumber++;
+  //     date.setUTCDate(dateNumber);
+
+  //     const [day, number, _, currYear] = date.toUTCString().split(' ');
+  //     if (day === 'Fri,' && number === '13') count++;
+  //     fullYear = currYear;
+  //     if (number === '01') {
+  //       dateNumber = 1;
+  //       monthNumber++;
+  //     }
+  //   }
+  //   return count;
+  // }
+
   function unluckyDays(year) {
-    let count = 0;
-    let fullYear = year;
-    let monthNumber = 0;
-    let dateNumber = 1;
+    let count = 0, m = 0;
 
     const date = new Date();
-    date.setUTCFullYear(year);
-    date.setUTCMonth(monthNumber, 1);
+    date.setUTCFullYear(year, m, 13);
     date.setUTCHours(2, 0, 0, 0);
 
-
-    while (fullYear <= year) {
-      dateNumber++;
-      date.setUTCDate(dateNumber);
-
-      const [day, number, _, currYear] = date.toUTCString().split(' ');
-      if (day === 'Fri,' && number === '13') count++;
-      fullYear = currYear;
-      if (number === '01') {
-        dateNumber = 1;
-        monthNumber++;
+    while (m <= 11) {
+      const [day] = date.toUTCString().split(' ');
+      if (day === 'Fri,') {
+        count++;
       }
+      m++;
+      date.setUTCMonth(m);
     }
     return count;
   }
