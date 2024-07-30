@@ -6599,13 +6599,17 @@ More in this series:  */
   ];
   // return ["name1", "name3"]; 
 
-  function findHack(arr) {
-    const scores = { A: 30, B: 20, C: 10, D: 5 };
+  const scores = { A: 30, B: 20, C: 10, D: 5 };
 
-    return arr.map((e, i, ar) =>
-      e[2].reduce((sum, e) => {
-        return sum + (scores[e] ? scores[e] : 0);
-      }, e[2].filter(e => scores[e] >= 20).length > 4 ? + 20 : +0) < e[1] ? e[0] : "").filter(e => e);
-  }
+  // function findHack(arr) {
+  //   return arr.map(e =>
+  //     e[2].reduce((sum, e) => {
+  //       return sum + (scores[e] ? scores[e] : 0);
+  //     }, e[2].filter(e => scores[e] >= 20).length > 4 ? + 20 : +0) < e[1] ? e[0] : "").filter(e => e);
+  // }
+
+  const findHack = arr => arr.map(e => e[2].reduce((sum, e) => sum + (scores[e] ? scores[e] : 0),
+    e[2].filter(e => scores[e] >= 20).length > 4 ? + 20 : +0) < e[1] ? e[0] : "").filter(e => e);
+
   console.log(findHack(array));
 }
