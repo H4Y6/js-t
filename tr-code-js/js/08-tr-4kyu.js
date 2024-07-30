@@ -6568,7 +6568,7 @@ If all rooms are busy, return "None available!"
 More in this series:  */
 
   // const meeting = x => x.indexOf('O') >= 0 ? x.indexOf('O') : 'None available!';
-  const meeting = x => x.join('').split('O').length > 1 ? x.indexOf('O') : 'None available!';
-  // indexOf('O') >= 0 ? x.indexOf('O') : 'None available!';
-  console.log(meeting(['X', 'X', 'O', 'X']));
+  // const meeting = x => x.join('').split('O').length > 1 ? x.indexOf('O') : 'None available!';
+  const meeting = (x, room = x.indexOf('O')) => room >= 0 ? room : 'None available!';
+  // console.log(meeting(['X', 'X', 'X']));
 }
