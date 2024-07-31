@@ -6736,39 +6736,38 @@ Maximum sum after some operations(modulo 1 000 000 007)     */
   //   return need > 0 ? 'Not enough!' : arr;
   // }
 
+  // function meeting(x, need) {
+  //   if (need === 0) 'Game On';
+  //   let res = x.map(e => Math.max(e[1] - e[0].length, 0)).map(e => (need -= e) >= 0 ? e : e + need).filter(e => e >= 0);
+  //   while (res[res.length - 1] === 0) {
+  //     res.pop();
+  //   }
+  //   return need > 0 ? 'Not enough!' : !res.length ? 'Game On' : res;
+  // }
+
   function meeting(x, need) {
-    if (need === 0) 'Game On';
-    let res = x.map(e => Math.max(e[1] - e[0].length, 0)).map(e => (need -= e) >= 0 ? e : e + need).filter(e => e >= 0);
-    while (res[res.length - 1] === 0) {
-      res.pop();
-    }
-    return need > 0 ? 'Not enough!' : !res.length ? 'Game On' : res;
+    x = x.map(e => Math.max(e[1] - e[0].length, 0)).map(e => (need -= e, need > 0 ? e : need == 0 ? e : Math.max(0, need + e)));
+    while (x[x.length - 1] === 0) x.pop();
+    return need > 0 ? 'Not enough!' : x.length ? x : 'Game On';
   }
 
-  // function meeting(x, n) {
-  //   x = x.map(x => Math.max(x[1] - x[0].length, 0));
-  //   x = x.map(x => (n -= x, n > 0 ? x : n == 0 ? x : Math.max(0, n + x)));
+  // function meeting(x, need) {
+  //   x = x.map(e => Math.max(e[1] - e[0].length, 0)).map(e => (need -= e, need > 0 ? e : need == 0 ? e : Math.max(0, need + e)));
   //   while (x[x.length - 1] === 0) x.pop();
-  //   return n > 0 ? 'Not enough!' : x.length ? x : 'Game On';
+  //   return need > 0 ? 'Not enough!' : x.length ? x : 'Game On';
   // }
 
-  // function meeting(x, n) {
-  //   x = x.map(x => Math.max(x[1] - x[0].length, 0)).map(x => (n -= x, n > 0 ? x : n == 0 ? x : Math.max(0, n + x)));
-  //   while (x[x.length - 1] === 0) x.pop();
-  //   return n > 0 ? 'Not enough!' : x.length ? x : 'Game On';
-  // }
-
-  console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXXXXX', 7]], 4));
-  console.log(meeting([
-    ['XX', 2],
-    ['XXXXXXX', 2],
-    ['XXXXXXXX', 7],
-    ['X', 4],
-    ['XXXXX', 2],
-    ['XXXXXX', 4],
-    ['XXX', 5],
-    ['XXXXXX', 3],
-    ['X', 5],
-    ['XXXXXXXX', 7]
-  ], 2));
+  // console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXXXXX', 7]], 4));
+  // console.log(meeting([
+  //   ['XX', 2],
+  //   ['XXXXXXX', 2],
+  //   ['XXXXXXXX', 7],
+  //   ['X', 4],
+  //   ['XXXXX', 2],
+  //   ['XXXXXX', 4],
+  //   ['XXX', 5],
+  //   ['XXXXXX', 3],
+  //   ['X', 5],
+  //   ['XXXXXXXX', 7]
+  // ], 2));
 }
