@@ -6645,3 +6645,52 @@ All letters will be lowercase and all inputs will be valid.  */
   // console.log(high('man i need a taxi up to ubud'));
   // console.log(high("blccpyikz peomzxjse ndhdidbuf tgdworlty"));
 }
+
+{ /** 5 kyu  Divide and maximize
+  Your friend has a list of k numbers : [a1, a2, a3, ... ak].
+He is allowed to do the operation which consists of three steps:
+select two numbers: ai and aj (ai % 2 = 0)
+replace ai with ai / 2
+replace aj with aj * 2
+Help him to find the maximum sum of list elements that is possible to achieve by using this operation(maybe multiple times). Return this sum modulo 1 000 000 007, because it can be quite big.
+Input:
+List of k elements: [a1, a2, a3, ..., ak]; k < 10**4
+All numbers are positive and smaller than 10**9
+Output:
+Maximum sum after some operations(modulo 1 000 000 007)     */
+
+  /** IndentationError: unexpected indent */
+
+  function divide_and_multiply(n) {
+    let minEven = n[0];
+    let max;
+    let indOfMax = 0;
+    let indOfMin;
+    let sum = 0;
+    while (indOfMax !== indOfMin) {
+      minEven = Math.min(...n.filter(e => e % 2 === 0));
+      max = Math.max(...n);
+
+      const indOfMax = n.indexOf(max);
+      const indOfMin = n.lastIndexOf(minEven);
+      if (indOfMax === indOfMin) break;
+
+      n[indOfMin] /= 2;
+      n[indOfMax] *= 2;
+
+      if (n.reduce((sum, e) => sum + e) === sum) return sum;
+      sum = n.reduce((sum, e) => sum + e);
+    }
+    return n.reduce((sum, e) => sum + e) % 1000000007;
+  };
+  console.log(divide_and_multiply([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]));
+  console.log(divide_and_multiply([-2, -4]));
+  console.log(divide_and_multiply([10]));
+  console.log(divide_and_multiply([6, 4, 2]));
+
+  const number = 35184372088846;
+  const mod = 1000000007;
+  const result = number % mod;
+  // console.log(result);
+  // Output: 371842558;
+}
