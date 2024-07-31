@@ -6705,32 +6705,47 @@ Maximum sum after some operations(modulo 1 000 000 007)     */
   result -> [0, 1, 3] no chairs free in room 0, take 1 from room 1, take 3 from room 2. no need to consider room 3 as you have your 4 chairs already.
   If you need no chairs, return "Game On". If there aren't enough spare chairs available, return "Not enough!". */
 
-  function meeting(x, need) {
-    if (!need) return "Game On";
-    const arr = [];
-    let sum = 0;
-    const free = x.map(e => e[0].length < e[1] ? e[1] - e[0].length : 0);
-    for (let i = 0; i < free.length; i++) {
-      arr.push(free[i]);
-      sum += free[i];
-      if (sum > need) { arr[i] -= (sum - need); break; };
-      if (sum === need) { break; };
-    }
-    if (sum < need) return "Not enough!";
+  // function meeting(x, need) {
+  //   if (!need) return "Game On";
+  //   const arr = [];
+  //   let sum = 0;
+  //   const free = x.map(e => e[0].length < e[1] ? e[1] - e[0].length : 0);
+  //   for (let i = 0; i < free.length; i++) {
+  //     arr.push(free[i]);
+  //     sum += free[i];
+  //     if (sum > need) { arr[i] -= (sum - need); break; };
+  //     if (sum === need) { break; };
+  //   }
+  //   if (sum < need) return "Not enough!";
 
-    return arr;
+  //   return arr;
+  // }
+
+  function meeting(x, need) {
+    if (!need) return 'Game On';
+    let arr = [], free = 0;
+
+    for (let i = 0; i < x.length || need <= 0; i++) {
+      const e = x[i];
+      free = Math.max(e[1] - e[0].length, 0);
+      need -= free;
+      if (need > 0) { arr.push(free); }
+      if (need <= 0) { arr.push(free + need); break; }
+    }
+
+    return need > 0 ? 'Not enough!' : arr;
   }
-  // console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXXXXX', 7]], 4));
-  // console.log(meeting([
-  //   ['XX', 2],
-  //   ['XXXXXXX', 2],
-  //   ['XXXXXXXX', 7],
-  //   ['X', 4],
-  //   ['XXXXX', 2],
-  //   ['XXXXXX', 4],
-  //   ['XXX', 5],
-  //   ['XXXXXX', 3],
-  //   ['X', 5],
-  //   ['XXXXXXXX', 7]
-  // ], 2));
+  console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXXXXX', 7]], 4));
+  console.log(meeting([
+    ['XX', 2],
+    ['XXXXXXX', 2],
+    ['XXXXXXXX', 7],
+    ['X', 4],
+    ['XXXXX', 2],
+    ['XXXXXX', 4],
+    ['XXX', 5],
+    ['XXXXXX', 3],
+    ['X', 5],
+    ['XXXXXXXX', 7]
+  ], 2));
 }
