@@ -6683,14 +6683,54 @@ Maximum sum after some operations(modulo 1 000 000 007)     */
     }
     return n.reduce((sum, e) => sum + e) % 1000000007;
   };
-  console.log(divide_and_multiply([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]));
-  console.log(divide_and_multiply([-2, -4]));
-  console.log(divide_and_multiply([10]));
-  console.log(divide_and_multiply([6, 4, 2]));
+  // console.log(divide_and_multiply([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]));
+  // console.log(divide_and_multiply([-2, -4]));
+  // console.log(divide_and_multiply([10]));
+  // console.log(divide_and_multiply([6, 4, 2]));
 
   const number = 35184372088846;
   const mod = 1000000007;
   const result = number % mod;
   // console.log(result);
   // Output: 371842558;
+}
+
+{  /** 6 kyu  The Office V - Find a Chair
+   So you've found a meeting room - phew! You arrive there ready to present, and find that someone has taken one or more of the chairs!! You need to find some quick.... check all the other meeting rooms to see if all of the chairs are in use.
+  Your meeting room can take up to 8 chairs. need will tell you how many have been taken. You need to find that many.
+  Find the spare chairs from the array of meeting rooms. Each meeting room tuple will have the number of occupants as a string. Each occupant is represented by 'X'. The room tuple will also have an integer telling you how many chairs there are in the room.
+  You should return an array of integers that shows how many chairs you take from each room in order, up until you have the required amount.
+  example:
+  [['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXX',2]] when you need 4 chairs:
+  result -> [0, 1, 3] no chairs free in room 0, take 1 from room 1, take 3 from room 2. no need to consider room 3 as you have your 4 chairs already.
+  If you need no chairs, return "Game On". If there aren't enough spare chairs available, return "Not enough!". */
+
+  function meeting(x, need) {
+    if (!need) return "Game On";
+    const arr = [];
+    let sum = 0;
+    const free = x.map(e => e[0].length < e[1] ? e[1] - e[0].length : 0);
+    for (let i = 0; i < free.length; i++) {
+      arr.push(free[i]);
+      sum += free[i];
+      if (sum > need) { arr[i] -= (sum - need); break; };
+      if (sum === need) { break; };
+    }
+    if (sum < need) return "Not enough!";
+
+    return arr;
+  }
+  // console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXXXXX', 7]], 4));
+  // console.log(meeting([
+  //   ['XX', 2],
+  //   ['XXXXXXX', 2],
+  //   ['XXXXXXXX', 7],
+  //   ['X', 4],
+  //   ['XXXXX', 2],
+  //   ['XXXXXX', 4],
+  //   ['XXX', 5],
+  //   ['XXXXXX', 3],
+  //   ['X', 5],
+  //   ['XXXXXXXX', 7]
+  // ], 2));
 }
