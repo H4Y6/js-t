@@ -6721,31 +6721,40 @@ Maximum sum after some operations(modulo 1 000 000 007)     */
   //   return arr;
   // }
 
-  function meeting(x, need) {
-    if (!need) return 'Game On';
-    let arr = [], free = 0;
+  // function meeting(x, need) {
+  //   if (!need) return 'Game On';
+  //   let arr = [], free = 0;
 
-    for (let i = 0; i < x.length || need <= 0; i++) {
-      const e = x[i];
-      free = Math.max(e[1] - e[0].length, 0);
-      need -= free;
-      if (need > 0) { arr.push(free); }
-      if (need <= 0) { arr.push(free + need); break; }
-    }
+  //   for (let i = 0; i < x.length || need <= 0; i++) {
+  //     const e = x[i];
+  //     free = Math.max(e[1] - e[0].length, 0);
+  //     need -= free;
+  //     if (need > 0) { arr.push(free); }
+  //     if (need <= 0) { arr.push(free + need); break; }
+  //   }
 
-    return need > 0 ? 'Not enough!' : arr;
+  //   return need > 0 ? 'Not enough!' : arr;
+  // }
+
+  function meeting(x, n) {
+    x = x.map(x => Math.max(x[1] - x[0].length, 0));
+    console.log(x);
+    x = x.map(x => (n -= x, n > 0 ? x : n == 0 ? x : Math.max(0, n + x)));
+    while (x[x.length - 1] === 0) x.pop();
+    return n > 0 ? 'Not enough!' : x.length ? x : 'Game On';
   }
-  console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXXXXX', 7]], 4));
-  console.log(meeting([
-    ['XX', 2],
-    ['XXXXXXX', 2],
-    ['XXXXXXXX', 7],
-    ['X', 4],
-    ['XXXXX', 2],
-    ['XXXXXX', 4],
-    ['XXX', 5],
-    ['XXXXXX', 3],
-    ['X', 5],
-    ['XXXXXXXX', 7]
-  ], 2));
+
+  // console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXXXXX', 7]], 4));
+  // console.log(meeting([
+  //   ['XX', 2],
+  //   ['XXXXXXX', 2],
+  //   ['XXXXXXXX', 7],
+  //   ['X', 4],
+  //   ['XXXXX', 2],
+  //   ['XXXXXX', 4],
+  //   ['XXX', 5],
+  //   ['XXXXXX', 3],
+  //   ['X', 5],
+  //   ['XXXXXXXX', 7]
+  // ], 2));
 }
