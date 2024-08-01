@@ -6793,5 +6793,18 @@ You may assume the input only contain English alphabet and spaces.   */
 
   const stringTransformer = str => str.split('').map(e => /[a-z]/.test(e) ? e.toUpperCase() : e.toLowerCase()).join('').split(' ').reverse().join(' ');
 
-  console.log(stringTransformer("Example Input"));
+  // console.log(stringTransformer("Example Input"));
+}
+
+{ /** 7 kyu  Return the first M multiples of N
+  Implement a function, multiples(m, n), which returns an array of the first m multiples of the real number n. Assume that m is a positive integer.
+Ex.
+multiples(3, 5.0)
+should return
+[5.0, 10.0, 15.0]   */
+
+  function multiples(m, n) {
+    return Array.from({ length: m }, (e, i) => n * (i + 1));
+  }
+  console.log((multiples(3, 5.0)));
 }
