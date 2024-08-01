@@ -6804,7 +6804,8 @@ should return
 [5.0, 10.0, 15.0]   */
 
   function multiples(m, n) {
-    return Array.from({ length: m }, (e, i) => n * (i + 1));
+    // return Array.from({ length: m }, (e, i) => n * (i + 1));
+    return [...Array(m)].map((e, i) => n * (i + 1));
   }
   console.log((multiples(3, 5.0)));
 }
