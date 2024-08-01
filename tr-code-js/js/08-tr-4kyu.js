@@ -6816,7 +6816,10 @@ should return
   min([1,2,3,4,5], 'value') // => 1
   min([1,2,3,4,5], 'index') // => 0  */
 
-  const min = (arr, toReturn) => toReturn === 'value' ? Math.min(...arr) : arr.indexOf(Math.min(...arr));
+  // const min = (arr, toReturn) => toReturn === 'value' ? Math.min(...arr) : arr.indexOf(Math.min(...arr));
 
-  console.log(min([1, 2, 3, 4, 5, 0], 'index'));
+  const min = (arr, toReturn) => (e => toReturn === `value` ? e : arr.indexOf(e))
+    (Math.min(...arr));
+
+  console.log(min([4, 5, 0, 3], 'index'));
 }
