@@ -6785,8 +6785,11 @@ You may assume the input only contain English alphabet and spaces.   */
   //   return str.split(' ').reverse().map(e => e.split('').map(e => e === e.toLowerCase() ? e.toUpperCase() : e.toLowerCase())).map(e => e.join('')).join(' ');
   // }
 
-  function stringTransformer(str) {
-    return str.split(' ').reverse().join(' ').split('').map(e => e === e.toLowerCase() ? e.toUpperCase() : e.toLowerCase()).join('');
-  }
+  // function stringTransformer(str) {
+  //   return str.split(' ').reverse().join(' ').split('').map(e => e === e.toLowerCase() ? e.toUpperCase() : e.toLowerCase()).join('');
+  // }
+
+  const stringTransformer = str => str.split(' ').reverse().join(' ').split('').map(e => /[a-z]/.test(e) ? e.toUpperCase() : e.toLowerCase()).join('');
+
   console.log(stringTransformer("Example Input"));
 }
