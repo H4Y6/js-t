@@ -6789,7 +6789,9 @@ You may assume the input only contain English alphabet and spaces.   */
   //   return str.split(' ').reverse().join(' ').split('').map(e => e === e.toLowerCase() ? e.toUpperCase() : e.toLowerCase()).join('');
   // }
 
-  const stringTransformer = str => str.split(' ').reverse().join(' ').split('').map(e => /[a-z]/.test(e) ? e.toUpperCase() : e.toLowerCase()).join('');
+  // const stringTransformer = str => str.split(' ').reverse().join(' ').split('').map(e => /[a-z]/.test(e) ? e.toUpperCase() : e.toLowerCase()).join('');
+
+  const stringTransformer = str => str.split('').map(e => /[a-z]/.test(e) ? e.toUpperCase() : e.toLowerCase()).join('').split(' ').reverse().join(' ');
 
   console.log(stringTransformer("Example Input"));
 }
