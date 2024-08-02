@@ -6818,11 +6818,113 @@ should return
 
   // const min = (arr, toReturn) => toReturn === 'value' ? Math.min(...arr) : arr.indexOf(Math.min(...arr));
 
-  // const min = (arr, toReturn) => (e => toReturn === `value` ? e : arr.indexOf(e))
-  //   (Math.min(...arr));
+  const min = (arr, toReturn) => (e => toReturn === `value` ? e : arr.indexOf(e))
+    (Math.min(...arr));
 
-  const min = (arr, toReturn, e = Math.min(...arr)) => toReturn === `value` ? e : arr.indexOf(e);
+  // const min = (arr, toReturn, e = Math.min(...arr)) => toReturn === `value` ? e : arr.indexOf(e);
 
 
-  console.log(min([4, 5, 0, 3], 'index'));
+  // console.log(min([4, 5, 0, 3], 'index'));
+}
+
+{ /** 6 kyu  Maze Runner
+  Welcome Adventurer. Your aim is to navigate the maze and reach the finish point without touching any walls. Doing so will kill you instantly!
+Task
+You will be given a 2D array of the maze and an array of directions. Your task is to follow the directions given. If you reach the end point before all your moves have gone, you should return Finish. If you hit any walls or go outside the maze border, you should return Dead. If you find yourself still in the maze after using all the moves, you should return Lost.
+The Maze array will look like: */
+
+  const maze = [[1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 3],
+  [1, 0, 1, 0, 1, 0, 1],
+  [0, 0, 1, 0, 0, 0, 1],
+  [1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1],
+  [1, 2, 1, 0, 1, 0, 1]];
+
+  /*
+..with the following key;
+
+0 = Safe place to walk;
+1 = Wall;
+2 = Start Point;
+3 = Finish Point;
+direction = ["N", "N", "N", "N", "N", "E", "E", "E", "E", "E"] == "Finish";
+Rules;
+1. The Maze array will always be square i.e.N x N but its size and content will alter from test to test.
+
+2. The start and finish positions will change for the final tests.
+
+3. The directions array will always be in upper case and will be in the format of N = North, E = East, W = West and S = South.
+
+4. If you reach the end point before all your moves have gone, you should return Finish.
+
+5. If you hit any walls or go outside the maze border, you should return Dead.
+
+6. If you find yourself still in the maze after using all the moves, you should return Lost.
+Good luck, and stay safe! */
+
+  function move(direction) {
+    let v = 0, h = 0;
+    switch (direction) {
+      case 'N': v -= 1; break;
+      case 'S': v += 1; break;
+      case 'W': h -= 1; break;
+      case 'E': h += 1; break;
+    }
+    return [v, h];
+  }
+
+  function mazeRunner(maze, directions) {
+    console.log(directions);
+    let position = 1;
+    let idx0 = maze.findIndex(e => e.includes(2));
+    let idx1 = maze[idx0].indexOf(2);
+
+    for (let i = 0; i < directions.length; i++) {
+      const d = directions[i];
+      idx0 += parseInt(move(d)[0]);
+      if (idx0 > maze.length - 1) idx0 -= maze.length;
+      // if (idx0 < 0) idx0 = maze.length + idx0;
+      idx1 += parseInt(move(d)[1]);
+      if (idx1 < 0) idx1 = maze[idx0].length + idx1;
+      console.log('idx1->', idx1);
+      console.log('idx0->', idx0);
+      position = maze[idx0][idx1];
+      if (position === 1) { return 'Dead'; }
+      else if (position === 3) { return 'Finish'; }
+    }
+    return 'Lost';
+  }
+
+  // console.log(mazeRunner(maze, ["N", "N", "N", "N", "N", "E", "E", "E", "E", "E"]));
+  // console.log(mazeRunner(maze, ['N', 'N', 'N', 'W', 'W']));
+  //   console.log(mazeRunner(maze, ['S', 'E', 'W', 'N', 'N',
+  //     'N', 'W', 'W', 'E', 'E',
+  //     'W', 'W', 'N', 'S', 'S',
+  //     'N', 'W', 'W', 'S', 'S',
+  //     'N']));
+  //   console.log(mazeRunner(maze, ['N', 'N', 'S', 'E', 'S', 'W', 'E',
+  //     'N', 'N', 'W', 'W', 'E', 'N', 'N',
+  //     'S', 'W', 'W', 'W', 'E', 'W', 'N',
+  //     'E', 'S', 'S', 'S', 'S', 'W', 'S',
+  //     'S', 'S', 'W', 'N', 'E', 'N', 'E',
+  //     'E', 'N', 'W', 'E', 'E']));
+}
+
+{ /** 6 kyu  Lottery Ticket 
+  Given a lottery ticket (ticket), represented by an array of 2-value arrays, you must find out if you've won the jackpot.
+
+Example ticket:
+
+[ [ 'ABC', 65 ], [ 'HGR', 74 ], [ 'BYHT', 74 ] ]
+To do this, you must first count the 'mini-wins' on your ticket. Each subarray has both a string and a number within it. If the character code of any of the characters in the string matches the number, you get a mini win. Note you can only have one mini win per sub array.
+Once you have counted all of your mini wins, compare that number to the other input provided (win). If your total is more than or equal to (win), return 'Winner!'. Else return 'Loser!'.
+All inputs will be in the correct format. Strings on tickets are not always the same length.*/
+
+  const bingo = (ticket, win) => ticket.map((e) => e[0].split('').map(el => el.charCodeAt() === e[1]).includes(true)).filter(e => e).length < win ? 'Loser!' : 'Winner!';
+
+  // console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 2));
+  // console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 1));
+  // console.log(bingo([['HGTYRE', 74], ['BE', 66], ['JKTY', 74]], 3));
+  console.log(bingo([['QM', 77], ['OC', 76], ['FUWLEDKQ', 70], ['NC', 76], ['ESFBWGH', 69], ['IQN', 81]], 2));
 }
