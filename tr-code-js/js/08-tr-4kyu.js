@@ -6921,7 +6921,9 @@ To do this, you must first count the 'mini-wins' on your ticket. Each subarray h
 Once you have counted all of your mini wins, compare that number to the other input provided (win). If your total is more than or equal to (win), return 'Winner!'. Else return 'Loser!'.
 All inputs will be in the correct format. Strings on tickets are not always the same length.*/
 
-  const bingo = (ticket, win) => ticket.map((e) => e[0].split('').map(el => el.charCodeAt() === e[1]).includes(true)).filter(e => e).length < win ? 'Loser!' : 'Winner!';
+  // const bingo = (ticket, win) => ticket.map((e) => e[0].split('').map(el => el.charCodeAt() === e[1]).includes(true)).filter(e => e).length < win ? 'Loser!' : 'Winner!';
+
+  const bingo = (ticket, win) => ticket.map(el => [...el[0]].filter(e => e.charCodeAt() === el[1])).filter(e => e.length).length >= win ? 'Winner!' : 'Loser!';
 
   // console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 2));
   // console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 1));
