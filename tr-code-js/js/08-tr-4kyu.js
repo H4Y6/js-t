@@ -6952,3 +6952,16 @@ age = 17   =>   15-20       */
   const datingRange = age => [age > 14 ? age / 2 + 7 : .9 * age, age > 14 ? age * 2 - 14 : 1.1 * age].map(e => e ^ 0).join('-');
   // console.log(datingRange(15));
 }
+
+{ /** 7 kyu  Find Count of Most Frequent Item in an Array 
+  Complete the function to find the count of the most frequent item of an array. You can assume that input is an array of integers. For an empty array return 0
+xample
+input array: [3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]
+ouptut: 5 
+The most frequent number in the array is -1 and it occurs 5 times.*/
+
+  function mostFrequentItemCount(collection) {
+    return collection.length ? Math.max(...[...new Set(collection)].map(e => collection.filter(el => el === e)).map(e => e.length)) : 0;
+  }
+  console.log(mostFrequentItemCount([3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]));
+}
