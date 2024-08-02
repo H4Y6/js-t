@@ -6923,7 +6923,9 @@ All inputs will be in the correct format. Strings on tickets are not always the 
 
   // const bingo = (ticket, win) => ticket.map((e) => e[0].split('').map(el => el.charCodeAt() === e[1]).includes(true)).filter(e => e).length < win ? 'Loser!' : 'Winner!';
 
-  const bingo = (ticket, win) => ticket.map(el => [...el[0]].filter(e => e.charCodeAt() === el[1])).filter(e => e.length).length >= win ? 'Winner!' : 'Loser!';
+  // const bingo = (ticket, win) => ticket.map(el => [...el[0]].filter(e => e.charCodeAt() === el[1])).filter(e => e.length).length >= win ? 'Winner!' : 'Loser!';
+
+  const bingo = (ticket, win) => ticket.reduce((res, el) => res + [...el[0]].some(e => e.charCodeAt() === el[1]), 0) >= win ? 'Winner!' : 'Loser!';
 
   // console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 2));
   // console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 1));
