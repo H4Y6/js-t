@@ -6948,6 +6948,7 @@ age = 5    =>   4-5
 age = 17   =>   15-20       */
 
   // const datingRange = age => age > 14 ? [~~(age / 2 + 7), ~~(age * 2 - 14)].join('-') : [~~(.9 * age), ~~(1.1 * age)].join('-');
-  const datingRange = age => [age > 14 ? age / 2 + 7 : .9 * age, age > 14 ? age * 2 - 14 : 1.1 * age].map(e => ~~e).join('-');
-  console.log(datingRange(15));
+  // const datingRange = age => [age > 14 ? age / 2 + 7 : .9 * age, age > 14 ? age * 2 - 14 : 1.1 * age].map(e => ~~e).join('-');
+  const datingRange = age => [age > 14 ? age / 2 + 7 : .9 * age, age > 14 ? age * 2 - 14 : 1.1 * age].map(e => e ^ 0).join('-');
+  // console.log(datingRange(15));
 }
