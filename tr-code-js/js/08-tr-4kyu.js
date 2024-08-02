@@ -6961,7 +6961,8 @@ ouptut: 5
 The most frequent number in the array is -1 and it occurs 5 times.*/
 
   function mostFrequentItemCount(collection) {
-    return collection.length ? Math.max(...[...new Set(collection)].map(e => collection.filter(el => el === e)).map(e => e.length)) : 0;
+    // return collection.length ? Math.max(...[...new Set(collection)].map(e => collection.filter(el => el === e)).map(e => e.length)) : 0;
+    return collection.length ? Math.max(...[...new Set(collection)].map(e => collection.filter(el => el === e).length)) : 0;
   }
   console.log(mostFrequentItemCount([3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]));
 }
