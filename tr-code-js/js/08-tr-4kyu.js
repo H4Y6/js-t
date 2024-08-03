@@ -7016,14 +7016,26 @@ if the given string is "" you will return "" */
   //   return res += ' Median: ' + [hh, mm, sec].join('|');
   // }
 
+  // function stat(strg) {
+  //   if (strg === '') return '';
+  //   const ss = strg.split(' ').map(e => e.split('|').map(el => parseInt(el))).map(e => e[0] * 3600 + e[1] * 60 + e[2]);
+  //   const range = Math.max(...ss) - Math.min(...ss);
+  //   const average = ss.reduce((sum, e) => sum + e, 0) / ss.length;
+  //   const sss = [...ss].sort((a, b) => a - b);
+  //   const median = ss.length % 2 ? sss.slice((ss.length - 1) / 2)[0] : sss.slice(ss.length / 2 - 1, ss.length / 2 + 1).reduce((sum, e) => sum + e, 0) / 2;
+
+  //   return 'Range: ' + [correctLength(getHours(range)), correctLength(getMins(range)), correctLength(getSs(range))].join('|')
+  //     + ' Average: ' + [correctLength(getHours(average)), correctLength(getMins(average)), correctLength(getSs(average))].join('|')
+  //     + ' Median: ' + [correctLength(getHours(median)), correctLength(getMins(median)), correctLength(getSs(median))].join('|');
+  // }
 
   function stat(strg) {
-    if (strg === '') return '';
-    const ss = strg.split(' ').map(e => e.split('|').map(el => parseInt(el))).map(e => e[0] * 3600 + e[1] * 60 + e[2]);
+    if (!strg) return '';
+    const ss = strg.split(' ').map(e => e.replace(/(\d+)\|(\d+)\|(\d+)\,*/, (_, h, m, s) => h * 3600 + m * 60 + +s));
     const range = Math.max(...ss) - Math.min(...ss);
-    const average = ss.reduce((sum, e) => sum + e, 0) / ss.length;
+    const average = ss.reduce((sum, e) => sum + +e, 0) / ss.length;
     const sss = [...ss].sort((a, b) => a - b);
-    const median = ss.length % 2 ? sss.slice((ss.length - 1) / 2)[0] : sss.slice(ss.length / 2 - 1, ss.length / 2 + 1).reduce((sum, e) => sum + e, 0) / 2;
+    const median = ss.length % 2 ? sss.slice((ss.length - 1) / 2)[0] : sss.slice(ss.length / 2 - 1, ss.length / 2 + 1).reduce((sum, e) => sum + +e, 0) / 2;
 
     return 'Range: ' + [correctLength(getHours(range)), correctLength(getMins(range)), correctLength(getSs(range))].join('|')
       + ' Average: ' + [correctLength(getHours(average)), correctLength(getMins(average)), correctLength(getSs(average))].join('|')
