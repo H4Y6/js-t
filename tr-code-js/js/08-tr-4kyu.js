@@ -6964,5 +6964,59 @@ The most frequent number in the array is -1 and it occurs 5 times.*/
     // return collection.length ? Math.max(...[...new Set(collection)].map(e => collection.filter(el => el === e)).map(e => e.length)) : 0;
     return collection.length ? Math.max(...[...new Set(collection)].map(e => collection.filter(el => el === e).length)) : 0;
   }
-  console.log(mostFrequentItemCount([3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]));
+  // console.log(mostFrequentItemCount([3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]));
+}
+
+{ /** 6 kyu. Statistics for an Athletic Association
+  You are the "computer expert" of a local Athletic Association (C.A.A.). Many teams of runners come to compete. Each time you get a string of all race results of every team who has run. For example here is a string showing the individual results of a team of 5 runners:
+"01|15|59, 1|47|6, 01|17|20, 1|32|34, 2|3|17"
+Each part of the string is of the form: h|m|s where h, m, s (h for hour, m for minutes, s for seconds) are positive or null integer (represented as strings) with one or two digits. Substrings in the input string are separated by ,  or ,.
+To compare the results of the teams you are asked for giving three statistics; range, average and median.
+Range : difference between the lowest and highest values. In {4, 6, 9, 3, 7} the lowest value is 3, and the highest is 9, so the range is 9 − 3 = 6.
+Mean or Average : To calculate mean, add together all of the numbers and then divide the sum by the total count of numbers.
+Median : In statistics, the median is the number separating the higher half of a data sample from the lower half. The median of a finite list of numbers can be found by arranging all the observations from lowest value to highest value and picking the middle one (e.g., the median of {3, 3, 5, 9, 11} is 5) when there is an odd number of observations. If there is an even number of observations, then there is no single middle value; the median is then defined to be the mean of the two middle values (the median of {3, 5, 6, 9} is (5 + 6) / 2 = 5.5).
+Your task is to return a string giving these 3 values. For the example given above, the string result will be
+"Range: 00|47|18 Average: 01|35|15 Median: 01|32|34"
+of the form: "Range: hh|mm|ss Average: hh|mm|ss Median: hh|mm|ss"`
+where hh, mm, ss are integers (represented by strings) with each 2 digits.
+Remarks:
+if a result in seconds is ab.xy... it will be given truncated as ab.
+if the given string is "" you will return "" */
+
+  const correctLength = s => s.length > 1 ? s : correctLength(s = 0 + s);
+  const getHours = n => (n / 3600 ^ 0).toFixed(0);
+  const getMins = n => (n % 3600 / 60 ^ 0).toFixed(0);
+  const getSs = n => (n % 3600 % 60 ^ 0).toFixed(0);
+
+  function stat(strg) {
+    if (strg === '') return '';
+    let res = '';
+    const ss = strg.split(' ').map(e => e.split('|').map(el => parseInt(el))).map(e => e[0] * 3600 + e[1] * 60 + e[2]);
+
+    {
+      const range = Math.max(...ss) - Math.min(...ss);
+      const hh = correctLength(getHours(range));
+      const mm = correctLength(getMins(range));
+      const sec = correctLength(getSs(range));
+      res = 'Range: ' + [hh, mm, sec].join('|');
+    }
+
+    {
+      const average = ss.reduce((sum, e) => sum + e, 0) / ss.length;
+      const hh = correctLength(getHours(average));
+      const mm = correctLength(getMins(average));
+      const sec = correctLength(getSs(average));
+      res += ' Average: ' + [hh, mm, sec].join('|');
+    }
+    const sss = [...ss].sort((a, b) => a - b);
+    const median = ss.length % 2 ? sss.slice((ss.length - 1) / 2)[0] : sss.slice(ss.length / 2 - 1, ss.length / 2 + 1).reduce((sum, e) => sum + e, 0) / 2;
+    const hh = correctLength(getHours(median));
+    const mm = correctLength(getMins(median));
+    const sec = correctLength(getSs(median));
+    return res += ' Median: ' + [hh, mm, sec].join('|');
+  }
+  // console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
+  // console.log(stat("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41"));
+  // console.log(stat("00|17|20, 1|20|14, 00|15|17, 00|15|17, 02|17|20, 10|26|37, 1|26|37, 00|17|20, 2|17|17"));
+  console.log(stat("00|19|34, 1|16|30"));
 }
