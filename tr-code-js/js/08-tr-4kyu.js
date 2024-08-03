@@ -6983,10 +6983,10 @@ Remarks:
 if a result in seconds is ab.xy... it will be given truncated as ab.
 if the given string is "" you will return "" */
 
-  const correctLength = s => s.length > 1 ? s : correctLength(s = 0 + s);
-  const getHours = n => (n / 3600 ^ 0).toFixed(0);
-  const getMins = n => (n % 3600 / 60 ^ 0).toFixed(0);
-  const getSs = n => (n % 3600 % 60 ^ 0).toFixed(0);
+  // const correctLength = s => s.length > 1 ? s : correctLength(s = 0 + s);
+  // const getHours = n => (n / 3600 ^ 0).toFixed(0);
+  // const getMins = n => (n % 3600 / 60 ^ 0).toFixed(0);
+  // const getSs = n => (n % 3600 % 60 ^ 0).toFixed(0);
 
   // function stat(strg) {
   //   if (strg === '') return '';
@@ -7029,21 +7029,56 @@ if the given string is "" you will return "" */
   //     + ' Median: ' + [correctLength(getHours(median)), correctLength(getMins(median)), correctLength(getSs(median))].join('|');
   // }
 
+  // function stat(strg) {
+  //   if (!strg) return '';
+  //   const ss = strg.split(' ').map(e => e.replace(/(\d+)\|(\d+)\|(\d+)\,*/, (_, h, m, s) => h * 3600 + m * 60 + +s));
+  //   const range = Math.max(...ss) - Math.min(...ss);
+  //   const average = ss.reduce((sum, e) => sum + +e, 0) / ss.length;
+  //   const sss = [...ss].sort((a, b) => a - b);
+  //   const median = ss.length % 2 ? sss.slice((ss.length - 1) / 2)[0] : sss.slice(ss.length / 2 - 1, ss.length / 2 + 1).reduce((sum, e) => sum + +e, 0) / 2;
+
+  //   return 'Range: ' + [correctLength(getHours(range)), correctLength(getMins(range)), correctLength(getSs(range))].join('|')
+  //     + ' Average: ' + [correctLength(getHours(average)), correctLength(getMins(average)), correctLength(getSs(average))].join('|')
+  //     + ' Median: ' + [correctLength(getHours(median)), correctLength(getMins(median)), correctLength(getSs(median))].join('|');
+  // }
+
   function stat(strg) {
     if (!strg) return '';
-    const ss = strg.split(' ').map(e => e.replace(/(\d+)\|(\d+)\|(\d+)\,*/, (_, h, m, s) => h * 3600 + m * 60 + +s));
-    const range = Math.max(...ss) - Math.min(...ss);
-    const average = ss.reduce((sum, e) => sum + +e, 0) / ss.length;
-    const sss = [...ss].sort((a, b) => a - b);
-    const median = ss.length % 2 ? sss.slice((ss.length - 1) / 2)[0] : sss.slice(ss.length / 2 - 1, ss.length / 2 + 1).reduce((sum, e) => sum + +e, 0) / 2;
+    const resStats = new ResStats(strg);
+    return `Range: ${resStats.getRange()} Average: ${resStats.getAverage()} Median: ${resStats.getMedian()}`;
+  }
 
-    return 'Range: ' + [correctLength(getHours(range)), correctLength(getMins(range)), correctLength(getSs(range))].join('|')
-      + ' Average: ' + [correctLength(getHours(average)), correctLength(getMins(average)), correctLength(getSs(average))].join('|')
-      + ' Median: ' + [correctLength(getHours(median)), correctLength(getMins(median)), correctLength(getSs(median))].join('|');
+
+  class ResStats {
+    constructor(s) {
+      this.ss = s.split(", ").map(e => e.replace(/(\d+)\|(\d+)\|(\d+)/, (_, h, m, s) => h * 3600 + m * 60 + +s));
+    }
+
+    addZero(s) { return s.length > 1 ? s : this.addZero(s = 0 + s); };
+    getHours(n) { return (n / 3600 ^ 0).toFixed(0); };
+    getMins(n) { return (n % 3600 / 60 ^ 0).toFixed(0); };
+    getSs(n) { return (n % 3600 % 60 ^ 0).toFixed(0); };
+
+    getRange() {
+      const range = Math.max(...this.ss) - Math.min(...this.ss);
+      return [this.addZero(this.getHours(range)), this.addZero(this.getMins(range)), this.addZero(this.getSs(range))].join('|');
+    }
+
+    getAverage() {
+      const average = this.ss.reduce((sum, e) => sum + +e, 0) / this.ss.length;
+      return [this.addZero(this.getHours(average)), this.addZero(this.getMins(average)), this.addZero(this.getSs(average))].join('|');
+    }
+
+    getMedian() {
+      const sorted = [...this.ss].sort((a, b) => a - b);
+      const median = this.ss.length % 2 ? sorted.slice((this.ss.length - 1) / 2)[0]
+        : sorted.slice(this.ss.length / 2 - 1, this.ss.length / 2 + 1).reduce((sum, e) => sum + +e, 0) / 2;
+      return [this.addZero(this.getHours(median)), this.addZero(this.getMins(median)), this.addZero(this.getSs(median))].join('|');
+    }
   }
 
   // console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
   // console.log(stat("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41"));
   // console.log(stat("00|17|20, 1|20|14, 00|15|17, 00|15|17, 02|17|20, 10|26|37, 1|26|37, 00|17|20, 2|17|17"));
-  console.log(stat("00|19|34, 1|16|30"));
+  // console.log(stat("00|19|34, 1|16|30"));
 }
