@@ -7054,26 +7054,27 @@ if the given string is "" you will return "" */
       this.ss = s.split(", ").map(e => e.replace(/(\d+)\|(\d+)\|(\d+)/, (_, h, m, s) => h * 3600 + m * 60 + +s));
     }
 
-    addZero(s) { return s.length > 1 ? s : this.addZero(s = 0 + s); };
+    add0(s) { return s = ('00' + s).slice(-2); };
+    // add0(s) { return s.length > 1 ? s : this.add0(s = 0 + s); };
     getHours(n) { return (n / 3600 ^ 0).toFixed(0); };
     getMins(n) { return (n % 3600 / 60 ^ 0).toFixed(0); };
     getSs(n) { return (n % 3600 % 60 ^ 0).toFixed(0); };
 
     getRange() {
       const range = Math.max(...this.ss) - Math.min(...this.ss);
-      return [this.addZero(this.getHours(range)), this.addZero(this.getMins(range)), this.addZero(this.getSs(range))].join('|');
+      return [this.add0(this.getHours(range)), this.add0(this.getMins(range)), this.add0(this.getSs(range))].join('|');
     }
 
     getAverage() {
       const average = this.ss.reduce((sum, e) => sum + +e, 0) / this.ss.length;
-      return [this.addZero(this.getHours(average)), this.addZero(this.getMins(average)), this.addZero(this.getSs(average))].join('|');
+      return [this.add0(this.getHours(average)), this.add0(this.getMins(average)), this.add0(this.getSs(average))].join('|');
     }
 
     getMedian() {
       const sorted = [...this.ss].sort((a, b) => a - b);
       const median = this.ss.length % 2 ? sorted.slice((this.ss.length - 1) / 2)[0]
         : sorted.slice(this.ss.length / 2 - 1, this.ss.length / 2 + 1).reduce((sum, e) => sum + +e, 0) / 2;
-      return [this.addZero(this.getHours(median)), this.addZero(this.getMins(median)), this.addZero(this.getSs(median))].join('|');
+      return [this.add0(this.getHours(median)), this.add0(this.getMins(median)), this.add0(this.getSs(median))].join('|');
     }
   }
 
