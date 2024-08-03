@@ -7083,3 +7083,52 @@ if the given string is "" you will return "" */
   // console.log(stat("00|17|20, 1|20|14, 00|15|17, 00|15|17, 02|17|20, 10|26|37, 1|26|37, 00|17|20, 2|17|17"));
   // console.log(stat("00|19|34, 1|16|30"));
 }
+
+{ /** 5kyu Sum of Pairs
+  Given a list of integers and a single sum value, return the first two values (parse from the left please) in order of appearance that add up to form the sum.
+    If there are two or more pairs with the required sum, the pair whose second element has the smallest index is the solution.
+  
+  sum_pairs([11, 3, 7, 5],         10)
+  #              ^--^      3 + 7 = 10
+  == [3, 7]
+  
+  sum_pairs([4, 3, 2, 3, 4],         6)
+  #          ^-----^         4 + 2 = 6, indices: 0, 2 *
+  #             ^-----^      3 + 3 = 6, indices: 1, 3
+  #                ^-----^   2 + 4 = 6, indices: 2, 4
+  #  * the correct answer is the pair whose second value has the smallest index
+  == [4, 2]
+  
+  sum_pairs([0, 0, -2, 3], 2)
+  #  there are no pairs of values that can be added to produce 2.
+  == None/nil/undefined (Based on the language)
+  
+  sum_pairs([10, 5, 2, 3, 7, 5],         10)
+  #              ^-----------^   5 + 5 = 10, indices: 1, 5
+  #                    ^--^      3 + 7 = 10, indices: 3, 4 *
+  #  * the correct answer is the pair whose second value has the smallest index
+  == [3, 7]
+  Negative numbers and duplicate numbers can and will appear.
+  
+  NOTE: There will also be lists tested of lengths upwards of 10,000,000 elements. Be sure your code doesn't time out.   */
+
+  /** STDERR: Execution Timed Out (12000 ms) */
+
+  function sumPairs(ints, s) {
+    if (ints.length > 50) {
+      const idx = Math.min(...ints.map((e, i) => ints.slice(i + 1).map((el, i2) => [e + el, i + i2 + 1])).flatMap(e => e).filter(e => e[0] === s).map(e => e[1]));
+      return [s - ints[idx], ints[idx]];
+    }
+
+    const sArr = ints.map((e, i) => ints.slice(i + 1).map((el, i2, ar) => [e + el, i + i2 + 1])).flatMap(e => e).filter(e => e[0] === s);
+    if (sArr.length) {
+      const idx = Math.min(...sArr.map(e => e[1]));
+      return [s - ints[idx], ints[idx]];
+    }
+    return undefined;
+  }
+
+  console.log(sumPairs([10, 5, 2, 3, 7, 5], 10));
+  console.log(sumPairs([1, 4, 8, 7, 3, 15], 8));
+  console.log(sumPairs([20, -13, 40], -7));
+}
