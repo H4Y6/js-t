@@ -7120,7 +7120,23 @@ if the given string is "" you will return "" */
     return sArr.length ? [s - ints[idx], ints[idx]] : undefined;
   }
 
-  console.log(sumPairs([10, 5, 2, 3, 7, 5], 10));
-  console.log(sumPairs([1, 4, 8, 7, 3, 15], 8));
-  console.log(sumPairs([20, -13, 40], -7));
+  // function sumPairs(ints, s) {
+  //   const sArr = [];
+  //   const array = [...ints];
+
+  //   for (let i = 0; i < array.length; i++) {
+  //     const e = array[i];
+
+  //     for (let j = i + 1; j < array.length; j++) {
+  //       const el = array[j];
+  //       if (e + el === s) sArr.push([[e, el], j]);
+  //     }
+  //   }
+  //   return !sArr.length ? undefined : sArr.length === 1 ? sArr[0][0]
+  //     : [s - ints[Math.min(...sArr.map(e => e[1]))], ints[Math.min(...sArr.map(e => e[1]))]];
+  // }
+
+  // console.log(sumPairs([10, 5, 2, 3, 7, 5], 10));
+  // console.log(sumPairs([1, 4, 8, 7, 3, 15], 8));
+  // console.log(sumPairs([20, -13, 40], -7));
 }
