@@ -7206,9 +7206,11 @@ Given an item at $75 sale price after applying a 25% discount, the function shou
 DiscoverOriginalPrice(75, 25) => 100.00M where 75 is the sale price (discounted price), 25 is the sale percentage and 100 is the original price */
 
   function discoverOriginalPrice(discountedPrice, salePercentage) {
-    return +(discountedPrice * 100 / (100 - salePercentage)).toFixed(2);
+    // return +(discountedPrice * 100 / (100 - salePercentage)).toFixed(2);
+    // return Math.round(discountedPrice * 10000 / (100 - salePercentage)) / 100;
+    return Math.round(discountedPrice * 100 / (1 - salePercentage / 100)) / 100;
   }
-  console.log(discoverOriginalPrice(75.75, 25));
-  console.log(discoverOriginalPrice(373.85, 11.2));
-  console.log(discoverOriginalPrice(458.2, 17.13));
+  // console.log(discoverOriginalPrice(75.75, 25));
+  // console.log(discoverOriginalPrice(373.85, 11.2));
+  // console.log(discoverOriginalPrice(458.2, 17.13));
 }
