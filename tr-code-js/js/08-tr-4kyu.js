@@ -7165,8 +7165,35 @@ All inputs will be valid.         */
   // const last = x => x.split(' ').sort((a, b) => a[a.length - 1] === b[b.length - 1] ? 0 : a[a.length - 1] > b[b.length - 1] ? 1 : -1);
   // const last = x => x.split(' ').sort((a, b) => a[a.length - 1] === b[b.length - 1] ? 0 : a[a.length - 1] < b[b.length - 1] ? -1 : 1);
 
-  console.log(last('man i need a taxi up to ubud'));
-  console.log(last('take me to semynak'));
-  console.log(last('what time are we climbing up the volcano'));
+  // console.log(last('man i need a taxi up to ubud'));
+  // console.log(last('take me to semynak'));
+  // console.log(last('what time are we climbing up the volcano'));
+
   // const ss = str.split(' ').map(e => e.replace(/(\d+)\|(\d+)\|(\d+)\,*/, (_, h, m, s) => h * 3600 + m * 60 + +s));
+}
+
+{ /** 7 kyu  Last Survivor 
+  You are given a string of letters and an array of numbers.
+The numbers indicate positions of letters that must be removed, in order, starting from the beginning of the array.
+After each removal the size of the string decreases (there is no empty space).
+Return the only letter left.
+Example:
+let str = "zbk", arr = [0, 1]
+    str = "bk", arr = [1]
+    str = "b", arr = []
+    return 'b'
+Notes
+The given string will never be empty.
+The length of the array is always one less than the length of the string.
+All numbers are valid.
+There can be duplicate letters and numbers    */
+
+  function lastSurvivor(letters, coords) {
+    let arr = [...letters];
+    coords.map(e => {
+      arr.splice(e, 1);
+    });
+    return arr[0];
+  }
+  // console.log(lastSurvivor('kbc', [0, 1]));
 }
