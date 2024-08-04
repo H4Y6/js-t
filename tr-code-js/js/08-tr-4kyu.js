@@ -7115,17 +7115,9 @@ if the given string is "" you will return "" */
   /** STDERR: Execution Timed Out (12000 ms) */
 
   function sumPairs(ints, s) {
-    if (ints.length > 50) {
-      const idx = Math.min(...ints.map((e, i) => ints.slice(i + 1).map((el, i2) => [e + el, i + i2 + 1])).flatMap(e => e).filter(e => e[0] === s).map(e => e[1]));
-      return [s - ints[idx], ints[idx]];
-    }
-
     const sArr = ints.map((e, i) => ints.slice(i + 1).map((el, i2, ar) => [e + el, i + i2 + 1])).flatMap(e => e).filter(e => e[0] === s);
-    if (sArr.length) {
-      const idx = Math.min(...sArr.map(e => e[1]));
-      return [s - ints[idx], ints[idx]];
-    }
-    return undefined;
+    const idx = Math.min(...sArr.map(e => e[1]));
+    return sArr.length ? [s - ints[idx], ints[idx]] : undefined;
   }
 
   console.log(sumPairs([10, 5, 2, 3, 7, 5], 10));
