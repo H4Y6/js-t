@@ -7225,7 +7225,8 @@ These are example of how to convert a number to an ascii Character:
 Javascript => String.fromCharCode(97) // a  */
 
   const arrowFunc = function (arr) {
-    return arr.map(e => String.fromCharCode(e)).join('');
+    // return arr.map(e => String.fromCharCode(e)).join('');
+    return String.fromCharCode(...arr);
   };
   // console.log(arrowFunc([84, 101, 115, 116]));
 }
