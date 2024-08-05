@@ -7230,3 +7230,132 @@ Javascript => String.fromCharCode(97) // a  */
   };
   // console.log(arrowFunc([84, 101, 115, 116]));
 }
+
+{
+  // const sum1_n = (n) =>
+  // 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12;
+
+  // n < 2 ? n : n + sum1_n(n - 1);
+
+  // const sum1_n = function (n) {
+  //   let total = 0;
+
+  //   while (n > 0) {
+  //     total += n;
+  //     n--;
+  //   }
+  //   return total;
+  // };
+
+  const sum1_n = function (n) {
+    let total = 0;
+
+    do {
+      total += n;
+      n--;
+    } while (n >= 1);
+    return total;
+  };
+  // console.log(sum1_n(12));
+}
+
+{ /** 8 kyu  Training JS #9: loop statement --while and do..while 
+  Task
+Complete function padIt, which accepts 2 parameters:
+str: a string representing the string to pad. We will pad it with "*" symbols on its left side and on its right side.
+n: a number indicating how many times to pad the string.
+Behaviour
+You need to write a loop statement within the function that loops n times. Each time through the loop it will add one * to str, alternating on which side it is padded: the first time will add a * to the left side of str, the second time will add a * to the right side, and so on.
+Finally, return the padded string.   */
+
+  // function padIt(str, n) {
+  //   let limiter = str.length + n;
+  //   while (str.length < limiter) {
+  //     str = '*' + str + '*';
+  //   }
+  //   return (str.length > limiter) ? str.slice(0, -1) : str;
+  // }
+
+  //   function padIt(str, n) {
+  //     while (n > 0) {
+  //       n--;
+  //       str = '*' + str;
+  //       if (n > 0)
+  //         str += '*';
+  //       n--;
+  //     }
+  //     return str;
+  //   }
+  //   console.log(padIt('a', 5));
+  // }
+
+  function padIt(str, n) {
+    while (n > 0) {
+      n-- % 2 ? str = '*' + str : str += '*';
+    }
+    return str;
+  }
+  // console.log(padIt('a', 5));
+}
+
+{ /** 5 kyu  Kata 2019: Bonus Game I 
+  Task
+John won the championship of a TV show. He can get some bonuses.
+
+He needs to play a game to determine the amount of his bonus.
+
+Here are some cards in a row. A number is written on each card.
+
+In each turn, John can take a card, but only from the beginning or the end of the row. Then multiply the number on the card by an coefficient 2i(i means the ith turn). The product is John's bonus of current turn.
+
+After all the cards are taken away, the game is over. John's final bonus is the sum of all rounds of bonuses.
+
+Obviously, the order in which John takes the cards will affect the amount of John's final bonus.
+
+Your task is to help John calculate the maximum amount of bonuses he can get.
+
+Input
+cards: An integer array. Each element represents the number on the card.
+
+1 <= cards.length <= 30
+1 <= cards[i] <= 100
+All inputs are valid.
+
+Output
+An integer. the maximum amount of bonuses John can get.
+
+Eaxmple
+For cards=[1,2,5], the output should be 50.
+
+All possible orders are:
+1->2->5   bonus:1x2+2*4+5*8=50
+1->5->2   bonus:1x2+5*4+2*8=38
+5->1->2   bonus:5*2+1*4+2*8=30
+5->2->1   bonus:5*2+2*4+1*8=26
+The maximum amount of bonus is 50.  */
+
+  function calc(cards) {
+    let operCards = [...cards];
+    let bonus = 0;
+    let turns = 1;
+    for (let i = 0; i < cards.length; i++) {
+      const min = Math.min(operCards[0], operCards[operCards.length - 1]);
+      if (operCards[0] === min) {
+        console.log('operCards', operCards);
+        bonus += operCards.shift() * 2 ** turns;
+        console.log('turns', turns);
+        console.log('bonus', bonus);
+        turns += 1;
+      } else {
+        console.log('operCards', operCards);
+        bonus += (operCards.pop()) * 2 ** turns;
+        console.log('turns', turns);
+        console.log('bonus', bonus);
+        turns += 1;
+      }
+    }
+    return bonus;
+  }
+  // console.log(calc([1, 2, 5]));
+  console.log(calc([4, 10, 2, 3, 1, 3, 1, 6, 9])); /** my result = 6284; The author resulted 6722 */
+}

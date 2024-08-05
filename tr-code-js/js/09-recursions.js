@@ -33,3 +33,8 @@ Examples
   const factorial = n => n < 2 ? 1 : n * factorial(n - 1);
   // console.log(factorial(5));
 }
+
+{
+  const sum1_n = (n) => n < 2 ? n : n + sum1_n(n - 1);
+  console.log(sum1_n(12));
+}
