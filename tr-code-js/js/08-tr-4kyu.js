@@ -7373,11 +7373,16 @@ Note: in case you don't get why this kata is about English beggars, then you are
 
 Note 2: do not modify the input array.      */
 
-  const beggars = (values, n) => {
-    let arr = Array(n).fill(0);
-    values.map((e, i) => { arr[i % n] += e; });
-    return arr;
-  };
+  // const beggars = (values, n) => {
+  //   let arr = Array(n).fill(0);
+  //   values.map((e, i) => { arr[i % n] += e; });
+  //   return arr;
+  // };
 
-  console.log(beggars([1, 2, 3, 4, 5], 3));
+  const beggars = (values, n) => values.reduce((arr, e, i) => {
+    arr[i % n] += e;
+    return arr;
+  }, new Array(n).fill(0));
+
+  // console.log(beggars([1, 2, 3, 4, 5], 3));
 }
