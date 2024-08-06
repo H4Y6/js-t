@@ -7571,7 +7571,8 @@ Size is always positive */
   //   const regex = new RegExp(`\\w{${partLength}}`, 'g');
   //   return s.match(regex).join(' ') + (s.length % partLength ? ' ' + s.slice(-s.length % partLength) : '');
   // };
-  const splitInParts = (s, partLength) => s.match(new RegExp(`.{1,${partLength}}`, 'g')).join(' ');
+  // const splitInParts = (s, partLength) => s.match(new RegExp(`.{1,${partLength}}`, 'g')).join(' ');
+  const splitInParts = (s, partLength) => s.replace(new RegExp(`(.{${partLength}})(?!$)`, 'g'), '$1 ');
 
   // console.log(splitInParts('supercalifragilisticexpialidocious', 3));
   // console.log(splitInParts('HelloKata', 1));
