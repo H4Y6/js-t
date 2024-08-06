@@ -7536,7 +7536,8 @@ Examples (input -> output):
 * [8, 2, 7, 2, 3, 4, 6, 5, 4, 4, 1, 2, 3], [2, 4, 3] -> [8, 7, 6, 5, 1]         */
 
   Array.prototype.remove_ = function (integer_list, values_list) {
-    return integer_list.filter(e => !values_list.includes(e));
+    // return integer_list.filter(e => !values_list.includes(e));
+    return integer_list.filter(e => values_list.indexOf(e) < 0);
   };
   console.log(Array.prototype.remove_([1, 1, 2, 3, 1, 2, 3, 4], [1, 3]));
 }
