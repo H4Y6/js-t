@@ -65,3 +65,10 @@ only contains alphanumeric characters (note that '_' is not alphanumeric)
 
 const REGEXP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
 const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[_])\w{6,}$/;
+
+=========================================================================   regex with vars:
+
+  const splitInParts = function (s, partLength) {
+    const regex = new RegExp(`\\w{${partLength}}`, 'g');
+    return s.match(regex).join(' ') + ' ' + s.slice(-s.length % partLength);
+  };
