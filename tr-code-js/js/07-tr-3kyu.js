@@ -12,6 +12,7 @@ In other words, the shortest string has to be put as prefix and as suffix of the
 Strings a and b may be empty, but not null (In C# strings may also be null. Treat them as if they are empty.).
 If a and b have the same length treat a as the longer producing b+reverse(a)+b */
 
-  const shorterReverseLonger = (a, b) => a.length < b.length ? [...a].concat([...b].reverse(), [...a]).join('') : [...b].concat([...a].reverse(), [...b]).join('');
-  console.log(shorterReverseLonger("hello", "bau"));
+  // const shorterReverseLonger = (a, b) => a.length < b.length ? [...a].concat([...b].reverse(), [...a]).join('') : [...b].concat([...a].reverse(), [...b]).join('');
+  const shorterReverseLonger = (a, b) => a.length < b.length ? a.concat([...b].reverse().join(''), a) : b.concat([...a].reverse().join(''), b);
+  // console.log(shorterReverseLonger("hello", "bau"));
 }
