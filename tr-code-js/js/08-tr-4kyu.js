@@ -7537,7 +7537,8 @@ Examples (input -> output):
 
   Array.prototype.remove_ = function (integer_list, values_list) {
     // return integer_list.filter(e => !values_list.includes(e));
-    return integer_list.filter(e => values_list.indexOf(e) < 0);
+    // return integer_list.filter(e => values_list.indexOf(e) < 0);
+    return integer_list.filter(e => !(new Set(values_list).has(e)));
   };
   console.log(Array.prototype.remove_([1, 1, 2, 3, 1, 2, 3, 4], [1, 3]));
 }
