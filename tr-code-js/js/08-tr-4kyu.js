@@ -7478,3 +7478,15 @@ Notice also that you return the characters from the first string concatenated wi
   // console.log(solve("xyabb", "xzca"));
   // console.log(solve("abcd", "xyz"));
 }
+
+{ /** 7 kyu  Largest Elements
+  Write a program that outputs the top n elements from a list.
+Example:
+largest(2, [7,6,5,4,3,2,1])
+// => [6, */
+
+  function largest(n, array) {
+    return n ? [...array].sort((a, b) => a - b).slice(-n) : [];
+  }
+  // console.log(largest(0, [-3, -2, -1, 0, -9, -8, -7, -6, -4, -5]));
+}
