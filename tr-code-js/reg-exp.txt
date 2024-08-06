@@ -72,3 +72,7 @@ const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[_])\w{6,}$/;
     const regex = new RegExp(`\\w{${partLength}}`, 'g');
     return s.match(regex).join(' ') + ' ' + s.slice(-s.length % partLength);
   };
+
+  const splitInParts = (s, partLength) => s.match(new RegExp(`.{1,${partLength}}`, 'g')).join(' ');
+
+  ================================================================================================

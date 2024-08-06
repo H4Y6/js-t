@@ -7567,10 +7567,12 @@ String length is always greater than 0
 String has no spaces
 Size is always positive */
 
-  const splitInParts = function (s, partLength) {
-    const regex = new RegExp(`\\w{${partLength}}`, 'g');
-    return s.match(regex).join(' ') + (s.length % partLength ? ' ' + s.slice(-s.length % partLength) : '');
-  };
-  console.log(splitInParts('supercalifragilisticexpialidocious', 3));
-  console.log(splitInParts('HelloKata', 1));
+  // const splitInParts = function (s, partLength) {
+  //   const regex = new RegExp(`\\w{${partLength}}`, 'g');
+  //   return s.match(regex).join(' ') + (s.length % partLength ? ' ' + s.slice(-s.length % partLength) : '');
+  // };
+  const splitInParts = (s, partLength) => s.match(new RegExp(`.{1,${partLength}}`, 'g')).join(' ');
+
+  // console.log(splitInParts('supercalifragilisticexpialidocious', 3));
+  // console.log(splitInParts('HelloKata', 1));
 }
