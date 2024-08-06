@@ -4,7 +4,7 @@ The arrays only contain integers. Also, the final outcome must be sorted and not
 
   const mergeArrays = (a, b) => [...new Set([...a, ...b])].sort((a, b) => a - b);
 
-  console.log(mergeArrays([2, 4, 8], [2, 4, 6]));
+  // console.log(mergeArrays([2, 4, 8], [2, 4, 6]));
 }
 {/** 7 kyu shorter concat [reverse longer] 
   Given 2 strings, a and b, return a string of the form: shorter+reverse(longer)+shorter.
@@ -13,6 +13,7 @@ Strings a and b may be empty, but not null (In C# strings may also be null. Trea
 If a and b have the same length treat a as the longer producing b+reverse(a)+b */
 
   // const shorterReverseLonger = (a, b) => a.length < b.length ? [...a].concat([...b].reverse(), [...a]).join('') : [...b].concat([...a].reverse(), [...b]).join('');
-  const shorterReverseLonger = (a, b) => a.length < b.length ? a.concat([...b].reverse().join(''), a) : b.concat([...a].reverse().join(''), b);
+  // const shorterReverseLonger = (a, b) => a.length < b.length ? a.concat([...b].reverse().join(''), a) : b.concat([...a].reverse().join(''), b);
+  const shorterReverseLonger = (a, b) => a.length < b.length ? a + [...b].reverse().join('') + a : b + [...a].reverse().join('') + b;
   // console.log(shorterReverseLonger("hello", "bau"));
 }
