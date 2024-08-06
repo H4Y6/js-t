@@ -7411,13 +7411,19 @@ ex3 ~O~O~O~OP~O~OO~ has 2 deaf rats */
   //   return !i ? findLeftPP(town) : i === town.length - 1 ? findRightPP(town) : findRightPP(town) + findLeftPP(town);
   // };
 
-  const findDeaf = town => [...town.replaceAll(' ', '')].filter((e, i) => i % 2 ? e === '~' : '').length;
-  const countDeafRats = function (town) {
-    const i = town.indexOf('P');
-    return !i || i === town.length - 1 ? findDeaf(town) : findDeaf(town.slice(0, i)) + findDeaf(town.slice(i));
-  };
+  // const findDeaf = town => [...town.replaceAll(' ', '')].filter((e, i) => i % 2 ? e === '~' : '').length;
+  // const countDeafRats = function (town) {
+  //   const i = town.indexOf('P');
+  //   return !i || i === town.length - 1 ? findDeaf(town) : findDeaf(town.slice(0, i)) + findDeaf(town.slice(i));
+  // };
 
-  console.log(countDeafRats("P O~ O~ ~O O~"));
-  console.log(countDeafRats("~O~O~O~O P"));
-  console.log(countDeafRats("~O~O~O~OP~O~OO~"));
+  const findDeaf = str => [...str].filter((e, i) => i % 2 ? e === '~' : '').length;
+  const countDeafRats = (town) => {
+    let [left, right] = town.replaceAll(' ', '').split('P');
+    right = ' ' + right;
+    return findDeaf(left) + findDeaf(right);
+  };
+  // console.log(countDeafRats("P O~ O~ ~O O~"));
+  // console.log(countDeafRats("~O~O~O~O P"));
+  // console.log(countDeafRats("~O~O~O~OP~O~OO~"));
 }
