@@ -7540,5 +7540,17 @@ Examples (input -> output):
     // return integer_list.filter(e => values_list.indexOf(e) < 0);
     return integer_list.filter(e => !(new Set(values_list).has(e)));
   };
-  console.log(Array.prototype.remove_([1, 1, 2, 3, 1, 2, 3, 4], [1, 3]));
+  // console.log(Array.prototype.remove_([1, 1, 2, 3, 1, 2, 3, 4], [1, 3]));
+}
+
+{ /** 7 kyu  Return String of First Characters
+  In this exercise, a string is passed to a method and a new string has to be returned with the first character of each word in the string.
+For example:
+"This Is A Test" ==> "TIAT"
+Strings will only contain letters and spaces, with exactly 1 space between words, and no leading/trailing spaces.   */
+
+  // const makeString = s => s.split(' ').map(e => e.replace(/(^\w)(\w*)/g, (e, a, b) => a)).join('');
+  const makeString = s => s.match(/\b\w/g).join('');
+
+  console.log(makeString("kaks de gan has a big head"));
 }
