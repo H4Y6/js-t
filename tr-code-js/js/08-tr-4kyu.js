@@ -7436,10 +7436,18 @@ If the array is null/nil/None or empty you should return empty array ([]).
 The rotten fruit name will be in this camelcase (rottenFruit).
 The returned array should be in lowercase.   */
 
+  // function removeRotten(bagOfFruits) {
+  //   return bagOfFruits === null ? [] : bagOfFruits ? bagOfFruits.map(e => e.replace('rotten', '').replace(/^\w/, e => e.toLowerCase())) : [];
+  // }
+
+  // function removeRotten(bagOfFruits) {
+  //   return bagOfFruits ? bagOfFruits.map(e => e.replace('rotten', '').replace(/^\w/, e => e.toLowerCase())) : [];
+  // }
+
   function removeRotten(bagOfFruits) {
-    return bagOfFruits === null ? [] : bagOfFruits ? bagOfFruits.map(e => e.replace('rotten', '').replace(/^\w/, e => e.toLowerCase())) : [];
+    return bagOfFruits ? bagOfFruits.map(e => e.replace('rotten', '').toLowerCase()) : [];
   }
-  console.log(removeRotten(["apple", "banana", "rottenKiwi", "melone", "orange"]));
-  console.log(removeRotten([]));
-  console.log(removeRotten(null));
+  // console.log(removeRotten(["apple", "banana", "rottenKiwi", "melone", "orange"]));
+  // console.log(removeRotten([]));
+  // console.log(removeRotten(null));
 }
