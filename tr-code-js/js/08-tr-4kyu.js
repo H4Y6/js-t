@@ -7403,12 +7403,18 @@ ex1 ~O~O~O~O P has 0 deaf rats
 ex2 P O~ O~ ~O O~ has 1 deaf rat
 ex3 ~O~O~O~OP~O~OO~ has 2 deaf rats */
 
-  const findRightPP = town => [...[town.split('P')[0]].join('').replaceAll(' ', '')].filter((e, i) => i % 2 ? e === '~' : '').length;
-  const findLeftPP = town => [...[town.split('P')[1]].join('').replaceAll(' ', '')].filter((e, i) => i % 2 ? e === 'O' : '').length;
+  // const findRightPP = town => [...[town.split('P')[0]].join('').replaceAll(' ', '')].filter((e, i) => i % 2 ? e === '~' : '').length;
+  // const findLeftPP = town => [...[town.split('P')[1]].join('').replaceAll(' ', '')].filter((e, i) => i % 2 ? e === 'O' : '').length;
 
+  // const countDeafRats = function (town) {
+  //   const i = town.indexOf('P');
+  //   return !i ? findLeftPP(town) : i === town.length - 1 ? findRightPP(town) : findRightPP(town) + findLeftPP(town);
+  // };
+
+  const findDeaf = town => [...town.replaceAll(' ', '')].filter((e, i) => i % 2 ? e === '~' : '').length;
   const countDeafRats = function (town) {
     const i = town.indexOf('P');
-    return !i ? findLeftPP(town) : i === town.length - 1 ? findRightPP(town) : findRightPP(town) + findLeftPP(town);
+    return !i || i === town.length - 1 ? findDeaf(town) : findDeaf(town.slice(0, i)) + findDeaf(town.slice(i));
   };
 
   console.log(countDeafRats("P O~ O~ ~O O~"));
