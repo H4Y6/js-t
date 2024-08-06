@@ -7582,6 +7582,7 @@ Size is always positive */
   Basic regex tasks. Write a function that takes in a numeric code of any length. The function should check if the code begins with 1, 2, or 3 and return true if so. Return false otherwise.
 You can assume the input will always be a number. */
 
-  const validateCode = code => /^[1-3]/.test(code);
-  console.log(validateCode(349561));
+  // const validateCode = code => /^[1-3]/.test(code);
+  const validateCode = code => ('' + code)[0] < 4;
+  // console.log(validateCode(349561));
 }
