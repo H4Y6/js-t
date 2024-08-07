@@ -18,3 +18,28 @@ If a and b have the same length treat a as the longer producing b+reverse(a)+b *
   const shorterReverseLonger = (a, b) => { if (a.length < b.length) [a, b] = [b, a]; return b + [...a].reverse().join('') + b; };
   // console.log(shorterReverseLonger("hello", "bau"));
 }
+{ /** 8 kyu  Wilson primes
+  Wilson primes satisfy the following condition. Let P represent a prime number.
+Then,
+((P-1)! + 1) / (P * P)
+should give a whole number.
+Your task is to create a function that returns true if the given number is a Wilson prime. */
+
+  [5, 13, 563];
+  const isPrime = n => {
+    n = BigInt(n);
+    for (let i = 2n; i < n; i += 1n) {
+      if (!(n % i)) return false;
+    }
+    return true;
+  };
+  const getFactorial = n => { n = BigInt(n); return n < 2n ? 1n : n * getFactorial(n - 1n); };
+  const amIWilson = (p) => {
+    p = BigInt(p);
+    if (isPrime(p) && [5, 13, 563].includes(p) && !((getFactorial(p - 1n) + 1n) / p * p % 1n)) return true;
+    return false;
+  };
+  console.log(amIWilson(467));
+  console.log(getFactorial(467));
+  console.log(isPrime(467));
+}
