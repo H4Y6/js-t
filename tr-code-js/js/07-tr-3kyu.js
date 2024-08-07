@@ -65,16 +65,25 @@ movie(500, 15, 0.9) should return 43
 movie(100, 10, 0.95) should return 24 
     (with card the total price is 235, with tickets 240)  */
 
+  // function movie(card, ticket, perc) {
+  //   let priceB = card;
+  //   let i = 1;
+  //   let k = perc;
+  //   while (i * ticket <= priceB) {
+  //     priceB += (ticket * k);
+  //     i++;
+  //     k *= perc;
+  //   }
+  //   return i * ticket > Math.ceil(priceB + ticket * k) ? i : i + 1;
+  // };
+
   function movie(card, ticket, perc) {
-    let priceB = card;
-    let i = 1;
-    let k = perc;
-    while (i * ticket <= priceB) {
-      priceB += (ticket * k);
+    let i = 0;
+    while (i * ticket <= Math.ceil(card)) {
       i++;
-      k *= perc;
+      card += ticket * perc ** i;
     }
-    return i * ticket > Math.ceil(priceB + ticket * k) ? i : i + 1;
+    return i;
   };
-  console.log(movie(100, 10, .95));
+  // console.log(movie(100, 10, 0.95));
 }
