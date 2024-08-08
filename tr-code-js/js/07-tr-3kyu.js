@@ -129,6 +129,45 @@ The conversion rate you should use is 6.75 CNY for every 1 USD. All numbers shou
   // const solve = s => s.split(/[^aeiou]/).reduce((max, e) => max = e.length > max ? e.length : max, 0);
   // const solve = s => s.match(/[aeiou]+/g).reduce((max, e) => max = e.length > max ? e.length : max, 0);
   const solve = s => Math.max(...s.match(/[aeiou]+/g).map(e => e.length));
-  console.log(solve('u'));
-  console.log(solve('chrononhotonthuooaos'));
+  // console.log(solve('u'));
+  // console.log(solve('chrononhotonthuooaos'));
+}
+{/**5 kyu Factorial decomposition 
+  The aim of the kata is to decompose n! (factorial n) into its prime factors.
+Examples:
+n = 12; decomp(12) -> "2^10 * 3^5 * 5^2 * 7 * 11"
+since 12! is divisible by 2 ten times, by 3 five times, by 5 two times and by 7 and 11 only once.
+n = 22; decomp(22) -> "2^19 * 3^9 * 5^4 * 7^3 * 11^2 * 13 * 17 * 19"
+n = 25; decomp(25) -> 2^22 * 3^10 * 5^6 * 7^3 * 11^2 * 13 * 17 * 19 * 23
+Prime numbers should be in increasing order. When the exponent of a prime is 1 don't put the exponent.
+Notes
+the function is decomp(n) and should return the decomposition of n! into its prime factors in increasing order of the primes, as a string.
+factorial can be a very big number (4000! has 12674 digits, n can go from 300 to 4000).
+In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.     */
+
+  const factorial = n => n < 2 ? 1 : n * factorial(n - 1);
+  console.log(factorial(5));
+
+  /**primes w/o '1' */
+  const getPrime = n => {
+    const arr = [];
+
+    for (n; n > 2; n -= 1) {
+      const ar = [];
+
+      for (let i = 2; i < n; i++) {
+        if (n % i === 0) continue;
+        ar.push(n);
+      }
+
+      if (ar.length === n - 2) arr.unshift(n);
+    }
+    arr.unshift(2);
+    return arr;
+  };
+
+  function decomp(n) {
+
+  }
+  // console.log(decomp(5));
 }
