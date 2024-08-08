@@ -144,9 +144,9 @@ Notes
 the function is decomp(n) and should return the decomposition of n! into its prime factors in increasing order of the primes, as a string.
 factorial can be a very big number (4000! has 12674 digits, n can go from 300 to 4000).
 In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.     */
+  /** Test failed at bigInt */
 
   const factorial = n => n < 2 ? 1 : n * factorial(n - 1);
-  console.log(factorial(5));
 
   /**primes w/o '1' */
   const getPrime = n => {
@@ -167,7 +167,22 @@ In Fortran - as in any other language - the returned string is not permitted to 
   };
 
   function decomp(n) {
+    let factNum = factorial(n);
+    factNum = BigInt(factNum);
+    const arr = [];
+    let count = 0n;
+    getPrime(n).map(e => {
+      e = BigInt(e);
+      while (factNum % e === 0n) {
+        factNum /= e;
+        count += 1n;
+      }
+      arr.push(count > 1 ? `${e}^${count}` : `${e}`);
+      count = 0n;
 
+    });
+    return arr.join(' * ');
   }
-  // console.log(decomp(5));
+  // console.log(decomp(14));
+  // console.log(decomp(25));
 }
