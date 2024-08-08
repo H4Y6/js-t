@@ -122,5 +122,10 @@ The conversion rate you should use is 6.75 CNY for every 1 USD. All numbers shou
   }
   // console.log(usdcny(465));
 }
+{/** 7 kyu Longest vowel chain
+  The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou. */
 
-// 3138.75;
+  const solve = s => Math.max(...s.split(/[bcdfghjklmnpqrstvwxyz]+/g).map(e => e.length));
+  // console.log(solve('u'));
+  // console.log(solve('chrononhotonthuooaos'));
+}
