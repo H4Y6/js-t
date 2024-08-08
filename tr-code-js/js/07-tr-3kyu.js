@@ -127,7 +127,8 @@ The conversion rate you should use is 6.75 CNY for every 1 USD. All numbers shou
 
   // const solve = s => Math.max(...s.split(/[bcdfghjklmnpqrstvwxyz]+/g).map(e => e.length));
   // const solve = s => s.split(/[^aeiou]/).reduce((max, e) => max = e.length > max ? e.length : max, 0);
-  const solve = s => s.match(/[aeiou]+/g).reduce((max, e) => max = e.length > max ? e.length : max, 0);
+  // const solve = s => s.match(/[aeiou]+/g).reduce((max, e) => max = e.length > max ? e.length : max, 0);
+  const solve = s => Math.max(...s.match(/[aeiou]+/g).map(e => e.length));
   console.log(solve('u'));
   console.log(solve('chrononhotonthuooaos'));
 }
