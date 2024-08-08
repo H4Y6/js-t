@@ -192,21 +192,32 @@ snoopy.bark(); // return "Woof"
 scoobydoo.bark(); // undefined
 Use method prototypes to enable all Dogs to bark.*/
 
-  function Dog(breed) {
-    this.breed = breed;
+  // function Dog(breed) {
+  //   this.breed = breed;
+  // }
+
+  // Dog.prototype.bark = function () {
+  //   return 'Woof';
+  // };
+
+  // var snoopy = new Dog("Beagle");
+
+  // snoopy.bark = function () {
+  //   return "Woof";
+  // };
+
+  // var scoobydoo = new Dog("Great Dane");
+
+  class Dog {
+    constructor(breed) {
+      this.breed = breed;
+    }
+    bark() {
+      return 'Woof';
+    }
   }
-
-  Dog.prototype.bark = function () {
-    return 'Woof';
-  };
-
-  var snoopy = new Dog("Beagle");
-
-  snoopy.bark = function () {
-    return "Woof";
-  };
-
-  var scoobydoo = new Dog("Great Dane");
+  const scoobydoo = new Dog("Great Dane");
+  const snoopy = new Dog("Beagle");
 
   console.log(scoobydoo.bark());
 }
