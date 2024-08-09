@@ -285,6 +285,7 @@ Array will always contain at least 2 floors. Random tests will contain 2-20 elem
 It is guaranteed that a and b are both present in arr.   */
 
   // const consecutive = (arr, a, b) => Math.abs(arr.indexOf(a) - arr.indexOf(b)) === 1;
+  // const consecutive = (arr, a, b) => Math.abs(arr.findIndex(e => e === a) - arr.indexOf(b)) === 1;
   const consecutive = (arr, a, b) => new RegExp(`${a},${b}|${b},${a}`).test(arr);
   // console.log(consecutive([1, 6, 9, -3, 4, -78, 0], -3, 4));
-};;;
+}
