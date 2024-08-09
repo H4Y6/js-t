@@ -219,5 +219,27 @@ Use method prototypes to enable all Dogs to bark.*/
   const scoobydoo = new Dog("Great Dane");
   const snoopy = new Dog("Beagle");
 
-  console.log(scoobydoo.bark());
+  // console.log(scoobydoo.bark());
+}
+{/** 7 kyu  Compare Strings by Sum of Chars
+  Compare two strings by comparing the sum of their values (ASCII character code).
+For comparing treat all letters as UpperCase
+null/NULL/Nil/None should be treated as empty strings
+If the string contains other characters than letters, treat the whole string as it would be empty
+Your method should return true, if the strings are equal and false if they are not equal.
+Examples:
+"AD", "BC"  -> equal
+"AD", "DD"  -> not equal
+"gf", "FG"  -> equal
+"zz1", ""   -> equal (both are considered empty)
+"ZzZz", "ffPFF" -> equal
+"kl", "lz"  -> not equal
+null, ""    -> equal          */
+
+  const ccSum = s => { return /\W|\d/.test(s) || s === '' || s === null ? 0 : s.split('').reduce((sum, e) => sum + e.toUpperCase().charCodeAt(), 0); };
+  const compare = (s1, s2) => ccSum(s1) === ccSum(s2);
+
+  console.log(compare("AD", "BC"));
+  console.log(compare("AD", "DD"));
+  console.log(compare("zz1", ""));
 }
