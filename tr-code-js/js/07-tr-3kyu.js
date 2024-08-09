@@ -236,12 +236,12 @@ Examples:
 "kl", "lz"  -> not equal
 null, ""    -> equal          */
 
-  const ccSum = s => { return /\W|\d/.test(s) || s === '' || s === null ? 0 : s.split('').reduce((sum, e) => sum + e.toUpperCase().charCodeAt(), 0); };
-  // const compare = (s1, s2) => ccSum(s1) === ccSum(s2);
+  // const ccSum = s => { return /\W|\d/.test(s) || s === '' || s === null ? 0 : s.split('').reduce((sum, e) => sum + e.toUpperCase().charCodeAt(), 0); };
+  const ccSum = s => { return /\W|\d/.test(s) || !s ? 0 : s.split('').reduce((sum, e) => sum + e.toUpperCase().charCodeAt(), 0); };
 
   const compare = (s1, s2) => ccSum(s1) === ccSum(s2);
 
-  console.log(compare("AD", "BC"));
-  console.log(compare("AD", "DD"));
-  console.log(compare("zz1", ""));
+  // console.log(compare("AD", "BC"));
+  // console.log(compare("AD", "DD"));
+  // console.log(compare("zz1", ""));
 }
