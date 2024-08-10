@@ -343,7 +343,8 @@ Example 2: Input: [3, 1, 2], [4, 5], 21 --> Output: 6
 Example 3: Input: [0], [4, 15], 31 --> Output: 12
 Example 4: Input: [], [4], 15 --> Output: 11  */
 
-  const lostSheep = (friday, saturday, total) => total - friday.reduce((sum, e) => sum + e, 0) - saturday.reduce((sum, e) => sum + e, 0);
+  // const lostSheep = (friday, saturday, total) => total - friday.reduce((sum, e) => sum + e, 0) - saturday.reduce((sum, e) => sum + e, 0);
+  const lostSheep = (friday, saturday, total) => total - [...friday, ...saturday].reduce((sum, e) => sum + e, 0);
 
-  console.log(lostSheep([1, 2], [3, 4], 15));
+  // console.log(lostSheep([1, 2], [3, 4], 15));
 }
