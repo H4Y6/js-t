@@ -324,7 +324,10 @@ Legend:
 Task:
 Place all people in alphabetical order where Mothers are followed by their children, i.e. "aAbaBb" => "AaaBbb".  */
 
-  const findChildren = dancingBrigade => [...dancingBrigade.replace(/[a-z]/g, '')].sort().map(e =>
-    e + [...dancingBrigade.replace(/[A-Z]/g, '')].filter(el => e === el.toUpperCase()).join('')).join('');
+  // const findChildren = dancingBrigade => [...dancingBrigade.replace(/[a-z]/g, '')].sort().map(e =>
+  //   e + [...dancingBrigade.replace(/[A-Z]/g, '')].filter(el => e === el.toUpperCase()).join('')).join('');
+
+  const findChildren = dancingBrigade => [...dancingBrigade].filter(e => e.match(/[A-Z]/)).sort().map(e => e +
+    [...dancingBrigade].filter(el => el === e.toLowerCase()).join('')).join('');
   console.log(findChildren("uwwWUueEe"));
 }
