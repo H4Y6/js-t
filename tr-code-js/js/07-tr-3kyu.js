@@ -302,3 +302,16 @@ Note that the number will always be non-negative (>= 0).  */
   const insertDash = num => ('' + num).replace(/([13579]){2,}/g, e => e.split('').join('-'));
   console.log(insertDash(454793));
 }
+{
+  const consecutive = (arr, a, b) => RegExp(`${a},${b}|${b},${a}`).test(arr);
+  console.log(consecutive([1, 3, 5, 7], 3, 1));
+}
+{/**7 kyu  Evens and Odds 
+  This kata is about converting numbers to their binary or hexadecimal representation:
+If a number is even, convert it to binary.
+If a number is odd, convert it to hex.
+Numbers will be positive. The hexadecimal string should be lowercased.*/
+
+  const evensAndOdds = num => num % 2 ? num.toString(16) : num.toString(2);
+  console.log(evensAndOdds(62));
+}
