@@ -348,3 +348,16 @@ Example 4: Input: [], [4], 15 --> Output: 11  */
 
   // console.log(lostSheep([1, 2], [3, 4], 15));
 }
+{/** 7 kyu  Formatting decimal places #1
+  Each floating-point number should be formatted that only the first two decimal places are returned. You don't need to check whether the input is a valid number because only valid numbers are used in the tests.
+Don't round the numbers! Just cut them after two decimal places!
+Right examples:  
+32.8493 is 32.84  
+14.3286 is 14.32
+Incorrect examples (e.g. if you round the numbers):  
+32.8493 is 32.85  
+14.3286 is 14.33      */
+
+  const twoDecimalPlaces = number => +('' + number).replace(/(\.\d{2})(\d*)/, (e, a, b) => a);
+  console.log(twoDecimalPlaces(32.8493));
+}
