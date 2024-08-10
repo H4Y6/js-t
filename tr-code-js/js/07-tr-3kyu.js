@@ -298,6 +298,7 @@ Note that the number will always be non-negative (>= 0).  */
   //   return [...arr.slice(1).map((e, i) => arr[i] % 2 && e % 2 ? arr[i] + '-' : arr[i]), ...arr.slice(-1)].join('');
   // }
   // const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$&-`);
-  const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$1-`);
+  // const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$1-`);
+  const insertDash = num => ('' + num).replace(/([13579]){2,}/g, e => e.split('').join('-'));
   console.log(insertDash(454793));
 }
