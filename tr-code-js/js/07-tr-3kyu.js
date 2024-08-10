@@ -360,6 +360,7 @@ Incorrect examples (e.g. if you round the numbers):
 
   // const twoDecimalPlaces = number => +('' + number).replace(/(\.\d{2})(\d*)/, (e, a, b) => a);
   // const twoDecimalPlaces = number => +number.toFixed(5).slice(0, -3);
-  const twoDecimalPlaces = number => Math.trunc(100 * number) / 100;
+  // const twoDecimalPlaces = number => Math.trunc(100 * number) / 100;
+  const twoDecimalPlaces = number => parseInt(100 * number) / 100;
   // console.log(twoDecimalPlaces(32.8493));
 }
