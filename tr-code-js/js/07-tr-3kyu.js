@@ -293,9 +293,11 @@ It is guaranteed that a and b are both present in arr.   */
   Write a function insert_dash(num) / insertDash(num) / InsertDash(int num) that will insert dashes ('-') between each two odd digits in num. For example: if num is 454793 the output should be 4547-9-3.
 Note that the number will always be non-negative (>= 0).  */
 
-  function insertDash(num) {
-    const arr = ('' + num).split('');
-    return [...arr.slice(1).map((e, i) => arr[i] % 2 && e % 2 ? arr[i] + '-' : arr[i]), ...arr.slice(-1)].join('');
-  }
+  // function insertDash(num) {
+  //   const arr = ('' + num).split('');
+  //   return [...arr.slice(1).map((e, i) => arr[i] % 2 && e % 2 ? arr[i] + '-' : arr[i]), ...arr.slice(-1)].join('');
+  // }
+  const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$&-`);
+
   console.log(insertDash(454793));
 }
