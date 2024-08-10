@@ -300,11 +300,11 @@ Note that the number will always be non-negative (>= 0).  */
   // const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$&-`);
   // const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$1-`);
   const insertDash = num => ('' + num).replace(/([13579]){2,}/g, e => e.split('').join('-'));
-  console.log(insertDash(454793));
+  // console.log(insertDash(454793));
 }
 {
   const consecutive = (arr, a, b) => RegExp(`${a},${b}|${b},${a}`).test(arr);
-  console.log(consecutive([1, 3, 5, 7], 3, 1));
+  // console.log(consecutive([1, 3, 5, 7], 3, 1));
 }
 {/**7 kyu  Evens and Odds 
   This kata is about converting numbers to their binary or hexadecimal representation:
@@ -314,5 +314,17 @@ Numbers will be positive. The hexadecimal string should be lowercased.*/
 
   // const evensAndOdds = num => num % 2 ? num.toString(16) : num.toString(2);
   const evensAndOdds = num => num.toString(num % 2 ? 16 : 2);
-  console.log(evensAndOdds(62));
+  // console.log(evensAndOdds(62));
+}
+{/** 6 kyu  Where is my parent!?(cry)
+   Mothers arranged a dance party for the children in school. At that party, there are only mothers and their children. All are having great fun on the dance floor when suddenly all the lights went out. It's a dark night and no one can see each other. But you were flying nearby and you can see in the dark and have ability to teleport people anywhere you want.
+Legend:
+-Uppercase letters stands for mothers, lowercase stand for their children, i.e. "A" mother's children are "aaaa".
+-Function input: String contains only letters, uppercase letters are unique.
+Task:
+Place all people in alphabetical order where Mothers are followed by their children, i.e. "aAbaBb" => "AaaBbb".  */
+
+  const findChildren = dancingBrigade => [...dancingBrigade.replace(/[a-z]/g, '')].sort().map(e =>
+    e + [...dancingBrigade.replace(/[A-Z]/g, '')].filter(el => e === el.toUpperCase()).join('')).join('');
+  console.log(findChildren("uwwWUueEe"));
 }
