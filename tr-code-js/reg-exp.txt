@@ -76,3 +76,6 @@ const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[_])\w{6,}$/;
   const splitInParts = (s, partLength) => s.match(new RegExp(`.{1,${partLength}}`, 'g')).join(' ');
   const splitInParts = (s, partLength) => s.replace(new RegExp(`(.{${partLength}})(?!$)`, 'g'), '$1 ');
   ================================================================================================
+
+   const consecutive = (arr, a, b) => new RegExp(`${a},${b}|${b},${a}`).test(arr);
+   console.log(consecutive([1, 6, 9, -3, 4, -78, 0], -3, 4));

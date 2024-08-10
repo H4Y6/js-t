@@ -32,7 +32,7 @@ let salary = 1300.16472;
 // console.log(Number(quantity));
 // console.log(Number(value));
 
-// console.log(Math, Math.PI, Math.tan(1.553), Math.atan(56));
+console.log(Math, 360 / Math.PI / 2, 1.5575 * 57.3, Math.tan(1 / 1.273), Math.atan(1.5575));
 // console.log(Math, Math.PI, Math.tan(.7854), Math.atan(1));
 
 /*
