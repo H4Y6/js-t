@@ -359,6 +359,7 @@ Incorrect examples (e.g. if you round the numbers):
 14.3286 is 14.33      */
 
   // const twoDecimalPlaces = number => +('' + number).replace(/(\.\d{2})(\d*)/, (e, a, b) => a);
-  const twoDecimalPlaces = number => +number.toFixed(5).slice(0, -3);
-  console.log(twoDecimalPlaces(32.8493));
+  // const twoDecimalPlaces = number => +number.toFixed(5).slice(0, -3);
+  const twoDecimalPlaces = number => Math.trunc(100 * number) / 100;
+  // console.log(twoDecimalPlaces(32.8493));
 }
