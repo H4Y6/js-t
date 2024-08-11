@@ -402,12 +402,14 @@ Example
   //   .reverse().reduce((res, e, i) => res + e * 2 ** i, 0);
   // const ipToInt32 = ip => parseInt(ip.split('.').map((e) => ('0000000' + (Number(e)).toString(2)).slice(-8)).join(''), 2);
   // const ipToInt32 = ip => parseInt(ip.split('.').map(e => ('00000000' + (+e).toString(2)).slice(-8)).reduce((bin, e) => bin + e, ''), 2);
-  const ipToInt32 = ip => ip.split('.').map(Number).reduceRight((res, e, i) => res + e * 256 ** (3 - i), 0);
-  console.log(ipToInt32("128.32.10.1"));
+  // const ipToInt32 = ip => ip.split('.').map(Number).reduceRight((res, e, i) => res + e * 256 ** (3 - i), 0);
+  const ipToInt32 = ip => ip.split('.').reduce((res, e) => res * 256 + Number(e), 0);
+  // console.log(ipToInt32("128.32.10.1"));
+
+  // const binary = (128).toString(2);
+  // console.log(binary);
+  // console.log(parseInt('10000000001000000000101000000001', 2));
+  // console.log(2 ** 31 + 2 ** 21 + 2 ** 11 + 2 ** 9 + 1);
+  // 10000000.00100000.00001010.00000001;
 }
-// const binary = (128).toString(2);
-// console.log(binary);
-// console.log(parseInt('10000000001000000000101000000001', 2));
-// console.log(2 ** 31 + 2 ** 21 + 2 ** 11 + 2 ** 9 + 1);
-// 10000000.00100000.00001010.00000001;
 
