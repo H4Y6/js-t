@@ -401,7 +401,8 @@ Example
   // const ipToInt32 = ip => [...ip.split('.').map(e => +e).reduce((bin, e) => bin + ('0000000' + (e).toString(2)).slice(-8), '')]
   //   .reverse().reduce((res, e, i) => res + e * 2 ** i, 0);
   // const ipToInt32 = ip => parseInt(ip.split('.').map((e) => ('0000000' + (Number(e)).toString(2)).slice(-8)).join(''), 2);
-  const ipToInt32 = ip => parseInt(ip.split('.').map(e => ('00000000' + (+e).toString(2)).slice(-8)).reduce((bin, e) => bin + e, ''), 2);
+  // const ipToInt32 = ip => parseInt(ip.split('.').map(e => ('00000000' + (+e).toString(2)).slice(-8)).reduce((bin, e) => bin + e, ''), 2);
+  const ipToInt32 = ip => ip.split('.').map(Number).reduceRight((res, e, i) => res + e * 256 ** (3 - i), 0);
   console.log(ipToInt32("128.32.10.1"));
 }
 // const binary = (128).toString(2);
