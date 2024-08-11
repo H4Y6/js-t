@@ -398,14 +398,15 @@ Write a function ip_to_int32(ip) ( JS: ipToInt32(ip) ) that takes an IPv4 addres
 Example
 "128.32.10.1" => 2149583361   */
 
-  const ipToInt32 = ip => [...ip.split('.').map(e => +e).reduce((bin, e) => bin + ('0000000' + (e).toString(2)).slice(-8), '')]
-    .reverse().reduce((res, e, i) => res + e * 2 ** i, 0);
+  // const ipToInt32 = ip => [...ip.split('.').map(e => +e).reduce((bin, e) => bin + ('0000000' + (e).toString(2)).slice(-8), '')]
+  //   .reverse().reduce((res, e, i) => res + e * 2 ** i, 0);
+  const ipToInt32 = ip => parseInt(ip.split('.').map((e) => ('0000000' + (Number(e)).toString(2)).slice(-8)).join(''), 2);
 
   console.log(ipToInt32("128.32.10.1"));
 }
-const binary = (128).toString(2);
-console.log(binary);
-console.log(parseInt('10000000001000000000101000000001', 2));
+// const binary = (128).toString(2);
+// console.log(binary);
+// console.log(parseInt('10000000001000000000101000000001', 2));
 // console.log(2 ** 31 + 2 ** 21 + 2 ** 11 + 2 ** 9 + 1);
 // 10000000.00100000.00001010.00000001;
 
