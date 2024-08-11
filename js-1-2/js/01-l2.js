@@ -54,7 +54,7 @@ let row = '';
 for (let i = 1; i <= triangleSize; i += 1) {
   row = String.fromCharCode(32, 32).repeat(triangleSize - i) + '* '.repeat((i * 2) - 1);
   // row = String.fromCharCode(' ').repeat(triangleSize - i) + '*'.repeat((i * 2) - 1);
-  console.log(row);
+  // console.log(row);
 }
 
 let trianSize = 5;
@@ -78,7 +78,7 @@ do {
   y += 1;
   // s += 'D ';
   s = ' '.repeat(trianSize - y) + '^ '.repeat(y);
-  console.log(s);
+  // console.log(s);
 } while (y < trianSize);
 
 // function multiply(...args) {
@@ -97,3 +97,29 @@ function multiply() {
 // console.log(multiply(1, 2, 3)); //  6
 // console.log(multiply(1, 2, 3, 4)); //  24
 // console.log(multiply(1, 2, 3, 4, 5)); //  120
+
+const dist = 20;
+const speeds = { pit: 5, allen: 4, tommy: 2 };
+const timeToTom = speed => {
+  let time = 0;
+  const { pit, allen, tommy } = speeds;
+  switch (speed) {
+    case 'pit': {
+      time = 20 / pit;
+      break;
+    }
+    case 'allen': {
+      time = 20 / allen;
+      break;
+    }
+    case 'tommy': {
+      time = 20 / tommy;
+      break;
+    }
+    default: {
+      time = 'No data!';
+    }
+  }
+  return time;
+};
+console.log(timeToTom(`allen`));
