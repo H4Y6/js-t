@@ -412,4 +412,8 @@ Example
   // console.log(2 ** 31 + 2 ** 21 + 2 ** 11 + 2 ** 9 + 1);
   // 10000000.00100000.00001010.00000001;
 }
+{/** 8 kyu  Grasshopper - Order of operations
+  You are running the calculation 2 + 2 * 2 + 2 * 2 and expect to get the answer 32 but instead the function keeps returning 10. Fix the function to make it return 32 without changing the number or the operators.   */
+  const orderOperations = () => (2 + 2) * (2 + 2) * 2;
+}
 
