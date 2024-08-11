@@ -100,26 +100,48 @@ function multiply() {
 
 const dist = 20;
 const speeds = { pit: 5, allen: 4, tommy: 2 };
+// const timeToTom = speed => {
+//   let time = 0;
+//   const { pit, allen, tommy } = speeds;
+//   switch (speed) {
+//     case 'pit': {
+//       time = 20 / pit;
+//       break;
+//     }
+//     case 'allen': {
+//       time = 20 / allen;
+//       break;
+//     }
+//     case 'tommy': {
+//       time = 20 / tommy;
+//       break;
+//     }
+//     default: {
+//       time = 'No data!';
+//     }
+//   }
+//   return time;
+// };
+
 const timeToTom = speed => {
   let time = 0;
   const { pit, allen, tommy } = speeds;
   switch (speed) {
-    case 'pit': {
+    case 'pit':
       time = 20 / pit;
       break;
-    }
-    case 'allen': {
+
+    case 'allen':
       time = 20 / allen;
       break;
-    }
-    case 'tommy': {
+
+    case 'tommy':
       time = 20 / tommy;
       break;
-    }
-    default: {
+
+    default:
       time = 'No data!';
-    }
   }
   return time;
 };
-console.log(timeToTom(`allen`));
+// console.log(timeToTom(`allen`));
