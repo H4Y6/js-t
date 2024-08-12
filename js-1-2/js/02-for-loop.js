@@ -159,9 +159,19 @@ findEvenNumberArrayAndSum3(...paramArray);
     const randoms = [];
     for (let i = 0; i < quantity; i += 1) {
       randoms.push(getRandom(min, max));
-      // console.log(getRandom(min, max));
     }
     return randoms;
   };
-  console.log(getRandoms(14, 22, 6));
+  // console.log(getRandoms(4, 22, 16));
 };
+{
+  const getOdds = numbers => {
+    const odds = [];
+    for (let i = 0; i < numbers.length; i += 1) {
+      if (numbers[i] % 2 === 0) continue;
+      odds.push(numbers[i]);
+    }
+    return odds;
+  };
+  // console.log(getOdds([17, 10, 19, 13, 22, 17, 14, 13, 7, 21, 7, 9, 15, 8, 14, 15]));
+}
