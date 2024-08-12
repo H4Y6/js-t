@@ -64,7 +64,7 @@ for (let i = min; i < max; i += 1) {
   if (i % 2) continue;
   total += i;
 }
-console.log("total->", total);
+// console.log("total->", total);
 
 //  1 вары
 // const min = 0;
@@ -107,7 +107,7 @@ function findEvenNumberArrayAndSum(min, max) {
       };
     };
   };
-  console.log({ evenNumberArray, sum });
+  // console.log({ evenNumberArray, sum });
 };
 const paramArray = [21, 33];
 findEvenNumberArrayAndSum(...paramArray);
@@ -121,7 +121,7 @@ function findEvenNumberArrayAndSum1(min, max) {
       sum += i;
     };
   };
-  console.log({ evenNumberArray, sum });
+  // console.log({ evenNumberArray, sum });
 };
 findEvenNumberArrayAndSum1(...paramArray);
 
@@ -135,7 +135,7 @@ function findEvenNumberArrayAndSum2(min, max) {
       sum += i;
     };
   };
-  console.log({ evenNumberArray, sum });
+  // console.log({ evenNumberArray, sum });
 };
 findEvenNumberArrayAndSum2(...paramArray);
 
@@ -147,6 +147,21 @@ function findEvenNumberArrayAndSum3(min, max) {
     evenNumberArray.push(i);
     sum += i;
   };
-  console.log({ evenNumberArray, sum });
+  // console.log({ evenNumberArray, sum });
 };
 findEvenNumberArrayAndSum3(...paramArray);
+
+{
+  const getRange = (max, min) => max - min;
+  const getRandom = (min, max) => Math.round(min + Math.random() * getRange(max, min));
+
+  const getRandoms = (min, max, quantity) => {
+    const randoms = [];
+    for (let i = 0; i < quantity; i += 1) {
+      randoms.push(getRandom(min, max));
+      // console.log(getRandom(min, max));
+    }
+    return randoms;
+  };
+  console.log(getRandoms(14, 22, 6));
+};
