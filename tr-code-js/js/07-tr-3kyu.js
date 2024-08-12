@@ -456,6 +456,8 @@ solution({a: 1, b: '2'}) // should return "a = 1,b = 2"*/
   //   return res.join(',');
   // };
 
-  const solution = pairs => Object.entries(pairs).map(e => `${e[0]} = ${e[1]}`).join(',');
+  // const solution = pairs => Object.entries(pairs).map(e => `${e[0]} = ${e[1]}`).join(',');
+
+  const solution = pairs => Object.keys(pairs).map(e => `${e} = ${pairs[e]}`).join(',');
   console.log(solution({ 'a': 0, 'b': 2 }));
 };
