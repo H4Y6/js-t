@@ -438,3 +438,22 @@ Then return the difference between the sum of the digits in total1 and total2:
   const calc = x => x.replace(/./g, e => e.charCodeAt()).replace(/[^7]/g, '').length * 6;
   // console.log(calc('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'));
 }
+{/** 7 kyu  Building Strings From a Hash 
+  Complete the solution so that it takes the object (JavaScript/CoffeeScript) or hash (ruby) passed in and generates a human readable string from its key/value pairs.
+The format should be "KEY = VALUE". Each key/value pair should be separated by a comma except for the last pair.
+Example:
+solution({a: 1, b: '2'}) // should return "a = 1,b = 2"*/
+
+  const solution = pairs => {
+    let res = [];
+
+    for (const key in pairs) {
+      if (Object.prototype.hasOwnProperty.call(pairs, key)) {
+        const el = pairs[key];
+        res.push(`${key} = ${el}`);
+      }
+    }
+    return res.join(',');
+  };
+  console.log(solution({ 'a': 0, 'b': 2 }));
+}
