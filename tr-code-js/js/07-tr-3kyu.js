@@ -444,16 +444,18 @@ The format should be "KEY = VALUE". Each key/value pair should be separated by a
 Example:
 solution({a: 1, b: '2'}) // should return "a = 1,b = 2"*/
 
-  const solution = pairs => {
-    let res = [];
+  // const solution = pairs => {
+  //   let res = [];
 
-    for (const key in pairs) {
-      if (Object.prototype.hasOwnProperty.call(pairs, key)) {
-        const el = pairs[key];
-        res.push(`${key} = ${el}`);
-      }
-    }
-    return res.join(',');
-  };
+  //   for (const key in pairs) {
+  //     if (Object.prototype.hasOwnProperty.call(pairs, key)) {
+  //       const el = pairs[key];
+  //       res.push(`${key} = ${el}`);
+  //     }
+  //   }
+  //   return res.join(',');
+  // };
+
+  const solution = pairs => Object.entries(pairs).map(e => `${e[0]} = ${e[1]}`).join(',');
   console.log(solution({ 'a': 0, 'b': 2 }));
-}
+};
