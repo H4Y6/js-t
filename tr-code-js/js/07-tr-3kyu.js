@@ -508,16 +508,30 @@ See Examples Test Cases for more examples.    */
   //     ? scores.filter(e => e[1] === winnerScore).sort()[0][0] : scores.filter(e => e[1] === winnerScore).sort()[1][0];
   // }
 
-  const rank = (st, we, n) => {
-    if (!st) return `No participants`;
-    const arr = st.split(',');
-    if (arr.length < n) return `Not enough participants`;
-    return arr.map((name, i) => [name, name.toUpperCase().split('').reduce((acc, e) => acc + e.charCodeAt() - 64, name.length) * we[i]])
-      .sort().sort((a, b) => b[1] - a[1])[n - 1][0];
+  // const rank = (st, we, n) => {
+  //   if (!st) return `No participants`;
+  //   const arr = st.split(',');
+  //   if (arr.length < n) return `Not enough participants`;
+  //   return arr.map((name, i) => [name, name.toUpperCase().split('').reduce((acc, e) => acc + e.charCodeAt() - 64, name.length) * we[i]])
+  //     .sort().sort((a, b) => b[1] - a[1])[n - 1][0];
+  // };
 
-  };
+  const rank = (st, we, n) => (arr => !st ? `No participants` : n > arr.length ? `Not enough participants` : arr[n - 1][0])
+    (st.split(`,`).map((e, i) => [e, [...e.toUpperCase()].reduce((res, el) => res + el.charCodeAt() - 64, e.length) * we[i]]).sort().sort((a, b) => b[1] - a[1]));
+
   // console.log(rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4));
   // console.log(rank("Addison,Ben,Sofia,Michael,Andrew,William,Willaim", [4, 2, 1, 4, 3, 2, 2], 4));
   // console.log(rank("Lagon,Lily", [1, 5], 2));
-}
 
+  /* curried function  **/
+  const multiply = (a) => (b) => (c) => {
+    // const multiplyThree = multiply(3);
+    // const multiplyThreeAndFour = multiplyThree(4);
+    // const result = multiplyThreeAndFour(5);
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    return a * b * c;
+  };
+  // console.log(multiply(3)(4)(5));
+}
