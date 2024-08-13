@@ -459,5 +459,14 @@ solution({a: 1, b: '2'}) // should return "a = 1,b = 2"*/
   // const solution = pairs => Object.entries(pairs).map(e => `${e[0]} = ${e[1]}`).join(',');
 
   const solution = pairs => Object.keys(pairs).map(e => `${e} = ${pairs[e]}`).join(',');
-  console.log(solution({ 'a': 0, 'b': 2 }));
+  // console.log(solution({ 'a': 0, 'b': 2 }));
 };
+{ /** 7 kyu   SevenAte9
+  Write a function that removes every lone 9 that is inbetween 7s.
+"79712312" --> "7712312"
+"79797"    --> "777"*/
+
+  const sevenAte9 = str => str.replaceAll('797', 77).replaceAll('797', 77);
+  // console.log(sevenAte9('165561786121789797'));
+};
+
