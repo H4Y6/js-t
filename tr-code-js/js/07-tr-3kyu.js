@@ -494,22 +494,30 @@ If st is empty return "No participants".
 If n is greater than the number of participants then return "Not enough participants".
 See Examples Test Cases for more examples.    */
 
-  function rank(st, we, n) {
-    const nameArr = st.split(',');
-    if (!st) {
-      return "No participants";
-    } else if (nameArr.length < n) {
-      return "Not enough participants";
-    }
-    const scores = nameArr.map((name) => [...name.toUpperCase()].reduce((sum, e, i) => sum + e.charCodeAt() - 64, 0) + name.length)
-      .map((e, i) => [nameArr[i], e * we[i]]);
-    const winnerScore = scores.sort((a, b) => b[1] - a[1])[n - 1][1];
-    return scores.findIndex(e => e[1] === winnerScore) + 1 === n
-      ? scores.filter(e => e[1] === winnerScore).sort()[0][0] : scores.filter(e => e[1] === winnerScore).sort()[1][0];
-  }
+  // function rank(st, we, n) {
+  //   const nameArr = st.split(',');
+  //   if (!st) {
+  //     return "No participants";
+  //   } else if (nameArr.length < n) {
+  //     return "Not enough participants";
+  //   }
+  //   const scores = nameArr.map((name) => [...name.toUpperCase()].reduce((sum, e, i) => sum + e.charCodeAt() - 64, 0) + name.length)
+  //     .map((e, i) => [nameArr[i], e * we[i]]);
+  //   const winnerScore = scores.sort((a, b) => b[1] - a[1])[n - 1][1];
+  //   return scores.findIndex(e => e[1] === winnerScore) + 1 === n
+  //     ? scores.filter(e => e[1] === winnerScore).sort()[0][0] : scores.filter(e => e[1] === winnerScore).sort()[1][0];
+  // }
 
-  console.log(rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4));
-  console.log(rank("Addison,Ben,Sofia,Michael,Andrew,William,Willaim", [4, 2, 1, 4, 3, 2, 2], 4));
-  console.log(rank("Lagon,Lily", [1, 5], 2));
+  const rank = (st, we, n) => {
+    if (!st) return `No participants`;
+    const arr = st.split(',');
+    if (arr.length < n) return `Not enough participants`;
+    return arr.map((name, i) => [name, name.toUpperCase().split('').reduce((acc, e) => acc + e.charCodeAt() - 64, name.length) * we[i]])
+      .sort().sort((a, b) => b[1] - a[1])[n - 1][0];
+
+  };
+  // console.log(rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4));
+  // console.log(rank("Addison,Ben,Sofia,Michael,Andrew,William,Willaim", [4, 2, 1, 4, 3, 2, 2], 4));
+  // console.log(rank("Lagon,Lily", [1, 5], 2));
 }
 
