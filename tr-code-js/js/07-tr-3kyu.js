@@ -579,7 +579,8 @@ Complete the function that takes a noun as a string, and returns her preferred b
 
   function bandNameGenerator(str) {
     // return str[0] === str[str.length - 1] ? str.replace(str[0], str[0].toUpperCase()) + str.slice(1) : 'The ' + str.replace(str[0], str[0].toUpperCase());
-    return str[0] === str[str.length - 1] ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
+    // return str[0] === str[str.length - 1] ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
+    return str.endsWith(str[0]) ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
   }
   console.log(bandNameGenerator('tart'));
   console.log(bandNameGenerator('knife'));
