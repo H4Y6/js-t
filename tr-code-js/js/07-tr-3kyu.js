@@ -591,6 +591,8 @@ args_count() --> 0
 args_count('a') --> 1
 args_count('a', 'b') --> 2   */
 
-  const argsCount = (...args) => args.reduce((count, e) => count + 1, 0);
-  console.log(argsCount('a', 'b', 'c'));
+  // const args_count = (...args) => args.reduce((count, e) => count + 1, 0);
+  // const args_count = (...args) => args.length;
+  function args_count() { return arguments.length; }
+  console.log(args_count('a', 'b', 'c'));
 }
