@@ -611,7 +611,7 @@ Even though there are no spaces, it is still valid because none are needed:
 * ''              => true      */
 
   function validSpacing(s) {
-    return !/^\s|\s$|\s\S+/.test(s);
+    return !/^\s|\s$|\s\s+/.test(s);
   }
   console.log(validSpacing(' Hello world'));
 }
