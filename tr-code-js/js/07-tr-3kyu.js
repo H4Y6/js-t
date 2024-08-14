@@ -582,6 +582,15 @@ Complete the function that takes a noun as a string, and returns her preferred b
     // return str[0] === str[str.length - 1] ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
     return str.endsWith(str[0]) ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
   }
-  console.log(bandNameGenerator('tart'));
-  console.log(bandNameGenerator('knife'));
+  // console.log(bandNameGenerator('tart'));
+  // console.log(bandNameGenerator('knife'));
+}
+{ /** 7 kyu  How many arguments
+  Write a function that returns the number of arguments it received.
+args_count() --> 0
+args_count('a') --> 1
+args_count('a', 'b') --> 2   */
+
+  const argsCount = (...args) => args.reduce((count, e) => count + 1, 0);
+  console.log(argsCount('a', 'b', 'c'));
 }
