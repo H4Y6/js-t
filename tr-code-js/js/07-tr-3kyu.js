@@ -578,8 +578,9 @@ However, when a noun STARTS and ENDS with the same letter, she likes to repeat t
 Complete the function that takes a noun as a string, and returns her preferred band name written as a string.*/
 
   function bandNameGenerator(str) {
-    return str[0] === str[str.length - 1] ? str.replace(str[0], str[0].toUpperCase()) + str.slice(1) : 'The ' + str.replace(str[0], str[0].toUpperCase());
+    // return str[0] === str[str.length - 1] ? str.replace(str[0], str[0].toUpperCase()) + str.slice(1) : 'The ' + str.replace(str[0], str[0].toUpperCase());
+    return str[0] === str[str.length - 1] ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
   }
-  // console.log(bandNameGenerator('tart'));
-  // console.log(bandNameGenerator('knife'));
+  console.log(bandNameGenerator('tart'));
+  console.log(bandNameGenerator('knife'));
 }
