@@ -654,7 +654,8 @@ arithmetic_sequence_elements(1, 2, 5) == "1, 3, 5, 7, 9"      */
   //   return arr.join(', ');
   // };
 
-  const arithmeticSequenceElements = (a, d, n) => Array(n).fill(a).map((e, i) => e + i * d).join(', ');
-  console.log(arithmeticSequenceElements(1, 2, 5));
-  console.log(arithmeticSequenceElements(1, -3, 10));
+  // const arithmeticSequenceElements = (a, d, n) => Array(n).fill(a).map((e, i) => e + i * d).join(', ');
+  const arithmeticSequenceElements = (a, d, n) => Array.from({ length: n }, (e, i) => a + i * d).join(', ');
+  // console.log(arithmeticSequenceElements(1, 2, 5));
+  // console.log(arithmeticSequenceElements(1, -3, 10));
 }
