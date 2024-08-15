@@ -635,6 +635,7 @@ grader(0.7) should be "C"
 grader(0.6) should be "D"         */
 
   function grader(score) {
-    return score < .6 ? 'F' : score < .7 ? 'D' : score < .8 ? 'C' : score < .9 ? 'B' : score <= 1 ? 'A' : 'F';
+    // return score < .6 ? 'F' : score < .7 ? 'D' : score < .8 ? 'C' : score < .9 ? 'B' : score <= 1 ? 'A' : 'F';
+    return score < .6 || score > 1 ? 'F' : score < .7 ? 'D' : score < .8 ? 'C' : score < .9 ? 'B' : 'A';
   }
 }
