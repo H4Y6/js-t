@@ -646,13 +646,15 @@ Example
 # first element: 1, difference: 2, how many: 5
 arithmetic_sequence_elements(1, 2, 5) == "1, 3, 5, 7, 9"      */
 
-  const arithmeticSequenceElements = (a, d, n) => {
-    const arr = [a];
-    while (arr.length < n) {
-      arr.push(a += d);
-    }
-    return arr.join(', ');
-  };
+  // const arithmeticSequenceElements = (a, d, n) => {
+  //   const arr = [a];
+  //   while (arr.length < n) {
+  //     arr.push(a += d);
+  //   }
+  //   return arr.join(', ');
+  // };
+
+  const arithmeticSequenceElements = (a, d, n) => Array(n).fill(a).map((e, i) => e + i * d).join(', ');
   console.log(arithmeticSequenceElements(1, 2, 5));
   console.log(arithmeticSequenceElements(1, -3, 10));
 }
