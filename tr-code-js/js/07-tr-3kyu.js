@@ -668,7 +668,8 @@ You have to write a function that determine if a number is Evil of Odious, funct
 
   // const evil = n => n.toString(2).split('').filter(e => e === '1').length % 2 ? "It's Odious!" : "It's Evil!";
   // const evil = n => n.toString(2).split('1').length % 2 ? "It's Evil!" : "It's Odious!";
-  const evil = n => n.toString(2).match(/1/g).length % 2 ? "It's Odious!" : "It's Evil!";
+  // const evil = n => n.toString(2).match(/1/g).length % 2 ? "It's Odious!" : "It's Evil!";
+  const evil = n => n.toString(2).replace(/0/g, '').length % 2 ? "It's Odious!" : "It's Evil!";
 
   console.log(evil(33));
 }
