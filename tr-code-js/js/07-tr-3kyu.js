@@ -706,6 +706,7 @@ For example:
 3500 --> "0 hour(s) and 58 minute(s)"
 323500 --> "89 hour(s) and 51 minute(s)"  */
 
-  const toTime = seconds => `${Math.trunc(seconds / 3600)} hour(s) and ${Math.trunc(seconds % 3600 / 60)} minute(s)`;
-  console.log(toTime(3700));
+  // const toTime = seconds => `${Math.trunc(seconds / 3600)} hour(s) and ${Math.trunc(seconds % 3600 / 60)} minute(s)`;
+  const toTime = seconds => `${seconds / 3600 ^ 0} hour(s) and ${seconds % 3600 / 60 ^ 0} minute(s)`;
+  // console.log(toTime(3700));
 }
