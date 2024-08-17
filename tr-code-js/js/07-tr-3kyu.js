@@ -690,6 +690,7 @@ ghci> filterLucky [1,2,3,4,5,6,7,68,69,70,15,17]
 [7,70,17]
 Don't worry about bad input, you will always receive a finite list of integers.  */
 
-  const filterLucky = x => [...x].filter(e => /7/.test(e));
-  console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]));
+  // const filterLucky = x => [...x].filter(e => /7/.test(e));
+  const filterLucky = x => [...x].filter(e => [...e + ''].some(el => el === '7'));
+  // console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]));
 }
