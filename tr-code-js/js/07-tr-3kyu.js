@@ -666,7 +666,8 @@ The number n is Odious if it has an odd number of 1's in its binary representati
 The first few Odious numbers: 1, 2, 4, 7, 8, 11, 13, 14, 16, 19
 You have to write a function that determine if a number is Evil of Odious, function should return "It's Evil!" in case of evil number and "It's Odious!" in case of odious number.  */;
 
-  const evil = n => n.toString(2).split('').filter(e => e === '1').length % 2 ? "It's Odious!" : "It's Evil!";
+  // const evil = n => n.toString(2).split('').filter(e => e === '1').length % 2 ? "It's Odious!" : "It's Evil!";
+  const evil = n => n.toString(2).split('1').length % 2 ? "It's Evil!" : "It's Odious!";
 
 
   console.log(evil(33));
