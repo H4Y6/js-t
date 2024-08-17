@@ -676,9 +676,10 @@ You have to write a function that determine if a number is Evil of Odious, funct
 { /**7 kyu  Find min and max 
   Implement a function that returns the minimal and the maximal value of a list (in this order).     */
 
-  const getMinMax = arr => {
-    const sorted = [...arr].sort((a, b) => a - b);
-    return [sorted[0], sorted[arr.length - 1]];
-  };
-  console.log(getMinMax([2, 1]));
+  // const getMinMax = arr => {
+  //   const sorted = [...arr].sort((a, b) => a - b);
+  //   return [sorted[0], sorted[arr.length - 1]];
+  // };
+  const getMinMax = arr => [Math.min(...arr), Math.max(...arr)];
+  // console.log(getMinMax([2, 1]));
 }
