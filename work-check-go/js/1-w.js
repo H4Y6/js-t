@@ -38,3 +38,25 @@ function makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFee) {
   return `You ordered droids worth ${pricePerDroid * orderedQuantity + deliveryFee} credits. Delivery (${deliveryFee} credits) is included in total price.`;
 }
 // console.log(makeOrderMessage(2, 100, 50));
+
+function isAdult(age) {
+  return age >= 18;
+}
+// console.log(isAdult(20));
+
+function isValidPassword(password) {
+  const SAVED_PASSWORD = 'jqueryismyjam';
+  const isMatch = password === SAVED_PASSWORD;
+  return isMatch;
+}
+
+function checkAge(age) {
+  let message;
+
+  if (age >= 18) {
+    message = 'You are an adult';
+  } else {
+    message = 'You are a minor';
+  }
+  return message;
+}
