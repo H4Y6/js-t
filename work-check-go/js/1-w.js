@@ -108,3 +108,22 @@ function checkPassword(password) {
     return message;
   }
 }
+
+function isNumberInRange(start, end, number) {
+  const isInRange = number >= start && number <= end;
+
+  return isInRange;
+}
+
+function checkIfCanAccessContent(subType) {
+  const canAccessContent = subType === 'pro' || subType === 'vip';
+
+  return canAccessContent;
+}
+
+function isNumberNotInRange(start, end, number) {
+  const isInRange = number >= start && number <= end;
+  const isNotInRange = !isInRange;
+
+  return isNotInRange;
+}
