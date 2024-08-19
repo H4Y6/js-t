@@ -78,3 +78,33 @@ function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
   return message;
 }
 // console.log(makeTransaction(3000, 5, 23000));
+
+function checkPassword(password) {
+  const ADMIN_PASSWORD = 'jqueryismyjam';
+  let message;
+
+  if (password === null) {
+    message = 'Canceled by user!';
+  } else if (password === ADMIN_PASSWORD) {
+    message = 'Welcome!';
+  } else {
+    message = 'Access denied, wrong password!';
+  }
+
+  return message;
+}
+
+{
+  function checkStorage(available, ordered) {
+    let message;
+    if (!ordered) {
+      message = "There are no products in the order!";
+    } else if (ordered > available) {
+      message = "Your order is too large, there are not enough items in stock!";
+    } else {
+      message = "The order is accepted, our manager will contact you";
+    }
+
+    return message;
+  }
+}
