@@ -142,4 +142,40 @@ function getDiscount(totalSpent) {
 
   return discount;
 }
-console.log(getDiscount(137000));
+// console.log(getDiscount(137000));
+
+{
+  function checkStorage(available, ordered) {
+    return ordered > available ? "Not enough goods in stock!" : "The order is accepted, our manager will contact you";
+  }
+  // console.log(checkStorage(100, 50));
+}
+
+{
+  function checkPassword(password) {
+    const ADMIN_PASSWORD = "jqueryismyjam";
+    let message;
+    message = password === ADMIN_PASSWORD ? "Access is allowed" : "Access denied, wrong password!";
+    return message;
+  }
+  // console.log(checkPassword("angul4r1sl1f3"));
+}
+
+function getSubscriptionPrice(type) {
+  let price;
+  switch (type) {
+
+    case 'starter':
+      price = 0;
+      break;
+
+    case 'professional':
+      price = 20;
+      break;
+
+    default: price = 50;
+  }
+  return price;
+}
+// console.log(getSubscriptionPrice("organization"));
+// console.log(getSubscriptionPrice("starter"));
