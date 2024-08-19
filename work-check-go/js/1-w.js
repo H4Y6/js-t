@@ -60,3 +60,21 @@ function checkAge(age) {
   }
   return message;
 }
+
+function checkStorage(available, ordered) {
+  let message;
+  if (available < ordered) {
+    message = "Not enough goods in stock!";
+  } else { message = "Order is processed, our manager will contact you."; }
+  return message;
+}
+
+function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
+  let message;
+  const totalPrice = pricePerDroid * orderedQuantity;
+  if (totalPrice > customerCredits) {
+    message = "Insufficient funds!";
+  } else { message = `You ordered ${orderedQuantity} droids, you have ${customerCredits - totalPrice} credits left`; }
+  return message;
+}
+// console.log(makeTransaction(3000, 5, 23000));
