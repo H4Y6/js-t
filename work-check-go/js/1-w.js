@@ -1,8 +1,3 @@
-function checkForSpam(message) {
-  return /sale|spam/gi.test(message);
-  return result;
-}
-
 const orderedQuantity = 6;
 const pricePerDroid = 800;
 const deliveryFee = 50;
@@ -227,4 +222,37 @@ function getShippingCost(country) {
   }
 
   return message = `Shipping to ${country} will cost ${price} credits`;
+}
+
+function getNameLength(name) {
+  const message = `Name ${name} is ${name.length} characters long`;
+
+  return message;
+}
+
+function getSubstring(string, length) {
+  const substring = string.slice(0, length);
+
+  return substring;
+}
+
+function formatMessage(message, maxLength) {
+  let result;
+  result = message.length > maxLength ? message.slice(0, maxLength) + '...' : message;
+  return result;
+}
+// console.log(formatMessage("Curabitur ligula sapien", 16));
+
+function normalizeInput(input) {
+  const normalizedInput = input.toLowerCase();
+  return normalizedInput;
+}
+
+function checkForName(fullName, name) {
+  const result = fullName.includes(name);
+  return result;
+}
+
+function checkForSpam(message) {
+  return /sale|spam/gi.test(message);
 }
