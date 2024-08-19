@@ -179,3 +179,52 @@ function getSubscriptionPrice(type) {
 }
 // console.log(getSubscriptionPrice("organization"));
 // console.log(getSubscriptionPrice("starter"));
+
+{
+  function checkPassword(password) {
+    const ADMIN_PASSWORD = "jqueryismyjam";
+    let message;
+    switch (password) {
+      case null:
+        message = "Canceled by user!";
+        break;
+
+
+      case ADMIN_PASSWORD:
+        message = "Welcome!";
+        break;
+
+      default:
+        message = "Access denied, wrong password!";
+
+    }
+    return message;
+  }
+}
+
+function getShippingCost(country) {
+  let message;
+  let price;
+
+  switch (country) {
+    case 'China':
+      price = 100;
+      break;
+
+    case 'Chile':
+      price = 250;
+      break;
+
+    case 'Austrlia':
+      price = 170;
+      break;
+
+    case 'Jamaica':
+      price = 100;
+      break;
+
+    default: return "Sorry, there is no delivery to your country";
+  }
+
+  return message = `Shipping to ${country} will cost ${price} credits`;
+}
