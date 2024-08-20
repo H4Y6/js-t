@@ -724,6 +724,7 @@ Examples
 40, 3  -->  "10x^4"
 90, 2  -->  "30x^3"       */
 
-  const integrate = (coefficient, exponent) => [coefficient / (exponent += 1), 'x^', exponent].join('');
+  // const integrate = (coefficient, exponent) => [coefficient / (exponent += 1), 'x^', exponent].join('');
+  const integrate = (coefficient, exponent) => `${coefficient / (exponent += 1)}x^${exponent}`;
   console.log(integrate(12, 5));
 }
