@@ -736,8 +736,14 @@ uefaEuro2016(['Germany', 'Ukraine'],[2, 0]) // "At match Germany - Ukraine, Germ
 uefaEuro2016(['Belgium', 'Italy'],[0, 2]) // "At match Belgium - Italy, Italy won!"
 uefaEuro2016(['Portugal', 'Iceland'],[1, 1]) // "At match Portugal - Iceland, teams played draw." */
 
-  const uefaEuro2016 = (teams, scores) => scores[0] === scores[1] ? `At match ${teams.join(' - ')}, teams played draw.`
-    : `At match ${teams.join(' - ')}, ${teams[scores.indexOf(Math.max(...scores))]} won!`;
+  // const uefaEuro2016 = (teams, scores) => scores[0] === scores[1] ? `At match ${teams.join(' - ')}, teams played draw.`
+  //   : `At match ${teams.join(' - ')}, ${teams[scores.indexOf(Math.max(...scores))]} won!`;
 
-  console.log(uefaEuro2016(['Germany', 'Ukraine'], [2, 0]));
+  // const uefaEuro2016 = (teams, scores) => `At match ${teams.join(' - ')}, ` + (scores[0] === scores[1] ? 'teams played draw.'
+  //   : `${teams[scores.indexOf(Math.max(...scores))]} won!`);
+
+  const uefaEuro2016 = (teams, scores) => `At match ${teams.join(' - ')}, ` + (scores[0] === scores[1] ? 'teams played draw.'
+    : `${teams[scores[0] > scores[1] ? 0 : 1]} won!`);
+
+  // console.log(uefaEuro2016(['Germany', 'Ukraine'], [2, 0]));
 };
