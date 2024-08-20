@@ -726,6 +726,7 @@ Examples
 
   // const integrate = (coefficient, exponent) => [coefficient / (exponent += 1), 'x^', exponent].join('');
   // const integrate = (coefficient, exponent) => `${coefficient / (exponent += 1)}x^${exponent}`;
-  const integrate = (coefficient, exponent) => coefficient / (exponent += 1) + 'x^' + exponent;
+  // const integrate = (coefficient, exponent) => coefficient / (exponent += 1) + 'x^' + exponent;
+  const integrate = (coefficient, exponent) => coefficient / ++exponent + 'x^' + exponent;
   console.log(integrate(12, 5));
 }
