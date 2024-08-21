@@ -839,6 +839,6 @@ Examples
 ("jason", "samson", "s")      ==>  "jasamson"
 ("wonderful", "people", "e")  ==>  "wondeople"       */
 
-const stringMerge = (string1, string2, letter) => string1.split(letter)[0] + string2.slice(string2.indexOf(letter));
-
+// const stringMerge = (string1, string2, letter) => string1.split(letter)[0] + string2.slice(string2.indexOf(letter));
+const stringMerge = (str1, str2, letter) => str1.match(`[^${letter}]*`) + str2.match(`${letter}.*`);
 console.log(stringMerge("hello", "world", "l"));
