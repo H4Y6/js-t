@@ -852,6 +852,84 @@ Each number corresponds to their alphabetical order letter (e.g. 1 = A. 2 = B, e
 // const bingo = a => 'BINGO'.split('').map(e => a.map(e => String.fromCharCode(e + 64)).join('').includes(e)).every(e => e) ? 'WIN' : 'LOSE';
 const bingo = a => 'BINGO'.split('').map(e => a.includes(e.charCodeAt() - 64)).every(e => e) ? 'WIN' : 'LOSE';
 
-console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]));
-console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]));
+// console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 // console.log('A'.charCodeAt());
+
+/** 7 kyu  Average Scores 
+ * Create a function that returns the average of an array of numbers ("scores"), rounded to the nearest whole number. You are not allowed to use any loops (including for, for/in, while, and do/while loops).
+The array will never be empty.            */
+
+const average = scores => Math.round(scores.reduce((res, e) => res + e, 0) / scores.length);
+// console.log(average([49, 3, 5, 300, 7]));
+
+/** 7 kyu  ToLeetSpeak
+ * Your task is to write a function toLeetSpeak that converts a regular english sentence to Leetspeak.
+More about LeetSpeak You can read at wiki -> https://en.wikipedia.org/wiki/Leet
+Consider only uppercase letters (no lowercase letters, no numbers) and spaces.
+For example:
+toLeetSpeak("LEET") returns "1337"
+In this kata we use a simple LeetSpeak dialect. Use this alphabet:
+
+{
+  A : '@',
+  B : '8',
+  C : '(',
+  D : 'D',
+  E : '3',
+  F : 'F',
+  G : '6',
+  H : '#',
+  I : '!',
+  J : 'J',
+  K : 'K',
+  L : '1',
+  M : 'M',
+  N : 'N',
+  O : '0',
+  P : 'P',
+  Q : 'Q',
+  R : 'R',
+  S : '$',
+  T : '7',
+  U : 'U',
+  V : 'V',
+  W : 'W',
+  X : 'X',
+  Y : 'Y',
+  Z : '2'
+}               */
+
+function toLeetSpeak(str) {
+  const letters = {
+    A: '@',
+    B: '8',
+    C: '(',
+    D: 'D',
+    E: '3',
+    F: 'F',
+    G: '6',
+    H: '#',
+    I: '!',
+    J: 'J',
+    K: 'K',
+    L: '1',
+    M: 'M',
+    N: 'N',
+    O: '0',
+    P: 'P',
+    Q: 'Q',
+    R: 'R',
+    S: '$',
+    T: '7',
+    U: 'U',
+    V: 'V',
+    W: 'W',
+    X: 'X',
+    Y: 'Y',
+    Z: '2',
+    ' ': ' '
+  };
+  return [...str].map(e => letters[e]).join('');
+}
+// console.log(toLeetSpeak('HELLO WORLD'));
