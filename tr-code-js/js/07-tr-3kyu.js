@@ -863,73 +863,78 @@ The array will never be empty.            */
 const average = scores => Math.round(scores.reduce((res, e) => res + e, 0) / scores.length);
 // console.log(average([49, 3, 5, 300, 7]));
 
-/** 7 kyu  ToLeetSpeak
- * Your task is to write a function toLeetSpeak that converts a regular english sentence to Leetspeak.
-More about LeetSpeak You can read at wiki -> https://en.wikipedia.org/wiki/Leet
-Consider only uppercase letters (no lowercase letters, no numbers) and spaces.
-For example:
-toLeetSpeak("LEET") returns "1337"
-In this kata we use a simple LeetSpeak dialect. Use this alphabet:
-
 {
-  A : '@',
-  B : '8',
-  C : '(',
-  D : 'D',
-  E : '3',
-  F : 'F',
-  G : '6',
-  H : '#',
-  I : '!',
-  J : 'J',
-  K : 'K',
-  L : '1',
-  M : 'M',
-  N : 'N',
-  O : '0',
-  P : 'P',
-  Q : 'Q',
-  R : 'R',
-  S : '$',
-  T : '7',
-  U : 'U',
-  V : 'V',
-  W : 'W',
-  X : 'X',
-  Y : 'Y',
-  Z : '2'
-}               */
+  /** 7 kyu  ToLeetSpeak
+   * Your task is to write a function toLeetSpeak that converts a regular english sentence to Leetspeak.
+  More about LeetSpeak You can read at wiki -> https://en.wikipedia.org/wiki/Leet
+  Consider only uppercase letters (no lowercase letters, no numbers) and spaces.
+  For example:
+  toLeetSpeak("LEET") returns "1337"
+  In this kata we use a simple LeetSpeak dialect. Use this alphabet:
+  
+  {
+    A : '@',
+    B : '8',
+    C : '(',
+    D : 'D',
+    E : '3',
+    F : 'F',
+    G : '6',
+    H : '#',
+    I : '!',
+    J : 'J',
+    K : 'K',
+    L : '1',
+    M : 'M',
+    N : 'N',
+    O : '0',
+    P : 'P',
+    Q : 'Q',
+    R : 'R',
+    S : '$',
+    T : '7',
+    U : 'U',
+    V : 'V',
+    W : 'W',
+    X : 'X',
+    Y : 'Y',
+    Z : '2'
+  }               */
 
-function toLeetSpeak(str) {
-  const letters = {
-    A: '@',
-    B: '8',
-    C: '(',
-    D: 'D',
-    E: '3',
-    F: 'F',
-    G: '6',
-    H: '#',
-    I: '!',
-    J: 'J',
-    K: 'K',
-    L: '1',
-    M: 'M',
-    N: 'N',
-    O: '0',
-    P: 'P',
-    Q: 'Q',
-    R: 'R',
-    S: '$',
-    T: '7',
-    U: 'U',
-    V: 'V',
-    W: 'W',
-    X: 'X',
-    Y: 'Y',
-    Z: '2',
-    ' ': ' '
-  };
-  return [...str].map(e => letters[e]).join('');
+  function toLeetSpeak(str) {
+    const letters = {
+      A: '@',
+      B: '8',
+      C: '(',
+      D: 'D',
+      E: '3',
+      F: 'F',
+      G: '6',
+      H: '#',
+      I: '!',
+      J: 'J',
+      K: 'K',
+      L: '1',
+      M: 'M',
+      N: 'N',
+      O: '0',
+      P: 'P',
+      Q: 'Q',
+      R: 'R',
+      S: '$',
+      T: '7',
+      U: 'U',
+      V: 'V',
+      W: 'W',
+      X: 'X',
+      Y: 'Y',
+      Z: '2',
+      ' ': ' '
+    };
+    // return [...str].map(e => letters[e]).join('');
+
+    /** remove letters` last item: (' ') */
+    return [...str].map(e => letters[e] || e).join('');
+  }
+  // console.log(toLeetSpeak('HELLO WORLD'));
 }
-// console.log(toLeetSpeak('HELLO WORLD'));
