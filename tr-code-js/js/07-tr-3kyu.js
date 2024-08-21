@@ -803,12 +803,12 @@ Also we got a problem with negative values. Correct the code so negative values 
 The constructor taking no arguments should assign 0 to Cube's Side property.*/
 
 class Cube {
-  constructor(side) {
+  constructor(side = 0) {
     this.side = side;
   }
 
   getSide() {
-    return this.side;
+    return Math.abs(this.side);
   }
   setSide(n) {
     this.side = Math.abs(n);
