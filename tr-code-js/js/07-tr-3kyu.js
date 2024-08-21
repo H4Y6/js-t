@@ -823,7 +823,8 @@ Examples
 "red blue gold"   =>  "gold"     */
 
 // const longestWord = stringOfWords => stringOfWords.split(' ').reverse()[stringOfWords.split(' ').reverse().map((e, i) => [e.length, i]).sort((a, b) => b[0] - a[0])[0][1]];
-const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).slice(-1)[0];
+// const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).slice(-1)[0];
+const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).pop();
 
 console.log(longestWord('red blue grey'));
 console.log(longestWord('red white blue'));
