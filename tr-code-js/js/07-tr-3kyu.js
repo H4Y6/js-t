@@ -814,3 +814,16 @@ class Cube {
     this.side = Math.abs(n);
   }
 }
+
+/*7 kyu   Inspiring Strings
+Given a string of space separated words, return the longest word.
+If there are multiple longest words, return the rightmost longest word.
+Examples
+"red white blue"  =>  "white"
+"red blue gold"   =>  "gold"     */
+
+const longestWord = stringOfWords => stringOfWords.split(' ').reverse()[stringOfWords.split(' ').reverse().map((e, i) => [e.length, i]).sort((a, b) => b[0] - a[0])[0][1]];
+
+console.log(longestWord('red blue grey'));
+console.log(longestWord('red white blue'));
+console.log(longestWord("brings each opportunity step going"));
