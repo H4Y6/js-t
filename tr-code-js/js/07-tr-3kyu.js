@@ -909,3 +909,18 @@ function crap(x, bags, cap) {
 }
 // console.log(crap([['_', '_', '_', '_'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 1, 1));
 // console.log(crap([['_', '_', '_', 'D'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 2, 2));
+
+/** 6 kyu  Exclamation marks series #17: Put the exclamation marks and question marks on the balance - are they balanced? 
+ * Each exclamation mark's weight is 2; each question mark's weight is 3. Putting two strings left and right on the balance - are they balanced?
+If the left side is more heavy, return "Left"; if the right side is more heavy, return "Right"; if they are balanced, return "Balance".
+Examples
+"!!", "??"     -->  "Right"
+"!??", "?!!"   -->  "Left"
+"!?!!", "?!?"  -->  "Left"
+"!!???!????", "??!!?!!!!!!!"  -->  "Balance"      */
+
+function balance(left, right) {
+  const diff = [...left].reduce((res, e) => res + (e === '!' ? 2 : 3), 0) - [...right].reduce((res, e) => res + (e === '!' ? 2 : 3), 0);
+  return diff > 0 ? 'Left' : diff < 0 ? 'Right' : 'Balance';
+}
+console.log(balance("!!???!????", "??!!?!!!!!!!"));
