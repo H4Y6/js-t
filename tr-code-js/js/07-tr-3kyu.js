@@ -961,11 +961,14 @@ and so the method would return [1,9,6,3,0,1,1,1,1,1]
 Notes
 0 < start <= end      */
 
-const paintLetterboxes = (start, end) => {
-  let digits = '';
-  for (let i = start; i <= end; i++) {
-    digits += i;
-  }
-  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e) => 0 + [...digits].filter(el => +el === e).length);
-};
+// const paintLetterboxes = (start, end) => {
+//   let digits = '';
+//   for (let i = start; i <= end; i++) {
+//     digits += i;
+//   }
+//   return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e) => 0 + [...digits].filter(el => +el === e).length);
+// };
+
+const paintLetterboxes = (start, end) => Array.from({ length: 10 }, (_, i) => i).map((e) =>
+  0 + [...Array.from({ length: end - start + 1 }, (_, i) => start + i + '').reduce((res, e) => res + e, '')].filter(el => +el === e).length);
 console.log(paintLetterboxes(125, 132));
