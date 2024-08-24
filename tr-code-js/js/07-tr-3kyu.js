@@ -1025,4 +1025,5 @@ For example, running this function on the array ['i', 'have','no','space'] would
 // }
 
 const spacey = (array, res = '') => array.map((e) => res += e);
-console.log(spacey(['kevin', 'has', 'no', 'space']));
+// const spacey = array => array.map((e, i) => '' + array.slice(0, i + 1).join(''));
+// console.log(spacey(['kevin', 'has', 'no', 'space']));
