@@ -1013,4 +1013,14 @@ function newAvg(arr, newavg) {
   if (asdding < 0) throw new Error("Expected New Average is too low");
   return Math.ceil(asdding);
 }
-console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 2));
+// console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 2));
+
+/** 7 kyu  Running out of space
+Kevin is noticing his space run out! Write a function that removes the spaces from the values and returns an array showing the space decreasing.
+For example, running this function on the array ['i', 'have','no','space'] would produce ['i','ihave','ihaveno','ihavenospace'] */
+
+function spacey(array) {
+  let res = '';
+  return array.map((e) => res += e);
+}
+console.log(spacey(['kevin', 'has', 'no', 'space']));
