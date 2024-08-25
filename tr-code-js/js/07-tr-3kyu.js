@@ -1141,9 +1141,17 @@ Examples
 'Dimitri'                     => 'Dimitri'
 'Alice Betty Catherine Davis' => 'Alice B. C. Davis'   */
 
+  // function initializeNames(name) {
+  //   name = name.split(' ');
+  //   return name.length >= 2 ? [name[0], ...name.slice(1, -1).map(e => e[0] + '.'), ...name.slice(-1)].join(' ') : name[0];
+  // }
+
+  // function initializeNames(name) {
+  //   return name.replace(/ (\w)\w*(?= )/g, ' $1.');
+  // }
+
   function initializeNames(name) {
-    name = name.split(' ');
-    return name.length >= 2 ? [name[0], ...name.slice(1, -1).map(e => e[0] + '.'), ...name.slice(-1)].join(' ') : name[0];
+    return name.replace(/ (\w)\w*(?= )/g, (_, a) => ` ${a}.`);
   }
-  console.log(initializeNames('Alice Betty Catherine Davis'));
+  // console.log(initializeNames('Alice Betty Catherine Davis'));
 }
