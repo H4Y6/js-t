@@ -814,55 +814,55 @@ class Cube {
     this.side = Math.abs(n);
   }
 }
+{
+  /*7 kyu   Inspiring Strings
+  Given a string of space separated words, return the longest word.
+  If there are multiple longest words, return the rightmost longest word.
+  Examples
+  "red white blue"  =>  "white"
+  "red blue gold"   =>  "gold"     */
 
-/*7 kyu   Inspiring Strings
-Given a string of space separated words, return the longest word.
-If there are multiple longest words, return the rightmost longest word.
-Examples
-"red white blue"  =>  "white"
-"red blue gold"   =>  "gold"     */
+  // const longestWord = stringOfWords => stringOfWords.split(' ').reverse()[stringOfWords.split(' ').reverse().map((e, i) => [e.length, i]).sort((a, b) => b[0] - a[0])[0][1]];
+  // const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).slice(-1)[0];
+  // const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).pop();
+  const longestWord = stringOfWords => stringOfWords.split(' ').sort((b, a) => b.length - a.length).pop();
 
-// const longestWord = stringOfWords => stringOfWords.split(' ').reverse()[stringOfWords.split(' ').reverse().map((e, i) => [e.length, i]).sort((a, b) => b[0] - a[0])[0][1]];
-// const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).slice(-1)[0];
-// const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).pop();
-const longestWord = stringOfWords => stringOfWords.split(' ').sort((b, a) => b.length - a.length).pop();
+  // console.log(longestWord('red blue grey'));
+  // console.log(longestWord('red white blue'));
+  // console.log(longestWord("brings each opportunity step going"));
 
-// console.log(longestWord('red blue grey'));
-// console.log(longestWord('red white blue'));
-// console.log(longestWord("brings each opportunity step going"));
+  /** 7 kyu  String Merge!  
+   * Given two words and a letter, return a single word that's a combination of both words, merged at the point where the given letter first appears in each word. The returned word should have the beginning of the first word and the ending of the second, with the dividing letter in the middle. You can assume both words will contain the dividing letter.
+  Examples
+  ("hello", "world", "l")       ==>  "held"
+  ("coding", "anywhere", "n")   ==>  "codinywhere"
+  ("jason", "samson", "s")      ==>  "jasamson"
+  ("wonderful", "people", "e")  ==>  "wondeople"       */
 
-/** 7 kyu  String Merge!  
- * Given two words and a letter, return a single word that's a combination of both words, merged at the point where the given letter first appears in each word. The returned word should have the beginning of the first word and the ending of the second, with the dividing letter in the middle. You can assume both words will contain the dividing letter.
-Examples
-("hello", "world", "l")       ==>  "held"
-("coding", "anywhere", "n")   ==>  "codinywhere"
-("jason", "samson", "s")      ==>  "jasamson"
-("wonderful", "people", "e")  ==>  "wondeople"       */
+  // const stringMerge = (string1, string2, letter) => string1.split(letter)[0] + string2.slice(string2.indexOf(letter));
+  // const stringMerge = (str1, str2, letter) => str1.split(letter)[0] + str2.substr(str2.indexOf(letter));
+  const stringMerge = (str1, str2, letter) => (str1.split(letter)[0] + letter + str2.split(letter).slice(1).join(letter));
+  // const stringMerge = (str1, str2, letter) => str1.match(`[^${letter}]*`) + str2.match(`${letter}.*`);
+  // console.log(stringMerge("hello", "world", "l"));
 
-// const stringMerge = (string1, string2, letter) => string1.split(letter)[0] + string2.slice(string2.indexOf(letter));
-// const stringMerge = (str1, str2, letter) => str1.split(letter)[0] + str2.substr(str2.indexOf(letter));
-const stringMerge = (str1, str2, letter) => (str1.split(letter)[0] + letter + str2.split(letter).slice(1).join(letter));
-// const stringMerge = (str1, str2, letter) => str1.match(`[^${letter}]*`) + str2.match(`${letter}.*`);
-// console.log(stringMerge("hello", "world", "l"));
+  /*7 kyu  Bingo ( Or Not )  
+  For this game of BINGO, you will receive a single array of 10 numbers from 1 to 26 as an input. Duplicate numbers within the array are possible.
+  Each number corresponds to their alphabetical order letter (e.g. 1 = A. 2 = B, etc). Write a function where you will win the game if your numbers can spell "BINGO". They do not need to be in the right order in the input array. Otherwise you will lose. Your outputs should be "WIN" or "LOSE" respectively.*/
 
-/*7 kyu  Bingo ( Or Not )  
-For this game of BINGO, you will receive a single array of 10 numbers from 1 to 26 as an input. Duplicate numbers within the array are possible.
-Each number corresponds to their alphabetical order letter (e.g. 1 = A. 2 = B, etc). Write a function where you will win the game if your numbers can spell "BINGO". They do not need to be in the right order in the input array. Otherwise you will lose. Your outputs should be "WIN" or "LOSE" respectively.*/
+  // const bingo = a => 'BINGO'.split('').map(e => a.map(e => String.fromCharCode(e + 64)).join('').includes(e)).every(e => e) ? 'WIN' : 'LOSE';
+  const bingo = a => 'BINGO'.split('').map(e => a.includes(e.charCodeAt() - 64)).every(e => e) ? 'WIN' : 'LOSE';
 
-// const bingo = a => 'BINGO'.split('').map(e => a.map(e => String.fromCharCode(e + 64)).join('').includes(e)).every(e => e) ? 'WIN' : 'LOSE';
-const bingo = a => 'BINGO'.split('').map(e => a.includes(e.charCodeAt() - 64)).every(e => e) ? 'WIN' : 'LOSE';
+  // console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]));
+  // console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+  // console.log('A'.charCodeAt());
 
-// console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]));
-// console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
-// console.log('A'.charCodeAt());
+  /** 7 kyu  Average Scores 
+   * Create a function that returns the average of an array of numbers ("scores"), rounded to the nearest whole number. You are not allowed to use any loops (including for, for/in, while, and do/while loops).
+  The array will never be empty.            */
 
-/** 7 kyu  Average Scores 
- * Create a function that returns the average of an array of numbers ("scores"), rounded to the nearest whole number. You are not allowed to use any loops (including for, for/in, while, and do/while loops).
-The array will never be empty.            */
-
-const average = scores => Math.round(scores.reduce((res, e) => res + e, 0) / scores.length);
-// console.log(average([49, 3, 5, 300, 7]));
-
+  const average = scores => Math.round(scores.reduce((res, e) => res + e, 0) / scores.length);
+  // console.log(average([49, 3, 5, 300, 7]));
+}
 {
   /** 7 kyu  ToLeetSpeak
    * Your task is to write a function toLeetSpeak that converts a regular english sentence to Leetspeak.
@@ -886,174 +886,175 @@ const average = scores => Math.round(scores.reduce((res, e) => res + e, 0) / sco
   }
   // console.log(toLeetSpeak('HELLO WORLD'));
 }
+{
+  /** 7 kyu  Clean up after your dog
+  You have stumbled across the divine pleasure that is owning a dog and a garden. Now time to pick up all the cr@p! :D
+  Given a 2D array to represent your garden, you must find and collect all of the dog cr@p - represented by '@'.
+  You will also be given the number of bags you have access to (bags), and the capactity of a bag (cap). If there are no bags then you can't pick anything up, so you can ignore cap.
+  You need to find out if you have enough capacity to collect all the cr@p and make your garden clean again.
+  If you do, return 'Clean', else return 'Cr@p'.
+  Watch out though - if your dog is out there ('D'), he gets very touchy about being watched. If he is there you need to return 'Dog!!'.
+  For example:
+  x=
+  [[_,_,_,_,_,_]
+  [_,_,_,_,@,_]
+  [@,_,_,_,_,_]]
+  bags = 2, cap = 2
+  return --> 'Clean'         */
 
-/** 7 kyu  Clean up after your dog
-You have stumbled across the divine pleasure that is owning a dog and a garden. Now time to pick up all the cr@p! :D
-Given a 2D array to represent your garden, you must find and collect all of the dog cr@p - represented by '@'.
-You will also be given the number of bags you have access to (bags), and the capactity of a bag (cap). If there are no bags then you can't pick anything up, so you can ignore cap.
-You need to find out if you have enough capacity to collect all the cr@p and make your garden clean again.
-If you do, return 'Clean', else return 'Cr@p'.
-Watch out though - if your dog is out there ('D'), he gets very touchy about being watched. If he is there you need to return 'Dog!!'.
-For example:
-x=
-[[_,_,_,_,_,_]
-[_,_,_,_,@,_]
-[@,_,_,_,_,_]]
-bags = 2, cap = 2
-return --> 'Clean'         */
+  function crap(x, bags, cap) {
+    if (x.flat().includes('D')) return 'Dog!!';
+    return x.flat().reduce((res, e) =>
+      e === '@' ? res - 1 : res, bags * cap) < 0 ? 'Cr@p' : 'Clean';
+  }
+  // console.log(crap([['_', '_', '_', '_'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 1, 1));
+  // console.log(crap([['_', '_', '_', 'D'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 2, 2));
 
-function crap(x, bags, cap) {
-  if (x.flat().includes('D')) return 'Dog!!';
-  return x.flat().reduce((res, e) =>
-    e === '@' ? res - 1 : res, bags * cap) < 0 ? 'Cr@p' : 'Clean';
+  /** 6 kyu  Exclamation marks series #17: Put the exclamation marks and question marks on the balance - are they balanced? 
+   * Each exclamation mark's weight is 2; each question mark's weight is 3. Putting two strings left and right on the balance - are they balanced?
+  If the left side is more heavy, return "Left"; if the right side is more heavy, return "Right"; if they are balanced, return "Balance".
+  Examples
+  "!!", "??"     -->  "Right"
+  "!??", "?!!"   -->  "Left"
+  "!?!!", "?!?"  -->  "Left"
+  "!!???!????", "??!!?!!!!!!!"  -->  "Balance"      */
+
+  function balance(left, right) {
+    const diff = [...left].reduce((res, e) => res + (e === '!' ? 2 : 3), 0) - [...right].reduce((res, e) => res + (e === '!' ? 2 : 3), 0);
+    return diff > 0 ? 'Left' : diff < 0 ? 'Right' : 'Balance';
+  }
+  // console.log(balance("!!???!????", "??!!?!!!!!!!"));
+
+  /** 7 kyu  Letterbox Paint-Squad 
+   * You and a group of friends are earning some extra money in the school holidays by re-painting the numbers on people's letterboxes for a small fee.
+  
+  Since there are 10 of you in the group each person just concentrates on painting one digit! For example, somebody will paint only the 1's, somebody else will paint only the 2's and so on...
+  
+  But at the end of the day you realise not everybody did the same amount of work.
+  
+  To avoid any fights you need to distribute the money fairly. That's where this Kata comes in.
+  
+  Kata Task
+  Given the start and end letterbox numbers, write a method to return the frequency of all 10 digits painted.
+  
+  Example
+  For start = 125, and end = 132
+  
+  The letterboxes are
+  
+  125 = 1, 2, 5
+  126 = 1, 2, 6
+  127 = 1, 2, 7
+  128 = 1, 2, 8
+  129 = 1, 2, 9
+  130 = 1, 3, 0
+  131 = 1, 3, 1
+  132 = 1, 3, 2
+  The digit frequencies are:
+  
+  0 is painted 1 time
+  1 is painted 9 times
+  2 is painted 6 times
+  etc...
+  and so the method would return [1,9,6,3,0,1,1,1,1,1]
+  
+  Notes
+  0 < start <= end      */
+
+  // const paintLetterboxes = (start, end) => {
+  //   let digits = '';
+  //   for (let i = start; i <= end; i++) {
+  //     digits += i;
+  //   }
+  //   return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e) => 0 + [...digits].filter(el => +el === e).length);
+  // };
+
+  const paintLetterboxes = (start, end) => Array.from({ length: 10 }, (_, i) => i).map((e) =>
+    0 + [...Array.from({ length: end - start + 1 }, (_, i) => start + i + '').reduce((res, e) => res + e, '')].filter(el => +el === e).length);
+  // console.log(paintLetterboxes(125, 132));
+
+  /** 7 kyu  Looking for a benefactor
+  The accounts of the "Fat to Fit Club (FFC)" association are supervised by John as a volunteered accountant. The association is funded through financial donations from generous benefactors. John has a list of the first n donations: [14, 30, 5, 7, 9, 11, 15] He wants to know how much the next benefactor should give to the association so that the average of the first n + 1 donations should reach an average of 30. After doing the math he found 149. He thinks that he could have made a mistake.
+  
+  if dons = [14, 30, 5, 7, 9, 11, 15] then new_avg(dons, 30) --> 149
+  
+  Could you help him?
+  
+  Task
+  The function new_avg(arr, navg) should return the expected donation (rounded up to the next integer) that will permit to reach the average navg.
+  
+  Should the last donation be a non positive number (<= 0) John wants us:
+  
+  to return:
+  
+  Nothing in Haskell, Elm
+  None in F#, Ocaml, Rust, Scala
+  -1 in C, D, Fortran, Nim, PowerShell, Go, Pascal, Prolog, Lua, Perl, Erlang
+  or to throw an error (some examples for such a case):
+  
+  IllegalArgumentException() in Clojure, Java, Kotlin
+  ArgumentException() in C#
+  echo ERROR in Shell
+  argument-error in Racket
+  std::invalid_argument in C++
+  ValueError in Python
+  So, he will clearly see that his expectations are not great enough. In "Sample Tests" you can see what to return.
+  
+  Notes:
+  all donations and navg are numbers (integers or floats), arr can be empty.
+  See examples below and "Sample Tests" to see which return is to be done.
+  new_avg([14, 30, 5, 7, 9, 11, 15], 92) should return 645
+  new_avg([14, 30, 5, 7, 9, 11, 15], 2) 
+  should raise an error (ValueError or invalid_argument or argument-error or DomainError or ... ) 
+  or return `-1` or ERROR or Nothing or None depending on the language. */
+
+  function newAvg(arr, newavg) {
+    const asdding = newavg * (arr.length + 1) - arr.reduce((sum, e) => sum + e, 0);
+    if (asdding < 0) throw new Error("Expected New Average is too low");
+    return Math.ceil(asdding);
+  }
+  // console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 2));
+
+  /** 7 kyu  Running out of space
+  Kevin is noticing his space run out! Write a function that removes the spaces from the values and returns an array showing the space decreasing.
+  For example, running this function on the array ['i', 'have','no','space'] would produce ['i','ihave','ihaveno','ihavenospace'] */
+
+  // function spacey(array) {
+  //   let res = '';
+  //   return array.map((e) => res += e);
+  // }
+
+  // const spacey = (array, res = '') => array.map((e) => res += e);
+  // const spacey = array => array.map((e, i) => '' + array.slice(0, i + 1).join(''));
+  const spacey = array => array.map((e, i) => array.slice(0, i + 1).join(''));
+  // console.log(spacey(['kevin', 'has', 'no', 'space']));
+
+  /** 6 kyu  Array Deep Count
+  You are given an array. Complete the function that returns the number of ALL elements within an array, including any nested arrays.
+  Examples
+  []                   -->  0
+  [1, 2, 3]            -->  3
+  ["x", "y", ["z"]]    -->  4
+  [1, 2, [3, 4, [5]]]  -->  7
+  The input will always be an array. */
+
+  // function deepCount(a) {
+  //   let count = 0;
+  //   while (a.some(Array.isArray)) {
+  //     count += a.filter(e => Array.isArray(e)).length;
+  //     a = a.flat();
+  //   }
+  //   return count + a.length;
+  // }
+
+  // const deepCount = a => a.reduce((count, e) => count + (Array.isArray(e) ? deepCount(e) : 0), a.length);
+  const deepCount = a => JSON.stringify(a).replace(/[^[,]|\[]/g, '').length;
+
+  // console.log(deepCount([1, 2, [3, 4, [5]]]));
+  // console.log(deepCount(["x", "y", ["z"]]));
+  // console.log(deepCount([]));
+  // console.log(deepCount([26, [[[[23, 9, 0]], 11, [[19, [[]], [[]]]]]], 4]));
 }
-// console.log(crap([['_', '_', '_', '_'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 1, 1));
-// console.log(crap([['_', '_', '_', 'D'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 2, 2));
-
-/** 6 kyu  Exclamation marks series #17: Put the exclamation marks and question marks on the balance - are they balanced? 
- * Each exclamation mark's weight is 2; each question mark's weight is 3. Putting two strings left and right on the balance - are they balanced?
-If the left side is more heavy, return "Left"; if the right side is more heavy, return "Right"; if they are balanced, return "Balance".
-Examples
-"!!", "??"     -->  "Right"
-"!??", "?!!"   -->  "Left"
-"!?!!", "?!?"  -->  "Left"
-"!!???!????", "??!!?!!!!!!!"  -->  "Balance"      */
-
-function balance(left, right) {
-  const diff = [...left].reduce((res, e) => res + (e === '!' ? 2 : 3), 0) - [...right].reduce((res, e) => res + (e === '!' ? 2 : 3), 0);
-  return diff > 0 ? 'Left' : diff < 0 ? 'Right' : 'Balance';
-}
-// console.log(balance("!!???!????", "??!!?!!!!!!!"));
-
-/** 7 kyu  Letterbox Paint-Squad 
- * You and a group of friends are earning some extra money in the school holidays by re-painting the numbers on people's letterboxes for a small fee.
-
-Since there are 10 of you in the group each person just concentrates on painting one digit! For example, somebody will paint only the 1's, somebody else will paint only the 2's and so on...
-
-But at the end of the day you realise not everybody did the same amount of work.
-
-To avoid any fights you need to distribute the money fairly. That's where this Kata comes in.
-
-Kata Task
-Given the start and end letterbox numbers, write a method to return the frequency of all 10 digits painted.
-
-Example
-For start = 125, and end = 132
-
-The letterboxes are
-
-125 = 1, 2, 5
-126 = 1, 2, 6
-127 = 1, 2, 7
-128 = 1, 2, 8
-129 = 1, 2, 9
-130 = 1, 3, 0
-131 = 1, 3, 1
-132 = 1, 3, 2
-The digit frequencies are:
-
-0 is painted 1 time
-1 is painted 9 times
-2 is painted 6 times
-etc...
-and so the method would return [1,9,6,3,0,1,1,1,1,1]
-
-Notes
-0 < start <= end      */
-
-// const paintLetterboxes = (start, end) => {
-//   let digits = '';
-//   for (let i = start; i <= end; i++) {
-//     digits += i;
-//   }
-//   return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e) => 0 + [...digits].filter(el => +el === e).length);
-// };
-
-const paintLetterboxes = (start, end) => Array.from({ length: 10 }, (_, i) => i).map((e) =>
-  0 + [...Array.from({ length: end - start + 1 }, (_, i) => start + i + '').reduce((res, e) => res + e, '')].filter(el => +el === e).length);
-// console.log(paintLetterboxes(125, 132));
-
-/** 7 kyu  Looking for a benefactor
-The accounts of the "Fat to Fit Club (FFC)" association are supervised by John as a volunteered accountant. The association is funded through financial donations from generous benefactors. John has a list of the first n donations: [14, 30, 5, 7, 9, 11, 15] He wants to know how much the next benefactor should give to the association so that the average of the first n + 1 donations should reach an average of 30. After doing the math he found 149. He thinks that he could have made a mistake.
-
-if dons = [14, 30, 5, 7, 9, 11, 15] then new_avg(dons, 30) --> 149
-
-Could you help him?
-
-Task
-The function new_avg(arr, navg) should return the expected donation (rounded up to the next integer) that will permit to reach the average navg.
-
-Should the last donation be a non positive number (<= 0) John wants us:
-
-to return:
-
-Nothing in Haskell, Elm
-None in F#, Ocaml, Rust, Scala
--1 in C, D, Fortran, Nim, PowerShell, Go, Pascal, Prolog, Lua, Perl, Erlang
-or to throw an error (some examples for such a case):
-
-IllegalArgumentException() in Clojure, Java, Kotlin
-ArgumentException() in C#
-echo ERROR in Shell
-argument-error in Racket
-std::invalid_argument in C++
-ValueError in Python
-So, he will clearly see that his expectations are not great enough. In "Sample Tests" you can see what to return.
-
-Notes:
-all donations and navg are numbers (integers or floats), arr can be empty.
-See examples below and "Sample Tests" to see which return is to be done.
-new_avg([14, 30, 5, 7, 9, 11, 15], 92) should return 645
-new_avg([14, 30, 5, 7, 9, 11, 15], 2) 
-should raise an error (ValueError or invalid_argument or argument-error or DomainError or ... ) 
-or return `-1` or ERROR or Nothing or None depending on the language. */
-
-function newAvg(arr, newavg) {
-  const asdding = newavg * (arr.length + 1) - arr.reduce((sum, e) => sum + e, 0);
-  if (asdding < 0) throw new Error("Expected New Average is too low");
-  return Math.ceil(asdding);
-}
-// console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 2));
-
-/** 7 kyu  Running out of space
-Kevin is noticing his space run out! Write a function that removes the spaces from the values and returns an array showing the space decreasing.
-For example, running this function on the array ['i', 'have','no','space'] would produce ['i','ihave','ihaveno','ihavenospace'] */
-
-// function spacey(array) {
-//   let res = '';
-//   return array.map((e) => res += e);
-// }
-
-// const spacey = (array, res = '') => array.map((e) => res += e);
-// const spacey = array => array.map((e, i) => '' + array.slice(0, i + 1).join(''));
-const spacey = array => array.map((e, i) => array.slice(0, i + 1).join(''));
-// console.log(spacey(['kevin', 'has', 'no', 'space']));
-
-/** 6 kyu  Array Deep Count
-You are given an array. Complete the function that returns the number of ALL elements within an array, including any nested arrays.
-Examples
-[]                   -->  0
-[1, 2, 3]            -->  3
-["x", "y", ["z"]]    -->  4
-[1, 2, [3, 4, [5]]]  -->  7
-The input will always be an array. */
-
-// function deepCount(a) {
-//   let count = 0;
-//   while (a.some(Array.isArray)) {
-//     count += a.filter(e => Array.isArray(e)).length;
-//     a = a.flat();
-//   }
-//   return count + a.length;
-// }
-
-// const deepCount = a => a.reduce((count, e) => count + (Array.isArray(e) ? deepCount(e) : 0), a.length);
-const deepCount = a => JSON.stringify(a).replace(/[^[,]|\[]/g, '').length;
-
-// console.log(deepCount([1, 2, [3, 4, [5]]]));
-// console.log(deepCount(["x", "y", ["z"]]));
-// console.log(deepCount([]));
-// console.log(deepCount([26, [[[[23, 9, 0]], 11, [[19, [[]], [[]]]]]], 4]));
 
 {/** 7 kyu  By 3, or not by 3? That is the question . . .
 A trick I learned in elementary school to determine whether or not a number was divisible by three is to add all of the integers in the number together and to divide the resulting sum by three. If there is no remainder from dividing the sum by three, then the original number is divisible by three as well.
@@ -1086,5 +1087,21 @@ flatten([[[1,2,3]]]) // => [[1,2,3]]    */
   // const flatten = array => array.flat();
   const flatten = array => array.flatMap(e => e);
   // TODO: Program me
-  console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]));
+  // console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]));
+}
+{ /** 7 kyu  Sum of all arguments 
+  Write a function that finds the sum of all its arguments.
+eg:
+sum(1, 2, 3) // => 6
+sum(8, 2) // => 10
+sum(1, 2, 3, 4, 5) // => 15*/
+
+  const sum = (...args) => {
+    let res = 0;
+    for (let arg of [...args]) {
+      res += arg;
+    }
+    return res;
+  };
+  console.log(sum(5, 7, 9));
 }
