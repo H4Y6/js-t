@@ -1096,10 +1096,17 @@ sum(1, 2, 3) // => 6
 sum(8, 2) // => 10
 sum(1, 2, 3, 4, 5) // => 15*/
 
-  const sum = (...args) => {
+  // const sum = (...args) => {
+  //   let res = 0;
+  //   for (let arg of [...args]) {
+  //     res += arg;
+  //   }
+  //   return res;
+  // };
+  const sum = function () {
     let res = 0;
-    for (let arg of [...args]) {
-      res += arg;
+    for (let i = 0; i < arguments.length; i++) {
+      res += arguments[i];
     }
     return res;
   };
