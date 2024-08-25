@@ -1028,3 +1028,25 @@ For example, running this function on the array ['i', 'have','no','space'] would
 // const spacey = array => array.map((e, i) => '' + array.slice(0, i + 1).join(''));
 const spacey = array => array.map((e, i) => array.slice(0, i + 1).join(''));
 // console.log(spacey(['kevin', 'has', 'no', 'space']));
+
+/** 6 kyu  Array Deep Count
+You are given an array. Complete the function that returns the number of ALL elements within an array, including any nested arrays.
+Examples
+[]                   -->  0
+[1, 2, 3]            -->  3
+["x", "y", ["z"]]    -->  4
+[1, 2, [3, 4, [5]]]  -->  7
+The input will always be an array. */
+
+function deepCount(a) {
+  let count = 0;
+  while (a.some(Array.isArray)) {
+    count += a.filter(e => Array.isArray(e)).length;
+    a = a.flat();
+  }
+  return count + a.length;
+}
+// console.log(deepCount([1, 2, [3, 4, [5]]]));
+// console.log(deepCount(["x", "y", ["z"]]));
+// console.log(deepCount([]));
+console.log(deepCount([26, [[[[23, 9, 0]], 11, [[19, [[]], [[]]]]]], 4]));
