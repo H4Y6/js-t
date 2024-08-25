@@ -1083,7 +1083,8 @@ flatten([1,2,3]) // => [1,2,3]
 flatten([[1,2,3],["a","b","c"],[1,2,3]])  // => [1,2,3,"a","b","c",1,2,3]
 flatten([[[1,2,3]]]) // => [[1,2,3]]    */
 
-  const flatten = array => array.flat();
+  // const flatten = array => array.flat();
+  const flatten = array => array.flatMap(e => e);
   // TODO: Program me
   console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]));
 }
