@@ -1038,15 +1038,18 @@ Examples
 [1, 2, [3, 4, [5]]]  -->  7
 The input will always be an array. */
 
-function deepCount(a) {
-  let count = 0;
-  while (a.some(Array.isArray)) {
-    count += a.filter(e => Array.isArray(e)).length;
-    a = a.flat();
-  }
-  return count + a.length;
-}
+// function deepCount(a) {
+//   let count = 0;
+//   while (a.some(Array.isArray)) {
+//     count += a.filter(e => Array.isArray(e)).length;
+//     a = a.flat();
+//   }
+//   return count + a.length;
+// }
+
+const deepCount = a => a.reduce((count, e) => count + (Array.isArray(e) ? deepCount(e) : 0), a.length);
+
 // console.log(deepCount([1, 2, [3, 4, [5]]]));
 // console.log(deepCount(["x", "y", ["z"]]));
 // console.log(deepCount([]));
-console.log(deepCount([26, [[[[23, 9, 0]], 11, [[19, [[]], [[]]]]]], 4]));
+// console.log(deepCount([26, [[[[23, 9, 0]], 11, [[19, [[]], [[]]]]]], 4]));
