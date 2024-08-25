@@ -1146,12 +1146,16 @@ Examples
   //   return name.length >= 2 ? [name[0], ...name.slice(1, -1).map(e => e[0] + '.'), ...name.slice(-1)].join(' ') : name[0];
   // }
 
+  function initializeNames(name) {
+    return name.split(' ').map((e, i, ar) => i === 0 || i === ar.length - 1 ? e : e[0] + '.').join(' ');
+  }
+
   // function initializeNames(name) {
   //   return name.replace(/ (\w)\w*(?= )/g, ' $1.');
   // }
 
-  function initializeNames(name) {
-    return name.replace(/ (\w)\w*(?= )/g, (_, a) => ` ${a}.`);
-  }
+  // function initializeNames(name) {
+  //   return name.replace(/ (\w)\w*(?= )/g, (_, a) => ` ${a}.`);
+  // }
   // console.log(initializeNames('Alice Betty Catherine Davis'));
 }
