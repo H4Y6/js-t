@@ -1069,9 +1069,10 @@ Example:
 "7"        -> false
 Try to avoid using the % (modulo) operator. */
 
-  function divisibleByThree(str) {
-    const sum = [...str].reduce((sum, e) => sum + +e, 0) / 3;
-    return sum === parseInt(sum);
-  }
-  console.log(divisibleByThree('192541'));
+  // function divisibleByThree(str) {
+  //   const sum = [...str].reduce((sum, e) => sum + +e, 0) / 3;
+  //   return sum === parseInt(sum);
+  // }
+  const divisibleByThree = str => Number.isInteger([...str].reduce((sum, e) => sum + +e, 0) / 3);
+  // console.log(divisibleByThree('192541'));
 }
