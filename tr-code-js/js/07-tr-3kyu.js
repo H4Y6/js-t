@@ -1126,7 +1126,8 @@ vowelOne( "aeiou, abc" ) // "1111100100" */
 
   function vowelOne(s) {
     // return [...s].map(e => 'aeiou'.includes(e.toLowerCase()) ? 1 : 0).join('');
-    return s.replace(/[^aeiou]/gi, '0').replace(/[^0]/g, '1');
+    // return s.replace(/[^aeiou]/gi, '0').replace(/[^0]/g, '1');
+    return s.replace(/[^aeiou]/gi, '0').replace(/[aeiou]/gi, '1');
   }
   // console.log(vowelOne('vowelOne'));
 }
