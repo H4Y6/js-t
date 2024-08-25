@@ -1103,12 +1103,30 @@ sum(1, 2, 3, 4, 5) // => 15*/
   //   }
   //   return res;
   // };
+
+  // const sum = function () {
+  //   let res = 0;
+  //   for (let i = 0; i < arguments.length; i++) {
+  //     res += arguments[i];
+  //   }
+  //   return res;
+  // };
+
   const sum = function () {
-    let res = 0;
-    for (let i = 0; i < arguments.length; i++) {
-      res += arguments[i];
-    }
-    return res;
+    return [...arguments].reduce((res, e) => res + e);
   };
-  console.log(sum(5, 7, 9));
+  // console.log(sum(5, 7, 9));
+}
+{ /** 7 kyu  Vowel one
+  Write a function that takes a string and outputs a strings of 1's and 0's where vowels become 1's and non-vowels become 0's.
+All non-vowels including non alpha characters (spaces,commas etc.) should be included.
+Examples:
+vowelOne( "abceios" ) // "1001110"
+vowelOne( "aeiou, abc" ) // "1111100100" */
+
+  function vowelOne(s) {
+    // return [...s].map(e => 'aeiou'.includes(e.toLowerCase()) ? 1 : 0).join('');
+    return s.replace(/[^aeiou]/gi, '0').replace(/[^0]/g, '1');
+  }
+  // console.log(vowelOne('vowelOne'));
 }
