@@ -1047,7 +1047,8 @@ The input will always be an array. */
 //   return count + a.length;
 // }
 
-const deepCount = a => a.reduce((count, e) => count + (Array.isArray(e) ? deepCount(e) : 0), a.length);
+// const deepCount = a => a.reduce((count, e) => count + (Array.isArray(e) ? deepCount(e) : 0), a.length);
+const deepCount = a => JSON.stringify(a).replace(/[^[,]|\[]/g, '').length;
 
 // console.log(deepCount([1, 2, [3, 4, [5]]]));
 // console.log(deepCount(["x", "y", ["z"]]));
