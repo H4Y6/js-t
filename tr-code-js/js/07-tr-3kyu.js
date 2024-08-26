@@ -1199,8 +1199,9 @@ Examples
   (100,5,4,10,25,20)--> true
   (12,7)--> false because 12 is not divisible by 7 */
 
-  function isDivisible() {
-    return [...arguments].map((e, i, ar) => ar[0] % e).every(e => !e);
-  }
-  console.log(isDivisible(8, 4, 2));
+  // function isDivisible() {
+  //   return [...arguments].map((e, i, ar) => ar[0] % e).every(e => !e);
+  // }
+  const isDivisible = (n, ...args) => [...args].every(e => n % e === 0);
+  console.log(isDivisible(8, 4, 3, 2));
 }
