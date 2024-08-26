@@ -1202,6 +1202,9 @@ Examples
   // function isDivisible() {
   //   return [...arguments].map((e, i, ar) => ar[0] % e).every(e => !e);
   // }
-  const isDivisible = (n, ...args) => args.every(e => n % e === 0);
-  console.log(isDivisible(8, 4, 2));
+
+  // const isDivisible = (n, ...args) => args.every(e => n % e === 0);
+  // const isDivisible = (n, ...args) => !args.some(e => n % e);
+  const isDivisible = (n, ...args) => !args.some(e => n % e);
+  // console.log(isDivisible(8, 4, 2));
 }
