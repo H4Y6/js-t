@@ -1172,3 +1172,20 @@ Examples
   }
   // console.log(periodIsLate(new Date(2016, 6, 13), new Date(2016, 7, 16), 28));
 }
+{ /** 7 kyu  Exclamation marks series #13: Count the number of exclamation marks and question marks, return the product
+  Count the number of exclamation marks and question marks, return the product.
+    Examples
+  ""          --->   0
+  "!"         --->   0
+  "!ab? ?"    --->   2
+  "!!"        --->   0
+  "!??"       --->   2
+  "!???"      --->   3
+  "!!!??"     --->   6
+  "!!!???"    --->   9
+  "!???!!"    --->   9
+  "!????!!!?" --->  20 */
+
+  const product = string => [...string].filter(e => e === '!').length * [...string].filter(e => e === '?').length;
+  console.log(product('!ab? ?'));
+}
