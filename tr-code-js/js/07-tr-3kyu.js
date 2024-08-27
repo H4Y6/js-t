@@ -1227,7 +1227,8 @@ Code Examples
       --> throws TypeError with message "xyz is invalid"    */
 
   function prefill(n, v) {
-    if (!Number.isInteger(+n) || isNaN(n) || n === Infinity || n < 0 || typeof n === 'boolean') { throw new TypeError(`${n} is invalid`); }
+    // if (!Number.isInteger(+n) || isNaN(n) || n === Infinity || n < 0 || typeof n === 'boolean') { throw new TypeError(`${n} is invalid`); }
+    if (+n !== Math.abs(parseInt(n))) { throw new TypeError(`${n} is invalid`); }
     return Array.from({ length: n }, e => v);
   }
   console.log(prefill('1', 'er'));
