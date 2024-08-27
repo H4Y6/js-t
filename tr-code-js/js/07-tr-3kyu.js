@@ -1244,9 +1244,12 @@ pointsPer48(0, 0) // 0
 Notes:
 All inputs will be either be an integer or float.  */
 
-  function pointsPer48(ppg, mpg) {
-    return !ppg ? 0 : Math.round(ppg / mpg * 480) / 10;
-  }
+  // function pointsPer48(ppg, mpg) {
+  //   return !ppg ? 0 : Math.round(ppg / mpg * 480) / 10;
+  // }
+
+  const pointsPer48 = (ppg, mpg) => ppg ? Number((ppg / mpg * 48).toFixed(1)) : 0;
+
   console.log(pointsPer48(12, 20));
   console.log(pointsPer48(11.1, 32));
 }
