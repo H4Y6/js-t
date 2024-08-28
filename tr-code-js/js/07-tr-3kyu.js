@@ -1305,7 +1305,8 @@ Write a function named isNice/IsNice that returns true if its array argument is 
 
   // const isNice = arr => arr.length < 2 ? false : arr.map((e, i) => arr.find(el => Math.abs(e - el) === 1)).every(e => e !== undefined);
   // const isNice = arr => arr.length ? arr.map((e, i) => arr.find(el => Math.abs(e - el) === 1)).every(e => e !== undefined) : false;
-  const isNice = arr => arr.length ? arr.map(e => arr.includes(e + 1) || arr.includes(e - 1)).every(e => e) : false;
+  // const isNice = arr => arr.length ? arr.map(e => arr.includes(e + 1) || arr.includes(e - 1)).every(e => e) : false;
+  const isNice = arr => arr.length ? arr.every(e => arr.includes(e + 1) || arr.includes(e - 1)) : false;
 
   console.log(isNice([2, 10, 9, 3]));
   console.log(isNice([]));
