@@ -1278,9 +1278,12 @@ potatoesshould return the final weight coming out of the oven w1 truncated as an
 Example:
 potatoes(99, 100, 98) --> 50  */
 
-  function potatoes(p0, w0, p1) {
-    return parseInt(w0 * (100 - p0) / (100 - p1));
-  }
+  // function potatoes(p0, w0, p1) {
+  //   return parseInt(w0 * (100 - p0) / (100 - p1));
+  // }
+
+  const potatoes = (p0, w0, p1) => w0 * (100 - p0) / (100 - p1) ^ 0;
+
   // console.log(potatoes(99, 100, 98));
   // console.log(potatoes(82, 127, 80));
 }
