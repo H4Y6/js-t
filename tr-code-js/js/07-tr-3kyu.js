@@ -1303,7 +1303,8 @@ examples:
 for n = 4, there is neither n - 1 = 3 nor n + 1 = 5
 Write a function named isNice/IsNice that returns true if its array argument is a Nice array, else false. An empty array is not considered nice.*/
 
-  const isNice = arr => arr.length < 2 ? false : arr.map((e, i) => arr.find(el => Math.abs(e - el) === 1)).every(e => e !== undefined);
+  // const isNice = arr => arr.length < 2 ? false : arr.map((e, i) => arr.find(el => Math.abs(e - el) === 1)).every(e => e !== undefined);
+  const isNice = arr => arr.length ? arr.map((e, i) => arr.find(el => Math.abs(e - el) === 1)).every(e => e !== undefined) : false;
 
   console.log(isNice([2, 10, 9, 3]));
   console.log(isNice([]));
