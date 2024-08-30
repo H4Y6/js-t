@@ -1351,3 +1351,11 @@ splitTheBill(group) // returns {A: 5, B: 0, C: -5} */
   };
   // console.log(splitTheBill({ A: 20, B: 14, C: 10 }));
 }
+{ /** 7 kyu  Sum a list but ignore any duplicates
+  Please write a function that sums a list, but ignores any duplicated items in the list.
+For instance, for the list [3, 4, 3, 6] the function should return 10,
+and for the list [1, 10, 3, 10, 10] the function should return 4.          */
+
+  const sumNoDuplicates = numList => numList.reduce((sum, e) => sum + (numList.filter(el => e === el).length > 1 ? 0 : e), 0);
+  console.log(sumNoDuplicates([3, 4, 3, 6]));
+}
