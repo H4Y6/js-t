@@ -1356,6 +1356,7 @@ splitTheBill(group) // returns {A: 5, B: 0, C: -5} */
 For instance, for the list [3, 4, 3, 6] the function should return 10,
 and for the list [1, 10, 3, 10, 10] the function should return 4.          */
 
-  const sumNoDuplicates = numList => numList.reduce((sum, e) => sum + (numList.filter(el => e === el).length > 1 ? 0 : e), 0);
-  console.log(sumNoDuplicates([3, 4, 3, 6]));
+  // const sumNoDuplicates = numList => numList.reduce((sum, e) => sum + (numList.filter(el => e === el).length > 1 ? 0 : e), 0);
+  const sumNoDuplicates = numList => numList.reduce((sum, e) => sum + (numList.indexOf(e) === numList.lastIndexOf(e) ? e : 0), 0);
+  // console.log(sumNoDuplicates([3, 4, 3, 6]));
 }
