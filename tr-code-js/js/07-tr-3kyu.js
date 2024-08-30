@@ -1328,11 +1328,16 @@ var group = {
 }
 splitTheBill(group) // returns {A: 5, B: 0, C: -5} */
 
+  // const splitTheBill = x => {
+  //   const obj = { ...x };
+  //   let sumDiv = Object.values(x).reduce((sum, e) => sum + e, 0) / Object.keys(x).length;
+  //   Object.entries(x).map(e => obj[e[0]] = !(e[1] - sumDiv) % 1 ? e[1] - sumDiv : +(e[1] - sumDiv).toFixed(2));
+  //   return obj;
+  // };
+
   const splitTheBill = x => {
-    const obj = { ...x };
     let sumDiv = Object.values(x).reduce((sum, e) => sum + e, 0) / Object.keys(x).length;
-    Object.entries(x).map(e => obj[e[0]] = !(e[1] - sumDiv) % 1 ? e[1] - sumDiv : +(e[1] - sumDiv).toFixed(2));
-    return obj;
+    return Object.keys(x).reduce((res, e) => (res[e] = +(x[e] - sumDiv).toFixed(2), res), {});
   };
-  // console.log(splitTheBill({ A: 20, B: 14, C: 10 }));
+  console.log(splitTheBill({ A: 20, B: 14, C: 10 }));
 }
