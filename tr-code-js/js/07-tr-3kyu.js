@@ -1357,6 +1357,13 @@ For instance, for the list [3, 4, 3, 6] the function should return 10,
 and for the list [1, 10, 3, 10, 10] the function should return 4.          */
 
   // const sumNoDuplicates = numList => numList.reduce((sum, e) => sum + (numList.filter(el => e === el).length > 1 ? 0 : e), 0);
-  const sumNoDuplicates = numList => numList.reduce((sum, e) => sum + (numList.indexOf(e) === numList.lastIndexOf(e) ? e : 0), 0);
-  // console.log(sumNoDuplicates([3, 4, 3, 6]));
+  // const sumNoDuplicates = numList => numList.reduce((sum, e) => sum + (numList.indexOf(e) === numList.lastIndexOf(e) ? e : 0), 0);
+  const sumNoDuplicates = numList => {
+    const arr = [...numList];
+    const set = [...new Set(arr)];
+    set.map(e => arr.splice(arr.indexOf(e), 1));
+    arr.map(e => { if (set.indexOf(e) >= 0) set.splice(set.indexOf(e), 1); });
+    return set.reduce((sum, e) => sum + e, 0);
+  };
+  // console.log(sumNoDuplicates([3, 4, 4, 6, 6, 3, 2, 5]));
 }
