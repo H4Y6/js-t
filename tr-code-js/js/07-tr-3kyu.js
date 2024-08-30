@@ -1367,3 +1367,27 @@ and for the list [1, 10, 3, 10, 10] the function should return 4.          */
   };
   // console.log(sumNoDuplicates([3, 4, 4, 6, 6, 3, 2, 5]));
 }
+
+{ /** 5 kyu  Math Issues
+  Oh no, our Math object was "accidently" reset. Can you re-implement some of those functions? We can assure, that only non-negative numbers are passed as arguments. So you don't have to consider things like undefined, null, NaN, negative numbers, strings and so on.
+Here is a list of functions, we need:
+Math.round()
+Math.ceil()
+Math.floor()     */
+
+  Math.round = function (number) {
+    return number % 1 < .5 ? number ^ 0 : (number ^ 0) + 1;
+  };
+
+  Math.ceil = function (number) {
+    return number === parseInt(number) ? number : (number ^ 0) + 1;
+  };
+
+  Math.floor = function (number) {
+    return number ^ 0;
+  };
+
+  // console.log(Math.round(4.18));
+  // console.log(Math.ceil(7.8));
+  // console.log(Math.floor(6.8));
+}
