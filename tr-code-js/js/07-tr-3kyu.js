@@ -1461,7 +1461,9 @@ Return the resulting lamps string. See example tests for more clarity.  */
   // const flyBy = (lamps, drone) => drone.length > 1 ? lamps.replace('x', 'o'.repeat(drone.length))
   //   .slice(0, - drone.length + 1) : lamps.replace('x', 'o'.repeat(drone.length));
 
-  const flyBy = (lamps, drone) => lamps.split('').fill(`o`, 0, drone.length).join(``);
-  console.log(flyBy('xxxxxx', '====T'));
-  console.log(flyBy('xxx', 'T'));
+  // const flyBy = (lamps, drone) => lamps.split('').fill(`o`, 0, drone.length).join(``);
+
+  const flyBy = (lamps, drone) => lamps.replace(/x/g, ((_, i) => i < drone.length ? 'o' : 'x'));
+  // console.log(flyBy('xxxxxx', '====T'));
+  // console.log(flyBy('xxx', 'T'));
 }
