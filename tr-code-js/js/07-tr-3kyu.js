@@ -1470,3 +1470,6 @@ Return the resulting lamps string. See example tests for more clarity.  */
   // console.log(flyBy('xxxxxx', '====T'));
   // console.log(flyBy('xxx', 'T'));
 }
+
+const root = (x, n) => x ** (1 / n);
+// console.log(root(6.25, 2));
