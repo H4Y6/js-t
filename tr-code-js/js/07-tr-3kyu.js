@@ -1470,6 +1470,37 @@ Return the resulting lamps string. See example tests for more clarity.  */
   // console.log(flyBy('xxxxxx', '====T'));
   // console.log(flyBy('xxx', 'T'));
 }
+{/** 7 kyu  Nth Root of a Number
+  Given two numbers x and n, calculate the (positive) nth root of x; this means that being r = result, r^n = x
+Examples
+x = 4     n = 2  -->  2    # the square root of 4 is 2     2^2 = 4
+x = 8     n = 3  -->  2    # the cube root of 8 is 2       2^3 = 8
+x = 256   n = 4  -->  4    # the 4th root of 256 is 4      4^4 = 256
+x = 9     n = 2  -->  3    # the square root of 9 is 3     3^2 = 9
+x = 6.25  n = 2  -->  2.5  #                             2.5^2 = 6.25
+Notes:
+4 <= x < 10 ^ 20
+4 <= n <= 50           */
 
-const root = (x, n) => x ** (1 / n);
-// console.log(root(6.25, 2));
+  const root = (x, n) => x ** (1 / n);
+  // console.log(root(6.25, 2));
+}
+{ /** 7 kyu  makeBackronym  
+  back·ro·nym
+An acronym deliberately formed from a phrase whose initial letters spell out a particular word or words, either to create a memorable name or as a fanciful explanation of a word's origin.
+"Biodiversity Serving Our Nation", or BISON
+(from https://en.oxforddictionaries.com/definition/backronym)
+Complete the function to create backronyms. Transform the given string (without spaces) to a backronym, using the preloaded dictionary and return a string of words, separated with a single space (but no trailing spaces).
+The keys of the preloaded dictionary are uppercase letters A-Z and the values are predetermined words, for example:
+dict["P"] == "perfect"
+Examples
+"dgm" ==> "disturbing gregarious mustache"
+"lkj" ==> "literal klingon joke"    */
+
+  const dict = { D: 'disturbing', G: 'gregarious', M: 'mustache', A: "..." };
+
+  const makeBackronym = function (string) {
+    return [...string].map(e => dict[e.toUpperCase()]).join(' ');
+  };
+  // console.log(makeBackronym('dgm'));
+}
