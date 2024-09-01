@@ -1515,5 +1515,15 @@ Examples
   // console.log(calculate("1plus2plus3plus4"));
   // console.log(calculate("1plus2plus3minus4"));
   // console.log(calculate("659minus511minus259"));
+}
+{ /** 7 kyu  All Star Code Challenge #3 
+  Create a function that takes a string argument and returns that same string with all vowels removed (vowels are "a", "e", "i", "o", "u").
+Example (Input --> Output)
+"drake" --> "drk"
+"aeiou" --> ""
+remove_vowels("drake") // => "drk"
+remove_vowels("aeiou") // => "" */
 
+  const removeVowels = str => str.replace(/[aeiou]/g, '');
+  console.log(removeVowels("aeifdghou"));
 }
