@@ -1510,9 +1510,10 @@ Examples
   // const calculate = str => eval(str.replaceAll('plus', '+').replaceAll('minus', '-')).toString();
   // const calculate = str => eval(str.split('plus').join('+').split('minus').join('-')).toString();
   // const calculate = str => str.split('plus').join(' ').split('minus').join(' -').split(' ').reduce((sum, e) => sum + +e, 0) + '';
-  const calculate = str => str.replaceAll('plus', ' ').replaceAll('minus', ' -').split(' ').reduce((sum, e) => sum + +e, 0) + '';
-  console.log(calculate("1plus2plus3plus4"));
-  console.log(calculate("1plus2plus3minus4"));
-  console.log(calculate("659minus511minus259"));
+  // const calculate = str => str.replaceAll('plus', ' ').replaceAll('minus', ' -').split(' ').reduce((sum, e) => sum + +e, 0) + '';
+  const calculate = str => eval(str.replace(/plus/g, '+').replace(/minus/g, ' -')) + '';
+  // console.log(calculate("1plus2plus3plus4"));
+  // console.log(calculate("1plus2plus3minus4"));
+  // console.log(calculate("659minus511minus259"));
 
 }
