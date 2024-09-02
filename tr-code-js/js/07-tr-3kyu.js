@@ -1548,7 +1548,15 @@ createDict(keys, values) // returns {'a': 1, 'b': 2, 'c': 3}  */
   //   return obj;
   // }
 
+  // function createDict(keys, values) {
+  //   let obj = {};
+  //   for (let i = 0; i < keys.length; i++) {
+  //     obj[keys[i]] = values[i] ?? null;
+  //   }
+  //   return obj;
+  // }
+
   const createDict = (keys, values) => keys.reduce((obj, key, i) => (obj[key] = values[i] ?? null, obj), {});
-  console.log(createDict(['a', 'b', 'c', 'd'], [1, 2, 3]));
+  // console.log(createDict(['a', 'b', 'c', 'd'], [1, 2, 3]));
 }
 
