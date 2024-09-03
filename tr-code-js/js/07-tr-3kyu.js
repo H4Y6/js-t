@@ -1574,5 +1574,13 @@ Examples
     }
     return dupArr;
   };
-  console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]));
+  // console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]));
+}
+{ /** 7 kyu  Count consonants
+  Complete the function that takes a string of English-language text and returns the number of consonants in the string.
+    Consonants are all letters used to write English excluding the vowels a, e, i, o, u. */
+  const consonantCount = str => [...str].map(e => /[A-z]/g.test(e) ? e : e = '').map(e => /[aeiou]/gi.test(e) ? e = '' : e).map(e => e === ' ' || e === '_' || e === '^' ? '' : e).join('').length;
+  console.log(consonantCount('bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'));
+  console.log(consonantCount('aeiouAEIOU'));
+  console.log(consonantCount('aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#'));
 }
