@@ -1580,8 +1580,9 @@ Examples
   Complete the function that takes a string of English-language text and returns the number of consonants in the string.
     Consonants are all letters used to write English excluding the vowels a, e, i, o, u. */
   // const consonantCount = str => [...str].map(e => /[A-z]/g.test(e) ? e : e = '').map(e => /[aeiou]/gi.test(e) ? e = '' : e).map(e => e === ' ' || e === '_' || e === '^' ? '' : e).join('').length;
-  const consonantCount = str => str.replace(/\W|\d|[_aeiou]/gi, "").length;
-  console.log(consonantCount('bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'));
-  console.log(consonantCount('aeiouAEIOU'));
-  console.log(consonantCount('aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#'));
+  // const consonantCount = str => str.replace(/\W|\d|[_aeiou]/gi, "").length;
+  const consonantCount = str => str.replace(/[^A-z]|[_aeiou^]/gi, "");
+  // console.log(consonantCount('bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'));
+  // console.log(consonantCount('aeiouAEIOU'));
+  // console.log(consonantCount('aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#'));
 }
