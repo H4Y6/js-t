@@ -1566,23 +1566,26 @@ Examples
 [1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]  ==>  [4, 3, 1]
 [0, 1, 2, 3, 4, 5]                ==>  []         */
 
+  // const duplicates = arr => {
+  //   const dupArr = [];
+  //   for (let i = 0; i < arr.length; i++) {
+  //     if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) dupArr.push(arr[i]);
+  //   }
+  //   const setArr = [...new Set(dupArr)];
+  //   setArr.map(e => dupArr.filter(el => el === e)).map(e => {
+  //     if (e.length > 2) {
+  //       for (let i = 2; i < e.length; i++) {
+  //         dupArr.splice(dupArr.lastIndexOf(e[0]), 1);
+  //       }
+  //     }
+  //   });
+  //   return setArr.map(e => [dupArr.lastIndexOf(e), e]).sort((a, b) => a[0] - b[0]).map(e => e[1]);
+  // };
   const duplicates = arr => {
-    const dupArr = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) dupArr.push(arr[i]);
-    }
-    const setArr = [...new Set(dupArr)];
-    setArr.map(e => dupArr.filter(el => el === e)).map(e => {
-      if (e.length > 2) {
-        for (let i = 2; i < e.length; i++) {
-          dupArr.splice(dupArr.lastIndexOf(e[0]), 1);
-        }
-      }
-    });
-    return setArr.map(e => [dupArr.lastIndexOf(e), e]).sort((a, b) => a[0] - b[0]).map(e => e[1]);
+    return [...new Set(arr.filter((e, i) => i !== arr.indexOf(e)))];
   };
-  console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, 3, "5"]));
-  console.log(duplicates([-10, -5, -1, -5, -10, -10, "-1", -1, 1, -10, "-4"]));
+  // console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, 3, "5"]));
+  // console.log(duplicates([-10, -5, -1, -5, -10, -10, "-1", -1, 1, -10, "-4"]));
 }
 { /** 7 kyu  Count consonants
   Complete the function that takes a string of English-language text and returns the number of consonants in the string.
