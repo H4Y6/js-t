@@ -1581,8 +1581,9 @@ Examples
     Consonants are all letters used to write English excluding the vowels a, e, i, o, u. */
   // const consonantCount = str => [...str].map(e => /[A-z]/g.test(e) ? e : e = '').map(e => /[aeiou]/gi.test(e) ? e = '' : e).map(e => e === ' ' || e === '_' || e === '^' ? '' : e).join('').length;
   // const consonantCount = str => str.replace(/\W|\d|[_aeiou]/gi, "").length;
-  const consonantCount = str => str.replace(/[^A-z]|[_aeiou^]/gi, "");
+  // const consonantCount = str => str.replace(/[^A-z]|[_aeiou^]/gi, "").length;
+  const consonantCount = str => str.replace(/[^A-Za-z]|[aeiou]/gi, "").length;
   // console.log(consonantCount('bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'));
-  // console.log(consonantCount('aeiouAEIOU'));
+  // console.log(consonantCount('aaa'));
   // console.log(consonantCount('aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#'));
 }
