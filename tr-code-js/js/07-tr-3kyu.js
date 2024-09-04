@@ -1569,12 +1569,20 @@ Examples
   const duplicates = arr => {
     const dupArr = [];
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === arr[i + 1]) dupArr.push(arr[i]);
-
+      if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) dupArr.push(arr[i]);
     }
-    return dupArr;
+    const setArr = [...new Set(dupArr)];
+    setArr.map(e => dupArr.filter(el => el === e)).map(e => {
+      if (e.length > 2) {
+        for (let i = 2; i < e.length; i++) {
+          dupArr.splice(dupArr.lastIndexOf(e[0]), 1);
+        }
+      }
+    });
+    return setArr.map(e => [dupArr.lastIndexOf(e), e]).sort((a, b) => a[0] - b[0]).map(e => e[1]);
   };
-  // console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]));
+  console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, 3, "5"]));
+  console.log(duplicates([-10, -5, -1, -5, -10, -10, "-1", -1, 1, -10, "-4"]));
 }
 { /** 7 kyu  Count consonants
   Complete the function that takes a string of English-language text and returns the number of consonants in the string.
@@ -1584,6 +1592,6 @@ Examples
   // const consonantCount = str => str.replace(/[^A-z]|[_aeiou^]/gi, "").length;
   const consonantCount = str => str.replace(/[^A-Za-z]|[aeiou]/gi, "").length;
   // console.log(consonantCount('bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'));
-  // console.log(consonantCount('aaa'));
+  // console.log(consonantCount('aAa'));
   // console.log(consonantCount('aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#'));
 }
