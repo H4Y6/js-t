@@ -1611,7 +1611,8 @@ Examples
     capital X's do not count as an occurrence of "x".
   if there are no "x"'s then return false                 */
 
-  const tripleX = str => /xxx/.test(str) && str.indexOf('x') === str.indexOf('xxx');
+  // const tripleX = str => /xxx/.test(str) && str.indexOf('x') === str.indexOf('xxx');
+  const tripleX = str => /^[^x]*xxx/.test(str);
   console.log(tripleX('xoxotrololololololoxxx'));
   console.log(tripleX('kitxxxtyXXsoft'));
 }
