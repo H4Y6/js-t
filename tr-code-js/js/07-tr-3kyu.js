@@ -1581,9 +1581,12 @@ Examples
   //   });
   //   return setArr.map(e => [dupArr.lastIndexOf(e), e]).sort((a, b) => a[0] - b[0]).map(e => e[1]);
   // };
-  const duplicates = arr => {
-    return [...new Set(arr.filter((e, i) => i !== arr.indexOf(e)))];
-  };
+  // const duplicates = arr => {
+  //   return [...new Set(arr.filter((e, i) => i !== arr.indexOf(e)))];
+  // };
+
+  const duplicates = arr => [...new Set(arr.filter((e, i) => i !== arr.indexOf(e)))];
+
   // console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, 3, "5"]));
   // console.log(duplicates([-10, -5, -1, -5, -10, -10, "-1", -1, 1, -10, "-4"]));
 }
