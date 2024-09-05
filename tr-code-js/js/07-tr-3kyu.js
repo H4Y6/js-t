@@ -1612,7 +1612,10 @@ Examples
   if there are no "x"'s then return false                 */
 
   // const tripleX = str => /xxx/.test(str) && str.indexOf('x') === str.indexOf('xxx');
-  const tripleX = str => /^[^x]*xxx/.test(str);
+  const tripleX = str => str.indexOf('x') >= 0 && str.indexOf('x') === str.indexOf('xxx');
+  // const tripleX = str => /^[^x]*xxx/.test(str);
+
   console.log(tripleX('xoxotrololololololoxxx'));
+  console.log(tripleX('"kittykittywarmkitty"'));
   console.log(tripleX('kitxxxtyXXsoft'));
 }
