@@ -1692,6 +1692,7 @@ For an undefined slope (division by 0), return undefined . Note that the "undefi
    d:y2
 Assume that [a,b,c,d] and the answer are all integers (no floating numbers!). Slope: https://en.wikipedia.org/wiki/Slope*/
 
-  const slope = points => points[2] - points[0] ? (points[3] - points[1]) / (points[2] - points[0]) + '' : undefined;
-  console.log(slope([15, 45, 12, 60]));
+  // const slope = points => points[2] - points[0] ? (points[3] - points[1]) / (points[2] - points[0]) + '' : 'undefined';
+  const slope = ([x1, y1, x2, y2]) => x2 - x1 ? (y2 - y1) / (x2 - x1) + '' : 'undefined';
+  // console.log(slope([15, 45, 12, 60]));
 }
