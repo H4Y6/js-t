@@ -1656,9 +1656,11 @@ First and last bits as set bits.
 (7)10 = (111)2
 First and last bits as set bits.    */
 
-  function extraPerfect(n) {
-    const arr = Array.from({ length: n / 2 }, (e, i) => 2 * i + 1);
-    return n % 2 ? [...arr, n] : arr;
-  }
-  console.log(extraPerfect(28));
+  // function extraPerfect(n) {
+  //   const arr = Array.from({ length: n / 2 }, (e, i) => 2 * i + 1);
+  //   return n % 2 ? [...arr, n] : arr;
+  // }
+
+  const extraPerfect = n => Array.from({ length: n }, (e, i) => i + 1).filter(e => e % 2);
+  console.log(extraPerfect(29));
 }
