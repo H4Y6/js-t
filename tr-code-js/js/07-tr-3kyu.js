@@ -1728,6 +1728,7 @@ Examples:
 
   // const arrCheck = value => value.every(e => Array.isArray(e));
   // const arrCheck = value => value.every(Array.isArray);
-  const arrCheck = value => value.every(e => e.map);
-  console.log(arrCheck([{ d: 1 }, [2]]));
+  // const arrCheck = value => value.every(e => e.map);
+  const arrCheck = value => value.every(e => e instanceof Array);
+  // console.log(arrCheck([[5], [2]]));
 }
