@@ -1707,9 +1707,13 @@ If the total of both even and odd numbers are identical return: "Even and Odd ar
   //   return diff > 0 ? 'Odd is greater than Even' : diff ? 'Even is greater than Odd' : 'Even and Odd are the same';
   // }
 
-  function evenOrOdd(str) {
-    const diff = [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0);
-    return diff > 0 ? 'Odd is greater than Even' : diff ? 'Even is greater than Odd' : 'Even and Odd are the same';
-  }
-  console.log(evenOrOdd('121233'));
+  // function evenOrOdd(str) {
+  //   const diff = [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0);
+  //   return diff > 0 ? 'Odd is greater than Even' : diff ? 'Even is greater than Odd' : 'Even and Odd are the same';
+  // }
+
+  const evenOrOdd = str => (e => e > 0 ? 'Odd is greater than Even' : e ? 'Even is greater than Odd' : 'Even and Odd are the same')
+    ([...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0));
+
+  // console.log(evenOrOdd('12123344'));
 }
