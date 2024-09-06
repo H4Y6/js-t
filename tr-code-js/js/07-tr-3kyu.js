@@ -1763,9 +1763,14 @@ circleArea(68);          // returns 14526.724 (± 0.01)
 circleArea(0);           // throws Error
 circleArea(-1);          // throws Error         */
 
+  // function circleArea(radius) {
+  //   if (radius <= 0) throw new Error('error');
+  //   return +(Math.PI * radius ** 2).toFixed(3);
+  // }
+
   function circleArea(radius) {
-    if (radius <= 0) throw new Error('error');
-    return +(Math.PI * radius ** 2).toFixed(3);
+    if (radius > 0) return +(Math.PI * radius ** 2).toFixed(3);
+    throw new Error('error');
   }
-  console.log(circleArea(-68));
+  // console.log(circleArea(-3));
 }
