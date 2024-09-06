@@ -1743,10 +1743,13 @@ More examples:
 "Bangkok"    -->  "b:*,a:*,n:*,g:*,k:**,o:*"
 "Las Vegas"  -->  "l:*,a:**,s:**,v:*,e:*,g:*"    */
 
-  const getStrings = city => {
-    const set = new Set(city.toLowerCase().replaceAll(' ', ''));
-    return [...set].map(e => [e, [...city.toLowerCase()].filter(el => el === e)]).map(e => e[0] + ':' + e[1].join('').replace(/./g, '*')).join(',');
-  };
+  // const getStrings = city => {
+  //   const set = new Set(city.toLowerCase().replaceAll(' ', ''));
+  //   return [...set].map(e => [e, [...city.toLowerCase()].filter(el => el === e)]).map(e => e[0] + ':' + e[1].join('').replace(/./g, '*')).join(',');
+  // };
+  const getStrings = city => [...new Set(city.toLowerCase().replaceAll(' ', ''))].map(e => [e, [...city.toLowerCase()]
+    .filter(el => el === e)]).map(e => e[0] + ':' + e[1].join('').replace(/./g, '*')).join(',');
+
   console.log(getStrings("Chicago"));
   console.log(getStrings("Dar es Salaam"));
 }
