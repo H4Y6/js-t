@@ -1702,9 +1702,14 @@ If the sum of even numbers is greater than the odd numbers return: "Even is grea
 If the sum of odd numbers is greater than the sum of even numbers return: "Odd is greater than Even"
 If the total of both even and odd numbers are identical return: "Even and Odd are the same"   */
 
+  // function evenOrOdd(str) {
+  //   const diff = [...str].filter(e => e % 2).reduce((sum, e) => sum + +e, 0) - [...str].filter(e => !(e % 2)).reduce((sum, e) => sum + +e, 0);
+  //   return diff > 0 ? 'Odd is greater than Even' : diff ? 'Even is greater than Odd' : 'Even and Odd are the same';
+  // }
+
   function evenOrOdd(str) {
-    const diff = [...str].filter(e => e % 2).reduce((sum, e) => sum + +e, 0) - [...str].filter(e => !(e % 2)).reduce((sum, e) => sum + +e, 0);
+    const diff = [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0);
     return diff > 0 ? 'Odd is greater than Even' : diff ? 'Even is greater than Odd' : 'Even and Odd are the same';
   }
-  console.log(evenOrOdd('1261233'));
+  console.log(evenOrOdd('121233'));
 }
