@@ -1727,6 +1727,7 @@ Examples:
 [{1:1},{2:2}] => false    */
 
   // const arrCheck = value => value.every(e => Array.isArray(e));
-  const arrCheck = value => value.every(Array.isArray);
-  // console.log(arrCheck([{ d: 1 }, [2]]));
+  // const arrCheck = value => value.every(Array.isArray);
+  const arrCheck = value => value.every(e => e.map);
+  console.log(arrCheck([{ d: 1 }, [2]]));
 }
