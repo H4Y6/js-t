@@ -1717,3 +1717,15 @@ If the total of both even and odd numbers are identical return: "Even and Odd ar
 
   // console.log(evenOrOdd('12123344'));
 }
+
+{ /** 7 kyu  Is every value in the array an array? 
+  Is every value in the array an array?
+This should only test the second array dimension of the array. The values of the nested arrays don't have to be arrays.
+Examples:
+[[1],[2]] => true
+['1','2'] => false
+[{1:1},{2:2}] => false    */
+
+  const arrCheck = value => value.every(e => Array.isArray(e));
+  console.log(arrCheck([{ d: 1 }, [2]]));
+}
