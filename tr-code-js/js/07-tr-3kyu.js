@@ -1696,3 +1696,15 @@ Assume that [a,b,c,d] and the answer are all integers (no floating numbers!). Sl
   const slope = ([x1, y1, x2, y2]) => x2 - x1 ? (y2 - y1) / (x2 - x1) + '' : 'undefined';
   // console.log(slope([15, 45, 12, 60]));
 }
+{ /** 7 kyu  Even or Odd - Which is Greater?
+  Given a string of digits confirm whether the sum of all the individual even digits are greater than the sum of all the indiviudal odd digits. Always a string of numbers will be given.
+If the sum of even numbers is greater than the odd numbers return: "Even is greater than Odd"
+If the sum of odd numbers is greater than the sum of even numbers return: "Odd is greater than Even"
+If the total of both even and odd numbers are identical return: "Even and Odd are the same"   */
+
+  function evenOrOdd(str) {
+    const diff = [...str].filter(e => e % 2).reduce((sum, e) => sum + +e, 0) - [...str].filter(e => !(e % 2)).reduce((sum, e) => sum + +e, 0);
+    return diff > 0 ? 'Odd is greater than Even' : diff ? 'Even is greater than Odd' : 'Even and Odd are the same';
+  }
+  console.log(evenOrOdd('1261233'));
+}
