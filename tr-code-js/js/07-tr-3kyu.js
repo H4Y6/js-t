@@ -1827,10 +1827,23 @@ Result:
   ];
   const moves = ['up', 'left', 'down', 'right', 'left', 'left'];
 
-  function streetFighterSelection(fighters, position, moves) {
-    if (!fighters.length || !moves.length) return [];
-    const arr = [];
+  // function streetFighterSelection(fighters, position, moves) {
+  //   if (!fighters.length || !moves.length) return [];
+  //   const arr = [];
 
+  //   for (let i = 0; i < moves.length; i++) {
+  //     const element = moves[i];
+  //     if (element === 'up') { position[0] = 0; }
+  //     if (element === 'down') { position[0] = 1; }
+  //     if (element === 'right') { position[1] = (position[1] + 1) % fighters[0].length; }
+  //     if (element === 'left') { position[1] = (position[1] + fighters[0].length - 1) % fighters[0].length; }
+  //     arr.push(fighters[position[0]][position[1]]);
+  //   }
+  //   return arr;
+  // }
+
+  function streetFighterSelection(fighters, position, moves) {
+    const arr = [];
     for (let i = 0; i < moves.length; i++) {
       const element = moves[i];
       if (element === 'up') { position[0] = 0; }
