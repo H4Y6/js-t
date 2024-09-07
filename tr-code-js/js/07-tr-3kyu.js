@@ -1855,33 +1855,51 @@ Result:
   //   return arr;
   // }
 
-  function streetFighterSelection(fighters, position, moves) {
-    const arr = [];
+  // function streetFighterSelection(fighters, position, moves) {
+  //   const arr = [];
 
-    moves.forEach(move => {
+  //   moves.forEach(move => {
+  //     switch (move) {
+  //       case 'up':
+  //         arr.push(fighters[position[0] = 0][position[1]]);
+  //         break;
+
+  //       case 'down':
+  //         arr.push(fighters[position[0] = 1][position[1]]);
+  //         break;
+
+  //       case 'right':
+  //         arr.push(fighters[position[0]][position[1] = (position[1] + 1) % fighters[0].length]);
+  //         break;
+
+  //       case 'left':
+  //         arr.push(fighters[position[0]][position[1] = (position[1] + fighters[0].length - 1) % fighters[0].length]);
+  //         break;
+
+  //       default: 'Wtong move';
+  //         break;
+  //     }
+  //   });
+
+  //   return arr;
+  // }
+
+  function streetFighterSelection(fighters, position, moves) {
+    return moves.map(move => {
       switch (move) {
         case 'up':
-          arr.push(fighters[position[0] = 0][position[1]]);
-          break;
+          return fighters[position[0] = 0][position[1]];
 
         case 'down':
-          arr.push(fighters[position[0] = 1][position[1]]);
-          break;
+          return fighters[position[0] = 1][position[1]];
 
         case 'right':
-          arr.push(fighters[position[0]][position[1] = (position[1] + 1) % fighters[0].length]);
-          break;
+          return fighters[position[0]][position[1] = (position[1] + 1) % fighters[0].length];
 
         case 'left':
-          arr.push(fighters[position[0]][position[1] = (position[1] + fighters[0].length - 1) % fighters[0].length]);
-          break;
-
-        default: 'Wtong move';
-          break;
+          return fighters[position[0]][position[1] = (position[1] + fighters[0].length - 1) % fighters[0].length];
       }
     });
-
-    return arr;
   }
   console.log(streetFighterSelection(fighters, [0, 0], moves));
 }
