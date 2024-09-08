@@ -1929,3 +1929,19 @@ The Stanton measure of [1, 4, 1, 2, 11, 2, 3, 1] is 1, because 1 occurs 3 times 
   const stantonMeasure = a => (res => res(res(1)))(q => a.filter(e => e === q).length);
   // console.log((stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])));
 }
+{ /** 7 kyu  Find all occurrences of an element in an array 
+  Given an array (a list in Python) of integers and an integer n, find all occurrences of n in the given array and return another array containing all the index positions of n in the given array.
+If n is not in the given array, return an empty array [].
+Assume that n and all values in the given array will always be integers.
+Example:
+findAll([6, 9, 3, 4, 3, 82, 11], 3) => [2, 4]     */
+
+  const findAll = (array, n) => {
+    const arr = [];
+    array.map((e, i) => {
+      if (e === n) arr.push(i);
+    });
+    return arr;
+  };
+  console.log(findAll([20, 20, 10, 13, 15, 2, 7, 2, 20, 3, 18, 2, 3, 2, 16, 10, 9, 9, 7, 5, 15, 5], 20));
+}
