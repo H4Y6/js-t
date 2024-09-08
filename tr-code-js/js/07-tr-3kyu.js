@@ -1944,6 +1944,8 @@ findAll([6, 9, 3, 4, 3, 82, 11], 3) => [2, 4]     */
   //   return arr;
   // };
 
-  const findAll = (array, n) => array.reduce((arr, e, i) => e === n ? [...arr, i] : arr, []);
-  console.log(findAll([20, 20, 10, 13, 15, 2, 7, 2, 20, 3, 18, 2, 3, 2, 16, 10, 9, 9, 7, 5, 15, 5], 20));
+  const findAll = (array, n) => array.reduce((arr, e, i) => { e === n ? arr.push(i) : arr; return arr; }, []);
+
+  // const findAll = (array, n) => array.reduce((arr, e, i) => e === n ? [...arr, i] : arr, []);
+  // console.log(findAll([20, 20, 10, 13, 15, 2, 7, 2, 20, 3, 18, 2, 3, 2, 16, 10, 9, 9, 7, 5, 15, 5], 20));
 }
