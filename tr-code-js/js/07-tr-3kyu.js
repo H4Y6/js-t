@@ -1884,20 +1884,25 @@ Result:
   //   return arr;
   // }
 
+  // function streetFighterSelection(fighters, position, moves) {
+  //   return moves.map(move => {
+  //     switch (move) {
+  //       case 'up': return fighters[position[0] = 0][position[1]];
+  //       case 'down': return fighters[position[0] = 1][position[1]];
+  //       case 'right': return fighters[position[0]][position[1] = (position[1] + 1) % fighters[0].length];
+  //       case 'left': return fighters[position[0]][position[1] = (position[1] + fighters[0].length - 1) % fighters[0].length];
+  //     }
+  //   });
+  // }
+
   function streetFighterSelection(fighters, position, moves) {
+    let [v, h] = position;
     return moves.map(move => {
       switch (move) {
-        case 'up':
-          return fighters[position[0] = 0][position[1]];
-
-        case 'down':
-          return fighters[position[0] = 1][position[1]];
-
-        case 'right':
-          return fighters[position[0]][position[1] = (position[1] + 1) % fighters[0].length];
-
-        case 'left':
-          return fighters[position[0]][position[1] = (position[1] + fighters[0].length - 1) % fighters[0].length];
+        case 'up': return fighters[v = 0][h];
+        case 'down': return fighters[v = 1][h];
+        case 'right': return fighters[v][h = (h + 1) % fighters[0].length];
+        case 'left': return fighters[v][h = (h + fighters[0].length - 1) % fighters[0].length];
       }
     });
   }
