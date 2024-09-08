@@ -1960,9 +1960,14 @@ because you drank ten standard drinks
 Note:
 To keep the things simple, we'll consider that any "numbered thing" in the string is a drink. Even "1 bear" -> "1 glass of water"; or "1 chainsaw and 2 pools" -> "3 glasses of water"...    */
 
+  // const hydrate = s => {
+  //   const n = s.split(/[a-z]+./).reduce((res, e) => res + +e, 0);
+  //   return n > 1 ? n + ' glasses of water' : n + ' glass of water';
+  // };
+
   const hydrate = s => {
     const n = s.split(/[a-z]+./).reduce((res, e) => res + +e, 0);
-    return n > 1 ? n + ' glasses of water' : n + ' glass of water';
+    return n + (n > 1 ? ' glasses of water' : ' glass of water');
   };
   console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
 }
