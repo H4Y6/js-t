@@ -1936,12 +1936,14 @@ Assume that n and all values in the given array will always be integers.
 Example:
 findAll([6, 9, 3, 4, 3, 82, 11], 3) => [2, 4]     */
 
-  const findAll = (array, n) => {
-    const arr = [];
-    array.map((e, i) => {
-      if (e === n) arr.push(i);
-    });
-    return arr;
-  };
+  // const findAll = (array, n) => {
+  //   const arr = [];
+  //   array.map((e, i) => {
+  //     if (e === n) arr.push(i);
+  //   });
+  //   return arr;
+  // };
+
+  const findAll = (array, n) => array.reduce((arr, e, i) => e === n ? [...arr, i] : arr, []);
   console.log(findAll([20, 20, 10, 13, 15, 2, 7, 2, 20, 3, 18, 2, 3, 2, 16, 10, 9, 9, 7, 5, 15, 5], 20));
 }
