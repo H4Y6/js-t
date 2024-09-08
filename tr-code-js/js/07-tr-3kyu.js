@@ -1925,6 +1925,7 @@ The Stanton measure of [1, 4, 1, 2, 11, 2, 3, 1] is 1, because 1 occurs 3 times 
   //   return count(count(1));
   // };
 
-  const stantonMeasure = a => (res => res(res(1)))(q => a.reduce((quantity, e) => e === q ? quantity + 1 : quantity, 0));
-  console.log((stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])));
+  // const stantonMeasure = a => (res => res(res(1)))(q => a.reduce((quantity, e) => e === q ? quantity + 1 : quantity, 0));
+  const stantonMeasure = a => (res => res(res(1)))(q => a.filter(e => e === q).length);
+  // console.log((stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])));
 }
