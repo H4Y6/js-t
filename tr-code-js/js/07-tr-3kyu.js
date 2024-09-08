@@ -1915,9 +1915,14 @@ Examples
 The Stanton measure of [1, 4, 3, 2, 1, 2, 3, 2] is 3, because 1 occurs 2 times in the array and 2 occurs 3 times.
 The Stanton measure of [1, 4, 1, 2, 11, 2, 3, 1] is 1, because 1 occurs 3 times in the array and 3 occurs 1 time. */
 
+  // const stantonMeasure = a => {
+  //   const n = a.reduce((count, e) => e === 1 ? count + 1 : count, 0);
+  //   return a.reduce((c, e) => e === n ? c + 1 : c, 0);
+  // };
+
   const stantonMeasure = a => {
-    const n = a.reduce((count, e) => e === 1 ? count + 1 : count, 0);
-    return a.reduce((c, e) => e === n ? c + 1 : c, 0);
+    const count = q => a.reduce((quantity, e) => e === q ? quantity + 1 : quantity, 0);
+    return count(count(1));
   };
   console.log((stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])));
 }
