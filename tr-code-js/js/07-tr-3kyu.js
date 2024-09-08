@@ -1965,9 +1965,14 @@ To keep the things simple, we'll consider that any "numbered thing" in the strin
   //   return n > 1 ? n + ' glasses of water' : n + ' glass of water';
   // };
 
+  // const hydrate = s => {
+  //   const n = s.split(/[a-z]+./).reduce((res, e) => res + +e, 0);
+  //   return n + (n > 1 ? ' glasses of water' : ' glass of water');
+  // };
+
   const hydrate = s => {
     const n = s.split(/[a-z]+./).reduce((res, e) => res + +e, 0);
-    return n + (n > 1 ? ' glasses of water' : ' glass of water');
+    return n + ' glass' + (n > 1 ? 'es' : '') + ' of water';
   };
   console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
 }
