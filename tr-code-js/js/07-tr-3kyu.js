@@ -1994,10 +1994,16 @@ const arr = [1, -3, -4, 0, 5];
 |  5   |  2    |
 */
 
+  // function catchSignChange(arr) {
+  //   return arr.slice(0, -1).reduce((q, e, i) => {
+  //     console.log(e);
+  //     return (arr.slice(1)[i] >= 0 && e >= 0 || arr.slice(1)[i] < 0 && e < 0 ? q : q + 1);
+  //   }, 0);
+  // }
+
   function catchSignChange(arr) {
-    return arr.slice(0, -1).reduce((q, e, i) => {
-      console.log(e);
-      return (arr.slice(1)[i] >= 0 && e >= 0 || arr.slice(1)[i] < 0 && e < 0 ? q : q + 1);
+    return arr.slice(1).reduce((q, e, i) => {
+      return (arr[i] >= 0 !== e < 0 ? q : q + 1);
     }, 0);
   }
   const arr = [1, -3, -4, 0, 5];
