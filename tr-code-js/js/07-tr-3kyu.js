@@ -2007,7 +2007,8 @@ const arr = [1, -3, -4, 0, 5];
   //   }, 0);
   // }
 
-  const catchSignChange = arr => arr.slice(1).reduce((q, e, i) => (arr[i] >= 0 !== e < 0 ? q : q + 1), 0);
+  // const catchSignChange = arr => arr.slice(1).reduce((q, e, i) => (arr[i] >= 0 !== e < 0 ? q : q + 1), 0);
+  const catchSignChange = arr => arr.slice(1).filter((e, i) => (arr[i] >= 0 === e < 0)).length;
 
   const arr = [1, -3, -4, 0, 5];
   const ar = [-47, 84, -30, -11, -5, 74, 77];
