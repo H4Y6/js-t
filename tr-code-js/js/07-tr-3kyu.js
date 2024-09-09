@@ -2001,11 +2001,14 @@ const arr = [1, -3, -4, 0, 5];
   //   }, 0);
   // }
 
-  function catchSignChange(arr) {
-    return arr.slice(1).reduce((q, e, i) => {
-      return (arr[i] >= 0 !== e < 0 ? q : q + 1);
-    }, 0);
-  }
+  // function catchSignChange(arr) {
+  //   return arr.slice(1).reduce((q, e, i) => {
+  //     return (arr[i] >= 0 !== e < 0 ? q : q + 1);
+  //   }, 0);
+  // }
+
+  const catchSignChange = arr => arr.slice(1).reduce((q, e, i) => (arr[i] >= 0 !== e < 0 ? q : q + 1), 0);
+
   const arr = [1, -3, -4, 0, 5];
   const ar = [-47, 84, -30, -11, -5, 74, 77];
   const res = catchSignChange(arr);
