@@ -1976,3 +1976,32 @@ To keep the things simple, we'll consider that any "numbered thing" in the strin
   };
   // console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
 }
+{ /** 7 kyu  Plus - minus - plus - plus - ... - Count 
+  Count how often sign changes in array.
+result
+number from 0 to ... . Empty array returns 0
+
+example
+const arr = [1, -3, -4, 0, 5];
+
+/*
+| elem | count |
+|------|-------|
+|  1   |  0    |
+| -3   |  1    |
+| -4   |  1    |
+|  0   |  2    |
+|  5   |  2    |
+*/
+
+  function catchSignChange(arr) {
+    return arr.slice(0, -1).reduce((q, e, i) => {
+      console.log(e);
+      return (arr.slice(1)[i] >= 0 && e >= 0 || arr.slice(1)[i] < 0 && e < 0 ? q : q + 1);
+    }, 0);
+  }
+  const arr = [1, -3, -4, 0, 5];
+  const ar = [-47, 84, -30, -11, -5, 74, 77];
+  const res = catchSignChange(arr);
+  console.log(res);
+}
