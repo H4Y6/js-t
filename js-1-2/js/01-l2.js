@@ -145,3 +145,17 @@ const timeToTom = speed => {
   return time;
 };
 // console.log(timeToTom(`allen`));
+
+// const getRandom = (min, max) => parseFloat((Math.random() * (max - min) + min).toFixed(2));
+const getRandom = (min, max) => Math.round((Math.random() * (max - min) + min));
+// console.log(getRandom(22, 125));
+
+/**  nullish coalescing operator: */
+
+let incomingNumber;
+// = 12;
+
+const defaultNumber = 44;
+
+const number = incomingNumber ?? defaultNumber;
+// console.log(number);

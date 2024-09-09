@@ -19,7 +19,7 @@
 function checkPassword(password) {
     const ADMIN_PASSWORD = "jqueryismyjam";
     let message;
-    message = password !== ADMIN_PASSWORD ? "Access denied, wrong password!" : "Access is allowed."
+    message = password !== ADMIN_PASSWORD ? "Access denied, wrong password!" : "Access is allowed.";
     return message;
 }
 console.log(checkPassword("JJ-jqueryismyjam"));
