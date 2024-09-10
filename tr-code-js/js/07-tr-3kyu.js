@@ -2055,11 +2055,12 @@ The Challenge
 Given an integer width and a string ratio written as WIDTH:HEIGHT, output the screen dimensions as a string written as WIDTHxHEIGHT.
 Note: The calculated height should be represented as an integer. If the height is fractional, truncate it.    */
 
-  const findScreenHeight = (width, ratio) => {
-    const [w, h] = ratio.split(':');
-    const height = width / w * h;
-    return width + "x" + height;
-  };
-  console.log(findScreenHeight(1024, "4:3"));
-}
+  // const findScreenHeight = (width, ratio) => {
+  //   const [w, h] = ratio.split(':');
+  //   const height = width / w * h;
+  //   return width + "x" + height;
+  // };
 
+  const findScreenHeight = (width, ratio) => ((w, h) => `${width} x ${width / w * h}`)(...ratio.split(':'));
+  // console.log(findScreenHeight(1024, "4:3"));
+}
