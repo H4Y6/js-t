@@ -2008,10 +2008,16 @@ const arr = [1, -3, -4, 0, 5];
   // }
 
   // const catchSignChange = arr => arr.slice(1).reduce((q, e, i) => (arr[i] >= 0 !== e < 0 ? q : q + 1), 0);
-  const catchSignChange = arr => arr.slice(1).filter((e, i) => (arr[i] >= 0 === e < 0)).length;
+  // const catchSignChange = arr => arr.slice(1).filter((e, i) => (arr[i] >= 0 === e < 0)).length;
+  const catchSignChange = (arr, count = 0) => {
+    for (let i = 0, a = arr.slice(1); i < a.length; i++) {
+      a[i] < 0 === arr[i] >= 0 ? count += 1 : count;
+    }
+    return count;
+  };
 
   const arr = [1, -3, -4, 0, 5];
   const ar = [-47, 84, -30, -11, -5, 74, 77];
-  const res = catchSignChange(arr);
-  console.log(res);
+  const res = catchSignChange(ar);
+  // console.log(res);
 }
