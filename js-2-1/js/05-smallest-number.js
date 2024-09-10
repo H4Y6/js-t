@@ -32,3 +32,23 @@ for (const number of numbers) {
   // min = number;
 }
 console.log('min->', min);
+
+const digits = [3, 5, 1, 8, 4];
+// const getMax = digits => {
+//   let max = digits[0];
+//   for (let i = 0; i < digits.length; i += 1) {
+//     max = digits[i] <= max ? max : digits[i];
+//   }
+
+//   return { max };
+// };
+
+const getMax = digits => {
+  let max = digits[0];
+  for (const digit of digits) {
+    max = digit <= max ? max : digit;
+  };
+
+  return { max };
+};
+console.log(getMax(digits));

@@ -32,8 +32,8 @@ let total = 0;
 
 for (const number of numbers) {
   if (number % 2 !== 0) {
-    console.log('Эту итерацию нужно пропустить', number);
     continue;
+    console.log('Эту итерацию нужно пропустить', number);
   }
 
   console.log(`${number} - четное!!!!`);
