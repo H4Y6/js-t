@@ -17,7 +17,7 @@ for (const letter of letters) {
 
   //   invertedString += letter.toUpperCase();
   // } else {
-  //   console.log('Эта буква в верхнет регистре!!! - ', letter);
+  //   console.log('Эта буква в верхнем регистре!!! - ', letter);
   //   invertedString += letter.toLowerCase();
   // }
 

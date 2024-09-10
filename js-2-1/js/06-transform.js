@@ -20,4 +20,4 @@ const string = friends.join(', ');
 console.log(friends);
 console.log(string);
 
-// Должно получиться 'Mango,Poly,Kiwi,Ajax'
+// Должно получиться 'Mango, Poly, Kiwi, Ajax'
