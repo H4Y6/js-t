@@ -2045,7 +2045,8 @@ Indices in sequence start from 0.
 If the sequence is empty, you should return 0. */
 
   // const evenLast = numbers => numbers.length ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) * numbers[numbers.length - 1] : 0;
-  const evenLast = numbers => numbers.length ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) * numbers.pop() : 0;
+  // const evenLast = numbers => numbers.length ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) * numbers.pop() : 0;
+  const evenLast = numbers => numbers.length ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) * numbers.slice(-1) : 0;
   console.log(evenLast([2, 3, 4, 5]));
 }
 
