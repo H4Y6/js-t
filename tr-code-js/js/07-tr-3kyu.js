@@ -2029,10 +2029,13 @@ Example:
 "wicked .. !" --> 6
 "!?..A" --> 1      */
 
-  function countLettersAndDigits(input) {
-    // return input.replace(/[^A-Za-z0-9]/g, '').length;
-    return input.replace(/[\W_]/g, '').length;
-  }
-  console.log(countLettersAndDigits('hel2!lo'));
-  console.log(countLettersAndDigits('n!!_ice!!123'));
+  // function countLettersAndDigits(input) {
+  // return input.replace(/[^A-Za-z0-9]/g, '').length;
+  // return input.replace(/[\W_]/g, '').length;
+  // }
+
+  const countLettersAndDigits = input => (input.match(/[^\W_]/g) || []).length;
+
+  // console.log(countLettersAndDigits('hel2!lo'));
+  // console.log(countLettersAndDigits('n!!_ice!!123'));
 }
