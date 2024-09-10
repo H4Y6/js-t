@@ -31,3 +31,25 @@ let total = 0;
 // }
 
 // console.log(cart);
+
+const params = [34, 61, 24, 77, 42, 95];
+
+// const getAverage = function (prices) {
+//   let totalPrice = 0;
+//   for (let i = 0; i < prices.length; i += 1) {
+//     totalPrice += prices[i];
+//   }
+
+//   return totalPrice / prices.length;
+// };
+// console.log(getAverage(params));
+
+const getAverage = function (prices) {
+  let totalPrice = 0;
+  for (const price of prices) {
+    totalPrice += price;
+  }
+
+  return totalPrice / prices.length;
+};
+console.log('Average price-> ', getAverage(params));
