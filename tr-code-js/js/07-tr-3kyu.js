@@ -2021,3 +2021,17 @@ const arr = [1, -3, -4, 0, 5];
   const res = catchSignChange(ar);
   // console.log(res);
 }
+{ /** 7 kyu  Help Bob count letters and digits
+Bob is a lazy man.
+He needs you to create a method that can determine how many letters (both uppercase and lowercase ASCII letters) and digits are in a given string.
+Example:
+"hel2!lo" --> 6
+"wicked .. !" --> 6
+"!?..A" --> 1      */
+
+  function countLettersAndDigits(input) {
+    return input.replace(/[^A-Za-z0-9]/g, '').length;
+  }
+  console.log(countLettersAndDigits('hel2!lo'));
+  console.log(countLettersAndDigits('n!!_ice!!123'));
+}
