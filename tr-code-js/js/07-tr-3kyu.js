@@ -2066,3 +2066,17 @@ Note: The calculated height should be represented as an integer. If the height i
 
   // console.log(findScreenHeight(1024, "4:3"));
 }
+
+{ /** 7 kyu  Coding Meetup #12 - Higher-Order Functions Series - Find GitHub admins     */
+  var list1 = [
+    { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+    { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 49, language: 'Ruby', githubAdmin: 'no' },
+    { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' },
+    { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript', githubAdmin: 'no' }
+  ];
+
+  function findAdmin(list, lang) {
+    return list.filter(e => e.language === lang && e.githubAdmin === 'yes');
+  }
+  // console.log(findAdmin(list1, 'JavaScript'));
+}
