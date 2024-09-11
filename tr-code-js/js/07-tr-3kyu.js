@@ -2061,6 +2061,8 @@ Note: The calculated height should be represented as an integer. If the height i
   //   return width + "x" + height;
   // };
 
-  const findScreenHeight = (width, ratio) => ((w, h) => `${width} x ${width / w * h}`)(...ratio.split(':'));
+  // const findScreenHeight = (width, ratio) => ((w, h) => `${width}x${width / w * h}`)(...ratio.split(':'));
+  const findScreenHeight = (width, ratio) => (([w, h]) => `${width}x${width / w * h}`)(ratio.split(':'));
+
   // console.log(findScreenHeight(1024, "4:3"));
 }
