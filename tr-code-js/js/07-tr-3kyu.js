@@ -2075,8 +2075,10 @@ Note: The calculated height should be represented as an integer. If the height i
     { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript', githubAdmin: 'no' }
   ];
 
-  function findAdmin(list, lang) {
-    return list.filter(e => e.language === lang && e.githubAdmin === 'yes');
-  }
+  // function findAdmin(list, lang) {
+  //   return list.filter(e => e.language === lang && e.githubAdmin === 'yes');
+  // }
+
+  const findAdmin = (list, lang) => list.filter(({ language, githubAdmin }) => language === lang && githubAdmin === 'yes');
   // console.log(findAdmin(list1, 'JavaScript'));
 }
