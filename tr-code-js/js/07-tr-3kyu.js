@@ -2133,3 +2133,12 @@ As the Next closest year with only distinct digits is 1023 .*/
   const heron = (a, b, c, s) => (s = (a + b + c) / 2, Math.sqrt(s * ((s - a) * (s - b) * (s - c))));
   // console.log(heron(3, 4, 5));
 }
+{ /** 7 kyu  The Office III - Broken Photocopier
+ The bloody photocopier is broken... Just as you were sneaking around the office to print off your favourite binary code!
+Instead of copying the original, it reverses it: '1' becomes '0' and vice versa.
+Given a string of binary, return the version the photocopier gives you as a string.  */
+
+  // const broken = x => x.replaceAll('1', '2').replaceAll('0', '1').replaceAll('2', '0');
+  const broken = x => x.replace(/\d/g, e => e === '0' ? '1' : '0');
+  console.log(broken('10000000101101111110011001000'));
+}
