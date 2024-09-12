@@ -2113,6 +2113,7 @@ As the Next closest year with only distinct digits is 1023 .*/
     1892376 => 1+8+9+2+3+7+6 = 36. 36 is divisible by 9, hence number is lucky.
     Function will return true for lucky numbers and false for others. */
 
-  const isLucky = n => n.toString().split('').reduce((sum, e) => sum + +e, 0) % 9 === 0;
-  console.log(isLucky(1892376));
+  // const isLucky = n => n.toString().split('').reduce((sum, e) => sum + +e, 0) % 9 === 0;
+  const isLucky = n => n % 9 === 0;
+  // console.log(isLucky(1892376));
 }
