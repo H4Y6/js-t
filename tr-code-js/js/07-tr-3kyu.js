@@ -2082,3 +2082,37 @@ Note: The calculated height should be represented as an integer. If the height i
   const findAdmin = (list, lang) => list.filter(({ language, githubAdmin }) => language === lang && githubAdmin === 'yes');
   // console.log(findAdmin(list1, 'JavaScript'));
 }
+{ /** 7 kyu  See You Next Happy Year
+  You're saying good-bye your best friend , See you next happy year .
+Happy Year is the year with only distinct digits , (e.g) 2018
+Task
+Given a year, Find The next happy year or The closest year You'll see your best friend 
+Notes
+Year Of Course always Positive .
+Have no fear , It is guaranteed that the answer exists .
+It's not necessary that the year passed to the function is Happy one .
+Input Year with in range (1000  ≤  y  ≤  9000)
+Input >> Output Examples:
+nextHappyYear (7712) ==> return (7801)
+Explanation:
+As the Next closest year with only distinct digits is 7801 .
+nextHappyYear (8989) ==> return (9012)
+Explanation:
+As the Next closest year with only distinct digits is 9012 .
+nextHappyYear (1001) ==> return (1023)
+Explanation:
+As the Next closest year with only distinct digits is 1023 .*/
+
+  const nextHappyYear = function (year) {
+
+  };
+  // console.log(nextHappyYear(1987));
+}
+{ /** 7 kyu  lucky number  
+  Write a function to find if a number is lucky or not. If the sum of all digits is 0 or multiple of 9 then the number is lucky.
+    1892376 => 1+8+9+2+3+7+6 = 36. 36 is divisible by 9, hence number is lucky.
+    Function will return true for lucky numbers and false for others. */
+
+  const isLucky = n => n.toString().split('').reduce((sum, e) => sum + +e, 0) % 9 === 0;
+  console.log(isLucky(1892376));
+}
