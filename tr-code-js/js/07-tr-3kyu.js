@@ -2139,6 +2139,7 @@ Instead of copying the original, it reverses it: '1' becomes '0' and vice versa.
 Given a string of binary, return the version the photocopier gives you as a string.  */
 
   // const broken = x => x.replaceAll('1', '2').replaceAll('0', '1').replaceAll('2', '0');
-  const broken = x => x.replace(/\d/g, e => e === '0' ? '1' : '0');
-  console.log(broken('10000000101101111110011001000'));
+  // const broken = x => x.replace(/\d/g, e => e === '0' ? '1' : '0');
+  const broken = x => x.replace(/(0)|(1)/g, (_, e) => e ? '1' : '0');
+  // console.log(broken('10000000101101111110011001000'));
 }
