@@ -2129,7 +2129,7 @@ As the Next closest year with only distinct digits is 1023 .*/
   //   return Math.sqrt(s * (s - a) * (s - b) * (s - c));
   // }
 
-  const heron = (a, b, c, s = (a + b + c) / 2) => Math.sqrt(s * (s - a) * (s - b) * (s - c));
-
-  console.log(heron(3, 4, 5));
+  // const heron = (a, b, c, s = (a + b + c) / 2) => Math.sqrt(s * (s - a) * (s - b) * (s - c));
+  const heron = (a, b, c, s) => (s = (a + b + c) / 2, Math.sqrt(s * ((s - a) * (s - b) * (s - c))));
+  // console.log(heron(3, 4, 5));
 }
