@@ -2184,10 +2184,15 @@ Given a string of binary, return the version the photocopier gives you as a stri
     },
   ];
 
-  function orderFood(list) {
-    let obj = {};
-    const meals = list.map(({ meal }) => meal);
-    return Object.fromEntries([...new Set(meals)].map(e => meals.filter(el => el === e)).map(e => [e[0], e.length]));
-  }
+  // function orderFood(list) {
+  //   const meals = list.map(({ meal }) => meal);
+  //   return Object.fromEntries([...new Set(meals)].map(e => meals.filter(el => el === e)).map(e => [e[0], e.length]));
+  // }
+
+  const orderFood = list => list.reduce((count, { meal }) => {
+    count[meal] = count[meal] + 1 || 1;
+    return count;
+  }, {});
+
   console.log(orderFood(list1));
 }
