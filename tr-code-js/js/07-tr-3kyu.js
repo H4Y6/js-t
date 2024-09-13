@@ -2217,7 +2217,10 @@ Given a string of binary, return the version the photocopier gives you as a stri
   ["a:12345", "777:xyz"]  -->  ["a:xyz", "777:12345"]    */
 
   function tailSwap(arr) {
-    return JSON.parse('[ "' + arr[0].match(/.+\:/) + arr[1].replace(/.+\:/, '') + '", "' + arr[1].match(/.+\:/) + arr[0].replace(/.+\:/, '') + '" ]');
+    // return JSON.parse('[ "' + arr[0].match(/.+\:/) + arr[1].replace(/.+\:/, '') + '", "' + arr[1].match(/.+\:/) + arr[0].replace(/.+\:/, '') + '" ]');
+
+    const [[a, b], [c, d]] = arr.map(e => e.split(':'));
+    return [`${a}:${d}`, `${c}:${b}`];
   }
   console.log(tailSwap(["abc:123", "cde:456"]));
 }
