@@ -2194,10 +2194,18 @@ Given a string of binary, return the version the photocopier gives you as a stri
   //   return count;
   // }, {});
 
-  const orderFood = list => list.reduce((count, { meal }) => {
-    count[meal] = 1 + (count[meal] ?? 0);
+  // const orderFood = list => list.reduce((count, { meal }) => {
+  //   count[meal] = 1 + (count[meal] ?? 0);
+  //   return count;
+  // }, {});
+
+  const orderFood = list => {
+    const count = {};
+    list.forEach(({ meal }) => {
+      count[meal] = count[meal] + 1 || 1;
+    });
     return count;
-  }, {});
+  };
 
   console.log(orderFood(list1));
 }
