@@ -2219,8 +2219,14 @@ Given a string of binary, return the version the photocopier gives you as a stri
   function tailSwap(arr) {
     // return JSON.parse('[ "' + arr[0].match(/.+\:/) + arr[1].replace(/.+\:/, '') + '", "' + arr[1].match(/.+\:/) + arr[0].replace(/.+\:/, '') + '" ]');
 
-    const [[a, b], [c, d]] = arr.map(e => e.split(':'));
-    return [`${a}:${d}`, `${c}:${b}`];
+    // const [[a, b], [c, d]] = arr.map(e => e.split(':'));
+    // return [`${a}:${d}`, `${c}:${b}`];
+
+    const ar = arr.map(e => e.split(':'));
+    const a = ar[0][1];
+    ar[0][1] = ar[1][1];
+    ar[1][1] = a;
+    return ar.map(e => e.join(':'));
   }
   console.log(tailSwap(["abc:123", "cde:456"]));
 }
