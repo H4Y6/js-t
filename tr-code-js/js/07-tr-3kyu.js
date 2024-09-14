@@ -2223,10 +2223,10 @@ Given a string of binary, return the version the photocopier gives you as a stri
     // return [`${a}:${d}`, `${c}:${b}`];
 
     const ar = arr.map(e => e.split(':'));
-    const a = ar[0][1];
+    const [a] = ar[0];
     ar[0][1] = ar[1][1];
     ar[1][1] = a;
     return ar.map(e => e.join(':'));
   }
-  console.log(tailSwap(["abc:123", "cde:456"]));
+  // console.log(tailSwap(["abc:123", "cde:456"]));
 }
