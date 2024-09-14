@@ -2241,7 +2241,9 @@ https://developer.mozilla.or     */
 
   // const searchNames = logins => logins.filter(e => /\_$/.test(e[0]));
   // const searchNames = logins => logins.filter(e => e[0].match(/\_$/));
-  const searchNames = logins => logins.filter(e => e[0].endsWith('_'));
+  // const searchNames = logins => logins.filter(e => e[0].search(/\_$/) >= 0);
+  const searchNames = logins => logins.filter(e => e[0].slice(-1) === '_');
+  // const searchNames = logins => logins.filter(e => e[0].endsWith('_'));
 
-  console.log(searchNames([["foo", "foo@foo.com"], ["bar_", "bar@bar.com"]]));
+  // console.log(searchNames([["foo", "foo@foo.com"], ["bar_", "bar@bar.com"]]));
 }
