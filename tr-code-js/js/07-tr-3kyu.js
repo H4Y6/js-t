@@ -2239,6 +2239,8 @@ it should output
 You have to use the filter-method which returns each element of the array for which the filter-method returns true.
 https://developer.mozilla.or     */
 
-  const searchNames = logins => logins.filter(e => /\_$/.test(e[0]));
+  // const searchNames = logins => logins.filter(e => /\_$/.test(e[0]));
+  const searchNames = logins => logins.filter(e => e[0].match(/\_$/));
+
   console.log(searchNames([["foo", "foo@foo.com"], ["bar_", "bar@bar.com"]]));
 }
