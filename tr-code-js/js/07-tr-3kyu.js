@@ -2240,7 +2240,8 @@ You have to use the filter-method which returns each element of the array for wh
 https://developer.mozilla.or     */
 
   // const searchNames = logins => logins.filter(e => /\_$/.test(e[0]));
-  const searchNames = logins => logins.filter(e => e[0].match(/\_$/));
+  // const searchNames = logins => logins.filter(e => e[0].match(/\_$/));
+  const searchNames = logins => logins.filter(e => e[0].endsWith('_'));
 
   console.log(searchNames([["foo", "foo@foo.com"], ["bar_", "bar@bar.com"]]));
 }
