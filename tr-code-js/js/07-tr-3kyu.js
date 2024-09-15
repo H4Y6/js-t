@@ -2344,5 +2344,43 @@ Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
     let [a, b] = res;
     return res.length > 1 ? res.slice(0, 2) : null;
   }
-  console.log(step(2, 100, 110));
+  // console.log(step(2, 100, 110));
 };
+{ /** 7 kyu  Correct the time-string
+  You have to create a method, that corrects a given time string.
+There was a problem in addition, so many of the time strings are broken.
+Time is formatted using the 24-hour clock, so from 00:00:00 to 23:59:59.
+Examples
+"09:10:01" -> "09:10:01"  
+"11:70:10" -> "12:10:10"  
+"19:99:99" -> "20:40:39"  
+"24:01:01" -> "00:01:01"  
+If the input-string is null or empty return exactly this value! (empty string for C++) If the time-string-format is invalid, return null. (empty string for C++) */
+
+  function timeCorrect(timestring) {
+    console.log(timestring);
+    if (timestring === '' || timestring === null) return timestring;
+    let arr = [];
+    if (/\d\d:\d\d:\d\d/.test(timestring)) {
+      arr = timestring.split(':');
+    }
+    if (arr[2] === undefined) return null;
+    if (+arr[2] > 59) {
+      arr[2] -= 60;
+      arr[2] = ('0' + arr[2]).slice(-2);
+      arr[1] = +arr[1] + 1;
+    }
+    if (arr[1] > 59) {
+      arr[1] -= 60;
+      arr[1] = ('0' + arr[1]).slice(-2);
+      arr[0] = +arr[0] + 1;
+    }
+    while (+arr[0] > 23) {
+      arr[0] -= 24;
+    }
+    arr[0] = ("0" + arr[0]).slice(-2);
+
+    return arr.join(':');
+  }
+  console.log(timeCorrect("52:01:01"));
+}
