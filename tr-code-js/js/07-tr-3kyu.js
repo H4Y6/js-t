@@ -2308,5 +2308,41 @@ Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
   // const consecutive = array => array.length ? Math.abs(Math.max(...array) - Math.min(...array)) + 1 - array.length : 0;
   const consecutive = array => Math.abs(Math.max(...array) - Math.min(...array)) + 1 - array.length | 0;
 
-  console.log(consecutive([]));
+  // console.log(consecutive([]));
 }
+{/** time out failure */
+  const primes = (a, b) => {
+    const primeNums = [];
+
+    for (a; a <= b; a++) {
+      let resArr = [];
+
+      for (let j = 2; j < a; j++) {
+        if (j === a) continue;
+        if (a % j === 0) { break; } else {
+          resArr.push(a);
+        }
+      }
+      if (resArr.length === a - 2) primeNums.push(a);
+    }
+    return primeNums;
+  };
+
+  function step(g, m, n) {
+    let primeNums = primes(m, n);
+    let res = [];
+
+    for (let i = 0; i < primeNums.length; i++) {
+
+      for (let j = 1; j < primeNums.length; j++) {
+        if (primeNums[j] === primeNums[i] + g) {
+          res.push(primeNums[i]);
+          res.push(primeNums[j]);
+        }
+      }
+    }
+    let [a, b] = res;
+    return res.length > 1 ? res.slice(0, 2) : null;
+  }
+  console.log(step(2, 100, 110));
+};
