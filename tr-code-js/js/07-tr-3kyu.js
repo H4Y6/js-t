@@ -2357,30 +2357,36 @@ Examples
 "24:01:01" -> "00:01:01"  
 If the input-string is null or empty return exactly this value! (empty string for C++) If the time-string-format is invalid, return null. (empty string for C++) */
 
-  function timeCorrect(timestring) {
-    console.log(timestring);
-    if (timestring === '' || timestring === null) return timestring;
-    let arr = [];
-    if (/\d\d:\d\d:\d\d/.test(timestring)) {
-      arr = timestring.split(':');
-    }
-    if (arr[2] === undefined) return null;
-    if (+arr[2] > 59) {
-      arr[2] -= 60;
-      arr[2] = ('0' + arr[2]).slice(-2);
-      arr[1] = +arr[1] + 1;
-    }
-    if (arr[1] > 59) {
-      arr[1] -= 60;
-      arr[1] = ('0' + arr[1]).slice(-2);
-      arr[0] = +arr[0] + 1;
-    }
-    while (+arr[0] > 23) {
-      arr[0] -= 24;
-    }
-    arr[0] = ("0" + arr[0]).slice(-2);
+  // function timeCorrect(timestring) {
+  //   if (timestring === '' || timestring === null) return timestring;
+  //   let arr = [];
+  //   if (/\d\d:\d\d:\d\d/.test(timestring)) {
+  //     arr = timestring.split(':');
+  //   }
+  //   if (arr[2] === undefined) return null;
+  //   if (+arr[2] > 59) {
+  //     arr[2] -= 60;
+  //     arr[2] = ('0' + arr[2]).slice(-2);
+  //     arr[1] = +arr[1] + 1;
+  //   }
+  //   if (arr[1] > 59) {
+  //     arr[1] -= 60;
+  //     arr[1] = ('0' + arr[1]).slice(-2);
+  //     arr[0] = +arr[0] + 1;
+  //   }
+  //   while (+arr[0] > 23) {
+  //     arr[0] -= 24;
+  //   }
+  //   arr[0] = ("0" + arr[0]).slice(-2);
 
-    return arr.join(':');
+  //   return arr.join(':');
+  // }
+
+  function timeCorrect(timestring) {
+    if (!timestring) return timestring;
+    let arr = [];
+    if (!/(\d\d:){2}\d\d/.test(timestring)) return null;
+    return new Date(0, 0, -1, ...timestring.split(':')).toString().slice(16, 24);
   }
-  console.log(timeCorrect("52:01:01"));
+  // console.log(timeCorrect("52:01:01"));
 }
