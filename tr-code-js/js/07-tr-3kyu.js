@@ -2103,10 +2103,13 @@ nextHappyYear (1001) ==> return (1023)
 Explanation:
 As the Next closest year with only distinct digits is 1023 .*/
 
-  const nextHappyYear = function (year) {
-    year += 1;
-    return new Set((year + '').split('')).size > 3 ? year : nextHappyYear(+year);
-  };
+  // const nextHappyYear = function (year) {
+  //   year += 1;
+  //   return new Set((year + '').split('')).size > 3 ? year : nextHappyYear(+year);
+  // };
+
+  const nextHappyYear = year => new Set([...(++year + '')]).size > 3 ? year : nextHappyYear(+year);
+
   console.log(nextHappyYear(1987));
 }
 { /** 7 kyu  lucky number  
