@@ -2401,7 +2401,8 @@ If the input-string is null or empty return exactly this value! (empty string fo
   "^^^**$"     , "x" --> "3x3x3x2x2x1"        */
 
   function freqSeq(str, sep) {
-    return [...str].reduce((res, e, i, ar) => res + [...str].filter(el => el === e).length + sep, '').slice(0, -1);
+    // return [...str].reduce((res, e, i, ar) => res + [...str].filter(el => el === e).length + sep, '').slice(0, -1);
+    return [...str].map(e => [...str].filter(el => el === e).length).join(sep);
   }
-  console.log(freqSeq('hello world', '-'));
+  // console.log(freqSeq('hello world', '-'));
 }
