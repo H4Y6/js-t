@@ -2428,12 +2428,20 @@ If the input-string is null or empty return exactly this value! (empty string fo
   1********9
   1*********1   */
 
+  // function pattern(n) {
+  //   let output = "";
+  //   for (let i = 0; i < n; i++) {
+  //     output += 1 + '*'.repeat(i) + (+i + 1) + (i < n - 1 ? '\n' : '');
+  //   }
+  //   return output.slice(1);
+  // }
+
   function pattern(n) {
-    let output = "";
-    for (let i = 0; i < n; i++) {
-      output += 1 + '*'.repeat(i) + (+i + 1) + (i < n - 1 ? '\n' : '');
+    let output = "1";
+    for (let i = 1; i < n; i++) {
+      output += '\n' + 1 + '*'.repeat(i) + (i + 1);
     }
-    return output.slice(1);
+    return output;
   }
-  console.log(pattern(4));
+  // console.log(pattern(4));
 }
