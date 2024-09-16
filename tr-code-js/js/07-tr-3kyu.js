@@ -2382,11 +2382,14 @@ If the input-string is null or empty return exactly this value! (empty string fo
   //   return arr.join(':');
   // }
 
-  function timeCorrect(timestring) {
-    if (!timestring) return timestring;
-    let arr = [];
-    if (!/(\d\d:){2}\d\d/.test(timestring)) return null;
-    return new Date(0, 0, -1, ...timestring.split(':')).toString().slice(16, 24);
-  }
+  // function timeCorrect(timestring) {
+  //   if (!timestring) return timestring;
+  //   let arr = [];
+  //   if (!/(\d\d:){2}\d\d/.test(timestring)) return null;
+  //   return new Date(0, 0, -1, ...timestring.split(':')).toString().slice(16, 24);
+  // }
+
+  const timeCorrect = timestring => !timestring ? timestring : /(\d{2}:){2}\d{2}/.test(timestring)
+    ? new Date(new Date().setHours(...timestring.split(`:`))).toTimeString().slice(0, 8) : null;
   // console.log(timeCorrect("52:01:01"));
 }
