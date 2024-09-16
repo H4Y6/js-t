@@ -45,4 +45,9 @@ const message = logins.includes(loginToFind)
   ? `Пользователь ${loginToFind} найден.`
   : `Пользователь ${loginToFind} не найден.`;
 
-console.log(message);
+// console.log(message);
+
+const findLogin = function (logins, loginToFind) {
+  return logins.find(login => login === loginToFind) ? 'Found' : 'Not found';
+};
+// console.log(findLogin(logins, loginToFind));
