@@ -21,9 +21,10 @@ for (const letter of letters) {
   //   invertedString += letter.toLowerCase();
   // }
 
-  const isEqual = letter === letter.toLowerCase();
+  // const isEqual = letter === letter.toLowerCase();
+  // invertedString += isEqual ? letter.toUpperCase() : letter.toLowerCase();
 
-  invertedString += isEqual ? letter.toUpperCase() : letter.toLowerCase();
+  invertedString += letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase();
 }
 
 console.log('invertedString: ', invertedString);
