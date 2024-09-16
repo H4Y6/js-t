@@ -16,9 +16,12 @@ let total = 0;
 //   total += number;
 // }
 
-const length = array1.length > array2.length ? array1.length : array2.length;
-for (let i = 0; i < length; i += 1) {
-  total += ((array1[i] ?? 0) + (array2[i] ?? 0));
-}
+// const length = array1.length > array2.length ? array1.length : array2.length;
+// for (let i = 0; i < length; i += 1) {
+//   total += ((array1[i] ?? 0) + (array2[i] ?? 0));
+// }
 
+for (const number of array1.concat(array2)) {
+  total += number;
+}
 console.log(total);
