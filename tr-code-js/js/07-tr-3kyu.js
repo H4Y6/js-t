@@ -2104,9 +2104,10 @@ Explanation:
 As the Next closest year with only distinct digits is 1023 .*/
 
   const nextHappyYear = function (year) {
-
+    year += 1;
+    return new Set((year + '').split('')).size > 3 ? year : nextHappyYear(+year);
   };
-  // console.log(nextHappyYear(1987));
+  console.log(nextHappyYear(1987));
 }
 { /** 7 kyu  lucky number  
   Write a function to find if a number is lucky or not. If the sum of all digits is 0 or multiple of 9 then the number is lucky.
