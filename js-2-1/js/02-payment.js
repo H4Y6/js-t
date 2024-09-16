@@ -52,4 +52,21 @@ const getAverage = function (prices) {
 
   return totalPrice / prices.length;
 };
-console.log('Average price-> ', getAverage(params));
+// console.log('Average price-> ', getAverage(params));
+
+// const sumEven = arr => {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += (!(arr[i] % 2) ? arr[i] : 0);
+//   }
+//   return sum;
+// };
+
+const sumEven = arr => {
+  let sum = 0;
+  for (const el of arr) {
+    sum += (!(el % 2) ? el : 0);
+  }
+  return sum;
+};
+console.log(sumEven(params));
