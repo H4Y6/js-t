@@ -2444,6 +2444,7 @@ If the input-string is null or empty return exactly this value! (empty string fo
   //   return output;
   // }
 
-  const pattern = n => Array.from({ length: n }, (e, i) => '*'.repeat(i) + (i + 1)).join('\n1');
+  // const pattern = n => Array.from({ length: n }, (e, i) => '*'.repeat(i) + (i + 1)).join('\n1');
+  const pattern = n => n < 2 ? '1' : pattern(n - 1) + '\n1' + Array(n).join('*') + (n);
   // console.log(pattern(4));
 }
