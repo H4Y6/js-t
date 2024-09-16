@@ -2436,12 +2436,14 @@ If the input-string is null or empty return exactly this value! (empty string fo
   //   return output.slice(1);
   // }
 
-  function pattern(n) {
-    let output = "1";
-    for (let i = 1; i < n; i++) {
-      output += '\n' + 1 + '*'.repeat(i) + (i + 1);
-    }
-    return output;
-  }
+  // function pattern(n) {
+  //   let output = "1";
+  //   for (let i = 1; i < n; i++) {
+  //     output += '\n' + 1 + '*'.repeat(i) + (i + 1);
+  //   }
+  //   return output;
+  // }
+
+  const pattern = n => Array.from({ length: n }, (e, i) => '*'.repeat(i) + (i + 1)).join('\n1');
   // console.log(pattern(4));
 }
