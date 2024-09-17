@@ -13,8 +13,9 @@
 // };
 
 const slugify = function (string) {
-  return string.toLowerCase().split(' ').join('-')
-}
+  // return string.toLowerCase().split(' ').join('-')
+  return string.split(' ').join('-').toLowerCase();
+};
 
 console.log(slugify('Top 10 benefits of React framework'));
 console.log(slugify('Azure Static Web Apps are Awesome'));

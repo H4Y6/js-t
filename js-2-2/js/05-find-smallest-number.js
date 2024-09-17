@@ -28,7 +28,7 @@ const findSmallestNumber = function (args) {
 // console.log(findSmallestNumber([100, 54, 8, 12, 47])); // 8
 // console.log(findSmallestNumber([7, 21, 84, 15, 4])); // 4
 
-const arr = [14, 154, 8, 12, 4, 21, 7];
+const array = [14, 154, 8, 12, 4, 21, 7];
 
 const findMin = function (arr) {
   let min = Infinity;
@@ -38,4 +38,14 @@ const findMin = function (arr) {
 
   return min;
 };
-console.log(findMin(arr));
+console.log(findMin(array));
+
+const findMax = function (arr) {
+  let [max] = arr;
+  for (const el of arr) {
+    max = max > el ? max : el;
+  }
+
+  return max;
+};
+console.log(findMax(array));

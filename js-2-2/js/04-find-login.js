@@ -53,7 +53,8 @@ const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
 
 
 const findLogin = function (allLogins, loginToFind) {
-  return allLogins.includes(loginToFind) ? `Login ${loginToFind} is found.`
+  return allLogins.includes(loginToFind)
+    ? `Login ${loginToFind} is found.`
     : `Login ${loginToFind} is not found.`;
 };
 
@@ -75,3 +76,7 @@ const findNumber = function (numbers, number) {
 };
 console.log(findNumber(numberData, 5));
 console.log(findNumber(numberData, 1));
+
+const stringArray = ['sdo', 'gof', 'tols'];
+console.log('gof', stringArray.includes('gof'));
+console.log('st', 'first'.includes('st'));
