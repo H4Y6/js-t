@@ -2116,7 +2116,7 @@ As the Next closest year with only distinct digits is 1023 .*/
   // const nextHappyYear = year => new Set([...(++year + '')]).size > 3 ? year : nextHappyYear(+year);
   const nextHappyYear = year => [...++year + ''].every((e, i, arr) => i === arr.lastIndexOf(e)) ? year : nextHappyYear(year);
 
-  console.log(nextHappyYear(1987));
+  // console.log(nextHappyYear(1987));
 }
 { /** 7 kyu  lucky number  
   Write a function to find if a number is lucky or not. If the sum of all digits is 0 or multiple of 9 then the number is lucky.
@@ -2457,4 +2457,12 @@ If the input-string is null or empty return exactly this value! (empty string fo
   // const pattern = n => Array.from({ length: n }, (e, i) => '*'.repeat(i) + (i + 1)).join('\n1');
   const pattern = n => n < 2 ? '1' : pattern(n - 1) + '\n1' + Array(n).join('*') + (n);
   // console.log(pattern(4));
+}
+{ /** 7 kyu  Double Sort 
+  Simple enough this one - you will be given an array. The values in the array will either be numbers or strings, or a mix of both. You will not get an empty array, nor a sparse one.
+Your job is to return a single array that has first the numbers sorted in ascending order, followed by the strings sorted in alphabetic order. The values must maintain their original type.
+Note that numbers written as strings are strings and must be sorted with the other strings.*/
+
+  const dbSort = a => [...a.filter(e => typeof e === 'number').sort((a, b) => a - b), ...a.filter(e => typeof e === 'string').sort()];
+  // console.log(dbSort(["Apple", 46, "287", 574, "Peach", "3", "69", 78, "Grape", "423"]));
 }
