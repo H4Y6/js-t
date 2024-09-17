@@ -2466,3 +2466,11 @@ Note that numbers written as strings are strings and must be sorted with the oth
   const dbSort = a => [...a.filter(e => typeof e === 'number').sort((a, b) => a - b), ...a.filter(e => typeof e === 'string').sort()];
   // console.log(dbSort(["Apple", 46, "287", 574, "Peach", "3", "69", 78, "Grape", "423"]));
 }
+{ /** 7 kyu  Move 10 
+  Move every letter in the provided string forward 10 letters through the alphabet.
+If it goes past 'z', start again at 'a'.
+Input will be a string with length > 0*/
+
+  const moveTen = s => [...s].map(e => String.fromCharCode(e.charCodeAt() > 112 ? (e.charCodeAt() + 10) % 122 + 96 : e.charCodeAt() + 10)).join('');
+  console.log(moveTen("exampletesthere"));
+}
