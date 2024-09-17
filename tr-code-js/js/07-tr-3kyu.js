@@ -2471,6 +2471,7 @@ Note that numbers written as strings are strings and must be sorted with the oth
 If it goes past 'z', start again at 'a'.
 Input will be a string with length > 0*/
 
-  const moveTen = s => [...s].map(e => String.fromCharCode(e.charCodeAt() > 112 ? (e.charCodeAt() + 10) % 122 + 96 : e.charCodeAt() + 10)).join('');
-  console.log(moveTen("exampletesthere"));
+  // const moveTen = s => [...s].map(e => String.fromCharCode(e.charCodeAt() > 112 ? (e.charCodeAt() + 10) % 122 + 96 : e.charCodeAt() + 10)).join('');
+  const moveTen = s => s.replace(/[a-z]/g, e => String.fromCharCode(97 + (e.charCodeAt() - 87) % 26));
+  // console.log(moveTen("exampletesthere"));
 }
