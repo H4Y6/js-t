@@ -55,3 +55,48 @@ const sumNumbers = function (arr, threshold) {
   // const b = a++;
   // console.log(a, b);
 }
+
+{
+  const strings = ['odkl', 'poty', 'devs', 'uxal'];
+  strings.push('loj', 'rex');
+  strings.unshift('jef', 'tox');
+
+  const joinStr = function (strArr, string = '') {
+    for (const str of strArr) {
+      string = [string, str].join(' ');
+    }
+
+    return string;
+  };
+  console.log(joinStr(strings));
+
+  // const findElIndex = function (strArr, wordToFind) {
+  //   let idx = -1;
+
+  //   for (let i = 0; i < strArr.length; i++) {
+  //     if (strArr[i] === wordToFind) {
+  //       idx = i;
+  //       break;
+  //     }
+  //   }
+
+  //   return idx;
+  // };
+
+  const findElIndex = function (strArr, wordToFind) {
+
+    for (let i = 0; i < strArr.length; i++) {
+      if (strArr[i] === wordToFind) return i;
+    }
+
+    return -1;
+  };
+  console.log(findElIndex(strings, 'devs'));
+
+  console.log(strings.slice(1, strings.length - 1));
+  console.log(strings.slice(1, -1));
+  console.log(strings.slice(-3));
+  console.log(joinStr(strings));
+  console.log(strings.splice(5));
+  console.log(strings);
+}
