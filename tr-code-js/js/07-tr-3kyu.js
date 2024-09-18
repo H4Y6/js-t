@@ -2537,7 +2537,8 @@ Examples (Input => Output)
   // const prevMultOfThree = n => !(n % 3) ? +n : +n < 9 ? null : prevMultOfThree(n = (n + '').slice(0, -1));
   // const prevMultOfThree = n => !(n % 3) ? +n : +n < 9 ? null : prevMultOfThree((n /= 10) ^ 0);
   // const prevMultOfThree = n => n % 3 ? prevMultOfThree(n / 10 ^ 0) : n || null;
-  const prevMultOfThree = n => n % 3 ? prevMultOfThree(n / 10 | 0) : n || null;
+  // const prevMultOfThree = n => n % 3 ? prevMultOfThree(n / 10 | 0) : n || null;
+  const prevMultOfThree = n => n % 3 ? prevMultOfThree(Math.trunc(n / 10)) : n || null;
 
   // console.log(prevMultOfThree(34));
 }
