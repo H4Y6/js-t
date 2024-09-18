@@ -2511,9 +2511,11 @@ Examples (Input => Output)
   //   return '.'.repeat(eval([a.length, sign.slice(-1), b.length].join('')));
   // }
 
-  function dotCalculator(equation, [a, sign, b] = equation.split(' ')) {
-    return '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
-  }
-  console.log(dotCalculator("..... + ..............."));
-  console.log(dotCalculator("..... * .."));
+  // function dotCalculator(equation, [a, sign, b] = equation.split(' ')) {
+  //   return '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
+  // }
+  const dotCalculator = (equation, [a, sign, b] = equation.split(' ')) => '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
+
+  // console.log(dotCalculator("..... + ..............."));
+  // console.log(dotCalculator("..... * .."));
 };
