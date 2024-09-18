@@ -2475,3 +2475,14 @@ Input will be a string with length > 0*/
   const moveTen = s => s.replace(/[a-z]/g, e => String.fromCharCode(97 + (e.charCodeAt() - 87) % 26));
   // console.log(moveTen("exampletesthere"));
 }
+{
+  function dotCalculator(equation) {
+    const [a, sign, b] = equation.split(' ');
+    if (sign === '+') return '.'.repeat(a.length + b.length);
+    if (sign === '-') return '.'.repeat(a.length - b.length);
+    if (sign === '//') return '.'.repeat(a.length / b.length);
+    if (sign === '*') return '.'.repeat(a.length * b.length);
+  }
+  console.log(dotCalculator("..... + ..............."));
+  console.log(dotCalculator("..... * .."));
+};
