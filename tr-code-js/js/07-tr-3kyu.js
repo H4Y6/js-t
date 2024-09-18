@@ -2530,8 +2530,11 @@ Examples (Input => Output)
   1244   => 12
   952406 => 9         */
 
-  const prevMultOfThree = n => {
-    return !(n % 3) ? +n : +n < 9 ? null : prevMultOfThree(n = (n + '').slice(0, -1));
-  };
-  console.log(prevMultOfThree(538763));
+  // const prevMultOfThree = n => {
+  //   return !(n % 3) ? +n : +n < 9 ? null : prevMultOfThree(n = (n + '').slice(0, -1));
+  // };
+
+  const prevMultOfThree = n => !(n % 3) ? +n : +n < 9 ? null : prevMultOfThree(n = (n + '').slice(0, -1));
+
+  // console.log(prevMultOfThree(538763));
 }
