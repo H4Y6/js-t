@@ -2506,9 +2506,13 @@ Examples (Input => Output)
   //   if (sign === '*') return '.'.repeat(a.length * b.length);
   // }
 
-  function dotCalculator(equation) {
-    const [a, sign, b] = equation.split(' ');
-    return '.'.repeat(eval([a.length, sign.slice(-1), b.length].join('')));
+  // function dotCalculator(equation) {
+  //   const [a, sign, b] = equation.split(' ');
+  //   return '.'.repeat(eval([a.length, sign.slice(-1), b.length].join('')));
+  // }
+
+  function dotCalculator(equation, [a, sign, b] = equation.split(' ')) {
+    return '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
   }
   console.log(dotCalculator("..... + ..............."));
   console.log(dotCalculator("..... * .."));
