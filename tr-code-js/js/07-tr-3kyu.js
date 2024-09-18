@@ -2514,8 +2514,9 @@ Examples (Input => Output)
   // function dotCalculator(equation, [a, sign, b] = equation.split(' ')) {
   //   return '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
   // }
-  const dotCalculator = (equation, [a, sign, b] = equation.split(' ')) => '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
+  // const dotCalculator = (equation, [a, sign, b] = equation.split(' ')) => '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
+  const dotCalculator = (equation) => '.'.repeat(eval(equation.replace(/\.+/g, e => e.length).replace('//', '/')));
 
   // console.log(dotCalculator("..... + ..............."));
-  // console.log(dotCalculator("..... * .."));
+  // console.log(dotCalculator("..... // .."));
 };
