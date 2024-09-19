@@ -2568,3 +2568,24 @@ Examples (Input => Output)
 
   console.log(killer({ 'James': ['Jacob', 'Bill', 'Lucas'], 'Johnny': ['David', 'Kyle', 'Lucas'], 'Peter': ['Lucy', 'Kyle'] }, ['Lucas', 'Bill']));
 }
+{ /** 7 kyu  Last ( test failed )
+  1843477% of 1,0573,681 of 8,675xcthulhu2 Issues Reported
+  Find the last element of the given argument(s). If a single argument is passed and is a list/array or a string, return its last element. It is guaranteed that there will be at least one argument and that single-argument arrays/lists/strings will not be empty.
+  
+  Examples
+  last(5)               ==> 5
+  last([1, 2, 3, 4])    ==>  4
+  last("xyz")           ==> "z"
+  last(1, 2, 3, 4)      ==>  4
+  last([1, 2], [3, 4])  ==>  [3, 4]
+  last([[1, 2], [3, 4]])  ==>  [3, 4]
+  (courtesy of haskell.org)             */
+
+  function last() {
+    console.log(arguments);
+    return Array.isArray(arguments[arguments.length - 1]) ? arguments[arguments.length - 1].slice(-1)[0] : typeof arguments[0] === 'string' ? arguments[0].slice(-1) : arguments[arguments.length - 1];
+  };
+  // console.log(last(1, 2, 3));
+  // console.log(last('abc'));
+  // console.log(last([1, 2, 3, [4, 5]]));
+}
