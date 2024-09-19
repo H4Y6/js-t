@@ -2558,11 +2558,13 @@ Examples (Input => Output)
   ['Lucas', 'Bill']
   return the name of the one killer, in our case 'James' because he is the only person that saw both 'Lucas' and 'Bill' */
 
-  function killer(suspectInfo, dead) {
-    const keys = Object.keys(suspectInfo);
-    for (const key of keys) {
-      if (suspectInfo[key].includes(...dead)) return key;
-    }
-  }
+  // function killer(suspectInfo, dead) {
+  //   const keys = Object.keys(suspectInfo);
+  //   for (const key of keys) {
+  //     if (suspectInfo[key].includes(...dead)) return key;
+  //   }
+  // }
+  const killer = (suspectInfo, dead) => Object.keys(suspectInfo).find(e => suspectInfo[e].includes(...dead));
+
   console.log(killer({ 'James': ['Jacob', 'Bill', 'Lucas'], 'Johnny': ['David', 'Kyle', 'Lucas'], 'Peter': ['Lucy', 'Kyle'] }, ['Lucas', 'Bill']));
 }
