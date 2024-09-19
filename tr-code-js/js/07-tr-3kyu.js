@@ -2566,7 +2566,7 @@ Examples (Input => Output)
   // }
   const killer = (suspectInfo, dead) => Object.keys(suspectInfo).find(e => suspectInfo[e].includes(...dead));
 
-  console.log(killer({ 'James': ['Jacob', 'Bill', 'Lucas'], 'Johnny': ['David', 'Kyle', 'Lucas'], 'Peter': ['Lucy', 'Kyle'] }, ['Lucas', 'Bill']));
+  // console.log(killer({ 'James': ['Jacob', 'Bill', 'Lucas'], 'Johnny': ['David', 'Kyle', 'Lucas'], 'Peter': ['Lucy', 'Kyle'] }, ['Lucas', 'Bill']));
 }
 { /** 7 kyu  Last ( test failed )
   1843477% of 1,0573,681 of 8,675xcthulhu2 Issues Reported
@@ -2598,5 +2598,10 @@ Example:
   function filterLongWords(sentence, n) {
     return sentence.split(' ').filter(e => e.length > n);
   }
-  console.log(filterLongWords("The quick brown fox jumps over the lazy dog", 4));
+  // console.log(filterLongWords("The quick brown fox jumps over the lazy dog", 4));
 }
+function gordon(a) {
+  // return a.toUpperCase().replace(/A/g, '@').replace(/[EIOU]/g, '*').replace(/\s/g, '!!!! ') + '!!!!';
+  return a.toUpperCase().replace(/(\w+)/g, '$&!!!!').replace(/A/g, '@').replace(/[EIOU]/g, '*');
+}
+// console.log(gordon('What feck damn cake'));
