@@ -78,3 +78,25 @@ const calculateTotalPrice = function (prices) {
 };
 // console.log(calculateTotalPrice([33, 55, 45, 22, 73, 15, 38, 75]));
 // console.log(calculateTotalPrice([3, 3, 5, 5, 4, 5]));
+
+const getTotal = function () {
+  let total = 0;
+  console.log(arguments);
+  for (const el of arguments) {
+    total += el;
+  }
+
+  return { total };
+};
+console.log(getTotal(3, 8, 6, 22, 29, 41, 16));
+
+const sum = function (...args) {
+  let total = 0;
+
+  for (const el of args) {
+    total += el;
+  }
+
+  return total;
+};
+console.log(sum(8, 6, 22, 29, 41, 16, 2, 23));
