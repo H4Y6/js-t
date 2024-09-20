@@ -2689,3 +2689,14 @@ function gordon(a) {
   // console.log(howMuch(1000, 1100));
   // console.log(howMuch(1, 100));
 }
+{ /** 7 kyu Unscramble the eggs.
+  The string given to your function has had an "egg" inserted directly after each consonant. You need to return the string before it became eggcoded.
+    Example
+  unscrambleEggs("Beggegeggineggneggeregg"); => "Beginner"
+  //             "B---eg---in---n---er---" */
+
+  function unscrambleEggs(word) {
+    return word.replace(/egg/g, '');
+  }
+  // console.log(unscrambleEggs('ceggodegge heggeregge'));
+}
