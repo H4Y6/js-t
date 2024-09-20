@@ -2615,7 +2615,8 @@ function gordon(a) {
   full_text = "aaabbbcccc", search_text = "bbb"
       ---> should return 1    */
 
-  const solution = (fullText, searchText) => fullText.split(searchText).length - 1;
+  // const solution = (fullText, searchText) => fullText.split(searchText).length - 1;
+  const solution = (fullText, searchText, a = fullText.match(RegExp(searchText, 'g'))) => a ? a.length : 0;
 
-  console.log(solution('abcdeb', 'b'));
+  console.log(solution('abcdeb', 'u'));
 }
