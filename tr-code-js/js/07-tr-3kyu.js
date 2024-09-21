@@ -2789,15 +2789,17 @@ function gordon(a) {
   //   return res.slice(0, arr.length);
   // };
 
-  function solve(arr) {
-    const res = [];
-    const maxFirst = [...arr].sort((a, b) => b - a);
+  // function solve(arr) {
+  //   const res = [];
+  //   const maxFirst = [...arr].sort((a, b) => b - a);
 
-    for (let i = 0, j = arr.length - 1; i < arr.length / 2; i++, j--) {
-      res.push(maxFirst[i]);
-      res.push(maxFirst[j]);
-    }
-    return res.slice(0, arr.length);
-  };
+  //   for (let i = 0, j = arr.length - 1; i < arr.length / 2; i++, j--) {
+  //     res.push(maxFirst[i]);
+  //     res.push(maxFirst[j]);
+  //   }
+  //   return res.slice(0, arr.length);
+  // };
+
+  const solve = arr => [...Array.from({ length: arr.sort((a, b) => a - b).length }, (e, i) => i % 2 ? arr.shift() : arr.pop())];
   // console.log(solve([15, 11, 10, 7, 12]));
 }
