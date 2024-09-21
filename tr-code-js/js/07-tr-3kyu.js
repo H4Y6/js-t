@@ -2769,13 +2769,20 @@ function gordon(a) {
   // console.log(oper(selfieAndRot, "xZBV\njsbS\nJcpN\nfVnP"));
   // console.log(oper(rot, "xZBV\njsbS\nJcpN\nfVnP"));
 }
-{
+{ /** 7 kyu  Max-min arrays
+  In this Kata, you will be given an array of unique elements, and your task is to rearrange the values so that the first max value is followed by the first minimum, followed by second max value then second min value, etc.
+  
+  For example:
+  
+  solve([15,11,10,7,12]) = [15,7,12,10,11]
+  The first max is 15 and the first min is 7. The second max is 12 and the second min is 10 and so on.  */
+
   function solve(arr) {
     const res = [];
     const maxFirst = [...arr].sort((a, b) => b - a);
     const minFirst = [...maxFirst].reverse();
 
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length / 2; i++) {
       res.push(maxFirst[i]);
       res.push(minFirst[i]);
     }
