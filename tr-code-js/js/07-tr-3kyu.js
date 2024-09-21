@@ -2769,3 +2769,17 @@ function gordon(a) {
   // console.log(oper(selfieAndRot, "xZBV\njsbS\nJcpN\nfVnP"));
   // console.log(oper(rot, "xZBV\njsbS\nJcpN\nfVnP"));
 }
+{
+  function solve(arr) {
+    const res = [];
+    const maxFirst = [...arr].sort((a, b) => b - a);
+    const minFirst = [...maxFirst].reverse();
+
+    for (let i = 0; i < arr.length; i++) {
+      res.push(maxFirst[i]);
+      res.push(minFirst[i]);
+    }
+    return res.slice(0, arr.length);
+  };
+  console.log(solve([15, 11, 10, 7, 12]));
+}
