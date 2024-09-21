@@ -2800,6 +2800,7 @@ function gordon(a) {
   //   return res.slice(0, arr.length);
   // };
 
-  const solve = arr => [...Array.from({ length: arr.sort((a, b) => a - b).length }, (e, i) => i % 2 ? arr.shift() : arr.pop())];
+  // const solve = arr => [...Array.from({ length: arr.sort((a, b) => a - b).length }, (e, i) => i % 2 ? arr.shift() : arr.pop())];
+  const solve = arr => [...arr.sort((a, b) => a - b)].map((e, i) => i % 2 ? arr.shift() : arr.pop());
   // console.log(solve([15, 11, 10, 7, 12]));
 }
