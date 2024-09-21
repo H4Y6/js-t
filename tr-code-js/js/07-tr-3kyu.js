@@ -2777,16 +2777,27 @@ function gordon(a) {
   solve([15,11,10,7,12]) = [15,7,12,10,11]
   The first max is 15 and the first min is 7. The second max is 12 and the second min is 10 and so on.  */
 
+  // function solve(arr) {
+  //   const res = [];
+  //   const maxFirst = [...arr].sort((a, b) => b - a);
+  //   const minFirst = [...maxFirst].reverse();
+
+  //   for (let i = 0; i < arr.length / 2; i++) {
+  //     res.push(maxFirst[i]);
+  //     res.push(minFirst[i]);
+  //   }
+  //   return res.slice(0, arr.length);
+  // };
+
   function solve(arr) {
     const res = [];
     const maxFirst = [...arr].sort((a, b) => b - a);
-    const minFirst = [...maxFirst].reverse();
 
-    for (let i = 0; i < arr.length / 2; i++) {
+    for (let i = 0, j = arr.length - 1; i < arr.length / 2; i++, j--) {
       res.push(maxFirst[i]);
-      res.push(minFirst[i]);
+      res.push(maxFirst[j]);
     }
     return res.slice(0, arr.length);
   };
-  console.log(solve([15, 11, 10, 7, 12]));
+  // console.log(solve([15, 11, 10, 7, 12]));
 }
