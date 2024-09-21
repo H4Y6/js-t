@@ -2744,14 +2744,20 @@ function gordon(a) {
     return [...strng].reverse().join('');
   }
 
+  // function selfieAndRot(strng) {
+  //   const length = strng.split('\n')[0].length;
+  //   return (strng.split('\n').join('.'.repeat(length) + '\n') + '.'.repeat(length)) + '\n' + (strng.split('\n').join('.'.repeat(length) + '\n') + '.'.repeat(length)).split('').reverse().join('');
+  // }
+
   function selfieAndRot(strng) {
-    const length = strng.split('\n')[0].length;
-    return (strng.split('\n').join('.'.repeat(length) + '\n') + '.'.repeat(length)) + '\n' + (strng.split('\n').join('.'.repeat(length) + '\n') + '.'.repeat(length)).split('').reverse().join('');
+    return (strng = strng.replace(/.+/g, e => e + e.replace(/./g, '.'))) + '\n' + rot(strng);
   }
 
   function oper(fct, s) {
     return fct(s);
   }
+
+
 
   // console.log(rot("abcd\nefgh\nijkl\nmnop"));
   // console.log(selfieAndRot("xZBV\njsbS\nJcpN\nfVnP"));
