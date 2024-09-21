@@ -2740,24 +2740,29 @@ function gordon(a) {
   The form of the parameter fct in oper changes according to the language. You can see each form according to the language in "Your test cases".
   It could be easier to take these katas from number (I) to number (IV)
   Forthcoming katas will study other tranformations. */
-  function rot(strng) {
-    return [...strng].reverse().join('');
-  }
+  // function rot(strng) {
+  //   return [...strng].reverse().join('');
+  // }
 
   // function selfieAndRot(strng) {
   //   const length = strng.split('\n')[0].length;
   //   return (strng.split('\n').join('.'.repeat(length) + '\n') + '.'.repeat(length)) + '\n' + (strng.split('\n').join('.'.repeat(length) + '\n') + '.'.repeat(length)).split('').reverse().join('');
   // }
 
-  function selfieAndRot(strng) {
-    return (strng = strng.replace(/.+/g, e => e + e.replace(/./g, '.'))) + '\n' + rot(strng);
-  }
+  // function selfieAndRot(strng) {
+  //   return (strng = strng.replace(/.+/g, e => e + e.replace(/./g, '.'))) + '\n' + rot(strng);
+  // }
 
-  function oper(fct, s) {
-    return fct(s);
-  }
+  // function oper(fct, s) {
+  //   return fct(s);
+  // }
 
 
+  const rot = strng => [...strng].reverse().join('');
+
+  const selfieAndRot = strng => (strng = strng.replace(/.+/g, e => e + e.replace(/./g, '.'))) + '\n' + rot(strng);
+
+  const oper = (fct, s) => fct(s);
 
   // console.log(rot("abcd\nefgh\nijkl\nmnop"));
   // console.log(selfieAndRot("xZBV\njsbS\nJcpN\nfVnP"));
