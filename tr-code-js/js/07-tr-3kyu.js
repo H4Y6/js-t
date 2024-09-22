@@ -2968,7 +2968,8 @@ Examples
   //   return string.replace(/(\w+)(!*)/g, (_, a, b) => a);
   // }
 
-  const remove = string => string.replace(/(\w+)(!*)/g, (_, a, b) => a);
+  // const remove = string => string.replace(/(\w+)(!*)/g, (_, a, b) => a);
+  const remove = string => string.replace(/\b!*/g, '');
 
   console.log(remove('!!!Hi !!hi!!! !hi'));
 }
