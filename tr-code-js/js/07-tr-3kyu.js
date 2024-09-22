@@ -2946,7 +2946,7 @@ Examples
   All inputs will be arrays of numbers. All character codes are valid lower case letters. The input array will not be empty.   */
 
   function numObj(s) {
-    return [...s].map(e => Object.fromEntries(new Map([[e, String.fromCharCode(e)]])));
+    return s.map(e => Object.fromEntries(new Map([[e, String.fromCharCode(e)]])));
   }
   console.log(numObj([118, 117, 120]));
 }
