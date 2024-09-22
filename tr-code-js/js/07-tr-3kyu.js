@@ -2804,3 +2804,97 @@ function gordon(a) {
   const solve = arr => [...arr.sort((a, b) => a - b)].map((e, i) => i % 2 ? arr.shift() : arr.pop());
   // console.log(solve([15, 11, 10, 7, 12]));
 }
+{/** 7 kyu  Who's Online? 
+  You have a group chat application, but who is online!?
+
+You want to show your users which of their friends are online and available to chat!
+
+Given an input of an array of objects containing usernames, status and time since last activity (in mins), create a function to work out who is online, offline and away.
+
+If someone is online but their lastActivity was more than 10 minutes ago they are to be considered away.
+
+The input data has the following structure:
+
+[{
+  username: 'David',
+  status: 'online',
+  lastActivity: 10
+}, {
+  username: 'Lucy', 
+  status: 'offline',
+  lastActivity: 22
+}, {
+  username: 'Bob', 
+  status: 'online',
+  lastActivity: 104
+}]
+The corresponding output should look as follows:
+
+{
+  online: ['David'],
+  offline: ['Lucy'],
+  away: ['Bob']
+}
+If for example, no users are online the output should look as follows:
+
+{
+  offline: ['Lucy'],
+  away: ['Bob']
+}
+username will always be a string, status will always be either 'online' or 'offline' (UserStatus enum in C#) and lastActivity will always be number >= 0.
+
+Finally, if you have no friends in your chat application, the input will be an empty array []. In this case you should return an empty object {}        */
+
+  const friends = [
+    {
+      username: 'Bob',
+      status: 'online',
+      lastActivity: 10
+    },
+    {
+      username: 'David',
+      status: 'online',
+      lastActivity: 10
+    },
+    {
+      username: 'Barry',
+      status: 'online',
+      lastActivity: 10
+    },
+    {
+      username: 'Lucy',
+      status: 'offline',
+      lastActivity: 22
+    },
+    {
+      username: 'Ben',
+      status: 'online',
+      lastActivity: 104
+    }
+  ];
+
+  const whosOnline = (friends) => {
+    let res = {};
+    const online = [];
+    const offline = [];
+    const away = [];
+
+    friends.map(({ username, status, lastActivity }) => {
+      if (status === 'online' && lastActivity <= 10) {
+        online.push(username);
+        res = { ...res, online };
+      }
+      if (status === 'offline') {
+        offline.push(username);
+        res = { ...res, offline };
+      }
+      if (status === 'online' && lastActivity > 10) {
+        away.push(username);
+        res = { ...res, away };
+      }
+    });
+
+    return res;
+  };
+  console.log(whosOnline(friends));
+}
