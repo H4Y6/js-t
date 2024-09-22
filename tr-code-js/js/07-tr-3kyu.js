@@ -2964,8 +2964,11 @@ Examples
   remove("Hi! Hi!") === "Hi Hi"
   remove("!!!Hi !!hi!!! !hi") === "!!!Hi !!hi !hi" */
 
-  function remove(string) {
-    return string.replace(/(\w+)(!*)/g, (_, a, b) => a);
-  }
+  // function remove(string) {
+  //   return string.replace(/(\w+)(!*)/g, (_, a, b) => a);
+  // }
+
+  const remove = string => string.replace(/(\w+)(!*)/g, (_, a, b) => a);
+
   console.log(remove('!!!Hi !!hi!!! !hi'));
 }
