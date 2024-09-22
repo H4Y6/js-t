@@ -2949,7 +2949,8 @@ Examples
   //   return s.map(e => Object.fromEntries(new Map([[e, String.fromCharCode(e)]])));
   // }
 
-  const numObj = s => s.map(e => ({ [e]: String.fromCharCode(e) }));
+  // const numObj = s => s.map(e => ({ [e]: String.fromCharCode(e) }));
+  const numObj = s => s.reduce((res, e) => [...res, { [e]: String.fromCharCode(e) }], []);
 
   // console.log(numObj([118, 117, 120]));
 }
