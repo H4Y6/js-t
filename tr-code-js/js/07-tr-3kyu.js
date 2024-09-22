@@ -2917,13 +2917,20 @@ Examples
 
 "1 5"      ==>  return 2, because the sequence is missing 2, 3, 4 and 2 is the lowes   */
 
+  // function findMissingNumber(sequence) {
+  //   if (!sequence.length) return 0;
+  //   if (/[a-z]/.test(sequence)) return 1;
+  //   const sorted = sequence.split(' ').sort((a, b) => a - b);
+  //   if (sorted[0] !== '1') return 1;
+  //   const res = sorted.find((e, i, arr) => +arr[i + 1] !== +e + 1);
+  //   return res === sorted[sorted.length - 1] ? 0 : +res + 1;
+  // }
+
   function findMissingNumber(sequence) {
-    if (!sequence.length) return 0;
+    if (!sequence) return 0;
     if (/[a-z]/.test(sequence)) return 1;
     const sorted = sequence.split(' ').sort((a, b) => a - b);
-    if (sorted[0] !== '1') return 1;
-    const res = sorted.find((e, i, arr) => +arr[i + 1] !== +e + 1);
-    return res === sorted[sorted.length - 1] ? 0 : +res + 1;
+    return sorted.findIndex((e, i) => +e !== i + 1) + 1;
   }
-  console.log(findMissingNumber("2 1 3 4 7"));
+  // console.log(findMissingNumber("2 3 4 5"));
 }
