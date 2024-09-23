@@ -2992,7 +2992,8 @@ Examples
   //   return [...str].map((e, i, arr) => str = str.slice(1) + arr[i]);
   // }
 
-  const rotate = str => [...str].map((e, i, arr) => str = str.slice(1) + arr[i]);
+  // const rotate = str => [...str].map((e, i, arr) => str = str.slice(1) + arr[i]);
+  const rotate = str => [...str].map(e => str = str.slice(1) + str.slice(0, 1));
 
   console.log(rotate('Hello'));
 }
