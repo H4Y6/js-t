@@ -2972,5 +2972,11 @@ Examples
   // const remove = string => string.replace(/\b!*/g, '');
   const remove = string => string.replace(/(\w)!+/g, '$1');
 
-  console.log(remove('!!!Hi !!hi!!! !hi'));
+  // console.log(remove('!!!Hi !!hi!!! !hi'));
+}
+{
+  function rotate(str) {
+    return [...str].map((e, i, arr) => str = str.slice(1) + arr[i]);
+  }
+  console.log(rotate('Hello'));
 }
