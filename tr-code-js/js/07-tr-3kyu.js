@@ -2996,7 +2996,8 @@ Examples
   // const rotate = str => [...str].map(e => str = str.slice(1) + str.slice(0, 1));
   // const rotate = str => [...str].map(() => str = str.slice(1) + str.slice(0, 1));
   // const rotate = str => [...str].map((e, i) => str.slice(i += 1) + str.slice(0, i));
-  const rotate = str => Array.from({ length: str.length }, () => str = str.replace(/(.)(.*)/, (_, a, b) => b + a));
+  // const rotate = str => Array.from({ length: str.length }, () => str = str.replace(/(.)(.*)/, (_, a, b) => b + a));
+  const rotate = str => Array.from({ length: str.length }, () => str = str.replace(/(.)(.*)/, '$2$1'));
 
-  console.log(rotate('Hello'));
+  // console.log(rotate('Hello'));
 }
