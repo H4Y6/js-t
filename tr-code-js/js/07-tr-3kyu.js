@@ -3033,8 +3033,11 @@ Examples
   //   };
   // }
 
+  // const looseChange = cents => (e => ({ Quarters: e / 25 ^ 0, Dimes: e % 25 / 10 ^ 0, Nickels: e % 25 % 10 / 5 ^ 0, Pennies: e % 5 ^ 0, }))
+  //   (Math.max(cents, 0));
+
   const looseChange = cents => (e => ({ Quarters: e / 25 ^ 0, Dimes: e % 25 / 10 ^ 0, Nickels: e % 25 % 10 / 5 ^ 0, Pennies: e % 5 ^ 0, }))
-    (Math.max(cents, 0));
+    (Math.sign(cents) + 1 ? cents : 0);
 
   console.log(looseChange(66));
 }
