@@ -3086,9 +3086,13 @@ Examples
   //   return fct(s);
   // }
 
-  const vertMirror = strng => strng.split('\n').map(e => [...e].reverse().join('')).join('\n');
-  const horMirror = strng => strng.split('\n').reverse().join('\n');
-  const oper = (fct, s) => fct(s);
+  // const vertMirror = strng => strng.split('\n').map(e => [...e].reverse().join('')).join('\n');
+  // const horMirror = strng => strng.split('\n').reverse().join('\n');
+  // const oper = (fct, s) => fct(s);
 
-  console.log(oper(vertMirror, "abcd\nefgh\nijkl\nmnop"));
+  const vertMirror = strng => strng.map(e => [...e].reverse().join(''));
+  const horMirror = strng => strng.reverse();
+  const oper = (fct, s) => fct(s.split('\n')).join('\n');
+
+  // console.log(oper(vertMirror, "abcd\nefgh\nijkl\nmnop"));
 }
