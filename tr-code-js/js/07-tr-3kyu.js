@@ -3076,14 +3076,19 @@ Examples
   Note:
   The form of the parameter fct in oper changes according to the language. You can see each form according to the language in "Sample Tests". */
 
-  function vertMirror(strng) {
-    return strng.split('\n').map(e => [...e].reverse().join('')).join('\n');
-  }
-  function horMirror(strng) {
-    return strng.split('\n').reverse().join('\n');
-  }
-  function oper(fct, s) {
-    return fct(s);
-  }
+  // function vertMirror(strng) {
+  //   return strng.split('\n').map(e => [...e].reverse().join('')).join('\n');
+  // }
+  // function horMirror(strng) {
+  //   return strng.split('\n').reverse().join('\n');
+  // }
+  // function oper(fct, s) {
+  //   return fct(s);
+  // }
+
+  const vertMirror = strng => strng.split('\n').map(e => [...e].reverse().join('')).join('\n');
+  const horMirror = strng => strng.split('\n').reverse().join('\n');
+  const oper = (fct, s) => fct(s);
+
   console.log(oper(vertMirror, "abcd\nefgh\nijkl\nmnop"));
 }
