@@ -3023,14 +3023,18 @@ Examples
   //   return res;
   // }
 
-  function looseChange(cents) {
-    if (cents < 0) cents = 0;
-    return {
-      Quarters: cents / 25 ^ 0,
-      Dimes: cents % 25 / 10 ^ 0,
-      Nickels: cents % 25 % 10 / 5 ^ 0,
-      Pennies: cents % 5 ^ 0,
-    };
-  }
+  // function looseChange(cents) {
+  //   if (cents < 0) cents = 0;
+  //   return {
+  //     Quarters: cents / 25 ^ 0,
+  //     Dimes: cents % 25 / 10 ^ 0,
+  //     Nickels: cents % 25 % 10 / 5 ^ 0,
+  //     Pennies: cents % 5 ^ 0,
+  //   };
+  // }
+
+  const looseChange = cents => (e => ({ Quarters: e / 25 ^ 0, Dimes: e % 25 / 10 ^ 0, Nickels: e % 25 % 10 / 5 ^ 0, Pennies: e % 5 ^ 0, }))
+    (Math.max(cents, 0));
+
   console.log(looseChange(66));
 }
