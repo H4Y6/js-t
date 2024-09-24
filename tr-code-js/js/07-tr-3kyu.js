@@ -3013,14 +3013,24 @@ Examples
   loose_change(-435)  ==>  {'Nickels': 0, 'Pennies': 0, 'Dimes': 0, 'Quarters': 0}
   loose_change(4.935) ==>  {'Nickels': 0, 'Pennies': 4, 'Dimes': 0, 'Quarters': 0} */
 
+  // function looseChange(cents) {
+  //   const res = { 'Nickels': 0, 'Pennies': 0, 'Dimes': 0, 'Quarters': 0 };
+  //   if (cents <= 0) return res;
+  //   res.Quarters = cents / 25 ^ 0;
+  //   res.Dimes = cents % 25 / 10 ^ 0;
+  //   res.Nickels = cents % 25 % 10 / 5 ^ 0;
+  //   res.Pennies = cents % 5 ^ 0;
+  //   return res;
+  // }
+
   function looseChange(cents) {
-    const res = { 'Nickels': 0, 'Pennies': 0, 'Dimes': 0, 'Quarters': 0 };
-    if (cents <= 0) return res;
-    res.Quarters = cents / 25 ^ 0;
-    res.Dimes = cents % 25 / 10 ^ 0;
-    res.Nickels = cents % 25 % 10 / 5 ^ 0;
-    res.Pennies = cents % 5 ^ 0;
-    return res;
+    if (cents < 0) cents = 0;
+    return {
+      Quarters: cents / 25 ^ 0,
+      Dimes: cents % 25 / 10 ^ 0,
+      Nickels: cents % 25 % 10 / 5 ^ 0,
+      Pennies: cents % 5 ^ 0,
+    };
   }
   console.log(looseChange(66));
 }
