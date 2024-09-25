@@ -3112,7 +3112,8 @@ Examples
     "RSCODEWA",
     "SCODEWAR" ]   */
 
-  const scrollingText = text => (() => Array.from(text.toUpperCase(), (_, i) => text.slice(i) + text.slice(0, i)))(text = text.toUpperCase());
+  // const scrollingText = text => (() => Array.from(text, (_, i) => text.slice(i) + text.slice(0, i)))(text = text.toUpperCase());
+  const scrollingText = text => ((t) => [...t].map((_, i) => t.slice(i) + t.slice(0, i)))(text = text.toUpperCase());
 
   console.log(scrollingText('coDEWARS'));
 }
