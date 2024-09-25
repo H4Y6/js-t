@@ -230,3 +230,37 @@ const colorPickerData = {
   bookShelf.removeBook("The Mist");
   console.log(bookShelf.getBooks()); // ['The Last Kingdom', 'Dream Guardian']
 }
+{
+  const user = {};
+  user.name = 'Bob';
+  user.age = 22;
+
+  console.log('age:', user['age']);
+
+  const propertyName = 'age';
+  console.log(propertyName, ':', user[propertyName]);
+  // console.log(user);
+
+  const fn = function (obj) {
+    return (obj);
+  };
+  console.log(fn({ name: 'Rob', age: 25 }));
+
+  const adminName = 'kiwi';
+  const adminEmail = 'kiwi#olpas.pl';
+  const admin = {
+    adminName,
+    adminEmail
+  };
+  console.log(admin);
+
+  const inputName = 'color';
+  const inputValue = 'yellow';
+
+  const input = {
+    [inputName]: inputValue,
+  };
+
+
+  console.log(input);
+}
