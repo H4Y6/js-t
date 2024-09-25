@@ -3125,8 +3125,13 @@ Examples
     For instance:
     "a   **&  cZ"  =>  "10100000000000000000000001" */
 
-  // const change = string => [...'abcdefghijklmnopqrstuvwxyz'].map(e => [...new Set(string.toLowerCase().match(/[a-z]/g))].includes(e) ? '1' : '0').join('');
-  const change = string => 'abcdefghijklmnopqrstuvwxyz'.split('').map(e => [...new Set(string.toLowerCase().match(/[a-z]/g))].indexOf(e) < 0 ? '0' : '1').join('');
+  // function change(string) {
+  //   return [...'abcdefghijklmnopqrstuvwxyz'].map(e => [...new Set(string.toLowerCase().match(/[a-z]/g))].includes(e) ? '1' : '0').join('');
+  // }
 
-  console.log(change("a   **&  cZ"));
+  // const change = string => [...'abcdefghijklmnopqrstuvwxyz'].map(e => [...new Set(string.toLowerCase().match(/[a-z]/g))].includes(e) ? '1' : '0').join('');
+  // const change = string => 'abcdefghijklmnopqrstuvwxyz'.split('').map(e => [...new Set(string.toLowerCase().match(/[a-z]/g))].indexOf(e) < 0 ? '0' : '1').join('');
+  const change = string => [...'abcdefghijklmnopqrstuvwxyz'].reduce((s, e) => s += [...new Set(string.toLowerCase().match(/[a-z]/g))].indexOf(e) < 0 ? '0' : '1', '');
+
+  // console.log(change("a   **&  cZ"));
 }
