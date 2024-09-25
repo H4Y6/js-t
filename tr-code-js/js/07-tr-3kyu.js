@@ -3134,7 +3134,8 @@ Examples
   // const change = string => [...'abcdefghijklmnopqrstuvwxyz'].reduce((s, e) => s += [...new Set(string.toLowerCase().match(/[a-z]/g))].indexOf(e) < 0 ? '0' : '1', '');
   // const change = string => [...'abcdefghijklmnopqrstuvwxyz'].reduce((s, e) => s += RegExp(e).test(string.toLowerCase()) ? '1' : '0', '');
   // const change = string => [...'abcdefghijklmnopqrstuvwxyz'].reduce((s, e) => s += string.match(RegExp(e, 'i')) ? '1' : '0', '');
-  const change = string => [...Array(26)].reduce((s, _, i) => s += RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0', '');
+  // const change = string => [...Array(26)].reduce((s, _, i) => s += RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0', '');
+  const change = string => [...Array(26)].map((s, i) => RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0', '').join('');
 
-  // console.log(change("a   **&  CZ"));
+  console.log(change("a   **&  CZ"));
 }
