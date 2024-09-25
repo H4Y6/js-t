@@ -3113,7 +3113,8 @@ Examples
     "SCODEWAR" ]   */
 
   // const scrollingText = text => (() => Array.from(text, (_, i) => text.slice(i) + text.slice(0, i)))(text = text.toUpperCase());
-  const scrollingText = text => ((t) => [...t].map((_, i) => t.slice(i) + t.slice(0, i)))(text = text.toUpperCase());
+  // const scrollingText = text => ((t) => [...t].map((_, i) => t.slice(i) + t.slice(0, i)))(text = text.toUpperCase());
+  const scrollingText = text => ((t) => [t, ...[...t].map((_, i) => t = t.replace(/(.)(.*)/, '$2$1'))].slice(0, -1))(text = text.toUpperCase());
 
-  console.log(scrollingText('coDEWARS'));
+  // console.log(scrollingText('coDEWARS'));
 }
