@@ -29,7 +29,7 @@ console.log(getCommon(array, arr));
 
 const getAverage = function (arr) {
   let sum = 0;
-
+  console.log(arr);
   for (const el of arr) {
     sum += el;
   }
@@ -37,3 +37,7 @@ const getAverage = function (arr) {
   return sum / arr.length;
 };
 console.log(getAverage([18, 16, 22, 29, 41, 16, 22, 23]));
+
+const ar = [18, 16, 22, 29, 41, 16, 22, 23];
+ar.splice(-2, 1, 7777);
+console.table(ar, ar.length);
