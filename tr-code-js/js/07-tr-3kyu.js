@@ -3181,9 +3181,12 @@ Examples
   number = 841 => returns true -> 8 + 4 + 1 = 13 -> 1 + 3 => 4 is even
   Note: The numbers will always be 0 or positive integers!    */
 
-  function isVeryEvenNumber(n) {
-    if ((n + '').length < 2) return !(n % 2);
-    return isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
-  }
+  // function isVeryEvenNumber(n) {
+  //   if ((n + '').length < 2) return !(n % 2);
+  //   return isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
+  // }
+
+  const isVeryEvenNumber = n => (n + '').length < 2 ? !(n % 2) : isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
+
   console.log(isVeryEvenNumber(7775));
 }
