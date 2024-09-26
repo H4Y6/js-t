@@ -3158,7 +3158,8 @@ Examples
   //   return garden.split(' ').map(e => e !== 'rock' ? 'gravel' : e).join(' ');
   // }
 
-  const rakeGarden = garden => garden.replace(/\w+/g, e => e !== 'rock' ? 'gravel' : e);
+  // const rakeGarden = garden => garden.replace(/\w+/g, e => e !== 'rock' ? 'gravel' : e);
+  const rakeGarden = garden => garden.split(' ').map(e => e !== 'rock' ? 'gravel' : e).join(' ');
 
   console.log(rakeGarden('gravel gravel gravel gravel gravel gravel gravel gravel gravel rock slug ant gravel'));
 }
