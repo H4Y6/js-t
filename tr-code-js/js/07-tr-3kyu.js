@@ -3137,5 +3137,11 @@ Examples
   // const change = string => [...Array(26)].reduce((s, _, i) => s += RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0', '');
   const change = string => [...Array(26)].map((s, i) => RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0', '').join('');
 
-  console.log(change("a   **&  CZ"));
+  // console.log(change("a   **&  CZ"));
+}
+{
+  function rakeGarden(garden) {
+    return garden.split(' ').map(e => e !== 'rock' ? 'gravel' : e).join(' ');
+  }
+  console.log(rakeGarden('gravel gravel gravel gravel gravel gravel gravel gravel gravel rock slug ant gravel'));
 }
