@@ -3229,8 +3229,7 @@ Do not expect any negative or invalid inputs. */
   //   return sizes.length;
   // }
 
-  function save(sizes, hd, n = 0) {
-    return (sizes.reduce((sum, e, i) => sum + e, 0) <= hd) ? sizes.length - n : save(sizes.slice(0, -n - 1), hd, n++);
-  }
-  console.log(save([12, 0, 0, 1], 12));
+  const save = (sizes, hd, n = 0) => (sizes.reduce((sum, e, i) => sum + e, 0) <= hd) ? sizes.length - n : save(sizes.slice(0, -n - 1), hd, n++);
+
+  // console.log(save([12, 0, 0, 1], 12));
 }
