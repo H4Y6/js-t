@@ -3210,11 +3210,21 @@ save([12, 0, 0, 1], 12) -> 3
 # 12+0+0 <= 12, but 12+0+0+1 > 12
 Do not expect any negative or invalid inputs. */
 
+  // function save(sizes, hd) {
+  //   let i = 0;
+  //   for (let sum = 0; i < sizes.length; i++) {
+  //     sum += sizes[i];
+  //     if (sum > hd) { return i; }
+  //   }
+  //   return sizes.length;
+  // }
+
   function save(sizes, hd) {
-    let i = 0;
-    for (let sum = 0; i < sizes.length; i++) {
-      sum += sizes[i];
-      if (sum > hd) { return i; }
+    let n = 0, sum = 0;
+    for (const size of sizes) {
+      sum += size;
+      if (sum > hd) { return n; }
+      n++;
     }
     return sizes.length;
   }
