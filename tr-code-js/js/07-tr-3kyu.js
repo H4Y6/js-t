@@ -3186,7 +3186,8 @@ Examples
   //   return isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
   // }
 
-  const isVeryEvenNumber = n => (n + '').length < 2 ? !(n % 2) : isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
+  // const isVeryEvenNumber = n => (n + '').length < 2 ? !(n % 2) : isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
+  const isVeryEvenNumber = n => n <= 9 ? !(n % 2) : isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
 
   console.log(isVeryEvenNumber(7775));
 }
