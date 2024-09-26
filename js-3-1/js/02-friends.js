@@ -267,3 +267,44 @@ const getFriendsByStatus = function (allFriends) {
   console.log(bookNames);
 
 }
+
+console.log('friends', JSON.stringify(friends, null, 3));
+console.table('friends');
+const getFriendNames = function (friends) {
+  const friendNames = [];
+  for (const { name } of friends) {
+    console.log(name);
+    friendNames.push(name);
+  }
+
+  return friendNames;
+};
+console.log(getFriendNames(friends));
+
+const getNamesByStatus = function (friends) {
+  const friendsByStatus = {
+    online: [],
+    offline: [],
+  };
+
+  // for (const { name, online } of friends) {
+  //   if (online) { friendsByStatus.online.push(name); } else { friendsByStatus.offline.push(name); }
+  // }
+
+  // for (const friend of friends) {
+  //   friendsByStatus[friend.online ? 'online' : 'offline'].push(friend.name);
+  // }
+
+  for (const { name, online } of friends) {
+    friendsByStatus[online ? 'online' : 'offline'].push(name);
+  }
+
+  // for (const { name, online } of friends) {
+  //   const key = online ? 'online' : 'offline';
+  //   friendsByStatus[key].push(name);
+  // }
+
+  return friendsByStatus;
+};
+console.log(getNamesByStatus(friends));
+console.log('friendQuantity:', Object.keys(friends).length);

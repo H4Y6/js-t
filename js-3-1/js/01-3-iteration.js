@@ -34,3 +34,16 @@ const values = Object.values(feedback);
 // }
 
 // console.log('totalFeedback: ', totalFeedback);
+
+const feedbackKeys = Object.keys(feedback);
+console.log(feedbackKeys);
+
+for (const key of feedbackKeys) {
+  console.log(key, ':', feedback[key]);
+}
+
+const feedbackValues = Object.values(feedback);
+console.log(feedbackKeys, feedbackValues);
+
+const feedbackEntries = Object.entries(feedback);
+console.log(feedbackEntries);
