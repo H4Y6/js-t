@@ -3233,3 +3233,15 @@ Do not expect any negative or invalid inputs. */
 
   // console.log(save([12, 0, 0, 1], 12));
 }
+{
+  function binaryToString(binary) {
+    let res = '';
+    while (binary) {
+      res += String.fromCharCode(parseInt(binary.slice(0, 8), 2));
+      binary = binary.slice(8);
+    }
+
+    return res;
+  }
+  console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
+}
