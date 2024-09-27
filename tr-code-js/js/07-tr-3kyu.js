@@ -3262,9 +3262,11 @@ Do not expect any negative or invalid inputs. */
   //   return binaryToString(binary, res);
   // }
 
-  function binaryToString(binary) {
-    return binary ? binary.replace(/[01]{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
-  }
+  // function binaryToString(binary) {
+  //   return binary ? binary.replace(/[01]{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
+  // }
+
+  const binaryToString = binary => binary ? binary.replace(/[01]{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
 
   console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
 }
