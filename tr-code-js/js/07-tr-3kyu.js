@@ -3394,9 +3394,13 @@ Do not expect any negative or invalid inputs. */
   
   [] ==> null */
 
+  // function uniqueSum(arr) {
+  //   if (arr.length === 0) return null;
+  //   return [...new Set(arr)].reduce((sum, e) => sum + e, 0);
+  // }
+
   function uniqueSum(arr) {
-    if (arr.length === 0) return null;
-    return [...new Set(arr)].reduce((sum, e) => sum + e, 0);
+    return [...new Set(arr)].reduce((sum, e) => sum + e, null);
   }
-  console.log(uniqueSum([]));
+  console.log(uniqueSum([3]));
 }
