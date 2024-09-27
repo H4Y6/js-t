@@ -3399,8 +3399,11 @@ Do not expect any negative or invalid inputs. */
   //   return [...new Set(arr)].reduce((sum, e) => sum + e, 0);
   // }
 
-  function uniqueSum(arr) {
-    return [...new Set(arr)].reduce((sum, e) => sum + e, null);
-  }
-  console.log(uniqueSum([3]));
+  // function uniqueSum(arr) {
+  //   return [...new Set(arr)].reduce((sum, e) => sum + e, null);
+  // }
+
+  const uniqueSum = arr => [...new Set(arr)].reduce((sum, e) => sum + e, null);
+
+  // console.log(uniqueSum([3]));
 }
