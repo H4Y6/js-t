@@ -3279,7 +3279,34 @@ Do not expect any negative or invalid inputs. */
     constructor(name, age) {
       this.name = name;
       this.age = age;
-      this.info = `${this.name}s age is ${this.age}`;
+    }
+    get info() {
+      return `${this.name}s age is ${this.age}`;
+    }
+    set info(newName) {
+      this.name = newName;
+    }
+    getInfo() {
+      return `${this.name}s age is ${this.age}`;
     }
   }
+
+  // class Person {
+  //   constructor(name, age) {
+  //     this.name = name;
+  //     this.age = age;
+  //     this.info = `${this.name}s age is ${this.age}`;
+  //   }
+  // }
+
+  // class Person {
+  //   constructor(name, age) {
+  //     this.info = `${name}s age is ${age}`;
+  //   }
+  // }
+
+  const john = new Person('John', 34);
+  john.age = 35;
+  // console.log(john.getInfo());
+  // console.log(john.info);
 }
