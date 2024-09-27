@@ -3267,7 +3267,8 @@ Do not expect any negative or invalid inputs. */
   // }
 
   // const binaryToString = binary => binary ? binary.replace(/[01]{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
-  const binaryToString = binary => binary ? binary.replace(/\d{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
+  // const binaryToString = binary => binary ? binary.replace(/\d{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
+  const binaryToString = binary => binary ? String.fromCharCode(...binary.match(/\d{8}/g).map(e => parseInt(e, 2))) : '';
 
   console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
 }
