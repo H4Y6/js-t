@@ -3352,10 +3352,24 @@ Do not expect any negative or invalid inputs. */
   //   getSurfaceArea() { return (this.data[0] * this.data[1] + this.data[0] * this.data[2] + this.data[2] * this.data[1]) * 2; }
   // }
 
+  // class Block {
+
+  //   constructor(data) {
+  //     [this.width, this.length, this.height] = data;
+  //   }
+  //   getWidth() { return this.width; }
+  //   getLength() { return this.length; }
+  //   getHeight() { return this.height; }
+  //   getVolume() { return this.width * this.length * this.height; }
+  //   getSurfaceArea() { return (this.width * this.length + this.width * this.height + this.height * this.length) * 2; }
+  // }
+
   class Block {
 
-    constructor(data) {
-      [this.width, this.length, this.height] = data;
+    constructor([width, length, height]) {
+      this.width = width;
+      this.length = length;
+      this.height = height;
     }
     getWidth() { return this.width; }
     getLength() { return this.length; }
