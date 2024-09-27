@@ -3340,18 +3340,30 @@ Do not expect any negative or invalid inputs. */
       b.getSurfaceArea() // -> 88
   Note: no error checking is needed */
 
+  // class Block {
+
+  //   constructor(data) {
+  //     this.data = data;
+  //   }
+  //   getWidth() { return this.data[0]; }
+  //   getLength() { return this.data[1]; }
+  //   getHeight() { return this.data[2]; }
+  //   getVolume() { return this.data[0] * this.data[1] * this.data[2]; }
+  //   getSurfaceArea() { return (this.data[0] * this.data[1] + this.data[0] * this.data[2] + this.data[2] * this.data[1]) * 2; }
+  // }
+
   class Block {
 
     constructor(data) {
-      this.data = data;
+      [this.width, this.length, this.height] = data;
     }
-    getWidth() { return this.data[0]; }
-    getLength() { return this.data[1]; }
-    getHeight() { return this.data[2]; }
-    getVolume() { return this.data[0] * this.data[1] * this.data[2]; }
-    getSurfaceArea() { return (this.data[0] * this.data[1] + this.data[0] * this.data[2] + this.data[2] * this.data[1]) * 2; }
+    getWidth() { return this.width; }
+    getLength() { return this.length; }
+    getHeight() { return this.height; }
+    getVolume() { return this.width * this.length * this.height; }
+    getSurfaceArea() { return (this.width * this.length + this.width * this.height + this.height * this.length) * 2; }
   }
 
   const block = new Block([2, 4, 6]);
-  console.log(block.width);
+  console.log(block.getWidth());
 }
