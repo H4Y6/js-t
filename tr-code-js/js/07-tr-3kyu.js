@@ -3255,11 +3255,16 @@ Do not expect any negative or invalid inputs. */
   //   return res;
   // }
 
-  function binaryToString(binary, res = '') {
-    if (!binary) { return res; }
-    res += String.fromCharCode(parseInt(binary.slice(0, 8), 2));
-    binary = binary.slice(8);
-    return binaryToString(binary, res);
+  // function binaryToString(binary, res = '') {
+  //   if (!binary) { return res; }
+  //   res += String.fromCharCode(parseInt(binary.slice(0, 8), 2));
+  //   binary = binary.slice(8);
+  //   return binaryToString(binary, res);
+  // }
+
+  function binaryToString(binary) {
+    return binary ? binary.replace(/[01]{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
   }
+
   console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
 }
