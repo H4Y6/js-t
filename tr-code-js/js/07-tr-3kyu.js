@@ -3233,15 +3233,33 @@ Do not expect any negative or invalid inputs. */
 
   // console.log(save([12, 0, 0, 1], 12));
 }
-{
-  function binaryToString(binary) {
-    let res = '';
-    while (binary) {
-      res += String.fromCharCode(parseInt(binary.slice(0, 8), 2));
-      binary = binary.slice(8);
-    }
+{ /** 6 kyu  Binary to Text (ASCII) Conversion
+  Past Solutions
+  Write a function that takes in a binary string and returns the equivalent decoded text (the text is ASCII encoded).
+  
+  Each 8 bits on the binary string represent 1 character on the ASCII table.
+  
+  The input string will always be a valid binary string.
+  
+  Characters can be in the range from "00000000" to "11111111" (inclusive)
+  
+  Note: In the case of an empty binary string your function should return an empty string.  */
 
-    return res;
+  // function binaryToString(binary) {
+  //   let res = '';
+  //   while (binary) {
+  //     res += String.fromCharCode(parseInt(binary.slice(0, 8), 2));
+  //     binary = binary.slice(8);
+  //   }
+
+  //   return res;
+  // }
+
+  function binaryToString(binary, res = '') {
+    if (!binary) { return res; }
+    res += String.fromCharCode(parseInt(binary.slice(0, 8), 2));
+    binary = binary.slice(8);
+    return binaryToString(binary, res);
   }
   console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
 }
