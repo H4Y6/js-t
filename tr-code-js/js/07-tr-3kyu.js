@@ -3270,5 +3270,16 @@ Do not expect any negative or invalid inputs. */
   // const binaryToString = binary => binary ? binary.replace(/\d{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
   const binaryToString = binary => binary ? String.fromCharCode(...binary.match(/\d{8}/g).map(e => parseInt(e, 2))) : '';
 
-  console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
+  // console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
+}
+{ /** 8 kyu  Classy Classes
+  Your task is to complete this Class, the Person class has been created. You must fill in the Constructor method to accept a name as string and an age as number, complete the get Info property and getInfo method/Info getter which should return johns age is 34 */
+
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+      this.info = `${this.name}s age is ${this.age}`;
+    }
+  }
 }
