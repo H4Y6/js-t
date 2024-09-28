@@ -3446,6 +3446,23 @@ Do not expect any negative or invalid inputs. */
     }
   }
 
+
+  // Get Coding :)
+
+  class Shark extends Animal {
+    constructor(/* Insert your parameters here */) {
+      super(/* Make a call to the parent class's constructor with the correct arguments */);
+    }
+  }
+
+  class Cat extends Animal {
+    // Do the same here as you did for Shark - define your constructor function and any other methods you need
+  }
+
+  class Dog extends Animal {
+    // On your own now - you can do it :D
+  }
+
   /*Task
   Define the following classes that inherit from Animal.
   
@@ -3464,38 +3481,90 @@ Do not expect any negative or invalid inputs. */
   
   Dogs have an identical introduce/Introduce method as any other animal, but they have their own method called greetMaster/GreetMaster which accepts no arguments and returns "Hello (insert_master_name_here)" (of course not the literal string but replace the (insert_master_name_here) with the name of the dog's master). */
 
+  // class Shark extends Animal {
+  //   constructor(name, age, status) {
+  //     super(name, age, status);
+  //     this.legs = 0;
+  //     this.species = 'shark';
+  //     this.status = status;
+  //   }
+  // }
+
+
+  // class Cat extends Animal {
+  //   constructor(name, age, status) {
+  //     super(name, age, status);
+  //     this.legs = 4;
+  //     this.species = 'cat';
+  //     this.status = status;
+  //   }
+  //   introduce() {
+  //     return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+  //   }
+  // }
+
+
+  // class Dog extends Animal {
+  //   constructor(name, age, status, master) {
+  //     super(name, age, status);
+  //     this.master = master;
+  //     this.status = status;
+  //     this.name = name;
+  //     this.legs = 4;
+  //     this.species = 'dog';
+  //   }
+  //   greetMaster() {
+  //     return `Hello ${this.master}`;
+  //   }
+  // }
+
+  // class Shark extends Animal {
+  //   constructor(name, age, status) {
+  //     super(name, age, 0, 'shark', status);
+  //   }
+  // }
+
+  // class Cat extends Animal {
+  //   constructor(name, age, status) {
+  //     super(name, age, 4, 'cat', status);
+  //   }
+  //   introduce() {
+  //     return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+  //   }
+  // }
+
+  // class Dog extends Animal {
+  //   constructor(name, age, status, master) {
+  //     super(name, age, 4, 'dog', status);
+  //     this.master = master;
+  //   }
+  //   greetMaster() {
+  //     return `Hello ${this.master}`;
+  //   }
+  // }
+
   class Shark extends Animal {
-    constructor(name, age, status) {
-      super(name, age, status);
-      this.legs = 0;
-      this.species = 'shark';
-      this.status = status;
+    constructor(name, age, status, legs = 0, species = "shark") {
+      super(name, age, legs, species, status);
     }
   }
-
 
   class Cat extends Animal {
-    constructor(name, age, status) {
-      super(name, age, status);
-      this.legs = 4;
-      this.species = 'cat';
-      this.status = status;
+    constructor(name, age, status, legs = 4, species = "cat") {
+      super(name, age, legs, species, status);
     }
+
     introduce() {
-      return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+      return super.introduce() + '  Meow meow!';
     }
   }
 
-
   class Dog extends Animal {
-    constructor(name, age, status, master) {
-      super(name, age, status);
+    constructor(name, age, status, master, legs = 4, species = "dog") {
+      super(name, age, legs, species, status);
       this.master = master;
-      this.status = status;
-      this.name = name;
-      this.legs = 4;
-      this.species = 'dog';
     }
+
     greetMaster() {
       return `Hello ${this.master}`;
     }
