@@ -3449,19 +3449,19 @@ Do not expect any negative or invalid inputs. */
 
   // Get Coding :)
 
-  class Shark extends Animal {
-    constructor(/* Insert your parameters here */) {
-      super(/* Make a call to the parent class's constructor with the correct arguments */);
-    }
-  }
+  // class Shark extends Animal {
+  //   constructor(/* Insert your parameters here */) {
+  //     super(/* Make a call to the parent class's constructor with the correct arguments */);
+  //   }
+  // }
 
-  class Cat extends Animal {
-    // Do the same here as you did for Shark - define your constructor function and any other methods you need
-  }
+  // class Cat extends Animal {
+  //   // Do the same here as you did for Shark - define your constructor function and any other methods you need
+  // }
 
-  class Dog extends Animal {
-    // On your own now - you can do it :D
-  }
+  // class Dog extends Animal {
+  //   // On your own now - you can do it :D
+  // }
 
   /*Task
   Define the following classes that inherit from Animal.
@@ -3519,52 +3519,52 @@ Do not expect any negative or invalid inputs. */
   // }
 
   // class Shark extends Animal {
-  //   constructor(name, age, status) {
-  //     super(name, age, 0, 'shark', status);
+  //   constructor(name, age, status, legs = 0, species = "shark") {
+  //     super(name, age, legs, species, status);
   //   }
   // }
 
   // class Cat extends Animal {
-  //   constructor(name, age, status) {
-  //     super(name, age, 4, 'cat', status);
+  //   constructor(name, age, status, legs = 4, species = "cat") {
+  //     super(name, age, legs, species, status);
   //   }
+
   //   introduce() {
-  //     return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+  //     return super.introduce() + '  Meow meow!';
   //   }
   // }
 
   // class Dog extends Animal {
-  //   constructor(name, age, status, master) {
-  //     super(name, age, 4, 'dog', status);
+  //   constructor(name, age, status, master, legs = 4, species = "dog") {
+  //     super(name, age, legs, species, status);
   //     this.master = master;
   //   }
+
   //   greetMaster() {
   //     return `Hello ${this.master}`;
   //   }
   // }
 
   class Shark extends Animal {
-    constructor(name, age, status, legs = 0, species = "shark") {
-      super(name, age, legs, species, status);
+    constructor(name, age, status) {
+      super(name, age, 0, 'shark', status);
     }
   }
 
   class Cat extends Animal {
-    constructor(name, age, status, legs = 4, species = "cat") {
-      super(name, age, legs, species, status);
+    constructor(name, age, status) {
+      super(name, age, 4, 'cat', status);
     }
-
     introduce() {
-      return super.introduce() + '  Meow meow!';
+      return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
     }
   }
 
   class Dog extends Animal {
-    constructor(name, age, status, master, legs = 4, species = "dog") {
-      super(name, age, legs, species, status);
+    constructor(name, age, status, master) {
+      super(name, age, 4, 'dog', status);
       this.master = master;
     }
-
     greetMaster() {
       return `Hello ${this.master}`;
     }
