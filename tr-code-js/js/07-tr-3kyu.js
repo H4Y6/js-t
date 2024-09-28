@@ -3407,13 +3407,22 @@ Do not expect any negative or invalid inputs. */
 
   const uniqueSum = arr => {
     const ar = [];
-    let n = 0;
-    for (const element of arr) {
-      if (arr.indexOf(element) === n) ar.push(element);
-      n += 1;
+    for (let i = 0; i < arr.length; i++) {
+      console.log(i, arr.indexOf(arr[i]), arr[i], ar);
+      if (i === arr.indexOf(arr[i])) { ar.push(arr[i]); };
     }
     return ar.reduce((sum, e) => sum + e, null);
   };
+
+  // const uniqueSum = arr => {
+  //   const ar = [];
+  //   let n = 0;
+  //   for (const element of arr) {
+  //     if (arr.indexOf(element) === n) ar.push(element);
+  //     n += 1;
+  //   }
+  //   return ar.reduce((sum, e) => sum + e, null);
+  // };
 
   console.log(uniqueSum([3, 4, 3, 5, 3, 5]));
 }
