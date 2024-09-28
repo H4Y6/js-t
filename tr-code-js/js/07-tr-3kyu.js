@@ -3403,7 +3403,17 @@ Do not expect any negative or invalid inputs. */
   //   return [...new Set(arr)].reduce((sum, e) => sum + e, null);
   // }
 
-  const uniqueSum = arr => [...new Set(arr)].reduce((sum, e) => sum + e, null);
+  // const uniqueSum = arr => [...new Set(arr)].reduce((sum, e) => sum + e, null);
 
-  // console.log(uniqueSum([3]));
+  const uniqueSum = arr => {
+    const ar = [];
+    let n = 0;
+    for (const element of arr) {
+      if (arr.indexOf(element) === n) ar.push(element);
+      n += 1;
+    }
+    return ar.reduce((sum, e) => sum + e, null);
+  };
+
+  console.log(uniqueSum([3, 4, 3, 5, 3, 5]));
 }
