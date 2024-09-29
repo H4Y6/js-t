@@ -3598,10 +3598,14 @@ Do not expect any negative or invalid inputs. */
   alphabetWar("zzzz*s*");       //=> Right side wins!
   alphabetWar("www*www****z");  //=> Left side wins! */
 
-  function alphabetWar(fight, str = 'mqdz sbpw') {
-    const res = fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + str.indexOf(e) - 4, 0);
-    return res > 0 ? "Left side wins!" : res < 0 ? "Right side wins!" : "Let's fight again!";
-  }
-  // console.log(alphabetWar("z*z*z*zs"));
-  // console.log(alphabetWar("mqdzsbpw"));
+  // function alphabetWar(fight, str = 'mqdz sbpw') {
+  //   const res = fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + str.indexOf(e) - 4, 0);
+  //   return res > 0 ? "Left side wins!" : res < 0 ? "Right side wins!" : "Let's fight again!";
+  // }
+
+  const alphabetWar = fight => (res => res > 0 ? "Left side wins!" : res < 0 ? "Right side wins!" : "Let's fight again!")
+    (fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + 'mqdz sbpw'.indexOf(e) - 4, 0));
+
+  console.log(alphabetWar("z*z*z*zs"));
+  console.log(alphabetWar("mqdzsbpw"));
 }
