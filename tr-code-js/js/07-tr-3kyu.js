@@ -3621,3 +3621,15 @@ Do not expect any negative or invalid inputs. */
   // console.log(alphabetWar("z*z*z*zs"));
   // console.log(alphabetWar("mqdzsbpw"));
 }
+{
+  function computeDepth(x) {
+    const arr = [];
+    let setSize = 0, n = 0;
+    while (setSize < 10) {
+      arr.push(...((x * ++n) + '').split(''));
+      setSize = new Set(arr).size;
+    }
+    return n;
+  }
+  console.log(computeDepth(42));
+}
