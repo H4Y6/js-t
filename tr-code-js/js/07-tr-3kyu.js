@@ -3650,12 +3650,17 @@ Do not expect any negative or invalid inputs. */
   //   return n;
   // }
 
-  function computeDepth(x) {
-    let arr = [], setSize = 0, n = 0;
-    while (setSize < 10) {
-      arr.push(...((x * ++n) + '').split(''));
-      if (new Set(arr).size === 10) return n;
-    }
+  // function computeDepth(x) {
+  //   let arr = [], setSize = 0, n = 0;
+  //   while (setSize < 10) {
+  //     arr.push(...((x * ++n) + '').split(''));
+  //     if (new Set(arr).size === 10) return n;
+  //   }
+  // }
+
+  function computeDepth(x, n = 0) {
+    for (let digitStr = ''; [...'1234567890'].some(e => !digitStr.includes(e)); digitStr += (x * ++n)) { }
+    return n;
   }
-  console.log(computeDepth(42));
+  // console.log(computeDepth(42));
 }
