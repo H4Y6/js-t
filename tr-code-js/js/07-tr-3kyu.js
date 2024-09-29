@@ -3606,7 +3606,10 @@ Do not expect any negative or invalid inputs. */
   // const alphabetWar = fight => (res => res > 0 ? "Left side wins!" : res < 0 ? "Right side wins!" : "Let's fight again!")
   //   (fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + 'mqdz sbpw'.indexOf(e) - 4, 0));
 
-  const alphabetWar = fight => (res => !res ? "Let's fight again!" : (res > 0 ? "Lef" : "Righ") + "t side wins!")
+  // const alphabetWar = fight => (res => !res ? "Let's fight again!" : (res > 0 ? "Lef" : "Righ") + "t side wins!")
+  //   (fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + 'mqdz sbpw'.indexOf(e) - 4, 0));
+
+  const alphabetWar = fight => (res => res ? (res > 0 ? "Lef" : "Righ") + "t side wins!" : "Let's fight again!")
     (fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + 'mqdz sbpw'.indexOf(e) - 4, 0));
 
   // console.log(alphabetWar("z*z*z*zs"));
