@@ -3681,7 +3681,8 @@ Do not expect any negative or invalid inputs. */
   // const wordSearch = (query, seq) => seq.filter(e => e.match(RegExp(query, 'i'))).length ? seq.filter(e => e.match(RegExp(query, 'gi'))) : ["Empty"];
   // const wordSearch = (query, seq) => (seq = seq.filter(e => e.match(RegExp(query, 'i'))))[0] ? seq : ["Empty"];
   // const wordSearch = (query, seq) => (e => e[0] ? e : ["Empty"])(seq.filter(e => e.match(RegExp(query, 'i'))));
-  const wordSearch = (query, seq) => (e => e[0] ? e : ["Empty"])(seq.filter(e => RegExp(query, 'i').test(e)));
+  // const wordSearch = (query, seq) => (e => e[0] ? e : ["Empty"])(seq.filter(e => RegExp(query, 'i').test(e)));
+  const wordSearch = (query, seq) => RegExp(query, 'gi').test(seq.join(" ")) ? seq.filter(e => RegExp(query, 'i').test(e)) : ['Empty'];
 
   // console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zc"]));
 }
