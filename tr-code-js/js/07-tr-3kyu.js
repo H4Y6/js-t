@@ -3679,8 +3679,8 @@ Do not expect any negative or invalid inputs. */
   // }
 
   // const wordSearch = (query, seq) => seq.filter(e => e.match(RegExp(query, 'i'))).length ? seq.filter(e => e.match(RegExp(query, 'gi'))) : ["Empty"];
-  const wordSearch = (query, seq) => (seq = seq.filter(e => e.match(RegExp(query, 'i'))))[0] ? seq : ["Empty"];
+  // const wordSearch = (query, seq) => (seq = seq.filter(e => e.match(RegExp(query, 'i'))))[0] ? seq : ["Empty"];
+  const wordSearch = (query, seq) => (e => e[0] ? e : ["Empty"])(seq.filter(e => e.match(RegExp(query, 'i'))));
 
-
-  console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zc"]));
+  // console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zc"]));
 }
