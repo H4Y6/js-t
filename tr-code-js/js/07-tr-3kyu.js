@@ -3674,8 +3674,11 @@ Do not expect any negative or invalid inputs. */
   Examples
   If the string to search for is "me", and the array to search is ["home", "milk", "Mercury", "fish"], the method should return ["home", "Mercury"]. */
 
-  function wordSearch(query, seq) {
-    return seq.filter(e => e.match(RegExp(query, 'gi'))).length ? seq.filter(e => e.match(RegExp(query, 'gi'))) : ["Empty"];
-  }
+  // function wordSearch(query, seq) {
+  //   return seq.filter(e => e.match(RegExp(query, 'gi'))).length ? seq.filter(e => e.match(RegExp(query, 'gi'))) : ["Empty"];
+  // }
+
+  const wordSearch = (query, seq) => seq.filter(e => e.match(RegExp(query, 'i'))).length ? seq.filter(e => e.match(RegExp(query, 'gi'))) : ["Empty"];
+
   console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zc"]));
 }
