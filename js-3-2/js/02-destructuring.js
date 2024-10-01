@@ -44,11 +44,15 @@ const {
     name: copiedName,
     tag,
     location,
-    stats: { followers, views, likes },
+    stats: { followers, views: newViews, likes },
   } = profile;
 
   // console.log(copiedName, name, tag, location, avatar, followers, views, likes);
   // console.log(name === copiedName);
+
+  const { name: nameA = 'Bob' } = profile;
+  // console.log(nameA, name, copiedName);
+  console.log(newViews);
 }
 
 /*
