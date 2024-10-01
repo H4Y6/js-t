@@ -3701,7 +3701,8 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
   // const cutIt = arr => arr.map(e => e.substr(0, Math.min(...arr.map(e => e.length))));
   // const cutIt = arr => arr.map(e => e.slice(0, Math.min(...arr.map(e => e.length))));
   // const cutIt = arr => arr.map(e => e.slice(0, arr.reduce((min, e) => min = min < e.length ? min : e.length, arr[0].length)));
-  const cutIt = arr => (min => arr.map(e => e.slice(0, min)))(arr.reduce((min, e) => min = min < e.length ? min : e.length, arr[0].length));
+  // const cutIt = arr => (min => arr.map(e => e.slice(0, min)))(arr.reduce((min, e) => min = min < e.length ? min : e.length, arr[0].length));
+  const cutIt = arr => (min => arr.map(e => e.substr(0, min)))(Math.min(...arr.map(e => e.length)));
 
   // console.log(cutIt(["abc", "defgh", "ijklmn"]));
 }
