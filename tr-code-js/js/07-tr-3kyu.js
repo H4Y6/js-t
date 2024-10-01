@@ -3698,8 +3698,9 @@ cutIt(["ab","cde","fgh"]) should return ["ab","cd","fg"]
 cutIt(["abc","defgh","ijklmn"]) should return ["abc","def","ijk"]
 cutIt(["codewars","javascript","java"]) should return ["code","java","java"]           */
 
-  const cutIt = arr => arr.map(e => e.substr(0, Math.min(...arr.map(e => e.length))));
+  // const cutIt = arr => arr.map(e => e.substr(0, Math.min(...arr.map(e => e.length))));
+  const cutIt = arr => arr.map(e => e.slice(0, Math.min(...arr.map(e => e.length))));
 
-  console.log(cutIt(["abc", "defgh", "ijklmn"]));
+  // console.log(cutIt(["abc", "defgh", "ijklmn"]));
 }
 
