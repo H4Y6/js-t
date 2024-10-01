@@ -3720,9 +3720,37 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
     }
   }
 
+  // class Shark extends Animal {
+  //   constructor(name, age, status) {
+  //     super(name, age, 0, 'shark', status);
+  //   }
+  // }
+
+  // class Cat extends Animal {
+  //   constructor(name, age, status) {
+  //     super(name, age, 4, 'cat', status);
+  //   }
+  //   introduce() {
+  //     return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+  //   }
+  // }
+
+  // class Dog extends Animal {
+  //   constructor(name, age, status, master) {
+  //     super(name, age, 4, 'dog', status);
+  //     this.master = master;
+  //   }
+  //   greetMaster() {
+  //     return `Hello ${this.master}`;
+  //   }
+  // }
+
   class Shark extends Animal {
-    constructor(name, age, status) {
-      super(name, age, 0, 'shark', status);
+    constructor(name, age, status,) {
+      super(name, age, status);
+      this.species = 'shark';
+      this.legs = 0;
+      this.status = status;
     }
   }
 
@@ -3744,6 +3772,7 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
       return `Hello ${this.master}`;
     }
   }
+
   const dog = new Dog('rex', 2, 'serve', 'El');
 
   console.log(dog.greetMaster());
