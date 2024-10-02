@@ -307,4 +307,4 @@ const getNamesByStatus = function (friends) {
   return friendsByStatus;
 };
 console.log(getNamesByStatus(friends));
-console.log('friendQuantity:', Object.keys(friends).length);
+console.log('friendQuantity:', Object.keys(friends).length); 
