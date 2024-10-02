@@ -3759,7 +3759,8 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
       super(name, age, 4, 'cat', status);
     }
     introduce() {
-      return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+      // return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+      return super.introduce() + `  Meow meow!`;
     }
   }
 
@@ -3769,11 +3770,14 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
       this.master = master;
     }
     greetMaster() {
-      return `Hello ${this.master}`;
+      // return `Hello ${this.master}`;
+      return `Hello ` + this.master;
     }
   }
 
   const dog = new Dog('rex', 2, 'serve', 'El');
+  const cat = new Cat('ex', 3, 'Meow',);
 
-  console.log(dog.greetMaster());
+  // console.log(dog);
+  // console.log(cat.introduce());
 }
