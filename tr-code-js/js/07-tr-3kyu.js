@@ -3791,7 +3791,8 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
   The solution should be case insensitive (ie good, GOOD and gOOd all count as a good idea). All inputs may not be strings. */
 
   // const well = x => (length => !length ? 'Fail!' : length > 2 ? 'I smell a series!' : 'Publish!')(x.flat().filter(e => /good/gi.test(e)).length);
-  const well = x => (l => l ? l > 2 ? `I smell a series!` : `Publish!` : `Fail!`)((('' + x).match(/good/gi) || []).length);
+  // const well = x => (l => l ? l > 2 ? `I smell a series!` : `Publish!` : `Fail!`)((('' + x).match(/good/gi) || []).length);
+  const well = x => (l => l ? l > 2 ? `I smell a series!` : `Publish!` : `Fail!`)(x.flat().reduce((sum, e) => sum + /good/gi.test(e), 0));
 
-  console.log(well([['gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD'], ['bad'], ['gOOd', 'BAD']]));
+  // console.log(well([['gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD'], ['bad'], ['gOOd', 'BAD']]));
 }
