@@ -3837,8 +3837,11 @@ chain(2, [add, mult]);
     n=0     n=1     n=2
   Note: Test cases contain valid input only - i.e. a string array or an empty array; and each word will have enough letters. */
 
-  function nthChar(words) {
-    return words.map((e, i, ar) => e[i]).join('');
-  }
-  console.log(nthChar(['yoda', 'best', 'has']));
+  // function nthChar(words) {
+  //   return words.map((e, i, ar) => e[i]).join('');
+  // }
+
+  const nthChar = words => words.map((e, i) => e[i]).join('');
+
+  // console.log(nthChar(['yoda', 'best', 'has']));
 }
