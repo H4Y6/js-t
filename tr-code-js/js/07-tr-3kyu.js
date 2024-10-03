@@ -3841,7 +3841,8 @@ chain(2, [add, mult]);
   //   return words.map((e, i, ar) => e[i]).join('');
   // }
 
-  const nthChar = words => words.map((e, i) => e[i]).join('');
+  // const nthChar = words => words.map((e, i) => e[i]).join('');
+  const nthChar = words => words.reduce((res, e, i) => res + e[i], '');
 
   // console.log(nthChar(['yoda', 'best', 'has']));
 }
