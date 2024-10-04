@@ -3866,7 +3866,8 @@ chain(2, [add, mult]);
   // const mean = lst => [lst.reduce((sum, e) => sum + (+e ? +e : 0), 0) / 10, lst.reduce((s, e) => s + e).replace(/\d/g, '')];
   // const mean = lst => lst.reduce(([d, s], e) => +e ? [(10 * d + +e) / 10, s] : [d, (s + e).replace(/\d/, '')], [0, '']);
   // const mean = lst => lst.reduce(([d, s], e) => isNaN(e) ? [d, s + e] : [(10 * d + +e) / 10, s], [0, '']);
-  const mean = lst => lst.reduce(([d, s], e) => !isNaN(e) ? [(10 * d + +e) / 10, s] : [d, s + e], [0, '']);
+  // const mean = lst => lst.reduce(([d, s], e) => !isNaN(e) ? [(10 * d + +e) / 10, s] : [d, s + e], [0, '']);
+  const mean = lst => [lst.reduce((sum, e) => sum + (!isNaN(e) ? +e : 0), 0) / 10, lst.join('').replace(/\d/g, '')];
 
   // console.log(mean(["u", "6", "d", "1", "i", "w", "6", "s", "t", "4", "a", "6", "g", "1", "2", "w", "8", "o", "2", "0"]));
 }
