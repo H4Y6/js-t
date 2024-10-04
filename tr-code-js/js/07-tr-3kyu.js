@@ -3874,7 +3874,20 @@ chain(2, [add, mult]);
 { /** 7 kyu  Reverse list
   Write reverseList function that simply reverses lists. */
 
-  function reverseList(arr) {
-    return arr.reverse();
-  }
+  // function reverseList(arr) {
+  //   return arr.reverse();
+  // }
+
+  const reverseList = arr => arr.reverse();
+}
+{ /** 6 kyu  Sort Arrays (Ignoring Case)
+  Sort the given array of strings in alphabetical order, case insensitive. For example:
+  
+  ["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
+  ["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"] */
+
+  const sortme = function (names) {
+    return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  };
+  console.log(sortme(["C", "d", "a", "B"]));
 }
