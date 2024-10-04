@@ -3886,8 +3886,11 @@ chain(2, [add, mult]);
   ["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
   ["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"] */
 
-  const sortme = function (names) {
-    return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-  };
+  // const sortme = function (names) {
+  //   return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  // };
+
+  const sortme = names => names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
   console.log(sortme(["C", "d", "a", "B"]));
 }
