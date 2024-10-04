@@ -3863,7 +3863,8 @@ chain(2, [add, mult]);
   Here is an example of your return  
   [3.6, "udiwstagwo"] */
 
-  const mean = lst => [lst.reduce((sum, e) => sum + (+e ? +e : 0), 0) / 10, lst.reduce((s, e) => s + e).replace(/\d/g, '')];
+  // const mean = lst => [lst.reduce((sum, e) => sum + (+e ? +e : 0), 0) / 10, lst.reduce((s, e) => s + e).replace(/\d/g, '')];
+  const mean = lst => lst.reduce(([d, s], e) => +e ? [(10 * d + +e) / 10, s] : [d, (s + e).replace(/\d/, '')], [0, '']);
 
   console.log(mean(["u", "6", "d", "1", "i", "w", "6", "s", "t", "4", "a", "6", "g", "1", "2", "w", "8", "o", "2", "0"]));
 }
