@@ -3846,3 +3846,11 @@ chain(2, [add, mult]);
 
   // console.log(nthChar(['yoda', 'best', 'has']));
 }
+{ /** 7 kyu  Regexp Basics - is it a letter?
+  Complete the code which should return true if the given object is a single ASCII letter (lower or upper case), false otherwise. */
+
+  String.prototype.isLetter = function () {
+    return /^[a-zA-Z]$/.test(this);
+  };
+  // console.log(String.prototype.isLetter());
+}
