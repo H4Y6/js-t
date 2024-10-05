@@ -3892,5 +3892,12 @@ chain(2, [add, mult]);
 
   const sortme = names => names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
-  console.log(sortme(["C", "d", "a", "B"]));
+  // console.log(sortme(["C", "d", "a", "B"]));
+}
+{
+  function isIntArray(arr) {
+    if (!(Array.isArray(arr))) return false;
+    return arr.every(e => e % 1 === 0 && e !== null && e === +e);
+  }
+  console.log(isIntArray(['-1']));
 }
