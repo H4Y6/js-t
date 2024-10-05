@@ -3894,9 +3894,18 @@ chain(2, [add, mult]);
 
   // console.log(sortme(["C", "d", "a", "B"]));
 }
-{
+{ /** 6 kyu  Is Integer Array?
+  Write a function with the signature shown below:
+  
   function isIntArray(arr) {
-    if (!(Array.isArray(arr))) return false;
+    return true
+  }
+  returns true  / True if every element in an array is an integer or a float with no decimals.
+  returns true  / True if array is empty.
+  returns false / False for every other input. */
+
+  function isIntArray(arr) {
+    if (!Array.isArray(arr)) return false;
     return arr.every(e => e % 1 === 0 && e !== null && e === +e);
   }
   console.log(isIntArray(['-1']));
