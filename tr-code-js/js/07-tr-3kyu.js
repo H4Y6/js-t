@@ -3909,8 +3909,9 @@ chain(2, [add, mult]);
   //   return arr.every(e => e % 1 === 0 && e !== null && e === +e);
   // }
 
-  const isIntArray = arr => arr ? arr.every(e => e === ~~e) : false;
+  // const isIntArray = arr => arr ? arr.every(e => e === ~~e) : false;
+  const isIntArray = arr => !!arr && arr.every(Number.isInteger);
 
-  console.log(isIntArray(['-1']));
+  // console.log(isIntArray(['-1']));
   // console.log(~~1.5);( = 1)
 }
