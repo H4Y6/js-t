@@ -3904,9 +3904,13 @@ chain(2, [add, mult]);
   returns true  / True if array is empty.
   returns false / False for every other input. */
 
-  function isIntArray(arr) {
-    if (!Array.isArray(arr)) return false;
-    return arr.every(e => e % 1 === 0 && e !== null && e === +e);
-  }
+  // function isIntArray(arr) {
+  //   if (!Array.isArray(arr)) return false;
+  //   return arr.every(e => e % 1 === 0 && e !== null && e === +e);
+  // }
+
+  const isIntArray = arr => arr ? arr.every(e => e === ~~e) : false;
+
   console.log(isIntArray(['-1']));
+  // console.log(~~1.5);( = 1)
 }
