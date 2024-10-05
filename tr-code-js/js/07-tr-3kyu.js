@@ -3927,5 +3927,9 @@ chain(2, [add, mult]);
   compose(f , g)(x)
   => f( g( x ) ) */
 
-  const compose = (f, g) => (...args) => f(g(...args));
+  const compose = function (f, g) {
+    return (...args) => f(g(...args));
+  };
+
+  // const compose = (f, g) => (...args) => f(g(...args));
 }
