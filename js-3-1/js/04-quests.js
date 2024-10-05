@@ -1,9 +1,11 @@
-const user = { name: 'Bill', age: 22 };
+{
+  const user = { name: 'Bill', age: 22 };
 
-const addProps = function (obj, key, value) {
-  return { ...obj, [key]: value };
-};
-console.log(addProps(user, 'email', 'fol@ok.ps'));
+  const addProps = function (obj, key, value) {
+    return { ...obj, [key]: value };
+  };
+  console.log(addProps(user, 'email', 'fol@ok.ps'));
+}
 
 const employee1 = { id: 1, name: 'Sam', salary: 2000, bonus: 200 };
 const employee2 = { id: 2, name: 'Ben', salary: 3000 };
@@ -85,3 +87,22 @@ company.calculateCompanyIncome();
 console.log(company);
 // company.deleteEmploee('Den');
 company.deleteEmploee(3);
+
+const animal = { legs: 4 };
+const cat = Object.create(animal);
+cat.name = 'Meow';
+console.log(cat);
+console.log(cat.legs);
+
+const createUser = function (name, age) {
+  return {
+    name, age
+  };
+};
+const user = createUser('Paul', 33);
+console.log(user);
+
+const addProperty = function (obj, key, value) {
+  return { ...obj, [key]: value };
+};
+console.log(addProperty(user, 'eyeColor', 'brown'));
