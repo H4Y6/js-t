@@ -3941,13 +3941,16 @@ chain(2, [add, mult]);
   
   Notice that the last element is always included. All numbers will be greater than 0. */
 
-  function solve(arr, ar = []) {
-    const [last] = arr.slice(-1);
-    const max = Math.max(...arr);
-    const i = arr.lastIndexOf(max);
-    arr = arr.slice(i + 1);
+  // function solve(arr, ar = []) {
+  //   const [last] = arr.slice(-1);
+  //   const max = Math.max(...arr);
+  //   const i = arr.lastIndexOf(max);
+  //   arr = arr.slice(i + 1);
 
-    return arr.length < 1 ? ar = [...ar, last] : solve(arr, ar = [...ar, max]);
-  }
+  //   return arr.length < 1 ? ar = [...ar, last] : solve(arr, ar = [...ar, max]);
+  // }
+
+  const solve = arr => arr.filter((e, i) => arr.slice(i + 1).every(el => e > el));
+
   console.log(solve([104, 18, 37, 9, 36, 47, 28]));
 }
