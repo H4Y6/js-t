@@ -307,6 +307,33 @@ function factorial(n) {
     // };
     const mathOperation = (num, sign, ...args) => args.reduce((res, e) => res + eval(sign + e), num);
 
-    console.log(mathOperation(22, '+', 7, 5, 2, 3));
+    // console.log(mathOperation(22, '+', 7, 5, 2, 3));
 
+    const userData = {
+        user: { name: 'Otto', age: 44, avatar: '/g/photo/4366', },
+        locale: 'en_GB',
+        cart: [
+            { title: 'can', quantity: 3, },
+            { title: 'disk', quantity: 2, },
+        ]
+    };
+    const { user: { name, age, avatar = 'https://hop.lk/picts/3452' }, locale = en_US, cart } = userData;
+    // console.log(locale, '<-locale\n', avatar, '<-avatar\n', cart, '<- cart');
+
+    const users = [
+        { name: 'Pit', age: 19 },
+        { name: 'John', age: 21 },
+    ];
+
+    const getEldest = function (...args) {
+        let [eldest] = args;
+        const { name, age: eldestAge, } = eldest;
+        for (const { name, age, } of args) {
+            eldest = age > eldestAge ? { name, age } : eldest;
+        }
+        return eldest;
+
+        // return args.find(arg => arg.age === Math.max(...args.map(({ age }) => age)));
+    };
+    console.log(getEldest(...users));
 }
