@@ -285,11 +285,16 @@
     const youngestUser = findYoungestUser(users);
     const oldestUser = findOldestUser(users);
 
-    console.log('The youngest user:', youngestUser);
-    console.log('The oldest user:', oldestUser);
+    // console.log('The youngest user:', youngestUser);
+    // console.log('The oldest user:', oldestUser);
 }
 
 function factorial(n) {
     return n < 2 ? 1 : n * factorial(n - 1);
 };
-console.log(factorial(6));
+// console.log(factorial(6));
+
+{
+    const coalescingArraysFn = (...args) => args.reduce((coalescing, ar) => [...coalescing, ...ar], []);
+    console.log(coalescingArraysFn([1, 2, 3], [6, 7, 8], [9, 11]));
+}
