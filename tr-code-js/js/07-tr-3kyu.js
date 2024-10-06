@@ -3950,7 +3950,8 @@ chain(2, [add, mult]);
   //   return arr.length < 1 ? ar = [...ar, last] : solve(arr, ar = [...ar, max]);
   // }
 
-  const solve = arr => arr.filter((e, i) => arr.slice(i + 1).every(el => e > el));
+  // const solve = arr => arr.filter((e, i) => arr.slice(i + 1).every(el => e > el));
+  const solve = arr => arr.filter((e, i) => e > Math.max(...arr.slice(i + 1)));
 
   console.log(solve([104, 18, 37, 9, 36, 47, 28]));
 }
