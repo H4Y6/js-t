@@ -296,5 +296,17 @@ function factorial(n) {
 
 {
     const coalescingArraysFn = (...args) => args.reduce((coalescing, ar) => [...coalescing, ...ar], []);
-    console.log(coalescingArraysFn([1, 2, 3], [6, 7, 8], [9, 11]));
+    // console.log(coalescingArraysFn([1, 2, 3], [6, 7, 8], [9, 11]));
+
+    // const mathOperation = (sign, ...args) => {
+    //     let res = args[0];
+    //     for (let i = 1; i < args.length; i++) {
+    //         sign === '+' ? res += args[i] : res -= args[i];
+    //     }
+    //     return res;
+    // };
+    const mathOperation = (num, sign, ...args) => args.reduce((res, e) => res + eval(sign + e), num);
+
+    console.log(mathOperation(22, '+', 7, 5, 2, 3));
+
 }
