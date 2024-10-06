@@ -326,9 +326,16 @@ function factorial(n) {
     ];
 
     const getEldest = function (...args) {
-        let [eldest] = args;
+        // let [eldest] = args;
+        // const { name, age: eldestAge, } = eldest;
+        // for (const { name, age, } of args) {
+        //     eldest = age > eldestAge ? { name, age } : eldest;
+        // }
+        // return eldest;
+
+        let [eldest, ...restArgs] = args;
         const { name, age: eldestAge, } = eldest;
-        for (const { name, age, } of args) {
+        for (const { name, age, } of restArgs) {
             eldest = age > eldestAge ? { name, age } : eldest;
         }
         return eldest;
@@ -336,4 +343,4 @@ function factorial(n) {
         // return args.find(arg => arg.age === Math.max(...args.map(({ age }) => age)));
     };
     console.log(getEldest(...users));
-}
+};
