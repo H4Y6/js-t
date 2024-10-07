@@ -3953,5 +3953,24 @@ chain(2, [add, mult]);
   // const solve = arr => arr.filter((e, i) => arr.slice(i + 1).every(el => e > el));
   const solve = arr => arr.filter((e, i) => e > Math.max(...arr.slice(i + 1)));
 
-  console.log(solve([104, 18, 37, 9, 36, 47, 28]));
+  // console.log(solve([104, 18, 37, 9, 36, 47, 28]));
+}
+{ /** 7 kyu  Consecutive letters
+  In this Kata, we will check if a string contains consecutive letters as they appear in the English alphabet and if each letter occurs only once.
+  
+  Rules are: (1) the letters are adjacent in the English alphabet, and (2) each letter occurs only once.
+  
+  For example: 
+  solve("abc") = True, because it contains a,b,c
+  solve("abd") = False, because a, b, d are not consecutive/adjacent in the alphabet, and c is missing.
+  solve("dabc") = True, because it contains a, b, c, d
+  solve("abbc") = False, because b does not occur once.
+  solve("v") = True
+  All inputs will be lowercase letters. */
+
+  const solve = s => {
+    s = [...s].sort();
+    return s.slice(1).every((e, i) => Math.abs(e.charCodeAt() - s.join('').charCodeAt(i)) === 1);
+  };
+  console.log(solve('cbadk'));
 }
