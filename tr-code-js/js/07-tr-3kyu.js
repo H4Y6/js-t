@@ -3968,9 +3968,11 @@ chain(2, [add, mult]);
   solve("v") = True
   All inputs will be lowercase letters. */
 
-  const solve = s => {
-    s = [...s].sort();
-    return s.slice(1).every((e, i) => Math.abs(e.charCodeAt() - s.join('').charCodeAt(i)) === 1);
-  };
-  console.log(solve('cbadk'));
+  // const solve = s => {
+  //   s = [...s].sort();
+  //   return s.slice(1).every((e, i) => Math.abs(e.charCodeAt() - s.join('').charCodeAt(i)) === 1);
+  // };
+
+  const solve = s => (s => s.slice(1).every((e, i) => Math.abs(e.charCodeAt() - s.join('').charCodeAt(i)) === 1))([...s].sort());
+  console.log(solve('cbad'));
 }
