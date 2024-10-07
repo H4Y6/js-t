@@ -342,5 +342,10 @@ function factorial(n) {
 
         // return args.find(arg => arg.age === Math.max(...args.map(({ age }) => age)));
     };
-    console.log(getEldest(...users));
+    // console.log(getEldest(...users));
+
+    const factorial = function (n) {
+        return n < 3 ? n : n * factorial(--n);
+    };
+    // console.log(factorial(4));
 };
