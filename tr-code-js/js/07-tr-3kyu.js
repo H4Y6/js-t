@@ -3976,7 +3976,8 @@ chain(2, [add, mult]);
   // const solve = s => (s => s.slice(1).every((e, i) => Math.abs(e.charCodeAt() - s.join('').charCodeAt(i)) === 1))([...s].sort());
   // const solve = s => (s => s.slice(1).every((e, i) => e.charCodeAt() - s.join('').charCodeAt(i) === 1))([...s].sort());
   // const solve = s => 'abcdefghijklmnopqrstuvwxyz'.includes([...s].sort().join(''));
-  const solve = s => RegExp([...s].sort().join('')).test('abcdefghijklmnopqrstuvwxyz');
+  // const solve = s => RegExp([...s].sort().join('')).test('abcdefghijklmnopqrstuvwxyz');
+  const solve = s => (s => (s[s.length - 1].charCodeAt() - s[0].charCodeAt() + 1) / s.length === 1)([...s].sort());
 
   // console.log(solve('cbad'));
 }
