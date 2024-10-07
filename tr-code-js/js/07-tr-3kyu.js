@@ -3974,6 +3974,7 @@ chain(2, [add, mult]);
   // };
 
   // const solve = s => (s => s.slice(1).every((e, i) => Math.abs(e.charCodeAt() - s.join('').charCodeAt(i)) === 1))([...s].sort());
-  const solve = s => 'abcdefghijklmnopqrstuvwxyz'.includes([...s].sort().join(''));
-  console.log(solve('cbad'));
+  const solve = s => (s => s.slice(1).every((e, i) => e.charCodeAt() - s.join('').charCodeAt(i) === 1))([...s].sort());
+  // const solve = s => 'abcdefghijklmnopqrstuvwxyz'.includes([...s].sort().join(''));
+  // console.log(solve('cbad'));
 }
