@@ -3978,7 +3978,56 @@ chain(2, [add, mult]);
   // const solve = s => 'abcdefghijklmnopqrstuvwxyz'.includes([...s].sort().join(''));
   // const solve = s => RegExp([...s].sort().join('')).test('abcdefghijklmnopqrstuvwxyz');
   // const solve = s => (s => (s[s.length - 1].charCodeAt() - s[0].charCodeAt() + 1) / s.length === 1)([...s].sort());
-  // const solve = s => (w => w.length === new Set(w).size ? !((w.charCodeAt(w.length - 1) - w.charCodeAt() + 1) / w.length - 1) : false)([...s].sort().join(''));
-  const solve = s => (w => (w.charCodeAt(w.length - 1) - w.charCodeAt() + 1) / w.length === 1)([...s].sort().join(''));
+  const solve = s => (w => w.length === new Set(w).size ? !((w.charCodeAt(w.length - 1) - w.charCodeAt() + 1) / w.length - 1) : false)([...s].sort().join(''));
+
   // console.log(solve("svtgqezhhwiotmphoydihfr"));
+}
+{
+  const factorial = (n) => n < 3 ? n ? n : 1 : n * factorial(--n);
+  // console.log(factorial(4));
+}
+{ /** 5 kyu  Simple fraction to mixed number converter
+  Given a string representing a simple fraction x/y, your function must return a string representing the corresponding mixed fraction in the following format:
+  
+  [sign]a b/c
+  
+  where a is integer part and b/c is irreducible proper fraction. There must be exactly one space between a and b/c. Provide [sign] only if negative (and non zero) and only at the beginning of the number (both integer part and fractional part must be provided absolute).
+  
+  If the x/y equals the integer part, return integer part only. If integer part is zero, return the irreducible proper fraction only. In both of these cases, the resulting string must not contain any spaces.
+  
+  Division by zero should raise an error (preferably, the standard zero division error of your language).
+  
+  Value ranges
+  -10 000 000 < x < 10 000 000
+  -10 000 000 < y < 10 000 000
+  Examples
+  Input: 42/9, expected result: 4 2/3.
+  Input: 6/3, expedted result: 2.
+  Input: 4/6, expected result: 2/3.
+  Input: 0/18891, expected result: 0.
+  Input: -10/7, expected result: -1 3/7.
+  Inputs 0/0 or 3/0 must raise a zero division error.
+  Note
+  Make sure not to modify the input of your function in-place, it is a bad practice.     */
+
+  function mixedFraction(s) {
+    const [a, b] = s.split('/');
+    if (a === '0' || '-0') return 0;
+    const integer = (a - a % b) / b;
+    const fractions = [a % b, +b].join('/').replace('-', '');
+
+    // return fractions;
+
+    // s = s.replace('/', '%');
+    // return parseInt(eval(s));
+    // (eval(s) ^ 0).toFixed(0)+;
+  }
+  console.log(mixedFraction('-0/7'));
+}
+{ /**  */
+
+  function unusedDigits(...args) {
+    return '0123456789'.split('').filter(el => !args.map(e => (e + '').split('')).flat().includes(el)).join('');
+  }
+  console.log(unusedDigits(12, 34, 56, 78));
 }
