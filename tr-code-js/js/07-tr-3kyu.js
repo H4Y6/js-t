@@ -4024,10 +4024,19 @@ chain(2, [add, mult]);
   }
   console.log(mixedFraction('-0/7'));
 }
-{ /**  */
+{ /** 7 kyu  Filter unused digits
+  Given a varying number of integer arguments, return the digits that are not present in any of them.
+  
+  Example:  
+  [12, 34, 56, 78]  =>  "09"
+  [2015, 8, 26]     =>  "3479"
+  Note: the digits in the resulting string should be sorted. */
 
-  function unusedDigits(...args) {
-    return '0123456789'.split('').filter(el => !args.map(e => (e + '').split('')).flat().includes(el)).join('');
-  }
+  // function unusedDigits(...args) {
+  //   return '0123456789'.split('').filter(el => !args.map(e => (e + '').split('')).flat().includes(el)).join('');
+  // }
+
+  const unusedDigits = (...args) => '0123456789'.split('').filter(el => !args.map(e => (e + '').split('')).flat().includes(el)).join('');
+
   console.log(unusedDigits(12, 34, 56, 78));
 }
