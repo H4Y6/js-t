@@ -4037,7 +4037,8 @@ chain(2, [add, mult]);
   // }
 
   // const unusedDigits = (...args) => '0123456789'.split('').filter(el => !args.map(e => (e + '').split('')).flat().includes(el)).join('');
-  const unusedDigits = (...args) => '0123456789'.replace(RegExp(`[${args.join('')}]`, 'g'), '');
+  const unusedDigits = (...args) => '0123456789'.split('').filter(el => !args.join('').includes(el)).join('');
+  // const unusedDigits = (...args) => '0123456789'.replace(RegExp(`[${args.join('')}]`, 'g'), '');
 
-  console.log(unusedDigits(12, 34, 56, 78));
+  // console.log(unusedDigits(12, 34, 56, 78));
 }
