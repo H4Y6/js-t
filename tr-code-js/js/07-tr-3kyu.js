@@ -4263,5 +4263,23 @@ chain(2, [add, mult]);
 
   const evenChars = string => (string.length < 2 || string.length > 100) ? "invalid string" : string.split('').filter((e, i) => i % 2);
 
-  console.log(evenChars("abcdefghijklm"));
+  // console.log(evenChars("abcdefghijklm"));
+}
+
+{ /** 7 kyu  Double Every Other
+  452192% of 7232,882 of 7,074Adam-Morris
+  Write a function that doubles every second integer in a list, starting from the left.
+    Example:
+  
+  For input array/list :
+  
+  [1,2,3,4]
+  the function should return :
+  
+  [1,4,3,8]   */
+
+  function doubleEveryOther(a) {
+    return a.map((e, i) => i % 2 ? 2 * e : e);
+  }
+  console.log(doubleEveryOther([1, 2, 3, 4]));
 }
