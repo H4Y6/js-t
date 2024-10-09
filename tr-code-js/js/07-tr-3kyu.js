@@ -4042,3 +4042,216 @@ chain(2, [add, mult]);
 
   // console.log(unusedDigits(12, 34, 56, 78));
 }
+
+{
+  const customer = {
+    username: "Mango",
+    balance: 24000,
+    discount: 0.1,
+    orders: ["Burger", "Pizza", "Salad"],
+    // Change code below this line
+    getBalance() {
+      return this.balance;
+    },
+    getDiscount() {
+      return this.discount;
+    },
+    setDiscount(value) {
+      this.discount = value;
+    },
+    getOrders() {
+      return this.orders;
+    },
+    addOrder(cost, order) {
+      this.balance -= cost - cost * this.discount;
+      this.orders.push(order);
+    },
+    // Change code above this line
+  };
+
+  customer.setDiscount(0.15);
+  // console.log(customer.getDiscount()); // 0.15
+  customer.addOrder(5000, "Steak");
+  // console.log(customer.getBalance()); // 19750
+  // console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
+
+  const historyService = {
+    orders: [
+      { email: "jacob@hotmail.com", dish: "Burrito" },
+      { email: "solomon@topmail.net", dish: "Burger" },
+      { email: "artemis@coldmail.net", dish: "Pizza" },
+      { email: "solomon@topmail.net", dish: "Apple pie" },
+      { email: "jacob@hotmail.com", dish: "Taco" },
+    ],
+    // Change code below this line
+    getOrdersLog() {
+      return this.orders
+        .map(order => `email: ${order.email} dish: ${order.dish}`)
+        .join(" - ");
+    },
+    getEmails() {
+      const emails = this.orders.map(order => order.email);
+      const uniqueEmails = new Set(emails);
+      return [...uniqueEmails];
+    },
+    getOrdersByEmail(email) {
+      return this.orders.filter(order => order.email === email);
+    },
+    // Change code above this line
+  };
+
+  class Car {
+    constructor({ brand, model, price }) {
+      this.brand = brand;
+      this.model = model;
+      this.price = price;
+    }
+    getPrice() {
+      return this.price;
+    }
+    changePrice(newPrice) {
+      this.price = newPrice;
+    }
+  }
+
+  class Storage {
+    #items;
+
+    constructor(items) {
+      this.#items = items;
+    }
+    getItems() {
+      return this.#items;
+    }
+    addItem(newItem) {
+      this.#items.push(newItem);
+    }
+    removeItem(itemToRemove) {
+      this.#items.splice(this.#items.indexOf(itemToRemove), 1);
+    }
+  }
+
+  class StringBuilder {
+    #value;
+
+    constructor(initialValue) {
+      this.#value = initialValue;
+    }
+    getValue() {
+      return this.#value;
+    }
+    padEnd(str) {
+      this.#value += str;
+    }
+    padStart(str) {
+      this.#value = str + this.#value;
+    }
+    padBoth(str) {
+      this.padStart(str);
+      this.padEnd(str);
+    }
+  }
+}
+
+{
+  class Car {
+
+    static MAX_PRICE = 50000;
+
+    #brand;
+    #model;
+    #price;
+
+    static checkPrice(price) {
+      return price > Car.MAX_PRICE ? "Error! Price exceeds the maximum" : "Success! Price is within acceptable limits";
+    }
+
+    constructor({ brand, model, price }) {
+      this.#brand = brand;
+      this.#model = model;
+      this.#price = price;
+    }
+    get brand() {
+      return this.#brand;
+    }
+    set brand(newBrand) {
+      this.#brand = newBrand;
+    }
+    get model() {
+      return this.#model;
+    }
+    set model(newModel) {
+      this.#model = newModel;
+    }
+    get price() {
+      return this.#price;
+    }
+    set price(newPrice) {
+      newPrice > Car.MAX_PRICE ? this.#price : this.#price = newPrice;
+    }
+  }
+
+  const audi = new Car({ price: 36000 });
+  const bmw = new Car({ price: 64000 });
+
+  // console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+  // console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+}
+
+{
+  class User {
+    email;
+
+    constructor(email) {
+      this.email = email;
+    }
+
+    get email() {
+      return this.email;
+    }
+
+    set email(newEmail) {
+      this.email = newEmail;
+    }
+  }
+
+  class Admin extends User {
+    constructor({ email, accessLevel }) {
+      super(email);
+      this.accessLevel = accessLevel;
+      this.blacklistedEmails = [];
+    }
+
+    static AccessLevel = {
+      BASIC: "basic",
+      SUPERUSER: "superuser",
+    };
+    blacklist(email) {
+      this.blacklistedEmails.push(email);
+    }
+    isBlacklisted(email) {
+      return this.blacklistedEmails.includes(email);
+    }
+
+  }
+
+  const mango = new Admin({
+    email: "mango@mail.com",
+    accessLevel: Admin.AccessLevel.SUPERUSER,
+  });
+
+  // console.log(mango.email); // "mango@mail.com"
+  // console.log(mango.accessLevel); // "superuser"
+
+  // mango.blacklist("poly@mail.com");
+  // console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+  // console.log(mango.isBlacklisted("mango@mail.com")); // false
+  // console.log(mango.isBlacklisted("poly@mail.com")); // true
+}
+
+{
+  function evenChars(string) {
+    return (string.length < 2 || string.length > 100) ? "invalid string" : string.split('').filter((e, i, ar) => i % 2);
+  }
+  console.log(evenChars("abcdefghijklm"));
+}
