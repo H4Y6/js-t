@@ -4278,8 +4278,11 @@ chain(2, [add, mult]);
   
   [1,4,3,8]   */
 
-  function doubleEveryOther(a) {
-    return a.map((e, i) => i % 2 ? 2 * e : e);
-  }
+  // function doubleEveryOther(a) {
+  //   return a.map((e, i) => i % 2 ? 2 * e : e);
+  // }
+
+  const doubleEveryOther = a => a.map((e, i) => i % 2 ? 2 * e : e);
+
   console.log(doubleEveryOther([1, 2, 3, 4]));
 }
