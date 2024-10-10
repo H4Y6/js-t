@@ -4285,5 +4285,56 @@ chain(2, [add, mult]);
   // const doubleEveryOther = a => a.map((e, i) => i % 2 ? 2 * e : e);
   const doubleEveryOther = a => a.map((e, i) => (i % 2 + 1) * e);
 
-  console.log(doubleEveryOther([1, 2, 3, 4]));
+  // console.log(doubleEveryOther([1, 2, 3, 4]));
+}
+{ /** 6 kyu  Clocky Mc Clock-Face
+  Due to lack of maintenance the minute-hand has fallen off Town Hall clock face.
+  
+  And because the local council has lost most of our tax money to an elaborate email scam there are no funds to fix the clock properly.
+  
+  Instead, they are asking for volunteer programmers to write some code that tell the time by only looking at the remaining hour-hand!
+  
+  What a bunch of cheapskates!
+  
+  Can you do it?
+  
+  Kata
+  Given the angle (in degrees) of the hour-hand, return the time in 12 hour HH:MM format. Round down to the nearest minute.
+  
+  Examples
+  12:00 = 0 degrees
+  
+  03:00 = 90 degrees
+  
+  06:00 = 180 degrees
+  
+  09:00 = 270 degrees
+  
+  12:00 = 360 degrees
+  
+  Notes
+  0 <= angle <= 360
+  
+  Do not make any AM or PM assumptions for the HH:MM result. They are indistinguishable for this Kata.
+  
+  3 o'clock is 03:00, not 15:00
+  7 minutes past midnight is 12:07
+  7 minutes past noon is also 12:07   */
+
+  // const whatTimeIsIt = function (angle) {
+  //   let h = angle % 360 ? (angle / 30 ^ 0) + '' : '12';
+  //   h.length < 2 ? h = '0' + h : h;
+  //   let m = ((angle / 30 % 1) * 60).toFixed();
+  //   m.length < 2 ? m = '0' + m : m;
+  //   return `${h}:${m}`;
+  // };
+
+  const whatTimeIsIt = function (angle) {
+    let h = angle < 30 ? '12' : (angle / 30 ^ 0) + '';
+    h.length < 2 ? h = '0' + h : h;
+    let m = '0' + ((angle / 30 % 1) * 60).toFixed(2) ^ 0;
+    (m + '').length < 2 ? m = '0' + m : m;
+    return `${h + ':' + m}`;
+  };
+  console.log(whatTimeIsIt(31));
 }
