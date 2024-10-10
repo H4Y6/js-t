@@ -4332,7 +4332,7 @@ chain(2, [add, mult]);
   const whatTimeIsIt = function (angle) {
     let h = angle < 30 ? '12' : (angle / 30 ^ 0) + '';
     h.length < 2 ? h = '0' + h : h;
-    let m = '0' + ((angle / 30 % 1) * 60).toFixed(2) ^ 0;
+    let m = ((angle / 30 % 1) * 60).toFixed(2) ^ 0;
     m < 10 ? m = '0' + m : m;
     return `${h + ':' + m}`;
   };
