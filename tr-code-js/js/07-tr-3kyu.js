@@ -4430,7 +4430,8 @@ The elements in the returned array should be in the same order as in the initial
   // const oddOne = arr => arr.indexOf(arr.find(e => e % 2));
   // const oddOne = arr => arr.findIndex(e => e % 2);
   // const oddOne = arr => (odd => arr.findIndex(odd))(e => Boolean(e & 1));
-  const oddOne = arr => (odd => arr.findIndex(odd))(e => e & 1);
+  // const oddOne = arr => (odd => arr.findIndex(odd))(e => e & 1);
+  const oddOne = (arr, odd = e => e & 1) => arr.findIndex(odd);
 
-  console.log(oddOne([4, -8, 98, -12, -7, 90, 100]));
+  // console.log(oddOne([4, -8, 98, -12, -7, 90, 100]));
 }
