@@ -4427,7 +4427,8 @@ The elements in the returned array should be in the same order as in the initial
   //   return arr.indexOf(arr.find(e => e % 2));
   // }
 
-  const oddOne = arr => arr.indexOf(arr.find(e => e % 2));
+  // const oddOne = arr => arr.indexOf(arr.find(e => e % 2));
+  const oddOne = arr => arr.findIndex(e => e % 2);
 
   console.log(oddOne([4, -8, 98, -12, -7, 90, 100]));
 }
