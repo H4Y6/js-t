@@ -1,12 +1,15 @@
-{/** 8 kyu Merging sorted integer arrays (without duplicates)
+{
+  /** 8 kyu Merging sorted integer arrays (without duplicates)
 Write a function that merges two sorted arrays into a single one. 
 The arrays only contain integers. Also, the final outcome must be sorted and not have any duplicate. */
 
-  const mergeArrays = (a, b) => [...new Set([...a, ...b])].sort((a, b) => a - b);
+  const mergeArrays = (a, b) =>
+    [...new Set([...a, ...b])].sort((a, b) => a - b);
 
   // console.log(mergeArrays([2, 4, 8], [2, 4, 6]));
 }
-{/** 7 kyu shorter concat [reverse longer] 
+{
+  /** 7 kyu shorter concat [reverse longer] 
   Given 2 strings, a and b, return a string of the form: shorter+reverse(longer)+shorter.
 In other words, the shortest string has to be put as prefix and as suffix of the reverse of the longest.
 Strings a and b may be empty, but not null (In C# strings may also be null. Treat them as if they are empty.).
@@ -15,10 +18,14 @@ If a and b have the same length treat a as the longer producing b+reverse(a)+b *
   // const shorterReverseLonger = (a, b) => a.length < b.length ? [...a].concat([...b].reverse(), [...a]).join('') : [...b].concat([...a].reverse(), [...b]).join('');
   // const shorterReverseLonger = (a, b) => a.length < b.length ? a.concat([...b].reverse().join(''), a) : b.concat([...a].reverse().join(''), b);
   // const shorterReverseLonger = (a, b) => a.length < b.length ? a + [...b].reverse().join('') + a : b + [...a].reverse().join('') + b;
-  const shorterReverseLonger = (a, b) => { if (a.length < b.length) [a, b] = [b, a]; return b + [...a].reverse().join('') + b; };
+  const shorterReverseLonger = (a, b) => {
+    if (a.length < b.length) [a, b] = [b, a];
+    return b + [...a].reverse().join('') + b;
+  };
   // console.log(shorterReverseLonger("hello", "bau"));
 }
-{ /** 8 kyu  Wilson primes
+{
+  /** 8 kyu  Wilson primes
   Wilson primes satisfy the following condition. Let P represent a prime number.
 Then,
 ((P-1)! + 1) / (P * P)
@@ -33,17 +40,26 @@ Your task is to create a function that returns true if the given number is a Wil
     }
     return true;
   };
-  const getFactorial = n => { n = BigInt(n); return n < 2n ? 1n : n * getFactorial(n - 1n); };
-  const amIWilson = (p) => {
+  const getFactorial = n => {
+    n = BigInt(n);
+    return n < 2n ? 1n : n * getFactorial(n - 1n);
+  };
+  const amIWilson = p => {
     p = BigInt(p);
-    if (isPrime(p) && [5, 13, 563].includes(p) && !((getFactorial(p - 1n) + 1n) / p * p % 1n)) return true;
+    if (
+      isPrime(p) &&
+      [5, 13, 563].includes(p) &&
+      !((((getFactorial(p - 1n) + 1n) / p) * p) % 1n)
+    )
+      return true;
     return false;
   };
   // console.log(amIWilson(467));
   // console.log(getFactorial(467));
   // console.log(isPrime(467));
 }
-{ /**7 kyu  Going to the cinema
+{
+  /**7 kyu  Going to the cinema
   My friend John likes to go to the cinema. He can choose between system A and system B.
 
 System A : he buys a ticket (15 dollars) every time
@@ -84,10 +100,11 @@ movie(100, 10, 0.95) should return 24
       card += ticket * perc ** i;
     }
     return i;
-  };
+  }
   // console.log(movie(100, 10, 0.95));
 }
-{ /** 8 kyu  ASCII Total
+{
+  /** 8 kyu  ASCII Total
   You'll be given a string, and have to return the sum of all characters as an int. The function should be able to handle all printable ASCII characters.
 Examples:
 uniTotal("a") == 97
@@ -98,7 +115,8 @@ uniTotal("aaa") == 291*/
   }
   // console.log(uniTotal('aaaa'));
 }
-{/**7 kyuChanging letters
+{
+  /**7 kyuChanging letters
   When provided with a String, capitalize all vowels
 For example:
 Input : "Hello World!"
@@ -110,7 +128,8 @@ Note: Y is not a vowel in this kata. */
   }
   // console.log(swap("Hello World!"));
 }
-{/** 8 kyu USD => CNY 
+{
+  /** 8 kyu USD => CNY 
   Create a function that converts US dollars (USD) to Chinese Yuan (CNY) . The input is the amount of USD as an integer, and the output should be a string that states the amount of Yuan followed by 'Chinese Yuan'
 Examples (Input -> Output)
 15  -> '101.25 Chinese Yuan'
@@ -122,7 +141,8 @@ The conversion rate you should use is 6.75 CNY for every 1 USD. All numbers shou
   }
   // console.log(usdcny(465));
 }
-{/** 7 kyu Longest vowel chain
+{
+  /** 7 kyu Longest vowel chain
   The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou. */
 
   // const solve = s => Math.max(...s.split(/[bcdfghjklmnpqrstvwxyz]+/g).map(e => e.length));
@@ -132,7 +152,8 @@ The conversion rate you should use is 6.75 CNY for every 1 USD. All numbers shou
   // console.log(solve('u'));
   // console.log(solve('chrononhotonthuooaos'));
 }
-{/**5 kyu Factorial decomposition 
+{
+  /**5 kyu Factorial decomposition 
   The aim of the kata is to decompose n! (factorial n) into its prime factors.
 Examples:
 n = 12; decomp(12) -> "2^10 * 3^5 * 5^2 * 7 * 11"
@@ -146,7 +167,7 @@ factorial can be a very big number (4000! has 12674 digits, n can go from 300 to
 In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.     */
   /** Test failed at bigInt */
 
-  const factorial = n => n < 2 ? 1 : n * factorial(n - 1);
+  const factorial = n => (n < 2 ? 1 : n * factorial(n - 1));
 
   /**primes w/o '1' */
   const getPrime = n => {
@@ -179,14 +200,14 @@ In Fortran - as in any other language - the returned string is not permitted to 
       }
       arr.push(count > 1 ? `${e}^${count}` : `${e}`);
       count = 0n;
-
     });
     return arr.join(' * ');
   }
   // console.log(decomp(14));
   // console.log(decomp(25));
 }
-{/** 8 kyu  Barking mad
+{
+  /** 8 kyu  Barking mad
   Teach snoopy and scooby doo how to bark using object methods. Currently only snoopy can bark and not scooby doo.
 snoopy.bark(); // return "Woof"
 scoobydoo.bark(); // undefined
@@ -216,12 +237,13 @@ Use method prototypes to enable all Dogs to bark.*/
       return 'Woof';
     }
   }
-  const scoobydoo = new Dog("Great Dane");
-  const snoopy = new Dog("Beagle");
+  const scoobydoo = new Dog('Great Dane');
+  const snoopy = new Dog('Beagle');
 
   // console.log(scoobydoo.bark());
 }
-{/** 7 kyu  Compare Strings by Sum of Chars
+{
+  /** 7 kyu  Compare Strings by Sum of Chars
   Compare two strings by comparing the sum of their values (ASCII character code).
 For comparing treat all letters as UpperCase
 null/NULL/Nil/None should be treated as empty strings
@@ -237,7 +259,10 @@ Examples:
 null, ""    -> equal          */
 
   // const ccSum = s => { return /\W|\d/.test(s) || s === '' || s === null ? 0 : s.split('').reduce((sum, e) => sum + e.toUpperCase().charCodeAt(), 0); };
-  const ccSum = s => /\W|\d/.test(s) || !s ? 0 : s.split('').reduce((sum, e) => sum + e.toUpperCase().charCodeAt(), 0);
+  const ccSum = s =>
+    /\W|\d/.test(s) || !s
+      ? 0
+      : s.split('').reduce((sum, e) => sum + e.toUpperCase().charCodeAt(), 0);
 
   const compare = (s1, s2) => ccSum(s1) === ccSum(s2);
 
@@ -245,7 +270,8 @@ null, ""    -> equal          */
   // console.log(compare("AD", "DD"));
   // console.log(compare("zz1", ""));
 }
-{/** 8 kyu
+{
+  /** 8 kyu
 For Twins: 1. Types
  Write a function that will accept two parameters: variable and type and check if type of variable is matching type. Return true if types match or false if not.
 Examples:
@@ -255,7 +281,8 @@ Examples:
   const typeValidation = (variable, type) => typeof variable === type;
   // console.log(typeValidation("42", "number"));
 }
-{/**7 kyu  Elevator Distance
+{
+  /**7 kyu  Elevator Distance
   Imagine you start on the 5th floor of a building, then travel down to the 2nd floor, then back up to the 8th floor. You have travelled a total of 3 + 6 = 9 floors of distance.
 
 Given an array representing a series of floors you must reach by elevator, return an integer representing the total distance travelled for visiting each floor in the array in order.
@@ -280,16 +307,19 @@ Array will always contain at least 2 floors. Random tests will contain 2-20 elem
   };
   // console.log(elevatorDistance([7, 1, 7, 1]));
 }
-{/**7 kyu  Consecutive items 
+{
+  /**7 kyu  Consecutive items 
   You are given a list of unique integers arr, and two integers a and b. Your task is to find out whether or not a and b appear consecutively in arr, and return a boolean value (True if a and b are consecutive, False otherwise).
 It is guaranteed that a and b are both present in arr.   */
 
   // const consecutive = (arr, a, b) => Math.abs(arr.indexOf(a) - arr.indexOf(b)) === 1;
   // const consecutive = (arr, a, b) => Math.abs(arr.findIndex(e => e === a) - arr.indexOf(b)) === 1;
-  const consecutive = (arr, a, b) => new RegExp(`${a},${b}|${b},${a}`).test(arr);
+  const consecutive = (arr, a, b) =>
+    new RegExp(`${a},${b}|${b},${a}`).test(arr);
   // console.log(consecutive([1, 6, 9, -3, 4, -78, 0], -3, 4));
 }
-{/** 7 kyu  Insert dashes
+{
+  /** 7 kyu  Insert dashes
   Write a function insert_dash(num) / insertDash(num) / InsertDash(int num) that will insert dashes ('-') between each two odd digits in num. For example: if num is 454793 the output should be 4547-9-3.
 Note that the number will always be non-negative (>= 0).  */
 
@@ -299,14 +329,16 @@ Note that the number will always be non-negative (>= 0).  */
   // }
   // const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$&-`);
   // const insertDash = num => ('' + num).replace(/([13579])(?=[13579])/g, `$1-`);
-  const insertDash = num => ('' + num).replace(/([13579]){2,}/g, e => e.split('').join('-'));
+  const insertDash = num =>
+    ('' + num).replace(/([13579]){2,}/g, e => e.split('').join('-'));
   // console.log(insertDash(454793));
 }
 {
   const consecutive = (arr, a, b) => RegExp(`${a},${b}|${b},${a}`).test(arr);
   // console.log(consecutive([1, 3, 5, 7], 3, 1));
 }
-{/**7 kyu  Evens and Odds 
+{
+  /**7 kyu  Evens and Odds 
   This kata is about converting numbers to their binary or hexadecimal representation:
 If a number is even, convert it to binary.
 If a number is odd, convert it to hex.
@@ -316,7 +348,8 @@ Numbers will be positive. The hexadecimal string should be lowercased.*/
   const evensAndOdds = num => num.toString(num % 2 ? 16 : 2);
   // console.log(evensAndOdds(62));
 }
-{/** 6 kyu  Where is my parent!?(cry)
+{
+  /** 6 kyu  Where is my parent!?(cry)
    Mothers arranged a dance party for the children in school. At that party, there are only mothers and their children. All are having great fun on the dance floor when suddenly all the lights went out. It's a dark night and no one can see each other. But you were flying nearby and you can see in the dark and have ability to teleport people anywhere you want.
 Legend:
 -Uppercase letters stands for mothers, lowercase stand for their children, i.e. "A" mother's children are "aaaa".
@@ -330,11 +363,20 @@ Place all people in alphabetical order where Mothers are followed by their child
   // const findChildren = dancingBrigade => [...dancingBrigade].filter(e => e.match(/[A-Z]/)).sort().map(e => e +
   //   [...dancingBrigade].filter(el => el === e.toLowerCase()).join('')).join('');
 
-  const findChildren = dancingBrigade => [...dancingBrigade].filter(e => e.match(/[A-Z]/)).sort().map(e => [...e,
-  ...[...dancingBrigade].filter(el => el === e.toLowerCase())]).flat().join('');
+  const findChildren = dancingBrigade =>
+    [...dancingBrigade]
+      .filter(e => e.match(/[A-Z]/))
+      .sort()
+      .map(e => [
+        ...e,
+        ...[...dancingBrigade].filter(el => el === e.toLowerCase()),
+      ])
+      .flat()
+      .join('');
   // console.log(findChildren("uwwWUueEe"));
 }
-{/**7 kyu  Count all the sheep on farm in the heights of New Zealand
+{
+  /**7 kyu  Count all the sheep on farm in the heights of New Zealand
   Every Friday and Saturday night, farmer counts sheep coming back to his farm (sheep returned on Friday stay and don't leave).
 Sheep return in groups both of the days -> You will be given two arrays with these numbers (one for Friday and one for Saturday night). Array entries are integers, equal zero or higher - in case a given array is empty, farmer did not count the sheep or got sick (we treat this as no sheep returned that night).
 Farmer knows how many sheep he has in total (third parameter). You need to calculate the amount of sheep lost (not returned to the farm) after final sheep count on Saturday.
@@ -344,11 +386,13 @@ Example 3: Input: [0], [4, 15], 31 --> Output: 12
 Example 4: Input: [], [4], 15 --> Output: 11  */
 
   // const lostSheep = (friday, saturday, total) => total - friday.reduce((sum, e) => sum + e, 0) - saturday.reduce((sum, e) => sum + e, 0);
-  const lostSheep = (friday, saturday, total) => total - [...friday, ...saturday].reduce((sum, e) => sum + e, 0);
+  const lostSheep = (friday, saturday, total) =>
+    total - [...friday, ...saturday].reduce((sum, e) => sum + e, 0);
 
   // console.log(lostSheep([1, 2], [3, 4], 15));
 }
-{/** 7 kyu  Formatting decimal places #1
+{
+  /** 7 kyu  Formatting decimal places #1
   Each floating-point number should be formatted that only the first two decimal places are returned. You don't need to check whether the input is a valid number because only valid numbers are used in the tests.
 Don't round the numbers! Just cut them after two decimal places!
 Right examples:  
@@ -364,7 +408,8 @@ Incorrect examples (e.g. if you round the numbers):
   const twoDecimalPlaces = number => parseInt(100 * number) / 100;
   // console.log(twoDecimalPlaces(32.8493));
 }
-{/** 7 kyu  Return the Missing Element
+{
+  /** 7 kyu  Return the Missing Element
   Fellow code warrior, we need your help! We seem to have lost one of our sequence elements, and we need your help to retrieve it!
 Our sequence given was supposed to contain all of the integers from 0 to 9 (in no particular order), but one of them seems to be missing.
 Write a function that accepts a sequence of unique integers between 0 and 9 (inclusive), and returns the missing element.
@@ -379,14 +424,15 @@ Examples:
   //   return 0;
   // };
 
-  const getMissingElement = (superImportantArray) => {
+  const getMissingElement = superImportantArray => {
     for (let i = 0; i <= 9; i++) {
       if (!superImportantArray.includes(i)) return i;
     }
   };
   // console.log(getMissingElement([0, 5, 1, 3, 2, 8, 7, 6, 4]));
 }
-{/** 6 kyu  IPv4 to int32 
+{
+  /** 6 kyu  IPv4 to int32 
   Take the following IPv4 address: 128.32.10.1. This address has 4 octets where each octet is a single byte (or 8 bits).
 1st octet 128 has the binary representation: 10000000
 2nd octet 32 has the binary representation: 00100000
@@ -403,7 +449,8 @@ Example
   // const ipToInt32 = ip => parseInt(ip.split('.').map((e) => ('0000000' + (Number(e)).toString(2)).slice(-8)).join(''), 2);
   // const ipToInt32 = ip => parseInt(ip.split('.').map(e => ('00000000' + (+e).toString(2)).slice(-8)).reduce((bin, e) => bin + e, ''), 2);
   // const ipToInt32 = ip => ip.split('.').map(Number).reduceRight((res, e, i) => res + e * 256 ** (3 - i), 0);
-  const ipToInt32 = ip => ip.split('.').reduce((res, e) => res * 256 + Number(e), 0);
+  const ipToInt32 = ip =>
+    ip.split('.').reduce((res, e) => res * 256 + Number(e), 0);
   // console.log(ipToInt32("128.32.10.1"));
 
   // const binary = (128).toString(2);
@@ -412,11 +459,13 @@ Example
   // console.log(2 ** 31 + 2 ** 21 + 2 ** 11 + 2 ** 9 + 1);
   // 10000000.00100000.00001010.00000001;
 }
-{/** 8 kyu  Grasshopper - Order of operations
+{
+  /** 8 kyu  Grasshopper - Order of operations
   You are running the calculation 2 + 2 * 2 + 2 * 2 and expect to get the answer 32 but instead the function keeps returning 10. Fix the function to make it return 32 without changing the number or the operators.   */
   const orderOperations = () => (2 + 2) * (2 + 2) * 2;
 }
-{/** 7 kyu  Char Code Calculation 
+{
+  /** 7 kyu  Char Code Calculation 
   Given a string, turn each character into its ASCII character code and join them together to create a number - let's call this number total1:
 
 'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
@@ -435,10 +484,12 @@ Then return the difference between the sum of the digits in total1 and total2:
 
   // const calc = x => [...[...x].map(e => e.charCodeAt() + '').join('')].filter(e => e === '7').length * 6;
   // const calc = x => [...[...x].map(e => (e.charCodeAt() + '').split(''))].flat().reduce((res, e) => res += e === '7' ? 6 : 0, 0);
-  const calc = x => x.replace(/./g, e => e.charCodeAt()).replace(/[^7]/g, '').length * 6;
+  const calc = x =>
+    x.replace(/./g, e => e.charCodeAt()).replace(/[^7]/g, '').length * 6;
   // console.log(calc('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'));
 }
-{/** 7 kyu  Building Strings From a Hash 
+{
+  /** 7 kyu  Building Strings From a Hash 
   Complete the solution so that it takes the object (JavaScript/CoffeeScript) or hash (ruby) passed in and generates a human readable string from its key/value pairs.
 The format should be "KEY = VALUE". Each key/value pair should be separated by a comma except for the last pair.
 Example:
@@ -458,18 +509,23 @@ solution({a: 1, b: '2'}) // should return "a = 1,b = 2"*/
 
   // const solution = pairs => Object.entries(pairs).map(e => `${e[0]} = ${e[1]}`).join(',');
 
-  const solution = pairs => Object.keys(pairs).map(e => `${e} = ${pairs[e]}`).join(',');
+  const solution = pairs =>
+    Object.keys(pairs)
+      .map(e => `${e} = ${pairs[e]}`)
+      .join(',');
   // console.log(solution({ 'a': 0, 'b': 2 }));
-};
-{ /** 7 kyu   SevenAte9
+}
+{
+  /** 7 kyu   SevenAte9
   Write a function that removes every lone 9 that is inbetween 7s.
 "79712312" --> "7712312"
 "79797"    --> "777"*/
 
   const sevenAte9 = str => str.replaceAll('797', 77).replaceAll('797', 77);
   // console.log(sevenAte9('165561786121789797'));
-};
-{/** 6 kyu  Prize Draw 
+}
+{
+  /** 6 kyu  Prize Draw 
   To participate in a prize draw each one gives his/her firstname.
 Each letter of a firstname has a value which is its rank in the English alphabet. A and a have rank 1, B and b rank 2 and so on.
 The length of the firstname is added to the sum of these ranks hence a number som.
@@ -516,15 +572,32 @@ See Examples Test Cases for more examples.    */
   //     .sort().sort((a, b) => b[1] - a[1])[n - 1][0];
   // };
 
-  const rank = (st, we, n) => (arr => !st ? `No participants` : n > arr.length ? `Not enough participants` : arr[n - 1][0])
-    (st.split(`,`).map((e, i) => [e, [...e.toUpperCase()].reduce((res, el) => res + el.charCodeAt() - 64, e.length) * we[i]]).sort().sort((a, b) => b[1] - a[1]));
+  const rank = (st, we, n) =>
+    (arr =>
+      !st
+        ? `No participants`
+        : n > arr.length
+        ? `Not enough participants`
+        : arr[n - 1][0])(
+      st
+        .split(`,`)
+        .map((e, i) => [
+          e,
+          [...e.toUpperCase()].reduce(
+            (res, el) => res + el.charCodeAt() - 64,
+            e.length,
+          ) * we[i],
+        ])
+        .sort()
+        .sort((a, b) => b[1] - a[1]),
+    );
 
   // console.log(rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4));
   // console.log(rank("Addison,Ben,Sofia,Michael,Andrew,William,Willaim", [4, 2, 1, 4, 3, 2, 2], 4));
   // console.log(rank("Lagon,Lily", [1, 5], 2));
 
   /* curried function  **/
-  const multiply = (a) => (b) => (c) => {
+  const multiply = a => b => c => {
     // const multiplyThree = multiply(3);
     // const multiplyThreeAndFour = multiplyThree(4);
     // const result = multiplyThreeAndFour(5);
@@ -535,17 +608,22 @@ See Examples Test Cases for more examples.    */
   };
   // console.log(multiply(3)(4)(5));
 }
-{ /** 8 kyu  Online RPG: player to qualifying stage? 
+{
+  /** 8 kyu  Online RPG: player to qualifying stage? 
   Let's imagine we have a popular online RPG. A player begins with a score of 0 in class E5. A1 is the highest level a player can achieve.
 Now let's say the players wants to rank up to class E4. To do so the player needs to achieve at least 100 points to enter the qualifying stage.
 Write a script that will check to see if the player has achieved at least 100 points in his class. If so, he enters the qualifying stage.
 In that case, we return, "Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up.".
 Otherwise return, False/false (according to the language in use).       */
 
-  const playerRankUp = points => points < 100 ? false : "Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up.";
+  const playerRankUp = points =>
+    points < 100
+      ? false
+      : 'Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up.';
   // console.log(playerRankUp(144));
 }
-{ /** 8 kyu  Finish Guess the Number Game   
+{
+  /** 8 kyu  Finish Guess the Number Game   
   Imagine you are creating a game where the user has to guess the correct number. But there is a limit of how many guesses the user can do.
 If the user tries to guess more than the limit, the function should throw an error.
 If the user guess is right it should return true.
@@ -562,15 +640,17 @@ Can you finish the game so all the rules are met?    */
       if (this.lives === 0) {
         throw new Error('Expect error already dead');
       }
-      if (n === this.number) { return true; }
-      else {
+      if (n === this.number) {
+        return true;
+      } else {
         this.lives -= 1;
         return false;
       }
     }
   }
 }
-{ /** 7 kyu  Band name generator
+{
+  /** 7 kyu  Band name generator
   My friend wants a new band name for her band. She like bands that use the formula: "The" + a noun with the first letter capitalized, for example:
 "dolphin" -> "The Dolphin"
 However, when a noun STARTS and ENDS with the same letter, she likes to repeat the noun twice and connect them together with the first and last letter, combined into one word (WITHOUT "The" in front), like this:
@@ -580,12 +660,15 @@ Complete the function that takes a noun as a string, and returns her preferred b
   function bandNameGenerator(str) {
     // return str[0] === str[str.length - 1] ? str.replace(str[0], str[0].toUpperCase()) + str.slice(1) : 'The ' + str.replace(str[0], str[0].toUpperCase());
     // return str[0] === str[str.length - 1] ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
-    return str.endsWith(str[0]) ? str[0].toUpperCase() + str.slice(1).repeat(2) : 'The ' + str[0].toUpperCase() + str.slice(1);
+    return str.endsWith(str[0])
+      ? str[0].toUpperCase() + str.slice(1).repeat(2)
+      : 'The ' + str[0].toUpperCase() + str.slice(1);
   }
   // console.log(bandNameGenerator('tart'));
   // console.log(bandNameGenerator('knife'));
 }
-{ /** 7 kyu  How many arguments
+{
+  /** 7 kyu  How many arguments
   Write a function that returns the number of arguments it received.
 args_count() --> 0
 args_count('a') --> 1
@@ -593,10 +676,13 @@ args_count('a', 'b') --> 2   */
 
   // const args_count = (...args) => args.reduce((count, e) => count + 1, 0);
   // const args_count = (...args) => args.length;
-  function args_count() { return arguments.length; }
+  function args_count() {
+    return arguments.length;
+  }
   // console.log(args_count('a', 'b', 'c'));
 }
-{ /** 7 kyu  Valid Spacing 
+{
+  /** 7 kyu  Valid Spacing 
   Your task is to write a function called valid_spacing() or validSpacing() which checks if a string has valid spacing. The function should return either true or false (or the corresponding value in each language).
 For this kata, the definition of valid spacing is one space between words, and no leading or trailing spaces. Words can be any consecutive sequence of non space characters. Below are some examples of what the function should return:
 * 'Hello world'   => true
@@ -618,7 +704,8 @@ Even though there are no spaces, it is still valid because none are needed:
   }
   // console.log(validSpacing(' Hello world'));
 }
-{ /** 8 kyu  Grader
+{
+  /** 8 kyu  Grader
   Create a function that takes a number as an argument and returns a grade based on that number.
 Score	Grade
 Anything greater than 1 or less than 0.6	"F"
@@ -636,10 +723,19 @@ grader(0.6) should be "D"         */
 
   function grader(score) {
     // return score < .6 ? 'F' : score < .7 ? 'D' : score < .8 ? 'C' : score < .9 ? 'B' : score <= 1 ? 'A' : 'F';
-    return score < .6 || score > 1 ? 'F' : score < .7 ? 'D' : score < .8 ? 'C' : score < .9 ? 'B' : 'A';
+    return score < 0.6 || score > 1
+      ? 'F'
+      : score < 0.7
+      ? 'D'
+      : score < 0.8
+      ? 'C'
+      : score < 0.9
+      ? 'B'
+      : 'A';
   }
 }
-{ /** 7 kyu  Arithmetic progression 
+{
+  /** 7 kyu  Arithmetic progression 
   In your class, you have started lessons about arithmetic progression. Since you are also a programmer, you have decided to write a function that will return the first n elements of the sequence with the given common difference d and first element a. Note that the difference may be zero!
 The result should be a string of numbers, separated by comma and space.
 Example
@@ -655,25 +751,27 @@ arithmetic_sequence_elements(1, 2, 5) == "1, 3, 5, 7, 9"      */
   // };
 
   // const arithmeticSequenceElements = (a, d, n) => Array(n).fill(a).map((e, i) => e + i * d).join(', ');
-  const arithmeticSequenceElements = (a, d, n) => Array.from({ length: n }, (e, i) => a + i * d).join(', ');
+  const arithmeticSequenceElements = (a, d, n) =>
+    Array.from({ length: n }, (e, i) => a + i * d).join(', ');
   // console.log(arithmeticSequenceElements(1, 2, 5));
   // console.log(arithmeticSequenceElements(1, -3, 10));
 }
-{ /** 8 kyu  Evil or Odious 
+{
+  /** 8 kyu  Evil or Odious 
   The number n is Evil if it has an even number of 1's in its binary representation.
 The first few Evil numbers: 3, 5, 6, 9, 10, 12, 15, 17, 18, 20
 The number n is Odious if it has an odd number of 1's in its binary representation.
 The first few Odious numbers: 1, 2, 4, 7, 8, 11, 13, 14, 16, 19
-You have to write a function that determine if a number is Evil of Odious, function should return "It's Evil!" in case of evil number and "It's Odious!" in case of odious number.  */;
-
-  // const evil = n => n.toString(2).split('').filter(e => e === '1').length % 2 ? "It's Odious!" : "It's Evil!";
+You have to write a function that determine if a number is Evil of Odious, function should return "It's Evil!" in case of evil number and "It's Odious!" in case of odious number.  */ // const evil = n => n.toString(2).split('').filter(e => e === '1').length % 2 ? "It's Odious!" : "It's Evil!";
   // const evil = n => n.toString(2).split('1').length % 2 ? "It's Evil!" : "It's Odious!";
   // const evil = n => n.toString(2).match(/1/g).length % 2 ? "It's Odious!" : "It's Evil!";
-  const evil = n => n.toString(2).replace(/0/g, '').length % 2 ? "It's Odious!" : "It's Evil!";
+  const evil = n =>
+    n.toString(2).replace(/0/g, '').length % 2 ? "It's Odious!" : "It's Evil!";
 
   // console.log(evil(33));
 }
-{ /**7 kyu  Find min and max 
+{
+  /**7 kyu  Find min and max 
   Implement a function that returns the minimal and the maximal value of a list (in this order).     */
 
   // const getMinMax = arr => {
@@ -683,7 +781,8 @@ You have to write a function that determine if a number is Evil of Odious, funct
   const getMinMax = arr => [Math.min(...arr), Math.max(...arr)];
   // console.log(getMinMax([2, 1]));
 }
-{ /** 7 kyu  Find the lucky numbers 
+{
+  /** 7 kyu  Find the lucky numbers 
   Write a function filterLucky/filter_lucky() that accepts a list of integers and filters the list to only include the elements that contain the digit 7.
 For example,
 ghci> filterLucky [1,2,3,4,5,6,7,68,69,70,15,17]
@@ -691,10 +790,12 @@ ghci> filterLucky [1,2,3,4,5,6,7,68,69,70,15,17]
 Don't worry about bad input, you will always receive a finite list of integers.  */
 
   // const filterLucky = x => [...x].filter(e => /7/.test(e));
-  const filterLucky = x => [...x].filter(e => [...e + ''].some(el => el === '7'));
+  const filterLucky = x =>
+    [...x].filter(e => [...(e + '')].some(el => el === '7'));
   // console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]));
 }
-{ /** 7 kyu
+{
+  /** 7 kyu
   All Star Code Challenge #22 
   Create a function that takes an integer argument of seconds and converts the value into a string describing how many hours and minutes comprise that many seconds.
 Any remaining seconds left over are ignored.
@@ -707,10 +808,14 @@ For example:
 323500 --> "89 hour(s) and 51 minute(s)"  */
 
   // const toTime = seconds => `${Math.trunc(seconds / 3600)} hour(s) and ${Math.trunc(seconds % 3600 / 60)} minute(s)`;
-  const toTime = seconds => `${seconds / 3600 ^ 0} hour(s) and ${seconds % 3600 / 60 ^ 0} minute(s)`;
+  const toTime = seconds =>
+    `${(seconds / 3600) ^ 0} hour(s) and ${
+      ((seconds % 3600) / 60) ^ 0
+    } minute(s)`;
   // console.log(toTime(3700));
 }
-{ /** 8 kyu  Find the Integral 
+{
+  /** 8 kyu  Find the Integral 
   Create a function that finds the integral of the expression passed.
 In order to find the integral all you need to do is add one to the exponent (the second argument), and divide the coefficient (the first argument) by that new number.
 For example for 3x^2, the integral would be 1x^3: we added 1 to the exponent, and divided the coefficient by that new number).
@@ -727,10 +832,12 @@ Examples
   // const integrate = (coefficient, exponent) => [coefficient / (exponent += 1), 'x^', exponent].join('');
   // const integrate = (coefficient, exponent) => `${coefficient / (exponent += 1)}x^${exponent}`;
   // const integrate = (coefficient, exponent) => coefficient / (exponent += 1) + 'x^' + exponent;
-  const integrate = (coefficient, exponent) => coefficient / ++exponent + 'x^' + exponent;
+  const integrate = (coefficient, exponent) =>
+    coefficient / ++exponent + 'x^' + exponent;
   // console.log(integrate(12, 5));
 }
-{/** 8 kyuUEFA EURO 2016
+{
+  /** 8 kyuUEFA EURO 2016
   Finish the uefaEuro2016() function so it return string just like in the examples below:
 uefaEuro2016(['Germany', 'Ukraine'],[2, 0]) // "At match Germany - Ukraine, Germany won!"
 uefaEuro2016(['Belgium', 'Italy'],[0, 2]) // "At match Belgium - Italy, Italy won!"
@@ -742,12 +849,16 @@ uefaEuro2016(['Portugal', 'Iceland'],[1, 1]) // "At match Portugal - Iceland, te
   // const uefaEuro2016 = (teams, scores) => `At match ${teams.join(' - ')}, ` + (scores[0] === scores[1] ? 'teams played draw.'
   //   : `${teams[scores.indexOf(Math.max(...scores))]} won!`);
 
-  const uefaEuro2016 = (teams, scores) => `At match ${teams.join(' - ')}, ` + (scores[0] === scores[1] ? 'teams played draw.'
-    : `${teams[scores[0] > scores[1] ? 0 : 1]} won!`);
+  const uefaEuro2016 = (teams, scores) =>
+    `At match ${teams.join(' - ')}, ` +
+    (scores[0] === scores[1]
+      ? 'teams played draw.'
+      : `${teams[scores[0] > scores[1] ? 0 : 1]} won!`);
 
   // console.log(uefaEuro2016(['Germany', 'Ukraine'], [2, 0]));
 }
-{ /** 8 kyu  Calculate Price Excluding VAT 
+{
+  /** 8 kyu  Calculate Price Excluding VAT 
   Write a function that calculates the original product price, without VAT.
 Example
 If a product price is 200.00 and VAT is 15%, then the final product price (with VAT) is: 200.00 + 15% = 230.00
@@ -772,7 +883,7 @@ Examples
 
   function checkThreeAndTwo(array) {
     if (new Set(array).size === 2) {
-      const res = array.reduce((res, e) => e === array[0] ? res + 1 : res, 0);
+      const res = array.reduce((res, e) => (e === array[0] ? res + 1 : res), 0);
       return res === 2 || res === 3;
     }
     return false;
@@ -794,7 +905,7 @@ greet("Niks") === "hello Niks!";
 greet("") === null; // Return null if input is empty string
 greet(null) === null; // Return null if input is null           */
 
-const greet = name => name ? `hello ${name}!` : null;
+const greet = name => (name ? `hello ${name}!` : null);
 // console.log(greet(""));
 
 /*8 kyu  Playing with cubes II
@@ -825,7 +936,11 @@ class Cube {
   // const longestWord = stringOfWords => stringOfWords.split(' ').reverse()[stringOfWords.split(' ').reverse().map((e, i) => [e.length, i]).sort((a, b) => b[0] - a[0])[0][1]];
   // const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).slice(-1)[0];
   // const longestWord = stringOfWords => stringOfWords.split(' ').sort((a, b) => a.length - b.length).pop();
-  const longestWord = stringOfWords => stringOfWords.split(' ').sort((b, a) => b.length - a.length).pop();
+  const longestWord = stringOfWords =>
+    stringOfWords
+      .split(' ')
+      .sort((b, a) => b.length - a.length)
+      .pop();
 
   // console.log(longestWord('red blue grey'));
   // console.log(longestWord('red white blue'));
@@ -841,7 +956,8 @@ class Cube {
 
   // const stringMerge = (string1, string2, letter) => string1.split(letter)[0] + string2.slice(string2.indexOf(letter));
   // const stringMerge = (str1, str2, letter) => str1.split(letter)[0] + str2.substr(str2.indexOf(letter));
-  const stringMerge = (str1, str2, letter) => (str1.split(letter)[0] + letter + str2.split(letter).slice(1).join(letter));
+  const stringMerge = (str1, str2, letter) =>
+    str1.split(letter)[0] + letter + str2.split(letter).slice(1).join(letter);
   // const stringMerge = (str1, str2, letter) => str1.match(`[^${letter}]*`) + str2.match(`${letter}.*`);
   // console.log(stringMerge("hello", "world", "l"));
 
@@ -850,7 +966,13 @@ class Cube {
   Each number corresponds to their alphabetical order letter (e.g. 1 = A. 2 = B, etc). Write a function where you will win the game if your numbers can spell "BINGO". They do not need to be in the right order in the input array. Otherwise you will lose. Your outputs should be "WIN" or "LOSE" respectively.*/
 
   // const bingo = a => 'BINGO'.split('').map(e => a.map(e => String.fromCharCode(e + 64)).join('').includes(e)).every(e => e) ? 'WIN' : 'LOSE';
-  const bingo = a => 'BINGO'.split('').map(e => a.includes(e.charCodeAt() - 64)).every(e => e) ? 'WIN' : 'LOSE';
+  const bingo = a =>
+    'BINGO'
+      .split('')
+      .map(e => a.includes(e.charCodeAt() - 64))
+      .every(e => e)
+      ? 'WIN'
+      : 'LOSE';
 
   // console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]));
   // console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
@@ -860,7 +982,8 @@ class Cube {
    * Create a function that returns the average of an array of numbers ("scores"), rounded to the nearest whole number. You are not allowed to use any loops (including for, for/in, while, and do/while loops).
   The array will never be empty.            */
 
-  const average = scores => Math.round(scores.reduce((res, e) => res + e, 0) / scores.length);
+  const average = scores =>
+    Math.round(scores.reduce((res, e) => res + e, 0) / scores.length);
   // console.log(average([49, 3, 5, 300, 7]));
 }
 {
@@ -877,7 +1000,33 @@ class Cube {
 
   function toLeetSpeak(str) {
     const letters = {
-      A: '@', B: '8', C: '(', D: 'D', E: '3', F: 'F', G: '6', H: '#', I: '!', J: 'J', K: 'K', L: '1', M: 'M', N: 'N', O: '0', P: 'P', Q: 'Q', R: 'R', S: '$', T: '7', U: 'U', V: 'V', W: 'W', X: 'X', Y: 'Y', Z: '2', ' ': ' '
+      A: '@',
+      B: '8',
+      C: '(',
+      D: 'D',
+      E: '3',
+      F: 'F',
+      G: '6',
+      H: '#',
+      I: '!',
+      J: 'J',
+      K: 'K',
+      L: '1',
+      M: 'M',
+      N: 'N',
+      O: '0',
+      P: 'P',
+      Q: 'Q',
+      R: 'R',
+      S: '$',
+      T: '7',
+      U: 'U',
+      V: 'V',
+      W: 'W',
+      X: 'X',
+      Y: 'Y',
+      Z: '2',
+      ' ': ' ',
     };
     // return [...str].map(e => letters[e]).join('');
 
@@ -904,8 +1053,11 @@ class Cube {
 
   function crap(x, bags, cap) {
     if (x.flat().includes('D')) return 'Dog!!';
-    return x.flat().reduce((res, e) =>
-      e === '@' ? res - 1 : res, bags * cap) < 0 ? 'Cr@p' : 'Clean';
+    return x
+      .flat()
+      .reduce((res, e) => (e === '@' ? res - 1 : res), bags * cap) < 0
+      ? 'Cr@p'
+      : 'Clean';
   }
   // console.log(crap([['_', '_', '_', '_'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 1, 1));
   // console.log(crap([['_', '_', '_', 'D'], ['_', '_', '_', '@'], ['_', '_', '@', '_']], 2, 2));
@@ -920,7 +1072,9 @@ class Cube {
   "!!???!????", "??!!?!!!!!!!"  -->  "Balance"      */
 
   function balance(left, right) {
-    const diff = [...left].reduce((res, e) => res + (e === '!' ? 2 : 3), 0) - [...right].reduce((res, e) => res + (e === '!' ? 2 : 3), 0);
+    const diff =
+      [...left].reduce((res, e) => res + (e === '!' ? 2 : 3), 0) -
+      [...right].reduce((res, e) => res + (e === '!' ? 2 : 3), 0);
     return diff > 0 ? 'Left' : diff < 0 ? 'Right' : 'Balance';
   }
   // console.log(balance("!!???!????", "??!!?!!!!!!!"));
@@ -969,8 +1123,17 @@ class Cube {
   //   return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e) => 0 + [...digits].filter(el => +el === e).length);
   // };
 
-  const paintLetterboxes = (start, end) => Array.from({ length: 10 }, (_, i) => i).map((e) =>
-    0 + [...Array.from({ length: end - start + 1 }, (_, i) => start + i + '').reduce((res, e) => res + e, '')].filter(el => +el === e).length);
+  const paintLetterboxes = (start, end) =>
+    Array.from({ length: 10 }, (_, i) => i).map(
+      e =>
+        0 +
+        [
+          ...Array.from(
+            { length: end - start + 1 },
+            (_, i) => start + i + '',
+          ).reduce((res, e) => res + e, ''),
+        ].filter(el => +el === e).length,
+    );
   // console.log(paintLetterboxes(125, 132));
 
   /** 7 kyu  Looking for a benefactor
@@ -1009,8 +1172,9 @@ class Cube {
   or return `-1` or ERROR or Nothing or None depending on the language. */
 
   function newAvg(arr, newavg) {
-    const asdding = newavg * (arr.length + 1) - arr.reduce((sum, e) => sum + e, 0);
-    if (asdding < 0) throw new Error("Expected New Average is too low");
+    const asdding =
+      newavg * (arr.length + 1) - arr.reduce((sum, e) => sum + e, 0);
+    if (asdding < 0) throw new Error('Expected New Average is too low');
     return Math.ceil(asdding);
   }
   // console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 2));
@@ -1056,7 +1220,8 @@ class Cube {
   // console.log(deepCount([26, [[[[23, 9, 0]], 11, [[19, [[]], [[]]]]]], 4]));
 }
 
-{/** 7 kyu  By 3, or not by 3? That is the question . . .
+{
+  /** 7 kyu  By 3, or not by 3? That is the question . . .
 A trick I learned in elementary school to determine whether or not a number was divisible by three is to add all of the integers in the number together and to divide the resulting sum by three. If there is no remainder from dividing the sum by three, then the original number is divisible by three as well.
 
 Given a series of digits as a string, determine if the number represented by the string is divisible by three.
@@ -1074,11 +1239,13 @@ Try to avoid using the % (modulo) operator. */
   //   const sum = [...str].reduce((sum, e) => sum + +e, 0) / 3;
   //   return sum === parseInt(sum);
   // }
-  const divisibleByThree = str => Number.isInteger([...str].reduce((sum, e) => sum + +e, 0) / 3);
+  const divisibleByThree = str =>
+    Number.isInteger([...str].reduce((sum, e) => sum + +e, 0) / 3);
   // console.log(divisibleByThree('192541'));
 }
 
-{ /** 7 kyu    Flatten 
+{
+  /** 7 kyu    Flatten 
   Write a function that flattens an Array of Array objects into a flat Array. Your function must only do one level of flattening.
 flatten([1,2,3]) // => [1,2,3]
 flatten([[1,2,3],["a","b","c"],[1,2,3]])  // => [1,2,3,"a","b","c",1,2,3]
@@ -1089,7 +1256,8 @@ flatten([[[1,2,3]]]) // => [[1,2,3]]    */
   // TODO: Program me
   // console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]));
 }
-{ /** 7 kyu  Sum of all arguments 
+{
+  /** 7 kyu  Sum of all arguments 
   Write a function that finds the sum of all its arguments.
 eg:
 sum(1, 2, 3) // => 6
@@ -1117,7 +1285,8 @@ sum(1, 2, 3, 4, 5) // => 15*/
   };
   // console.log(sum(5, 7, 9));
 }
-{ /** 7 kyu  Vowel one
+{
+  /** 7 kyu  Vowel one
   Write a function that takes a string and outputs a strings of 1's and 0's where vowels become 1's and non-vowels become 0's.
 All non-vowels including non alpha characters (spaces,commas etc.) should be included.
 Examples:
@@ -1128,11 +1297,12 @@ vowelOne( "aeiou, abc" ) // "1111100100" */
     // return [...s].map(e => 'aeiou'.includes(e.toLowerCase()) ? 1 : 0).join('');
     // return s.replace(/[^aeiou]/gi, '0').replace(/[^0]/g, '1');
     // return s.replace(/[^aeiou]/gi, '0').replace(/[aeiou]/gi, '1');
-    return [...s].map(e => /[aeiou]/i.test(e) ? 1 : 0).join('');
+    return [...s].map(e => (/[aeiou]/i.test(e) ? 1 : 0)).join('');
   }
   // console.log(vowelOne('vowelOne'));
 }
-{/** 7 kyu  Initialize my name
+{
+  /** 7 kyu  Initialize my name
   Some people just have a first name; some people have first and last names and some people have first, middle and last names.
 You task is to initialize the middle names (if there is any).
 Examples
@@ -1147,7 +1317,10 @@ Examples
   // }
 
   function initializeNames(name) {
-    return name.split(' ').map((e, i, ar) => i === 0 || i === ar.length - 1 ? e : e[0] + '.').join(' ');
+    return name
+      .split(' ')
+      .map((e, i, ar) => (i === 0 || i === ar.length - 1 ? e : e[0] + '.'))
+      .join(' ');
   }
 
   // function initializeNames(name) {
@@ -1159,7 +1332,8 @@ Examples
   // }
   // console.log(initializeNames('Alice Betty Catherine Davis'));
 }
-{ /** 8 kyu  Is your period late?
+{
+  /** 8 kyu  Is your period late?
   In this kata, we will make a function to test whether a period is late.
     Our function will take three parameters:
     last - The Date object with the date of the last period
@@ -1172,7 +1346,8 @@ Examples
   }
   // console.log(periodIsLate(new Date(2016, 6, 13), new Date(2016, 7, 16), 28));
 }
-{ /** 7 kyu  Exclamation marks series #13: Count the number of exclamation marks and question marks, return the product
+{
+  /** 7 kyu  Exclamation marks series #13: Count the number of exclamation marks and question marks, return the product
   Count the number of exclamation marks and question marks, return the product.
     Examples
   ""          --->   0
@@ -1188,10 +1363,12 @@ Examples
 
   // const product = string => [...string].filter(e => e === '!').length * [...string].filter(e => e === '?').length;
   // const product = string => (string.split('!').length - 1) * (string.split('?').length - 1);
-  const product = string => (string.match(/!/g) || []).length * (string.match(/\?/g) || []).length;
+  const product = string =>
+    (string.match(/!/g) || []).length * (string.match(/\?/g) || []).length;
   // console.log(product('!ab? ?'));
 }
-{ /** 7 kyu  Is n divisible by (...)?
+{
+  /** 7 kyu  Is n divisible by (...)?
   Create a function that checks if the first argument n is divisible by all other arguments (return true if no other arguments)
     Example:
     (6,1,3)--> true because 6 is divisible by 1 and 3
@@ -1228,12 +1405,15 @@ Code Examples
 
   function prefill(n, v) {
     // if (!Number.isInteger(+n) || isNaN(n) || n === Infinity || n < 0 || typeof n === 'boolean') { throw new TypeError(`${n} is invalid`); }
-    if (+n !== Math.abs(parseInt(n))) { throw new TypeError(`${n} is invalid`); }
+    if (+n !== Math.abs(parseInt(n))) {
+      throw new TypeError(`${n} is invalid`);
+    }
     return Array.from({ length: n }, e => v);
   }
   // console.log(prefill('1', 'er'));
 }
-{/** 8 kyu  NBA full 48 minutes average 
+{
+  /** 8 kyu  NBA full 48 minutes average 
   An NBA game runs 48 minutes (Four 12 minute quarters). Players do not typically play the full game, subbing in and out as necessary. Your job is to extrapolate a player's points per game if they played the full 48 minutes.
 Write a function that takes two arguments, ppg (points per game) and mpg (minutes per game) and returns a straight extrapolation of ppg per 48 minutes rounded to the nearest tenth. Return 0 if 0.
 Examples:
@@ -1248,11 +1428,13 @@ All inputs will be either be an integer or float.  */
   //   return !ppg ? 0 : Math.round(ppg / mpg * 480) / 10;
   // }
 
-  const pointsPer48 = (ppg, mpg) => ppg ? Number((ppg / mpg * 48).toFixed(1)) : 0;
+  const pointsPer48 = (ppg, mpg) =>
+    ppg ? Number(((ppg / mpg) * 48).toFixed(1)) : 0;
   // console.log(pointsPer48(12, 20));
   // console.log(pointsPer48(11.1, 32));
 }
-{/** 7 kyu  Drying Potatoes 
+{
+  /** 7 kyu  Drying Potatoes 
   All we eat is water and dry matter.
 
 Let us begin with an example:
@@ -1282,12 +1464,13 @@ potatoes(99, 100, 98) --> 50  */
   //   return parseInt(w0 * (100 - p0) / (100 - p1));
   // }
 
-  const potatoes = (p0, w0, p1) => w0 * (100 - p0) / (100 - p1) ^ 0;
+  const potatoes = (p0, w0, p1) => ((w0 * (100 - p0)) / (100 - p1)) ^ 0;
 
   // console.log(potatoes(99, 100, 98));
   // console.log(potatoes(82, 127, 80));
 }
-{ /** 7 kyu  Nice Array 
+{
+  /** 7 kyu  Nice Array 
   A Nice array is defined to be an array where for every value n in the array, there is also an element n - 1 or n + 1 in the array.
 examples:
 [2, 10, 9, 3] is a nice array because
@@ -1306,12 +1489,16 @@ Write a function named isNice/IsNice that returns true if its array argument is 
   // const isNice = arr => arr.length < 2 ? false : arr.map((e, i) => arr.find(el => Math.abs(e - el) === 1)).every(e => e !== undefined);
   // const isNice = arr => arr.length ? arr.map((e, i) => arr.find(el => Math.abs(e - el) === 1)).every(e => e !== undefined) : false;
   // const isNice = arr => arr.length ? arr.map(e => arr.includes(e + 1) || arr.includes(e - 1)).every(e => e) : false;
-  const isNice = arr => arr.length ? arr.every(e => arr.includes(e + 1) || arr.includes(e - 1)) : false;
+  const isNice = arr =>
+    arr.length
+      ? arr.every(e => arr.includes(e + 1) || arr.includes(e - 1))
+      : false;
 
   // console.log(isNice([2, 10, 9, 3]));
   // console.log(isNice([]));
 }
-{ /** 7 kyu  Split The Bill
+{
+  /** 7 kyu  Split The Bill
   You're in a restaurant with your friends and it's time to go, but there's still one big problem...the bill. Who will pay what? Lucky for you, you've got your computer handy! One simple function and the bill is paid——fairly, too!
 The function should take one parameter: an object/dict with two or more name-value pairs that represent the members of the group and the amount spent by each.
 Your function should return an object/dict with the same names, showing how much money the members should pay or receive.
@@ -1347,11 +1534,16 @@ splitTheBill(group) // returns {A: 5, B: 0, C: -5} */
   const splitTheBill = x => {
     const entries = Object.entries(x);
     const sumDiv = entries.reduce((sum, [k, v]) => sum + v, 0) / entries.length;
-    return entries.reduce((obj, [key, value]) => (obj = (obj[key] = +(value - sumDiv).toFixed(2), obj)), {});
+    return entries.reduce(
+      (obj, [key, value]) =>
+        (obj = ((obj[key] = +(value - sumDiv).toFixed(2)), obj)),
+      {},
+    );
   };
   // console.log(splitTheBill({ A: 20, B: 14, C: 10 }));
 }
-{ /** 7 kyu  Sum a list but ignore any duplicates
+{
+  /** 7 kyu  Sum a list but ignore any duplicates
   Please write a function that sums a list, but ignores any duplicated items in the list.
 For instance, for the list [3, 4, 3, 6] the function should return 10,
 and for the list [1, 10, 3, 10, 10] the function should return 4.          */
@@ -1362,13 +1554,16 @@ and for the list [1, 10, 3, 10, 10] the function should return 4.          */
     const arr = [...numList];
     const set = [...new Set(arr)];
     set.map(e => arr.splice(arr.indexOf(e), 1));
-    arr.map(e => { if (set.indexOf(e) >= 0) set.splice(set.indexOf(e), 1); });
+    arr.map(e => {
+      if (set.indexOf(e) >= 0) set.splice(set.indexOf(e), 1);
+    });
     return set.reduce((sum, e) => sum + e, 0);
   };
   // console.log(sumNoDuplicates([3, 4, 4, 6, 6, 3, 2, 5]));
 }
 
-{ /** 5 kyu  Math Issues
+{
+  /** 5 kyu  Math Issues
   Oh no, our Math object was "accidently" reset. Can you re-implement some of those functions? We can assure, that only non-negative numbers are passed as arguments. So you don't have to consider things like undefined, null, NaN, negative numbers, strings and so on.
 Here is a list of functions, we need:
 Math.round()
@@ -1376,7 +1571,7 @@ Math.ceil()
 Math.floor()     */
 
   Math.round = function (number) {
-    return number % 1 < .5 ? number ^ 0 : (number ^ 0) + 1;
+    return number % 1 < 0.5 ? number ^ 0 : (number ^ 0) + 1;
   };
 
   Math.ceil = function (number) {
@@ -1391,7 +1586,8 @@ Math.floor()     */
   // console.log(Math.ceil(7.8));
   // console.log(Math.floor(6.8));
 }
-{ /** 7 kyu  The Office II - Boredom Score
+{
+  /** 7 kyu  The Office II - Boredom Score
   Every now and then people in the office moves teams or departments. Depending what people are doing with their time they can become more or less boring. Time to assess the current team.
 
 You will be provided with an object(staff) containing the staff names as keys, and the department they work in as values.
@@ -1430,8 +1626,15 @@ The Office I - Outed   */
     'pissing about': 25,
   };
 
-  const boredom = (staff, scoreRes = Object.keys(staff).reduce((sum, e) => sum + score[staff[e]], 0)) =>
-    scoreRes <= 80 ? 'kill me now' : scoreRes >= 100 ? 'party time!!' : 'i can handle this';
+  const boredom = (
+    staff,
+    scoreRes = Object.keys(staff).reduce((sum, e) => sum + score[staff[e]], 0),
+  ) =>
+    scoreRes <= 80
+      ? 'kill me now'
+      : scoreRes >= 100
+      ? 'party time!!'
+      : 'i can handle this';
   // console.log(boredom({
   // tim: 'change', jim: 'accounts',
   // randy: 'canteen', sandy: 'change', andy: 'change', katie: 'IS',
@@ -1447,7 +1650,8 @@ The Office I - Outed   */
   //   john: 'retail', mr: 'pissing about'
   // }));
 }
-{ /** 7 kyu  Drone Fly-By 
+{
+  /** 7 kyu  Drone Fly-By 
   The other day I saw an amazing video where a guy hacked some wifi controlled lightbulbs by flying a drone past them. Brilliant.
 
 In this kata we will recreate that stunt... sort of.
@@ -1465,12 +1669,14 @@ Return the resulting lamps string. See example tests for more clarity.  */
 
   // const flyBy = (lamps, drone) => lamps.replace(/x/g, ((_, i) => i < drone.length ? 'o' : 'x'));
 
-  const flyBy = (lamps, drone) => ('o'.repeat(drone.length) + lamps).slice(0, lamps.length);
+  const flyBy = (lamps, drone) =>
+    ('o'.repeat(drone.length) + lamps).slice(0, lamps.length);
 
   // console.log(flyBy('xxxxxx', '====T'));
   // console.log(flyBy('xxx', 'T'));
 }
-{/** 7 kyu  Nth Root of a Number
+{
+  /** 7 kyu  Nth Root of a Number
   Given two numbers x and n, calculate the (positive) nth root of x; this means that being r = result, r^n = x
 Examples
 x = 4     n = 2  -->  2    # the square root of 4 is 2     2^2 = 4
@@ -1485,7 +1691,8 @@ Notes:
   const root = (x, n) => x ** (1 / n);
   // console.log(root(6.25, 2));
 }
-{ /** 7 kyu  makeBackronym  
+{
+  /** 7 kyu  makeBackronym  
   back·ro·nym
 An acronym deliberately formed from a phrase whose initial letters spell out a particular word or words, either to create a memorable name or as a fanciful explanation of a word's origin.
 "Biodiversity Serving Our Nation", or BISON
@@ -1497,7 +1704,7 @@ Examples
 "dgm" ==> "disturbing gregarious mustache"
 "lkj" ==> "literal klingon joke"    */
 
-  const dict = { D: 'disturbing', G: 'gregarious', M: 'mustache', A: "..." };
+  const dict = { D: 'disturbing', G: 'gregarious', M: 'mustache', A: '...' };
 
   const makeBackronym = function (string) {
     return [...string].map(e => dict[e.toUpperCase()]).join(' ');
@@ -1511,12 +1718,14 @@ Examples
   // const calculate = str => eval(str.split('plus').join('+').split('minus').join('-')).toString();
   // const calculate = str => str.split('plus').join(' ').split('minus').join(' -').split(' ').reduce((sum, e) => sum + +e, 0) + '';
   // const calculate = str => str.replaceAll('plus', ' ').replaceAll('minus', ' -').split(' ').reduce((sum, e) => sum + +e, 0) + '';
-  const calculate = str => eval(str.replace(/plus/g, '+').replace(/minus/g, ' -')) + '';
+  const calculate = str =>
+    eval(str.replace(/plus/g, '+').replace(/minus/g, ' -')) + '';
   // console.log(calculate("1plus2plus3plus4"));
   // console.log(calculate("1plus2plus3minus4"));
   // console.log(calculate("659minus511minus259"));
 }
-{ /** 7 kyu  All Star Code Challenge #3 
+{
+  /** 7 kyu  All Star Code Challenge #3 
   Create a function that takes a string argument and returns that same string with all vowels removed (vowels are "a", "e", "i", "o", "u").
 Example (Input --> Output)
 "drake" --> "drk"
@@ -1527,7 +1736,8 @@ remove_vowels("aeiou") // => "" */
   const removeVowels = str => str.replace(/[aeiou]/g, '');
   // console.log(removeVowels("aeifdghou"));
 }
-{ /** 7 kyu  Dictionary from two lists 
+{
+  /** 7 kyu  Dictionary from two lists 
   There are two lists, possibly of different lengths. The first one consists of keys, the second one consists of values. Write a function createDict(keys, values) that returns a dictionary created from keys and values. If there are not enough values, the rest of keys should have a None (JS null)value. If there not enough keys, just ignore the rest of values.
 Example 1:
 keys = ['a', 'b', 'c', 'd']
@@ -1556,10 +1766,12 @@ createDict(keys, values) // returns {'a': 1, 'b': 2, 'c': 3}  */
   //   return obj;
   // }
 
-  const createDict = (keys, values) => keys.reduce((obj, key, i) => (obj[key] = values[i] ?? null, obj), {});
+  const createDict = (keys, values) =>
+    keys.reduce((obj, key, i) => ((obj[key] = values[i] ?? null), obj), {});
   // console.log(createDict(['a', 'b', 'c', 'd'], [1, 2, 3]));
 }
-{ /** 7 kyu  Find Duplicates
+{
+  /** 7 kyu  Find Duplicates
   Given an array, find the duplicates in that array, and return a new array of those duplicates. The elements of the returned array should appear in the order when they first appeared as duplicates.
 Note: numbers and their corresponding string representations should not be treated as duplicates (i.e., "1" != 1).
 Examples
@@ -1585,23 +1797,27 @@ Examples
   //   return [...new Set(arr.filter((e, i) => i !== arr.indexOf(e)))];
   // };
 
-  const duplicates = arr => [...new Set(arr.filter((e, i) => i !== arr.indexOf(e)))];
+  const duplicates = arr => [
+    ...new Set(arr.filter((e, i) => i !== arr.indexOf(e))),
+  ];
 
   // console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, 3, "5"]));
   // console.log(duplicates([-10, -5, -1, -5, -10, -10, "-1", -1, 1, -10, "-4"]));
 }
-{ /** 7 kyu  Count consonants
+{
+  /** 7 kyu  Count consonants
   Complete the function that takes a string of English-language text and returns the number of consonants in the string.
     Consonants are all letters used to write English excluding the vowels a, e, i, o, u. */
   // const consonantCount = str => [...str].map(e => /[A-z]/g.test(e) ? e : e = '').map(e => /[aeiou]/gi.test(e) ? e = '' : e).map(e => e === ' ' || e === '_' || e === '^' ? '' : e).join('').length;
   // const consonantCount = str => str.replace(/\W|\d|[_aeiou]/gi, "").length;
   // const consonantCount = str => str.replace(/[^A-z]|[_aeiou^]/gi, "").length;
-  const consonantCount = str => str.replace(/[^A-Za-z]|[aeiou]/gi, "").length;
+  const consonantCount = str => str.replace(/[^A-Za-z]|[aeiou]/gi, '').length;
   // console.log(consonantCount('bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'));
   // console.log(consonantCount('aAa'));
   // console.log(consonantCount('aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#'));
 }
-{ /** 7 kyu  L2: Triple X
+{
+  /** 7 kyu  L2: Triple X
   Given a string, return true if the first instance of "x" in the string is immediately followed by the string "xx".
     "abraxxxas" → true
   "xoxotrololololololoxxx" → false
@@ -1612,14 +1828,16 @@ Examples
   if there are no "x"'s then return false                 */
 
   // const tripleX = str => /xxx/.test(str) && str.indexOf('x') === str.indexOf('xxx');
-  const tripleX = str => str.indexOf('x') >= 0 && str.indexOf('x') === str.indexOf('xxx');
+  const tripleX = str =>
+    str.indexOf('x') >= 0 && str.indexOf('x') === str.indexOf('xxx');
   // const tripleX = str => /^[^x]*xxx/.test(str);
 
   // console.log(tripleX('xoxotrololololololoxxx'));
   // console.log(tripleX('kittykittywarmkitty'));
   // console.log(tripleX('kitxxxtyXXsoft'));
 }
-{ /** 8 kyu  Exclusive "or" (xor) Logical Operator 
+{
+  /** 8 kyu  Exclusive "or" (xor) Logical Operator 
   In some scripting languages like PHP, there exists a logical operator (e.g. &&, ||, and, or, etc.) called the "Exclusive Or" (hence the name of this Kata). The exclusive or evaluates two booleans. It then returns true if exactly one of the two expressions are true, false otherwise. For example:
 false xor false == false // since both are false
 true xor false == true // exactly one of the two expressions are true
@@ -1661,10 +1879,12 @@ First and last bits as set bits.    */
   //   return n % 2 ? [...arr, n] : arr;
   // }
 
-  const extraPerfect = n => Array.from({ length: n }, (e, i) => i + 1).filter(e => e % 2);
+  const extraPerfect = n =>
+    Array.from({ length: n }, (e, i) => i + 1).filter(e => e % 2);
   // console.log(extraPerfect(29));
 }
-{ /** 7 kyu  True for Just One?
+{
+  /** 7 kyu  True for Just One?
 Create a function called one that accepts two params:
 a sequence
 a function
@@ -1680,7 +1900,8 @@ one([1, 3, 5, 6, 5, 1, 3], bigger_than_ten) -> false  */
   }
   // console.log(one([1, 3, 5, 6, 99, 1, 33], bigger_than_ten));
 }
-{ /** 8 kyu  Find the Slope 
+{
+  /** 8 kyu  Find the Slope 
   Given an array of 4 integers
 [a,b,c,d] representing two points (a, b) and (c, d), return a string representation of the slope of the line joining these two points.
 
@@ -1693,10 +1914,12 @@ For an undefined slope (division by 0), return undefined . Note that the "undefi
 Assume that [a,b,c,d] and the answer are all integers (no floating numbers!). Slope: https://en.wikipedia.org/wiki/Slope*/
 
   // const slope = points => points[2] - points[0] ? (points[3] - points[1]) / (points[2] - points[0]) + '' : 'undefined';
-  const slope = ([x1, y1, x2, y2]) => x2 - x1 ? (y2 - y1) / (x2 - x1) + '' : 'undefined';
+  const slope = ([x1, y1, x2, y2]) =>
+    x2 - x1 ? (y2 - y1) / (x2 - x1) + '' : 'undefined';
   // console.log(slope([15, 45, 12, 60]));
 }
-{ /** 7 kyu  Even or Odd - Which is Greater?
+{
+  /** 7 kyu  Even or Odd - Which is Greater?
   Given a string of digits confirm whether the sum of all the individual even digits are greater than the sum of all the indiviudal odd digits. Always a string of numbers will be given.
 If the sum of even numbers is greater than the odd numbers return: "Even is greater than Odd"
 If the sum of odd numbers is greater than the sum of even numbers return: "Odd is greater than Even"
@@ -1712,13 +1935,21 @@ If the total of both even and odd numbers are identical return: "Even and Odd ar
   //   return diff > 0 ? 'Odd is greater than Even' : diff ? 'Even is greater than Odd' : 'Even and Odd are the same';
   // }
 
-  const evenOrOdd = str => (e => e > 0 ? 'Odd is greater than Even' : e ? 'Even is greater than Odd' : 'Even and Odd are the same')
-    ([...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0));
+  const evenOrOdd = str =>
+    (e =>
+      e > 0
+        ? 'Odd is greater than Even'
+        : e
+        ? 'Even is greater than Odd'
+        : 'Even and Odd are the same')(
+      [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0),
+    );
 
   // console.log(evenOrOdd('12123344'));
 }
 
-{ /** 7 kyu  Is every value in the array an array? 
+{
+  /** 7 kyu  Is every value in the array an array? 
   Is every value in the array an array?
 This should only test the second array dimension of the array. The values of the nested arrays don't have to be arrays.
 Examples:
@@ -1732,7 +1963,8 @@ Examples:
   const arrCheck = value => value.every(e => e instanceof Array);
   // console.log(arrCheck([[5], [2]]));
 }
-{ /** 7 kyu  Interview Question (easy)
+{
+  /** 7 kyu  Interview Question (easy)
   You receive the name of a city as a string, and you need to return a string that shows how many times each letter shows up in the string by using asterisks (*).
 For example:
 "Chicago"  -->  "c:**,h:*,i:*,a:*,g:*,o:*"
@@ -1747,13 +1979,17 @@ More examples:
   //   const set = new Set(city.toLowerCase().replaceAll(' ', ''));
   //   return [...set].map(e => [e, [...city.toLowerCase()].filter(el => el === e)]).map(e => e[0] + ':' + e[1].join('').replace(/./g, '*')).join(',');
   // };
-  const getStrings = city => [...new Set(city.toLowerCase().replaceAll(' ', ''))].map(e => [e, [...city.toLowerCase()]
-    .filter(el => el === e)]).map(e => e[0] + ':' + e[1].join('').replace(/./g, '*')).join(',');
+  const getStrings = city =>
+    [...new Set(city.toLowerCase().replaceAll(' ', ''))]
+      .map(e => [e, [...city.toLowerCase()].filter(el => el === e)])
+      .map(e => e[0] + ':' + e[1].join('').replace(/./g, '*'))
+      .join(',');
 
   // console.log(getStrings("Chicago"));
   // console.log(getStrings("Dar es Salaam"));
 }
-{ /** 7 kyu  Area of a Circle
+{
+  /** 7 kyu  Area of a Circle
   Complete the function which will return the area of a circle with the given radius.
 Returned value is expected to be accurate up to tolerance of 0.01.
 If the radius is not positive, throw Error.
@@ -1774,7 +2010,8 @@ circleArea(-1);          // throws Error         */
   }
   // console.log(circleArea(-3));
 }
-{ /** 7 kyu  Especially Joyful Numbers 
+{
+  /** 7 kyu  Especially Joyful Numbers 
   Positive integers that are divisible exactly by the sum of their digits are called Harshad numbers. The first few Harshad numbers are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 18, ...
 We are interested in Harshad numbers where the product of its digit sum s and s with the digits reversed, gives the original number n. For example consider number 1729:
 its digit sum, s = 1 + 7 + 2 + 9 = 19
@@ -1783,12 +2020,13 @@ and 19 * 91 = 1729 --> the number that we started with.
 Complete the function which tests if a positive integer n is Harshad number, and returns True if the product of its digit sum and its digit sum reversed equals n; otherwise return False.*/
 
   const numberJoy = n => {
-    const s = [..."" + n].reduce((s, e) => s + +e, 0);
-    return +[...s + ''].reverse().join('') * s === n;
+    const s = [...('' + n)].reduce((s, e) => s + +e, 0);
+    return +[...(s + '')].reverse().join('') * s === n;
   };
   // console.log(numberJoy(14587));
 }
-{ /** 6 kyu  Street Fighter 2 - Character Selection 
+{
+  /** 6 kyu  Street Fighter 2 - Character Selection 
   Input
 the list of game characters in a 2x6 grid;
 the initial position of the selection cursor (top-left is (0,0));
@@ -1822,8 +2060,8 @@ Result:
 ['E.Honda', 'Chun Li', 'Ken', 'M.Bison', 'Sagat', 'Dhalsim', 'Sagat']    */
 
   const fighters = [
-    ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
-    ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+    ['Ryu', 'E.Honda', 'Blanka', 'Guile', 'Balrog', 'Vega'],
+    ['Ken', 'Chun Li', 'Zangief', 'Dhalsim', 'Sagat', 'M.Bison'],
   ];
   const moves = ['up', 'left', 'down', 'right', 'up', 'left', 'down', 'right'];
 
@@ -1899,16 +2137,23 @@ Result:
     let [v, h] = position;
     return moves.map(move => {
       switch (move) {
-        case 'up': return fighters[v = 0][h];
-        case 'down': return fighters[v = 1][h];
-        case 'right': return fighters[v][h = (h + 1) % fighters[0].length];
-        case 'left': return fighters[v][h = (h + fighters[0].length - 1) % fighters[0].length];
+        case 'up':
+          return fighters[(v = 0)][h];
+        case 'down':
+          return fighters[(v = 1)][h];
+        case 'right':
+          return fighters[v][(h = (h + 1) % fighters[0].length)];
+        case 'left':
+          return fighters[v][
+            (h = (h + fighters[0].length - 1) % fighters[0].length)
+          ];
       }
     });
   }
   // console.log(streetFighterSelection(fighters, [0, 0], moves));
 }
-{ /** 7 kyu  Stanton measure
+{
+  /** 7 kyu  Stanton measure
   The Stanton measure of an array is computed as follows: count the number of occurences for value 1 in the array. Let this count be n. The Stanton measure is the number of times that n appears in the array.
 Write a function which takes an integer array and returns its Stanton measure.
 Examples
@@ -1926,10 +2171,12 @@ The Stanton measure of [1, 4, 1, 2, 11, 2, 3, 1] is 1, because 1 occurs 3 times 
   // };
 
   // const stantonMeasure = a => (res => res(res(1)))(q => a.reduce((quantity, e) => e === q ? quantity + 1 : quantity, 0));
-  const stantonMeasure = a => (res => res(res(1)))(q => a.filter(e => e === q).length);
+  const stantonMeasure = a =>
+    (res => res(res(1)))(q => a.filter(e => e === q).length);
   // console.log((stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])));
 }
-{ /** 7 kyu  Find all occurrences of an element in an array 
+{
+  /** 7 kyu  Find all occurrences of an element in an array 
   Given an array (a list in Python) of integers and an integer n, find all occurrences of n in the given array and return another array containing all the index positions of n in the given array.
 If n is not in the given array, return an empty array [].
 Assume that n and all values in the given array will always be integers.
@@ -1944,12 +2191,17 @@ findAll([6, 9, 3, 4, 3, 82, 11], 3) => [2, 4]     */
   //   return arr;
   // };
 
-  const findAll = (array, n) => array.reduce((arr, e, i) => { e === n ? arr.push(i) : arr; return arr; }, []);
+  const findAll = (array, n) =>
+    array.reduce((arr, e, i) => {
+      e === n ? arr.push(i) : arr;
+      return arr;
+    }, []);
 
   // const findAll = (array, n) => array.reduce((arr, e, i) => e === n ? [...arr, i] : arr, []);
   // console.log(findAll([20, 20, 10, 13, 15, 2, 7, 2, 20, 3, 18, 2, 3, 2, 16, 10, 9, 9, 7, 5, 15, 5], 20));
 }
-{ /** 7 kyu  Responsible Drinking 
+{
+  /** 7 kyu  Responsible Drinking 
   Codewars Bar recommends you drink 1 glass of water per standard drink so you're not hungover tomorrow morning.
 Your fellow coders have bought you several drinks tonight in the form of a string. Return a string suggesting how many glasses of water you should drink to not be hungover.
 Examples
@@ -1976,7 +2228,8 @@ To keep the things simple, we'll consider that any "numbered thing" in the strin
   };
   // console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
 }
-{ /** 7 kyu  Plus - minus - plus - plus - ... - Count 
+{
+  /** 7 kyu  Plus - minus - plus - plus - ... - Count 
   Count how often sign changes in array.
 result
 number from 0 to ... . Empty array returns 0
@@ -2011,7 +2264,7 @@ const arr = [1, -3, -4, 0, 5];
   // const catchSignChange = arr => arr.slice(1).filter((e, i) => (arr[i] >= 0 === e < 0)).length;
   const catchSignChange = (arr, count = 0) => {
     for (let i = 0, a = arr.slice(1); i < a.length; i++) {
-      a[i] < 0 === arr[i] >= 0 ? count += 1 : count;
+      a[i] < 0 === arr[i] >= 0 ? (count += 1) : count;
     }
     return count;
   };
@@ -2021,7 +2274,8 @@ const arr = [1, -3, -4, 0, 5];
   const res = catchSignChange(ar);
   // console.log(res);
 }
-{ /** 7 kyu  Help Bob count letters and digits
+{
+  /** 7 kyu  Help Bob count letters and digits
 Bob is a lazy man.
 He needs you to create a method that can determine how many letters (both uppercase and lowercase ASCII letters) and digits are in a given string.
 Example:
@@ -2039,17 +2293,23 @@ Example:
   // console.log(countLettersAndDigits('hel2!lo'));
   // console.log(countLettersAndDigits('n!!_ice!!123'));
 }
-{ /** 7 kyu  Evens times last
+{
+  /** 7 kyu  Evens times last
   Given a sequence of integers, return the sum of all the integers that have an even index (odd index in COBOL), multiplied by the integer at the last index.
 Indices in sequence start from 0.
 If the sequence is empty, you should return 0. */
 
   // const evenLast = numbers => numbers.length ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) * numbers[numbers.length - 1] : 0;
   // const evenLast = numbers => numbers.length ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) * numbers.pop() : 0;
-  const evenLast = numbers => numbers.length ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) * numbers.slice(-1) : 0;
+  const evenLast = numbers =>
+    numbers.length
+      ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) *
+        numbers.slice(-1)
+      : 0;
   // console.log(evenLast([2, 3, 4, 5]));
 }
-{ /** 7 kyu  Find Screen Size 
+{
+  /** 7 kyu  Find Screen Size 
   Cheesy Cheeseman just got a new monitor! He is happy with it, but he just discovered that his old desktop wallpaper no longer fits. He wants to find a new wallpaper, but does not know which size wallpaper he should be looking for, and alas, he just threw out the new monitor's box. Luckily he remembers the width and the aspect ratio of the monitor from when Bob Mortimer sold it to him. Can you help Cheesy out?
 The Challenge
 Given an integer width and a string ratio written as WIDTH:HEIGHT, output the screen dimensions as a string written as WIDTHxHEIGHT.
@@ -2062,27 +2322,65 @@ Note: The calculated height should be represented as an integer. If the height i
   // };
 
   // const findScreenHeight = (width, ratio) => ((w, h) => `${width}x${width / w * h}`)(...ratio.split(':'));
-  const findScreenHeight = (width, ratio) => (([w, h]) => `${width}x${width / w * h}`)(ratio.split(':'));
+  const findScreenHeight = (width, ratio) =>
+    (([w, h]) => `${width}x${(width / w) * h}`)(ratio.split(':'));
 
   // console.log(findScreenHeight(1024, "4:3"));
 }
 
-{ /** 7 kyu  Coding Meetup #12 - Higher-Order Functions Series - Find GitHub admins     */
+{
+  /** 7 kyu  Coding Meetup #12 - Higher-Order Functions Series - Find GitHub admins     */
   var list1 = [
-    { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
-    { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 49, language: 'Ruby', githubAdmin: 'no' },
-    { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' },
-    { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript', githubAdmin: 'no' }
+    {
+      firstName: 'Harry',
+      lastName: 'K.',
+      country: 'Brazil',
+      continent: 'Americas',
+      age: 22,
+      language: 'JavaScript',
+      githubAdmin: 'yes',
+    },
+    {
+      firstName: 'Kseniya',
+      lastName: 'T.',
+      country: 'Belarus',
+      continent: 'Europe',
+      age: 49,
+      language: 'Ruby',
+      githubAdmin: 'no',
+    },
+    {
+      firstName: 'Jing',
+      lastName: 'X.',
+      country: 'China',
+      continent: 'Asia',
+      age: 34,
+      language: 'JavaScript',
+      githubAdmin: 'yes',
+    },
+    {
+      firstName: 'Piotr',
+      lastName: 'B.',
+      country: 'Poland',
+      continent: 'Europe',
+      age: 128,
+      language: 'JavaScript',
+      githubAdmin: 'no',
+    },
   ];
 
   // function findAdmin(list, lang) {
   //   return list.filter(e => e.language === lang && e.githubAdmin === 'yes');
   // }
 
-  const findAdmin = (list, lang) => list.filter(({ language, githubAdmin }) => language === lang && githubAdmin === 'yes');
+  const findAdmin = (list, lang) =>
+    list.filter(
+      ({ language, githubAdmin }) => language === lang && githubAdmin === 'yes',
+    );
   // console.log(findAdmin(list1, 'JavaScript'));
 }
-{ /** 7 kyu  See You Next Happy Year
+{
+  /** 7 kyu  See You Next Happy Year
   You're saying good-bye your best friend , See you next happy year .
 Happy Year is the year with only distinct digits , (e.g) 2018
 Task
@@ -2114,11 +2412,15 @@ As the Next closest year with only distinct digits is 1023 .*/
   // }
 
   // const nextHappyYear = year => new Set([...(++year + '')]).size > 3 ? year : nextHappyYear(+year);
-  const nextHappyYear = year => [...++year + ''].every((e, i, arr) => i === arr.lastIndexOf(e)) ? year : nextHappyYear(year);
+  const nextHappyYear = year =>
+    [...(++year + '')].every((e, i, arr) => i === arr.lastIndexOf(e))
+      ? year
+      : nextHappyYear(year);
 
   // console.log(nextHappyYear(1987));
 }
-{ /** 7 kyu  lucky number  
+{
+  /** 7 kyu  lucky number  
   Write a function to find if a number is lucky or not. If the sum of all digits is 0 or multiple of 9 then the number is lucky.
     1892376 => 1+8+9+2+3+7+6 = 36. 36 is divisible by 9, hence number is lucky.
     Function will return true for lucky numbers and false for others. */
@@ -2127,7 +2429,8 @@ As the Next closest year with only distinct digits is 1023 .*/
   const isLucky = n => n % 9 === 0;
   // console.log(isLucky(1892376));
 }
-{ /** 7 kyu  Heron's formula
+{
+  /** 7 kyu  Heron's formula
   Write function heron which calculates the area of a triangle with sides a, b, and c (x, y, z in COBOL).
     Heron's formula:
   s ∗  (  s  −  a  )  ∗  (  s  −  b  )  ∗  (  s  −  c  )  s∗(s−a)∗(s−b)∗(s−c)   
@@ -2140,20 +2443,24 @@ As the Next closest year with only distinct digits is 1023 .*/
   // }
 
   // const heron = (a, b, c, s = (a + b + c) / 2) => Math.sqrt(s * (s - a) * (s - b) * (s - c));
-  const heron = (a, b, c, s) => (s = (a + b + c) / 2, Math.sqrt(s * ((s - a) * (s - b) * (s - c))));
+  const heron = (a, b, c, s) => (
+    (s = (a + b + c) / 2), Math.sqrt(s * ((s - a) * (s - b) * (s - c)))
+  );
   // console.log(heron(3, 4, 5));
 }
-{ /** 7 kyu  The Office III - Broken Photocopier
+{
+  /** 7 kyu  The Office III - Broken Photocopier
  The bloody photocopier is broken... Just as you were sneaking around the office to print off your favourite binary code!
 Instead of copying the original, it reverses it: '1' becomes '0' and vice versa.
 Given a string of binary, return the version the photocopier gives you as a string.  */
 
   // const broken = x => x.replaceAll('1', '2').replaceAll('0', '1').replaceAll('2', '0');
   // const broken = x => x.replace(/\d/g, e => e === '0' ? '1' : '0');
-  const broken = x => x.replace(/(0)|(1)/g, (_, e) => e ? '1' : '0');
+  const broken = x => x.replace(/(0)|(1)/g, (_, e) => (e ? '1' : '0'));
   // console.log(broken('10000000101101111110011001000'));
 }
-{ /** 7 kyu  Coding Meetup #14 - Higher-Order Functions Series - Order the food
+{
+  /** 7 kyu  Coding Meetup #14 - Higher-Order Functions Series - Order the food
   You will be given an array of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
     Your task is to return an object which includes the count of food options selected by the developers on the meetup sign-up form..
     For example, given the following input array:
@@ -2177,20 +2484,40 @@ Given a string of binary, return the version the photocopier gives you as a stri
 
   var list1 = [
     {
-      firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'C',
-      meal: 'vegetarian'
+      firstName: 'Noah',
+      lastName: 'M.',
+      country: 'Switzerland',
+      continent: 'Europe',
+      age: 19,
+      language: 'C',
+      meal: 'vegetarian',
     },
     {
-      firstName: 'Anna', lastName: 'R.', country: 'Liechtenstein', continent: 'Europe', age: 52, language: 'JavaScript',
-      meal: 'standard'
+      firstName: 'Anna',
+      lastName: 'R.',
+      country: 'Liechtenstein',
+      continent: 'Europe',
+      age: 52,
+      language: 'JavaScript',
+      meal: 'standard',
     },
     {
-      firstName: 'Ramona', lastName: 'R.', country: 'Paraguay', continent: 'Americas', age: 29, language: 'Ruby',
-      meal: 'vegan'
+      firstName: 'Ramona',
+      lastName: 'R.',
+      country: 'Paraguay',
+      continent: 'Americas',
+      age: 29,
+      language: 'Ruby',
+      meal: 'vegan',
     },
     {
-      firstName: 'George', lastName: 'B.', country: 'England', continent: 'Europe', age: 81, language: 'C',
-      meal: 'vegetarian'
+      firstName: 'George',
+      lastName: 'B.',
+      country: 'England',
+      continent: 'Europe',
+      age: 81,
+      language: 'C',
+      meal: 'vegetarian',
     },
   ];
 
@@ -2219,7 +2546,8 @@ Given a string of binary, return the version the photocopier gives you as a stri
 
   // console.log(orderFood(list1));
 }
-{ /** 7 kyu  Tail Swap
+{
+  /** 7 kyu  Tail Swap
   You'll be given a list of two strings, and each will contain exactly one colon (":") in the middle (but not at beginning or end). The length of the strings, before and after the colon, are random.
     Your job is to return a list of two strings (in the same order as the original list), but with the characters after each colon swapped.
     Examples
@@ -2240,7 +2568,8 @@ Given a string of binary, return the version the photocopier gives you as a stri
   }
   // console.log(tailSwap(["abc:123", "cde:456"]));
 }
-{ /** 7 kyu  Javascript filter - 1 
+{
+  /** 7 kyu  Javascript filter - 1 
   While developing a website, you detect that some of the members have troubles logging in. Searching through the code you find that all logins ending with a "_" make problems. So you want to write a function that takes an array of pairs of login-names and e-mails, and outputs an array of all login-name, e-mails-pairs from the login-names that end with "_".
 If you have the input-array:
 [ [ "foo", "foo@foo.com" ], [ "bar_", "bar@bar.com" ] ]
@@ -2257,7 +2586,8 @@ https://developer.mozilla.or     */
 
   // console.log(searchNames([["foo", "foo@foo.com"], ["bar_", "bar@bar.com"]]));
 }
-{ /** 7 kyu  Add property to every object in array 
+{
+  /** 7 kyu  Add property to every object in array 
   Your task is to add a new property usersAnswer to every object in the array questions. The value of usersAnswer should be set to null. The solution should work for array of any length.
 
 For example:
@@ -2286,15 +2616,18 @@ var questions = [{
 }];
 The questions array is already defined for you and is not the same as the one in the example.  */
 
-  var questions = [{
-    question: "What's the currency of the USA?",
-    choices: ["US dollar", "Ruble", "Horses", "Gold"],
-    corAnswer: 0
-  }, {
-    question: "Where was the American Declaration of Independence signed?",
-    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
-    corAnswer: 0
-  }];
+  var questions = [
+    {
+      question: "What's the currency of the USA?",
+      choices: ['US dollar', 'Ruble', 'Horses', 'Gold'],
+      corAnswer: 0,
+    },
+    {
+      question: 'Where was the American Declaration of Independence signed?',
+      choices: ['Philadelphia', 'At the bottom', "Frankie's Pub", 'China'],
+      corAnswer: 0,
+    },
+  ];
 
   // questions.map(e => e['usersAnswer'] = null);
   for (const key in questions) {
@@ -2302,7 +2635,8 @@ The questions array is already defined for you and is not the same as the one in
   }
   // console.log(questions);
 }
-{ /** 7 kyu  How many consecutive numbers are needed?
+{
+  /** 7 kyu  How many consecutive numbers are needed?
   Write a function that takes an array of unique integers and returns the minimum number of integers needed to make the values of the array consecutive from the lowest number to the highest number.
 
 Example
@@ -2316,11 +2650,13 @@ Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
 []  --> 0      */
 
   // const consecutive = array => array.length ? Math.abs(Math.max(...array) - Math.min(...array)) + 1 - array.length : 0;
-  const consecutive = array => Math.abs(Math.max(...array) - Math.min(...array)) + 1 - array.length | 0;
+  const consecutive = array =>
+    (Math.abs(Math.max(...array) - Math.min(...array)) + 1 - array.length) | 0;
 
   // console.log(consecutive([]));
 }
-{/** time out failure */
+{
+  /** time out failure */
   const primes = (a, b) => {
     const primeNums = [];
 
@@ -2329,7 +2665,9 @@ Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
 
       for (let j = 2; j < a; j++) {
         if (j === a) continue;
-        if (a % j === 0) { break; } else {
+        if (a % j === 0) {
+          break;
+        } else {
           resArr.push(a);
         }
       }
@@ -2343,7 +2681,6 @@ Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
     let res = [];
 
     for (let i = 0; i < primeNums.length; i++) {
-
       for (let j = 1; j < primeNums.length; j++) {
         if (primeNums[j] === primeNums[i] + g) {
           res.push(primeNums[i]);
@@ -2355,8 +2692,9 @@ Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
     return res.length > 1 ? res.slice(0, 2) : null;
   }
   // console.log(step(2, 100, 110));
-};
-{ /** 7 kyu  Correct the time-string
+}
+{
+  /** 7 kyu  Correct the time-string
   You have to create a method, that corrects a given time string.
 There was a problem in addition, so many of the time strings are broken.
 Time is formatted using the 24-hour clock, so from 00:00:00 to 23:59:59.
@@ -2399,11 +2737,18 @@ If the input-string is null or empty return exactly this value! (empty string fo
   //   return new Date(0, 0, -1, ...timestring.split(':')).toString().slice(16, 24);
   // }
 
-  const timeCorrect = timestring => !timestring ? timestring : /(\d{2}:){2}\d{2}/.test(timestring)
-    ? new Date(new Date().setHours(...timestring.split(`:`))).toTimeString().slice(0, 8) : null;
+  const timeCorrect = timestring =>
+    !timestring
+      ? timestring
+      : /(\d{2}:){2}\d{2}/.test(timestring)
+      ? new Date(new Date().setHours(...timestring.split(`:`)))
+          .toTimeString()
+          .slice(0, 8)
+      : null;
   // console.log(timeCorrect("52:01:01"));
 }
-{ /** 7 kyu Frequency sequence
+{
+  /** 7 kyu Frequency sequence
   Your task is to return an output string that translates an input string s by replacing each character in s with a number representing the number of times that character occurs in s and separating each number with the sep character(s).
     Example (s, sep --> Output)
     "hello world", "-" --> "1-1-3-3-2-1-1-2-1-3-1"
@@ -2416,7 +2761,8 @@ If the input-string is null or empty return exactly this value! (empty string fo
   }
   // console.log(freqSeq('hello world', '-'));
 }
-{ /** 7 kyu  Number-Star ladder
+{
+  /** 7 kyu  Number-Star ladder
   Using n as a parameter in the function pattern, where n>0, complete the codes to get the pattern (take the help of examples):
     Note: There is no newline in the end (after the pattern ends)
     Examples
@@ -2455,27 +2801,37 @@ If the input-string is null or empty return exactly this value! (empty string fo
   // }
 
   // const pattern = n => Array.from({ length: n }, (e, i) => '*'.repeat(i) + (i + 1)).join('\n1');
-  const pattern = n => n < 2 ? '1' : pattern(n - 1) + '\n1' + Array(n).join('*') + (n);
+  const pattern = n =>
+    n < 2 ? '1' : pattern(n - 1) + '\n1' + Array(n).join('*') + n;
   // console.log(pattern(4));
 }
-{ /** 7 kyu  Double Sort 
+{
+  /** 7 kyu  Double Sort 
   Simple enough this one - you will be given an array. The values in the array will either be numbers or strings, or a mix of both. You will not get an empty array, nor a sparse one.
 Your job is to return a single array that has first the numbers sorted in ascending order, followed by the strings sorted in alphabetic order. The values must maintain their original type.
 Note that numbers written as strings are strings and must be sorted with the other strings.*/
 
-  const dbSort = a => [...a.filter(e => typeof e === 'number').sort((a, b) => a - b), ...a.filter(e => typeof e === 'string').sort()];
+  const dbSort = a => [
+    ...a.filter(e => typeof e === 'number').sort((a, b) => a - b),
+    ...a.filter(e => typeof e === 'string').sort(),
+  ];
   // console.log(dbSort(["Apple", 46, "287", 574, "Peach", "3", "69", 78, "Grape", "423"]));
 }
-{ /** 7 kyu  Move 10 
+{
+  /** 7 kyu  Move 10 
   Move every letter in the provided string forward 10 letters through the alphabet.
 If it goes past 'z', start again at 'a'.
 Input will be a string with length > 0*/
 
   // const moveTen = s => [...s].map(e => String.fromCharCode(e.charCodeAt() > 112 ? (e.charCodeAt() + 10) % 122 + 96 : e.charCodeAt() + 10)).join('');
-  const moveTen = s => s.replace(/[a-z]/g, e => String.fromCharCode(97 + (e.charCodeAt() - 87) % 26));
+  const moveTen = s =>
+    s.replace(/[a-z]/g, e =>
+      String.fromCharCode(97 + ((e.charCodeAt() - 87) % 26)),
+    );
   // console.log(moveTen("exampletesthere"));
 }
-{/** 7 kyu  Dot Calculator 
+{
+  /** 7 kyu  Dot Calculator 
   You have to write a calculator that receives strings for input. The dots will represent the number in the equation. There will be dots on one side, an operator, and dots again after the operator. The dots and the operator will be separated by one space.
 
 Here are the following valid operators :
@@ -2515,12 +2871,16 @@ Examples (Input => Output)
   //   return '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
   // }
   // const dotCalculator = (equation, [a, sign, b] = equation.split(' ')) => '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
-  const dotCalculator = (equation) => '.'.repeat(eval(equation.replace(/\.+/g, e => e.length).replace('//', '/')));
+  const dotCalculator = equation =>
+    '.'.repeat(
+      eval(equation.replace(/\.+/g, e => e.length).replace('//', '/')),
+    );
 
   // console.log(dotCalculator("..... + ..............."));
   // console.log(dotCalculator("..... // .."));
 }
-{ /** 7 kyu  Previous multiple of three
+{
+  /** 7 kyu  Previous multiple of three
   Given a positive integer n: 0 < n < 1e6, remove the last digit until you're left with a number that is a multiple of three.
     Return n if the input is already a multiple of three, and if no such number exists, return null, a similar empty value, or -1.
     Examples
@@ -2538,11 +2898,13 @@ Examples (Input => Output)
   // const prevMultOfThree = n => !(n % 3) ? +n : +n < 9 ? null : prevMultOfThree((n /= 10) ^ 0);
   // const prevMultOfThree = n => n % 3 ? prevMultOfThree(n / 10 ^ 0) : n || null;
   // const prevMultOfThree = n => n % 3 ? prevMultOfThree(n / 10 | 0) : n || null;
-  const prevMultOfThree = n => n % 3 ? prevMultOfThree(Math.trunc(n / 10)) : n || null;
+  const prevMultOfThree = n =>
+    n % 3 ? prevMultOfThree(Math.trunc(n / 10)) : n || null;
 
   // console.log(prevMultOfThree(34));
 }
-{ /** 7 kyu  Who is the killer?
+{
+  /** 7 kyu  Who is the killer?
   Who is the killer?
   Some people have been killed!
   You have managed to narrow the suspects down to just a few. Luckily, you know every person who those suspects have seen on the day of the murders.
@@ -2564,11 +2926,13 @@ Examples (Input => Output)
   //     if (suspectInfo[key].includes(...dead)) return key;
   //   }
   // }
-  const killer = (suspectInfo, dead) => Object.keys(suspectInfo).find(e => suspectInfo[e].includes(...dead));
+  const killer = (suspectInfo, dead) =>
+    Object.keys(suspectInfo).find(e => suspectInfo[e].includes(...dead));
 
   // console.log(killer({ 'James': ['Jacob', 'Bill', 'Lucas'], 'Johnny': ['David', 'Kyle', 'Lucas'], 'Peter': ['Lucy', 'Kyle'] }, ['Lucas', 'Bill']));
 }
-{ /** 7 kyu  Last ( test failed )
+{
+  /** 7 kyu  Last ( test failed )
   1843477% of 1,0573,681 of 8,675xcthulhu2 Issues Reported
   Find the last element of the given argument(s). If a single argument is passed and is a list/array or a string, return its last element. It is guaranteed that there will be at least one argument and that single-argument arrays/lists/strings will not be empty.
   
@@ -2583,13 +2947,18 @@ Examples (Input => Output)
 
   function last() {
     console.log(arguments);
-    return Array.isArray(arguments[arguments.length - 1]) ? arguments[arguments.length - 1].slice(-1)[0] : typeof arguments[0] === 'string' ? arguments[0].slice(-1) : arguments[arguments.length - 1];
-  };
+    return Array.isArray(arguments[arguments.length - 1])
+      ? arguments[arguments.length - 1].slice(-1)[0]
+      : typeof arguments[0] === 'string'
+      ? arguments[0].slice(-1)
+      : arguments[arguments.length - 1];
+  }
   // console.log(last(1, 2, 3));
   // console.log(last('abc'));
   // console.log(last([1, 2, 3, [4, 5]]));
 }
-{ /** 7 kyu  Filter Long Words 
+{
+  /** 7 kyu  Filter Long Words 
   Write a function that takes a string and an an integer n as parameters and returns a list of all words that are longer than n.
 Example:
 * With input "The quick brown fox jumps over the lazy dog", 4
@@ -2602,11 +2971,16 @@ Example:
 }
 function gordon(a) {
   // return a.toUpperCase().replace(/A/g, '@').replace(/[EIOU]/g, '*').replace(/\s/g, '!!!! ') + '!!!!';
-  return a.toUpperCase().replace(/(\w+)/g, '$&!!!!').replace(/A/g, '@').replace(/[EIOU]/g, '*');
+  return a
+    .toUpperCase()
+    .replace(/(\w+)/g, '$&!!!!')
+    .replace(/A/g, '@')
+    .replace(/[EIOU]/g, '*');
 }
 // console.log(gordon('What feck damn cake'));
 
-{ /** 7 kyu  Return substring instance count
+{
+  /** 7 kyu  Return substring instance count
   Complete the solution so that it returns the number of times the search_text is found within the full_text. Overlap is not permitted : "aaa" contains 1 instance of "aa", not 2.
     Usage example:
     full_text = "aa_bb_cc_dd_bb_e", search_text = "bb"
@@ -2617,11 +2991,13 @@ function gordon(a) {
 
   // const solution = (fullText, searchText) => fullText.split(searchText).length - 1;
   // const solution = (fullText, searchText, a = fullText.match(RegExp(searchText, 'g'))) => a ? a.length : 0;
-  const solution = (fullText, searchText) => (fullText.match(RegExp(searchText, 'g')) || []).length;
+  const solution = (fullText, searchText) =>
+    (fullText.match(RegExp(searchText, 'g')) || []).length;
 
   // console.log(solution('abcdeb', 'u'));
 }
-{ /** 7 kyu  What dominates your array?
+{
+  /** 7 kyu  What dominates your array?
   A zero-indexed array arr consisting of n integers is given. The dominator of array arr is the value that occurs in more than half of the elements of arr.
   For example, consider array arr such that arr = [3,4,3,2,3,1,3,3]
   The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more than a half of 8.
@@ -2633,14 +3009,20 @@ function gordon(a) {
   // };
 
   const dominator = arr => {
-    const domin = [...new Set(arr)].map(e => [e, arr.filter(el => el === e).length]);
+    const domin = [...new Set(arr)].map(e => [
+      e,
+      arr.filter(el => el === e).length,
+    ]);
     const max = Math.max(...domin.map(e => e[1]));
-    return arr.length / 2 < max ? domin[domin.map(e => e[1]).indexOf(max)][0] : -1;   /* Execution Timed Out */
+    return arr.length / 2 < max
+      ? domin[domin.map(e => e[1]).indexOf(max)][0]
+      : -1; /* Execution Timed Out */
   };
 
   // console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
 }
-{ /** 6 kyu  How Much?
+{
+  /** 6 kyu  How Much?
   I always thought that my old friend John was rather richer than he looked, but I never knew exactly how much money he actually had. One day (as I was plying him with questions) he said:
   
   "Imagine I have between m and n Zloty..." (or did he say Quetzal? I can't remember!)
@@ -2673,7 +3055,7 @@ function gordon(a) {
 
   function howMuch(m, n) {
     const res = [];
-    let b = (n - 2) / 7 ^ 0;
+    let b = ((n - 2) / 7) ^ 0;
 
     while (n >= m) {
       n = b * 7 + 2;
@@ -2689,7 +3071,8 @@ function gordon(a) {
   // console.log(howMuch(1000, 1100));
   // console.log(howMuch(1, 100));
 }
-{ /** 7 kyu Unscramble the eggs.
+{
+  /** 7 kyu Unscramble the eggs.
   The string given to your function has had an "egg" inserted directly after each consonant. You need to return the string before it became eggcoded.
     Example
   unscrambleEggs("Beggegeggineggneggeregg"); => "Beginner"
@@ -2700,7 +3083,8 @@ function gordon(a) {
   }
   // console.log(unscrambleEggs('ceggodegge heggeregge'));
 }
-{ /** 6 kyu  Moves in squared strings (II)
+{
+  /** 6 kyu  Moves in squared strings (II)
   You are given a string of n lines, each substring being n characters long: For example:
   
   s = "abcd\nefgh\nijkl\nmnop"
@@ -2757,10 +3141,12 @@ function gordon(a) {
   //   return fct(s);
   // }
 
-
   const rot = strng => [...strng].reverse().join('');
 
-  const selfieAndRot = strng => (strng = strng.replace(/.+/g, e => e + e.replace(/./g, '.'))) + '\n' + rot(strng);
+  const selfieAndRot = strng =>
+    (strng = strng.replace(/.+/g, e => e + e.replace(/./g, '.'))) +
+    '\n' +
+    rot(strng);
 
   const oper = (fct, s) => fct(s);
 
@@ -2769,7 +3155,8 @@ function gordon(a) {
   // console.log(oper(selfieAndRot, "xZBV\njsbS\nJcpN\nfVnP"));
   // console.log(oper(rot, "xZBV\njsbS\nJcpN\nfVnP"));
 }
-{ /** 7 kyu  Max-min arrays
+{
+  /** 7 kyu  Max-min arrays
   In this Kata, you will be given an array of unique elements, and your task is to rearrange the values so that the first max value is followed by the first minimum, followed by second max value then second min value, etc.
   
   For example:
@@ -2801,10 +3188,14 @@ function gordon(a) {
   // };
 
   // const solve = arr => [...Array.from({ length: arr.sort((a, b) => a - b).length }, (e, i) => i % 2 ? arr.shift() : arr.pop())];
-  const solve = arr => [...arr.sort((a, b) => a - b)].map((e, i) => i % 2 ? arr.shift() : arr.pop());
+  const solve = arr =>
+    [...arr.sort((a, b) => a - b)].map((e, i) =>
+      i % 2 ? arr.shift() : arr.pop(),
+    );
   // console.log(solve([15, 11, 10, 7, 12]));
 }
-{/** 7 kyu  Who's Online? 
+{
+  /** 7 kyu  Who's Online? 
   You have a group chat application, but who is online!?
 
 You want to show your users which of their friends are online and available to chat!
@@ -2849,31 +3240,31 @@ Finally, if you have no friends in your chat application, the input will be an e
     {
       username: 'Bob',
       status: 'online',
-      lastActivity: 10
+      lastActivity: 10,
     },
     {
       username: 'David',
       status: 'online',
-      lastActivity: 10
+      lastActivity: 10,
     },
     {
       username: 'Barry',
       status: 'online',
-      lastActivity: 10
+      lastActivity: 10,
     },
     {
       username: 'Lucy',
       status: 'offline',
-      lastActivity: 22
+      lastActivity: 22,
     },
     {
       username: 'Ben',
       status: 'online',
-      lastActivity: 104
-    }
+      lastActivity: 104,
+    },
   ];
 
-  const whosOnline = (friends) => {
+  const whosOnline = friends => {
     let res = {};
     const online = [];
     const offline = [];
@@ -2898,7 +3289,8 @@ Finally, if you have no friends in your chat application, the input will be an e
   };
   // console.log(whosOnline(friends));
 }
-{ /** 7 kyu  Broken sequence 
+{
+  /** 7 kyu  Broken sequence 
   You receive some random elements as a space-delimited string. Check if the elements are part of an ascending sequence of integers starting with 1, with an increment of 1 (e.g. 1, 2, 3, 4).
 
 Return:
@@ -2934,7 +3326,8 @@ Examples
   }
   // console.log(findMissingNumber("2 3 4 5"));
 }
-{ /** 7 kyu  Numbers to Objects
+{
+  /** 7 kyu  Numbers to Objects
   You will be given an array of numbers.
   
   For each number in the array you will need to create an object.
@@ -2950,11 +3343,13 @@ Examples
   // }
 
   // const numObj = s => s.map(e => ({ [e]: String.fromCharCode(e) }));
-  const numObj = s => s.reduce((res, e) => [...res, { [e]: String.fromCharCode(e) }], []);
+  const numObj = s =>
+    s.reduce((res, e) => [...res, { [e]: String.fromCharCode(e) }], []);
 
   // console.log(numObj([118, 117, 120]));
 }
-{ /** 7 kyu  Exclamation marks series #5: Remove all exclamation marks from the end of words
+{
+  /** 7 kyu  Exclamation marks series #5: Remove all exclamation marks from the end of words
   Remove all exclamation marks from the end of words. Words are separated by a single space. There are no exclamation marks within a word.
     Examples
   remove("Hi!") === "Hi"
@@ -2974,7 +3369,8 @@ Examples
 
   // console.log(remove('!!!Hi !!hi!!! !hi'));
 }
-{ /** 6 kyu  All Star Code Challenge #15
+{
+  /** 6 kyu  All Star Code Challenge #15
   This Kata is intended as a small challenge for my students
   
   Your family runs a shop and have just brought a Scrolling Text Machine (http://3.imimg.com/data3/RP/IP/MY-2369478/l-e-d-multicolour-text-board-250x250.jpg) to help get some more business.
@@ -2997,11 +3393,16 @@ Examples
   // const rotate = str => [...str].map(() => str = str.slice(1) + str.slice(0, 1));
   // const rotate = str => [...str].map((e, i) => str.slice(i += 1) + str.slice(0, i));
   // const rotate = str => Array.from({ length: str.length }, () => str = str.replace(/(.)(.*)/, (_, a, b) => b + a));
-  const rotate = str => Array.from({ length: str.length }, () => str = str.replace(/(.)(.*)/, '$2$1'));
+  const rotate = str =>
+    Array.from(
+      { length: str.length },
+      () => (str = str.replace(/(.)(.*)/, '$2$1')),
+    );
 
   // console.log(rotate('Hello'));
 }
-{ /** 6 kyu  Loose Change
+{
+  /** 6 kyu  Loose Change
   Welcome young Jedi! In this Kata you must create a function that takes an amount of US currency in cents, and returns a dictionary/hash which shows the least amount of coins used to make up that amount. The only coin denominations considered in this exercise are: Pennies (1¢), Nickels (5¢), Dimes (10¢) and Quarters (25¢). Therefor the dictionary returned should contain exactly 4 key/value pairs.
   
   Notes:
@@ -3036,12 +3437,18 @@ Examples
   // const looseChange = cents => (e => ({ Quarters: e / 25 ^ 0, Dimes: e % 25 / 10 ^ 0, Nickels: e % 25 % 10 / 5 ^ 0, Pennies: e % 5 ^ 0, }))
   //   (Math.max(cents, 0));
 
-  const looseChange = cents => (e => ({ Quarters: e / 25 ^ 0, Dimes: e % 25 / 10 ^ 0, Nickels: e % 25 % 10 / 5 ^ 0, Pennies: e % 5 ^ 0, }))
-    (Math.sign(cents) + 1 ? cents : 0);
+  const looseChange = cents =>
+    (e => ({
+      Quarters: (e / 25) ^ 0,
+      Dimes: ((e % 25) / 10) ^ 0,
+      Nickels: (((e % 25) % 10) / 5) ^ 0,
+      Pennies: e % 5 ^ 0,
+    }))(Math.sign(cents) + 1 ? cents : 0);
 
   // console.log(looseChange(66));
 }
-{ /** 7 kyu  Moves in squared strings (I)
+{
+  /** 7 kyu  Moves in squared strings (I)
   This kata is the first of a sequence of four about "Squared Strings".
   
   You are given a string of n lines, each substring being n characters long: For example:
@@ -3096,7 +3503,8 @@ Examples
 
   // console.log(oper(vertMirror, "abcd\nefgh\nijkl\nmnop"));
 }
-{ /** 7 kyu  Scrolling Texts
+{
+  /** 7 kyu  Scrolling Texts
   Output
   Let's create some scrolling text!  
   Your task is to complete the function which takes a string, and returns an array with all possible rotations of the given string, in uppercase.
@@ -3114,11 +3522,17 @@ Examples
 
   // const scrollingText = text => (() => Array.from(text, (_, i) => text.slice(i) + text.slice(0, i)))(text = text.toUpperCase());
   // const scrollingText = text => ((t) => [...t].map((_, i) => t.slice(i) + t.slice(0, i)))(text = text.toUpperCase());
-  const scrollingText = text => ((t) => [t, ...[...t].map((_, i) => t = t.replace(/(.)(.*)/, '$2$1'))].slice(0, -1))(text = text.toUpperCase());
+  const scrollingText = text =>
+    (t =>
+      [t, ...[...t].map((_, i) => (t = t.replace(/(.)(.*)/, '$2$1')))].slice(
+        0,
+        -1,
+      ))((text = text.toUpperCase()));
 
   // console.log(scrollingText('coDEWARS'));
 }
-{ /** 7 kyu  Search for letters
+{
+  /** 7 kyu  Search for letters
   Create a function which accepts one arbitrary string as an argument, and return a string of length 26.
     The objective is to set each of the 26 characters of the output string to either '1' or '0' based on the fact whether the Nth letter of the alphabet is present in the input (independent of its case).
     So if an 'a' or an 'A' appears anywhere in the input string (any number of times), set the first character of the output string to '1', otherwise to '0'. if 'b' or 'B' appears in the string, set the second character to '1', and so on for the rest of the alphabet.
@@ -3135,11 +3549,19 @@ Examples
   // const change = string => [...'abcdefghijklmnopqrstuvwxyz'].reduce((s, e) => s += RegExp(e).test(string.toLowerCase()) ? '1' : '0', '');
   // const change = string => [...'abcdefghijklmnopqrstuvwxyz'].reduce((s, e) => s += string.match(RegExp(e, 'i')) ? '1' : '0', '');
   // const change = string => [...Array(26)].reduce((s, _, i) => s += RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0', '');
-  const change = string => [...Array(26)].map((s, i) => RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0', '').join('');
+  const change = string =>
+    [...Array(26)]
+      .map(
+        (s, i) =>
+          RegExp(String.fromCharCode(65 + i), `i`).test(string) ? '1' : '0',
+        '',
+      )
+      .join('');
 
   // console.log(change("a   **&  CZ"));
 }
-{ /** 7 kyu  Help Suzuki rake his garden!
+{
+  /** 7 kyu  Help Suzuki rake his garden!
   Help Suzuki rake his garden!
   
   The monastery has a magnificent Zen garden made of white gravel and rocks and it is raked diligently everyday by the monks. Suzuki having a keen eye is always on the lookout for anything creeping into the garden that must be removed during the daily raking such as insects or moss.
@@ -3164,7 +3586,8 @@ Examples
 
   // console.log(rakeGarden('gravel gravel gravel gravel gravel gravel gravel gravel gravel rock slug ant gravel'));
 }
-{ /** 7 kyu  "Very Even" Numbers.
+{
+  /** 7 kyu  "Very Even" Numbers.
   Write a function that returns true if the number is a "Very Even" number.
   
   If a number is a single digit, then it is simply "Very Even" if it itself is even.
@@ -3187,11 +3610,15 @@ Examples
   // }
 
   // const isVeryEvenNumber = n => (n + '').length < 2 ? !(n % 2) : isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
-  const isVeryEvenNumber = n => n <= 9 ? !(n % 2) : isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
+  const isVeryEvenNumber = n =>
+    n <= 9
+      ? !(n % 2)
+      : isVeryEvenNumber((n + '').split('').reduce((sum, e) => sum + +e, 0));
 
   // console.log(isVeryEvenNumber(7775));
 }
-{/** 7 kyu  Computer problem series #1: Fill the Hard Disk Drive
+{
+  /** 7 kyu  Computer problem series #1: Fill the Hard Disk Drive
 Your task is to determine how many files of the copy queue you will be able to save into your Hard Disk Drive. The files must be saved in the order they appear in the queue.
 
 Zero size files can always be saved even HD full.
@@ -3229,11 +3656,15 @@ Do not expect any negative or invalid inputs. */
   //   return sizes.length;
   // }
 
-  const save = (sizes, hd, n = 0) => (sizes.reduce((sum, e, i) => sum + e, 0) <= hd) ? sizes.length - n : save(sizes.slice(0, -n - 1), hd, n++);
+  const save = (sizes, hd, n = 0) =>
+    sizes.reduce((sum, e, i) => sum + e, 0) <= hd
+      ? sizes.length - n
+      : save(sizes.slice(0, -n - 1), hd, n++);
 
   // console.log(save([12, 0, 0, 1], 12));
 }
-{ /** 6 kyu  Binary to Text (ASCII) Conversion
+{
+  /** 6 kyu  Binary to Text (ASCII) Conversion
   Past Solutions
   Write a function that takes in a binary string and returns the equivalent decoded text (the text is ASCII encoded).
   
@@ -3268,11 +3699,15 @@ Do not expect any negative or invalid inputs. */
 
   // const binaryToString = binary => binary ? binary.replace(/[01]{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
   // const binaryToString = binary => binary ? binary.replace(/\d{8}/g, e => String.fromCharCode(parseInt(e, 2))) : '';
-  const binaryToString = binary => binary ? String.fromCharCode(...binary.match(/\d{8}/g).map(e => parseInt(e, 2))) : '';
+  const binaryToString = binary =>
+    binary
+      ? String.fromCharCode(...binary.match(/\d{8}/g).map(e => parseInt(e, 2)))
+      : '';
 
   // console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
 }
-{ /** 8 kyu  Classy Classes
+{
+  /** 8 kyu  Classy Classes
   Your task is to complete this Class, the Person class has been created. You must fill in the Constructor method to accept a name as string and an age as number, complete the get Info property and getInfo method/Info getter which should return johns age is 34 */
 
   class Person {
@@ -3310,7 +3745,8 @@ Do not expect any negative or invalid inputs. */
   // console.log(john.getInfo());
   // console.log(john.info);
 }
-{ /** 7 kyu  Building blocks
+{
+  /** 7 kyu  Building blocks
   Write a class Block that creates a block (Duh..)
   
   Requirements
@@ -3365,23 +3801,38 @@ Do not expect any negative or invalid inputs. */
   // }
 
   class Block {
-
     constructor([width, length, height]) {
       this.width = width;
       this.length = length;
       this.height = height;
     }
-    getWidth() { return this.width; }
-    getLength() { return this.length; }
-    getHeight() { return this.height; }
-    getVolume() { return this.width * this.length * this.height; }
-    getSurfaceArea() { return (this.width * this.length + this.width * this.height + this.height * this.length) * 2; }
+    getWidth() {
+      return this.width;
+    }
+    getLength() {
+      return this.length;
+    }
+    getHeight() {
+      return this.height;
+    }
+    getVolume() {
+      return this.width * this.length * this.height;
+    }
+    getSurfaceArea() {
+      return (
+        (this.width * this.length +
+          this.width * this.height +
+          this.height * this.length) *
+        2
+      );
+    }
   }
 
   const block = new Block([2, 4, 6]);
   // console.log(block.getWidth());
 }
-{ /** 7 kyu  Unique Sum
+{
+  /** 7 kyu  Unique Sum
   Given a list of integers values, your job is to return the sum of the values; however, if the same integer value appears multiple times in the list, you can only count it once in your sum.
   
   For example:
@@ -3424,11 +3875,15 @@ Do not expect any negative or invalid inputs. */
   //   return ar.reduce((sum, e) => sum + e, null);
   // };
 
-  const uniqueSum = arr => arr.filter((e, i) => arr.indexOf(e) === i).reduce((sum, e) => sum + e, null);
+  const uniqueSum = arr =>
+    arr
+      .filter((e, i) => arr.indexOf(e) === i)
+      .reduce((sum, e) => sum + e, null);
 
   // console.log(uniqueSum([3, 4, 3, 5, 3, 5]));
 }
-{ /** 7 kyu  Fun with ES6 Classes #2 - Animals and Inheritance
+{
+  /** 7 kyu  Fun with ES6 Classes #2 - Animals and Inheritance
   Fun with ES6 Classes #2 - Animals and Inheritance
   Overview
   Preloaded for you in this Kata is a class Animal:*/
@@ -3445,7 +3900,6 @@ Do not expect any negative or invalid inputs. */
       return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
     }
   }
-
 
   // Get Coding :)
 
@@ -3490,7 +3944,6 @@ Do not expect any negative or invalid inputs. */
   //   }
   // }
 
-
   // class Cat extends Animal {
   //   constructor(name, age, status) {
   //     super(name, age, status);
@@ -3502,7 +3955,6 @@ Do not expect any negative or invalid inputs. */
   //     return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
   //   }
   // }
-
 
   // class Dog extends Animal {
   //   constructor(name, age, status, master) {
@@ -3569,8 +4021,9 @@ Do not expect any negative or invalid inputs. */
       return `Hello ${this.master}`;
     }
   }
-};
-{ /** 6 kyu  Alphabet war - airstrike - letters massacre
+}
+{
+  /** 6 kyu  Alphabet war - airstrike - letters massacre
   There is a war...between alphabets!
   There are two groups of hostile letters. The tension between left side letters and right side letters was too high and the war began. The letters called airstrike to help them in war - dashes and dots are spread throughout the battlefield. Who will win?
   
@@ -3604,9 +4057,14 @@ Do not expect any negative or invalid inputs. */
   // }
 
   function alphabetWar(fight, str = 'mqdz sbpw') {
-    return (res => res ? (res > 0 ? "Lef" : "Righ") + "t side wins!" : "Let's fight again!")
-      (fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + str.indexOf(e) - 4, 0));
-  };
+    return (res =>
+      res ? (res > 0 ? 'Lef' : 'Righ') + 't side wins!' : "Let's fight again!")(
+      fight
+        .replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '')
+        .split('')
+        .reduce((sum, e) => sum + str.indexOf(e) - 4, 0),
+    );
+  }
 
   // const alphabetWar = fight => (res => res > 0 ? "Left side wins!" : res < 0 ? "Right side wins!" : "Let's fight again!")
   //   (fight.replace(/(\w?\*\w?)|[^mqdzsbpw]/g, '').split('').reduce((sum, e) => sum + 'mqdz sbpw'.indexOf(e) - 4, 0));
@@ -3621,7 +4079,8 @@ Do not expect any negative or invalid inputs. */
   // console.log(alphabetWar("z*z*z*zs"));
   // console.log(alphabetWar("mqdzsbpw"));
 }
-{ /** 6 kyu  Integer depth
+{
+  /** 6 kyu  Integer depth
   The depth of an integer n is defined to be how many multiples of n it is necessary to compute before all 10 digits have appeared at least once in some multiple.
   
   example:
@@ -3659,12 +4118,17 @@ Do not expect any negative or invalid inputs. */
   // }
 
   function computeDepth(x, n = 0) {
-    for (let digitStr = ''; [...'1234567890'].some(e => !digitStr.includes(e)); digitStr += (x * ++n)) { }
+    for (
+      let digitStr = '';
+      [...'1234567890'].some(e => !digitStr.includes(e));
+      digitStr += x * ++n
+    ) {}
     return n;
   }
   // console.log(computeDepth(42));
 }
-{ /** 7 kyu  Partial Word Searching
+{
+  /** 7 kyu  Partial Word Searching
   Write a method that will search an array of strings for all strings that contain another string, ignoring capitalization. Then return an array of the found strings.
   
   The method takes two parameters, the query string and the array of strings to search, and returns an array.
@@ -3682,11 +4146,15 @@ Do not expect any negative or invalid inputs. */
   // const wordSearch = (query, seq) => (seq = seq.filter(e => e.match(RegExp(query, 'i'))))[0] ? seq : ["Empty"];
   // const wordSearch = (query, seq) => (e => e[0] ? e : ["Empty"])(seq.filter(e => e.match(RegExp(query, 'i'))));
   // const wordSearch = (query, seq) => (e => e[0] ? e : ["Empty"])(seq.filter(e => RegExp(query, 'i').test(e)));
-  const wordSearch = (query, seq) => RegExp(query, 'gi').test(seq.join(" ")) ? seq.filter(e => RegExp(query, 'i').test(e)) : ['Empty'];
+  const wordSearch = (query, seq) =>
+    RegExp(query, 'gi').test(seq.join(' '))
+      ? seq.filter(e => RegExp(query, 'i').test(e))
+      : ['Empty'];
 
   // console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zc"]));
 }
-{ /** 8 kyu  Training JS #16: Methods of String object--slice(), substring() and substr()
+{
+  /** 8 kyu  Training JS #16: Methods of String object--slice(), substring() and substr()
   Coding in function cutIt, function accept 1 parameter:arr. arr is a string array.
 
 The first mission: Traversing arr, find the shortest string length.
@@ -3702,7 +4170,10 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
   // const cutIt = arr => arr.map(e => e.slice(0, Math.min(...arr.map(e => e.length))));
   // const cutIt = arr => arr.map(e => e.slice(0, arr.reduce((min, e) => min = min < e.length ? min : e.length, arr[0].length)));
   // const cutIt = arr => (min => arr.map(e => e.slice(0, min)))(arr.reduce((min, e) => min = min < e.length ? min : e.length, arr[0].length));
-  const cutIt = arr => (min => arr.map(e => e.substr(0, min)))(Math.min(...arr.map(e => e.length)));
+  const cutIt = arr =>
+    (min => arr.map(e => e.substr(0, min)))(
+      Math.min(...arr.map(e => e.length)),
+    );
 
   // console.log(cutIt(["abc", "defgh", "ijklmn"]));
 }
@@ -3746,7 +4217,7 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
   // }
 
   class Shark extends Animal {
-    constructor(name, age, status,) {
+    constructor(name, age, status) {
       super(name, age, status);
       this.species = 'shark';
       this.legs = 0;
@@ -3776,12 +4247,13 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
   }
 
   const dog = new Dog('rex', 2, 'serve', 'El');
-  const cat = new Cat('ex', 3, 'Meow',);
+  const cat = new Cat('ex', 3, 'Meow');
 
   // console.log(dog);
   // console.log(cat.introduce());
 }
-{ /** 7 kyu
+{
+  /** 7 kyu
   For every good kata idea there seem to be quite a few bad ones!
   
   In this kata you need to check the provided 2 dimensional array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
@@ -3792,7 +4264,10 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
 
   // const well = x => (length => !length ? 'Fail!' : length > 2 ? 'I smell a series!' : 'Publish!')(x.flat().filter(e => /good/gi.test(e)).length);
   // const well = x => (l => l ? l > 2 ? `I smell a series!` : `Publish!` : `Fail!`)((('' + x).match(/good/gi) || []).length);
-  const well = x => (l => l ? l > 2 ? `I smell a series!` : `Publish!` : `Fail!`)(x.flat().reduce((sum, e) => sum + /good/gi.test(e), 0));
+  const well = x =>
+    (l => (l ? (l > 2 ? `I smell a series!` : `Publish!`) : `Fail!`))(
+      x.flat().reduce((sum, e) => sum + /good/gi.test(e), 0),
+    );
 
   // console.log(well([['gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD'], ['bad'], ['gOOd', 'BAD']]));
 }
@@ -3825,7 +4300,8 @@ chain(2, [add, mult]);
 
   // console.log(chain(2, [add, mult]));
 }
-{ /** 7 kyu  Substring fun
+{
+  /** 7 kyu  Substring fun
   Complete the function that takes an array of words.
   
   You must concatenate the nth letter from each word to construct a new word which should be returned as a string, where n is the position of the word in the list.
@@ -3846,7 +4322,8 @@ chain(2, [add, mult]);
 
   // console.log(nthChar(['yoda', 'best', 'has']));
 }
-{ /** 7 kyu  Regexp Basics - is it a letter?
+{
+  /** 7 kyu  Regexp Basics - is it a letter?
   Complete the code which should return true if the given object is a single ASCII letter (lower or upper case), false otherwise. */
 
   String.prototype.isLetter = function () {
@@ -3854,7 +4331,8 @@ chain(2, [add, mult]);
   };
   // console.log(String.prototype.isLetter());
 }
-{ /** 7 kyu  Calculate mean and concatenate string
+{
+  /** 7 kyu  Calculate mean and concatenate string
   You will be given an array which will include both integers and characters.
   
   Return an array of length 2 with a[0] representing the mean of the ten integers as a floating point number. There will always be 10 integers and 10 characters. Create a single string with the characters and return it as a[1] while maintaining the original order.
@@ -3867,11 +4345,15 @@ chain(2, [add, mult]);
   // const mean = lst => lst.reduce(([d, s], e) => +e ? [(10 * d + +e) / 10, s] : [d, (s + e).replace(/\d/, '')], [0, '']);
   // const mean = lst => lst.reduce(([d, s], e) => isNaN(e) ? [d, s + e] : [(10 * d + +e) / 10, s], [0, '']);
   // const mean = lst => lst.reduce(([d, s], e) => !isNaN(e) ? [(10 * d + +e) / 10, s] : [d, s + e], [0, '']);
-  const mean = lst => [lst.reduce((sum, e) => sum + (!isNaN(e) ? +e : 0), 0) / 10, lst.join('').replace(/\d/g, '')];
+  const mean = lst => [
+    lst.reduce((sum, e) => sum + (!isNaN(e) ? +e : 0), 0) / 10,
+    lst.join('').replace(/\d/g, ''),
+  ];
 
   // console.log(mean(["u", "6", "d", "1", "i", "w", "6", "s", "t", "4", "a", "6", "g", "1", "2", "w", "8", "o", "2", "0"]));
 }
-{ /** 7 kyu  Reverse list
+{
+  /** 7 kyu  Reverse list
   Write reverseList function that simply reverses lists. */
 
   // function reverseList(arr) {
@@ -3880,7 +4362,8 @@ chain(2, [add, mult]);
 
   const reverseList = arr => arr.reverse();
 }
-{ /** 6 kyu  Sort Arrays (Ignoring Case)
+{
+  /** 6 kyu  Sort Arrays (Ignoring Case)
   Sort the given array of strings in alphabetical order, case insensitive. For example:
   
   ["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
@@ -3890,11 +4373,13 @@ chain(2, [add, mult]);
   //   return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
   // };
 
-  const sortme = names => names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  const sortme = names =>
+    names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
   // console.log(sortme(["C", "d", "a", "B"]));
 }
-{ /** 6 kyu  Is Integer Array?
+{
+  /** 6 kyu  Is Integer Array?
   Write a function with the signature shown below:
   
   function isIntArray(arr) {
@@ -3916,7 +4401,8 @@ chain(2, [add, mult]);
   // console.log(isIntArray(['-1']));
   // console.log(~~1.5);( = 1)
 }
-{ /** 6 kyu  Function Composition
+{
+  /** 6 kyu  Function Composition
   Function composition is a mathematical operation that mainly presents itself in lambda calculus and computability. It is explained well here, but this is my explanation, in simple mathematical notation:
   
   f3 = compose( f1 f2 )
@@ -3933,7 +4419,8 @@ chain(2, [add, mult]);
 
   // const compose = (f, g) => (...args) => f(g(...args));
 }
-{ /** 7 kyu  Dominant array elements
+{
+  /** 7 kyu  Dominant array elements
   An element in an array is dominant if it is greater than all elements to its right. You will be given an array and your task will be to return a list of all dominant elements. For example:
   
   solve([1,21,4,7,5]) = [21,7,5] because 21, 7 and 5 are greater than elments to their right. 
@@ -3955,7 +4442,8 @@ chain(2, [add, mult]);
 
   // console.log(solve([104, 18, 37, 9, 36, 47, 28]));
 }
-{ /** 7 kyu  Consecutive letters
+{
+  /** 7 kyu  Consecutive letters
   In this Kata, we will check if a string contains consecutive letters as they appear in the English alphabet and if each letter occurs only once.
   
   Rules are: (1) the letters are adjacent in the English alphabet, and (2) each letter occurs only once.
@@ -3978,15 +4466,20 @@ chain(2, [add, mult]);
   // const solve = s => 'abcdefghijklmnopqrstuvwxyz'.includes([...s].sort().join(''));
   // const solve = s => RegExp([...s].sort().join('')).test('abcdefghijklmnopqrstuvwxyz');
   // const solve = s => (s => (s[s.length - 1].charCodeAt() - s[0].charCodeAt() + 1) / s.length === 1)([...s].sort());
-  const solve = s => (w => w.length === new Set(w).size ? !((w.charCodeAt(w.length - 1) - w.charCodeAt() + 1) / w.length - 1) : false)([...s].sort().join(''));
+  const solve = s =>
+    (w =>
+      w.length === new Set(w).size
+        ? !((w.charCodeAt(w.length - 1) - w.charCodeAt() + 1) / w.length - 1)
+        : false)([...s].sort().join(''));
 
   // console.log(solve("svtgqezhhwiotmphoydihfr"));
 }
 {
-  const factorial = (n) => n < 3 ? n ? n : 1 : n * factorial(--n);
+  const factorial = n => (n < 3 ? (n ? n : 1) : n * factorial(--n));
   // console.log(factorial(4));
 }
-{ /** 5 kyu  Simple fraction to mixed number converter
+{
+  /** 5 kyu  Simple fraction to mixed number converter
   Given a string representing a simple fraction x/y, your function must return a string representing the corresponding mixed fraction in the following format:
   
   [sign]a b/c
@@ -4013,7 +4506,7 @@ chain(2, [add, mult]);
   function mixedFraction(s) {
     const [a, b] = s.split('/');
     if (a === '0' || '-0') return 0;
-    const integer = (a - a % b) / b;
+    const integer = (a - (a % b)) / b;
     const fractions = [a % b, +b].join('/').replace('-', '');
 
     // return fractions;
@@ -4024,7 +4517,8 @@ chain(2, [add, mult]);
   }
   // console.log(mixedFraction('-0/7'));
 }
-{ /** 7 kyu  Filter unused digits
+{
+  /** 7 kyu  Filter unused digits
   Given a varying number of integer arguments, return the digits that are not present in any of them.
   
   Example:  
@@ -4037,7 +4531,11 @@ chain(2, [add, mult]);
   // }
 
   // const unusedDigits = (...args) => '0123456789'.split('').filter(el => !args.map(e => (e + '').split('')).flat().includes(el)).join('');
-  const unusedDigits = (...args) => '0123456789'.split('').filter(el => !args.join('').includes(el)).join('');
+  const unusedDigits = (...args) =>
+    '0123456789'
+      .split('')
+      .filter(el => !args.join('').includes(el))
+      .join('');
   // const unusedDigits = (...args) => '0123456789'.replace(RegExp(`[${args.join('')}]`, 'g'), '');
 
   // console.log(unusedDigits(12, 34, 56, 78));
@@ -4045,10 +4543,10 @@ chain(2, [add, mult]);
 
 {
   const customer = {
-    username: "Mango",
+    username: 'Mango',
     balance: 24000,
     discount: 0.1,
-    orders: ["Burger", "Pizza", "Salad"],
+    orders: ['Burger', 'Pizza', 'Salad'],
     // Change code below this line
     getBalance() {
       return this.balance;
@@ -4071,23 +4569,23 @@ chain(2, [add, mult]);
 
   customer.setDiscount(0.15);
   // console.log(customer.getDiscount()); // 0.15
-  customer.addOrder(5000, "Steak");
+  customer.addOrder(5000, 'Steak');
   // console.log(customer.getBalance()); // 19750
   // console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
 
   const historyService = {
     orders: [
-      { email: "jacob@hotmail.com", dish: "Burrito" },
-      { email: "solomon@topmail.net", dish: "Burger" },
-      { email: "artemis@coldmail.net", dish: "Pizza" },
-      { email: "solomon@topmail.net", dish: "Apple pie" },
-      { email: "jacob@hotmail.com", dish: "Taco" },
+      { email: 'jacob@hotmail.com', dish: 'Burrito' },
+      { email: 'solomon@topmail.net', dish: 'Burger' },
+      { email: 'artemis@coldmail.net', dish: 'Pizza' },
+      { email: 'solomon@topmail.net', dish: 'Apple pie' },
+      { email: 'jacob@hotmail.com', dish: 'Taco' },
     ],
     // Change code below this line
     getOrdersLog() {
       return this.orders
         .map(order => `email: ${order.email} dish: ${order.dish}`)
-        .join(" - ");
+        .join(' - ');
     },
     getEmails() {
       const emails = this.orders.map(order => order.email);
@@ -4155,7 +4653,6 @@ chain(2, [add, mult]);
 
 {
   class Car {
-
     static MAX_PRICE = 50000;
 
     #brand;
@@ -4163,7 +4660,9 @@ chain(2, [add, mult]);
     #price;
 
     static checkPrice(price) {
-      return price > Car.MAX_PRICE ? "Error! Price exceeds the maximum" : "Success! Price is within acceptable limits";
+      return price > Car.MAX_PRICE
+        ? 'Error! Price exceeds the maximum'
+        : 'Success! Price is within acceptable limits';
     }
 
     constructor({ brand, model, price }) {
@@ -4187,7 +4686,7 @@ chain(2, [add, mult]);
       return this.#price;
     }
     set price(newPrice) {
-      newPrice > Car.MAX_PRICE ? this.#price : this.#price = newPrice;
+      newPrice > Car.MAX_PRICE ? this.#price : (this.#price = newPrice);
     }
   }
 
@@ -4223,8 +4722,8 @@ chain(2, [add, mult]);
     }
 
     static AccessLevel = {
-      BASIC: "basic",
-      SUPERUSER: "superuser",
+      BASIC: 'basic',
+      SUPERUSER: 'superuser',
     };
     blacklist(email) {
       this.blacklistedEmails.push(email);
@@ -4232,11 +4731,10 @@ chain(2, [add, mult]);
     isBlacklisted(email) {
       return this.blacklistedEmails.includes(email);
     }
-
   }
 
   const mango = new Admin({
-    email: "mango@mail.com",
+    email: 'mango@mail.com',
     accessLevel: Admin.AccessLevel.SUPERUSER,
   });
 
@@ -4249,7 +4747,8 @@ chain(2, [add, mult]);
   // console.log(mango.isBlacklisted("poly@mail.com")); // true
 }
 
-{ /** 7 kyu  Return a string's even characters.
+{
+  /** 7 kyu  Return a string's even characters.
   Write a function that returns a sequence (index begins with 1) of all the even characters from a string. If the string is smaller than two characters or longer than 100 characters, the function should return "invalid string".
   
   For example:
@@ -4261,12 +4760,16 @@ chain(2, [add, mult]);
   //   return (string.length < 2 || string.length > 100) ? "invalid string" : string.split('').filter((e, i, ar) => i % 2);
   // }
 
-  const evenChars = string => (string.length < 2 || string.length > 100) ? "invalid string" : string.split('').filter((e, i) => i % 2);
+  const evenChars = string =>
+    string.length < 2 || string.length > 100
+      ? 'invalid string'
+      : string.split('').filter((e, i) => i % 2);
 
   // console.log(evenChars("abcdefghijklm"));
 }
 
-{ /** 7 kyu  Double Every Other
+{
+  /** 7 kyu  Double Every Other
   452192% of 7232,882 of 7,074Adam-Morris
   Write a function that doubles every second integer in a list, starting from the left.
     Example:
@@ -4283,11 +4786,12 @@ chain(2, [add, mult]);
   // }
 
   // const doubleEveryOther = a => a.map((e, i) => i % 2 ? 2 * e : e);
-  const doubleEveryOther = a => a.map((e, i) => (i % 2 + 1) * e);
+  const doubleEveryOther = a => a.map((e, i) => ((i % 2) + 1) * e);
 
   // console.log(doubleEveryOther([1, 2, 3, 4]));
 }
-{ /** 6 kyu  Clocky Mc Clock-Face
+{
+  /** 6 kyu  Clocky Mc Clock-Face
   Due to lack of maintenance the minute-hand has fallen off Town Hall clock face.
   
   And because the local council has lost most of our tax money to an elaborate email scam there are no funds to fix the clock properly.
@@ -4338,15 +4842,16 @@ chain(2, [add, mult]);
   // };
 
   const whatTimeIsIt = function (angle) {
-    let h = angle < 30 ? '12' : (angle / 30 ^ 0) + '';
-    h.length < 2 ? h = '0' + h : h;
-    let m = ((angle / 30 % 1) * 60).toFixed(2) ^ 0;
-    m < 10 ? m = '0' + m : m;
+    let h = angle < 30 ? '12' : ((angle / 30) ^ 0) + '';
+    h.length < 2 ? (h = '0' + h) : h;
+    let m = (((angle / 30) % 1) * 60).toFixed(2) ^ 0;
+    m < 10 ? (m = '0' + m) : m;
     return h + ':' + m;
   };
   // console.log(whatTimeIsIt(31));
 }
-{ /** 7 kyu  What dominates your array?
+{
+  /** 7 kyu  What dominates your array?
   A zero-indexed array arr consisting of n integers is given. The dominator of array arr is the value that occurs in more than half of the elements of arr.
   For example, consider array arr such that arr = [3,4,3,2,3,1,3,3]
   The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more than a half of 8.
@@ -4362,7 +4867,7 @@ chain(2, [add, mult]);
   //   const res = [...new Set(arr)].map(e => [e, arr.filter(el => el === e).length]).sort((a, b) => b[1] - a[1])[0];
   //   return res[1] > arr.length / 2 ? res[0] : -1;
   // } /** time out */
-  function dominator(arr) { }
+  function dominator(arr) {}
   // console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
 }
 {
@@ -4375,10 +4880,11 @@ chain(2, [add, mult]);
       return this.name + ` meows.`;
     }
   }
-  const cat = new Cat;
+  const cat = new Cat();
   // console.log(cat.speak());
 }
-{ /** 8 kyu  Add new item (collections are passed by reference)
+{
+  /** 8 kyu  Add new item (collections are passed by reference)
   Past Solutions
   Add an item to the list:
   
@@ -4392,7 +4898,8 @@ chain(2, [add, mult]);
     return [...listOfNumbers, 34];
   }
 }
-{/** 8 kyuFilter out the geese
+{
+  /** 8 kyuFilter out the geese
 Write a function that takes a list of strings as an argument and returns a filtered list containing the same elements but with the 'geese' removed.
 
 The geese are any strings in the following array, which is pre-populated in your solution:
@@ -4407,11 +4914,18 @@ Your function would return the following array:
 The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated. */
 
   function gooseFilter(birds) {
-    const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+    const geese = [
+      'African',
+      'Roman Tufted',
+      'Toulouse',
+      'Pilgrim',
+      'Steinbacher',
+    ];
     return birds.filter(e => !geese.includes(e));
-  };
+  }
 }
-{ /** 7 kyu  Odder Than the Rest
+{
+  /** 7 kyu  Odder Than the Rest
   Create a method that takes an array/list as an input, and outputs the index at which the sole odd number is located.
   
   This method should work with arrays with negative numbers. If there are no odd numbers in the array, then the method should output -1.
@@ -4434,4 +4948,33 @@ The elements in the returned array should be in the same order as in the initial
   const oddOne = (arr, odd = e => e & 1) => arr.findIndex(odd);
 
   // console.log(oddOne([4, -8, 98, -12, -7, 90, 100]));
+}
+
+{
+  const list1 = [
+    {
+      firstName: 'Aba',
+      lastName: 'N.',
+      country: 'Ghana',
+      continent: 'Africa',
+      age: 21,
+      language: 'Python',
+    },
+    {
+      firstName: 'Abb',
+      lastName: 'O.',
+      country: 'Israel',
+      continent: 'Asia',
+      age: 39,
+      language: 'Java',
+    },
+  ];
+
+  function findOddNames(list) {
+    return list.filter(
+      ({ firstName }) =>
+        [...firstName].reduce((res, e) => res + e.charCodeAt(), 0) % 2,
+    );
+  }
+  console.log(findOddNames(list1));
 }
