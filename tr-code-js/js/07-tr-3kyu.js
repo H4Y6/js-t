@@ -5004,11 +5004,17 @@ The elements in the returned array should be in the same order as in the initial
   //   );
   // }
 
+  // const findOddNames = list =>
+  //   list.filter(
+  //     ({ firstName }) =>
+  //       [...firstName].reduce((res, e) => res + e.charCodeAt(), 0) % 2,
+  //   );
+
   const findOddNames = list =>
     list.filter(
       ({ firstName }) =>
-        [...firstName].reduce((res, e) => res + e.charCodeAt(), 0) % 2,
+        eval([...firstName].map(e => e.charCodeAt()).join('+')) % 2,
     );
 
-  console.log(findOddNames(list1));
+  // console.log(findOddNames(list1));
 }
