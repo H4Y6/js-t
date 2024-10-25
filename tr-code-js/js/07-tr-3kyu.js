@@ -5078,10 +5078,15 @@ Notes:
     },
   ];
 
-  function countDevelopers(list) {
-    return list.filter(
-      e => e.continent === 'Europe' && e.language === 'JavaScript',
-    ).length;
-  }
+  // function countDevelopers(list) {
+  //   return list.filter(
+  //     e => e.continent === 'Europe' && e.language === 'JavaScript',
+  //   ).length;
+  // }
+
+  const countDevelopers = list =>
+    list.filter(e => e.continent === 'Europe' && e.language === 'JavaScript')
+      .length;
+
   console.log(countDevelopers(list1));
 }
