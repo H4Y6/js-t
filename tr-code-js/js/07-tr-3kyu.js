@@ -5088,11 +5088,20 @@ Notes:
   //   list.filter(e => e.continent === 'Europe' && e.language === 'JavaScript')
   //     .length;
 
-  const countDevelopers = list =>
-    list.filter(
-      ({ continent, language }) =>
-        continent === 'Europe' && language === 'JavaScript',
-    ).length;
+  // const countDevelopers = list =>
+  //   list.filter(
+  //     ({ continent, language }) =>
+  //       continent === 'Europe' && language === 'JavaScript',
+  //   ).length;
 
-  // console.log(countDevelopers(list1));
+  const countDevelopers = list =>
+    list.reduce(
+      (count, e) =>
+        e.continent === 'Europe' && e.language === 'JavaScript'
+          ? count + 1
+          : count,
+      0,
+    );
+
+  console.log(countDevelopers(list1));
 }
