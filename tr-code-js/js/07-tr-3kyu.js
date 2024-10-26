@@ -5134,14 +5134,24 @@ Notes:
     },
   ];
 
-  function greetDevelopers(list) {
-    return list.map(
+  // function greetDevelopers(list) {
+  //   return list.map(
+  //     d =>
+  //       (d = {
+  //         ...d,
+  //         greeting: `Hi ${d.firstName}, what do you like the most about ${d.language}?`,
+  //       }),
+  //   );
+  // }
+
+  const greetDevelopers = list =>
+    list.map(
       d =>
         (d = {
           ...d,
           greeting: `Hi ${d.firstName}, what do you like the most about ${d.language}?`,
         }),
     );
-  }
+
   console.log(greetDevelopers(list1));
 }
