@@ -5239,9 +5239,20 @@ Your task is to return one of the following strings:
     },
   ];
 
-  function countLanguages(list) {
-    const langSet = new Set(list.map(({ language }) => language));
-    return [...langSet].reduce(
+  // function countLanguages(list) {
+  //   const langSet = new Set(list.map(({ language }) => language));
+  //   return [...langSet].reduce(
+  //     (res, l) =>
+  //       (res = {
+  //         ...res,
+  //         [l]: list.filter(({ language }) => language === l).length,
+  //       }),
+  //     {},
+  //   );
+  // }
+
+  const countLanguages = list =>
+    [...new Set(list.map(({ language }) => language))].reduce(
       (res, l) =>
         (res = {
           ...res,
@@ -5249,6 +5260,6 @@ Your task is to return one of the following strings:
         }),
       {},
     );
-  }
+
   console.log(countLanguages(list1));
 }
