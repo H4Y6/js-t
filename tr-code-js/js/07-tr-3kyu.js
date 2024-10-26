@@ -5319,9 +5319,15 @@ Notes:
     The strings representing a given language will always be formatted in the same way (e.g. 'JavaScript' will always be formatted will upper-case 'J' and 'S'
     The input array will always be valid and formatted as in the example above. */
 
-  function isSameLanguage(list) {
-    return list.every(({ language }) => language === list[0].language);
-  }
+  // function isSameLanguage(list) {
+  //   return list.every(({ language }) => language === list[0].language);
+  // }
 
-  console.log(isSameLanguage(list1));
+  // const isSameLanguage = list =>
+  //   list.every(({ language }) => language === list[0].language);
+
+  const isSameLanguage = list =>
+    new Set(list.map(({ language }) => language)).size === 1;
+
+  // console.log(isSameLanguage(list1));
 }
