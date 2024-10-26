@@ -5168,7 +5168,8 @@ Hi < firstName here >, what do you like the most about < language here >?   */
   //   return Boolean(list.find(d => d.language === 'Ruby'));
   // }
 
-  const isRubyComing = list => Boolean(list.find(d => d.language === 'Ruby'));
+  // const isRubyComing = list => Boolean(list.find(d => d.language === 'Ruby'));
+  const isRubyComing = list => list.some(d => d.language === 'Ruby');
 
-  console.log(isRubyComing(list1));
+  // console.log(isRubyComing(list1));
 }
