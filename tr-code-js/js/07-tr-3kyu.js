@@ -5204,6 +5204,16 @@ Your task is to return one of the following strings:
 }
 
 {
+  /**   7 kyu  Coding Meetup #5 - Higher-Order Functions Series - Prepare the count of languages
+  You will be given an array of objects (associative arrays in PHP, table in COBOL, dictionaries in Python) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+  
+  Your task is to return an object (associative array in PHP, table in COBOL, dictionary in Python) which includes the count of each coding language represented at the meetup.
+  Notes:
+
+    The order of the languages in the object does not matter.
+    The count value should be a valid number.
+    The input array will always be valid and formatted as in the example above.     */
+
   const list1 = [
     {
       firstName: 'Noah',
@@ -5261,5 +5271,57 @@ Your task is to return one of the following strings:
       {},
     );
 
-  console.log(countLanguages(list1));
+  // console.log(countLanguages(list1));
+}
+
+{
+  /** 7 kyu  Coding Meetup #6 - Higher-Order Functions Series - Can they code in the same language? 
+   * You will be given an array of objects (associative arrays in PHP, tables in COBOL) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Your task is to return either:
+
+    true if all developers in the list code in the same language; or
+    false otherwise.
+
+// For example, given the following input array:   */
+
+  const list1 = [
+    {
+      firstName: 'Daniel',
+      lastName: 'J.',
+      country: 'Aruba',
+      continent: 'Americas',
+      age: 42,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Kseniya',
+      lastName: 'T.',
+      country: 'Belarus',
+      continent: 'Europe',
+      age: 22,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Hanna',
+      lastName: 'L.',
+      country: 'Hungary',
+      continent: 'Europe',
+      age: 65,
+      language: 'JavaScript',
+    },
+  ];
+
+  /** your function should return true.
+
+Notes:
+
+    The strings representing a given language will always be formatted in the same way (e.g. 'JavaScript' will always be formatted will upper-case 'J' and 'S'
+    The input array will always be valid and formatted as in the example above. */
+
+  function isSameLanguage(list) {
+    return list.every(({ language }) => language === list[0].language);
+  }
+
+  console.log(isSameLanguage(list1));
 }
