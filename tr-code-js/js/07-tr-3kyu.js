@@ -5200,5 +5200,55 @@ Your task is to return one of the following strings:
       list.find(d => d.language === 'Python'),
     );
 
-  console.log(getFirstPython(list1));
+  // console.log(getFirstPython(list1));
+}
+
+{
+  const list1 = [
+    {
+      firstName: 'Noah',
+      lastName: 'M.',
+      country: 'Switzerland',
+      continent: 'Europe',
+      age: 19,
+      language: 'C',
+    },
+    {
+      firstName: 'Anna',
+      lastName: 'R.',
+      country: 'Liechtenstein',
+      continent: 'Europe',
+      age: 52,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Ramon',
+      lastName: 'R.',
+      country: 'Paraguay',
+      continent: 'Americas',
+      age: 29,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'George',
+      lastName: 'B.',
+      country: 'England',
+      continent: 'Europe',
+      age: 81,
+      language: 'C',
+    },
+  ];
+
+  function countLanguages(list) {
+    const langSet = new Set(list.map(({ language }) => language));
+    return [...langSet].reduce(
+      (res, l) =>
+        (res = {
+          ...res,
+          [l]: list.filter(({ language }) => language === l).length,
+        }),
+      {},
+    );
+  }
+  console.log(countLanguages(list1));
 }
