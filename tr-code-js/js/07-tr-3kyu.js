@@ -5162,7 +5162,11 @@ Hi < firstName here >, what do you like the most about < language here >?   */
 
   // console.log(greetDevelopers(list1));
 
-  /**  */
+  /** 7 kyu  Coding Meetup #3 - Higher-Order Functions Series - Is Ruby coming? 
+    You will be given an array of objects (associative arrays in PHP) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+    true if at least one Ruby developer has signed up; or
+    false if there will be no Ruby developers.   */
 
   // function isRubyComing(list) {
   //   return Boolean(list.find(d => d.language === 'Ruby'));
@@ -5173,4 +5177,28 @@ Hi < firstName here >, what do you like the most about < language here >?   */
   const isRubyComing = list => JSON.stringify(list).includes('Ruby');
 
   // console.log(isRubyComing(list1));
+
+  /** 7 kyu  Coding Meetup #4 - Higher-Order Functions Series 
+   Find the first Python developer You will be given an array of objects (associative arrays in PHP) representing data about developers who have signed up to attend the next coding meetup that you are organising. The list is ordered according to who signed up first.
+Your task is to return one of the following strings:
+
+    < firstName here >, < country here > of the first Python developer who has signed up; or
+    There will be no Python developers if no Python developer has signed up.                    */
+
+  // function getFirstPython(list) {
+  //   const d = list.find(d => d.language === 'Python');
+  //   return d
+  //     ? `${d.firstName}, ${d.country}`
+  //     : 'There will be no Python developers';
+  // }
+
+  const getFirstPython = list =>
+    (d =>
+      d
+        ? `${d.firstName}, ${d.country}`
+        : 'There will be no Python developers')(
+      list.find(d => d.language === 'Python'),
+    );
+
+  console.log(getFirstPython(list1));
 }
