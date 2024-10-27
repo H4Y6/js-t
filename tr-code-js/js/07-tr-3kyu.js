@@ -5459,7 +5459,10 @@ Notes:    The input array will always be valid and formatted as in the example a
   //   return new Set(list.map(e => e.continent)).size === 5;
   // };
 
-  const allContinents = list => new Set(list.map(e => e.continent)).size === 5;
+  // const allContinents = list => new Set(list.map(e => e.continent)).size === 5;
+  const allContinents = list =>
+    list.map(e => e.continent).filter((e, i, ar) => ar.indexOf(e) === i)
+      .length === 5;
 
   console.log(allContinents(list1));
 }

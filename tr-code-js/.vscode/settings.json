@@ -1,0 +1,8 @@
+{
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 190,
+  "chat.editor.wordWrap": "on",
+  "html.format.wrapLineLength": 190,
+  "reactSnippets.settings.prettierEnabled": false,
+  "prettier.printWidth": 180
+}
