@@ -1,0 +1,10 @@
+{
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "editor.wrappingIndent": "indent",
+  "workbench.editor.wrapTabs": true,
+  "editor.autoIndent": "keep",
+  "editor.tabSize": 2,
+  "editor.foldingStrategy": "indentation",
+  "prettier.useTabs": true
+}
