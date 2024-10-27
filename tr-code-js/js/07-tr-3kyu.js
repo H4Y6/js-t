@@ -5565,8 +5565,23 @@ Notes:
     The input array will always be valid and formatted as in the example above.
     Age is represented by a number which can be any positive integer up to 199. */
 
-  function isAgeDiverse(list) {
-    return (arr =>
+  // function isAgeDiverse(list) {
+  //   return (arr =>
+  //     Math.max(...arr) > 9 &&
+  //     arr.includes(1) &&
+  //     arr.includes(2) &&
+  //     arr.includes(3) &&
+  //     arr.includes(4) &&
+  //     arr.includes(5) &&
+  //     arr.includes(6) &&
+  //     arr.includes(7) &&
+  //     arr.includes(8) &&
+  //     arr.includes(9) &&
+  //     arr.includes(1))(list.map(d => (d.age / 10) ^ 0));
+  // }
+
+  const isAgeDiverse = list =>
+    (arr =>
       Math.max(...arr) > 9 &&
       arr.includes(1) &&
       arr.includes(2) &&
@@ -5578,7 +5593,6 @@ Notes:
       arr.includes(8) &&
       arr.includes(9) &&
       arr.includes(1))(list.map(d => (d.age / 10) ^ 0));
-  }
 
   console.log(isAgeDiverse(list1));
 }
