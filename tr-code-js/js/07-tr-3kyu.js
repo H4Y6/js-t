@@ -5455,8 +5455,11 @@ Notes:    The input array will always be valid and formatted as in the example a
   
       The input array and continent names will always be valid and formatted as in the list above for example 'Africa' will always start with upper-case 'A'.   */
 
-  const allContinents = function (list) {
-    return new Set(list.map(e => e.continent)).size === 5;
-  };
+  // const allContinents = function (list) {
+  //   return new Set(list.map(e => e.continent)).size === 5;
+  // };
+
+  const allContinents = list => new Set(list.map(e => e.continent)).size === 5;
+
   console.log(allContinents(list1));
 }
