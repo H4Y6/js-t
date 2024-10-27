@@ -5384,11 +5384,14 @@ For example, given the following input array:  */
 
 Notes:    The input array will always be valid and formatted as in the example above and will never be empty.  */
 
-  function findSenior(list) {
-    return list.filter(
-      ({ age }) => age === Math.max(...list.map(({ age }) => age)),
-    );
-  }
+  // function findSenior(list) {
+  //   return list.filter(
+  //     ({ age }) => age === Math.max(...list.map(({ age }) => age)),
+  //   );
+  // }
+
+  const findSenior = list =>
+    list.filter(({ age }) => age === Math.max(...list.map(({ age }) => age)));
 
   console.log(findSenior(list1));
 }
