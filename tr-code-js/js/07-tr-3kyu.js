@@ -5913,8 +5913,19 @@ Given the following input array:  */
     The input array will always be valid and formatted as in the example above.
     The array does not include developers coding in the same language and sharing the same name.   */
 
-  function sortByLanguage(list) {
-    return [...new Set(list.map(d => d.language))]
+  // function sortByLanguage(list) {
+  //   return [...new Set(list.map(d => d.language))]
+  //     .sort()
+  //     .map(l =>
+  //       list
+  //         .filter(d => d.language === l)
+  //         .sort((a, b) => a.firstName.localeCompare(b.firstName)),
+  //     )
+  //     .flat();
+  // }
+
+  const sortByLanguage = list =>
+    [...new Set(list.map(d => d.language))]
       .sort()
       .map(l =>
         list
@@ -5922,7 +5933,6 @@ Given the following input array:  */
           .sort((a, b) => a.firstName.localeCompare(b.firstName)),
       )
       .flat();
-  }
 
-  console.log(sortByLanguage(list1));
+  // console.log(sortByLanguage(list1));
 }
