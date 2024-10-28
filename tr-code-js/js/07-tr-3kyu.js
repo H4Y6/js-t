@@ -5665,16 +5665,28 @@ Notes:
       Lastname will always be one upper-cased letter followed by dot, e.g. 'N.'
       Order of the objects in the array should be maintained but order of the properties in the individual objects does not matter. */
 
-  function addUsername(list) {
-    return list.map(
+  // function addUsername(list) {
+  //   return list.map(
+  //     d =>
+  //       (d = {
+  //         ...d,
+  //         username:
+  //           (d.firstName + d.lastName[0]).toLowerCase() +
+  //           (new Date().getFullYear() - d.age),
+  //       }),
+  //   );
+  // }
+
+  const addUsername = list =>
+    list.map(
       d =>
         (d = {
           ...d,
           username:
             (d.firstName + d.lastName[0]).toLowerCase() +
-            (+new Date().getFullYear() - d.age),
+            (new Date().getFullYear() - d.age),
         }),
     );
-  }
-  console.log(addUsername(list1));
+
+  // console.log(addUsername(list1));
 }
