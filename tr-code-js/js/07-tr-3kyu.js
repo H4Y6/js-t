@@ -5679,13 +5679,12 @@ Notes:
 
   const addUsername = list =>
     list.map(
-      d =>
-        (d = {
-          ...d,
-          username:
-            (d.firstName + d.lastName[0]).toLowerCase() +
-            (new Date().getFullYear() - d.age),
-        }),
+      d => (
+        (d.username =
+          (d.firstName + d.lastName[0]).toLowerCase() +
+          (new Date().getFullYear() - d.age)),
+        d
+      ),
     );
 
   // console.log(addUsername(list1));
