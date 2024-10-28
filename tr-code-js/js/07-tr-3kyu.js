@@ -5924,15 +5924,22 @@ Given the following input array:  */
   //     .flat();
   // }
 
+  // const sortByLanguage = list =>
+  //   [...new Set(list.map(d => d.language))]
+  //     .sort()
+  //     .map(l =>
+  //       list
+  //         .filter(d => d.language === l)
+  //         .sort((a, b) => a.firstName.localeCompare(b.firstName)),
+  //     )
+  //     .flat();
+
   const sortByLanguage = list =>
-    [...new Set(list.map(d => d.language))]
-      .sort()
-      .map(l =>
-        list
-          .filter(d => d.language === l)
-          .sort((a, b) => a.firstName.localeCompare(b.firstName)),
-      )
-      .flat();
+    list.sort((a, b) =>
+      a.language === b.language
+        ? a.firstName.localeCompare(b.firstName)
+        : a.language.localeCompare(b.language),
+    );
 
   // console.log(sortByLanguage(list1));
 }
