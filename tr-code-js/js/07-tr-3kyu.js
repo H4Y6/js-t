@@ -5815,12 +5815,19 @@ Notes:
   //   );
   // }
 
-  function isLanguageDiverse(list) {
-    const countArr = [...new Set(list.map(d => d.language))].map(
-      l => list.filter(e => e.language === l).length,
-    );
-    return Math.max(...countArr) / Math.min(...countArr) <= 2;
-  }
+  // function isLanguageDiverse(list) {
+  //   const countArr = [...new Set(list.map(d => d.language))].map(
+  //     l => list.filter(e => e.language === l).length,
+  //   );
+  //   return Math.max(...countArr) / Math.min(...countArr) <= 2;
+  // }
 
-  console.log(isLanguageDiverse(list1));
+  const isLanguageDiverse = list =>
+    (arr => Math.max(...arr) / Math.min(...arr) <= 2)(
+      [...new Set(list.map(d => d.language))].map(
+        l => list.filter(e => e.language === l).length,
+      ),
+    );
+
+  // console.log(isLanguageDiverse(list1));
 }
