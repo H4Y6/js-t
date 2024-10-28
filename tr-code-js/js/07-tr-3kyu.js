@@ -5717,9 +5717,12 @@ Notes:
     },
   ];
 
-  function getAverageAge(list) {
-    return Math.round(list.reduce((av, e) => av + e.age, 0) / list.length);
-  }
+  // function getAverageAge(list) {
+  //   return Math.round(list.reduce((av, e) => av + e.age, 0) / list.length);
+  // }
 
-  console.log(getAverageAge(list1));
+  const getAverageAge = list =>
+    Math.round(list.reduce((av, e) => av + e.age, 0) / list.length);
+
+  // console.log(getAverageAge(list1));
 }
