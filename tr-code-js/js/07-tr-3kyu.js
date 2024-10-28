@@ -5798,21 +5798,28 @@ Notes:
     },
   ];
 
-  function isLanguageDiverse(list) {
-    const set = list
-      .map(d => d.language)
-      .filter((l, i, arr) => arr.indexOf(l) === i);
+  // function isLanguageDiverse(list) {
+  //   const set = list
+  //     .map(d => d.language)
+  //     .filter((l, i, arr) => arr.indexOf(l) === i);
 
-    const max = Math.max(
-      ...set.map(l => list.filter(e => e.language === l).length),
+  //   const max = Math.max(
+  //     ...set.map(l => list.filter(e => e.language === l).length),
+  //   );
+  //   return (
+  //     Math.max(
+  //       ...set
+  //         .map(l => list.filter(e => e.language === l).length)
+  //         .map(e => max / e),
+  //     ) <= 2
+  //   );
+  // }
+
+  function isLanguageDiverse(list) {
+    const countArr = [...new Set(list.map(d => d.language))].map(
+      l => list.filter(e => e.language === l).length,
     );
-    return (
-      Math.max(
-        ...set
-          .map(l => list.filter(e => e.language === l).length)
-          .map(e => max / e),
-      ) <= 2
-    );
+    return Math.max(...countArr) / Math.min(...countArr) <= 2;
   }
 
   console.log(isLanguageDiverse(list1));
