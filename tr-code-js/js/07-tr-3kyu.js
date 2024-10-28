@@ -5721,8 +5721,11 @@ Notes:
   //   return Math.round(list.reduce((av, e) => av + e.age, 0) / list.length);
   // }
 
+  // const getAverageAge = list =>
+  //   Math.round(list.reduce((av, e) => av + e.age, 0) / list.length);
+
   const getAverageAge = list =>
-    Math.round(list.reduce((av, e) => av + e.age, 0) / list.length);
+    (a => Math.round(a))(list.reduce((av, e) => av + e.age, 0) / list.length);
 
   // console.log(getAverageAge(list1));
 }
