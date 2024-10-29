@@ -5999,14 +5999,23 @@ Task:    Write function scale(strng, k, v) k and v will be positive integers. If
   //         .join('')
   //         .slice(0, -1);
 
+  // const scale = (strng, k, n) =>
+  //   strng === ''
+  //     ? ''
+  //     : strng
+  //         .split('\n')
+  //         .map(e => ([...e].map(el => el.repeat(k)).join('') + '\n').repeat(n))
+  //         .join('')
+  //         .trim();
+
   const scale = (strng, k, n) =>
-    strng === ''
-      ? ''
-      : strng
+    strng
+      ? strng
           .split('\n')
           .map(e => ([...e].map(el => el.repeat(k)).join('') + '\n').repeat(n))
           .join('')
-          .trim();
+          .trim()
+      : '';
 
   console.log(scale('abcd\nefgh\nijkl\nmnop', 2, 3));
 }
