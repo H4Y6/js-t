@@ -5980,15 +5980,24 @@ mnop            eeffgghh
 
 Task:    Write function scale(strng, k, v) k and v will be positive integers. If strng == "" return "".      */
 
-  function scale(strng, k, n) {
-    return strng === ''
+  // function scale(strng, k, n) {
+  //   return strng === ''
+  //     ? ''
+  //     : strng
+  //         .split('\n')
+  //         .map(e => ([...e].map(el => el.repeat(k)).join('') + '\n').repeat(n))
+  //         .join('')
+  //         .slice(0, -1);
+  // }
+
+  const scale = (strng, k, n) =>
+    strng === ''
       ? ''
       : strng
           .split('\n')
           .map(e => ([...e].map(el => el.repeat(k)).join('') + '\n').repeat(n))
           .join('')
           .slice(0, -1);
-  }
 
   console.log(scale('abcd\nefgh\nijkl\nmnop', 2, 3));
 }
