@@ -6017,5 +6017,23 @@ Task:    Write function scale(strng, k, v) k and v will be positive integers. If
           .trim()
       : '';
 
-  console.log(scale('abcd\nefgh\nijkl\nmnop', 2, 3));
+  // console.log(scale('abcd\nefgh\nijkl\nmnop', 2, 3));
+}
+{
+  /**   7 kyu  What dominates your array?
+  A zero-indexed array arr consisting of n integers is given. The dominator of array arr is the value that occurs in more than half of the elements of arr.
+  For example, consider array arr such that arr = [3,4,3,2,3,1,3,3]
+  The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more than a half of 8.
+  Write a function dominator(arr) that, given a zero-indexed array arr consisting of n integers, returns the dominator of arr. The function should return −1 if array does not have a dominator. All values in arr will be >=0.    */
+
+  function dominator(arr) {
+    const res = [...new Set(arr)].map(e => [
+      e,
+      arr.filter(el => el === e).length,
+    ]);
+    const max = Math.max(...res.map(e => e[1]));
+    return max > arr.length / 2 ? res.find(e => e[1] === max)[0] : -1;
+  }
+  /** Execution Timed Out (12000 ms) */
+  console.log(dominator([1, 2, 3, 3, 4, 3, 5]));
 }
