@@ -6026,14 +6026,45 @@ Task:    Write function scale(strng, k, v) k and v will be positive integers. If
   The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more than a half of 8.
   Write a function dominator(arr) that, given a zero-indexed array arr consisting of n integers, returns the dominator of arr. The function should return −1 if array does not have a dominator. All values in arr will be >=0.    */
 
+  // function dominator(arr) {
+  //   const res = [...new Set(arr)].map(e => [
+  //     e,
+  //     arr.filter(el => el === e).length,
+  //   ]);
+  //   const max = Math.max(...res.map(e => e[1]));
+  //   return max > arr.length / 2 ? res.find(e => e[1] === max)[0] : -1;
+  // }
+
   function dominator(arr) {
-    const res = [...new Set(arr)].map(e => [
-      e,
-      arr.filter(el => el === e).length,
-    ]);
+    const res = arr
+      .filter((e, i, ar) => ar.indexOf(e) === i)
+      .map(e => [e, arr.filter(el => el === e).length]);
     const max = Math.max(...res.map(e => e[1]));
     return max > arr.length / 2 ? res.find(e => e[1] === max)[0] : -1;
   }
   /** Execution Timed Out (12000 ms) */
-  console.log(dominator([1, 2, 3, 3, 4, 3, 5]));
+  // console.log(dominator([1, 2, 3, 3, 4, 3, 5]));
+}
+{
+  /** 8 kyuGrasshopper - Object syntax debug
+Object debugging
+While making a zork-type game, you create an object of rooms. Unfortunately, the game is not working. Find all of the errors in the rooms object to get your game working again.    */
+
+  const rooms = {
+    first: {
+      description: 'This is the first room',
+      items: {
+        chair: 'The old chair looks comfortable',
+        lamp: 'This lamp looks ancient',
+      },
+    },
+    second: {
+      description: 'This is the second room',
+      items: {
+        couch: 'This couch looks like it would hurt your back',
+        table: 'On the table there is an unopened bottle of water',
+      },
+    },
+  };
+  // console.log(rooms);
 }
