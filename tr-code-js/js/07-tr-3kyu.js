@@ -6109,11 +6109,14 @@ The array elements will all be numbers. The numbers will also all be unique and 
   //     .map(e => ({ i: arr.indexOf(e), n: e }));
   // }
 
-  function allNonConsecutive(arr) {
-    return arr
-      .map((n, i, ar) => (n - 1 - ar[i - 1] ? { i, n } : null))
-      .filter(e => e);
-  }
+  // function allNonConsecutive(arr) {
+  //   return arr
+  //     .map((n, i, ar) => (n - 1 - ar[i - 1] ? { i, n } : null))
+  //     .filter(e => e);
+  // }
+
+  const allNonConsecutive = arr =>
+    arr.map((n, i, ar) => (n - 1 - ar[i - 1] ? { i, n } : null)).filter(e => e);
 
   console.log(allNonConsecutive([1, 2, 3, 4, 6, 7, 8, 15, 16]));
 }
