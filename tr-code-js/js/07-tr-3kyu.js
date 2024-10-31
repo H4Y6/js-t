@@ -6103,10 +6103,16 @@ If the whole array is consecutive or has one element then return an empty array.
 
 The array elements will all be numbers. The numbers will also all be unique and in ascending order. The numbers could be positive and/or negetive and the gap could be larger than one.  */
 
+  // function allNonConsecutive(arr) {
+  //   return arr
+  //     .filter((e, i) => e - 1 - arr[i - 1])
+  //     .map(e => ({ i: arr.indexOf(e), n: e }));
+  // }
+
   function allNonConsecutive(arr) {
     return arr
-      .filter((e, i) => e - 1 - arr[i - 1])
-      .map(e => ({ i: arr.indexOf(e), n: e }));
+      .map((n, i, ar) => (n - 1 - ar[i - 1] ? { i, n } : null))
+      .filter(e => e);
   }
 
   console.log(allNonConsecutive([1, 2, 3, 4, 6, 7, 8, 15, 16]));
