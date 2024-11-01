@@ -6193,12 +6193,17 @@ The array elements will all be numbers. The numbers will also all be unique and 
   //     .join('');
   // }
 
-  const neutralise = (s1, s2) =>
-    [...s1]
-      .map((e, i) =>
-        (v => (v === '++' ? '+' : v === '--' ? '-' : '0'))(e + s2[i]),
-      )
-      .join('');
+  // const neutralise = (s1, s2) =>
+  //   [...s1]
+  //     .map((e, i) =>
+  //       (v => (v === '++' ? '+' : v === '--' ? '-' : '0'))(e + s2[i]),
+  //     )
+  //     .join('');
 
-  console.log(neutralise('-++-', '-+-+'));
+  // const neutralise = (s1, s2) => [...s1].map((e, i) => (e === s2[i] ? e : '0')).join('');
+
+  const neutralise = (s1, s2) =>
+    [...s1].reduce((s, e, i) => (e === s2[i] ? s + e : s + '0'), '');
+
+  // console.log(neutralise('-++-', '-+-+'));
 }
