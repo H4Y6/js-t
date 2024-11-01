@@ -6133,11 +6133,16 @@ The array elements will all be numbers. The numbers will also all be unique and 
   10, "blue", "red"  -->  ["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"]
   0, "one", "two"    -->  []      */
 
-  function alternate(n, firstValue, secondValue) {
-    return Array(n)
+  // function alternate(n, firstValue, secondValue) {
+  //   return Array(n)
+  //     .fill('')
+  //     .map((e, i) => [firstValue, secondValue][i % 2]);
+  // }
+
+  const alternate = (n, firstValue, secondValue) =>
+    Array(n)
       .fill('')
       .map((e, i) => [firstValue, secondValue][i % 2]);
-  }
 
-  console.log(alternate(0, true, false));
+  console.log(alternate(3, true, false));
 }
