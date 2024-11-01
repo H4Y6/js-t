@@ -6147,8 +6147,12 @@ The array elements will all be numbers. The numbers will also all be unique and 
   // const alternate = (n, firstValue, secondValue) =>
   //   [...Array(n)].map((e, i) => [firstValue, secondValue][i % 2]);
 
-  const alternate = (n, firstValue, secondValue) =>
-    n ? [firstValue, ...alternate(--n, secondValue, firstValue)] : [];
+  const alternate = (n, firstValue, secondValue) => [
+    ...Array.from({ length: n }, (e, i) => [firstValue, secondValue][i % 2]),
+  ];
+
+  // const alternate = (n, firstValue, secondValue) =>
+  //   n ? [firstValue, ...alternate(--n, secondValue, firstValue)] : [];
 
   // console.log(alternate(3, true, false));
 }
