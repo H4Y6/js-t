@@ -6185,13 +6185,20 @@ The array elements will all be numbers. The numbers will also all be unique and 
   
   The two strings will be the same length.     */
 
-  function neutralise(s1, s2) {
-    return [...s1]
+  // function neutralise(s1, s2) {
+  //   return [...s1]
+  //     .map((e, i) =>
+  //       (v => (v === '++' ? '+' : v === '--' ? '-' : '0'))(e + s2[i]),
+  //     )
+  //     .join('');
+  // }
+
+  const neutralise = (s1, s2) =>
+    [...s1]
       .map((e, i) =>
         (v => (v === '++' ? '+' : v === '--' ? '-' : '0'))(e + s2[i]),
       )
       .join('');
-  }
 
   console.log(neutralise('-++-', '-+-+'));
 }
