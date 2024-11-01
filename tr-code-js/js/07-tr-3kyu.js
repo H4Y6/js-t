@@ -6139,10 +6139,13 @@ The array elements will all be numbers. The numbers will also all be unique and 
   //     .map((e, i) => [firstValue, secondValue][i % 2]);
   // }
 
+  // const alternate = (n, firstValue, secondValue) =>
+  //   Array(n)
+  //     .fill('')
+  //     .map((e, i) => [firstValue, secondValue][i % 2]);
+
   const alternate = (n, firstValue, secondValue) =>
-    Array(n)
-      .fill('')
-      .map((e, i) => [firstValue, secondValue][i % 2]);
+    [...Array(n)].map((e, i) => [firstValue, secondValue][i % 2]);
 
   console.log(alternate(3, true, false));
 }
