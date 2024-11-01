@@ -6125,3 +6125,19 @@ The array elements will all be numbers. The numbers will also all be unique and 
 
   // console.log(allNonConsecutive([1, 2, 3, 4, 6, 7, 8, 15, 16]));
 }
+{
+  /**   7 kyu  Length and two values.
+  Given an integer n and two other values, build an array of size n filled with these two values alternating.
+  Examples  
+  5, true, false     -->  [true, false, true, false, true]
+  10, "blue", "red"  -->  ["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"]
+  0, "one", "two"    -->  []      */
+
+  function alternate(n, firstValue, secondValue) {
+    return Array(n)
+      .fill('')
+      .map((e, i) => [firstValue, secondValue][i % 2]);
+  }
+
+  console.log(alternate(0, true, false));
+}
