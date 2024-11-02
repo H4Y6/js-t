@@ -6228,10 +6228,18 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
   // const multiple = x =>
   //   (!(x % 3) ? 'Bang' : '') + (!(x % 5) ? 'Boom' : '') || 'Miss';
 
-  const multiple = x =>
-    (v => (v.length ? v : 'Miss'))(
-      (!(x % 3) ? 'Bang' : '') + (!(x % 5) ? 'Boom' : ''),
-    );
+  // const multiple = x => (v => (v.length ? v : 'Miss'))((!(x % 3) ? 'Bang' : '') + (!(x % 5) ? 'Boom' : ''));
 
-  // console.log(multiple(311));
+  const multiple = x => {
+    const res = (!(x % 3) ? 'Bang' : '') + (!(x % 5) ? 'Boom' : '');
+    switch (res.length > 0) {
+      case true:
+        return res;
+
+      default:
+        return 'Miss';
+    }
+  };
+
+  console.log(multiple(130));
 }
