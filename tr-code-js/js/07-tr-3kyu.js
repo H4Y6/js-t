@@ -6241,5 +6241,21 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
     }
   };
 
-  console.log(multiple(130));
+  // console.log(multiple(130));
+}
+{
+  function mergeArrays(a, b) {
+    return a.length < b.length
+      ? a
+          .map((e, i) => [e, b[i]])
+          .flat()
+          .concat(b.slice(a.length))
+      : a
+          .slice(0, b.length)
+          .map((e, i) => [e, b[i]])
+          .flat()
+          .concat(a.slice(b.length));
+  }
+
+  console.log(mergeArrays([1, 2, 3, 6, 8, 5], ['a', 'b', 'c', 'd']));
 }
