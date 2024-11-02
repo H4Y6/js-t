@@ -6223,13 +6223,7 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
   // }
 
   const multiple = x =>
-    !(x % 3) && !(x % 5)
-      ? 'BangBoom'
-      : !(x % 3)
-      ? 'Bang'
-      : !(x % 5)
-      ? 'Boom'
-      : 'Miss';
+    !(x % 15) ? 'BangBoom' : !(x % 3) ? 'Bang' : !(x % 5) ? 'Boom' : 'Miss';
 
   console.log(multiple(33));
 }
