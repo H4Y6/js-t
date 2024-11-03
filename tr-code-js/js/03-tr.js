@@ -746,20 +746,21 @@ The constructor() method is called automatically by new, so we can initialize th
   console.log(Car);
 
   class Storage {
+    #items;
     constructor(items) {
-      this.items = items;
+      this.#items = items;
     }
 
     getItems() {
-      return this.items;
+      return this.#items;
     }
 
     addItem(newItem) {
-      this.items.push(newItem);
+      this.#items.push(newItem);
     }
 
     removeItem(itemToRemove) {
-      this.items.splice([this.items.indexOf(itemToRemove)], 1);
+      this.#items.splice([this.#items.indexOf(itemToRemove)], 1);
     }
   }
 
