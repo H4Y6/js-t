@@ -6283,5 +6283,5 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
           .concat(a.slice(b.length));
   }
 
-  console.log(mergeArrays([1, 2, 3, 6, 8, 5], ['a', 'b', 'c', 'd']));
+  // console.log(mergeArrays([1, 2, 3, 6, 8, 5], ['a', 'b', 'c', 'd']));
 }
