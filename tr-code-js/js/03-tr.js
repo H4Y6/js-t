@@ -720,6 +720,7 @@ The constructor() method is called automatically by new, so we can initialize th
   console.log(poly);
 
   class Car {
+    static MAX_PRICE = 50000;
     #brand;
     #model;
     #price;
@@ -734,7 +735,7 @@ The constructor() method is called automatically by new, so we can initialize th
     }
 
     set price(newPrice) {
-      this.#price = newPrice;
+      this.#price = newPrice > Car.MAX_PRICE ? this.#price : newPrice;
     }
 
     get brand() {
