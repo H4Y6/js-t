@@ -721,6 +721,11 @@ The constructor() method is called automatically by new, so we can initialize th
 
   class Car {
     static MAX_PRICE = 50000;
+    static checkPrice(price) {
+      return price > Car.MAX_PRICE
+        ? 'Error! Price exceeds the maximum'
+        : 'Success! Price is within acceptable limits';
+    }
     #brand;
     #model;
     #price;
@@ -754,7 +759,11 @@ The constructor() method is called automatically by new, so we can initialize th
       this.#model = newModel;
     }
   }
-  console.log(Car);
+  const audi = new Car({ price: 36000 });
+  const bmw = new Car({ price: 64000 });
+
+  console.log(Car.checkPrice(audi.price));
+  console.log(Car.checkPrice(bmw.price));
 
   class Storage {
     #items;
