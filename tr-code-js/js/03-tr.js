@@ -668,3 +668,31 @@ const users = [
     },
   };
 }
+{
+  /** prototypes */
+
+  const animal = { legs: 4 };
+  const dog = Object.create(animal);
+  dog.name = 'Mango';
+  console.log(dog);
+  console.log(animal.isPrototypeOf(dog));
+  console.log(dog.hasOwnProperty('name'));
+  console.log(dog.hasOwnProperty('legs'));
+  console.log(dog.legs);
+
+  const ancestor = {
+    name: 'Paul',
+    age: 83,
+    surname: 'Dawson',
+    heritage: 'Irish',
+  };
+
+  const parent = Object.create(ancestor);
+  parent.name = 'Stacey';
+  parent.surname = 'Moore';
+  parent.age = 54;
+
+  const child = Object.create(parent);
+  child.name = 'Jason';
+  child.age = 27;
+}
