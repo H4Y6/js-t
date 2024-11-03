@@ -721,26 +721,36 @@ The constructor() method is called automatically by new, so we can initialize th
 
   class Car {
     #brand;
+    #model;
+    #price;
     constructor({ brand, model, price }) {
       this.#brand = brand;
-      this.model = model;
-      this.price = price;
+      this.#model = model;
+      this.#price = price;
     }
 
-    getPrice() {
-      return this.price;
+    get price() {
+      return this.#price;
     }
 
-    changePrice(newPrice) {
-      this.price = newPrice;
+    set price(newPrice) {
+      this.#price = newPrice;
     }
 
-    getBrand() {
+    get brand() {
       return this.#brand;
     }
 
-    changeBrand(newBrand) {
+    set brand(newBrand) {
       this.#brand = newBrand;
+    }
+
+    get model() {
+      return this.#model;
+    }
+
+    set model(newModel) {
+      this.#model = newModel;
     }
   }
   console.log(Car);
