@@ -720,8 +720,9 @@ The constructor() method is called automatically by new, so we can initialize th
   console.log(poly);
 
   class Car {
+    #brand;
     constructor({ brand, model, price }) {
-      this.brand = brand;
+      this.#brand = brand;
       this.model = model;
       this.price = price;
     }
@@ -732,6 +733,14 @@ The constructor() method is called automatically by new, so we can initialize th
 
     changePrice(newPrice) {
       this.price = newPrice;
+    }
+
+    getBrand() {
+      return this.#brand;
+    }
+
+    changeBrand(newBrand) {
+      this.#brand = newBrand;
     }
   }
   console.log(Car);
