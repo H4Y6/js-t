@@ -696,3 +696,68 @@ const users = [
   child.name = 'Jason';
   child.age = 27;
 }
+
+{
+  /**The “class” syntax
+  The basic syntax is: */
+
+  class MyClass {
+    // class methods
+    constructor() {}
+    method1() {}
+    method2() {}
+    method3() {}
+  }
+  /** Then use new MyClass() to create a new object with all the listed methods.
+The constructor() method is called automatically by new, so we can initialize the object there.} */
+
+  class User {}
+  const mango = new User();
+  console.log(mango);
+  {
+  }
+  const poly = new User();
+  console.log(poly);
+
+  class Car {
+    constructor({ brand, model, price }) {
+      this.brand = brand;
+      this.model = model;
+      this.price = price;
+    }
+
+    getPrice() {
+      return this.price;
+    }
+
+    changePrice(newPrice) {
+      this.price = newPrice;
+    }
+  }
+  console.log(Car);
+
+  class Storage {
+    constructor(items) {
+      this.items = items;
+    }
+
+    getItems() {
+      return this.items;
+    }
+
+    addItem(newItem) {
+      this.items.push(newItem);
+    }
+
+    removeItem(itemToRemove) {
+      this.items.splice([this.items.indexOf(itemToRemove)], 1);
+    }
+  }
+
+  const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+  console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+  storage.addItem('Droid');
+  console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+  storage.removeItem('Prolonger');
+  console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+}
