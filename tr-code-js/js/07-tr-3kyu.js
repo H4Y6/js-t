@@ -6380,8 +6380,11 @@ Given a string, you must decide whether or not it contains a valid phone number.
   //     str.replace(/\D/g, ''),
   //   );
 
-  const isItANum = (str, s = str.replace(/\D/g, '')) =>
-    s.match(/0\d{10}/) ? s : 'Not a phone number';
+  // const isItANum = (str, s = str.replace(/\D/g, '')) =>
+  //   s.match(/0\d{10}/) ? s : 'Not a phone number';
 
-  console.log(isItANum('S:)0207ERGQREG88349F82!efRF)'));
+  const isItANum = (str, s = str.replace(/\D/g, '')) =>
+    /0\d{10}/.test(s) ? s : 'Not a phone number';
+
+  // console.log(isItANum('S:)0207ERGQREG88349F82!efRF)'));
 }
