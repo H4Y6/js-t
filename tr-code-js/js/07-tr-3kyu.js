@@ -6327,14 +6327,22 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
   //     [a / b]: 'division',
   //   }[res]);
 
-  const calcType = (a, b, res) =>
-    a + b - res
-      ? a - b - res
-        ? a * b - res
-          ? 'division'
-          : 'multiplication'
-        : 'subtraction'
-      : 'addition';
+  // const calcType = (a, b, res) =>
+  //   a + b - res
+  //     ? a - b - res
+  //       ? a * b - res
+  //         ? 'division'
+  //         : 'multiplication'
+  //       : 'subtraction'
+  //     : 'addition';
 
-  console.log(calcType(1, 2, -1));
+  const calcType = (a, b, res) =>
+    Object.entries({
+      addition: a + b - res,
+      subtraction: a - b - res,
+      multiplication: a * b - res,
+      division: a / b - res,
+    }).find(e => !e[1])[0];
+
+  // console.log(calcType(1, 2, -1));
 }
