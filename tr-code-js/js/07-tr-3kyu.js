@@ -6285,3 +6285,16 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
 
   // console.log(mergeArrays([1, 2, 3, 6, 8, 5], ['a', 'b', 'c', 'd']));
 }
+{
+  function calcType(a, b, res) {
+    return res === a + b
+      ? 'addition'
+      : res === a - b
+      ? 'subtraction'
+      : res === a / b
+      ? 'division'
+      : 'multiplication';
+  }
+
+  console.log(calcType(1, 2, 2));
+}
