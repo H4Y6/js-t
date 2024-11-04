@@ -6370,10 +6370,18 @@ Given a string, you must decide whether or not it contains a valid phone number.
   //   );
   // }
 
-  const isItANum = str =>
-    (e => (e.length === 11 && e.charAt() === '0' ? e : 'Not a phone number'))(
-      str.replace(/[^0-9]/g, ''),
-    );
+  // const isItANum = str =>
+  //   (e => (e.length === 11 && e.charAt() === '0' ? e : 'Not a phone number'))(
+  //     str.replace(/[^0-9]/g, ''),
+  //   );
+
+  // const isItANum = str =>
+  //   (e => (e.match(/0\d{10}/) ? e : 'Not a phone number'))(
+  //     str.replace(/\D/g, ''),
+  //   );
+
+  const isItANum = (str, s = str.replace(/\D/g, '')) =>
+    s.match(/0\d{10}/) ? s : 'Not a phone number';
 
   console.log(isItANum('S:)0207ERGQREG88349F82!efRF)'));
 }
