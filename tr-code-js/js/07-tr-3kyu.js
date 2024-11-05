@@ -6425,8 +6425,11 @@ Obs: x and y will be naturals, so DON'T take fractions into consideration;
 
 Note : zero to the power of zero equals one in this kata */
 
-  function power(x, y) {
-    return x ** y;
-  }
-  console.log(power(-1, 40));
+  // function power(x, y) {
+  //   return x ** y;
+  // }
+
+  const power = (x, y) => x ** y;
+
+  // console.log(power(-1, 40));
 }
