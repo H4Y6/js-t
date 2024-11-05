@@ -6401,9 +6401,13 @@ Round up if number is as close to previous and next 0.5 steps.
 
 solution(4.75) == 5   */
 
-  function solution(n) {
-    return Math.round((n % Math.trunc(n)) * 2) / 2 + Math.trunc(n);
-  }
+  // function solution(n) {
+  //   return Math.round((n % Math.trunc(n)) * 2) / 2 + Math.trunc(n);
+  // }
 
-  console.log(solution(4.25));
+  // const solution = n => Math.round((n % Math.trunc(n)) * 2) / 2 + Math.trunc(n);
+
+  const solution = n => Math.round((n * 2) / 2);
+
+  console.log(solution(4.75));
 }
