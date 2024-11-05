@@ -6407,7 +6407,10 @@ solution(4.75) == 5   */
 
   // const solution = n => Math.round((n % Math.trunc(n)) * 2) / 2 + Math.trunc(n);
 
-  const solution = n => Math.round((n * 2) / 2);
+  // const solution = n => Math.round((n * 2) / 2);
 
-  console.log(solution(4.75));
+  const solution = n =>
+    Math.trunc(n) + (n % 1 < 0.25 ? 0 : n % 1 >= 0.75 ? 1 : 0.5);
+
+  // console.log(solution(4.75));
 }
