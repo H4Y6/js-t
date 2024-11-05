@@ -6409,8 +6409,9 @@ solution(4.75) == 5   */
 
   // const solution = n => Math.round((n * 2) / 2);
 
-  const solution = n =>
-    Math.trunc(n) + (n % 1 < 0.25 ? 0 : n % 1 >= 0.75 ? 1 : 0.5);
+  // const solution = n => Math.trunc(n) + (n % 1 < 0.25 ? 0 : n % 1 >= 0.75 ? 1 : 0.5);
+
+  const solution = n => (2 * n).toFixed() / 2;
 
   // console.log(solution(4.75));
 }
