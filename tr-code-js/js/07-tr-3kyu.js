@@ -6449,9 +6449,13 @@ Our loose definition of Vampire Numbers can be described as follows:
 
 Create a function that can receive two 'fangs' and determine if the product of the two is a valid vampire number.  */
 
-  const vampireTest = (a, b) =>
-    [...String(a * b)].sort().join('') ===
-    [...(a.toString() + b)].sort().join('');
+  // const vampireTest = (a, b) =>
+  //   [...String(a * b)].sort().join('') ===
+  //   [...(a.toString() + b)].sort().join('');
 
-  console.log(vampireTest(6, 21));
+  const ss = s => [...s].sort().join('');
+  const vampireTest = (a, b) =>
+    ss((a * b).toString()) === ss(a.toString() + b.toString());
+
+  // console.log(vampireTest(6, 21));
 }
