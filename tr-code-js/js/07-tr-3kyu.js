@@ -6459,3 +6459,12 @@ Create a function that can receive two 'fangs' and determine if the product of t
 
   // console.log(vampireTest(6, 21));
 }
+
+function tankvol(h, d, vt, r = d / 2) {
+  const halfAlfa = Math.acos((r - h) / r);
+  const halfBase = r * Math.sin(halfAlfa);
+  const res =
+    ((r ** 2 * halfAlfa - halfBase * (r - h)) / (Math.PI * r ** 2)) * vt;
+  return res ^ 0;
+}
+console.log(tankvol(40, 120, 3500));

@@ -7,5 +7,5 @@
   "files.autoSave": "onFocusChange",
   "editor.tabSize": 2,
   "diffEditor.ignoreTrimWhitespace": false,
-  "liveServer.settings.CustomBrowser": "chrome"
+  "liveServer.settings.CustomBrowser": "firefox"
 }
