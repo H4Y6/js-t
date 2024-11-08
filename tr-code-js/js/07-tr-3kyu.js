@@ -6467,4 +6467,21 @@ function tankvol(h, d, vt, r = d / 2) {
     ((r ** 2 * halfAlfa - halfBase * (r - h)) / (Math.PI * r ** 2)) * vt;
   return res ^ 0;
 }
-console.log(tankvol(40, 120, 3500));
+// console.log(tankvol(40, 120, 3500));
+
+{
+  function containAllRots(strng, arr) {
+    if (typeof strng !== 'string') return false;
+    const rots = [...strng].map(
+      (e, I) => (strng = strng.slice(-1) + strng.slice(0, -1)),
+    );
+    const delta = arr.length - rots.length;
+    rots.map(e => {
+      const i = arr.indexOf(e);
+      i >= 0 ? arr.splice(i, 1) : arr.push(false);
+    });
+    return !arr.includes(false) && arr.length === delta;
+  }
+
+  // console.log(containAllRots("bsjq", ["bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"]))
+}
