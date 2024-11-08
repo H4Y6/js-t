@@ -6494,9 +6494,11 @@ Examples:
 secondSymbol('Hello world!!!','l')  --> 3
 secondSymbol('Hello world!!!', 'A') --> -1   */
 
-  function secondSymbol(s, symbol) {
-    return s.replace(symbol, '_').indexOf(symbol);
-  }
+  // function secondSymbol(s, symbol) {
+  //   return s.replace(symbol, '_').indexOf(symbol);
+  // }
+
+  const secondSymbol = (s, symbol) => s.replace(symbol, '_').indexOf(symbol);
 
   console.log(secondSymbol('Hello world!!!', 'l'));
 }
