@@ -6504,3 +6504,20 @@ secondSymbol('Hello world!!!', 'A') --> -1   */
 
   // console.log(secondSymbol('Hello world!!!', 'l'));
 }
+{
+  const AmIAfraid = function (day, num) {
+    console.log(day, num);
+    const numbers = {
+      Monday: num === 12,
+      Tuesday: num > 95,
+      Wednesday: num === 34,
+      Thursday: num === 0,
+      Friday: num % 2 === 0,
+      Saturday: num === 56,
+      Sunday: num === -666 || num === 666,
+    };
+    return numbers[day];
+  };
+
+  console.log(AmIAfraid('Friday', 2));
+}
