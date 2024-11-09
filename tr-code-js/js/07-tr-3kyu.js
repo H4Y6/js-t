@@ -6518,16 +6518,28 @@ secondSymbol('Hello world!!!', 'A') --> -1   */
   //   return numbers[day];
   // };
 
+  // const AmIAfraid = (day, num) =>
+  //   ({
+  //     Monday: num === 12,
+  //     Tuesday: num > 95,
+  //     Wednesday: num === 34,
+  //     Thursday: num === 0,
+  //     Friday: num % 2 === 0,
+  //     Saturday: num === 56,
+  //     Sunday: num === -666 || num === 666,
+  //   }[day]);
+
   const AmIAfraid = (day, num) =>
-    ({
-      Monday: num === 12,
-      Tuesday: num > 95,
-      Wednesday: num === 34,
-      Thursday: num === 0,
-      Friday: num % 2 === 0,
-      Saturday: num === 56,
-      Sunday: num === -666 || num === 666,
-    }[day]);
+    (d =>
+      ({
+        Mo: num === 12,
+        Tu: num > 95,
+        We: num === 34,
+        Th: num === 0,
+        Fr: num % 2 === 0,
+        Sa: num === 56,
+        Su: 666 === Math.abs(num),
+      }[d]))((day = day.slice(0, 2)));
 
   console.log(AmIAfraid('Friday', 2));
 }
