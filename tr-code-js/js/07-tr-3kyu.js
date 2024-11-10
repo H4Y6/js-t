@@ -6586,19 +6586,33 @@ Some examples
   //     : 'tick';
   // }
 
-  const fizzBuzzCuckooClock = time =>
-    (t =>
-      !+t[1]
-        ? 'Cuckoo '.repeat(+t[0] % 12).trim() || 'Cuckoo '.repeat(12).trim()
-        : t[1] === '30'
-        ? 'Cuckoo'
-        : !(+t[1] % 15)
-        ? 'Fizz Buzz'
-        : !(+t[1] % 5)
-        ? 'Buzz'
-        : !(+t[1] % 3)
-        ? 'Fizz'
-        : 'tick')(time.split(':'));
+  // const fizzBuzzCuckooClock = time =>
+  //   (t =>
+  //     !+t[1]
+  //       ? 'Cuckoo '.repeat(+t[0] % 12).trim() || 'Cuckoo '.repeat(12).trim()
+  //       : t[1] === '30'
+  //       ? 'Cuckoo'
+  //       : !(+t[1] % 15)
+  //       ? 'Fizz Buzz'
+  //       : !(+t[1] % 5)
+  //       ? 'Buzz'
+  //       : !(+t[1] % 3)
+  //       ? 'Fizz'
+  //       : 'tick')(time.split(':'));
 
-  console.log(fizzBuzzCuckooClock('24:00'));
+  const fizzBuzzCuckooClock = time =>
+    (([hs, ms]) =>
+      !ms
+        ? 'Cuckoo '.repeat(hs % 12).trim() || 'Cuckoo '.repeat(12).trim()
+        : ms + '' === '30'
+        ? 'Cuckoo'
+        : !(ms % 15)
+        ? 'Fizz Buzz'
+        : !(ms % 5)
+        ? 'Buzz'
+        : !(ms % 3)
+        ? 'Fizz'
+        : 'tick')(time.split(':').map(e => +e));
+
+  // console.log(fizzBuzzCuckooClock('24:00'));
 }
