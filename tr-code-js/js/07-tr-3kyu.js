@@ -6614,7 +6614,7 @@ Some examples
         ? 'Fizz'
         : 'tick')(time.split(':').map(e => +e));
 
-  // const fizzBuzzCuckooClock = time => (([hs, ms]) => !ms ? Array(hs > 12 ? hs - 12 : hs || 12).fill('Cuckoo').join(' ') : ms + '' === 30'
+  // const fizzBuzzCuckooClock = time => (([hs, ms]) => !ms ? Array(hs > 12 ? hs - 12 : hs || 12).fill('Cuckoo').join(' ') : ms + '' === '30'
   // ? 'Cuckoo' : !(ms % 15) ? 'Fizz Buzz' : !(ms % 5) ? 'Buzz' : !(ms % 3) ? 'Fizz' : 'tick')(time.split(':').map(e => +e));
   // console.log(fizzBuzzCuckooClock('24:00'));
 }

@@ -1,11 +1,16 @@
 {
-  "editor.wordWrapColumn": 140,
+  "editor.wordWrapColumn": 180,
   "chat.editor.wordWrap": "off",
-  "prettier.printWidth": 140,
-  "editor.autoIndent": "keep",
+  "prettier.printWidth": 180,
+  "editor.autoIndent": "full",
   "workbench.editor.closeEmptyGroups": false,
   "files.autoSave": "onFocusChange",
   "editor.tabSize": 2,
   "diffEditor.ignoreTrimWhitespace": false,
-  "liveServer.settings.CustomBrowser": "firefox"
+  "liveServer.settings.CustomBrowser": null,
+  "editor.defaultFoldingRangeProvider": null,
+  "liveServer.settings.useWebExt": false,
+  "notebook.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.externalBrowser": "Opera",
+  "liveServer.settings.NoBrowser": true
 }
