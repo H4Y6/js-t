@@ -6571,20 +6571,34 @@ Some examples
 "00:00"       "Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo"
 "12:00"       "Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo"   */
 
-  function fizzBuzzCuckooClock(time) {
-    const t = time.split(':');
-    return !+t[1]
-      ? 'Cuckoo '.repeat(+t[0] % 12).trim() || 'Cuckoo '.repeat(12).trim()
-      : t[1] === '30'
-      ? 'Cuckoo'
-      : !(+t[1] % 15)
-      ? 'Fizz Buzz'
-      : !(+t[1] % 5)
-      ? 'Buzz'
-      : !(+t[1] % 3)
-      ? 'Fizz'
-      : 'tick';
-  }
+  // function fizzBuzzCuckooClock(time) {
+  //   const t = time.split(':');
+  //   return !+t[1]
+  //     ? 'Cuckoo '.repeat(+t[0] % 12).trim() || 'Cuckoo '.repeat(12).trim()
+  //     : t[1] === '30'
+  //     ? 'Cuckoo'
+  //     : !(+t[1] % 15)
+  //     ? 'Fizz Buzz'
+  //     : !(+t[1] % 5)
+  //     ? 'Buzz'
+  //     : !(+t[1] % 3)
+  //     ? 'Fizz'
+  //     : 'tick';
+  // }
+
+  const fizzBuzzCuckooClock = time =>
+    (t =>
+      !+t[1]
+        ? 'Cuckoo '.repeat(+t[0] % 12).trim() || 'Cuckoo '.repeat(12).trim()
+        : t[1] === '30'
+        ? 'Cuckoo'
+        : !(+t[1] % 15)
+        ? 'Fizz Buzz'
+        : !(+t[1] % 5)
+        ? 'Buzz'
+        : !(+t[1] % 3)
+        ? 'Fizz'
+        : 'tick')(time.split(':'));
 
   console.log(fizzBuzzCuckooClock('24:00'));
 }
