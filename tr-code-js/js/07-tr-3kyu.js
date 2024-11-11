@@ -6633,10 +6633,15 @@ See the pattern below:
 Names in the full name are separated by exactly one space (' ' ) ; without leading or trailing spaces.
  Names will always be lowercase, except optionally their first letter. */
 
+  //  const initials = n =>
+  // 	 (a =>
+  // 		 a.map(e => e.at().toUpperCase()).join('.') + a[a.length - 1].slice(1))(
+  // 		 n.split(' '),
+  // 	 );
+
   const initials = n =>
-    (a =>
-      a.map(e => e.at().toUpperCase()).join('.') + a[a.length - 1].slice(1))(
-      n.split(' '),
-    );
-  console.log(initials('barack hussain Obama'));
+    (n = n.split(' ')).map(e => e.at().toUpperCase()).join('.') +
+    n[n.length - 1].slice(1);
+
+  // console.log(initials('barack hussain Obama'));
 }
