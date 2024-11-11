@@ -1,5 +1,5 @@
 {
-  "editor.wordWrapColumn": 180,
+  "editor.wordWrapColumn": 120,
   "chat.editor.wordWrap": "off",
   "prettier.printWidth": 180,
   "editor.autoIndent": "full",
