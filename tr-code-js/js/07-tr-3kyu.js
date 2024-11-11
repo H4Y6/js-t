@@ -6664,11 +6664,16 @@ If the building contains no ghosts, return the string:
 
 "You just wanted my autograph didn't you?"   */
 
-  function ghostBusters(building) {
-    return building.split(' ').length > 1
-      ? building.split(' ').join('')
+  // function ghostBusters(building) {
+  //   return building.split(' ').length > 1
+  //     ? building.split(' ').join('')
+  //     : "You just wanted my autograph didn't you?";
+  // }
+
+  const ghostBusters = building =>
+    / /.test(building)
+      ? building.replaceAll(' ', '')
       : "You just wanted my autograph didn't you?";
-  }
 
   console.log(ghostBusters('Sky scra per'));
 }
