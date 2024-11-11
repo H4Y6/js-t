@@ -6618,3 +6618,25 @@ Some examples
   // ? 'Cuckoo' : !(ms % 15) ? 'Fizz Buzz' : !(ms % 5) ? 'Buzz' : !(ms % 3) ? 'Fizz' : 'tick')(time.split(':').map(e => +e));
   // console.log(fizzBuzzCuckooClock('24:00'));
 }
+{
+  /** 7 kyu  C.Wars
+A person's full name is usually composed of a first name, middle name and last name; however in some cultures 
+(for example in South India) there may be more than one middle name.
+
+Write a function that takes the full name of a person, and returns the initials, separated by dots ('.'). 
+The initials must be uppercase. The last name of the person must appear in full, with its first letter in uppercase as well.
+
+See the pattern below:
+
+"code wars"            ---> "C.Wars"
+"Barack hussein obama" ---> "B.H.Obama"
+Names in the full name are separated by exactly one space (' ' ) ; without leading or trailing spaces.
+ Names will always be lowercase, except optionally their first letter. */
+
+  const initials = n =>
+    (a =>
+      a.map(e => e.at().toUpperCase()).join('.') + a[a.length - 1].slice(1))(
+      n.split(' '),
+    );
+  console.log(initials('barack hussain Obama'));
+}
