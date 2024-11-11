@@ -6639,9 +6639,13 @@ Names in the full name are separated by exactly one space (' ' ) ; without leadi
   // 		 n.split(' '),
   // 	 );
 
+  // const initials = n =>
+  //   (n = n.split(' ')).map(e => e.at().toUpperCase()).join('.') +
+  //   n[n.length - 1].slice(1);
+
   const initials = n =>
-    (n = n.split(' ')).map(e => e.at().toUpperCase()).join('.') +
-    n[n.length - 1].slice(1);
+    (n = n.split(' ')).map(e => e[0].toUpperCase()).join('.') +
+    n.pop().slice(1);
 
   // console.log(initials('barack hussain Obama'));
 }
