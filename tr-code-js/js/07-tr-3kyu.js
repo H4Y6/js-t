@@ -6698,8 +6698,11 @@ counterEffect("0000") // [[0],[0],[0],[0]]   */
   //   return [...hitCount].map(e => Array.from({ length: +e + 1 }, (el, i) => i));
   // }
 
-  const counterEffect = hitCount =>
-    [...hitCount].map(e => Array.from({ length: +e + 1 }, (_, i) => i));
+  // const counterEffect = hitCount =>
+  //   [...hitCount].map(e => Array.from({ length: +e + 1 }, (_, i) => i));
 
-  console.log(counterEffect('1250'));
+  const counterEffect = hitCount =>
+    Array.from([...hitCount], e => [...Array(+e + 1).keys()]);
+
+  // console.log(counterEffect('1250'));
 }
