@@ -6718,9 +6718,12 @@ In this kata you should complete a function in order to know after how many visi
   //     : annualPrice / individualPrice;
   // }
 
-  function howManyTimes(annualPrice, individualPrice) {
-    return (e => (e % 1 ? (1 + e) ^ 0 : e))(annualPrice / individualPrice);
-  }
+  // function howManyTimes(annualPrice, individualPrice) {
+  //   return (e => (e % 1 ? (1 + e) ^ 0 : e))(annualPrice / individualPrice);
+  // }
 
-  console.log(howManyTimes(80, 15));
+  const howManyTimes = (annualPrice, individualPrice) =>
+    (e => (e % 1 ? (1 + e) ^ 0 : e))(annualPrice / individualPrice);
+
+  // console.log(howManyTimes(80, 15));
 }
