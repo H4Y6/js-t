@@ -6712,10 +6712,14 @@ Lot of museum allow you to be a member, for a certain amount amount_by_year you 
 
 In this kata you should complete a function in order to know after how many visit it will be better to take an annual pass. The function take 2 arguments annual_price and individual_price.    */
 
+  // function howManyTimes(annualPrice, individualPrice) {
+  //   return (annualPrice / individualPrice) % 1
+  //     ? (1 + annualPrice / individualPrice) ^ 0
+  //     : annualPrice / individualPrice;
+  // }
+
   function howManyTimes(annualPrice, individualPrice) {
-    return (annualPrice / individualPrice) % 1
-      ? (1 + annualPrice / individualPrice) ^ 0
-      : annualPrice / individualPrice;
+    return (e => (e % 1 ? (1 + e) ^ 0 : e))(annualPrice / individualPrice);
   }
 
   console.log(howManyTimes(80, 15));
