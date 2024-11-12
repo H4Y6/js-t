@@ -1,7 +1,7 @@
 {
   "editor.wordWrapColumn": 120,
   "chat.editor.wordWrap": "off",
-  "prettier.printWidth": 180,
+  "prettier.printWidth": 120,
   "editor.autoIndent": "full",
   "workbench.editor.closeEmptyGroups": false,
   "files.autoSave": "onFocusChange",
@@ -11,6 +11,6 @@
   "editor.defaultFoldingRangeProvider": null,
   "liveServer.settings.useWebExt": false,
   "notebook.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.externalBrowser": "Opera",
+  "workbench.externalBrowser": "",
   "liveServer.settings.NoBrowser": true
 }
