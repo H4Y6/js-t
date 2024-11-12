@@ -6793,6 +6793,10 @@ function Dog(name, breed, sex, age){
 
   Dog.prototype.bark = () => 'Woof!';
 
+  // Dog.prototype.bark = function () {
+  //   return 'Woof!';
+  // };
+
   const zeus = new Dog();
   // console.log(zeus.bark());
 }
