@@ -6804,7 +6804,8 @@ function Dog(name, breed, sex, age){
   const createalpabet = () =>
     Array(26)
       .fill(1)
-      .map((e, i) => String.fromCharCode(97 + i));
+      .map((e, i) => String.fromCharCode(97 + i))
+      .join();
 
   console.log(createalpabet());
 }
