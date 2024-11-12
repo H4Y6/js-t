@@ -6800,3 +6800,11 @@ function Dog(name, breed, sex, age){
   const zeus = new Dog();
   // console.log(zeus.bark());
 }
+{
+  const createalpabet = () =>
+    Array(26)
+      .fill(1)
+      .map((e, i) => String.fromCharCode(97 + i));
+
+  console.log(createalpabet());
+}
