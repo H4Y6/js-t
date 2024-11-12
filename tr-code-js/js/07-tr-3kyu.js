@@ -6891,13 +6891,18 @@ If the sum of the three parameters (as described above) is > 22, return 'Sabbati
   //       : 'Back to your desk, boy.';
   //   }
 
+  // const sabb = (s, val, happiness) =>
+  //   [...s].reduce((sum, e) => ('sabbatical'.includes(e) ? sum + 1 : sum), 0) +
+  //     val +
+  //     happiness >
+  //   22
+  //     ? 'Sabbatical! Boom!'
+  //     : 'Back to your desk, boy.';
+
   const sabb = (s, val, happiness) =>
-    [...s].reduce((sum, e) => ('sabbatical'.includes(e) ? sum + 1 : sum), 0) +
-      val +
-      happiness >
-    22
+    (s.match(/[sabticl]/g) || []).length + val + happiness > 22
       ? 'Sabbatical! Boom!'
       : 'Back to your desk, boy.';
 
-  console.log(sabb('Can I have a sabbatical?', 5, 5));
+  // console.log(sabb('Can I have a sabbatical?', 5, 5));
 }
