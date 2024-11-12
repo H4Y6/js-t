@@ -6743,16 +6743,18 @@ array = [[5, 9, 1, 0],
 
 diagonal sum: 5 + 7 + 1 + 2 = 15   */
 
-  function diagonalSum(matrix) {
-    return matrix.reduce((sum, e, i) => sum + e[i], 0);
-  }
+  // function diagonalSum(matrix) {
+  //   return matrix.reduce((sum, e, i) => sum + e[i], 0);
+  // }
 
-  console.log(
-    diagonalSum([
-      [5, 9, 1, 0],
-      [8, 7, 2, 3],
-      [1, 4, 1, 9],
-      [2, 3, 8, 2],
-    ]),
-  );
+  const diagonalSum = matrix => matrix.reduce((sum, e, i) => sum + e[i], 0);
+
+  // console.log(
+  //   diagonalSum([
+  //     [5, 9, 1, 0],
+  //     [8, 7, 2, 3],
+  //     [1, 4, 1, 9],
+  //     [2, 3, 8, 2],
+  //   ]),
+  // );
 }
