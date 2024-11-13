@@ -7005,3 +7005,14 @@ Are you up to the challenge? */
 
   // console.log(oddOnesOut([26, 23, 24, 17, 23, 24, 23, 26]));
 }
+{
+  // String.prototype.toJadenCase = function () {
+  //   return this.replace(/^(\w)/g, e => e.toUpperCase());
+  // };
+
+  String.prototype.toJadenCase = function () {
+    return this.split(' ')
+      .map(e => e[0].toUpperCase().concat(e.slice(1)))
+      .join(' ');
+  };
+}
