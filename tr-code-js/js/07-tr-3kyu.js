@@ -6950,9 +6950,12 @@ Your code should be able to work for both lower and capital case letters.
   //     )
   //     .join('');
 
-  const stringExpansion = s =>
-    s.replace(/\d\D*/g, e => e.slice(1).replace(/./g, l => l.repeat(e[0])));
+  // const stringExpansion = s =>
+  //   s.replace(/\d\D*/g, e => e.slice(1).replace(/./g, l => l.repeat(e[0])));
 
-  console.log(stringExpansion('3d332f4abc'));
-  console.log(stringExpansion('dfabc'));
+  const stringExpansion = s =>
+    s.replace(/(\d)(\D*)/g, (_, n, ls) => ls.replace(/./g, l => l.repeat(n)));
+
+  // console.log(stringExpansion('3d332f4abc'));
+  // console.log(stringExpansion('dfabc'));
 }
