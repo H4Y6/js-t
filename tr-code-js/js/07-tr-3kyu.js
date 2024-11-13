@@ -6923,8 +6923,22 @@ Your code should be able to work for both lower and capital case letters.
 "1111"      -->  ""                # no characters to repeat
 ""          -->  ""                # empty string  */
 
-  function stringExpansion(s) {
-    return []
+  // function stringExpansion(s) {
+  //   return []
+  //     .concat(
+  //       ...s
+  //         .replace(/\d*(\d)/g, ' $1')
+  //         .trim()
+  //         .split(' ')
+  //         .map(e =>
+  //           /\d/.test(e) ? [...e].slice(1).map(el => el.repeat(+e[0])) : e,
+  //         ),
+  //     )
+  //     .join('');
+  // }
+
+  const stringExpansion = s =>
+    []
       .concat(
         ...s
           .replace(/\d*(\d)/g, ' $1')
@@ -6935,7 +6949,6 @@ Your code should be able to work for both lower and capital case letters.
           ),
       )
       .join('');
-  }
 
   console.log(stringExpansion('3d332f4abc'));
   console.log(stringExpansion('dfabc'));
