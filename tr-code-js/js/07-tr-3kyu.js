@@ -6981,15 +6981,27 @@ oddOnesOut([1, 2, 3]) = []
 oddOnesOut([1]) = []
 Are you up to the challenge? */
 
-  function oddOnesOut(nums) {
-    return nums.filter(
-      el =>
-        ![...new Set(nums)]
-          .map(e => (nums.filter(n => n === e).length % 2 ? e : ''))
-          .filter(e => e)
-          .includes(el),
-    );
-  }
+  // function oddOnesOut(nums) {
+  //   return nums.filter(
+  //     el =>
+  //       ![...new Set(nums)]
+  //         .map(e => (nums.filter(n => n === e).length % 2 ? e : ''))
+  //         .filter(e => e)
+  //         .includes(el),
+  //   );
+  // }
 
-  console.log(oddOnesOut([26, 23, 24, 17, 23, 24, 23, 26]));
+  // const oddOnesOut = nums =>
+  //   nums.filter(
+  //     el =>
+  //       ![...new Set(nums)]
+  //         .map(e => (nums.filter(n => n === e).length % 2 ? e : ''))
+  //         .filter(e => e)
+  //         .includes(el),
+  //   );
+
+  const oddOnesOut = nums =>
+    nums.filter(e => !(nums.filter(n => n === e).length % 2));
+
+  // console.log(oddOnesOut([26, 23, 24, 17, 23, 24, 23, 26]));
 }
