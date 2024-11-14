@@ -7042,3 +7042,10 @@ The brute force approach would be to generate all the permutations of the string
   // console.log(permuteAPalindrome('adamm'));
   // console.log(permuteAPalindrome('aedamm'));
 }
+{
+  function keysAndValues(data) {
+    return [Object.keys(data), Object.values(data)];
+  }
+
+  console.log(keysAndValues({ a: 1, b: 2, c: 3 }));
+}
