@@ -7071,9 +7071,12 @@ let arr1 = [13, 64, 15, 17, 88];
 let arr2 = [23, 14, 53, 17, 80];
 getLargerNumbers(arr1, arr2); // Returns [23, 64, 53, 17, 88] */
 
-  function getLargerNumbers(a, b) {
-    return a.map((e, i) => (e > b[i] ? e : (e = b[i])));
-  }
+  // function getLargerNumbers(a, b) {
+  //   return a.map((e, i) => (e > b[i] ? e : (e = b[i])));
+  // }
+
+  const getLargerNumbers = (a, b) =>
+    a.map((e, i) => (e > b[i] ? e : (e = b[i])));
 
   console.log(getLargerNumbers([13, 64, 15, 17, 88], [23, 14, 53, 17, 80]));
 }
