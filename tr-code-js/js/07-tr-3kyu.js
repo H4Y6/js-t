@@ -7026,14 +7026,19 @@ junk -> False
 Hint
 The brute force approach would be to generate all the permutations of the string and check each one of them whether it is a palindrome. However, an optimized approach will not require this at all.   */
 
-  function permuteAPalindrome(input) {
-    return (
-      [...new Set(input)]
-        .map(e => [...input].filter(el => el === e).length)
-        .reduce((res, e) => res + (e % 2), 0) < 2
-    );
-  }
+  // function permuteAPalindrome(input) {
+  //   return (
+  //     [...new Set(input)]
+  //       .map(e => [...input].filter(el => el === e).length)
+  //       .reduce((res, e) => res + (e % 2), 0) < 2
+  //   );
+  // }
 
-  console.log(permuteAPalindrome('adamm'));
-  console.log(permuteAPalindrome('aedamm'));
+  const permuteAPalindrome = input =>
+    [...new Set(input)]
+      .map(e => [...input].filter(el => el === e).length)
+      .reduce((res, e) => res + (e % 2), 0) < 2;
+
+  // console.log(permuteAPalindrome('adamm'));
+  // console.log(permuteAPalindrome('aedamm'));
 }
