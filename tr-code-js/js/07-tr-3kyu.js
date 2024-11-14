@@ -7060,3 +7060,20 @@ Style Points (JS/CoffeeScript only): This kata only tests for data that uses obj
 
   // console.log(keysAndValues({ a: 1, b: 2, c: 3 }));
 }
+{
+  /**7 kyu  Number Pairs
+In this kata the aim is to compare each pair of integers from two arrays, and return a new array of large numbers.
+
+Note: Both arrays have the same dimensions.
+
+Example:
+let arr1 = [13, 64, 15, 17, 88];
+let arr2 = [23, 14, 53, 17, 80];
+getLargerNumbers(arr1, arr2); // Returns [23, 64, 53, 17, 88] */
+
+  function getLargerNumbers(a, b) {
+    return a.map((e, i) => (e > b[i] ? e : (e = b[i])));
+  }
+
+  console.log(getLargerNumbers([13, 64, 15, 17, 88], [23, 14, 53, 17, 80]));
+}
