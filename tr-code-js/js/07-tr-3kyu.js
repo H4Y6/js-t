@@ -7123,10 +7123,15 @@ All input will be valid strings of length > 0. Leading zeros in binary should no
   //     )
   //     .filter(e => e);
 
+  // const moreZeros = s =>
+  //   [...new Set(s)].filter(
+  //     e => e.charCodeAt().toString(2).replaceAll('1', '').length > 3,
+  //   );
+
   const moreZeros = s =>
     [...new Set(s)].filter(
-      e => e.charCodeAt().toString(2).replaceAll('1', '').length > 3,
+      e => e.charCodeAt().toString(2).replace(/1/g, '').length > 3,
     );
 
-  console.log(moreZeros('abcdeabcde'));
+  // console.log(moreZeros('abcdeabcde'));
 }
