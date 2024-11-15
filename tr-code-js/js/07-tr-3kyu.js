@@ -7154,12 +7154,20 @@ e.g. trim("He", 1) should return "H...", because 1 <= 3
 
 Requested maximum length will be greater than 0. Input string will not be empty. */
 
-  const trim = (str, size) => {
-    return str.length <= size
+  // const trim = (str, size) => {
+  //   return str.length <= size
+  //     ? str
+  //     : str.length > 4
+  //     ? str.slice(0, size - 3 > 0 ? size - 3 : size).concat('...')
+  //     : str.slice(0, size).concat('...');
+  // };
+
+  const trim = (str, size) =>
+    str.length <= size
       ? str
       : str.length > 4
       ? str.slice(0, size - 3 > 0 ? size - 3 : size).concat('...')
       : str.slice(0, size).concat('...');
-  };
-  console.log(trim('Creating kata is fun', 2));
+
+  // console.log(trim('Creating kata is fun', 2));
 }
