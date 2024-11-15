@@ -7112,16 +7112,21 @@ All input will be valid strings of length > 0. Leading zeros in binary should no
   //     .filter(e => e);
   // }
 
+  // const moreZeros = s =>
+  //   [...new Set(s)]
+  //     .map((e, i, ar) =>
+  //       [...e.charCodeAt().toString(2)].filter(e => e === '1').length /
+  //         [...e.charCodeAt().toString(2)].length <
+  //       0.5
+  //         ? ar[i]
+  //         : '',
+  //     )
+  //     .filter(e => e);
+
   const moreZeros = s =>
-    [...new Set(s)]
-      .map((e, i, ar) =>
-        [...e.charCodeAt().toString(2)].filter(e => e === '1').length /
-          [...e.charCodeAt().toString(2)].length <
-        0.5
-          ? ar[i]
-          : '',
-      )
-      .filter(e => e);
+    [...new Set(s)].filter(
+      e => e.charCodeAt().toString(2).replaceAll('1', '').length > 3,
+    );
 
   console.log(moreZeros('abcdeabcde'));
 }
