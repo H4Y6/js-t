@@ -7172,28 +7172,58 @@ Requested maximum length will be greater than 0. Input string will not be empty.
   // console.log(trim('Creating kata is fun', 2));
 }
 {
+  /** 
+7 kyu  Show multiples of 2 numbers within a range
+Print all numbers up to 3rd parameter which are multiple of both 1st and 2nd parameter.
+
+Python, Javascript, Java, Ruby versions: return results in a list/array
+
+NOTICE:
+
+    Do NOT worry about checking zeros or negative values.
+    To find out if 3rd parameter (the upper limit) is inclusive or not, check the tests, it differs in each translation */
+
+  //   function multiples(s1, s2, s3) {
+  //     let arr = [];
+  //     let [min, max] = [s1, s2].sort((a, b) => a - b);
+  //     let res = [min, max];
+  //
+  //     if (!(max % min)) {
+  //       let dv = max;
+  //
+  //       arr = Array.from({ length: s3 / dv }, (e, i) => dv * (i + 1));
+  //       return !(s3 % dv) ? arr.slice(0, -1) : arr;
+  //     }
+  //
+  //     for (let i = min; i > 0; i--) {
+  //       if (!(res[1] % i) && !(res[0] % i)) {
+  //         res[1] /= i;
+  //       }
+  //     }
+  //     const dv = res[1] * res[0];
+  //
+  //     arr = Array.from({ length: s3 / dv }, (e, i) => dv * (i + 1));
+  //     return !(s3 % dv) ? arr.slice(0, -1) : arr;
+  //   }
+
   function multiples(s1, s2, s3) {
     let arr = [];
     let [min, max] = [s1, s2].sort((a, b) => a - b);
-    let res = [min, max];
-
-    if (!(max % min)) {
-      let dv = max;
-
-      arr = Array.from({ length: s3 / dv }, (e, i) => dv * (i + 1));
-      return !(s3 % dv) ? arr.slice(0, -1) : arr;
-    }
-
+    let product = max * min;
     for (let i = min; i > 0; i--) {
-      if (!(res[1] % i) && !(res[0] % i)) {
-        res[1] /= i;
+      if (!(max % i) && !(min % i)) {
+        product /= i;
+
+        if (product % max || product % min) {
+          product *= i;
+          break;
+        }
       }
     }
-    const dv = res[1] * res[0];
 
-    arr = Array.from({ length: s3 / dv }, (e, i) => dv * (i + 1));
-    return !(s3 % dv) ? arr.slice(0, -1) : arr;
+    arr = Array.from({ length: s3 / product }, (e, i) => product * (i + 1));
+    return !(s3 % product) ? arr.slice(0, -1) : arr;
   }
-  console.log(multiples(2, 4, 40));
-  console.log(multiples(30, 16, 1399));
+  // console.log(multiples(12, 30, 485));
+  // console.log(multiples(30, 16, 1399));
 }
