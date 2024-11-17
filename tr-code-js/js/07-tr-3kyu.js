@@ -7225,10 +7225,21 @@ NOTICE:
   //     return !(s3 % product) ? arr.slice(0, -1) : arr;
   //   }
 
+  // function multiples(s1, s2, s3) {
+  //   let arr = [];
+  //   const min = Math.min(s1, s2);
+  //   for (let i = min; i < s3; i++) {
+  //     if (!(i % s2) && !(i % s1)) {
+  //       arr.push(i);
+  //     }
+  //   }
+  //   return arr;
+  // }
+
   function multiples(s1, s2, s3) {
     let arr = [];
-    const min = Math.min(s1, s2);
-    for (let i = min; i < s3; i++) {
+    const max = Math.max(s1, s2);
+    for (let i = max; i < s3; i++) {
       if (!(i % s2) && !(i % s1)) {
         arr.push(i);
       }
