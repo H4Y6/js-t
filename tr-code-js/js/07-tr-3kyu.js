@@ -7236,10 +7236,20 @@ NOTICE:
   //   return arr;
   // }
 
+  // function multiples(s1, s2, s3) {
+  //   let arr = [];
+  //   const max = Math.max(s1, s2);
+  //   for (let i = max; i < s3; i++) {
+  //     if (!(i % s2) && !(i % s1)) {
+  //       arr.push(i);
+  //     }
+  //   }
+  //   return arr;
+  // }
+
   function multiples(s1, s2, s3) {
     let arr = [];
-    const max = Math.max(s1, s2);
-    for (let i = max; i < s3; i++) {
+    for (let i = s1; i < s3; i++) {
       if (!(i % s2) && !(i % s1)) {
         arr.push(i);
       }
@@ -7247,6 +7257,6 @@ NOTICE:
     return arr;
   }
 
-  console.log(multiples(12, 30, 480));
-  console.log(multiples(30, 16, 1399));
+  // console.log(multiples(12, 30, 480));
+  // console.log(multiples(30, 16, 1399));
 }
