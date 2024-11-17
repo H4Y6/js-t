@@ -7206,24 +7206,36 @@ NOTICE:
   //     return !(s3 % dv) ? arr.slice(0, -1) : arr;
   //   }
 
+  //   function multiples(s1, s2, s3) {
+  //     let arr = [];
+  //     let [min, max] = [s1, s2].sort((a, b) => a - b);
+  //     let product = max * min;
+  //     for (let i = min; i > 0; i--) {
+  //       if (!(max % i) && !(min % i)) {
+  //         product /= i;
+  //
+  //         if (product % max || product % min) {
+  //           product *= i;
+  //           break;
+  //         }
+  //       }
+  //     }
+  //
+  //     arr = Array.from({ length: s3 / product }, (e, i) => product * (i + 1));
+  //     return !(s3 % product) ? arr.slice(0, -1) : arr;
+  //   }
+
   function multiples(s1, s2, s3) {
     let arr = [];
-    let [min, max] = [s1, s2].sort((a, b) => a - b);
-    let product = max * min;
-    for (let i = min; i > 0; i--) {
-      if (!(max % i) && !(min % i)) {
-        product /= i;
-
-        if (product % max || product % min) {
-          product *= i;
-          break;
-        }
+    const min = Math.min(s1, s2);
+    for (let i = min; i < s3; i++) {
+      if (!(i % s2) && !(i % s1)) {
+        arr.push(i);
       }
     }
-
-    arr = Array.from({ length: s3 / product }, (e, i) => product * (i + 1));
-    return !(s3 % product) ? arr.slice(0, -1) : arr;
+    return arr;
   }
-  // console.log(multiples(12, 30, 485));
-  // console.log(multiples(30, 16, 1399));
+
+  console.log(multiples(12, 30, 480));
+  console.log(multiples(30, 16, 1399));
 }
