@@ -7247,9 +7247,20 @@ NOTICE:
   //   return arr;
   // }
 
+  // function multiples(s1, s2, s3) {
+  //   let arr = [];
+  //   for (let i = s1; i < s3; i++) {
+  //     if (!(i % s2) && !(i % s1)) {
+  //       arr.push(i);
+  //     }
+  //   }
+  //   return arr;
+  // }
+
   function multiples(s1, s2, s3) {
     let arr = [];
-    for (let i = s1; i < s3; i++) {
+    const max = Math.max(s1, s2);
+    for (let i = max; i < s3; i += max) {
       if (!(i % s2) && !(i % s1)) {
         arr.push(i);
       }
