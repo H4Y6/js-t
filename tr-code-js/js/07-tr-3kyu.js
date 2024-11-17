@@ -7257,17 +7257,23 @@ NOTICE:
   //   return arr;
   // }
 
+  // function multiples(s1, s2, s3) {
+  //   let arr = [];
+  //   const max = Math.max(s1, s2);
+  //   for (let i = max; i < s3; i += max) {
+  //     if (!(i % s2) && !(i % s1)) {
+  //       arr.push(i);
+  //     }
+  //   }
+  //   return arr;
+  // }
+
   function multiples(s1, s2, s3) {
-    let arr = [];
-    const max = Math.max(s1, s2);
-    for (let i = max; i < s3; i += max) {
-      if (!(i % s2) && !(i % s1)) {
-        arr.push(i);
-      }
-    }
-    return arr;
+    return Array.from({ length: s3 }, (e, i) =>
+      i % s1 || i % s2 ? null : i,
+    ).filter(e => e);
   }
 
-  // console.log(multiples(12, 30, 480));
+  // console.log(multiples(12, 3, 25));
   // console.log(multiples(30, 16, 1399));
 }
