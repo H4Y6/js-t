@@ -7313,8 +7313,13 @@ The young borrowers have begged their parents to stop using caps and punctuation
 
 Change the input text s to new borrower speak. */
 
-  function borrow(s) {
-    return s.toLowerCase().replace(/[^a-z]/g, '');
-  }
-  console.log(borrow('WhAt! FiCK! DaMn CAke?'));
+  // function borrow(s) {
+  //   return s.toLowerCase().replace(/[^a-z]/g, '');
+  // }
+
+  // const borrow = s => s.toLowerCase().replace(/[^a-z]/g, '');
+
+  const borrow = s => s.toLowerCase().replace(/\W/g, '');
+
+  // console.log(borrow('WhAt! FiCK! DaMn CAke?'));
 }
