@@ -7171,3 +7171,29 @@ Requested maximum length will be greater than 0. Input string will not be empty.
 
   // console.log(trim('Creating kata is fun', 2));
 }
+{
+  function multiples(s1, s2, s3) {
+    let arr = [];
+    let [min, max] = [s1, s2].sort((a, b) => a - b);
+    let res = [min, max];
+
+    if (!(max % min)) {
+      let dv = max;
+
+      arr = Array.from({ length: s3 / dv }, (e, i) => dv * (i + 1));
+      return !(s3 % dv) ? arr.slice(0, -1) : arr;
+    }
+
+    for (let i = min; i > 0; i--) {
+      if (!(res[1] % i) && !(res[0] % i)) {
+        res[1] /= i;
+      }
+    }
+    const dv = res[1] * res[0];
+
+    arr = Array.from({ length: s3 / dv }, (e, i) => dv * (i + 1));
+    return !(s3 % dv) ? arr.slice(0, -1) : arr;
+  }
+  console.log(multiples(2, 4, 40));
+  console.log(multiples(30, 16, 1399));
+}
