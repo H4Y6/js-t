@@ -7274,6 +7274,8 @@ NOTICE:
     ).filter(e => e);
   }
 
+  // const multiples = (s1, s2, s3) => Array.from({ length: s3 }, (e, i) => (i % s1 || i % s2 ? null : i)).filter(e => e);
+
   // console.log(multiples(12, 3, 25));
   // console.log(multiples(30, 16, 1399));
 }
