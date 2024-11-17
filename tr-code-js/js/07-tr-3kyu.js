@@ -7268,13 +7268,18 @@ NOTICE:
   //   return arr;
   // }
 
-  function multiples(s1, s2, s3) {
-    return Array.from({ length: s3 }, (e, i) =>
-      i % s1 || i % s2 ? null : i,
-    ).filter(e => e);
-  }
+  // function multiples(s1, s2, s3) {
+  //   return Array.from({ length: s3 }, (e, i) =>
+  //     i % s1 || i % s2 ? null : i,
+  //   ).filter(e => e);
+  // }
 
   // const multiples = (s1, s2, s3) => Array.from({ length: s3 }, (e, i) => (i % s1 || i % s2 ? null : i)).filter(e => e);
+
+  const multiples = (s1, s2, s3) =>
+    Array.from({ length: s3 - s1 }, (e, i) =>
+      (i + s1) % s1 || (i + s1) % s2 ? null : i + s1,
+    ).filter(e => e);
 
   // console.log(multiples(12, 3, 25));
   // console.log(multiples(30, 16, 1399));
