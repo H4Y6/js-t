@@ -7226,6 +7226,24 @@ NOTICE:
   //   }
 
   // function multiples(s1, s2, s3) {
+  //   let [min, max] = [s1, s2].sort((a, b) => a - b),
+  //     product = max * min;
+  //   for (let i = max; i > 0; i--) {
+  //     if (!(max % i) && !(min % i)) {
+  //       product /= i;
+  //       if (product % max || product % min) {
+  //         product *= i;
+  //         break;
+  //       }
+  //     }
+  //   }
+  //   return Array.from(
+  //     { length: (s3 - 1) / product },
+  //     (e, i) => product * (i + 1),
+  //   );
+  // }
+
+  // function multiples(s1, s2, s3) {
   //   let arr = [];
   //   const min = Math.min(s1, s2);
   //   for (let i = min; i < s3; i++) {
@@ -7281,6 +7299,6 @@ NOTICE:
       (i + s1) % s1 || (i + s1) % s2 ? null : i + s1,
     ).filter(e => e);
 
-  // console.log(multiples(12, 3, 25));
+  // console.log(multiples(12, 3, 60));
   // console.log(multiples(30, 16, 1399));
 }
