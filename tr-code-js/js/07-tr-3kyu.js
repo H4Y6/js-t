@@ -7323,3 +7323,34 @@ Change the input text s to new borrower speak. */
 
   // console.log(borrow('WhAt! FiCK! DaMn CAke?'));
 }
+{
+  function mixedFraction(s) {
+    let [x, y] = s.split('/');
+    const int = Math.trunc(x / y);
+    let rest = x % y;
+
+    console.log(int, rest);
+
+    if (y === '0') throw new Error('ZeroDivisionError');
+
+    if (s.replace('-', '')[0] === '0') return '0';
+
+    for (let i = x; i > 1; i--) {
+      if (x % i === 0 && y % i === 0) {
+        x /= i;
+        y /= i;
+      }
+    }
+    if (Math.abs(x / y) < 1) {
+      return `${x % y}/${y}`.replace(/\/\s+(\d+)\b/, '/' + '$1');
+    }
+    if (x % y) {
+      return `${Math.trunc(x / y)} ${Math.abs(x % y)}/${Math.abs(y)}`.replace(
+        /\/\s+(\d+)\b/,
+        '/' + '$1',
+      );
+    }
+    return `${x / y}`;
+  }
+  console.log(mixedFraction('-10/-378'));
+}
