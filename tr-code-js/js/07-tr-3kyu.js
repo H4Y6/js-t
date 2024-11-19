@@ -7352,5 +7352,34 @@ Change the input text s to new borrower speak. */
     }
     return `${x / y}`;
   }
-  console.log(mixedFraction('-10/-378'));
+  // console.log(mixedFraction('-10/-378'));
 }
+{
+  /** 7 kyu  Even odd disparity
+Given an array, return the difference between the count of even numbers and the count of odd numbers. 0 will be considered an even number.
+
+For example:
+solve([0,1,2,3]) = 0 because there are two even numbers and two odd numbers. Even - Odd = 2 - 2 = 0.  
+
+Let's now add two letters to the last example:
+
+solve([0,1,2,3,'a','b']) = 0. Again, Even - Odd = 2 - 2 = 0. Ignore letters. 
+
+The input will be an array of lowercase letters and numbers only.
+
+In some languages (Haskell, C++, and others), input will be an array of strings:
+
+solve ["0","1","2","3","a","b"] = 0   */
+
+  function solve(a) {
+    console.log(a);
+    return (ar =>
+      ar.filter(e => !(e % 2)).length - ar.filter(e => e % 2).length)(
+      a.filter(e => /\d/.test(e)),
+    );
+  }
+
+  console.log(solve(['0', '1', '2', '3', 'a', 'b', '7']));
+  console.log(solve([1, 'a', 17, 8, 'e', 3, 'i', 12, 1]));
+}
+[1, 'a', 17, 8, 'e', 3, 'i', 12, 1];
