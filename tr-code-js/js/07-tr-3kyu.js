@@ -7372,12 +7372,13 @@ In some languages (Haskell, C++, and others), input will be an array of strings:
 solve ["0","1","2","3","a","b"] = 0   */
 
   function solve(a) {
-    console.log(a);
     return (ar =>
       ar.filter(e => !(e % 2)).length - ar.filter(e => e % 2).length)(
       a.filter(e => /\d/.test(e)),
     );
   }
+
+  //  const solve = ar => (a => a.filter(e => !(e % 2)).length - ar.filter(e => e % 2).length)(ar.filter(e => /\d/.test(e)));
 
   console.log(solve(['0', '1', '2', '3', 'a', 'b', '7']));
   console.log(solve([1, 'a', 17, 8, 'e', 3, 'i', 12, 1]));

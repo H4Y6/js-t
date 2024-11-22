@@ -2,7 +2,7 @@
   "editor.wordWrapColumn": 120,
   "chat.editor.wordWrap": "off",
   "prettier.printWidth": 120,
-  "editor.autoIndent": "none",
+  "editor.autoIndent": "full",
   "workbench.editor.closeEmptyGroups": false,
   "files.autoSave": "onFocusChange",
   "editor.tabSize": 2,
@@ -12,5 +12,6 @@
   "liveServer.settings.useWebExt": false,
   "notebook.defaultFormatter": "esbenp.prettier-vscode",
   "workbench.externalBrowser": "",
-  "liveServer.settings.NoBrowser": true
+  "liveServer.settings.NoBrowser": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
