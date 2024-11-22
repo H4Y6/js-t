@@ -7378,12 +7378,13 @@ solve ["0","1","2","3","a","b"] = 0   */
   //   );
   // }
 
-  const solve = ar =>
-    (a => a.filter(e => !(e % 2)).length - ar.filter(e => e % 2).length)(
-      ar.filter(e => /\d/.test(e)),
+  //  const solve = ar => (a => a.filter(e => !(e % 2)).length - ar.filter(e => e % 2).length)(ar.filter(e => /\d/.test(e)));
+
+  const solve = a =>
+    (ar => ar.filter(e => !(e % 2)).length - ar.filter(e => e % 2).length)(
+      a.map(e => Number(e)).filter(e => e + 1),
     );
 
   console.log(solve(['0', '1', '2', '3', 'a', 'b', '7']));
-  console.log(solve([1, 'a', 17, 8, 'e', 3, 'i', 12, 1]));
+  console.log(solve([1, 'a', 17, 8, 'e', 3, '1', 12, 1]));
 }
-[1, 'a', 17, 8, 'e', 3, 'i', 12, 1];
