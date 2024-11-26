@@ -7419,8 +7419,25 @@ Make sure you cover the cases where certain words do not show up with correct ca
   //     return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
   //   }
 
-  function getDrinkByProfession(param) {
-    return (arr => {
+  // function getDrinkByProfession(param) {
+  //   return (arr => {
+  //     const idx = arr.findIndex(
+  //       e => e[0].toLowerCase() === param.toLowerCase(),
+  //     );
+  //     return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
+  //   })([
+  //     ['Jabroni', 'Patron Tequila'],
+  //     ['School Counselor', 'Anything with Alcohol'],
+  //     ['Programmer', 'Hipster Craft Beer'],
+  //     ['Bike Gang Member', 'Moonshine'],
+  //     ['Politician', 'Your tax dollars'],
+  //     ['Rapper', 'Cristal'],
+  //     'Beer',
+  //   ]);
+  // }
+
+  const getDrinkByProfession = param =>
+    (arr => {
       const idx = arr.findIndex(
         e => e[0].toLowerCase() === param.toLowerCase(),
       );
@@ -7434,7 +7451,6 @@ Make sure you cover the cases where certain words do not show up with correct ca
       ['Rapper', 'Cristal'],
       'Beer',
     ]);
-  }
 
   console.log(getDrinkByProfession('poLiTiCian'));
 }
