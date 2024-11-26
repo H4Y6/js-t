@@ -7404,8 +7404,28 @@ Note: anything else is the default case: if the input to the function is not any
 
 Make sure you cover the cases where certain words do not show up with correct capitalization. For example, the input "pOLitiCIaN" should still return "Your tax dollars".  */
 
+  //   function getDrinkByProfession(param) {
+  //     const arr = [
+  //       ['Jabroni', 'Patron Tequila'],
+  //       ['School Counselor', 'Anything with Alcohol'],
+  //       ['Programmer', 'Hipster Craft Beer'],
+  //       ['Bike Gang Member', 'Moonshine'],
+  //       ['Politician', 'Your tax dollars'],
+  //       ['Rapper', 'Cristal'],
+  //       'Beer',
+  //     ];
+  //
+  //     const idx = arr.findIndex(e => e[0].toLowerCase() === param.toLowerCase());
+  //     return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
+  //   }
+
   function getDrinkByProfession(param) {
-    const arr = [
+    return (arr => {
+      const idx = arr.findIndex(
+        e => e[0].toLowerCase() === param.toLowerCase(),
+      );
+      return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
+    })([
       ['Jabroni', 'Patron Tequila'],
       ['School Counselor', 'Anything with Alcohol'],
       ['Programmer', 'Hipster Craft Beer'],
@@ -7413,10 +7433,7 @@ Make sure you cover the cases where certain words do not show up with correct ca
       ['Politician', 'Your tax dollars'],
       ['Rapper', 'Cristal'],
       'Beer',
-    ];
-
-    const idx = arr.findIndex(e => e[0].toLowerCase() === param.toLowerCase());
-    return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
+    ]);
   }
 
   console.log(getDrinkByProfession('poLiTiCian'));
