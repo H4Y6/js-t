@@ -7388,3 +7388,36 @@ solve ["0","1","2","3","a","b"] = 0   */
   // console.log(solve(['0', '1', '2', '3', 'a', 'b', '7']));
   // console.log(solve([1, 'a', 17, 8, 'e', 3, '1', 12, 1]));
 }
+{
+  /**  8 kyu  L1: Bartender, drinks!
+Complete the function that receives as input a string, and produces outputs according to the following table:
+Input 	Output
+"Jabroni" 	"Patron Tequila"
+"School Counselor" 	"Anything with Alcohol"
+"Programmer" 	"Hipster Craft Beer"
+"Bike Gang Member" 	"Moonshine"
+"Politician" 	"Your tax dollars"
+"Rapper" 	"Cristal"
+anything else 	"Beer"
+
+Note: anything else is the default case: if the input to the function is not any of the values in the table, then the return value should be "Beer".
+
+Make sure you cover the cases where certain words do not show up with correct capitalization. For example, the input "pOLitiCIaN" should still return "Your tax dollars".  */
+
+  function getDrinkByProfession(param) {
+    const arr = [
+      ['Jabroni', 'Patron Tequila'],
+      ['School Counselor', 'Anything with Alcohol'],
+      ['Programmer', 'Hipster Craft Beer'],
+      ['Bike Gang Member', 'Moonshine'],
+      ['Politician', 'Your tax dollars'],
+      ['Rapper', 'Cristal'],
+      'Beer',
+    ];
+
+    const idx = arr.findIndex(e => e[0].toLowerCase() === param.toLowerCase());
+    return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
+  }
+
+  console.log(getDrinkByProfession('poLiTiCian'));
+}
