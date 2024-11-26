@@ -7436,21 +7436,33 @@ Make sure you cover the cases where certain words do not show up with correct ca
   //   ]);
   // }
 
-  const getDrinkByProfession = param =>
-    (arr => {
-      const idx = arr.findIndex(
-        e => e[0].toLowerCase() === param.toLowerCase(),
-      );
-      return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
-    })([
-      ['Jabroni', 'Patron Tequila'],
-      ['School Counselor', 'Anything with Alcohol'],
-      ['Programmer', 'Hipster Craft Beer'],
-      ['Bike Gang Member', 'Moonshine'],
-      ['Politician', 'Your tax dollars'],
-      ['Rapper', 'Cristal'],
-      'Beer',
-    ]);
+  // const getDrinkByProfession = param =>
+  //   (arr => {
+  //     const idx = arr.findIndex(
+  //       e => e[0].toLowerCase() === param.toLowerCase(),
+  //     );
+  //     return idx === -1 ? arr[arr.length - 1] : arr[idx][1];
+  //   })([
+  //     ['Jabroni', 'Patron Tequila'],
+  //     ['School Counselor', 'Anything with Alcohol'],
+  //     ['Programmer', 'Hipster Craft Beer'],
+  //     ['Bike Gang Member', 'Moonshine'],
+  //     ['Politician', 'Your tax dollars'],
+  //     ['Rapper', 'Cristal'],
+  //     'Beer',
+  //   ]);
 
-  console.log(getDrinkByProfession('poLiTiCian'));
+  const drinkNames = {
+    jabroni: 'Patron Tequila',
+    'school counselor': 'Anything with Alcohol',
+    programmer: 'Hipster Craft Beer',
+    'bike gang member': 'Moonshine',
+    politician: 'Your tax dollars',
+    rapper: 'Cristal',
+  };
+
+  const getDrinkByProfession = param =>
+    drinkNames[param.toLowerCase()] || 'Beer';
+
+  // console.log(getDrinkByProfession('poLiTiCian'));
 }
