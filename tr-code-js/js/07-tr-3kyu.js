@@ -7479,9 +7479,15 @@ Make sure you cover the cases where certain words do not show up with correct ca
   //   return res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n);
   // }
 
-  const roundIt = n => {
-    const res = (n + '').split('.')[0].length - (n + '').split('.')[1].length;
-    return res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n);
-  };
+  // const roundIt = n => {
+  //   const res = (n + '').split('.')[0].length - (n + '').split('.')[1].length;
+  //   return res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n);
+  // };
+
+  const roundIt = n =>
+    (res => (res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n)))(
+      (n + '').split('.')[0].length - (n + '').split('.')[1].length,
+    );
+
   console.log(roundIt(3.45));
 }
