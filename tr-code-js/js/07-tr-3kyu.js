@@ -7467,11 +7467,16 @@ Make sure you cover the cases where certain words do not show up with correct ca
   // console.log(getDrinkByProfession('poLiTiCian'));
 }
 {
+  // function roundIt(n) {
+  //   const [a, b] = (n + '').split('.');
+  //   const c = a.length;
+  //   const d = b.length;
+  //   return c > d ? Math.floor(n) : c < d ? Math.ceil(n) : Math.round(n);
+  // }
+
   function roundIt(n) {
-    const [a, b] = (n + '').split('.');
-    const c = a.length;
-    const d = b.length;
-    return c > d ? Math.floor(n) : c < d ? Math.ceil(n) : Math.round(n);
+    const res = (n + '').split('.')[0].length - (n + '').split('.')[1].length;
+    return res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n);
   }
   console.log(roundIt(3.45));
 }
