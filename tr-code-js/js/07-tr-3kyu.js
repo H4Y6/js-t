@@ -7543,5 +7543,9 @@ roundIt(34.56) should return 35   */
   // }
 
   // const animal = ({ name, legs, color }) => `This ${color} ${name} has ${legs} legs.`
-  console.log(animal({ name: 'dog', legs: 4, color: 'white' }));
+
+  const animal = ({ name, legs, color }) =>
+    ['This', color, name, 'has', legs, 'legs.'].join(' ');
+
+  // console.log(animal({ name: 'dog', legs: 4, color: 'white' }));
 }
