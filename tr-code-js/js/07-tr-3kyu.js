@@ -7467,6 +7467,23 @@ Make sure you cover the cases where certain words do not show up with correct ca
   // console.log(getDrinkByProfession('poLiTiCian'));
 }
 {
+  /**  8 kyu  Training JS #32: methods of Math---round() ceil() and floor()
+ Task
+
+Coding in function roundIt. function accept 1 parameter n. It's a number with a decimal point. Please use different methods based on the location of the decimal point, turn the number into an integer.
+
+If the decimal point is on the left side of the number (that is, the count of digits on the left of the decimal point is less than that on the right), Using ceil() method.
+
+roundIt(3.45) should return 4
+
+If the decimal point is on the right side of the number (that is, the count of digits on the left of the decimal point is more than that on the right), Using floor() method.
+
+roundIt(34.5) should return 34
+
+If the decimal point is on the middle of the number (that is, the count of digits on the left of the decimal point is equals that on the right), Using round() method.
+
+roundIt(34.56) should return 35   */
+
   // function roundIt(n) {
   //   const [a, b] = (n + '').split('.');
   //   const c = a.length;
@@ -7489,5 +7506,40 @@ Make sure you cover the cases where certain words do not show up with correct ca
       (n + '').split('.')[0].length - (n + '').split('.')[1].length,
     );
 
-  console.log(roundIt(3.45));
+  // console.log(roundIt(3.45));
+}
+{
+  /**  
+	8 kyu	Training JS #5: Basic data types--Object
+	
+	In javascript, Object is one of basic data types. Define an Object can use var obj=new Object() or var obj={}
+	
+	You can define the object attributes during initialization, like this:
+	
+	var animal={name:"dog"}
+	
+	you can also set/get some properties after the object definition, like this:
+	
+	var animal={}
+	animal.name="dog"  (or animal["name"]="dog")
+	
+	Task
+	
+	Give you a function animal, accept 1 parameter:obj like this:
+	
+	{name:"dog",legs:4,color:"white"}
+	
+	and return a string like this:
+	
+	"This white dog has 4 legs."
+	
+	When you have finished the work, click "Run Tests" to see if your code is working properly.
+	
+	In the end, click "Submit" to submit your code pass this kata. */
+
+  function animal(obj) {
+    const { name, legs, color } = obj;
+    return `This ${color} ${name} has ${legs} legs.`;
+  }
+  console.log(animal({ name: 'dog', legs: 4, color: 'white' }));
 }
