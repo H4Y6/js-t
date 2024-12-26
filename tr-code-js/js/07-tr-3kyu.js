@@ -7537,9 +7537,11 @@ roundIt(34.56) should return 35   */
 	
 	In the end, click "Submit" to submit your code pass this kata. */
 
-  function animal(obj) {
-    const { name, legs, color } = obj;
-    return `This ${color} ${name} has ${legs} legs.`;
-  }
+  // function animal(obj) {
+  //   const { name, legs, color } = obj;
+  //   return `This ${color} ${name} has ${legs} legs.`;
+  // }
+
+  // const animal = ({ name, legs, color }) => `This ${color} ${name} has ${legs} legs.`
   console.log(animal({ name: 'dog', legs: 4, color: 'white' }));
 }
