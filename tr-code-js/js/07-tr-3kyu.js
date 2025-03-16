@@ -7558,9 +7558,12 @@ roundIt(34.56) should return 35   */
   // 		: annualPrice / individualPrice;
   // }
 
-  function howManyTimes(annualPrice, individualPrice) {
-    return (e => (e % 1 ? 1 + (e ^ 0) : e))(annualPrice / individualPrice);
-  }
+  // function howManyTimes(annualPrice, individualPrice) {
+  //   return (e => (e % 1 ? 1 + (e ^ 0) : e))(annualPrice / individualPrice);
+  // }
 
-  console.log(howManyTimes(40, 25));
+  const howManyTimes = (annualPrice, individualPrice) =>
+    (e => (e % 1 ? 1 + (e ^ 0) : e))(annualPrice / individualPrice);
+
+  // console.log(howManyTimes(40, 25));
 }
