@@ -7585,22 +7585,34 @@ roundIt(34.56) should return 35   */
   //     arr.map(e => arr.filter(el => el === e).length),
   //   );
   // }  /** This code timed out: */
+  //
+  //   function dominator(arr) {
+  //     const freqMap = new Map();
+  //
+  //     for (let i = 0; i < arr.length; i++) {
+  //       freqMap.set(arr[i], (freqMap.get(arr[i]) || 0) + 1);
+  //     }
+  //
+  //     for (let [key, value] of freqMap) {
+  //       if (value > arr.length / 2) {
+  //         return key;
+  //       }
+  //     }
+  //
+  //     return -1;
+  //   }
 
-  function dominator(arr) {
-    const freqMap = new Map();
-
+  function dominator(arr, obj = {}) {
     for (let i = 0; i < arr.length; i++) {
-      freqMap.set(arr[i], (freqMap.get(arr[i]) || 0) + 1);
-    }
+      obj[arr[i]] = obj[arr[i]] + 1 || 1;
 
-    for (let [key, value] of freqMap) {
-      if (value > arr.length / 2) {
-        return key;
+      if (obj[arr[i]] > arr.length / 2) {
+        return arr[i];
       }
     }
 
     return -1;
   }
 
-  console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
+  // console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
 }
