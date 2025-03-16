@@ -7551,3 +7551,11 @@ roundIt(34.56) should return 35   */
 
   // console.log(animal({ name: 'dog', legs: 4, color: 'white' }));
 }
+{
+  function howManyTimes(annualPrice, individualPrice) {
+    return (annualPrice / individualPrice) % 1
+      ? Math.ceil(annualPrice / individualPrice)
+      : annualPrice / individualPrice;
+  }
+  console.log(howManyTimes(40, 25));
+}
