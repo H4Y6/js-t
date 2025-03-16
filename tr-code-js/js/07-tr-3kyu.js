@@ -7552,6 +7552,11 @@ roundIt(34.56) should return 35   */
   // console.log(animal({ name: 'dog', legs: 4, color: 'white' }));
 }
 {
+  /** 7 kyu 	How many times should I go?
+	Lot of museum allow you to be a member, for a certain amount amount_by_year you can have unlimitted acces to the museum.
+	
+	In this kata you should complete a function in order to know after how many visit it will be better to take an annual pass. The function take 2 arguments annual_price and individual_price. */
+
   // function howManyTimes(annualPrice, individualPrice) {
   // 	return (annualPrice / individualPrice) % 1
   // 		? Math.ceil(annualPrice / individualPrice)
@@ -7566,4 +7571,14 @@ roundIt(34.56) should return 35   */
     (e => (e % 1 ? 1 + (e ^ 0) : e))(annualPrice / individualPrice);
 
   // console.log(howManyTimes(40, 25));
+}
+{
+  function dominator(arr) {
+    return (ar =>
+      Math.max(...ar) > arr.length / 2 ? arr[ar.indexOf(Math.max(...ar))] : -1)(
+      arr.map(e => arr.filter(el => el === e).length),
+    );
+  }
+
+  console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
 }
