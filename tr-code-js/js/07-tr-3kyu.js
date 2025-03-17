@@ -7642,11 +7642,16 @@ roundIt(34.56) should return 35   */
   //     ? seq.map(e => (e === find ? (e = replace) : e))
   //     : seq.replaceAll(find, replace);
 
-  const replaceAll = (seq, find, replace) =>
-    Array.isArray(seq)
-      ? seq.map(e => (e === find ? (e = replace) : e))
-      : seq.split(find).join(replace);
+  // const replaceAll = (seq, find, replace) =>
+  //   Array.isArray(seq)
+  //     ? seq.map(e => (e === find ? (e = replace) : e))
+  //     : seq.split(find).join(replace);
 
-  console.log(replaceAll([1, 2, 2], 1, 2));
-  console.log(replaceAll('erty ploh', 'r', 'o'));
+  const replaceAll = (seq, find, replace) =>
+    (el => (Array.isArray(seq) ? el : el.join('')))(
+      [...seq].map(e => (e === find ? replace : e)),
+    );
+
+  // console.log(replaceAll([1, 2, 2], 1, 2));
+  // console.log(replaceAll('erty ploh', 'r', 'o'));
 }
