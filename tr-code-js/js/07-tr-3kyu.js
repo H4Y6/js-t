@@ -7625,12 +7625,22 @@ roundIt(34.56) should return 35   */
 	Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]
 	
 	replaceAll(replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]	 */
+  //
+  //   function replaceAll(seq, find, replace) {
+  //     return typeof seq === 'string'
+  //       ? seq.replaceAll(find, replace)
+  //       : seq.map(e => (e === find ? (e = replace) : e));
+  //   }
+  //
+  //   const replaceAll = (seq, find, replace) =>
+  //     typeof seq === 'string'
+  //       ? seq.replaceAll(find, replace)
+  //       : seq.map(e => (e === find ? (e = replace) : e));
 
-  function replaceAll(seq, find, replace) {
-    return typeof seq === 'string'
-      ? seq.replaceAll(find, replace)
-      : seq.map(e => (e === find ? (e = replace) : e));
-  }
+  const replaceAll = (seq, find, replace) =>
+    Array.isArray(seq)
+      ? seq.map(e => (e === find ? (e = replace) : e))
+      : seq.replaceAll(find, replace);
 
   console.log(replaceAll([1, 2, 2], 1, 2));
   console.log(replaceAll('erty ploh', 'r', 'o'));
