@@ -7755,13 +7755,21 @@ roundIt(34.56) should return 35   */
   //     .join('');
   // }
 
+  // const decode = (code, n) =>
+  //   code
+  //     .map(
+  //       (e, i) =>
+  //         'abcdefghijklmnopqrstuvwxyz'[e - ('' + n)[i % ('' + n).length] - 1],
+  //     )
+  //     .join('');
+
   const decode = (code, n) =>
-    code
-      .map(
-        (e, i) =>
-          'abcdefghijklmnopqrstuvwxyz'[e - ('' + n)[i % ('' + n).length] - 1],
-      )
-      .join('');
+    code.reduce(
+      (str, e, i) =>
+        str +
+        'abcdefghijklmnopqrstuvwxyz'[e - ('' + n)[i % ('' + n).length] - 1],
+      '',
+    );
 
   // console.log(decode([20, 12, 18, 30, 21], 1939));
 }
