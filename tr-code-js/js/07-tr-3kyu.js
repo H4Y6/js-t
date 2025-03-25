@@ -7693,13 +7693,23 @@ roundIt(34.56) should return 35   */
   //       .join('');
   //   }
 
-  function decode(code, n) {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  //   function decode(code, n) {
+  //     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  //
+  //     const nStr = ('' + n).split('');
+  //
+  //     return code
+  //       .map((e, i, ar) => alphabet[e - nStr[i % nStr.length] - 1])
+  //       .join('');
+  //   }
 
+  function decode(code, n) {
     const nStr = ('' + n).split('');
 
     return code
-      .map((e, i, ar) => alphabet[e - nStr[i % nStr.length] - 1])
+      .map(
+        (e, i) => 'abcdefghijklmnopqrstuvwxyz'[e - nStr[i % nStr.length] - 1],
+      )
       .join('');
   }
   console.log(decode([20, 12, 18, 30, 21], 1939));
