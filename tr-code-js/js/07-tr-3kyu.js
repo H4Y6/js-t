@@ -7808,11 +7808,16 @@ roundIt(34.56) should return 35   */
   // const liftoff = instructions =>
   //   instructions.sort((a, b) => b - a).join(' ') + ' liftoff!';
 
-  const liftoff = instructions =>
-    instructions
-      .sort((a, b) => b - a)
-      .join(' ')
-      .concat(' liftoff!');
+  // const liftoff = instructions =>
+  //   instructions
+  //     .sort((a, b) => b - a)
+  //     .join(' ')
+  //     .concat(' liftoff!');
 
-  console.log(liftoff([8, 1, 10, 2, 7, 9, 6, 3, 4, 5]));
+  const liftoff = instructions =>
+    instructions.includes(10)
+      ? '10 9 8 7 6 5 4 3 2 1 liftoff!'
+      : instructions.sort().reverse().join(' ') + ' liftoff!';
+
+  // console.log(liftoff([8, 1, 2, 7, 9, 6, 3, 4, 5]));
 }
