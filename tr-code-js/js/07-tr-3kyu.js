@@ -7773,3 +7773,13 @@ roundIt(34.56) should return 35   */
 
   // console.log(decode([20, 12, 18, 30, 21], 1939));
 }
+
+{
+  function liftoff(instructions) {
+    return (instructions.sort((a, b) => b - a) + ' liftoff!').replaceAll(
+      ',',
+      ' ',
+    );
+  }
+  console.log(liftoff([8, 1, 10, 2, 7, 9, 6, 3, 4, 5]));
+}
