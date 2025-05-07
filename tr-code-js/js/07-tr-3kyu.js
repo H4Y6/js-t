@@ -7950,7 +7950,10 @@ Examples:
   //   Math.max(...x) === x.length - 1 &&
   //   [...new Set(x)].length === x.length;
 
-  const isAllPossibilities = x => x.every((_, i) => x.includes(i));
+  // const isAllPossibilities = x => x.every((_, i) => x.includes(i));
 
-  console.log(isAllPossibilities([1, 2, 0, 3]));
+  const isAllPossibilities = x =>
+    x.sort((a, b) => a - b).every((e, i) => e === i);
+
+  // console.log(isAllPossibilities([1, 2, 0, 3]));
 }
