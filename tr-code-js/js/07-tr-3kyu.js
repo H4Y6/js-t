@@ -7821,3 +7821,33 @@ roundIt(34.56) should return 35   */
 
   // console.log(liftoff([8, 1, 2, 7, 9, 6, 3, 4, 5]));
 }
+
+{
+  /** 8 kyu  Polish alphabet
+There are 32 letters in the Polish alphabet: 9 vowels and 23 consonants.
+Your task is to change the letters with diacritics:
+ą -> a,
+ć -> c,
+ę -> e,
+ł -> l,
+ń -> n,
+ó -> o,
+ś -> s,
+ź -> z,
+ż -> z
+and print out the string without the use of the Polish letters.
+For example:
+"Jędrzej Błądziński"  -->  "Jedrzej Bladzinski"                */
+
+  function correctPolishLetters(string) {
+    const arr = ['a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z'];
+    const arrValues = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
+    return [
+      [...string]
+        .map(e => (arrValues.includes(e) ? arr[arrValues.indexOf(e)] : e))
+        .join(''),
+    ].join('');
+  }
+
+  console.log(correctPolishLetters('Maria Skłodowska-Curie'));
+}
