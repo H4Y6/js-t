@@ -7937,13 +7937,20 @@ Examples:
 [0] => True
 # Includes all numbers between 0 and a.length - 1 (1 - 1 = 0).    */
 
-  function isAllPossibilities(x) {
-    return (
-      Math.min(...x) === 0 &&
-      Math.max(...x) === x.length - 1 &&
-      [...new Set(x)].length === x.length
-    );
-  }
+  // function isAllPossibilities(x) {
+  //   return (
+  //     Math.min(...x) === 0 &&
+  //     Math.max(...x) === x.length - 1 &&
+  //     [...new Set(x)].length === x.length
+  //   );
+  // }
+
+  // const isAllPossibilities = x =>
+  //   Math.min(...x) === 0 &&
+  //   Math.max(...x) === x.length - 1 &&
+  //   [...new Set(x)].length === x.length;
+
+  const isAllPossibilities = x => x.every((_, i) => x.includes(i));
 
   console.log(isAllPossibilities([1, 2, 0, 3]));
 }
