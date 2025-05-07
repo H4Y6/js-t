@@ -7864,7 +7864,24 @@ For example:
   //   return [...string].map(e => obj[e] ?? e).join('');
   // }
 
-  function correctPolishLetters(
+  // function correctPolishLetters(
+  //   string,
+  //   obj = {
+  //     ą: 'a',
+  //     ć: 'c',
+  //     ę: 'e',
+  //     ł: 'l',
+  //     ń: 'n',
+  //     ó: 'o',
+  //     ś: 's',
+  //     ź: 'z',
+  //     ż: 'z',
+  //   },
+  // ) {
+  //   return [...string].map(e => obj[e] ?? e).join('');
+  // }
+
+  const correctPolishLetters = (
     string,
     obj = {
       ą: 'a',
@@ -7877,9 +7894,7 @@ For example:
       ź: 'z',
       ż: 'z',
     },
-  ) {
-    return [...string].map(e => obj[e] ?? e).join('');
-  }
+  ) => [...string].map(e => obj[e] ?? e).join('');
 
   console.log(correctPolishLetters('Maria Skłodowska-Curie'));
 }
