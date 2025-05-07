@@ -7839,14 +7839,29 @@ and print out the string without the use of the Polish letters.
 For example:
 "Jędrzej Błądziński"  -->  "Jedrzej Bladzinski"                */
 
+  // function correctPolishLetters(string) {
+  //   const arr = ['a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z'];
+  //   const arrValues = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
+  //   return [
+  //     [...string]
+  //       .map(e => (arrValues.includes(e) ? arr[arrValues.indexOf(e)] : e))
+  //       .join(''),
+  //   ].join('');
+  // }
+
   function correctPolishLetters(string) {
-    const arr = ['a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z'];
-    const arrValues = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
-    return [
-      [...string]
-        .map(e => (arrValues.includes(e) ? arr[arrValues.indexOf(e)] : e))
-        .join(''),
-    ].join('');
+    const obj = {
+      ą: 'a',
+      ć: 'c',
+      ę: 'e',
+      ł: 'l',
+      ń: 'n',
+      ó: 'o',
+      ś: 's',
+      ź: 'z',
+      ż: 'z',
+    };
+    return [...string].map(e => obj[e] ?? e).join('');
   }
 
   console.log(correctPolishLetters('Maria Skłodowska-Curie'));
