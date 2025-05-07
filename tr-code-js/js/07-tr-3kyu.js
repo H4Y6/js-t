@@ -7911,9 +7911,11 @@ For example:
   Example
   374 × 280 pixel image with a 4:3 aspect ratio. */
 
-  function aspectRatio(x, y) {
-    return [Math.ceil((y * 16) / 9), y];
-  }
+  // function aspectRatio(x, y) {
+  //   return [Math.ceil((y * 16) / 9), y];
+  // }
 
-  console.log(aspectRatio(640, 480));
+  const aspectRatio = (x, y) => [Math.ceil((y * 16) / 9), y];
+
+  // console.log(aspectRatio(640, 480));
 }
