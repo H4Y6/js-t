@@ -8032,10 +8032,16 @@ nthSmallest([1,5], [2], [4,8,9], 4) // returns 5 because it's the 4th smallest v
   //     : bottleWeight / (Number.parseInt(scale) + 1);
   // }
 
+  // const contentWeight = (bottleWeight, scale) =>
+  //   scale.includes('la')
+  //     ? bottleWeight - bottleWeight / (Number.parseInt(scale) + 1)
+  //     : bottleWeight / (Number.parseInt(scale) + 1);
+
   const contentWeight = (bottleWeight, scale) =>
-    scale.includes('la')
-      ? bottleWeight - bottleWeight / (Number.parseInt(scale) + 1)
-      : bottleWeight / (Number.parseInt(scale) + 1);
+    (n =>
+      /g/.test(scale) ? bottleWeight - bottleWeight / n : bottleWeight / n)(
+      parseInt(scale) + 1,
+    );
 
   console.log(contentWeight(120, '2 times larger'));
   console.log(contentWeight(120, '2 times smaller'));
