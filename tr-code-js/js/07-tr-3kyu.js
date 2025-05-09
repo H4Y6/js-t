@@ -7973,5 +7973,21 @@ It is guaranteed that the two arrays have the same size, and that the sorting ar
     return sortedArray;
   }
 
-  console.log(sort(['x', 'y', 'z'], [1, 2, 0]));
+  // console.log(sort(['x', 'y', 'z'], [1, 2, 0]));
+}
+
+{
+  /** 6 kyu  Sorted Arrays
+Given any number of arrays each sorted in ascending order, find the nth smallest number of all their elements.
+
+All the arguments except the last will be arrays, the last argument is n.
+
+nthSmallest([1,5], [2], [4,8,9], 4) // returns 5 because it's the 4th smallest value   */
+
+  function nthSmallest(...args) {
+    const n = args.pop();
+    return [].concat(...args).sort((a, b) => a - b)[n - 1];
+  }
+
+  console.log(nthSmallest([1, 5], [2], [4, 8, 9], 4));
 }
