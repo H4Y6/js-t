@@ -8000,12 +8000,18 @@ nthSmallest([1,5], [2], [4,8,9], 4) // returns 5 because it's the 4th smallest v
   //     args.slice(-1) - 1,
   //   );
 
+  // const nthSmallest = (...args) =>
+  //   (n =>
+  //     args
+  //       .slice(0, -1)
+  //       .flat()
+  //       .sort((a, b) => a - b)[n])(args.slice(-1) - 1);
+
   const nthSmallest = (...args) =>
-    (n =>
-      args
-        .slice(0, -1)
-        .flat()
-        .sort((a, b) => a - b)[n])(args.slice(-1) - 1);
+    args
+      .slice(0, -1)
+      .flat()
+      .sort((a, b) => a - b)[args.slice(-1) - 1];
 
   console.log(nthSmallest([1, 5], [2], [4, 8, 9], 4));
 }
