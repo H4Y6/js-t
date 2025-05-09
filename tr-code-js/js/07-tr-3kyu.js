@@ -7984,10 +7984,14 @@ All the arguments except the last will be arrays, the last argument is n.
 
 nthSmallest([1,5], [2], [4,8,9], 4) // returns 5 because it's the 4th smallest value   */
 
-  function nthSmallest(...args) {
-    const n = args.pop();
-    return [].concat(...args).sort((a, b) => a - b)[n - 1];
-  }
+  // function nthSmallest(...args) {
+  //   const n = args.pop();
+  //   return [].concat(...args).sort((a, b) => a - b)[n - 1];
+  // }
+
+  const nthSmallest = (...args) => {
+    return (e => [].concat(...args).sort((a, b) => a - b)[e - 1])(args.pop());
+  };
 
   console.log(nthSmallest([1, 5], [2], [4, 8, 9], 4));
 }
