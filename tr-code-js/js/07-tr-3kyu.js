@@ -8026,11 +8026,16 @@ nthSmallest([1,5], [2], [4,8,9], 4) // returns 5 because it's the 4th smallest v
    *  A string comparing the weight of the bottle contents to the weight of the bottle by itself
    * Acceptable values: ('2 times larger', '4 times larger', '50 times smaller')
    */
-  function contentWeight(bottleWeight, scale) {
-    return scale.includes('la')
+  // function contentWeight(bottleWeight, scale) {
+  //   return scale.includes('la')
+  //     ? bottleWeight - bottleWeight / (Number.parseInt(scale) + 1)
+  //     : bottleWeight / (Number.parseInt(scale) + 1);
+  // }
+
+  const contentWeight = (bottleWeight, scale) =>
+    scale.includes('la')
       ? bottleWeight - bottleWeight / (Number.parseInt(scale) + 1)
       : bottleWeight / (Number.parseInt(scale) + 1);
-  }
 
   console.log(contentWeight(120, '2 times larger'));
   console.log(contentWeight(120, '2 times smaller'));
