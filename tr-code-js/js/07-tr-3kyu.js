@@ -7989,9 +7989,12 @@ nthSmallest([1,5], [2], [4,8,9], 4) // returns 5 because it's the 4th smallest v
   //   return [].concat(...args).sort((a, b) => a - b)[n - 1];
   // }
 
-  const nthSmallest = (...args) => {
-    return (e => [].concat(...args).sort((a, b) => a - b)[e - 1])(args.pop());
-  };
+  // const nthSmallest = (...args) => {
+  //   return (e => [].concat(...args).sort((a, b) => a - b)[e - 1])(args.pop());
+  // };
+
+  const nthSmallest = (...args) =>
+    (e => [].concat(...args).sort((a, b) => a - b)[e - 1])(args.pop());
 
   console.log(nthSmallest([1, 5], [2], [4, 8, 9], 4));
 }
