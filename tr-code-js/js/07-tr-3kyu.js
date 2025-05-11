@@ -8053,3 +8053,43 @@ nthSmallest([1,5], [2], [4,8,9], 4) // returns 5 because it's the 4th smallest v
   // console.log(contentWeight(120, '2 times larger'));
   // console.log(contentWeight(120, '2 times smaller'));
 }
+
+{
+  /**      6 kyu  Sort array by sorting its smallest sub-array
+Given an array of integers, arr, find out 2 indices m, n(0<=m<=arr.length-1, 0<=n<=arr.length-1, m<=n), so that as long as all elements in the subarray(from index m to n, indices m and n inclusive) are sorted properly, with this sorted subarray relacing original subarray, the whole array is sorted (no matter ascendingly or descendingly).
+
+The subarray should include the least number of elements, means (n-m) must be of the smallest value, and n should also be the smallest one.
+
+The function accept an array of integers, arr, reutrn the subarray's start and end index in array format, [m,n] as a result.
+
+For example, in an array [1,2,3,6,4,4], the SMALLEST(with the least numbers of integers) subarray to be found is [6,4,4], if we sort it to [4,4,6], then replace the original subarray, the whole array now turns to be[1,2,3,4,4,6], which is sorted completely. This subarray begins from index 3, and ends in index 5, so the result is [3,5].
+
+If all elements in the array are the same, return array [0,0]. If all elements in the array are already sorted, no matter ascendingly or descendingly, return [0,0] as well.
+ */
+
+  function findIndexOfSubArray(arr) {
+    if (arr.every(e => e === arr[0])) return [0, 0];
+
+    const reversed = [...arr].reverse();
+    const ar = [...arr].sort((a, b) => a - b);
+    const ra = [...ar].reverse();
+
+    if (
+      arr.every((e, i) => e === ar[i]) ||
+      reversed.every((e, i) => e === ar[i])
+    ) {
+      return [0, 0];
+    }
+
+    const m = arr.findIndex((e, i) => e !== ar[i]);
+    const n = ar.length - 1 - reversed.findIndex((e, i) => e !== ra[i]);
+
+    const k = arr.findIndex((e, i) => e !== ra[i]);
+    const l = ar.length - 1 - reversed.findIndex((e, i) => e !== ar[i]);
+
+    return m - n > k - l ? [m, n] : [k, l];
+  }
+
+  console.log(findIndexOfSubArray([1, 2, 323, 45656, 2, 2, 345, 6, 2, 2]));
+  console.log(findIndexOfSubArray([6, 5, 4]));
+}
