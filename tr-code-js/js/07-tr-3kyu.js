@@ -8117,28 +8117,44 @@ If all elements in the array are the same, return array [0,0]. If all elements i
   //   }
   // }
 
+  // function aspectRatio(x, y, constant) {
+  //   switch (constant) {
+  //     case 'height':
+  //       return [Math.ceil((y * 16) / 9), y];
+
+  //     case 'width':
+  //       return [x, Math.ceil((x * 9) / 16)];
+
+  //     case 'diagonal': {
+  //       const a = ((x ** 2 + y ** 2) / (9 ** 2 + 16 ** 2)) ** 0.5;
+  //       return [Math.ceil(16 * a), Math.ceil(9 * a)];
+  //     }
+
+  //     case 'area': {
+  //       const a = ((x * y) / 144) ** 0.5;
+  //       return [Math.ceil(16 * a), Math.ceil(9 * a)];
+  //     }
+  //   }
+  // }
+
   function aspectRatio(x, y, constant) {
-    switch (constant) {
-      case 'height':
-        return [Math.ceil((y * 16) / 9), y];
-
-      case 'width':
-        return [x, Math.ceil((x * 9) / 16)];
-
-      case 'diagonal': {
-        const a = ((x ** 2 + y ** 2) / (9 ** 2 + 16 ** 2)) ** 0.5;
-        return [Math.ceil(16 * a), Math.ceil(9 * a)];
-      }
-
-      case 'area': {
-        const a = ((x * y) / 144) ** 0.5;
-        return [Math.ceil(16 * a), Math.ceil(9 * a)];
-      }
-    }
+    return constant === 'height'
+      ? [Math.ceil((y * 16) / 9), y]
+      : constant === 'width'
+      ? [x, Math.ceil((x * 9) / 16)]
+      : constant === 'diagonal'
+      ? [
+          Math.ceil(16 * ((x ** 2 + y ** 2) / 337) ** 0.5),
+          Math.ceil(9 * ((x ** 2 + y ** 2) / 337) ** 0.5),
+        ]
+      : [
+          Math.ceil(16 * ((x * y) / 144) ** 0.5),
+          Math.ceil(9 * ((x * y) / 144) ** 0.5),
+        ];
   }
 
-  console.log(aspectRatio(374, 280, 'height'));
-  console.log(aspectRatio(374, 280, 'width'));
-  console.log(aspectRatio(374, 280, 'diagonal'));
-  console.log(aspectRatio(374, 280, 'area'));
+  // console.log(aspectRatio(374, 280, 'height'));
+  // console.log(aspectRatio(374, 280, 'width'));
+  // console.log(aspectRatio(374, 280, 'diagonal'));
+  // console.log(aspectRatio(374, 280, 'area'));
 }
