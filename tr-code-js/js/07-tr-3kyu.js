@@ -8097,23 +8097,43 @@ If all elements in the array are the same, return array [0,0]. If all elements i
 {
   /** 6 kyu  Aspect Ratio Cropping - Part 2  */
 
+  // function aspectRatio(x, y, constant) {
+  //   if (constant === 'height') {
+  //     return [Math.ceil((y * 16) / 9), y];
+  //   }
+
+  //   if (constant === 'width') {
+  //     return [x, Math.ceil((x * 9) / 16)];
+  //   }
+
+  //   if (constant === 'diagonal') {
+  //     const a = ((x ** 2 + y ** 2) / (9 ** 2 + 16 ** 2)) ** 0.5;
+  //     return [Math.ceil(16 * a), Math.ceil(9 * a)];
+  //   }
+
+  //   if (constant === 'area') {
+  //     const a = ((x * y) / 144) ** 0.5;
+  //     return [Math.ceil(16 * a), Math.ceil(9 * a)];
+  //   }
+  // }
+
   function aspectRatio(x, y, constant) {
-    if (constant === 'height') {
-      return [Math.ceil((y * 16) / 9), y];
-    }
+    switch (constant) {
+      case 'height':
+        return [Math.ceil((y * 16) / 9), y];
 
-    if (constant === 'width') {
-      return [x, Math.ceil((x * 9) / 16)];
-    }
+      case 'width':
+        return [x, Math.ceil((x * 9) / 16)];
 
-    if (constant === 'diagonal') {
-      const a = ((x ** 2 + y ** 2) / (9 ** 2 + 16 ** 2)) ** 0.5;
-      return [Math.ceil(16 * a), Math.ceil(9 * a)];
-    }
+      case 'diagonal': {
+        const a = ((x ** 2 + y ** 2) / (9 ** 2 + 16 ** 2)) ** 0.5;
+        return [Math.ceil(16 * a), Math.ceil(9 * a)];
+      }
 
-    if (constant === 'area') {
-      const a = ((x * y) / 144) ** 0.5;
-      return [Math.ceil(16 * a), Math.ceil(9 * a)];
+      case 'area': {
+        const a = ((x * y) / 144) ** 0.5;
+        return [Math.ceil(16 * a), Math.ceil(9 * a)];
+      }
     }
   }
 
@@ -8122,6 +8142,3 @@ If all elements in the array are the same, return array [0,0]. If all elements i
   console.log(aspectRatio(374, 280, 'diagonal'));
   console.log(aspectRatio(374, 280, 'area'));
 }
-
-console.log((218276 / 335) ** 0.5);
-console.log(100 * Math.sqrt(218276 / 335));
