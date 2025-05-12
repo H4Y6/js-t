@@ -8095,7 +8095,10 @@ If all elements in the array are the same, return array [0,0]. If all elements i
 }
 
 {
-  /** 6 kyu  Aspect Ratio Cropping - Part 2  */
+  /** 6 kyu  Aspect Ratio Cropping - Part 2  
+Comparing two different aspect ratios poses some subtleties – when comparing two aspect ratios, one may compare images with equal height, equal width, equal diagonal, or equal area.
+
+Write a function that accepts arbitrary X and Y resolutions and converts them into resolutions with a 16:9 aspect ratio. This time your function should accept a third input "constant," specifying the variable to remain constant in your conversion. The variable constant can have a value of either "height", "width", "diagonal", or "area". Round your answers up to the nearest integer.     */
 
   // function aspectRatio(x, y, constant) {
   //   if (constant === 'height') {
@@ -8157,4 +8160,22 @@ If all elements in the array are the same, return array [0,0]. If all elements i
   // console.log(aspectRatio(374, 280, 'width'));
   // console.log(aspectRatio(374, 280, 'diagonal'));
   // console.log(aspectRatio(374, 280, 'area'));
+}
+
+{
+  /**  8 kyu  Enumerable Magic #1 - True for All?
+Create a method all which takes two params:
+    a sequence and returns true if the function in the params returns true for every element in the sequence. Otherwise, it should return false. If the sequence is empty, it should return true, since technically nothing failed the test.
+Example
+
+all((1, 2, 3, 4, 5), greater_than_9) -> false
+all((1, 2, 3, 4, 5), less_than_9)    -> True   */
+
+  const all = (arr, fun) => (arr[0] ? arr.every(e => fun(e)) : true);
+
+  console.log(
+    all([1, 2, 3, 4, 5], function (v) {
+      return v > 9;
+    }),
+  );
 }
