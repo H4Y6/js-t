@@ -8173,7 +8173,9 @@ all((1, 2, 3, 4, 5), less_than_9)    -> True   */
 
   // const all = (arr, fun) => (arr[0] ? arr.every(e => fun(e)) : true);
 
-  const all = (arr, fun) => (arr[0] ? arr.every(fun) : true);
+  // const all = (arr, fun) => (arr[0] ? arr.every(fun) : true);
+
+  const all = (arr, fun) => arr.every(fun);
 
   console.log(
     all([1, 2, 3, 4, 5], function (v) {
