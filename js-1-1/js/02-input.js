@@ -10,3 +10,4 @@ let quantity = prompt('Уведіть кількість товарів');
 quantity = Number(quantity);
 console.log(quantity);
 console.log(typeof quantity);
+console.log('first')
