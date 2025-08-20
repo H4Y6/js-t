@@ -676,3 +676,60 @@ function checkForSpam(message) {
 
   // console.log(message);
 }
+
+{
+  function add(a, b, c) {
+    // console.log(`Addition result equals ${a + b + c}`);
+    return a + b + c;
+  }
+  // console.log(add(3, 6, 97));
+}
+
+{
+  function makeMessage(name, price) {
+    return `You picked ${name}, price per item is ${price} credits`;
+  }
+
+  function calculateTotalPrice(orderedQuantity, pricePerItem) {
+    return orderedQuantity * pricePerItem;
+  }
+
+  function makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFee) {
+    return `You ordered droids worth ${
+      orderedQuantity * pricePerDroid + deliveryFee
+    } credits. Delivery (${deliveryFee} credits) is included in total price.`;
+  }
+
+  function isAdult(age) {
+    return age >= 18;
+  }
+
+  function isValidPassword(password) {
+    const SAVED_PASSWORD = 'jqueryismyjam';
+    const isMatch = SAVED_PASSWORD === password;
+    return isMatch;
+  }
+
+  function checkAge(age) {
+    if (age < 18) {
+      return 'You are a minor';
+    } else {
+      return 'You are an adult ';
+    }
+  }
+  // console.log(checkAge(22));
+
+  function checkStorage(available, ordered) {
+    if (ordered > available) return 'Not enough goods in stock!';
+    return 'Order is processed, our manager will contact you.';
+  }
+
+  function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
+    const totalPrice = pricePerDroid * orderedQuantity;
+    if (totalPrice > customerCredits) return 'Insufficient funds!';
+
+    return `You ordered ${orderedQuantity} droids, you have ${
+      customerCredits - totalPrice
+    } credits left`;
+  }
+}
