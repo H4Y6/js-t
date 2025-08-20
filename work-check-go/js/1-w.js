@@ -5,7 +5,7 @@ const totalPrice = orderedQuantity * pricePerDroid + deliveryFee;
 const message = `You ordered droids worth ${totalPrice} credits. Delivery (${deliveryFee} credits) is included in total price.`;
 
 function sayHi() {
-  console.log("Hello, this is my function!");
+  console.log('Hello, this is my function!');
 }
 // sayHi();
 
@@ -20,17 +20,19 @@ function add(a, b, c) {
 function makeMessage(name, price) {
   const message = `You picked ${name}, price per item is ${price} credits`;
   return message;
-};
+}
 // console.log(makeMessage('Reactor', 8000));
 
 function calculateTotalPrice(orderedQuantity, pricePerItem) {
   const totalPrice = orderedQuantity * pricePerItem;
   return totalPrice;
-};
+}
 // console.log(calculateTotalPrice(5, 100));
 
 function makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFee) {
-  return `You ordered droids worth ${pricePerDroid * orderedQuantity + deliveryFee} credits. Delivery (${deliveryFee} credits) is included in total price.`;
+  return `You ordered droids worth ${
+    pricePerDroid * orderedQuantity + deliveryFee
+  } credits. Delivery (${deliveryFee} credits) is included in total price.`;
 }
 // console.log(makeOrderMessage(2, 100, 50));
 
@@ -59,8 +61,10 @@ function checkAge(age) {
 function checkStorage(available, ordered) {
   let message;
   if (available < ordered) {
-    message = "Not enough goods in stock!";
-  } else { message = "Order is processed, our manager will contact you."; }
+    message = 'Not enough goods in stock!';
+  } else {
+    message = 'Order is processed, our manager will contact you.';
+  }
   return message;
 }
 
@@ -68,8 +72,12 @@ function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
   let message;
   const totalPrice = pricePerDroid * orderedQuantity;
   if (totalPrice > customerCredits) {
-    message = "Insufficient funds!";
-  } else { message = `You ordered ${orderedQuantity} droids, you have ${customerCredits - totalPrice} credits left`; }
+    message = 'Insufficient funds!';
+  } else {
+    message = `You ordered ${orderedQuantity} droids, you have ${
+      customerCredits - totalPrice
+    } credits left`;
+  }
   return message;
 }
 // console.log(makeTransaction(3000, 5, 23000));
@@ -93,11 +101,11 @@ function checkPassword(password) {
   function checkStorage(available, ordered) {
     let message;
     if (!ordered) {
-      message = "There are no products in the order!";
+      message = 'There are no products in the order!';
     } else if (ordered > available) {
-      message = "Your order is too large, there are not enough items in stock!";
+      message = 'Your order is too large, there are not enough items in stock!';
     } else {
-      message = "The order is accepted, our manager will contact you";
+      message = 'The order is accepted, our manager will contact you';
     }
 
     return message;
@@ -129,9 +137,13 @@ function getDiscount(totalSpent) {
   const SILVER_DISCOUNT = 0.05;
   const GOLD_DISCOUNT = 0.1;
   let discount;
-  if (totalSpent < 5000) { discount = BASE_DISCOUNT; }
-  else if (totalSpent < 20000) { discount = BRONZE_DISCOUNT; }
-  else if (totalSpent < 50000) { discount = SILVER_DISCOUNT; } else {
+  if (totalSpent < 5000) {
+    discount = BASE_DISCOUNT;
+  } else if (totalSpent < 20000) {
+    discount = BRONZE_DISCOUNT;
+  } else if (totalSpent < 50000) {
+    discount = SILVER_DISCOUNT;
+  } else {
     discount = GOLD_DISCOUNT;
   }
 
@@ -141,16 +153,21 @@ function getDiscount(totalSpent) {
 
 {
   function checkStorage(available, ordered) {
-    return ordered > available ? "Not enough goods in stock!" : "The order is accepted, our manager will contact you";
+    return ordered > available
+      ? 'Not enough goods in stock!'
+      : 'The order is accepted, our manager will contact you';
   }
   // console.log(checkStorage(100, 50));
 }
 
 {
   function checkPassword(password) {
-    const ADMIN_PASSWORD = "jqueryismyjam";
+    const ADMIN_PASSWORD = 'jqueryismyjam';
     let message;
-    message = password === ADMIN_PASSWORD ? "Access is allowed" : "Access denied, wrong password!";
+    message =
+      password === ADMIN_PASSWORD
+        ? 'Access is allowed'
+        : 'Access denied, wrong password!';
     return message;
   }
   // console.log(checkPassword("angul4r1sl1f3"));
@@ -159,7 +176,6 @@ function getDiscount(totalSpent) {
 function getSubscriptionPrice(type) {
   let price;
   switch (type) {
-
     case 'starter':
       price = 0;
       break;
@@ -168,7 +184,8 @@ function getSubscriptionPrice(type) {
       price = 20;
       break;
 
-    default: price = 50;
+    default:
+      price = 50;
   }
   return price;
 }
@@ -177,21 +194,19 @@ function getSubscriptionPrice(type) {
 
 {
   function checkPassword(password) {
-    const ADMIN_PASSWORD = "jqueryismyjam";
+    const ADMIN_PASSWORD = 'jqueryismyjam';
     let message;
     switch (password) {
       case null:
-        message = "Canceled by user!";
+        message = 'Canceled by user!';
         break;
 
-
       case ADMIN_PASSWORD:
-        message = "Welcome!";
+        message = 'Welcome!';
         break;
 
       default:
-        message = "Access denied, wrong password!";
-
+        message = 'Access denied, wrong password!';
     }
     return message;
   }
@@ -218,10 +233,11 @@ function getShippingCost(country) {
       price = 100;
       break;
 
-    default: return "Sorry, there is no delivery to your country";
+    default:
+      return 'Sorry, there is no delivery to your country';
   }
 
-  return message = `Shipping to ${country} will cost ${price} credits`;
+  return (message = `Shipping to ${country} will cost ${price} credits`);
 }
 
 function getNameLength(name) {
@@ -238,7 +254,8 @@ function getSubstring(string, length) {
 
 function formatMessage(message, maxLength) {
   let result;
-  result = message.length > maxLength ? message.slice(0, maxLength) + '...' : message;
+  result =
+    message.length > maxLength ? message.slice(0, maxLength) + '...' : message;
   return result;
 }
 // console.log(formatMessage("Curabitur ligula sapien", 16));
@@ -259,16 +276,20 @@ function checkForSpam(message) {
 
 {
   const bookShelf = {
-    authors: ["Bernard Cornwell", "Robert Sheckley"],
-    getAuthors() { return this.authors; },
-    addAuthor(authorName) { this.authors.push(authorName); },
+    authors: ['Bernard Cornwell', 'Robert Sheckley'],
+    getAuthors() {
+      return this.authors;
+    },
+    addAuthor(authorName) {
+      this.authors.push(authorName);
+    },
   };
   // console.log(bookShelf.getAuthors()); // ["Bernard Cornwell", "Robert Sheckley"]
-  bookShelf.addAuthor("Tanith Lee");
+  bookShelf.addAuthor('Tanith Lee');
   // console.log(bookShelf.getAuthors());
 
   const pizzaPalace = {
-    pizzas: ["Supercheese", "Smoked", "Four meats"],
+    pizzas: ['Supercheese', 'Smoked', 'Four meats'],
     checkPizza(pizzaName) {
       return this.pizzas.includes(pizzaName);
     },
@@ -288,10 +309,10 @@ function checkForSpam(message) {
 }
 {
   const customer = {
-    username: "Mango",
+    username: 'Mango',
     balance: 24000,
     discount: 0.1,
-    orders: ["Burger", "Pizza", "Salad"],
+    orders: ['Burger', 'Pizza', 'Salad'],
     getBalance() {
       return this.balance;
     },
@@ -312,23 +333,23 @@ function checkForSpam(message) {
 
   customer.setDiscount(0.15);
   // console.log(customer.getDiscount()); // 0.15
-  customer.addOrder(5000, "Steak");
+  customer.addOrder(5000, 'Steak');
   // console.log(customer.getBalance()); // 19750
   // console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
 }
 {
   const historyService = {
     orders: [
-      { email: "jacob@hotmail.com", dish: "Burrito" },
-      { email: "solomon@topmail.net", dish: "Burger" },
-      { email: "artemis@coldmail.net", dish: "Pizza" },
-      { email: "solomon@topmail.net", dish: "Apple pie" },
-      { email: "jacob@hotmail.com", dish: "Taco" },
+      { email: 'jacob@hotmail.com', dish: 'Burrito' },
+      { email: 'solomon@topmail.net', dish: 'Burger' },
+      { email: 'artemis@coldmail.net', dish: 'Pizza' },
+      { email: 'solomon@topmail.net', dish: 'Apple pie' },
+      { email: 'jacob@hotmail.com', dish: 'Taco' },
     ],
     getOrdersLog() {
       return this.orders
         .map(order => `email: ${order.email} dish: ${order.dish}`)
-        .join(" - ");
+        .join(' - ');
     },
     getEmails() {
       const emails = this.orders.map(order => order.email);
@@ -341,43 +362,44 @@ function checkForSpam(message) {
   };
 }
 {
-  const animal = { legs: 4, };
-  const dog = Object.create(animal); dog.name = "Mango";
+  const animal = { legs: 4 };
+  const dog = Object.create(animal);
+  dog.name = 'Mango';
   // console.log(dog);
   // { name: 'Mango', __proto__: animal }
   // console.log(animal.isPrototypeOf(dog));
 
   // console.log(dog.hasOwnProperty("name"));   // true
-  // console.log(dog.name); // 'Mango' 
+  // console.log(dog.name); // 'Mango'
   // console.log(dog.hasOwnProperty("legs")); // false console.log(dog.legs); // 4
 
   const parent = {
-    name: "Stacey",
-    surname: "Moore",
+    name: 'Stacey',
+    surname: 'Moore',
     age: 54,
-    heritage: "Irish",
+    heritage: 'Irish',
   };
 
   const child = Object.create(parent);
-  child.name = "Jason";
+  child.name = 'Jason';
   child.age = 27;
   // console.log(child);
 }
 {
   const ancestor = {
-    name: "Paul",
+    name: 'Paul',
     age: 83,
-    surname: "Dawson",
-    heritage: "Irish",
+    surname: 'Dawson',
+    heritage: 'Irish',
   };
 
   const parent = Object.create(ancestor);
-  parent.name = "Stacey";
-  parent.surname = "Moore";
+  parent.name = 'Stacey';
+  parent.surname = 'Moore';
   parent.age = 54;
 
   const child = Object.create(parent);
-  child.name = "Jason";
+  child.name = 'Jason';
   child.age = 27;
 }
 {
@@ -387,7 +409,7 @@ function checkForSpam(message) {
       this.email = email;
     }
   }
-  const mango = new User("Mango", "mango@mail.com");
+  const mango = new User('Mango', 'mango@mail.com');
   // console.log(mango);
 
   class Car {
@@ -408,7 +430,9 @@ function checkForSpam(message) {
     getPrice() {
       return this.price;
     }
-    changePrice(newPrice) { this.price = newPrice; }
+    changePrice(newPrice) {
+      this.price = newPrice;
+    }
   }
 }
 {
@@ -428,11 +452,11 @@ function checkForSpam(message) {
     }
   }
 
-  const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+  const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
   // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-  storage.addItem("Droid");
+  storage.addItem('Droid');
   // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-  storage.removeItem("Prolonger");
+  storage.removeItem('Prolonger');
   // console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 }
 {
@@ -457,13 +481,13 @@ function checkForSpam(message) {
     }
   }
 
-  const builder = new StringBuilder(".");
+  const builder = new StringBuilder('.');
   // console.log(builder.getValue()); // "."
-  builder.padStart("^");
+  builder.padStart('^');
   // console.log(builder.getValue()); // "^."
-  builder.padEnd("^");
+  builder.padEnd('^');
   // console.log(builder.getValue()); // "^.^"
-  builder.padBoth("=");
+  builder.padBoth('=');
   // console.log(builder.getValue()); // "=^.^="
 }
 {
@@ -493,7 +517,9 @@ function checkForSpam(message) {
       return this.#price;
     }
     set price(newPrice) {
-      if (newPrice > Car.MAX_PRICE) { return; }
+      if (newPrice > Car.MAX_PRICE) {
+        return;
+      }
       this.#price = newPrice;
     }
   }
@@ -503,9 +529,9 @@ function checkForSpam(message) {
     static #MAX_PRICE = 50000;
     static checkPrice(price) {
       if (price > this.#MAX_PRICE) {
-        return "Error! Price exceeds the maximum";
+        return 'Error! Price exceeds the maximum';
       }
-      return "Success! Price is within acceptable limits";
+      return 'Success! Price is within acceptable limits';
     }
 
     constructor({ price }) {
@@ -535,7 +561,7 @@ function checkForSpam(message) {
   }
 
   class Admin extends User {
-    static AccessLevel = { BASIC: "basic", SUPERUSER: "superuser" };
+    static AccessLevel = { BASIC: 'basic', SUPERUSER: 'superuser' };
   }
 }
 {
@@ -556,10 +582,9 @@ function checkForSpam(message) {
   }
 
   class Admin extends User {
-
     static AccessLevel = {
-      BASIC: "basic",
-      SUPERUSER: "superuser",
+      BASIC: 'basic',
+      SUPERUSER: 'superuser',
     };
 
     constructor({ email, accessLevel }) {
@@ -569,7 +594,7 @@ function checkForSpam(message) {
   }
 
   const mango = new Admin({
-    email: "mango@mail.com",
+    email: 'mango@mail.com',
     accessLevel: Admin.AccessLevel.SUPERUSER,
   });
 
@@ -594,10 +619,9 @@ function checkForSpam(message) {
   }
 
   class Admin extends User {
-
     static AccessLevel = {
-      BASIC: "basic",
-      SUPERUSER: "superuser",
+      BASIC: 'basic',
+      SUPERUSER: 'superuser',
     };
 
     constructor({ email, accessLevel }) {
@@ -617,16 +641,38 @@ function checkForSpam(message) {
   }
 
   const mango = new Admin({
-    email: "mango@mail.com",
+    email: 'mango@mail.com',
     accessLevel: Admin.AccessLevel.SUPERUSER,
   });
 
   console.log(mango.email); // "mango@mail.com"
   console.log(mango.accessLevel); // "superuser"
 
-  mango.blacklist("poly@mail.com");
+  mango.blacklist('poly@mail.com');
   console.log(mango.blacklistedEmails); // ["poly@mail.com"]
-  console.log(mango.isBlacklisted("mango@mail.com")); // false
-  console.log(mango.isBlacklisted("poly@mail.com")); // true
+  console.log(mango.isBlacklisted('mango@mail.com')); // false
+  console.log(mango.isBlacklisted('poly@mail.com')); // true
+}
 
+{
+  const pricePerItem = 3500;
+  const orderedQuantity = 4;
+
+  const totalPrice = pricePerItem * orderedQuantity;
+
+  const productName = 'Droid';
+
+  const message = `You picked ${productName}, price per item is ${pricePerItem} credits`;
+  // console.log(message);
+}
+
+{
+  const orderedQuantity = 6;
+  const pricePerDroid = 800;
+  const deliveryFee = 50;
+  const totalPrice = orderedQuantity * pricePerDroid + deliveryFee;
+
+  const message = `You ordered droids worth ${totalPrice} credits. Delivery (${deliveryFee} credits) is included in total price.`;
+
+  // console.log(message);
 }
