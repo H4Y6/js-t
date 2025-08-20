@@ -732,4 +732,44 @@ function checkForSpam(message) {
       customerCredits - totalPrice
     } credits left`;
   }
+
+  function checkPassword(password) {
+    const ADMIN_PASSWORD = 'jqueryismyjam';
+    let message;
+
+    if (password === null) {
+      message = 'Canceled by user!';
+    } else if (password === ADMIN_PASSWORD) {
+      message = 'Welcome!';
+    } else {
+      message = 'Access denied, wrong password!';
+    }
+
+    return message;
+  }
+
+  function checkStorage(available, ordered) {
+    let message;
+
+    if (ordered === 0) {
+      message = 'There are no products in the order!';
+    } else if (ordered > available) {
+      message = 'Your order is too large, there are not enough items in stock!';
+    } else {
+      message = 'The order is accepted, our manager will contact you';
+    }
+
+    return message;
+  }
+
+  function isNotInRange(start, end, number) {
+    const isInRange = number >= start && number <= end;
+
+    return isInRange;
+  }
+
+  function checkIfCanAccessContent(subType) {
+    const canAccessContent = subType === 'pro' || subType === 'vip';
+    return canAccessContent;
+  }
 }
