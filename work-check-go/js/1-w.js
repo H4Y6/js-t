@@ -863,4 +863,64 @@ function checkForSpam(message) {
 
     return message;
   }
+
+  function getShippingCost(country) {
+    let message = 'Sorry, there is no delivery to your country';
+
+    switch (country) {
+      case 'China':
+        message = 'Shipping to China will cost 100 credits';
+        break;
+
+      case 'Chile':
+        message = 'Shipping to Chile will cost 250 credits';
+        break;
+
+      case 'Australia':
+        message = 'Shipping to Australia will cost 170 credits';
+        break;
+
+      case 'Jamaica':
+        message = 'Shipping to Jamaica will cost 120 credits';
+        break;
+    }
+
+    return message;
+  }
+  // console.log(getShippingCost('Jamaica'));
+
+  function getNameLength(name) {
+    return `Name ${name} is ${name.length} characters long`;
+  }
+
+  const courseTopic = 'JavaScript essentials';
+
+  const courseTopicLength = courseTopic.length;
+  const firstElement = courseTopic[0];
+  const lastElement = courseTopic[courseTopicLength - 1];
+
+  function getSubstring(string, length) {
+    return string.slice(0, length);
+  }
+
+  function formatMessage(message, maxLength) {
+    return message.length > maxLength
+      ? message.slice(0, maxLength) + '...'
+      : message;
+  }
+
+  function normalizedInput(input) {
+    return input.toLowerCase();
+  }
+
+  function checkForName(fullName, name) {
+    return fullName.includes(name);
+  }
+
+  function checkForSpam(message) {
+    return (
+      message.toLowerCase().includes('spam') ||
+      message.toLowerCase().includes('sale')
+    );
+  }
 }
