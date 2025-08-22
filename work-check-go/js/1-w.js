@@ -598,8 +598,8 @@ function checkForSpam(message) {
     accessLevel: Admin.AccessLevel.SUPERUSER,
   });
 
-  console.log(mango.email); // "mango@mail.com"
-  console.log(mango.accessLevel); // "superuser"
+  // console.log(mango.email); // "mango@mail.com"
+  // console.log(mango.accessLevel); // "superuser"
 }
 {
   class User {
@@ -645,13 +645,13 @@ function checkForSpam(message) {
     accessLevel: Admin.AccessLevel.SUPERUSER,
   });
 
-  console.log(mango.email); // "mango@mail.com"
-  console.log(mango.accessLevel); // "superuser"
+  // console.log(mango.email); // "mango@mail.com"
+  // console.log(mango.accessLevel); // "superuser"
 
   mango.blacklist('poly@mail.com');
-  console.log(mango.blacklistedEmails); // ["poly@mail.com"]
-  console.log(mango.isBlacklisted('mango@mail.com')); // false
-  console.log(mango.isBlacklisted('poly@mail.com')); // true
+  // console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+  // console.log(mango.isBlacklisted('mango@mail.com')); // false
+  // console.log(mango.isBlacklisted('poly@mail.com')); // true
 }
 
 {
@@ -719,9 +719,11 @@ function checkForSpam(message) {
   }
   // console.log(checkAge(22));
 
-  function checkStorage(available, ordered) {
-    if (ordered > available) return 'Not enough goods in stock!';
-    return 'Order is processed, our manager will contact you.';
+  {
+    function checkStorage(available, ordered) {
+      if (ordered > available) return 'Not enough goods in stock!';
+      return 'Order is processed, our manager will contact you.';
+    }
   }
 
   function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
@@ -771,5 +773,94 @@ function checkForSpam(message) {
   function checkIfCanAccessContent(subType) {
     const canAccessContent = subType === 'pro' || subType === 'vip';
     return canAccessContent;
+  }
+}
+{
+  function isNotInRange(start, end, number) {
+    return !(start < number && end > number);
+  }
+
+  function getDiscount(totalSpent) {
+    const BASE_DISCOUNT = 0;
+    const BRONZE_DISCOUNT = 0.02;
+    const SILVER_DISCOUNT = 0.05;
+    const GOLD_DISCOUNT = 0.1;
+    let discount;
+
+    if (!(totalSpent < 50000)) {
+      discount = GOLD_DISCOUNT;
+    } else if (!(totalSpent < 20000)) {
+      discount = SILVER_DISCOUNT;
+    } else if (!(totalSpent < 5000)) {
+      discount = BRONZE_DISCOUNT;
+    } else {
+      discount = BASE_DISCOUNT;
+    }
+
+    return discount;
+  }
+
+  const age = 18;
+  // console.log(age < 18 ? 'child' : 'adult');
+
+  function checkStorage(available, ordered) {
+    return ordered > available
+      ? 'Not enough goods in stock!'
+      : 'The order is accepted, our manager will contact you';
+  }
+
+  function checkPassword(password) {
+    const ADMIN_PASSWORD = 'jqueryismyjam';
+
+    // return password === ADMIN_PASSWORD
+    //   ? 'Access is allowed'
+    //   : 'Access denied, wrong password!';
+
+    message =
+      password === ADMIN_PASSWORD
+        ? 'Access is allowed'
+        : 'Access denied, wrong password!';
+
+    return message;
+  }
+
+  function getSubscriptionPrice(type) {
+    let price;
+    switch (type) {
+      case 'starter':
+        price = 0;
+        break;
+
+      case 'professional':
+        price = 20;
+        break;
+
+      case 'organization':
+        price = 50;
+        break;
+    }
+
+    return price;
+  }
+}
+{
+  function checkPassword(password) {
+    const ADMIN_PASSWORD = 'jqueryismyjam';
+    let message;
+
+    switch (password) {
+      case null:
+        message = 'Canceled by user!';
+        break;
+
+      case ADMIN_PASSWORD:
+        message = 'Welcome!';
+        break;
+
+      default:
+        message = 'Access denied, wrong password!';
+    }
+
+    return message;
   }
 }
