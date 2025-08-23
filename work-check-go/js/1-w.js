@@ -924,3 +924,44 @@ function checkForSpam(message) {
     );
   }
 }
+
+{
+  function checkStorage(available, ordered) {
+    if (ordered === 0) return 'Your order is empty!';
+    if (ordered > available)
+      return 'Your order is too large, not enough goods in stock!';
+
+    return 'The order is accepted, our manager will contact you';
+  }
+
+  // console.log(checkStorage(122, 33));
+
+  function getExtremeElements(array) {
+    return [array[0], array[array.length - 1]];
+  }
+
+  function splitMessage(message, delimiter) {
+    return message.split(delimiter);
+  }
+
+  function calculateEngravingPrice(message, pricePerWord) {
+    return message.split(' ').length * pricePerWord;
+  }
+
+  function makeStringFromArray(array, delimiter) {
+    return array.join(delimiter);
+  }
+
+  function slugify(title) {
+    // return title.toLowerCase().replace(' ', '-');
+    return title.toLowerCase().split(' ').join('-');
+  }
+
+  // console.log(slugify('Arrays for begginers'));
+
+  const fruits = ['apple', 'plum', 'pear', 'orange', 'banana'];
+
+  const firstTwoEls = fruits.slice(0, 2);
+  const nonExtremeEls = fruits.slice(1, fruits.length - 1);
+  const lastThreeEls = fruits.slice(-3);
+}
