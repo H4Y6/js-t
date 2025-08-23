@@ -964,4 +964,57 @@ function checkForSpam(message) {
   const firstTwoEls = fruits.slice(0, 2);
   const nonExtremeEls = fruits.slice(1, fruits.length - 1);
   const lastThreeEls = fruits.slice(-3);
+
+  function makeArray(firstArray, secondArray, maxLength) {
+    return firstArray.concat(secondArray).slice(0, maxLength);
+  }
+
+  function calculateTotal(number) {
+    let sum = 0;
+
+    for (let index = 0; index <= number; index++) {
+      sum += index;
+    }
+
+    return sum;
+  }
+
+  // console.log(calculateTotal(1));
+
+  function calculateTotalPrice(order) {
+    let total = 0;
+
+    for (let i = 0; i < order.length; i += 1) {
+      total += order[i];
+    }
+
+    return total;
+  }
+
+  function findLongestWord(string) {
+    let word = '';
+    let max = 0;
+    const words = string.split(' ');
+
+    for (let i = 0; i < words.length; i += 1) {
+      if (max < words[i].length) {
+        max = words[i].length;
+        word = words[i];
+      }
+    }
+
+    return word;
+  }
+
+  // console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+
+  function createArrayOfNumbers(min, max) {
+    const numbers = [];
+
+    for (let i = min; i <= max; i += 1) {
+      numbers.push(i);
+    }
+
+    return numbers;
+  }
 }
