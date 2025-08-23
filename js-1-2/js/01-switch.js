@@ -302,10 +302,10 @@ function getShippingCost(country) {
       createMessage();
       break;
 
-    default: message = "Sorry, there is no delivery to your country.";
+    default:
+      message = 'Sorry, there is no delivery to your country.';
   }
-  console.log(message);
   return message;
 }
 
-getShippingCost('China');
+console.log(getShippingCost('China'));
