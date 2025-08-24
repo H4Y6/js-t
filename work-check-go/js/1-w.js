@@ -1017,4 +1017,32 @@ function checkForSpam(message) {
 
     return numbers;
   }
+
+  function filterArray(numbers, value) {
+    const filteredArray = [];
+
+    for (let i = 0; i < numbers.length; i += 1) {
+      if (numbers[i] > value) {
+        filteredArray.push(numbers[i]);
+      }
+    }
+    return filteredArray;
+  }
+
+  function checkFruit(fruit) {
+    return fruits.includes(fruit);
+  }
+  // console.log(checkFruit('banana'));
+
+  function getCommonEls(array1, array2) {
+    const commonArray = [];
+
+    for (let i = 0; i < array1.length; i += 1) {
+      if (array2.includes(array1[i])) commonArray.push(array1[i]);
+    }
+
+    return commonArray;
+  }
+
+  console.log(getCommonEls([1, 2, 3], [2, 1, 17, 19]));
 }
