@@ -1044,5 +1044,50 @@ function checkForSpam(message) {
     return commonArray;
   }
 
-  console.log(getCommonEls([1, 2, 3], [2, 1, 17, 19]));
+  // console.log(getCommonEls([1, 2, 3], [2, 1, 17, 19]));
+}
+
+{
+  function calculateTotalPrice(order) {
+    let total = 0;
+
+    for (const el of order) {
+      total += el;
+    }
+
+    return total;
+  }
+  // console.log(calculateTotalPrice([412, 371, 94, 63, 176]));
+
+  function filterArray(numbers, value) {
+    const filtered = [];
+
+    for (const number of numbers) {
+      number > value ? filtered.push(number) : [];
+    }
+
+    return filtered;
+  }
+
+  // console.log(filterArray([12, 24, 8, 41, 76], 20));
+
+  function getEvenNumbers(start, end) {
+    const even = [];
+
+    for (let i = start; i <= end; i += 1) {
+      i % 2 ? null : even.push(i);
+    }
+    return even;
+  }
+
+  // console.log(getEvenNumbers(3, 11));
+
+  function includes(array, value) {
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[i] === value) return true;
+    }
+    return false;
+  }
+
+  // console.log(includes([1, 2, 3, 4, 5], 17));
 }
