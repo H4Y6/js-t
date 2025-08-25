@@ -68,7 +68,9 @@
 
     // console.log(obj3.hasOwnProperty('c'));   /** true  */
 
-    const newObj = Object.create({ message: 'This is the prototypal property' });
+    const newObj = Object.create({
+        message: 'This is the prototypal property',
+    });
     // console.log(newObj.message, newObj);
 
     newObj.message = 'Hello!';
@@ -95,7 +97,7 @@
 }
 
 const objC = {
-    z: 7
+    z: 7,
 };
 console.log(objC);
 console.log(objC.hasOwnProperty('z'));
@@ -117,3 +119,70 @@ objG.b = 6;
 console.log('objG->', objG);
 console.log('objG->', objG.hasOwnProperty('a'));
 console.log('objG->', objG.hasOwnProperty('b'));
+
+{
+    const apartment = {
+        imgUrl: 'https://via.placeholder.com/640x480',
+        descr: 'Spacious apartment in the city center',
+        rating: 4,
+        price: 2153,
+        tags: ['premium', 'promoted', 'top'],
+        owner: {
+            name: 'Henry',
+            phone: '982-126-1588',
+            email: 'henry.carter@aptmail.com',
+        },
+    };
+    // apartment.owner = {
+    //     name: 'Henry',
+    //     phone: '982-126-1588',
+    //     email: 'henry.carter@aptmail.com',
+    // };
+
+    // const apartmentRating = apartment.rating;
+    // const apartmentDescr = apartment.descr;
+    // const apartmentPrice = apartment.price;
+    // const apartmentTags = apartment.tags;
+
+    // console.table([
+    //     apartmentRating,
+    //     apartmentDescr,
+    //     apartmentPrice,
+    //     apartmentTags,
+    // ]);
+
+    const ownerName = apartment.owner.name;
+    const ownerPhone = apartment.owner.phone;
+    const ownerEmail = apartment.owner.email;
+    const numberOfTags = apartment.tags.length;
+    const firstTag = apartment.tags[0];
+    const lastTag = apartment.tags[apartment.tags.length - 1];
+
+    const apartmentRating = apartment['rating'];
+    const apartmentDescr = apartment['descr'];
+    const apartmentPrice = apartment['price'];
+    const apartmentTags = apartment['tags'];
+
+    apartment.price = 5000;
+    apartment.rating = 4.7;
+    apartment.owner.name = 'Henry Sibola';
+    apartment.tags.push('trusted');
+
+    // console.log(apartment.tags);
+
+    apartment.area = 60;
+    apartment.rooms = 3;
+    apartment.location = { country: 'Jamaica', city: 'Kingston' };
+
+    // console.log(apartment);
+
+    const emailInputName = 'email';
+    const passwordInputName = 'password';
+
+    const credentials = {
+        [emailInputName]: 'henry.carter@aptmail.com',
+        [passwordInputName]: 'jqueryismyjam',
+    };
+
+    // console.log(credentials);
+}
