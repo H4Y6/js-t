@@ -196,4 +196,36 @@ console.log('objG->', objG.hasOwnProperty('b'));
     }
 
     // console.log(keys, values);
+
+    function countProps(object) {
+        let propCount = 0;
+
+        for (const key in object) {
+            if (object.hasOwnProperty(key)) {
+                propCount += 1;
+            }
+        }
+        return propCount;
+    }
+}
+
+{
+    const apartment = {
+        descr: 'Spacious apartment in the city center',
+        rating: 4,
+        price: 2153,
+    };
+
+    const values = [];
+    const keys = Object.keys(apartment);
+
+    for (const key of keys) {
+        values.push(apartment[key]);
+    }
+
+    // console.log(values);
+
+    function countProps(object) {
+        return Object.keys(object).length;
+    }
 }
