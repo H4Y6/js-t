@@ -185,4 +185,15 @@ console.log('objG->', objG.hasOwnProperty('b'));
     };
 
     // console.log(credentials);
+
+    const keys = [];
+    const values = [];
+    for (const key in apartment) {
+        if (apartment.hasOwnProperty(key)) {
+            keys.push(key);
+            values.push(apartment[key]);
+        }
+    }
+
+    // console.log(keys, values);
 }
