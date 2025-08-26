@@ -276,10 +276,10 @@ console.log('objG->', objG.hasOwnProperty('b'));
     const hexColors = [];
     const rgbColors = [];
 
-    for (const color of colors) {
-        hexColors.push(color.hex);
-        rgbColors.push(color.rgb);
-    }
+    // for (const color of colors) {
+    //     hexColors.push(color.hex);
+    //     rgbColors.push(color.rgb);
+    // }
     // console.log(hexColors, rgbColors);
 
     const products = [
@@ -317,4 +317,71 @@ console.log('objG->', objG.hasOwnProperty('b'));
         return total;
     }
     // console.log(calculateTotalPrice('Radar'));
+
+    const highTemperatures = {
+        yesterday: 28,
+        today: 26,
+        tomorrow: 33,
+    };
+    // Change code below this line
+
+    const {
+        yesterday: highYesterday,
+        today: highToday,
+        tomorrow: highTomorrow,
+        icon: highIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+    } = highTemperatures;
+
+    // Change code above this line
+    const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+    // console.log(meanTemperature);
+
+    for (const { hex, rgb } of colors) {
+        hexColors.push(hex);
+        rgbColors.push(rgb);
+    }
+    // console.log(rgbColors, hexColors);
+}
+{
+    const forecast = {
+        today: {
+            low: 28,
+            high: 32,
+            icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+        },
+        tomorrow: {
+            low: 27,
+            high: 31,
+        },
+    };
+
+    const {
+        today: {
+            high: highToday,
+            low: lowToday,
+            icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+        },
+        tomorrow: {
+            high: highTomorrow,
+            low: lowTomorrow,
+            icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+        },
+    } = forecast;
+    // console.log(highToday, lowTomorrow);
+}
+{
+    const forecast = {
+        today: { low: 10, high: 20 },
+        tomorrow: { low: 20, high: 30 },
+    };
+
+    function calculateMeanTemperature(forecast) {
+        const {
+            today: { low: todayLow, high: todayHigh },
+            tomorrow: { low: tomorrowLow, high: tomorrowHigh },
+        } = forecast;
+
+        return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+    }
+    // console.log(calculateMeanTemperature(forecast));
 }
