@@ -229,3 +229,28 @@ console.log('objG->', objG.hasOwnProperty('b'));
         return Object.keys(object).length;
     }
 }
+
+{
+    const apartment = {
+        descr: 'Spacious apartment in the city center',
+        rating: 4,
+        price: 2153,
+    };
+
+    const keys = Object.keys(apartment);
+    const values = Object.values(apartment);
+    // console.log(keys, values);
+
+    const object = { a: 'm' };
+    function countProps(object) {
+        let count = 0;
+        const keys = Object.keys(object);
+        for (const time of keys) {
+            count += 1;
+            console.log(time);
+            console.log(object[time]);
+        }
+        return count;
+    }
+    // console.log(countProps(object));
+}
