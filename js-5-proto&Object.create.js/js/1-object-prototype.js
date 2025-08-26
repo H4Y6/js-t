@@ -253,4 +253,68 @@ console.log('objG->', objG.hasOwnProperty('b'));
         return count;
     }
     // console.log(countProps(object));
+
+    function countTotalSalary(salaries) {
+        let totalSalary = 0;
+
+        const allSalaries = Object.values(salaries);
+
+        for (const salary of allSalaries) {
+            totalSalary += salary;
+        }
+
+        return totalSalary;
+    }
+
+    const colors = [
+        { hex: '#f44336', rgb: '244,67,54' },
+        { hex: '#2196f3', rgb: '33,150,243' },
+        { hex: '#4caf50', rgb: '76,175,80' },
+        { hex: '#ffeb3b', rgb: '255,235,59' },
+    ];
+
+    const hexColors = [];
+    const rgbColors = [];
+
+    for (const color of colors) {
+        hexColors.push(color.hex);
+        rgbColors.push(color.rgb);
+    }
+    // console.log(hexColors, rgbColors);
+
+    const products = [
+        { name: 'Radar', price: 1300, quantity: 4 },
+        { name: 'Scanner', price: 2700, quantity: 3 },
+        { name: 'Droid', price: 400, quantity: 7 },
+        { name: 'Grip', price: 1200, quantity: 9 },
+    ];
+
+    function getProductPrice(productName) {
+        for (const { name, price } of products) {
+            if (name === productName) return price;
+        }
+        return null;
+    }
+    // console.log(getProductPrice('Grip'));
+
+    function getAllPropValues(propName) {
+        const propNames = [];
+
+        for (const product of products) {
+            if (product[propName]) {
+                propNames.push(product[propName]);
+            }
+        }
+        return propNames;
+    }
+    // console.log(getAllPropValues('name'));
+
+    function calculateTotalPrice(productName) {
+        let total = 0;
+        for (const { name, price, quantity } of products) {
+            name === productName ? (total = price * quantity) : 0;
+        }
+        return total;
+    }
+    // console.log(calculateTotalPrice('Radar'));
 }
