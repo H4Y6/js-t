@@ -384,4 +384,38 @@ console.log('objG->', objG.hasOwnProperty('b'));
         return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
     }
     // console.log(calculateMeanTemperature(forecast));
+
+    const scores = [89, 64, 42, 17, 93, 51, 26];
+
+    const bestScore = Math.max(...scores);
+    const worstScore = Math.min(...scores);
+}
+
+{
+    const firstGroupScores = [64, 42, 93];
+    const secondGroupScores = [89, 14, 51, 26];
+    const thirdGroupScores = [29, 47, 18, 97, 81];
+
+    const allScores = [
+        ...firstGroupScores,
+        ...secondGroupScores,
+        ...thirdGroupScores,
+    ];
+    const bestScore = Math.max(...allScores);
+    const worstScore = Math.min(...allScores);
+
+    const defaultSettings = {
+        theme: 'light',
+        public: true,
+        withPassword: false,
+        minNumberOfQuestions: 10,
+        timePerQuestion: 60,
+    };
+    const overrideSettings = {
+        public: false,
+        withPassword: true,
+        timePerQuestion: 30,
+    };
+
+    const finalSettings = { ...defaultSettings, ...overrideSettings };
 }
