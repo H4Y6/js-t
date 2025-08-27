@@ -418,4 +418,41 @@ console.log('objG->', objG.hasOwnProperty('b'));
     };
 
     const finalSettings = { ...defaultSettings, ...overrideSettings };
+
+    function add(...args) {
+        let sum = 0;
+
+        for (arg of args) {
+            sum += arg;
+        }
+        return sum;
+    }
+
+    function addOverNumber(value, ...args) {
+        let total = 0;
+
+        for (arg of args) {
+            total += arg > value ? arg : 0;
+        }
+
+        return total;
+    }
+
+    function findMatches(arr, ...args) {
+        const matches = [];
+
+        for (const arg of args) {
+            arr.includes(arg) ? matches.push(arg) : null;
+        }
+
+        return matches;
+    }
+
+    const bookShelf = {
+        books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+        updateBook(oldName, newName) {
+            this.books.splice(this.books.indexOf(oldName), 1, newName);
+        },
+    };
+    console.log(bookShelf.updateBook('Haze', 'New one'), bookShelf);
 }
