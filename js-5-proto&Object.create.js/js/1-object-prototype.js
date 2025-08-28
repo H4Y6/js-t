@@ -454,5 +454,64 @@ console.log('objG->', objG.hasOwnProperty('b'));
             this.books.splice(this.books.indexOf(oldName), 1, newName);
         },
     };
-    console.log(bookShelf.updateBook('Haze', 'New one'), bookShelf);
+    // console.log(bookShelf.updateBook('Haze', 'New one'), bookShelf);
+
+    const atTheOldToad = {
+        potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+        removePotion(potionName) {
+            this.potions.splice(this.potions.indexOf(potionName), 1);
+        },
+        updatePotionName(oldName, newName) {
+            this.potions.splice(this.potions.indexOf(oldName), 1, newName);
+        },
+    };
+
+    atTheOldToad.updatePotionName('Dragon breath', 'Polymorth');
+    // console.log(atTheOldToad);
+}
+
+{
+    const atTheOldToad = {
+        potions: [
+            { name: 'Speed potion', price: 460 },
+            { name: 'Dragon breath', price: 780 },
+            { name: 'Stone skin', price: 520 },
+        ],
+        getPotions() {
+            return this.potions;
+        },
+        addPotion(newPotion) {
+            for (const { name } of this.potions) {
+                if (name === newPotion.name) {
+                    return `Error! Potion ${newPotion.name} is already in your inventory!`;
+                }
+            }
+
+            this.potions.push(newPotion);
+        },
+        removePotion(potionName) {
+            for (let i = 0; i < this.potions.length; i += 1) {
+                if (this.potions[i].name === potionName) {
+                    this.potions.splice(i, 1);
+                    return;
+                }
+            }
+            return `Potion ${potionName} is not in inventory!`;
+        },
+        updatePotionName(oldName, newName) {
+            for (let i = 0; i < this.potions.length; i += 1) {
+                if (this.potions[i].name === oldName) {
+                    this.potions[i].name = newName;
+                    return;
+                }
+            }
+
+            return `Potion ${oldName} is not in inventory!`;
+        },
+    };
+    // atTheOldToad.addPotion({ name: 'Stone skin', price: 240 });
+    // atTheOldToad.updatePotionName('Dragon breath', 'Polymorth');
+    console.log(atTheOldToad.removePotion('Dragon breath'));
+
+    console.log(atTheOldToad.potions);
 }
