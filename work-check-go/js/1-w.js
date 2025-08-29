@@ -1091,3 +1091,18 @@ function checkForSpam(message) {
 
   // console.log(includes([1, 2, 3, 4, 5], 17));
 }
+{
+  function deliverPizza(pizzaName) {
+    return `Delivering ${pizzaName} pizza.`;
+  }
+
+  function makePizza(pizzaName) {
+    return `Pizza ${pizzaName} is being prepared, please wait...`;
+  }
+
+  function makeMessage(pizzaName, cb) {
+    return cb(pizzaName);
+  }
+
+  console.log(makeMessage('Royal Grand', makePizza));
+}
