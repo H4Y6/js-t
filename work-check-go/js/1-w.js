@@ -1119,21 +1119,22 @@ function checkForSpam(message) {
       }
     },
   };
-  // Change code above this line
 
-  // Callback for onSuccess
   function makePizza(pizzaName) {
     return `Your order is accepted. Cooking pizza ${pizzaName}.`;
   }
 
-  // Callback for onError
   function onOrderError(error) {
     return `Error! ${error}`;
   }
 
-  // Method calls with callbacks
-  console.log(pizzaPalace.order('Smoked', makePizza, onOrderError));
-  console.log(pizzaPalace.order('Four meats', makePizza, onOrderError));
-  console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError));
-  console.log(pizzaPalace.order('Vienna', makePizza, onOrderError));
+  function calculateTotalPrice(orderedItems) {
+    let totalPrice = 0;
+
+    orderedItems.forEach(function (item) {
+      totalPrice += item;
+    });
+
+    return totalPrice;
+  }
 }
