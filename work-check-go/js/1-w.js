@@ -1137,4 +1137,34 @@ function checkForSpam(message) {
 
     return totalPrice;
   }
+
+  function filterArray(numbers, value) {
+    const filteredNumbers = [];
+
+    numbers.forEach(number => {
+      if (number > value) {
+        filteredNumbers.push(number);
+      }
+    });
+
+    return filteredNumbers;
+  }
+
+  function getCommonElements(firstArray, secondArray) {
+    const commonElements = [];
+
+    firstArray.forEach(el => {
+      if (secondArray.includes(el)) {
+        commonElements.push(el);
+      }
+    });
+
+    return commonElements;
+  }
+
+  const calculatePrice = (quantity, pricePerItem) => {
+    return quantity * pricePerItem;
+  };
+
+  const calculateTotal = (quantity, pricePerItem) => quantity * pricePerItem;
 }
