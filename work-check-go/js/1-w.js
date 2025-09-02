@@ -1314,6 +1314,16 @@ function checkForSpam(message) {
 
   const getUserNames = users => users.map(({ name }) => name);
   const getUserEmails = users => users.map(({ email }) => email);
+  const getUsersWithEyeColor = (users, color) =>
+    users.filter(({ eyeColor }) => color === eyeColor);
+  const getUsersWithAge = (users, minAge, maxAge) =>
+    users.filter(({ age }) => age >= minAge && age <= maxAge);
+  const getUsersWithFriend = (users, friendName) =>
+    users.filter(({ friends }) => friends.includes(friendName));
+  const getFriends = users =>
+    users
+      .flatMap(({ friends }) => friends)
+      .filter((fr, i, arr) => arr.indexOf(fr) === i);
 
   const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
 
