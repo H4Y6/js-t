@@ -1168,3 +1168,39 @@ function checkForSpam(message) {
 
   const calculateTotal = (quantity, pricePerItem) => quantity * pricePerItem;
 }
+{
+  const calculateTotalPrice = orderedItems => {
+    let totalPrice = 0;
+
+    orderedItems.forEach(item => (totalPrice += item));
+
+    return totalPrice;
+  };
+
+  const filterArray = (numbers, value) => {
+    const filteredNumbers = [];
+    numbers.forEach(number =>
+      number > value ? filteredNumbers.push(number) : 0,
+    );
+    return filteredNumbers;
+  };
+
+  const getCommonElements = (firstArray, secondArray) => {
+    const commonElements = [];
+    firstArray.forEach(el =>
+      secondArray.includes(el) ? commonElements.push(el) : 0,
+    );
+    return commonElements;
+  };
+
+  function changeEven(numbers, value) {
+    const changed = [];
+    numbers.forEach(num =>
+      num % 2 ? changed.push(num) : changed.push(num + value),
+    );
+
+    return changed;
+  }
+
+  console.log(changeEven([1, 2, 3, 4, 5], 10));
+}
