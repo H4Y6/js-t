@@ -1440,6 +1440,12 @@ function checkForSpam(message) {
   // console.log(getActiveUsers(users));
 
   const getInactiveUsers = users => users.filter(({ isActive }) => !isActive);
+  const getUserWithEmail = (users, email) =>
+    users.find(user => user.email === email);
+  const isEveryUserActive = users => users.every(({ isActive }) => isActive);
+  const isAnyUserActive = users => users.some(({ isActive }) => isActive);
+  const calculateTotalBalance = users =>
+    users.reduce((total, { balance }) => total + balance, 0);
 }
 {
   const books = [
@@ -1468,4 +1474,53 @@ function checkForSpam(message) {
 
   // console.log(bookWithTitle);
   // console.log(bookByAuthor);
+}
+{
+  const firstArray = [26, 94, 36, 18];
+  const secondArray = [17, 61, 23];
+  const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+  const eachElementInFirstIsEven = firstArray.every(num => !(num % 2));
+  const eachElementInFirstIsOdd = firstArray.every(num => num % 2);
+
+  const eachElementInSecondIsEven = secondArray.every(num => !(num % 2));
+  const eachElementInSecondIsOdd = secondArray.every(num => num % 2);
+
+  const eachElementInThirdIsEven = thirdArray.every(num => !(num % 2));
+  const eachElementInThirdIsOdd = thirdArray.every(num => num % 2);
+
+  const anyElementInFirstIsEven = firstArray.some(num => !(num % 2));
+  const anyElementInFirstIsOdd = firstArray.some(num => num % 2);
+
+  const anyElementInSecondIsEven = secondArray.some(num => !(num % 2));
+  const anyElementInSecondIsOdd = secondArray.some(num => num % 2);
+
+  const anyElementInThirdIsEven = thirdArray.some(num => !(num % 2));
+  const anyElementInThirdIsOdd = thirdArray.some(num => num % 2);
+}
+{
+  const players = {
+    mango: 1270,
+    poly: 468,
+    ajax: 710,
+    kiwi: 244,
+  };
+
+  const playtimes = Object.values(players);
+  const totalPlayTime = playtimes.reduce((acc, time) => acc + time, 0);
+  const averagePlayTime = totalPlayTime / playtimes.length;
+  // console.log(averagePlayTime);
+}
+{
+  const players = [
+    { name: 'Mango', playtime: 1270, gamesPlayed: 4 },
+    { name: 'Poly', playtime: 469, gamesPlayed: 2 },
+    { name: 'Ajax', playtime: 690, gamesPlayed: 3 },
+    { name: 'Kiwi', playtime: 241, gamesPlayed: 1 },
+  ];
+
+  const totalAveragePlaytimePerGame = players.reduce(
+    (acc, { playtime, gamesPlayed }) => acc + playtime / gamesPlayed,
+    0,
+  );
 }
