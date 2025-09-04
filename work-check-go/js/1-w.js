@@ -1355,6 +1355,21 @@ function checkForSpam(message) {
 
   const topRatedBooks = books.filter(({ rating }) => rating >= MIN_RATING);
   const booksByAuthor = books.filter(({ author }) => author === AUTHOR);
+
+  const sortedByAuthorName = [...books].sort((a, b) =>
+    a.author.localeCompare(b.author),
+  );
+  const sortedByReversedAuthorName = [...books].sort((a, b) =>
+    b.author.localeCompare(a.author),
+  );
+
+  const sortedByAscendingRating = [...books].sort(
+    (a, b) => a.rating - b.rating,
+  );
+
+  const sortedByDescentingRating = [...books].sort(
+    (a, b) => b.rating - a.rating,
+  );
 }
 {
   const users = [
@@ -1595,6 +1610,12 @@ function checkForSpam(message) {
     users.reduce((total, { balance }) => total + balance, 0);
   const getTotalFriendCount = users =>
     users.reduce((total, { friends }) => total + friends.length, 0);
+  const sortByAscendingBalance = users =>
+    [...users].sort((a, b) => a.balance - b.balance);
+  const sortByDescendingFriendCount = users =>
+    [...users].sort((a, b) => b.friends.length - a.friends.length);
+  const sortByName = users =>
+    [...users].sort((a, b) => a.name.localeCompare(b.name));
 
   const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
   const authors = [
@@ -1650,4 +1671,23 @@ function checkForSpam(message) {
   const sortedByDescentingRating = [...books].sort(
     (first, second) => second.rating - first.rating,
   );
+
+  const students = [
+    { name: 'Mango', score: 83, courses: ['mathematics', 'physics'] },
+    { name: 'Poly', score: 59, courses: ['science', 'mathematics'] },
+    { name: 'Ajax', score: 37, courses: ['physics', 'biology'] },
+    { name: 'Kiwi', score: 94, courses: ['literature', 'science'] },
+  ];
+
+  const sortedNames = [...students]
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(({ name }) => name);
+
+  const uniqueSortedCourses = [...students]
+    .flatMap(({ courses }) => courses)
+    .filter((c, i, arr) => arr.indexOf(c) === i)
+    .sort((a, b) => a.localeCompare(b));
+
+  // console.log(sortByName(students));
+  console.log(uniqueSortedCourses);
 }
