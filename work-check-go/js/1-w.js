@@ -1636,6 +1636,13 @@ function checkForSpam(message) {
     b.localeCompare(a),
   );
 
+  /** Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён
+   *  пользователей отсортированный по возрастанию количества их друзей (свойство friends). */
+  const getNamesSortedByFriendCount = users =>
+    [...users]
+      .sort((a, b) => a.friends.length - b.friends.length)
+      .map(({ name }) => name);
+
   const books = [
     {
       title: 'The Last Kingdom',
@@ -1653,7 +1660,11 @@ function checkForSpam(message) {
       rating: 7.75,
     },
     { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
-    { title: 'Enemy of God', author: 'Bernard Cornwell', rating: 8.67 },
+    {
+      title: 'The Dreams in the Witch House',
+      author: 'Howard Lovecraft',
+      rating: 8.67,
+    },
   ];
 
   const sortedByAuthorName = [...books].sort((first, second) =>
@@ -1672,6 +1683,15 @@ function checkForSpam(message) {
     (first, second) => second.rating - first.rating,
   );
 
+  /**  Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке,
+   * рейтинг книг которых больше значения переменной MIN_BOOK_RATING */
+  const MIN_BOOK_RATING = 8;
+  const names = [...books]
+    .filter(({ rating }) => rating > MIN_BOOK_RATING)
+    .map(({ author }) => author)
+    .sort((a, b) => a.localeCompare(b));
+  // console.log(names);
+
   const students = [
     { name: 'Mango', score: 83, courses: ['mathematics', 'physics'] },
     { name: 'Poly', score: 59, courses: ['science', 'mathematics'] },
@@ -1689,5 +1709,5 @@ function checkForSpam(message) {
     .sort((a, b) => a.localeCompare(b));
 
   // console.log(sortByName(students));
-  console.log(uniqueSortedCourses);
+  // console.log(uniqueSortedCourses);
 }
