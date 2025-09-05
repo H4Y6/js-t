@@ -1643,6 +1643,24 @@ function checkForSpam(message) {
       .sort((a, b) => a.friends.length - b.friends.length)
       .map(({ name }) => name);
 
+  /**  Дополни функцию getSortedFriends(users) так, чтобы она возвращала массив уникальных имён
+   *  друзей (свойство friends) отсортированный по алфавиту . */
+  const getSortedFriends = users =>
+    [...users]
+      .flatMap(({ friends }) => friends)
+      .filter((f, i, arr) => arr.indexOf(f) === i)
+      .sort((a, b) => a.localeCompare(b));
+  // console.log(getSortedFriends(users));
+
+  /**  Дополни функцию getTotalBalanceByGender(users, gender) так, чтобы она возвращала общий баланс
+   *  пользователей (свойство balance), пол которых (свойство gender) совпадает со значением параметра gender. */
+
+  const getTotalBalanceByGender = (users, gender) =>
+    users
+      .filter(user => gender === user.gender)
+      .reduce((total, { balance }) => total + balance, 0);
+  // console.log(getTotalBalanceByGender(users, 'female'));
+
   const books = [
     {
       title: 'The Last Kingdom',
