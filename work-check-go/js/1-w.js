@@ -1807,12 +1807,12 @@ function checkForSpam(message) {
   const animal = { legs: 4 };
   const dog = Object.create(animal);
   dog.name = 'Mango';
-  console.log(dog);
-  console.log(animal.isPrototypeOf(dog));
-  console.log(dog.hasOwnProperty('name'));
-  console.log(dog.hasOwnProperty('legs'));
-  console.log(dog.name);
-  console.log(dog.legs);
+  // console.log(dog);
+  // console.log(animal.isPrototypeOf(dog));
+  // console.log(dog.hasOwnProperty('name'));
+  // console.log(dog.hasOwnProperty('legs'));
+  // console.log(dog.name);
+  // console.log(dog.legs);
 
   const parent = {
     name: 'Stacey',
@@ -1820,11 +1820,42 @@ function checkForSpam(message) {
     age: 54,
     heritage: 'Irish',
   };
-
   const child = Object.create(parent);
 
   child.name = 'Jason';
   child.age = 27;
-  console.log(child);
-  console.log(child.surname);
+  // console.log(child);
+  // console.log(child.surname);
+}
+{
+  const ancestor = {
+    name: 'Paul',
+    age: 83,
+    surname: 'Dawson',
+    heritage: 'Irish',
+  };
+
+  const parent = Object.create(ancestor);
+  parent.name = 'Stacey';
+  parent.surname = 'Moore';
+  parent.age = 54;
+
+  const child = Object.create(parent);
+  child.name = 'Jason';
+  child.age = 27;
+}
+{
+  class User {
+    constructor(name, email) {
+      this.name = name;
+      this.email = email;
+    }
+  }
+  class Car {
+    constructor(brand, model, price) {
+      this.brand = brand;
+      this.model = model;
+      this.price = price;
+    }
+  }
 }
