@@ -1865,3 +1865,38 @@ function checkForSpam(message) {
     }
   }
 }
+{
+  class Storage {
+    constructor(items) {
+      this.items = items;
+    }
+    getItems() {
+      return this.items;
+    }
+    addItem(newItem) {
+      this.items.push(newItem);
+    }
+    removeItem(itemToRemove) {
+      this.items.splice(this.items.indexOf(itemToRemove), 1);
+    }
+  }
+}
+{
+  class StringBuilder {
+    constructor(initialValue) {
+      this.value = initialValue;
+    }
+    getValue() {
+      return this.value;
+    }
+    padEnd(str) {
+      this.value += str;
+    }
+    padStart(str) {
+      this.value = str + this.value;
+    }
+    padBoth(str) {
+      this.value = str + this.value + str;
+    }
+  }
+}
