@@ -1900,3 +1900,58 @@ function checkForSpam(message) {
     }
   }
 }
+{
+  class Car {
+    #brand;
+    constructor({ brand, model, price }) {
+      this.#brand = brand;
+      this.model = model;
+      this.price = price;
+    }
+    getBrand() {
+      return this.#brand;
+    }
+    changeBrand(newBrand) {
+      this.#brand = newBrand;
+    }
+  }
+}
+{
+  class Storage {
+    #items;
+    constructor(items) {
+      this.#items = items;
+    }
+    getItems() {
+      return this.#items;
+    }
+    addItem(newItem) {
+      this.#items.push(newItem);
+    }
+    removeItem(itemToRemove) {
+      // this.#items = this.#items.filter(item => item !== itemToRemove);
+      this.#items.splice(this.#items.indexOf(itemToRemove), 1);
+    }
+  }
+}
+{
+  class StringBuilder {
+    #value;
+    constructor(initialValue) {
+      this.#value = initialValue;
+    }
+    getValue() {
+      return this.#value;
+    }
+    padEnd(str) {
+      this.#value += str;
+    }
+    padStart(str) {
+      this.#value = str + this.#value;
+    }
+    padBoth(str) {
+      this.padEnd(str);
+      this.padStart(str);
+    }
+  }
+}
