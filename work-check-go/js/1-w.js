@@ -2023,6 +2023,7 @@ function checkForSpam(message) {
 }
 {
   class User {
+    email;
     constructor(email) {
       this.email = email;
     }
@@ -2030,12 +2031,36 @@ function checkForSpam(message) {
       return this.email;
     }
     set email(newEmail) {
-      this.email = this.email;
+      this.email = newEmail;
     }
   }
 
   class Admin extends User {
     static AccessLevel = { BASIC: 'basic', SUPERUSER: 'superuser' };
+    constructor({ email, accessLevel }) {
+      super(email);
+      this.accessLevel = accessLevel;
+      this.blacklistedEmails = [];
+    }
+    blacklistEmail(email) {
+      this.blacklistedEmails.push(email);
+    }
+    isBlacklisted(email) {
+      return this.blacklistedEmails.includes(email);
+    }
   }
-  console.log(Admin.AccessLevel.BASIC);
+  // console.log(Admin.AccessLevel.BASIC);
+
+  const mango = new Admin({
+    email: 'mango@mail.com',
+    accessLevel: Admin.AccessLevel.SUPERUSER,
+  });
+
+  // console.log(mango.email);
+  // console.log(mango.accessLevel);
+
+  mango.blacklistEmail('poly@mail.com');
+  // console.log(mango.blacklistedEmails);
+  // console.log(mango.isBlacklisted('mango@mail.com'));
+  // console.log(mango.isBlacklisted('poly@mail.com'));
 }
