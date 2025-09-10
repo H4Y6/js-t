@@ -1933,13 +1933,13 @@ function checkForSpam(message) {
     }
   }
   const audi = new Car({ price: 35000 });
-  console.log(audi.price); // 35000
+  // console.log(audi.price);
 
   audi.price = 49000;
-  console.log(audi.price); // 49000
+  // console.log(audi.price);
 
   audi.price = 51000;
-  console.log(audi.price); // 49000
+  // console.log(audi.price);
 }
 {
   class Storage {
@@ -2020,4 +2020,22 @@ function checkForSpam(message) {
 
   audi.price = 51000;
   // console.log(audi.price);
+}
+{
+  class User {
+    constructor(email) {
+      this.email = email;
+    }
+    get email() {
+      return this.email;
+    }
+    set email(newEmail) {
+      this.email = this.email;
+    }
+  }
+
+  class Admin extends User {
+    static AccessLevel = { BASIC: 'basic', SUPERUSER: 'superuser' };
+  }
+  console.log(Admin.AccessLevel.BASIC);
 }
