@@ -493,6 +493,11 @@ function checkForSpam(message) {
 {
   class Car {
     static MAX_PRICE = 50000;
+    static checkPrice(newPrice) {
+      return newPrice > this.MAX_PRICE
+        ? 'Error! Price exceeds the maximum'
+        : 'Success! Price is within acceptable limits';
+    }
     #brand;
     #model;
     #price;
@@ -1903,18 +1908,38 @@ function checkForSpam(message) {
 {
   class Car {
     #brand;
+    #price;
+    static MAX_PRICE = 50000;
     constructor({ brand, model, price }) {
       this.#brand = brand;
       this.model = model;
-      this.price = price;
+      this.#price = price;
     }
-    getBrand() {
+    get brand() {
       return this.#brand;
     }
-    changeBrand(newBrand) {
+    set brand(newBrand) {
       this.#brand = newBrand;
     }
+
+    get price() {
+      return this.#price;
+    }
+    set price(newPrice) {
+      if (newPrice > Car.MAX_PRICE) {
+        return;
+      }
+      this.#price = newPrice;
+    }
   }
+  const audi = new Car({ price: 35000 });
+  console.log(audi.price); // 35000
+
+  audi.price = 49000;
+  console.log(audi.price); // 49000
+
+  audi.price = 51000;
+  console.log(audi.price); // 49000
 }
 {
   class Storage {
