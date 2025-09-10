@@ -25,15 +25,15 @@ class Car {
 
     set price(newPrice) {
         this._price = newPrice;
-    };
+    }
 
     get model() {
         return this._model;
-    };
+    }
 
     set model(newModel) {
         this._model = newModel;
-    };
+    }
 }
 
 console.dir(Car);
@@ -52,7 +52,27 @@ console.log('carInstance:', carInstance);
 // carInstance.model = ('M3');
 // carInstance.price = 33333;
 
-console.log(carInstance.model);
-console.log(carInstance.price);
-console.log(carInstance)
+// console.log(carInstance.model);
+// console.log(carInstance.price);
+// console.log(carInstance)
 
+{
+    class Car {
+        #price;
+        static MAX_PRICE = 50000;
+        constructor({ brand, model, price }) {
+            this.#price = price;
+        }
+        get price() {
+            return this.#price;
+        }
+        set price(newPrice) {
+            if (newPrice <= Car.MAX_PRICE) this.#price = newPrice;
+        }
+    }
+    const audi = new Car({ price: 35000 });
+    console.log(audi.price);
+
+    audi.price = 51000;
+    console.log(audi.price);
+}
