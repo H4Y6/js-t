@@ -8180,6 +8180,18 @@ all((1, 2, 3, 4, 5), less_than_9)    -> True   */
   // console.log(all([1, 2, 3, 4, 5], function (v) { return v > 9}));
 }
 {
+  /** 
+7 kyu  No Loops 1 - Small enough?
+
+*** No Loops Allowed ***
+
+You will be given an array and a limit value, you must check that all values in the array are less than or equal to limit. If they all are, return true. Else, return false.
+
+You can assume all values in the array are numbers.
+
+Do not use loops. Do not modify input array.
+
+ */
   // function smallEnough(a, limit) {
   //   return a.every(e => !(e > limit));
   // }
@@ -8194,4 +8206,20 @@ all((1, 2, 3, 4, 5), less_than_9)    -> True   */
     !a.reduce((acc, e) => (e > limit ? acc + e : acc), 0);
 
   // console.log(smallEnough([80, 117, 115, 104, 45, 85, 112, 115], 120));
+}
+
+{
+  // function remove(string) {
+  //   return (
+  //     string.replaceAll('!', '') + '!'.repeat(string.split('!').length - 1)
+  //   );
+  // }
+
+  // const remove = string =>
+  //   string.replaceAll('!', '') + '!'.repeat(string.split('!').length - 1);
+
+  const remove = string =>
+    string.replaceAll('!', '') + string.replace(/[^!]/g, '');
+
+  // console.log(remove('Hi! Hi!! Hi!'));
 }
