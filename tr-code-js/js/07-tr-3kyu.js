@@ -8209,6 +8209,7 @@ Do not use loops. Do not modify input array.
 }
 
 {
+  /**  Move all exclamation marks to the end of the sentence */
   // function remove(string) {
   //   return (
   //     string.replaceAll('!', '') + '!'.repeat(string.split('!').length - 1)
