@@ -8179,3 +8179,19 @@ all((1, 2, 3, 4, 5), less_than_9)    -> True   */
 
   // console.log(all([1, 2, 3, 4, 5], function (v) { return v > 9}));
 }
+{
+  // function smallEnough(a, limit) {
+  //   return a.every(e => !(e > limit));
+  // }
+  // const smallEnough = (a, limit) => a.every(e => !(e > limit));
+
+  // const smallEnough = (a, limit) => !(Math.max(...a) > limit);
+
+  // const smallEnough = (a, limit) =>
+  //   [...a].sort((z, x) => z - x).slice(-1) <= limit;
+
+  const smallEnough = (a, limit) =>
+    !a.reduce((acc, e) => (e > limit ? acc + e : acc), 0);
+
+  // console.log(smallEnough([80, 117, 115, 104, 45, 85, 112, 115], 120));
+}
