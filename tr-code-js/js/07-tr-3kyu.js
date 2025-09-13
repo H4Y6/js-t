@@ -8307,8 +8307,11 @@ Note: String will have at least one element; words will always be separated by a
   // const addLength = str =>
   //   str.split(' ').reduce((res, e) => [...res, `${e} ${e.length}`], []);
 
+  // const addLength = str =>
+  //   str.split(' ').reduce((res, e) => [...res, e + ` ${e.length}`], []);
+
   const addLength = str =>
-    str.split(' ').reduce((res, e) => [...res, e + ` ${e.length}`], []);
+    str.split(' ').reduce((res, e) => [...res, [e, e.length].join(' ')], []);
 
   // console.log(addLength('you will win'));
 }
