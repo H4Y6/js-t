@@ -8380,42 +8380,66 @@ Notes:
     '\n' +
     'Lima:Jan 11.2,Feb 10.9,Mar 10.7,Apr 10.4,May 10.6,Jun 11.8,Jul 14.4,Aug 13.1,Sep 23.3,Oct 1.7,Nov 0.5,Dec 10.7';
 
-  function findChosen(town, strng) {
-    return strng
+  // function findTownData(town, strng) {
+  //   return strng
+  //     .split('\n')
+  //     .find(e => e.includes(town))
+  //     .split(':')[1]
+  //     .split(',')
+  //     .map(e => Number(e.replace(/[A-Z]/gi, '')));
+  // }
+
+  // function getTowns(strng) {
+  //   return strng.split('\n').map(e => e.split(':')[0]);
+  // }
+
+  // function mean(town, strng) {
+  //   if (getTowns(strng).includes(town)) {
+  //     const chosen = findTownData(town, strng);
+
+  //     return chosen.reduce((sum, e) => sum + e, 0) / chosen.length;
+  //   } else {
+  //     return -1;
+  //   }
+  // }
+
+  // function variance(town, strng) {
+  //   const meanValue = mean(town, strng);
+  //   if (getTowns(strng).includes(town)) {
+  //     return (
+  //       findTownData(town, strng).reduce(
+  //         (sum, e) => sum + (e - meanValue) ** 2,
+  //         0,
+  //       ) / findTownData(town, strng).length
+  //     );
+  //   } else {
+  //     return -1;
+  //   }
+  // }
+
+  const findTownData = (town, strng) =>
+    strng
       .split('\n')
       .find(e => e.includes(town))
       .split(':')[1]
       .split(',')
       .map(e => Number(e.replace(/[A-Z]/gi, '')));
-  }
 
-  function getTowns(strng) {
-    return strng.split('\n').map(e => e.split(':')[0]);
-  }
+  const getTowns = strng => strng.split('\n').map(e => e.split(':')[0]);
 
-  function mean(town, strng) {
-    if (getTowns(strng).includes(town)) {
-      const chosen = findChosen(town, strng);
+  const mean = (town, strng) =>
+    !getTowns(strng).includes(town)
+      ? -1
+      : findTownData(town, strng).reduce((sum, e) => sum + e, 0) /
+        findTownData(town, strng).length;
 
-      return chosen.reduce((sum, e) => sum + e, 0) / chosen.length;
-    } else {
-      return -1;
-    }
-  }
-
-  function variance(town, strng) {
-    const meanValue = mean(town, strng);
-    if (getTowns(strng).includes(town)) {
-      return (
-        findChosen(town, strng).reduce(
-          (sum, e) => sum + (e - meanValue) ** 2,
+  const variance = (town, strng) =>
+    !getTowns(strng).includes(town)
+      ? -1
+      : findTownData(town, strng).reduce(
+          (sum, e) => sum + (e - mean(town, strng)) ** 2,
           0,
-        ) / findChosen(town, strng).length
-      );
-    } else {
-      return -1;
-    }
-  }
+        ) / findTownData(town, strng).length;
 
   // console.log(mean('London', data));
   // console.log(variance('London', data));
