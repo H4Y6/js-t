@@ -8467,11 +8467,13 @@ Examples:
 "Ab1!@#$%^&*()-_+={}[]|\:;?/>.<," ===> true;
 "!@#$%^&*()-_+={}[]|\:;?/>.<," ===> false; */
 
-  const password = str =>
-    /[A-Z]/g.test(str) &&
-    /[a-z]/g.test(str) &&
-    /\d/g.test(str) &&
-    str.length > 7;
+  // const password = str =>
+  //   /[A-Z]/g.test(str) &&
+  //   /[a-z]/g.test(str) &&
+  //   /\d/g.test(str) &&
+  //   str.length > 7
+  //
+  const password = str => /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(str);
 
   console.log(password('Abcd1234'));
 }
