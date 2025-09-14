@@ -8475,9 +8475,14 @@ Examples:
   //
   // const password = str => /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(str);
 
+  // const password = str =>
+  //   (arr => arr.every(e => str.match(e)))(['[A-Z]', '[a-z]', '[0-9]']) &&
+  //   str.length > 7;
+
+  // const password = str => /(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}/.test(str);
+
   const password = str =>
-    (arr => arr.every(e => str.match(e)))(['[A-Z]', '[a-z]', '[0-9]']) &&
-    str.length > 7;
+    (arr => arr.every(e => e.test(str)))([/[A-Z]/, /[a-z]/, /\d/, /.{8,}/]);
 
   // console.log(password('Abcd1234'));
 }
