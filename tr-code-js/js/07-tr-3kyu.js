@@ -8473,7 +8473,11 @@ Examples:
   //   /\d/g.test(str) &&
   //   str.length > 7
   //
-  const password = str => /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(str);
+  // const password = str => /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(str);
 
-  console.log(password('Abcd1234'));
+  const password = str =>
+    (arr => arr.every(e => str.match(e)))(['[A-Z]', '[a-z]', '[0-9]']) &&
+    str.length > 7;
+
+  // console.log(password('Abcd1234'));
 }
