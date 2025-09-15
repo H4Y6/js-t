@@ -8552,3 +8552,32 @@ You should use for..in in your code, otherwise your solution may not pass this k
 
   // console.log(giveMeFive({ Our: 'earth', is: 'a', beautyful: 'world' }));
 }
+{
+  // function explode(x) {
+  //   if (x.filter(e => !isNaN(e)).length === 0) return 'Void!';
+
+  //   return Array.from(
+  //     { length: x.reduce((sum, e) => sum + (!isNaN(e) ? e : 0), 0) },
+  //     e => x,
+  //   );
+  // }
+
+  // function explode(x) {
+  //   return !x.filter(e => !isNaN(e)).length
+  //     ? 'Void!'
+  //     : Array.from(
+  //         { length: x.reduce((sum, e) => sum + (!isNaN(e) ? e : 0), 0) },
+  //         e => x,
+  //       );
+  // }
+
+  const explode = x =>
+    !x.filter(e => !isNaN(e)).length
+      ? 'Void!'
+      : Array.from(
+          { length: x.reduce((sum, e) => sum + (!isNaN(e) ? e : 0), 0) },
+          e => x,
+        );
+
+  // console.log(explode([3, 'd']));
+}
