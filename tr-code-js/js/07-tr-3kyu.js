@@ -8571,13 +8571,43 @@ You should use for..in in your code, otherwise your solution may not pass this k
   //       );
   // }
 
-  const explode = x =>
-    !x.filter(e => !isNaN(e)).length
-      ? 'Void!'
-      : Array.from(
-          { length: x.reduce((sum, e) => sum + (!isNaN(e) ? e : 0), 0) },
-          e => x,
-        );
+  // const explode = x =>
+  //   !x.filter(e => !isNaN(e)).length
+  //     ? 'Void!'
+  //     : Array.from(
+  //         { length: x.reduce((sum, e) => sum + (!isNaN(e) ? e : 0), 0) },
+  //         e => x,
+  //       );
 
-  // console.log(explode([3, 'd']));
+  // const explode = x =>
+  //   !x.filter(e => !isNaN(e)).length
+  //     ? 'Void!'
+  //     : Array(x.reduce((sum, e) => sum + (!isNaN(e) ? e : 0), 0)).fill(x);
+
+  // const explode = x =>
+  //   (numbers =>
+  //     numbers.length
+  //       ? Array(numbers.reduce((sum, n) => sum + n, 0)).fill(x)
+  //       : 'Void!')(x.filter(e => !isNaN(e)));
+
+  // const explode = x =>
+  //   x.join('').match(/\d/g)
+  //     ? Array(
+  //         (typeof x[0] === 'number' ? x[0] : 0) +
+  //           (typeof x[1] === 'number' ? x[1] : 0),
+  //       ).fill(x)
+  //     : 'Void!';
+
+  // const explode = x =>
+  //   x.join('').match(/\d/g)
+  //     ? Array((isNaN(x[0]) ? 0 : x[0]) + (isNaN(x[1]) ? 0 : x[1])).fill(x)
+  //     : 'Void!';
+
+  const explode = x =>
+    (numbers =>
+      numbers.length
+        ? Array((numbers[0] ?? 0) + (numbers[1] ?? 0)).fill(x)
+        : 'Void!')(x.filter(e => !isNaN(e)));
+
+  // console.log(explode([4, 'u']));
 }
