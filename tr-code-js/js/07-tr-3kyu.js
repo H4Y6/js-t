@@ -8657,6 +8657,6 @@ Notes:
           .join('\n')
       : '';
 
-  // console.log(sortVowels('Codewars'));
+  console.log(sortVowels('Codewars'));
   // console.log(sortVowels(333));
 }
