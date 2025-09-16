@@ -8649,14 +8649,29 @@ Notes:
   //     : '';
   // }
 
+  // const sortVowels = s =>
+  //   typeof s === 'string'
+  //     ? s
+  //         .split('')
+  //         .map(e => (e.match(/[aeoui]/i) ? '|' + e : e + '|'))
+  //         .join('\n')
+  //     : '';
+
+  // const sortVowels = s =>
+  //   typeof s === 'string'
+  //     ? [...s]
+  //         .map(e => ('AEIOUaeoui'.includes(e) ? '|' + e : e + '|'))
+  //         .join('\n')
+  //     : '';
+
   const sortVowels = s =>
     typeof s === 'string'
       ? s
           .split('')
-          .map(e => (e.match(/[aeoui]/i) ? '|' + e : e + '|'))
+          .map(e => (/[aeoui]/i.test(e) ? '|' + e : e + '|'))
           .join('\n')
       : '';
 
-  console.log(sortVowels('Codewars'));
+  // console.log(sortVowels('Codewars'));
   // console.log(sortVowels(333));
 }
