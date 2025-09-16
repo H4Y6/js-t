@@ -8675,3 +8675,17 @@ Notes:
   // console.log(sortVowels('Codewars'));
   // console.log(sortVowels(333));
 }
+
+{
+  /** 
+7 kyu
+filterEvenLengthWords
+Given an array of strings, write a function that returns an array containing only the elements of the given array whose length is an even number.
+Example
+
+["One", "Two", "Three", "Four"] --> ["Four"]  */
+
+  const filterEvenLengthWords = words => words.filter(e => !(e.length % 2));
+
+  console.log(filterEvenLengthWords(['One', 'Two', 'Three', 'Four']));
+}
