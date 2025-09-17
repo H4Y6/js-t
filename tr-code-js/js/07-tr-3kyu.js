@@ -8691,16 +8691,27 @@ Example
 }
 
 {
-  function dative(word) {
-    return 'aáoóuú'.includes(
+  // function dative(word) {
+  //   return 'aáoóuú'.includes(
+  //     [...word]
+  //       .reverse()
+  //       .join('')
+  //       .match(/[eéiíöőüűaáoóuú]/)[0],
+  //   )
+  //     ? word + 'nak'
+  //     : word + 'nek';
+  // }
+
+  const dative = word =>
+    word +
+    ('aáoóuú'.includes(
       [...word]
         .reverse()
         .join('')
         .match(/[eéiíöőüűaáoóuú]/)[0],
     )
-      ? word + 'nak'
-      : word + 'nek';
-  }
+      ? 'nak'
+      : 'nek');
 
   console.log(dative('ablak'));
 }
