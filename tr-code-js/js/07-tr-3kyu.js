@@ -8687,5 +8687,20 @@ Example
 
   const filterEvenLengthWords = words => words.filter(e => !(e.length % 2));
 
-  console.log(filterEvenLengthWords(['One', 'Two', 'Three', 'Four']));
+  // console.log(filterEvenLengthWords(['One', 'Two', 'Three', 'Four']));
+}
+
+{
+  function dative(word) {
+    return 'aáoóuú'.includes(
+      [...word]
+        .reverse()
+        .join('')
+        .match(/[eéiíöőüűaáoóuú]/)[0],
+    )
+      ? word + 'nak'
+      : word + 'nek';
+  }
+
+  console.log(dative('ablak'));
 }
