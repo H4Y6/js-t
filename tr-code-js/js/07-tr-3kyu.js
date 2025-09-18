@@ -8691,6 +8691,34 @@ Example
 }
 
 {
+  /**
+7 kyu
+Hungarian Vowel Harmony (easy)
+Vowel harmony is a phenomenon in some languages. It means that "A vowel or vowels in a word are changed to sound the same (thus "in harmony.")" (wikipedia). This kata is based on vowel harmony in Hungarian.
+Task:
+
+Your goal is to create a function dative() (Dative() in C#) which returns the valid form of a valid Hungarian word w in dative case i. e. append the correct suffix nek or nak to the word w based on vowel harmony rules.
+Vowel Harmony Rules (simplified)
+
+When the last vowel in the word is
+
+    a front vowel (e, é, i, í, ö, ő, ü, ű) the suffix is -nek
+    a back vowel (a, á, o, ó, u, ú) the suffix is -nak
+
+Examples:
+
+dative("ablak") == "ablaknak"
+dative("szék") == "széknek"
+dative("otthon") == "otthonnak"
+
+Preconditions:
+
+    To keep it simple: All words end with a consonant :)
+    All strings are unicode strings.
+    There are no grammatical exceptions in the tests.
+
+   */
+
   // function dative(word) {
   //   return 'aáoóuú'.includes(
   //     [...word]
@@ -8739,5 +8767,52 @@ Example
       ? 'nak'
       : 'nek');
 
-  console.log(dative('ablak'));
+  // console.log(dative('ablak'));
+}
+
+{
+  /**  
+6 kyu
+Clock in Mirror
+Peter can see a clock in the mirror from the place he sits in the office. When he saw the clock shows 12:22
+1 2 3 4 5 6 7 8 9 10 11 12
+
+He knows that the time is 11:38
+
+in the same manner:
+
+05:25 --> 06:35
+
+01:50 --> 10:10
+
+11:58 --> 12:02
+
+12:01 --> 11:59
+
+Please complete the function WhatIsTheTime(timeInMirror), where timeInMirror is the mirrored time (what Peter sees) as string.
+
+Return the real time as a string.
+
+Consider hours to be between 1 <= hour < 13.
+
+So there is no 00:20, instead it is 12:20.
+
+There is no 13:20, instead it is 01:20. */
+
+  function WhatIsTheTime(timeInMirror) {
+    const mTime = timeInMirror.split(':');
+    let hr = 11 - +mTime[0];
+    let min = 60 - mTime[1];
+    if (min === 60) {
+      min = 0;
+      hr += 1;
+    }
+    min = min < 10 ? '0' + min : min;
+    hr = hr ? hr : 12;
+    hr = hr < 0 ? 11 : hr;
+    hr = hr < 10 ? '0' + hr : hr;
+    return [hr, min].join(':');
+  }
+
+  console.log(WhatIsTheTime('12:02'));
 }
