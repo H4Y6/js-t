@@ -8799,20 +8799,34 @@ So there is no 00:20, instead it is 12:20.
 
 There is no 13:20, instead it is 01:20. */
 
-  function WhatIsTheTime(timeInMirror) {
-    const mTime = timeInMirror.split(':');
-    let hr = 11 - +mTime[0];
-    let min = 60 - mTime[1];
+  // function WhatIsTheTime(timeInMirror) {
+  //   const mTime = timeInMirror.split(':');
+  //   let hr = 11 - +mTime[0];
+  //   let min = 60 - mTime[1];
+  //   if (min === 60) {
+  //     min = 0;
+  //     hr += 1;
+  //   }
+  //   min = min < 10 ? '0' + min : min;
+  //   hr = hr ? hr : 12;
+  //   hr = hr < 0 ? 11 : hr;
+  //   hr = hr < 10 ? '0' + hr : hr;
+  //   return [hr, min].join(':');
+  // }
+
+  const WhatIsTheTime = timeInMirror => {
+    let [hr, min] = timeInMirror.split(':');
+    hr = hr > 11 ? 11 : 11 - hr;
+    min = 60 - min;
     if (min === 60) {
       min = 0;
       hr += 1;
     }
     min = min < 10 ? '0' + min : min;
     hr = hr ? hr : 12;
-    hr = hr < 0 ? 11 : hr;
     hr = hr < 10 ? '0' + hr : hr;
     return [hr, min].join(':');
-  }
+  };
 
   console.log(WhatIsTheTime('12:02'));
 }
