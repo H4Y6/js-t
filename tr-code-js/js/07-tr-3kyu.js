@@ -8713,16 +8713,31 @@ Example
   //     ? 'nak'
   //     : 'nek');
 
-  const dative = word => {
-    return (
-      word +
-      ('a, á, o, ó, u, ú'.includes(
-        word.replace(/[^eéiíöőüűaáoóuú]/g, '').slice(-1),
-      )
-        ? 'nak'
-        : 'nek')
-    );
-  };
+  // const dative = word => {
+  //   return (
+  //     word +
+  //     ('a, á, o, ó, u, ú'.includes(
+  //       word.replace(/[^eéiíöőüűaáoóuú]/g, '').slice(-1),
+  //     )
+  //       ? 'nak'
+  //       : 'nek')
+  //   );
+  // };
+
+  // const dative = word =>
+  //   word +
+  //   (word
+  //     .replace(/[^eéiíöőüűaáoóuú]/g, '')
+  //     .slice(-1)
+  //     .match(/[aáoóuú]/)
+  //     ? 'nak'
+  //     : 'nek');
+
+  const dative = word =>
+    word +
+    (/[aáoóuú]/.test(word.replace(/[^eéiíöőüűaáoóuú]/g, '').slice(-1))
+      ? 'nak'
+      : 'nek');
 
   console.log(dative('ablak'));
 }
