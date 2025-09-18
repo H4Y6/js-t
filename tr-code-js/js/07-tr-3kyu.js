@@ -8702,16 +8702,27 @@ Example
   //     : word + 'nek';
   // }
 
-  const dative = word =>
-    word +
-    ('aáoóuú'.includes(
-      [...word]
-        .reverse()
-        .join('')
-        .match(/[eéiíöőüűaáoóuú]/)[0],
-    )
-      ? 'nak'
-      : 'nek');
+  // const dative = word =>
+  //   word +
+  //   ('aáoóuú'.includes(
+  //     [...word]
+  //       .reverse()
+  //       .join('')
+  //       .match(/[eéiíöőüűaáoóuú]/)[0],
+  //   )
+  //     ? 'nak'
+  //     : 'nek');
+
+  const dative = word => {
+    return (
+      word +
+      ('a, á, o, ó, u, ú'.includes(
+        word.replace(/[^eéiíöőüűaáoóuú]/g, '').slice(-1),
+      )
+        ? 'nak'
+        : 'nek')
+    );
+  };
 
   console.log(dative('ablak'));
 }
