@@ -8900,10 +8900,18 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
   //       ).length,
   //   );
 
+  // const solve = arr =>
+  //   arr.map(
+  //     e =>
+  //       [...e.toLowerCase()].filter((e, i) => i === e.charCodeAt() - 97).length,
+  //   );
+
   const solve = arr =>
-    arr.map(
-      e =>
-        [...e.toLowerCase()].filter((e, i) => i === e.charCodeAt() - 97).length,
+    arr.map(e =>
+      [...e.toLowerCase()].reduce(
+        (q, e, i) => q + (i === e.charCodeAt() - 97 ? 1 : 0),
+        0,
+      ),
     );
 
   console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc']));
