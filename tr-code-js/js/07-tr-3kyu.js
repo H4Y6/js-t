@@ -8914,5 +8914,5 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
       ),
     );
 
-  console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc']));
+  // console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc']));
 }
