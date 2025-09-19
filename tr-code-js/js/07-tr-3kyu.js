@@ -8854,12 +8854,18 @@ There is no 13:20, instead it is 01:20. */
   //   return [hr, m].join(':');
   // };
 
-  const WhatIsTheTime = timeInMirror => {
-    let [hr, m] = timeInMirror.split(`:`);
-    return [12 - (hr % 12) - (+m ? 1 : 0) || 12, (60 - m) % 60]
-      .map(t => (t + '').padStart(2, '0'))
-      .join(':');
-  };
+  // const WhatIsTheTime = timeInMirror => {
+  //   let [hr, m] = timeInMirror.split(`:`);
+  //   return [12 - (hr % 12) - (+m ? 1 : 0) || 12, (60 - m) % 60]
+  //     .map(t => (t + '').padStart(2, '0'))
+  //     .join(':');
+  // };
+
+  const WhatIsTheTime = timeInMirror =>
+    (([hr, m]) =>
+      [12 - (hr % 12) - (+m ? 1 : 0) || 12, (60 - m) % 60]
+        .map(t => (t + '').padStart(2, '0'))
+        .join(':'))(timeInMirror.split(`:`));
 
   // console.log(WhatIsTheTime('11:59'));
 }
