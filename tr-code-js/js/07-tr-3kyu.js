@@ -8884,14 +8884,21 @@ See test cases for more examples.
 
 Input will consist of alphabet characters, both uppercase and lowercase. No spaces.  */
 
-  function solve(arr) {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    const count = 0;
-    return arr.map(
+  // function solve(arr) {
+  //   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  //   return arr.map(
+  //     e =>
+  //       [...e.toLowerCase()].filter((e, i) => i === alphabet.indexOf(e)).length,
+  //   );
+  // }
+
+  const solve = arr =>
+    arr.map(
       e =>
-        [...e.toLowerCase()].filter((e, i) => i === alphabet.indexOf(e)).length,
+        [...e.toLowerCase()].filter(
+          (e, i) => i === 'abcdefghijklmnopqrstuvwxyz'.indexOf(e),
+        ).length,
     );
-  }
 
   console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc']));
 }
