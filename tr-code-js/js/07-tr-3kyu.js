@@ -8828,20 +8828,31 @@ There is no 13:20, instead it is 01:20. */
   //   return [hr, min].join(':');
   // };
 
+  // const WhatIsTheTime = timeInMirror => {
+  //   let [hr, min] = timeInMirror.split(':');
+  //   hr = hr > 11 ? 11 : 11 - hr;
+  //   if (+min) {
+  //     min = 60 - min;
+  //   } else {
+  //     min = 0;
+  //     hr += 1;
+  //   }
+  //   min = min < 10 ? '0' + min : min;
+  //   hr = hr ? hr : 12;
+  //   hr = hr < 10 ? '0' + hr : hr;
+  //   return [hr, min].join(':');
+  // };
+
   const WhatIsTheTime = timeInMirror => {
-    let [hr, min] = timeInMirror.split(':');
-    hr = hr > 11 ? 11 : 11 - hr;
-    if (+min) {
-      min = 60 - min;
-    } else {
-      min = 0;
-      hr += 1;
-    }
-    min = min < 10 ? '0' + min : min;
-    hr = hr ? hr : 12;
-    hr = hr < 10 ? '0' + hr : hr;
-    return [hr, min].join(':');
+    if (timeInMirror === '12:00') return timeInMirror;
+    let [hr, m] = timeInMirror.split(':');
+    hr = hr < 11 ? 11 - hr : hr == 12 ? 11 : 12;
+    m = +m ? 60 - m : m;
+    hr = !+m ? (hr += 1) : hr;
+    hr = hr < 10 ? (hr = '0' + hr) : hr;
+    m = m < 10 ? ('0' + m).slice(-2) : m;
+    return [hr, m].join(':');
   };
 
-  // console.log(WhatIsTheTime('12:02'));
+  // console.log(WhatIsTheTime('12:00'));
 }
