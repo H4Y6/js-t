@@ -8918,6 +8918,32 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
 }
 
 {
+  /**
+7 kyu
+Monotone travel
+Story
+
+Peter lives on a hill, and he always moans about the way to his home. "It's always just up. I never get a rest". But you're pretty sure that at least at one point Peter's altitude doesn't rise, but fall. To get him, you use a nefarious plan: you attach an altimeter to his backpack and you read the data from his way back at the next day.
+Task
+
+You're given a list of compareable elements:
+
+heights = [h1, h2, h3, …, hn]
+
+Your job is to check whether for any x all successors are greater or equal to x.
+
+isMonotone([1,2,3]) == true
+isMonotone([1,1,2]) == true
+isMonotone([1])     == true
+isMonotone([3,2,1]) == false
+isMonotone([3,2,2]) == false
+
+If the list is empty, Peter has probably removed your altimeter, so we cannot prove him wrong and he's still right:
+
+isMonotone([])     == True
+
+Such a sequence is also called monotone or monotonic sequence, hence the name isMonotone.
+   */
   // const isMonotone = arr => {
   //   return !arr.some((e, i, ar) => e > ar[i + 1]);
   // };
@@ -8927,4 +8953,25 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
   const isMonotone = arr => arr.slice(1).some((e, i) => e > arr[i]);
 
   // console.log(isMonotone([]));
+}
+
+{
+  /**  
+7 kyu
+Filter Coffee
+You love coffee and want to know what beans you can afford to buy it.
+
+The first argument to your search function will be a number which represents your budget.
+
+The second argument will be an array of coffee bean prices.
+
+Your 'search' function should return the stores that sell coffee within your budget.
+
+The search function should return a string of prices for the coffees beans you can afford. The prices in this string are to be sorted in ascending order.
+ */
+
+  const search = (budget, prices) =>
+    prices.filter(p => p <= budget).sort((a, b) => a - b) + '';
+
+  console.log(search(14, [7, 3, 23, 9, 14, 20, 7]));
 }
