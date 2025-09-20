@@ -9005,7 +9005,9 @@ The search function should return a string of prices for the coffees beans you c
 
   // const combat = (health, damage) => Math.max(0, health - damage);
 
-  const combat = (health, damage) => ((health -= damage) < 0 ? 0 : health);
+  // const combat = (health, damage) => ((health -= damage) < 0 ? 0 : health);
 
-  console.log(combat(44, 55));
+  const combat = (health, damage) => ((health -= damage) > 0 ? health : 0);
+
+  // console.log(combat(44, 55));
 }
