@@ -8973,11 +8973,14 @@ The search function should return a string of prices for the coffees beans you c
   // const search = (budget, prices) =>
   //   prices.filter(p => p <= budget).sort((a, b) => a - b) + '';
 
+  // const search = (budget, prices) =>
+  //   prices
+  //     .filter(p => p <= budget)
+  //     .sort((a, b) => a - b)
+  //     .join(',');
+
   const search = (budget, prices) =>
-    prices
-      .filter(p => p <= budget)
-      .sort((a, b) => a - b)
-      .join(',');
+    `${prices.filter(p => p <= budget).sort((a, b) => a - b)}`;
 
   console.log(search(14, [7, 3, 23, 9, 14, 20, 7]));
 }
