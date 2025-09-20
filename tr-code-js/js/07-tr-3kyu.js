@@ -8918,9 +8918,11 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
 }
 
 {
-  const isMonotone = arr => {
-    return !arr.some((e, i, ar) => e > ar[i + 1]);
-  };
+  // const isMonotone = arr => {
+  //   return !arr.some((e, i, ar) => e > ar[i + 1]);
+  // };
+
+  const isMonotone = arr => !arr.some((e, i, ar) => e > ar[i + 1]);
 
   console.log(isMonotone([3, 2, 2]));
 }
