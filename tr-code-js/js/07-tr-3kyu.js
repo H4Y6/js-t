@@ -8979,8 +8979,18 @@ The search function should return a string of prices for the coffees beans you c
   //     .sort((a, b) => a - b)
   //     .join(',');
 
-  const search = (budget, prices) =>
-    `${prices.filter(p => p <= budget).sort((a, b) => a - b)}`;
+  // const search = (budget, prices) =>
+  // `${prices.filter(p => p <= budget).sort((a, b) => a - b)}`;
+
+  const search = (budget, prices) => {
+    const found = [];
+
+    for (const price of prices) {
+      if (price > budget) continue;
+      found.push(price);
+    }
+    return String(found.sort((a, s) => a - s));
+  };
 
   console.log(search(14, [7, 3, 23, 9, 14, 20, 7]));
 }
