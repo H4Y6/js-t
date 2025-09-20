@@ -8996,9 +8996,12 @@ The search function should return a string of prices for the coffees beans you c
 }
 
 {
-  function combat(health, damage) {
-    return health - damage < 0 ? 0 : health - damage;
-  }
+  // function combat(health, damage) {
+  // return health - damage < 0 ? 0 : health - damage;
+  // }
+
+  const combat = (health, damage) =>
+    health - damage < 0 ? 0 : health - damage;
 
   console.log(combat(44, 55));
 }
