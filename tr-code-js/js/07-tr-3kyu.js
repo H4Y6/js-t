@@ -8916,3 +8916,11 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
 
   // console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc']));
 }
+
+{
+  const isMonotone = arr => {
+    return !arr.some((e, i, ar) => e > ar[i + 1]);
+  };
+
+  console.log(isMonotone([3, 2, 2]));
+}
