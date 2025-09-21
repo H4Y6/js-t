@@ -9024,8 +9024,10 @@ Write a function calculating circumference of a Circle.
 Tests round answers to 6 decimal places.
    */
 
-  const circleCircumference = ({ center, radius }) =>
-    +(Math.PI * 2 * radius).toFixed(6);
+  // const circleCircumference = ({ center, radius }) =>
+  //   +(Math.PI * 2 * radius).toFixed(6);
 
-  console.log(circleCircumference({ center: (10, 10), radius: 30 }));
+  const circleCircumference = ({ radius }) => Math.PI * 2 * radius;
+
+  // console.log(circleCircumference({ radius: 30 }));
 }
