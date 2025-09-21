@@ -9075,6 +9075,24 @@ Examples: [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They d
     return res;
   };
 
-  console.log(testResult([5, 6, 4, 8, 9, 8, 9, 10, 10, 10]));
-  console.log(testResult([10, 9, 9, 10, 9, 10, 9]));
+  // console.log(testResult([5, 6, 4, 8, 9, 8, 9, 10, 10, 10]));
+  // console.log(testResult([10, 9, 9, 10, 9, 10, 9]));
+}
+
+{
+  function isValid(formula) {
+    console.log(formula);
+    if (formula.includes(1) && formula.includes(2)) {
+      return false;
+    } else if (formula.includes(3) && formula.includes(4)) {
+      return false;
+    } else if (formula.includes(5) && !formula.includes(6)) {
+      return false;
+    } else if (!formula.includes(5) && formula.includes(6)) {
+      return false;
+    } else if (!formula.includes(7) && !formula.includes(8)) {
+      return false;
+    }
+    return true;
+  }
 }
