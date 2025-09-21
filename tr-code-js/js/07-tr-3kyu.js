@@ -9046,11 +9046,26 @@ Examples: [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They d
 
 [5, 6, 4, 8, 9, 8, 9, 10, 10, 10] ==> [7.9, {'h': 5, 'a': 2, 'l': 3}]    */
 
-  function testResult(array) {
-    const obj = {};
-    obj.h = array.filter(e => e > 8).length;
-    obj.a = array.filter(e => e > 6 && e < 9).length;
-    obj.l = array.filter(e => e < 7).length;
+  // function testResult(array) {
+  //   const obj = {};
+  //   obj.h = array.filter(e => e > 8).length;
+  //   obj.a = array.filter(e => e > 6 && e < 9).length;
+  //   obj.l = array.filter(e => e < 7).length;
+  //   const res = [
+  //     Math.round((array.reduce((sum, e) => sum + e, 0) / array.length) * 1e3) /
+  //       1e3,
+  //     obj,
+  //   ];
+  //   obj.h < array.length ? res : res.push('They did well');
+  //   return res;
+  // }
+
+  const testResult = array => {
+    const obj = {
+      h: array.filter(e => e > 8).length,
+      a: array.filter(e => e > 6 && e < 9).length,
+      l: array.filter(e => e < 7).length,
+    };
     const res = [
       Math.round((array.reduce((sum, e) => sum + e, 0) / array.length) * 1e3) /
         1e3,
@@ -9058,7 +9073,7 @@ Examples: [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They d
     ];
     obj.h < array.length ? res : res.push('They did well');
     return res;
-  }
+  };
 
   console.log(testResult([5, 6, 4, 8, 9, 8, 9, 10, 10, 10]));
   console.log(testResult([10, 9, 9, 10, 9, 10, 9]));
