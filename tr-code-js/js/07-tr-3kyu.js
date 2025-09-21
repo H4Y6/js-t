@@ -9011,3 +9011,21 @@ The search function should return a string of prices for the coffees beans you c
 
   // console.log(combat(44, 55));
 }
+{
+  /**
+8 kyu
+Geometry Basics: Circle Circumference in 2D
+This series of katas will introduce you to basics of doing geometry with computers.
+
+Point objects have x, y attributes. Circle objects have center which is a Point, and radius, which is a number.
+
+Write a function calculating circumference of a Circle.
+
+Tests round answers to 6 decimal places.
+   */
+
+  const circleCircumference = ({ center, radius }) =>
+    +(Math.PI * 2 * radius).toFixed(6);
+
+  console.log(circleCircumference({ center: (10, 10), radius: 30 }));
+}
