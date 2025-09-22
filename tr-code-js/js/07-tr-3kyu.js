@@ -9150,19 +9150,26 @@ Examples:
 [-3, 15, 8, -1, 7, -1] --> [-3, -1, -1, 7, 8, 15, 8, 7, -1, -1, -3]
 [-5, 10, 8, 10, 2, -3, 10] --> [-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5]    */
 
-  function mirror(
-    data,
-    res = [],
-    arr = [...data].filter(e => e !== -Infinity),
-  ) {
-    let greatest = Math.max(...arr);
-    console.log(greatest);
-    arr.splice(arr.indexOf(greatest), 1);
-    greatest > -Infinity ? res.push(greatest) : res;
-    return arr.length < 1
-      ? res.slice(1).reverse().concat(res)
-      : mirror(arr, res);
-  } /** Random tests failed at 10000 elements (Maximum call stack size exceeded) */
+  // function mirror(
+  //   data,
+  //   res = [],
+  //   arr = [...data].filter(e => e !== -Infinity),
+  // ) {
+  //   let greatest = Math.max(...arr);
+  //   console.log(greatest);
+  //   arr.splice(arr.indexOf(greatest), 1);
+  //   greatest > -Infinity ? res.push(greatest) : res;
+  //   return arr.length < 1
+  //     ? res.slice(1).reverse().concat(res)
+  //     : mirror(arr, res);
+  // }
+  /** Random tests failed at 10000 elements (Maximum call stack size exceeded) */
 
-  console.log(mirror([-Infinity]));
+  function mirror(data) {
+    const arr = [...data].filter(e => e !== -Infinity);
+    const sorted = arr.sort((a, s) => a - s);
+    return sorted.concat(sorted.slice(0, -1).reverse());
+  }
+
+  console.log(mirror([3, 6, 7, 8, 2, 33, -Infinity]));
 }
