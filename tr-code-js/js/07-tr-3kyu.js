@@ -9165,11 +9165,16 @@ Examples:
   // }
   /** Random tests failed at 10000 elements (Maximum call stack size exceeded) */
 
-  function mirror(data) {
-    const arr = [...data].filter(e => e !== -Infinity);
-    const sorted = arr.sort((a, s) => a - s);
-    return sorted.concat(sorted.slice(0, -1).reverse());
-  }
+  // function mirror(data) {
+  //   const arr = [...data].filter(e => e !== -Infinity);
+  //   const sorted = arr.sort((a, s) => a - s);
+  //   return sorted.concat(sorted.slice(0, -1).reverse());
+  // }
+
+  const mirror = data =>
+    (sorted => sorted.concat(sorted.slice(0, -1).reverse()))(
+      data.slice().sort((a, s) => a - s),
+    );
 
   console.log(mirror([3, 6, 7, 8, 2, 33, -Infinity]));
 }
