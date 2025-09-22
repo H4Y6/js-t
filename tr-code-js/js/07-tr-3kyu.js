@@ -9258,11 +9258,18 @@ The right wing is nearly as steep as the right one.    */
   //   return arr.length % 2 ? [...l.reverse(), ...r] : [...r.reverse(), ...l];
   // }
 
+  // const makeValley = (arr, l = [], r = []) => {
+  //   [...arr]
+  //     .sort((a, b) => a - b)
+  //     .map((e, i) => (i % 2 ? r.push(e) : l.push(e)));
+  //   return arr.length % 2 ? [...l.reverse(), ...r] : [...r.reverse(), ...l];
+  // };
+
   const makeValley = (arr, l = [], r = []) => {
     [...arr]
-      .sort((a, b) => a - b)
-      .map((e, i) => (i % 2 ? r.push(e) : l.push(e)));
-    return arr.length % 2 ? [...l.reverse(), ...r] : [...r.reverse(), ...l];
+      .sort((a, b) => b - a)
+      .map((e, i) => (i % 2 ? r.unshift(e) : l.push(e)));
+    return [...l, ...r];
   };
 
   console.log(makeValley([19, 17, 16, 15, 13, 8, 5, 5, 4, 4, 4, 4]));
