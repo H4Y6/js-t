@@ -9173,8 +9173,13 @@ Examples:
 
   const mirror = data =>
     (sorted => sorted.concat(sorted.slice(0, -1).reverse()))(
-      data.slice().sort((a, s) => a - s),
+      data.filter(e => e !== -Infinity).sort((a, s) => a - s),
     );
+
+  // const mirror = data =>
+  //   (sorted => sorted.concat(sorted.slice(0, -1).reverse()))(
+  //     data.slice().sort((a, s) => a - s),
+  //   );
 
   console.log(mirror([3, 6, 7, 8, 2, 33, -Infinity]));
 }
