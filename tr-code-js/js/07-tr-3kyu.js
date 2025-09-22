@@ -9250,13 +9250,20 @@ Summing the differences between left and right wing:
 (17-17)+(15-14)+(8-7)+(7-5)+(4-4) = 4
 The right wing is nearly as steep as the right one.    */
 
-  function makeValley(arr) {
-    const r = [];
-    const l = [];
-    const sorted = [...arr].sort((a, b) => a - b);
-    console.log(sorted);
-    sorted.map((e, i) => (i % 2 ? r.push(e) : l.push(e)));
+  // function makeValley(arr) {
+  //   const r = [];
+  //   const l = [];
+  //   const sorted = [...arr].sort((a, b) => a - b);
+  //   sorted.map((e, i) => (i % 2 ? r.push(e) : l.push(e)));
+  //   return arr.length % 2 ? [...l.reverse(), ...r] : [...r.reverse(), ...l];
+  // }
+
+  const makeValley = (arr, l = [], r = []) => {
+    [...arr]
+      .sort((a, b) => a - b)
+      .map((e, i) => (i % 2 ? r.push(e) : l.push(e)));
     return arr.length % 2 ? [...l.reverse(), ...r] : [...r.reverse(), ...l];
-  }
+  };
+
   console.log(makeValley([19, 17, 16, 15, 13, 8, 5, 5, 4, 4, 4, 4]));
 }
