@@ -9080,6 +9080,42 @@ Examples: [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They d
 }
 
 {
+  /**  
+8 kyu
+Simple Fun #352: Reagent Formula
+Now we will confect a reagent. There are eight materials to choose from, numbered 1,2,..., 8 respectively.
+
+We know the rules of confect:
+
+material1 and material2 cannot be selected at the same time
+material3 and material4 cannot be selected at the same time
+material5 and material6 must be selected at the same time
+material7 or  material8 must be selected(at least one, or both)
+
+Task
+
+You are given a integer array formula. Array contains only digits 1-8 that represents material 1-8. Your task is to determine if the formula is valid. Returns true if it's valid, false otherwise.
+Example
+
+For formula = [1,3,7], The output should be true.
+
+For formula = [7,1,2,3], The output should be false.
+
+For formula = [1,3,5,7], The output should be false.
+
+For formula = [1,5,6,7,3], The output should be true.
+
+For formula = [5,6,7], The output should be true.
+
+For formula = [5,6,7,8], The output should be true.
+
+For formula = [6,7,8], The output should be false.
+
+For formula = [7,8], The output should be true.
+Note
+
+    All inputs are valid. Array contains at least 1 digit. Each digit appears at most once.   */
+
   function isValid(formula) {
     console.log(formula);
     if (formula.includes(1) && formula.includes(2)) {
@@ -9095,4 +9131,38 @@ Examples: [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They d
     }
     return true;
   }
+}
+
+{
+  /**7 kyu  Mirror, mirror, on the wall...
+You get a list of integers, and you have to write a function mirror that returns the "mirror" (or symmetric) version of this list: i.e. the middle element is the greatest,
+ then the next greatest on both sides, then the next greatest, and so on...
+More info
+
+The list will always consist of integers in range -1000..1000 and will vary in size between 0 and 10000. Your function should not mutate the input array,
+ and this will be tested (where applicable). Notice that the returned list will always be of odd size, since there will always be a definitive middle element.
+Examples:
+[]  -->  []
+[1]  -->  [1]
+[2, 1]  -->  [1, 2, 1]
+[1, 3, 2]  -->  [1, 2, 3, 2, 1]
+[-8, 42, 18, 0, -16]  -->  [-16, -8, 0, 18, 42, 18, 0, -8, -16]
+[-3, 15, 8, -1, 7, -1] --> [-3, -1, -1, 7, 8, 15, 8, 7, -1, -1, -3]
+[-5, 10, 8, 10, 2, -3, 10] --> [-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5]    */
+
+  function mirror(
+    data,
+    res = [],
+    arr = [...data].filter(e => e !== -Infinity),
+  ) {
+    let greatest = Math.max(...arr);
+    console.log(greatest);
+    arr.splice(arr.indexOf(greatest), 1);
+    greatest > -Infinity ? res.push(greatest) : res;
+    return arr.length < 1
+      ? res.slice(1).reverse().concat(res)
+      : mirror(arr, res);
+  } /** Random tests failed at 10000 elements (Maximum call stack size exceeded) */
+
+  console.log(mirror([-Infinity]));
 }
