@@ -9385,16 +9385,21 @@ What you need to think about is how to judge it correctly and effectively and do
         : isNaN(n)
         ? 'Number.NaN'
         : !n
-        ? n.toString()
+        ? n
         : n <= Number.MIN_VALUE
         ? 'Number.MIN_VALUE'
-        : n.toString()
+        : n
     }`;
+}
 
-  // console.log(whatNumberIsIt(1.7976931348623157e308));
-  // console.log(whatNumberIsIt(-Infinity));
-  // console.log(whatNumberIsIt(5e-324));
-  // console.log(whatNumberIsIt(NaN));
-  // console.log(whatNumberIsIt(1 / 0));
-  // console.log(whatNumberIsIt(0));
+{
+  function scramble(str, arr) {
+    return [...str]
+      .map((e, i) => [arr[i], e])
+      .sort((a, b) => a[0] - b[0])
+      .map(e => e[1])
+      .join('');
+  }
+
+  console.log(scramble('MIXLWqaJdvk', [10, 4, 6, 5, 9, 2, 0, 7, 1, 3, 8]));
 }
