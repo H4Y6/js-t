@@ -9393,13 +9393,20 @@ What you need to think about is how to judge it correctly and effectively and do
 }
 
 {
-  function scramble(str, arr) {
-    return [...str]
+  // function scramble(str, arr) {
+  //   return [...str]
+  //     .map((e, i) => [arr[i], e])
+  //     .sort((a, b) => a[0] - b[0])
+  //     .map(e => e[1])
+  //     .join('');
+  // }
+
+  const scramble = (str, arr) =>
+    [...str]
       .map((e, i) => [arr[i], e])
       .sort((a, b) => a[0] - b[0])
       .map(e => e[1])
       .join('');
-  }
 
   console.log(scramble('MIXLWqaJdvk', [10, 4, 6, 5, 9, 2, 0, 7, 1, 3, 8]));
 }
