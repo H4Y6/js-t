@@ -9353,31 +9353,48 @@ whatNumberIsIt(100) should return "Input number is 100"
 
 What you need to think about is how to judge it correctly and effectively and don't forget isNaN(). */
 
-  function whatNumberIsIt(n) {
-    const { MAX_VALUE, MIN_VALUE, NaN, NEGATIVE_INFINITY, POSITIVE_INFINITY } =
-      Number;
-    console.log(n);
-    return `Input number is ${
-      n === POSITIVE_INFINITY
+  // function whatNumberIsIt(n) {
+  //   const { MAX_VALUE, MIN_VALUE, NaN, NEGATIVE_INFINITY, POSITIVE_INFINITY } =
+  //     Number;
+  //   console.log(n);
+  //   return `Input number is ${
+  //     n === POSITIVE_INFINITY
+  //       ? 'Number.POSITIVE_INFINITY'
+  //       : n >= MAX_VALUE
+  //       ? 'Number.MAX_VALUE'
+  //       : n <= NEGATIVE_INFINITY
+  //       ? 'Number.NEGATIVE_INFINITY'
+  //       : isNaN(n)
+  //       ? 'Number.NaN'
+  //       : !n
+  //       ? n.toString()
+  //       : n <= MIN_VALUE
+  //       ? 'Number.MIN_VALUE'
+  //       : n.toString()
+  //   }`;
+  // }
+
+  const whatNumberIsIt = n =>
+    `Input number is ${
+      n === Number.POSITIVE_INFINITY
         ? 'Number.POSITIVE_INFINITY'
-        : n >= MAX_VALUE
+        : n === Number.MAX_VALUE
         ? 'Number.MAX_VALUE'
-        : n <= NEGATIVE_INFINITY
+        : n === Number.NEGATIVE_INFINITY
         ? 'Number.NEGATIVE_INFINITY'
         : isNaN(n)
         ? 'Number.NaN'
         : !n
         ? n.toString()
-        : n <= MIN_VALUE
+        : n <= Number.MIN_VALUE
         ? 'Number.MIN_VALUE'
         : n.toString()
     }`;
-  }
 
-  console.log(whatNumberIsIt(1.7976931348623157e308));
-  console.log(whatNumberIsIt(-Infinity));
-  console.log(whatNumberIsIt(5e-324));
-  console.log(whatNumberIsIt(NaN));
-  console.log(whatNumberIsIt(1 / 0));
-  console.log(whatNumberIsIt(0));
+  // console.log(whatNumberIsIt(1.7976931348623157e308));
+  // console.log(whatNumberIsIt(-Infinity));
+  // console.log(whatNumberIsIt(5e-324));
+  // console.log(whatNumberIsIt(NaN));
+  // console.log(whatNumberIsIt(1 / 0));
+  // console.log(whatNumberIsIt(0));
 }
