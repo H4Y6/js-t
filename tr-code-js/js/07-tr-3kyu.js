@@ -9408,8 +9408,11 @@ What you need to think about is how to judge it correctly and effectively and do
   //     .map(e => e[1])
   //     .join('');
 
-  const scramble = (str, arr) =>
-    arr.map((e, i) => str[arr.indexOf(i)]).join('');
+  // const scramble = (str, arr) =>
+  //   arr.map((e, i) => str[arr.indexOf(i)]).join('');
 
-  // console.log(scramble('MIXLWqaJdvk', [10, 4, 6, 5, 9, 2, 0, 7, 1, 3, 8]));
+  const scramble = (str, arr) =>
+    [...str].map((e, i) => str[arr.indexOf(i)]).join('');
+
+  console.log(scramble('MIXLWqaJdvk', [10, 4, 6, 5, 9, 2, 0, 7, 1, 3, 8]));
 }
