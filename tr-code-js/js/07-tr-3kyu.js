@@ -9418,5 +9418,5 @@ What you need to think about is how to judge it correctly and effectively and do
   const scramble = (str, arr) =>
     [...str].reduce((s, e, i) => s + str[arr.indexOf(i)], '');
 
-  console.log(scramble('MIXLWqaJdvk', [10, 4, 6, 5, 9, 2, 0, 7, 1, 3, 8]));
+  // console.log(scramble('MIXLWqaJdvk', [10, 4, 6, 5, 9, 2, 0, 7, 1, 3, 8]));
 }
