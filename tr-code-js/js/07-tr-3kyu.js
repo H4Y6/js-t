@@ -9440,11 +9440,16 @@ The resultant arrays should be in the order they were originally in and should n
 No implicit type casting is allowed. A subarray [1, '2'] would be considered illegal and should be filtered out.
  */
 
-  function filterHomogenous(arrays) {
-    return arrays
+  // function filterHomogenous(arrays) {
+  //   return arrays
+  //     .filter(e => e.length)
+  //     .filter(e => e.every(el => typeof el === typeof e[0]));
+  // }
+
+  const filterHomogenous = arrays =>
+    arrays
       .filter(e => e.length)
       .filter(e => e.every(el => typeof el === typeof e[0]));
-  }
 
   console.log(
     filterHomogenous([
