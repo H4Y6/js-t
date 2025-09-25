@@ -9446,19 +9446,13 @@ No implicit type casting is allowed. A subarray [1, '2'] would be considered ill
   //     .filter(e => e.every(el => typeof el === typeof e[0]));
   // }
 
-  const filterHomogenous = arrays =>
-    arrays
-      .filter(e => e.length)
-      .filter(e => e.every(el => typeof el === typeof e[0]));
+  // const filterHomogenous = arrays =>
+  //   arrays
+  //     .filter(e => e.length)
+  //     .filter(e => e.every(el => typeof el === typeof e[0]));
 
-  console.log(
-    filterHomogenous([
-      [123, 234, 432],
-      ['', 'abc'],
-      [''],
-      ['', 1],
-      ['', '1'],
-      [],
-    ]),
-  );
+  const filterHomogenous = arrays =>
+    arrays.filter(e => new Set(e.map(e => typeof e)).size === 1);
+
+  // console.log(filterHomogenous([[123, 234, 432], ['', 'abc'], [''], ['', 1],  ['', '1'], []]));
 }
