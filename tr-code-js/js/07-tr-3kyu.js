@@ -9483,6 +9483,16 @@ The combine function should be a good citizen, so should not mutate the input ob
   //   return obj;
   // }
 
+  // function combine(...args) {
+  //   const obj = { ...args[0] };
+  //   for (const element of args.slice(1)) {
+  //     for (const key of Object.keys(element)) {
+  //       obj[key] = element[key] + (obj[key] ? obj[key] : 0);
+  //     }
+  //   }
+  //   return obj;
+  // }
+
   function combine(...args) {
     const obj = { ...args[0] };
     for (const element of args.slice(1)) {
