@@ -9456,3 +9456,22 @@ No implicit type casting is allowed. A subarray [1, '2'] would be considered ill
 
   // console.log(filterHomogenous([[123, 234, 432], ['', 'abc'], [''], ['', 1],  ['', '1'], []]));
 }
+{
+  function combine(...args) {
+    const obj = { ...args[0] };
+    for (const element of args.slice(1)) {
+      for (const key of Object.keys(element)) {
+        obj[key] = obj[key] ? obj[key] + element[key] : element[key];
+      }
+    }
+    return obj;
+  }
+  console.log(
+    combine(
+      { a: 10, b: 20, c: 30 },
+      { a: 3, c: 6, d: 3 },
+      { a: 5, d: 11, e: 8 },
+      { c: 3 },
+    ),
+  );
+}
