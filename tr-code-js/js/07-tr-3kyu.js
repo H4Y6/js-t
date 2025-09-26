@@ -9598,3 +9598,13 @@ There are four quadrants:
   const quadrant = (x, y) =>
     [3, 2, 4, 1][Math.sign(x) + Math.sign(y) / 2 + 1.5];
 }
+{
+  function collinearity(x1, y1, x2, y2) {
+    if ((!x1 && !x2) || (!y1 && !y2) || (!x1 && !y1) || (!x2 && !y2))
+      return true;
+    if (x1 / x2 === y1 / y2) return true;
+    return false;
+  }
+
+  console.log(collinearity(4, 0, 11, 0));
+}
