@@ -9552,3 +9552,20 @@ The combine function should be a good citizen, so should not mutate the input ob
 
   // console.log(combine({ a: 10, b: 20, c: 30 }, { a: 3, c: 6, d: 3 }, { a: 5, d: 11, e: 8 }, { c: 3 }));
 }
+{
+  function quadrant(x, y) {
+    if (x > 0) {
+      if (y > 0) {
+        return 1;
+      } else {
+        return 4;
+      }
+    } else {
+      if (y > 0) {
+        return 2;
+      } else {
+        return 3;
+      }
+    }
+  }
+}
