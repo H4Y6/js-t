@@ -9531,23 +9531,24 @@ The combine function should be a good citizen, so should not mutate the input ob
   //     {},
   //   );
 
+  // const combine = (...args) =>
+  //   args.reduce(
+  //     (obj, e) => (
+  //       Object.keys(e).forEach(
+  //         key => (obj[key] = e[key] + (obj[key] ? obj[key] : 0)),
+  //       ),
+  //       obj
+  //     ),
+  //     {},
+  //   );
+
   const combine = (...args) =>
     args.reduce(
       (obj, e) => (
-        Object.keys(e).forEach(
-          key => (obj[key] = e[key] + (obj[key] ? obj[key] : 0)),
-        ),
-        obj
+        Object.keys(e).map(key => (obj[key] = e[key] + (obj[key] || 0))), obj
       ),
       {},
     );
 
-  console.log(
-    combine(
-      { a: 10, b: 20, c: 30 },
-      { a: 3, c: 6, d: 3 },
-      { a: 5, d: 11, e: 8 },
-      { c: 3 },
-    ),
-  );
+  // console.log(combine({ a: 10, b: 20, c: 30 }, { a: 3, c: 6, d: 3 }, { a: 5, d: 11, e: 8 }, { c: 3 }));
 }
