@@ -9647,14 +9647,9 @@ Examples
 
   //  function collinearity(x1, y1, x2, y2) { return (!x1 && !x2) || (!y1 && !y2) || (!x1 && !y1) || (!x2 && !y2) || (x1 / x2 === y1 / y2) ? true : false;}
 
-  const collinearity = (x1, y1, x2, y2) =>
-    (!x1 && !x2) ||
-    (!y1 && !y2) ||
-    (!x1 && !y1) ||
-    (!x2 && !y2) ||
-    x1 / x2 === y1 / y2
-      ? true
-      : false;
+  //  const collinearity=(x1, y1, x2, y2)=> (!x1 && !x2) || (!y1 && !y2) || (!x1 && !y1) || (!x2 && !y2) || (x1 / x2 === y1 / y2) ? true : false;
+
+  const collinearity = (x1, y1, x2, y2) => x1 * y2 === y1 * x2;
 
   console.log(collinearity(4, 0, 11, 0));
 }
