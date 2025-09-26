@@ -9569,5 +9569,8 @@ The combine function should be a good citizen, so should not mutate the input ob
   //   }
   // }
 
-  const quadrant = (x, y) => (x > 0 ? (y > 0 ? 1 : 4) : y < 0 ? 3 : 2);
+  // const quadrant = (x, y) => (x > 0 ? (y > 0 ? 1 : 4) : y < 0 ? 3 : 2);
+
+  const quadrant = (x, y) =>
+    [3, 2, 4, 1][Math.sign(x) + Math.sign(y) / 2 + 1.5];
 }
