@@ -9457,15 +9457,42 @@ No implicit type casting is allowed. A subarray [1, '2'] would be considered ill
   // console.log(filterHomogenous([[123, 234, 432], ['', 'abc'], [''], ['', 1],  ['', '1'], []]));
 }
 {
+  /** 
+7 kyu
+Combine objects
+Your task is to write a function that takes two or more objects and returns a new object which combines all the input objects.
+
+All input object properties will have only numeric values. Objects are combined together so that the values of matching keys are added together.
+
+An example:
+
+const objA = { a: 10, b: 20, c: 30 }
+const objB = { a: 3, c: 6, d: 3 }
+combine(objA, objB) // Returns { a: 13, b: 20, c: 36, d: 3 }
+
+The combine function should be a good citizen, so should not mutate the input objects.
+ */
+
+  // function combine(...args) {
+  //   const obj = { ...args[0] };
+  //   for (const element of args.slice(1)) {
+  //     for (const key of Object.keys(element)) {
+  //       obj[key] = obj[key] ? obj[key] + element[key] : element[key];
+  //     }
+  //   }
+  //   return obj;
+  // }
+
   function combine(...args) {
     const obj = { ...args[0] };
     for (const element of args.slice(1)) {
       for (const key of Object.keys(element)) {
-        obj[key] = obj[key] ? obj[key] + element[key] : element[key];
+        obj[key] = element[key] + (obj[key] ? obj[key] : 0);
       }
     }
     return obj;
   }
+
   console.log(
     combine(
       { a: 10, b: 20, c: 30 },
