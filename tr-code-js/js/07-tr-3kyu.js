@@ -9553,6 +9553,22 @@ The combine function should be a good citizen, so should not mutate the input ob
   // console.log(combine({ a: 10, b: 20, c: 30 }, { a: 3, c: 6, d: 3 }, { a: 5, d: 11, e: 8 }, { c: 3 }));
 }
 {
+  /** 8 kyu  Quadrants
+Given a point in a Euclidean plane (x and y), return the quadrant the point exists in: 1, 2, 3 or 4 (integer). x and y are non-zero integers, therefore the given point never lies on the axes.
+Examples
+
+(1, 2)     => 1
+(3, 5)     => 1
+(-10, 100) => 2
+(-1, -9)   => 3
+(19, -56)  => 4
+
+There are four quadrants:
+    First quadrant, the quadrant in the top-right, contains all points with positive X and Y
+    Second quadrant, the quadrant in the top-left, contains all points with negative X, but positive Y
+    Third quadrant, the quadrant in the bottom-left, contains all points with negative X and Y
+    Fourth quadrant, the quadrant in the bottom-right, contains all points with positive X, but negative Y         */
+
   // function quadrant(x, y) {
   //   if (x > 0) {
   //     if (y > 0) {
