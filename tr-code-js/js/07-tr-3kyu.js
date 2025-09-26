@@ -9503,14 +9503,22 @@ The combine function should be a good citizen, so should not mutate the input ob
   //   return obj;
   // }
 
-  function combine(...args) {
-    return args.reduce(
+  // function combine(...args) {
+  //   return args.reduce(
+  //     (obj, e) => (
+  //       Object.keys(e).forEach(el => (obj[el] = (obj[el] || 0) + e[el])), obj
+  //     ),
+  //     {},
+  //   );
+  // }
+
+  const combine = (...args) =>
+    args.reduce(
       (obj, e) => (
         Object.keys(e).forEach(el => (obj[el] = (obj[el] || 0) + e[el])), obj
       ),
       {},
     );
-  }
 
   console.log(
     combine(
