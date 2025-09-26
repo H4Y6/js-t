@@ -9645,15 +9645,16 @@ Examples
   //   return false;
   // }
 
-  function collinearity(x1, y1, x2, y2) {
-    return (!x1 && !x2) ||
-      (!y1 && !y2) ||
-      (!x1 && !y1) ||
-      (!x2 && !y2) ||
-      x1 / x2 === y1 / y2
+  //  function collinearity(x1, y1, x2, y2) { return (!x1 && !x2) || (!y1 && !y2) || (!x1 && !y1) || (!x2 && !y2) || (x1 / x2 === y1 / y2) ? true : false;}
+
+  const collinearity = (x1, y1, x2, y2) =>
+    (!x1 && !x2) ||
+    (!y1 && !y2) ||
+    (!x1 && !y1) ||
+    (!x2 && !y2) ||
+    x1 / x2 === y1 / y2
       ? true
       : false;
-  }
 
   console.log(collinearity(4, 0, 11, 0));
 }
