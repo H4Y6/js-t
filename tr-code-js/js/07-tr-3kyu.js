@@ -9731,8 +9731,10 @@ Example:
 
 _if(true, function(){console.log("True")}, function(){console.log("false")})         */
 
-  function _if(bool, func1, func2) {
-    if (bool) return func1();
-    return func2();
-  }
+  // function _if(bool, func1, func2) {
+  //   if (bool) return func1();
+  //   return func2();
+  // }
+
+  const _if = (bool, func1, func2) => (bool ? func1() : func2());
 }
