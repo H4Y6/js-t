@@ -9692,23 +9692,19 @@ Output:
   //     .join(' ');
   // }
 
+  // const sentence = arrayOfObjects =>
+  //   arrayOfObjects
+  //     .flatMap(e => Object.keys(e))
+  //     .sort((a, b) => a - b)
+  //     .flatMap(e => arrayOfObjects.filter(el => el[e]))
+  //     .flatMap(e => Object.values(e))
+  //     .join(' ');
+
   const sentence = arrayOfObjects =>
     arrayOfObjects
-      .flatMap(e => Object.keys(e))
-      .sort((a, b) => a - b)
-      .flatMap(e => arrayOfObjects.filter(el => el[e]))
-      .flatMap(e => Object.values(e))
+      .sort((a, b) => Object.keys(a) - Object.keys(b))
+      .map(e => Object.values(e))
       .join(' ');
 
-  console.log(
-    sentence([
-      { 4: 'dog' },
-      { 2: 'took' },
-      { 3: 'his' },
-      { '-2': 'Vatsan' },
-      { 5: 'for' },
-      { 6: 'a' },
-      { 12: 'spin' },
-    ]),
-  );
+  // console.log(sentence([{ 4: 'dog' }, { 2: 'took' }, { 3: 'his' }, { '-2': 'Vatsan' }, { 5: 'for' },{ 6: 'a' }, { 12: 'spin' }, ]), );
 }
