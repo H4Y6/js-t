@@ -9700,10 +9700,16 @@ Output:
   //     .flatMap(e => Object.values(e))
   //     .join(' ');
 
+  // const sentence = arrayOfObjects =>
+  //   arrayOfObjects
+  //     .sort((a, b) => Object.keys(a) - Object.keys(b))
+  //     .map(e => Object.values(e))
+  //     .join(' ');
+
   const sentence = arrayOfObjects =>
     arrayOfObjects
-      .sort((a, b) => Object.keys(a) - Object.keys(b))
-      .map(e => Object.values(e))
+      .sort((a, b) => Object.entries(a)[0][0] - Object.entries(b)[0][0])
+      .flatMap(e => Object.values(e))
       .join(' ');
 
   // console.log(sentence([{ 4: 'dog' }, { 2: 'took' }, { 3: 'his' }, { '-2': 'Vatsan' }, { 5: 'for' },{ 6: 'a' }, { 12: 'spin' }, ]), );
