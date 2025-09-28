@@ -9653,5 +9653,45 @@ Examples
 
   const collinearity = (x1, y1, x2, y2) => !(x1 * y2 - y1 * x2);
 
-  console.log(collinearity(4, 0, 11, 0));
+  // console.log(collinearity(4, 0, 11, 0));
+}
+{
+  /** 7 kyu    String Reordering
+The input will be an array of dictionaries.
+
+Return the values as a string-seperated sentence in the order of their keys' integer equivalent (increasing order).
+
+The keys are not reoccurring and their range is -999 < key < 999. The dictionaries' keys & values will always be strings and will always not be empty.
+Example
+
+Input:
+List = [
+        {'4': 'dog' }, {'2': 'took'}, {'3': 'his'},
+        {'-2': 'Vatsan'}, {'5': 'for'}, {'6': 'a'}, {'12': 'spin'}
+       ]
+
+Output:
+'Vatsan took his dog for a spin'         */
+
+  function sentence(arrayOfObjects) {
+    const keys = arrayOfObjects
+      .flatMap(e => Object.keys(e))
+      .sort((a, b) => a - b);
+    return keys
+      .flatMap(e => arrayOfObjects.filter(el => el[e]))
+      .flatMap(e => Object.values(e))
+      .join(' ');
+  }
+
+  console.log(
+    sentence([
+      { 4: 'dog' },
+      { 2: 'took' },
+      { 3: 'his' },
+      { '-2': 'Vatsan' },
+      { 5: 'for' },
+      { 6: 'a' },
+      { 12: 'spin' },
+    ]),
+  );
 }
