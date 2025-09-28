@@ -9673,11 +9673,20 @@ List = [
 Output:
 'Vatsan took his dog for a spin'         */
 
+  // function sentence(arrayOfObjects) {
+  //   const keys = arrayOfObjects
+  //     .flatMap(e => Object.keys(e))
+  //     .sort((a, b) => a - b);
+  //   return keys
+  //     .flatMap(e => arrayOfObjects.filter(el => el[e]))
+  //     .flatMap(e => Object.values(e))
+  //     .join(' ');
+  // }
+
   function sentence(arrayOfObjects) {
-    const keys = arrayOfObjects
+    return arrayOfObjects
       .flatMap(e => Object.keys(e))
-      .sort((a, b) => a - b);
-    return keys
+      .sort((a, b) => a - b)
       .flatMap(e => arrayOfObjects.filter(el => el[e]))
       .flatMap(e => Object.values(e))
       .join(' ');
