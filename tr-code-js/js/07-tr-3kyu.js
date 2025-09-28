@@ -9683,14 +9683,22 @@ Output:
   //     .join(' ');
   // }
 
-  function sentence(arrayOfObjects) {
-    return arrayOfObjects
+  // function sentence(arrayOfObjects) {
+  //   return arrayOfObjects
+  //     .flatMap(e => Object.keys(e))
+  //     .sort((a, b) => a - b)
+  //     .flatMap(e => arrayOfObjects.filter(el => el[e]))
+  //     .flatMap(e => Object.values(e))
+  //     .join(' ');
+  // }
+
+  const sentence = arrayOfObjects =>
+    arrayOfObjects
       .flatMap(e => Object.keys(e))
       .sort((a, b) => a - b)
       .flatMap(e => arrayOfObjects.filter(el => el[e]))
       .flatMap(e => Object.values(e))
       .join(' ');
-  }
 
   console.log(
     sentence([
