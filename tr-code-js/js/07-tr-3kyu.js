@@ -9720,3 +9720,19 @@ Output:
 
   // console.log(sentence([{ 4: 'dog' }, { 2: 'took' }, { 3: 'his' }, { '-2': 'Vatsan' }, { 5: 'for' },{ 6: 'a' }, { 12: 'spin' }, ]), );
 }
+{
+  /** 
+8 kyu
+The 'if' function
+Create a function called _if which takes 3 arguments: a value bool and 2 functions (which do not take any parameters): func1 and func2
+
+When bool is truthy, func1 should be called, otherwise call the func2.
+Example:
+
+_if(true, function(){console.log("True")}, function(){console.log("false")})         */
+
+  function _if(bool, func1, func2) {
+    if (bool) return func1();
+    return func2();
+  }
+}
