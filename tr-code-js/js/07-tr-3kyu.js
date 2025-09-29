@@ -9894,8 +9894,31 @@ Go to the store and buy some more, 99 bottles of beer on the wall.
   //     }
   //   }
 
-  const HQ9 = code => {
-    return code === 'H'
+  //   const HQ9 = code => {
+  //     return code === 'H'
+  //       ? 'Hello World!'
+  //       : code === 'Q'
+  //       ? code
+  //       : code === '9'
+  //       ? `${Array.from({ length: 97 }, (_, i) => 99 - i)
+  //           .map(
+  //             n =>
+  //               `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${
+  //                 n - 1
+  //               } bottles of beer on the wall.`,
+  //           )
+  //           .join('\n')}
+  // 2 bottles of beer on the wall, 2 bottles of beer.
+  // Take one down and pass it around, 1 bottle of beer on the wall.
+  // 1 bottle of beer on the wall, 1 bottle of beer.
+  // Take one down and pass it around, no more bottles of beer on the wall.
+  // No more bottles of beer on the wall, no more bottles of beer.
+  // Go to the store and buy some more, 99 bottles of beer on the wall.`
+  //       : undefined;
+  //   };
+
+  const HQ9 = code =>
+    code === 'H'
       ? 'Hello World!'
       : code === 'Q'
       ? code
@@ -9915,7 +9938,6 @@ Take one down and pass it around, no more bottles of beer on the wall.
 No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall.`
       : undefined;
-  };
 
-  console.log(HQ9('9'));
+  // console.log(HQ9('9'));
 }
