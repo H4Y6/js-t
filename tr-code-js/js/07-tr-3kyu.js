@@ -9568,10 +9568,19 @@ The combine function should be a good citizen, so should not mutate the input ob
   //   return obj;
   // }
 
+  // const combine = (...args) =>
+  //   args.reduce(
+  //     (obj, ob) => (
+  //       Object.keys(ob).map(key => (obj[key] = ob[key] + (obj[key] ?? 0))), obj
+  //     ),
+  //     {},
+  //   );
+
   const combine = (...args) =>
     args.reduce(
-      (obj, ob) => (
-        Object.keys(ob).map(key => (obj[key] = ob[key] + (obj[key] ?? 0))), obj
+      (obj, arg) => (
+        Object.keys(arg).map(key => (obj[key] = arg[key] + (obj[key] ?? 0))),
+        obj
       ),
       {},
     );
