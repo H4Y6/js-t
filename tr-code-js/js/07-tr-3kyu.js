@@ -9783,7 +9783,10 @@ Input coordinates fit in range −50⩽x,y⩽50 -50 \leqslant x,y \leqslant 50 �
 
   // const distanceBetweenPoints = (a, b) => Math.round(((a.x - b.x) ** 2 + (a.y - b.y) ** 2) ** 0.5 * 1e6) / 1e6;
 
-  const distanceBetweenPoints = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+  // const distanceBetweenPoints = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+
+  const distanceBetweenPoints = ({ x: c, y: d }, { x, y }) =>
+    Math.hypot(c - x, d - y);
 
   // console.log(distanceBetweenPoints({ x: -10.2, y: 12.5 }, { x: 0.3, y: 14.7 }));
   // console.log(Math);
