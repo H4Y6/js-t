@@ -9868,16 +9868,39 @@ Go to the store and buy some more, 99 bottles of beer on the wall.
   //     }
   //   }
 
-  function HQ9(code) {
-    switch (code) {
-      case 'H':
-        return 'Hello World!';
+  //   function HQ9(code) {
+  //     switch (code) {
+  //       case 'H':
+  //         return 'Hello World!';
 
-      case 'Q':
-        return code;
+  //       case 'Q':
+  //         return code;
 
-      case '9':
-        return `${Array.from({ length: 97 }, (_, i) => 99 - i)
+  //       case '9':
+  //         return `${Array.from({ length: 97 }, (_, i) => 99 - i)
+  //           .map(
+  //             n =>
+  //               `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${
+  //                 n - 1
+  //               } bottles of beer on the wall.`,
+  //           )
+  //           .join('\n')}
+  // 2 bottles of beer on the wall, 2 bottles of beer.
+  // Take one down and pass it around, 1 bottle of beer on the wall.
+  // 1 bottle of beer on the wall, 1 bottle of beer.
+  // Take one down and pass it around, no more bottles of beer on the wall.
+  // No more bottles of beer on the wall, no more bottles of beer.
+  // Go to the store and buy some more, 99 bottles of beer on the wall.`;
+  //     }
+  //   }
+
+  const HQ9 = code => {
+    return code === 'H'
+      ? 'Hello World!'
+      : code === 'Q'
+      ? code
+      : code === '9'
+      ? `${Array.from({ length: 97 }, (_, i) => 99 - i)
           .map(
             n =>
               `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${
@@ -9890,11 +9913,9 @@ Take one down and pass it around, 1 bottle of beer on the wall.
 1 bottle of beer on the wall, 1 bottle of beer.
 Take one down and pass it around, no more bottles of beer on the wall.
 No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall.`;
-    }
-  }
+Go to the store and buy some more, 99 bottles of beer on the wall.`
+      : undefined;
+  };
 
-  // console.log(Array.from({ length: 94 }, (_, i) => 96 - i));
-
-  // console.log(HQ9('9'));
+  console.log(HQ9('9'));
 }
