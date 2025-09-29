@@ -9576,14 +9576,24 @@ The combine function should be a good citizen, so should not mutate the input ob
   //     {},
   //   );
 
-  const combine = (...args) =>
-    args.reduce(
+  // const combine = (...args) =>
+  //   args.reduce(
+  //     (obj, arg) => (
+  //       Object.keys(arg).map(key => (obj[key] = arg[key] + (obj[key] ?? 0))),
+  //       obj
+  //     ),
+  //     {},
+  //   );
+
+  function combine() {
+    return [...arguments].reduce(
       (obj, arg) => (
         Object.keys(arg).map(key => (obj[key] = arg[key] + (obj[key] ?? 0))),
         obj
       ),
       {},
     );
+  }
 
   // console.log(combine({ a: 10, b: 20, c: 30 }, { a: 3, c: 6, d: 3 }, { a: 5, d: 11, e: 8 }, { c: 3 }));
 }
