@@ -9809,3 +9809,41 @@ Input coordinates fit in range −50⩽x,y⩽50 -50 \leqslant x,y \leqslant 50 �
   // console.log(distanceBetweenPoints({ x: -10.2, y: 12.5 }, { x: 0.3, y: 14.7 }));
   // console.log(Math);
 }
+
+{
+  function HQ9(code) {
+    switch (code) {
+      case 'H':
+        return 'Hello World!';
+
+      case 'Q':
+        return code;
+
+      case '9':
+        return `99 bottles of beer on the wall, 99 bottles of beer.
+Take one down and pass it around, 98 bottles of beer on the wall.
+98 bottles of beer on the wall, 98 bottles of beer.
+Take one down and pass it around, 97 bottles of beer on the wall.
+97 bottles of beer on the wall, 97 bottles of beer.
+Take one down and pass it around, 96 bottles of beer on the wall.
+${Array.from({ length: 94 }, (_, i) => 96 - i)
+  .map(
+    n =>
+      `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${
+        n - 1
+      } bottles of beer on the wall.`,
+  )
+  .join('\n')}
+2 bottles of beer on the wall, 2 bottles of beer.
+Take one down and pass it around, 1 bottle of beer on the wall.
+1 bottle of beer on the wall, 1 bottle of beer.
+Take one down and pass it around, no more bottles of beer on the wall.
+No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall.`;
+    }
+  }
+
+  // console.log(Array.from({ length: 94 }, (_, i) => 96 - i));
+
+  // console.log(HQ9('9'));
+}
