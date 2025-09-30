@@ -9961,8 +9961,11 @@ firstToLast("ababc","d") should return -1     */
   //   return str.indexOf(c) + 1 ? str.lastIndexOf(c) - str.indexOf(c) : -1;
   // }
 
-  const firstToLast = (str, c) =>
-    str.indexOf(c) + 1 ? str.lastIndexOf(c) - str.indexOf(c) : -1;
+  // const firstToLast = (str, c) =>
+  //   str.indexOf(c) + 1 ? str.lastIndexOf(c) - str.indexOf(c) : -1;
 
-  console.log(firstToLast('ababc', 'd'));
+  const firstToLast = (str, c) =>
+    str.indexOf(c) > -1 ? str.lastIndexOf(c) - str.indexOf(c) : -1;
+
+  // console.log(firstToLast('ababc', 'd'));
 }
