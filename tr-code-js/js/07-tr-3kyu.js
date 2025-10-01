@@ -10066,12 +10066,22 @@ tailAndHead([1,2,3,4,5]) should return 945
 tailAndHead([111,2345,66,78,900]) should return 7293
 tailAndHead([35456,782,569,2454,875]) should return 12012          */
 
-  function tailAndHead(arr) {
-    const ar = arr.map((e, i) => [('' + e)[0], ('' + e)[('' + e).length - 1]]);
-    return ar
-      .slice(0, -1)
-      .map((e, i) => eval([e[1], ar.slice(1)[i][0]].join('+')))
-      .reduce((pr, e) => pr * e);
-  }
+  // function tailAndHead(arr) {
+  //   const ar = arr.map((e, i) => [('' + e)[0], ('' + e)[('' + e).length - 1]]);
+  //   return ar
+  //     .slice(0, -1)
+  //     .map((e, i) => eval([e[1], ar.slice(1)[i][0]].join('+')))
+  //     .reduce((pr, e) => pr * e);
+  // }
+
+  const tailAndHead = arr =>
+    (ar =>
+      ar
+        .slice(0, -1)
+        .map((e, i) => eval([e[1], ar.slice(1)[i][0]].join('+')))
+        .reduce((pr, e) => pr * e))(
+      arr.map((e, i) => [('' + e)[0], ('' + e)[('' + e).length - 1]]),
+    );
+
   console.log(tailAndHead([123, 456, 789, 12, 34, 56, 78]));
 }
