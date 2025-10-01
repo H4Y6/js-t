@@ -10011,13 +10011,20 @@ blackAndWhite([5,12]) should return "It's a white array"
 
 Using string template and ternary operator can make your work easier. */
 
-  function blackAndWhite(arr) {
-    return Array.isArray(arr)
+  // function blackAndWhite(arr) {
+  //   return Array.isArray(arr)
+  //     ? arr.indexOf(5) < 0 || arr.indexOf(13) < 0
+  //       ? "It's a white array"
+  //       : "It's a black array"
+  //     : "It's a fake array";
+  // }
+
+  const blackAndWhite = arr =>
+    Array.isArray(arr)
       ? arr.indexOf(5) < 0 || arr.indexOf(13) < 0
         ? "It's a white array"
         : "It's a black array"
       : "It's a fake array";
-  }
 
   console.log(blackAndWhite([8, 5, 13, 9]));
 }
