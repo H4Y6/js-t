@@ -10083,5 +10083,23 @@ tailAndHead([35456,782,569,2454,875]) should return 12012          */
       arr.map((e, i) => [('' + e)[0], ('' + e)[('' + e).length - 1]]),
     );
 
-  console.log(tailAndHead([123, 456, 789, 12, 34, 56, 78]));
+  // console.log(tailAndHead([123, 456, 789, 12, 34, 56, 78]));
+}
+
+{
+  /**  
+7 kyu   Leap Years
+In this kata you should simply determine, whether a given year is a leap year or not. In case you don't know the rules, here they are:
+
+    Years divisible by 4 are leap years,
+    but years divisible by 100 are not leap years,
+    but years divisible by 400 are leap years.
+
+Tested years are in range 1600 ≤ year ≤ 4000.
+ */
+
+  const isLeapYear = year =>
+    !(year % 4) ? (!(year % 400) ? true : !(year % 100) ? false : true) : false;
+
+  // console.log(isLeapYear(1704));
 }
