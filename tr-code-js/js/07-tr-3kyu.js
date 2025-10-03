@@ -10128,11 +10128,16 @@ Write a function that takes in a string and replaces all the letters with their 
 'codewars' --> '315452311819'
 'abc-#@5'  --> '123-#@5'    */
 
-  function encode(str) {
-    return [...str]
+  // function encode(str) {
+  //   return [...str]
+  //     .map(e => (/[a-z]/i.test(e) ? e.toLowerCase().charCodeAt() - 96 : e))
+  //     .join('');
+  // }
+
+  const encode = str =>
+    [...str]
       .map(e => (/[a-z]/i.test(e) ? e.toLowerCase().charCodeAt() - 96 : e))
       .join('');
-  }
 
-  console.log(encode('ABCD'));
+  // console.log(encode('ABCD'));
 }
