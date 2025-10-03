@@ -10103,3 +10103,36 @@ Tested years are in range 1600 ≤ year ≤ 4000.
 
   // console.log(isLeapYear(1704));
 }
+
+{
+  /**  
+7 kyu
+The old switcheroo 2
+601793% of 6271,208 of 3,436joh_pot
+
+    JavaScript
+    Node v18.x
+
+        VIM
+        EMACS
+
+Instructions
+Output
+
+This is a follow up to my kata the old switcheroo.
+
+Write a function that takes in a string and replaces all the letters with their respective positions in the English alphabet; e.g. 'a' is 1, 'z' is 26. The function should be case-insensitive.
+
+'abc'      --> '123'
+'ABC'      --> '123'
+'codewars' --> '315452311819'
+'abc-#@5'  --> '123-#@5'    */
+
+  function encode(str) {
+    return [...str]
+      .map(e => (/[a-z]/i.test(e) ? e.toLowerCase().charCodeAt() - 96 : e))
+      .join('');
+  }
+
+  console.log(encode('ABCD'));
+}
